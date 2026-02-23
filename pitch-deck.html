@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNC 培訓班數位化方案</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            overflow: hidden;
+        }
+
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2.5rem 4rem;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            overflow: hidden;
+        }
+
+        .slide.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .slide-content {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            color: #00d9ff;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            color: #00d9ff;
+        }
+
+        .subtitle {
+            font-size: 1.6rem;
+            color: #aaa;
+            text-align: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .date {
+            font-size: 1.2rem;
+            color: #777;
+            text-align: center;
+        }
+
+        .problem-list, .solution-phases, .detail-list, .exclusion-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .problem-list li, .exclusion-list li {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin-bottom: 0.6rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .problem-list li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #ff6b6b;
+            font-size: 1.4rem;
+        }
+
+        .exclusion-list li::before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #ff6b6b;
+            font-size: 1.3rem;
+        }
+
+        .stats {
+            background: rgba(255, 107, 107, 0.1);
+            border-left: 4px solid #ff6b6b;
+            padding: 1rem 1.2rem;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .phase {
+            background: rgba(0, 217, 255, 0.05);
+            border-left: 4px solid #00d9ff;
+            padding: 0.8rem 1.2rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .phase-title {
+            font-size: 1.3rem;
+            color: #00d9ff;
+            margin-bottom: 0.3rem;
+            font-weight: bold;
+        }
+
+        .phase-result {
+            color: #4ade80;
+            font-weight: bold;
+            margin-top: 0.3rem;
+        }
+
+        .week-item {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .week-item::before {
+            content: "●";
+            position: absolute;
+            left: 0;
+            color: #00d9ff;
+        }
+
+        .week-label {
+            color: #00d9ff;
+            font-weight: bold;
+        }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .roi-item {
+            background: rgba(0, 217, 255, 0.05);
+            border: 2px solid #00d9ff;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .roi-label {
+            font-size: 1rem;
+            color: #aaa;
+            margin-bottom: 0.3rem;
+        }
+
+        .roi-value {
+            font-size: 1.5rem;
+            color: #4ade80;
+            font-weight: bold;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .timeline-quarter {
+            font-size: 1.5rem;
+            color: #00d9ff;
+            font-weight: bold;
+            min-width: 100px;
+        }
+
+        .timeline-bar {
+            flex: 1;
+            background: linear-gradient(90deg, #00d9ff 0%, #0099cc 100%);
+            padding: 1rem 1.2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 217, 255, 0.3);
+        }
+
+        .timeline-phase {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-desc {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .prerequisite-box {
+            background: rgba(255, 193, 7, 0.1);
+            border: 3px solid #ffc107;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .prerequisite-title {
+            color: #ffc107;
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .slide-indicator {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            font-size: 1.5rem;
+            color: #777;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .nav-hint {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .slide {
+                page-break-after: always;
+                display: block !important;
+                opacity: 1 !important;
+                position: relative;
+                height: auto;
+                min-height: 100vh;
+            }
+
+            .slide-indicator, .nav-hint {
+                display: none;
+            }
+
+            h1, h2, .phase-title, .timeline-quarter {
+                color: #0066cc;
+            }
+
+            .stats, .phase, .roi-item, .timeline-bar, .prerequisite-box {
+                border-color: #333;
+                background: #f5f5f5;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1.5rem;
+            }
+
+            .problem-list li, .week-item {
+                font-size: 1.2rem;
+            }
+
+            .roi-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <!-- Slide 1 - Cover -->
+        <div class="slide active" data-slide="1">
+            <div class="slide-content">
+                <h1>CNC 培訓班數位化方案</h1>
+                <p class="subtitle">一頁看完：為什麼做、做什麼、怎麼做、效益</p>
+                <p class="date">2026-02-23</p>
+            </div>
+        </div>
+
+        <!-- Slide 2 - Problems -->
+        <div class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2>現在的問題</h2>
+                <ul class="problem-list">
+                    <li><strong>手動追學費匯款（6-8hr/梯）</strong> — 一筆一筆對帳</li>
+                    <li><strong>手動建 Classroom + Drive + Meet（8-10hr/梯）</strong> — 每梯重複建 10+ 個資源</li>
+                    <li><strong>補課影片上下架 x13 堂（13-20hr/梯）</strong> — 上傳 YouTube → 貼連結 → 3 週後手動下架</li>
+                    <li><strong>BCC 群發通知信（8-12hr/梯）</strong> — 報名確認、課前通知、認證提醒...</li>
+                    <li><strong>附件 A-E 逐一檢查（4-6hr/梯）</strong> — 打開每個學員的 5 份文件核對</li>
+                </ul>
+                <div class="stats">
+                    <p><strong>4 梯/年 = 240-360 小時/年</strong> ≈ 1.5 個全職人力只在做重複操作</p>
+                    <p style="margin-top: 0.5rem;">學員資料散落在 <strong>Google Forms、Sheets、Classroom、LINE、開課快手</strong> 5 個地方</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3 - Solution Overview -->
+        <div class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2>做什麼：三階段上線</h2>
+                <div class="phase">
+                    <div class="phase-title">Phase 1（8 週）— 報名+付款自動化</div>
+                    <p>學員線上報名 → 線上付款 → 自動收到確認信<br>
+                    行政後台一眼看到誰報了、誰付了</p>
+                    <div class="phase-result">→ 行政省 40-50% 時間</div>
+                </div>
+                <div class="phase">
+                    <div class="phase-title">Phase 2（8 週）— 上課到拿證全線上</div>
+                    <p>課程管理、督導線上預約、認證自動審核、證書自動產生</p>
+                    <div class="phase-result">→ 行政省 60-70% 時間</div>
+                </div>
+                <div class="phase">
+                    <div class="phase-title">Phase 3（6 週）— 數據+內容管理</div>
+                    <p>補課影片自動上下架、開課快手替代、營運儀表板<br>
+                    學員 CRM、校友管理</p>
+                    <div class="phase-result">→ 累計省 70-83% 時間</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4 - Phase 1 Detail -->
+        <div class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2>Phase 1：8 週詳細展開</h2>
+                <div class="detail-list">
+                    <div class="week-item"><span class="week-label">W1：</span>環境建置 + 基礎架構（GCP 部署、CI/CD、專案骨架）</div>
+                    <div class="week-item"><span class="week-label">W2：</span>帳號系統 + OAuth（Google 登入、Email 註冊、身分驗證、權限）</div>
+                    <div class="week-item"><span class="week-label">W3：</span>報名表單（學員報名表 → 存 DB、管理後台報名列表）</div>
+                    <div class="week-item"><span class="week-label">W4：</span>金流串接（信用卡 + ATM、Webhook 回調、付款狀態更新）</div>
+                    <div class="week-item"><span class="week-label">W5：</span>金流進階 + 發票（分期、退款、電子發票、每日對帳）</div>
+                    <div class="week-item"><span class="week-label">W6：</span>Email 通知系統（SendGrid、4 種通知信範本）</div>
+                    <div class="week-item"><span class="week-label">W7：</span>管理後台完善（梯次建立、報名/付款一覽、匯出 Excel）</div>
+                    <div class="week-item"><span class="week-label">W8：</span>測試 + 上線（端到端測試、UAT、正式上線、操作教學）</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5 - ROI -->
+        <div class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2>效益（ROI）</h2>
+                <div class="roi-grid">
+                    <div class="roi-item">
+                        <div class="roi-label">省行政人力</div>
+                        <div class="roi-value">200-280 小時/年</div>
+                        <p style="margin-top: 0.5rem; font-size: 0.95rem; color: #aaa;">≈ 1.5 個全職人力從重複操作中解放</p>
+                    </div>
+                    <div class="roi-item">
+                        <div class="roi-label">數據決策能力</div>
+                        <div class="roi-value">即時營運指標</div>
+                        <p style="margin-top: 0.5rem; font-size: 0.95rem; color: #aaa;">節省 Excel 手動彙整</p>
+                    </div>
+                    <div class="roi-item">
+                        <div class="roi-label">支撐擴張</div>
+                        <div class="roi-value">4 梯 → 6-8 梯</div>
+                        <p style="margin-top: 0.5rem; font-size: 0.95rem; color: #aaa;">系統到位後不加人</p>
+                    </div>
+                    <div class="roi-item">
+                        <div class="roi-label">增量營收潛力</div>
+                        <div class="roi-value">6-12M/年</div>
+                        <p style="margin-top: 0.5rem; font-size: 0.95rem; color: #aaa;">多 2-4 梯增量營收</p>
+                    </div>
+                </div>
+                <div class="stats" style="margin-top: 2rem;">
+                    <p><strong>回收期：</strong>保守 18 個月，樂觀 6-9 個月</p>
+                    <p style="margin-top: 0.5rem;"><strong>學員追蹤：</strong>CRM 提升學員續約率與校友管理效率</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6 - Timeline -->
+        <div class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2>時程總覽</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-quarter">2026 Q2</div>
+                        <div class="timeline-bar">
+                            <div class="timeline-phase">Phase 1（8 週）</div>
+                            <div class="timeline-desc">報名+付款+通知 → 配合下梯報名上線</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-quarter">2026 Q3</div>
+                        <div class="timeline-bar">
+                            <div class="timeline-phase">Phase 2（8 週）</div>
+                            <div class="timeline-desc">課程+督導+認證 → 配合新梯啟用</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-quarter">2026 Q4</div>
+                        <div class="timeline-bar">
+                            <div class="timeline-phase">Phase 3（6 週）</div>
+                            <div class="timeline-desc">影片+儀表板+CRM+校友 → 全面數據驅動營運</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7 - Exclusions -->
+        <div class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2>不做的事（明確排除）</h2>
+                <ul class="exclusion-list">
+                    <li><strong>LINE 整合</strong> — 群組繼續用，正式通知走 Email</li>
+                    <li><strong>包裹寄送自動化</strong> — 每年只 4 次，手動就好</li>
+                    <li><strong>進階 Email 行銷自動化</strong> — SendGrid 直接操作足夠</li>
+                    <li><strong>API 對接（ChinaNCDA）</strong> — 現階段無迫切需求</li>
+                    <li><strong>進階報表（同期群分析、LTV）</strong> — 基礎儀表板足夠</li>
+                    <li><strong>Mobile App</strong> — 響應式網頁就夠</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 8 - Prerequisites -->
+        <div class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2>啟動前要確認</h2>
+                <div class="prerequisite-box">
+                    <div class="prerequisite-title">金流閘道選擇</div>
+                    <p>藍新或綠界，依公司現用方案決定<br>
+                    <strong>需在 Phase 1 第一週確認並送出商家申請</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-indicator">
+        <span id="current-slide">1</span> / <span id="total-slides">8</span>
+    </div>
+    <div class="nav-hint">← → 或點擊切換</div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 8;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            if (n > totalSlides) currentSlide = 1;
+            if (n < 1) currentSlide = totalSlides;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            document.getElementById('current-slide').textContent = currentSlide;
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide--;
+            showSlide(currentSlide);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            const rect = document.body.getBoundingClientRect();
+            if (e.clientX > rect.width / 2) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        });
+
+        document.getElementById('total-slides').textContent = totalSlides;
+    </script>
+</body>
+</html>
