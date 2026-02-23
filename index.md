@@ -17,13 +17,15 @@
 | 文件 | 說明 |
 |------|------|
 | [功能 × 使用者旅程](feature-user-journey.md) | 17 個功能的使用者旅程對照表，映射 Phase 1-3 |
-| [Phase 1 線框稿](wireframes-phase1.html) | 13 頁互動式線框稿（6 學員端 + 7 管理端） |
+| [Phase 1 線框稿](wireframes-phase1.html) | 13 頁互動式線框稿 — 報名 + 付款 + 通知（6 學員端 + 7 管理端） |
+| [Phase 2 線框稿](wireframes-phase2.html) | 16 頁互動式線框稿 — 課程 + 督導 + 認證（8 學員端 + 8 管理端） |
+| [Phase 3 線框稿](wireframes-phase3.html) | 13 頁互動式線框稿 — 儀表板 + CRM + 校友（4 學員端 + 9 管理端） |
 
 ## 領域知識
 
 | 文件 | 說明 |
 |------|------|
-| [全流程旅程地圖](journey-map.md) | 培訓班從年度規劃到認證換證的完整流程，含 4 角色旅程 |
+| [全流程旅程地圖](journey-map.html) | 互動式培訓全流程（7 階段 × 4 角色），可篩選階段與角色 |
 | [產業概覽](industry-overview.html) | 台灣職涯諮詢培訓市場分析與競品比較 |
 
 ---

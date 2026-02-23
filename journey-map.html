@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNC 培訓班全流程旅程地圖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 2rem 2rem 1.5rem;
+            border-bottom: 2px solid #00d9ff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #00d9ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .control-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .control-label {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid #334155;
+            background: #1e293b;
+            color: #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .btn:hover {
+            border-color: #00d9ff;
+            color: #00d9ff;
+            transform: translateY(-1px);
+        }
+
+        .btn.active {
+            background: #00d9ff;
+            color: #0f172a;
+            border-color: #00d9ff;
+            font-weight: 600;
+        }
+
+        .phase-btn {
+            min-width: 90px;
+        }
+
+        .role-btn {
+            min-width: 100px;
+        }
+
+        .reset-btn {
+            background: #334155;
+            margin-left: auto;
+        }
+
+        .reset-btn:hover {
+            background: #475569;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .phase-card {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 2px solid #334155;
+            border-radius: 12px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phase-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--phase-color);
+        }
+
+        .phase-card:hover {
+            border-color: var(--phase-color);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 217, 255, 0.2);
+        }
+
+        .phase-card.selected {
+            border-color: var(--phase-color);
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            box-shadow: 0 0 24px rgba(0, 217, 255, 0.3);
+        }
+
+        .phase-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--phase-color);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .phase-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 0.5rem;
+        }
+
+        .phase-timing {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .phase-stats {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #334155;
+        }
+
+        .stat {
+            flex: 1;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--phase-color);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        .pain-badge {
+            display: inline-block;
+            background: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .detail-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #334155;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #00d9ff;
+            font-weight: 600;
+        }
+
+        .step-count {
+            background: #334155;
+            color: #cbd5e1;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .subcategory {
+            margin-bottom: 2rem;
+        }
+
+        .subcategory-title {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--phase-color);
+        }
+
+        .step-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .step-card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 1rem;
+            transition: all 0.2s;
+        }
+
+        .step-card:hover {
+            border-color: #475569;
+            transform: translateX(4px);
+        }
+
+        .step-card.pain-point {
+            border-left: 3px solid #ef4444;
+            background: linear-gradient(90deg, rgba(239, 68, 68, 0.1) 0%, #1e293b 100%);
+        }
+
+        .step-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-id {
+            background: #334155;
+            color: #94a3b8;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .step-title {
+            flex: 1;
+            font-size: 1rem;
+            color: #e2e8f0;
+            font-weight: 500;
+        }
+
+        .step-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .tool-badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .tool-google { background: rgba(66, 133, 244, 0.2); color: #93c5fd; }
+        .tool-line { background: rgba(34, 197, 94, 0.2); color: #86efac; }
+        .tool-youtube { background: rgba(239, 68, 68, 0.2); color: #fca5a5; }
+        .tool-email { background: rgba(168, 85, 247, 0.2); color: #d8b4fe; }
+        .tool-kaik { background: rgba(234, 179, 8, 0.2); color: #fde047; }
+        .tool-figma { background: rgba(236, 72, 153, 0.2); color: #f9a8d4; }
+        .tool-other { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; }
+
+        .role-badge {
+            background: rgba(0, 217, 255, 0.15);
+            color: #67e8f9;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .pain-icon {
+            color: #ef4444;
+            font-size: 1.2rem;
+        }
+
+        .summary-section {
+            background: #1e293b;
+            border: 2px solid #334155;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .summary-title {
+            font-size: 1.5rem;
+            color: #00d9ff;
+            margin-bottom: 1.5rem;
+        }
+
+        .pain-list, .priority-table {
+            margin-top: 1rem;
+        }
+
+        .pain-item {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 3px solid #ef4444;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 4px;
+        }
+
+        .pain-item-title {
+            font-weight: 600;
+            color: #fca5a5;
+            margin-bottom: 0.25rem;
+        }
+
+        .pain-item-desc {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #334155;
+        }
+
+        th {
+            background: #0f172a;
+            color: #00d9ff;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: rgba(0, 217, 255, 0.05);
+        }
+
+        .priority-high { color: #fca5a5; }
+        .priority-medium { color: #fde047; }
+        .priority-low { color: #86efac; }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tool-card {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            padding: 1rem;
+        }
+
+        .tool-name {
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-usage {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid #334155;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .control-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .reset-btn {
+                margin-left: 0;
+            }
+
+            .overview {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>CNC 培訓班全流程旅程地圖</h1>
+        <p class="subtitle">完整映射職游 CNC 職涯導航諮詢師培訓班的每一個步驟、數位工具、參與者，從年度規劃到認證換證的全旅程</p>
+
+        <div class="controls">
+            <div class="control-group">
+                <span class="control-label">階段篩選：</span>
+                <button class="btn phase-btn" data-phase="0">Phase 0</button>
+                <button class="btn phase-btn" data-phase="1">Phase 1</button>
+                <button class="btn phase-btn" data-phase="2">Phase 2</button>
+                <button class="btn phase-btn" data-phase="3">Phase 3</button>
+                <button class="btn phase-btn" data-phase="4">Phase 4</button>
+                <button class="btn phase-btn" data-phase="5">Phase 5</button>
+                <button class="btn phase-btn" data-phase="6">Phase 6</button>
+            </div>
+
+            <div class="control-group">
+                <span class="control-label">角色篩選：</span>
+                <button class="btn role-btn" data-role="行政助教">行政助教</button>
+                <button class="btn role-btn" data-role="學員">學員</button>
+                <button class="btn role-btn" data-role="督導">督導</button>
+                <button class="btn role-btn" data-role="教練講師">教練/講師</button>
+            </div>
+
+            <button class="btn reset-btn" onclick="resetFilters()">重置篩選</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="overview" class="overview">
+            <div class="phase-card" style="--phase-color: #a78bfa" data-phase="0" onclick="selectPhase(0)">
+                <div class="phase-number">Phase 0</div>
+                <div class="phase-title">年度規劃</div>
+                <div class="phase-timing">每年 7-8 月</div>
+                <div class="phase-stats">
+                    <div class="stat">
+                        <div class="stat-value">8</div>
+                        <div class="stat-label">步驟</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase-card" style="--phase-color: #f59e0b" data-phase="1" onclick="selectPhase(1)">
+                <div class="phase-number">Phase 1</div>
+                <div class="phase-title">報名與前置</div>
+                <div class="phase-timing">開課前 4 週</div>
+                <div class="phase-stats">
+                    <div class="stat">
+                        <div class="stat-value">27</div>
+                        <div class="stat-label">步驟</div>
+                    </div>
+                </div>
+                <div class="pain-badge">⚡ 2 個自動化機會</div>
+            </div>
+
+            <div class="phase-card" style="--phase-color: #3b82f6" data-phase="2" onclick="selectPhase(2)">
+                <div class="phase-number">Phase 2</div>
+                <div class="phase-title">A班課程</div>
+                <div class="phase-timing">6 堂課 + 見面會</div>
+                <div class="phase-stats">
+                    <div class="stat">
+                        <div class="stat-value">29</div>
+                        <div class="stat-label">步驟</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase-card" style="--phase-color: #10b981" data-phase="3" onclick="selectPhase(3)">
+                <div class="phase-number">Phase 3</div>
+                <div class="phase-title">B班前置</div>
+                <div class="phase-timing">A班第3堂開始</div>
+                <div class="phase-stats">
+                    <div class="stat">
+                        <div class="stat-value">7</div>
+                        <div class="stat-label">步驟</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase-card" style="--phase-color: #ec4899" data-phase="4" onclick="selectPhase(4)">
+                <div class="phase-number">Phase 4</div>
+                <div class="phase-title">B班課程</div>
+                <div class="phase-timing">7次團督 + 3次個督</div>
+                <div class="phase-stats">
+                    <div class="stat">
+                        <div class="stat-value">23</div>
+                        <div class="stat-label">步驟</div>
+                    </div>
+                </div>
+                <div class="pain-badge">⚠️ 個案招募痛點</div>
+            </div>
+
+            <div class="phase-card" style="--phase-color: #ef4444" data-phase="5" onclick="selectPhase(5)">
+                <div class="phase-number">Phase 5</div>
+                <div class="phase-title">認證</div>
+                <div class="phase-timing">筆試 + 審核 + 結業式</div>
+                <div class="phase-stats">
+                    <div class="stat">
+                        <div class="stat-value">27</div>
+                        <div class="stat-label">步驟</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase-card" style="--phase-color: #06b6d4" data-phase="6" onclick="selectPhase(6)">
+                <div class="phase-number">Phase 6</div>
+                <div class="phase-title">認證後</div>
+                <div class="phase-timing">歸檔 + 換證</div>
+                <div class="phase-stats">
+                    <div class="stat">
+                        <div class="stat-value">15</div>
+                        <div class="stat-label">步驟</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="details"></div>
+
+        <div class="summary-section">
+            <h2 class="summary-title">關鍵痛點識別</h2>
+            <div class="pain-list">
+                <div class="pain-item">
+                    <div class="pain-item-title">⚠️ 1. 報名成功信未自動化</div>
+                    <div class="pain-item-desc">需手動一一寄送，容易漏信 | 影響階段：Phase 1</div>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-item-title">⚠️ 2. 個案招募不足額</div>
+                    <div class="pain-item-desc">需臨時請行銷協助，時間緊迫 | 影響階段：Phase 4</div>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-item-title">⚠️ 3. 附件A~E檢查耗時</div>
+                    <div class="pain-item-desc">需逐一打開確認，容易漏查 | 影響階段：Phase 5</div>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-item-title">⚠️ 4. 補課影片上下架手動</div>
+                    <div class="pain-item-desc">需記得3週後下架，容易忘記 | 影響階段：Phase 2, 4, 6</div>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-item-title">⚠️ 5. 個督預約公平性</div>
+                    <div class="pain-item-desc">需預告時間避免學員覺得不公平 | 影響階段：Phase 3</div>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-item-title">⚠️ 6. 換證提醒追蹤</div>
+                    <div class="pain-item-desc">需手動追蹤3年到期學員 | 影響階段：Phase 6</div>
+                </div>
+            </div>
+
+            <h2 class="summary-title" style="margin-top: 2rem;">自動化優先級建議</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>優先級</th>
+                        <th>項目</th>
+                        <th>預期效益</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="priority-high">高</span></td>
+                        <td>報名成功信自動發送</td>
+                        <td>減少人工作業，提升學員體驗</td>
+                    </tr>
+                    <tr>
+                        <td><span class="priority-high">高</span></td>
+                        <td>附件A~E資格自動檢核</td>
+                        <td>節省檢查時間，降低漏查風險</td>
+                    </tr>
+                    <tr>
+                        <td><span class="priority-medium">中</span></td>
+                        <td>補課影片自動上下架</td>
+                        <td>避免忘記下架，降低人工追蹤</td>
+                    </tr>
+                    <tr>
+                        <td><span class="priority-medium">中</span></td>
+                        <td>換證提醒自動發送</td>
+                        <td>3年到期自動提醒，避免漏通知</td>
+                    </tr>
+                    <tr>
+                        <td><span class="priority-low">低</span></td>
+                        <td>個督預約自動分配</td>
+                        <td>公平性提升，但現行機制可行</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="summary-section">
+            <h2 class="summary-title">數位工具清單</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-name">Google Forms</div>
+                    <div class="tool-usage">報名表單、問卷調查、作業繳交表單、筆試申請表</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-name">Google Sheets</div>
+                    <div class="tool-usage">日期時間表、學員名冊、附件A總表、團督認領、學長姐配對</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-name">Google Classroom</div>
+                    <div class="tool-usage">課程管理平台、作業公告、補課影片、請假登記</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-name">Google Meet</div>
+                    <div class="tool-usage">線上上課、團督、個督</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-name">Google Calendar</div>
+                    <div class="tool-usage">行事曆共用、個督預約時間表</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-name">Google Drive</div>
+                    <div class="tool-usage">雲端資料夾、附件檔案、作業繳交區、個案報告</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-name">YouTube</div>
+                    <div class="tool-usage">補課影片上架（不公開）、職業資料庫備份</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-name">LINE 官方/群組/社群</div>
+                    <div class="tool-usage">即時溝通、作業接龍、投票、記事本、校友交流</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-name">開課快手 kaik.io</div>
+                    <div class="tool-usage">線上課程管理、職業資料庫</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-name">Figma</div>
+                    <div class="tool-usage">學員自我介紹白板、破冰活動</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-name">Email</div>
+                    <div class="tool-usage">課前通知、筆試寄送、認證結果通知、換證提醒</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-name">官網 navicareer.tw</div>
+                    <div class="tool-usage">培訓班資訊、CNC認證諮詢師名單</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>文件版本</strong>: v1.0 | <strong>建立日期</strong>: 2026-02-19 | <strong>維護者</strong>: 行政助教團隊</p>
+        </div>
+    </div>
+
+    <script>
+        const phaseColors = {
+            0: '#a78bfa',
+            1: '#f59e0b',
+            2: '#3b82f6',
+            3: '#10b981',
+            4: '#ec4899',
+            5: '#ef4444',
+            6: '#06b6d4'
+        };
+
+        const stepsData = {
+            0: {
+                title: 'Phase 0: 年度規劃（每年7-8月）',
+                subcategories: {
+                    '年度規劃': [
+                        { id: '0.1', title: '確認隔年培訓班日期', tools: ['Google Sheet'], roles: ['行政助教'], pain: false },
+                        { id: '0.2', title: '確認所有講師時間', tools: ['Google Calendar'], roles: ['行政助教', '講師群'], pain: false },
+                        { id: '0.3', title: '建立行事曆與Meet', tools: ['Google Calendar', 'Google Meet'], roles: ['行政助教'], pain: false },
+                        { id: '0.4', title: '確認官網課綱內容', tools: [], roles: ['行政助教', '督導'], pain: false },
+                        { id: '0.5', title: '建立年度報名表', tools: ['Google Forms'], roles: ['行政助教'], pain: false },
+                        { id: '0.6', title: '更新官網培訓班頁面（9-10月）', tools: ['官網'], roles: ['行政助教', '行銷組'], pain: false },
+                        { id: '0.7', title: '宣傳報名（開賣時）', tools: ['LINE官方', '官網'], roles: ['行政助教', '行銷組'], pain: false },
+                        { id: '0.8', title: '培訓班說明會（前1個月）', tools: ['Google Meet'], roles: ['督導', '行銷組'], pain: false }
+                    ]
+                }
+            },
+            1: {
+                title: 'Phase 1: 報名與前置（開課前4週）',
+                subcategories: {
+                    '報名確認': [
+                        { id: '1.1', title: '學員填寫報名表', tools: ['Google Forms'], roles: ['學員'], pain: false },
+                        { id: '1.2', title: '付費匯款', tools: ['信用卡/轉帳'], roles: ['學員'], pain: false },
+                        { id: '1.3', title: '報名確認與分類', tools: ['Google Sheets'], roles: ['行政助教'], pain: false },
+                        { id: '1.4', title: '報名成功信（需自動化）', tools: ['Email'], roles: ['行政助教', '學員'], pain: true }
+                    ],
+                    'Google建置': [
+                        { id: '1.5', title: '建立Google Classroom（A班+B班）', tools: ['Google Classroom'], roles: ['行政助教'], pain: false },
+                        { id: '1.6', title: '建立Google Meet連結', tools: ['Google Meet'], roles: ['行政助教'], pain: false },
+                        { id: '1.7', title: '建立雲端資料夾（8個）', tools: ['Google Drive'], roles: ['行政助教'], pain: false },
+                        { id: '1.8', title: '加入學員Email至Classroom', tools: ['Google Classroom'], roles: ['行政助教'], pain: false },
+                        { id: '1.9', title: '加入講師/助教至Classroom', tools: ['Google Classroom'], roles: ['行政助教'], pain: false },
+                        { id: '1.10', title: '建置B班附件檔案（A~E）', tools: ['Google Docs', 'Google Sheets'], roles: ['行政助教'], pain: false },
+                        { id: '1.11', title: '建立學員名冊&出席表', tools: ['Google Sheets'], roles: ['行政助教'], pain: false }
+                    ],
+                    '開課快手': [
+                        { id: '1.12', title: '匯入學員至開課快手', tools: ['開課快手'], roles: ['行政助教'], pain: false }
+                    ],
+                    'LINE建置': [
+                        { id: '1.13', title: '建立LINE班級群組', tools: ['LINE'], roles: ['行政助教'], pain: false }
+                    ],
+                    '課前通知': [
+                        { id: '1.14', title: '開立Figma自介白板', tools: ['Figma'], roles: ['行政助教'], pain: false },
+                        { id: '1.15', title: '發送課前通知1（前3-4週）', tools: ['Email'], roles: ['行政助教', '學員'], pain: false },
+                        { id: '1.16', title: '官方Line通知開課', tools: ['LINE官方'], roles: ['行政助教', '學員'], pain: false },
+                        { id: '1.17', title: '發送課前通知2（前4-5天）', tools: ['Email'], roles: ['行政助教', '學員'], pain: false }
+                    ],
+                    '包裹寄送': [
+                        { id: '1.18', title: '確認講義與講師', tools: ['Email'], roles: ['行政助教', '講師群'], pain: false },
+                        { id: '1.19', title: '印製講義', tools: ['影印店'], roles: ['行政助教'], pain: false },
+                        { id: '1.20', title: '統整牌卡數量', tools: [], roles: ['行政助教'], pain: false },
+                        { id: '1.21', title: '購買便利箱', tools: ['郵局'], roles: ['行政助教'], pain: false },
+                        { id: '1.22', title: '製作大宗包裹單', tools: ['EZpost'], roles: ['行政助教'], pain: false },
+                        { id: '1.23', title: '包裝寄送', tools: ['郵局'], roles: ['行政助教'], pain: false }
+                    ],
+                    '發票開立': [
+                        { id: '1.24', title: '開立發票（Day4後）', tools: ['電子發票'], roles: ['營運組'], pain: false }
+                    ],
+                    'LINE熱身': [
+                        { id: '1.25', title: '行政助教群組歡迎（前1週）', tools: ['LINE群組'], roles: ['行政助教', '學員'], pain: false },
+                        { id: '1.26', title: '跟課助教自介與作業提醒', tools: ['LINE群組'], roles: ['行政助教', '學員'], pain: false },
+                        { id: '1.27', title: '課前叮嚀（前1天）', tools: ['LINE群組'], roles: ['行政助教', '學員'], pain: false }
+                    ]
+                }
+            },
+            2: {
+                title: 'Phase 2: A班課程（6堂課 + 見面會）',
+                subcategories: {
+                    'Day 1': [
+                        { id: '2.1', title: '開會議室（課前30分鐘）', tools: ['Google Meet'], roles: ['行政助教'], pain: false },
+                        { id: '2.2', title: '設定共同主持人', tools: ['Google Meet'], roles: ['行政助教'], pain: false },
+                        { id: '2.3', title: 'LINE群提醒上課連結', tools: ['LINE群組'], roles: ['行政助教'], pain: false },
+                        { id: '2.4', title: 'Figma破冰活動', tools: ['Figma'], roles: ['行政助教'], pain: false },
+                        { id: '2.5', title: '開始錄影', tools: ['Google Meet'], roles: ['行政助教'], pain: false },
+                        { id: '2.6', title: '分組討論技術支援', tools: ['Google Meet'], roles: ['行政助教'], pain: false },
+                        { id: '2.7', title: '休息時間播音樂', tools: [], roles: ['行政助教'], pain: false }
+                    ],
+                    'Day 1-6 課程': [
+                        { id: '2.8', title: '課程進行', tools: ['Google Meet'], roles: ['講師', '學員'], pain: false },
+                        { id: '2.9', title: '補課影片上架（3天內）', tools: ['YouTube'], roles: ['行政助教'], pain: false },
+                        { id: '2.10', title: 'Classroom公告補課連結', tools: ['Google Classroom'], roles: ['行政助教'], pain: false },
+                        { id: '2.11', title: 'LINE群通知補課', tools: ['LINE群組'], roles: ['行政助教'], pain: false }
+                    ],
+                    'Day 2': [
+                        { id: '2.12', title: '調查學長姐諮詢意願', tools: ['LINE社群'], roles: ['行政助教', '學長姐'], pain: false }
+                    ],
+                    'Day 3': [
+                        { id: '2.13', title: '更新團督認領清單', tools: ['Google Sheets'], roles: ['行政助教'], pain: false },
+                        { id: '2.14', title: '頒布諮詢演練辦法', tools: ['Google Classroom'], roles: ['行政助教'], pain: false }
+                    ],
+                    'Day 4': [
+                        { id: '2.15', title: '公告升級B班辦法', tools: ['LINE群組'], roles: ['行政助教'], pain: false },
+                        { id: '2.16', title: '下課前15分鐘說明B班', tools: ['Google Meet'], roles: ['行政助教', '學員'], pain: false },
+                        { id: '2.17', title: '學長姐諮詢媒合配對', tools: ['Google Sheets', 'AI'], roles: ['行政助教'], pain: false },
+                        { id: '2.18', title: '公告學長姐諮詢名單', tools: ['Google Classroom', 'LINE'], roles: ['行政助教', '學員', '學長姐'], pain: false }
+                    ],
+                    'Day 4後': [
+                        { id: '2.19', title: '牌卡演練會時間票選', tools: ['LINE群組投票'], roles: ['行政助教', '學員'], pain: false }
+                    ],
+                    'Day 6': [
+                        { id: '2.20', title: 'A班回饋問卷公告', tools: ['LINE群組'], roles: ['行政助教', '學員'], pain: false }
+                    ],
+                    '見面會': [
+                        { id: '2.21', title: '調查出席人數（前3週）', tools: ['LINE群組投票'], roles: ['行政助教'], pain: false },
+                        { id: '2.22', title: '租場地（前3-4週）', tools: ['小樹屋/CLBC'], roles: ['行政助教'], pain: false },
+                        { id: '2.23', title: '確認餐飲（預算150/人）', tools: [], roles: ['行政助教'], pain: false },
+                        { id: '2.24', title: '提醒出席（前2週）', tools: ['LINE群組'], roles: ['行政助教'], pain: false },
+                        { id: '2.25', title: '提醒攜帶牌卡（當周）', tools: ['LINE群組'], roles: ['行政助教'], pain: false },
+                        { id: '2.26', title: '實體見面會執行', tools: [], roles: ['督導', '助教', '學員'], pain: false },
+                        { id: '2.27', title: '問卷提醒', tools: ['LINE群組'], roles: ['行政助教'], pain: false }
+                    ],
+                    'A班結束': [
+                        { id: '2.28', title: 'A班修課證明寄送（2週內）', tools: ['Email'], roles: ['行政助教', '學員'], pain: false },
+                        { id: '2.29', title: '補課影片下架（3週後）', tools: ['YouTube'], roles: ['行政助教'], pain: false }
+                    ]
+                }
+            },
+            3: {
+                title: 'Phase 3: B班前置（A班第3堂開始）',
+                subcategories: {
+                    '督導安排': [
+                        { id: '3.1', title: '確認燕子個督1時段', tools: ['Email'], roles: ['行政助教', '督導'], pain: false },
+                        { id: '3.2', title: '確認誠誠個督2時段', tools: ['Email'], roles: ['行政助教', '督導'], pain: false },
+                        { id: '3.3', title: '確認韋丞Calendly連結', tools: ['Calendly'], roles: ['行政助教', '督導'], pain: false },
+                        { id: '3.4', title: '建立個督行事曆預約表', tools: ['Google Calendar'], roles: ['行政助教'], pain: false },
+                        { id: '3.5', title: '預告個督預約時間', tools: ['LINE群組'], roles: ['行政助教', '學員'], pain: false },
+                        { id: '3.6', title: '開放個督預約連結', tools: ['Google Calendar'], roles: ['行政助教', '學員'], pain: false },
+                        { id: '3.7', title: '邀請督導至行事曆', tools: ['Google Calendar'], roles: ['行政助教', '督導'], pain: false }
+                    ]
+                }
+            },
+            4: {
+                title: 'Phase 4: B班課程（7次團督 + 3次個督）',
+                subcategories: {
+                    '團督前': [
+                        { id: '4.1', title: '提醒團督時間與報告人（前2週）', tools: ['LINE群組'], roles: ['行政助教'], pain: false },
+                        { id: '4.2', title: '收齊團督報告（前1天）', tools: ['Google Drive'], roles: ['行政助教', '督導'], pain: false }
+                    ],
+                    '團督當天': [
+                        { id: '4.3', title: '開會議室（課前30分鐘）', tools: ['Google Meet'], roles: ['行政助教'], pain: false },
+                        { id: '4.4', title: '加共同主持人與錄影', tools: ['Google Meet'], roles: ['行政助教'], pain: false },
+                        { id: '4.5', title: '破冰活動（視需要）', tools: ['Figma'], roles: ['行政助教'], pain: false }
+                    ],
+                    '團督1-7': [
+                        { id: '4.6', title: '團督進行', tools: ['Google Meet'], roles: ['督導', '學員'], pain: false }
+                    ],
+                    '團督後': [
+                        { id: '4.7', title: '補課影片上架（3天內）', tools: ['YouTube'], roles: ['行政助教'], pain: false },
+                        { id: '4.8', title: 'Classroom公告補課連結', tools: ['Google Classroom'], roles: ['行政助教'], pain: false }
+                    ],
+                    '個督1-3': [
+                        { id: '4.9', title: '個督進行（50分鐘/次）', tools: ['Google Meet'], roles: ['督導', '學員'], pain: false }
+                    ],
+                    '個督結束': [
+                        { id: '4.10', title: '個督費用結算', tools: [], roles: ['督導'], pain: false }
+                    ],
+                    '招募個案': [
+                        { id: '4.11', title: 'LINE記事本張貼招募文案', tools: ['LINE群組記事本'], roles: ['行政助教'], pain: false },
+                        { id: '4.12', title: '公益團體接洽', tools: ['Email'], roles: ['行政助教'], pain: false },
+                        { id: '4.13', title: '編輯個案報名表單', tools: ['Google Forms'], roles: ['行政助教'], pain: false },
+                        { id: '4.14', title: '行銷協助發文（視需要）', tools: ['官網', '社群'], roles: ['行政助教', '行銷組'], pain: true },
+                        { id: '4.15', title: '營運確認收款', tools: [], roles: ['營運組'], pain: false },
+                        { id: '4.16', title: 'AI媒合分配個案', tools: ['AI', 'Google Sheets'], roles: ['行政助教'], pain: false },
+                        { id: '4.17', title: 'Email通知學員與個案', tools: ['Email'], roles: ['行政助教', '學員'], pain: false }
+                    ],
+                    '諮詢演練': [
+                        { id: '4.18', title: '學員進行24小時諮詢演練', tools: [], roles: ['學員'], pain: false },
+                        { id: '4.19', title: '繳交附件A總表', tools: ['Google Sheets'], roles: ['學員'], pain: false },
+                        { id: '4.20', title: '繳交附件B同意書', tools: ['Google Drive'], roles: ['學員'], pain: false },
+                        { id: '4.21', title: '繳交附件C個案報告', tools: ['Google Docs'], roles: ['學員'], pain: false },
+                        { id: '4.22', title: '繳交附件D諮詢回饋問卷', tools: ['Google Forms'], roles: ['學員'], pain: false },
+                        { id: '4.23', title: '繳交附件E團督個督心得', tools: ['Google Docs'], roles: ['學員'], pain: false }
+                    ]
+                }
+            },
+            5: {
+                title: 'Phase 5: 認證（筆試 + 審核 + 結業式）',
+                subcategories: {
+                    '筆試申請': [
+                        { id: '5.1', title: '確認筆試檔案內容', tools: ['PowerPoint'], roles: ['督導'], pain: false },
+                        { id: '5.2', title: '公告認證提醒', tools: ['LINE群組'], roles: ['行政助教'], pain: false },
+                        { id: '5.3', title: '學員填寫筆試申請表', tools: ['Google Forms'], roles: ['學員'], pain: false },
+                        { id: '5.4', title: '確認學員資格（附件A~E）', tools: ['Google Drive'], roles: ['行政助教'], pain: false },
+                        { id: '5.5', title: 'Email寄送筆試檔案', tools: ['Email'], roles: ['行政助教', '學員'], pain: false }
+                    ],
+                    '認證作業': [
+                        { id: '5.6', title: '學員填寫筆試', tools: ['PowerPoint'], roles: ['學員'], pain: false },
+                        { id: '5.7', title: '學員錄製諮詢演練影片', tools: ['錄影'], roles: ['學員'], pain: false },
+                        { id: '5.8', title: '學員錄製深度職業介紹影片', tools: ['錄影'], roles: ['學員'], pain: false },
+                        { id: '5.9', title: '上傳筆試檔案', tools: ['Google Drive'], roles: ['學員'], pain: false },
+                        { id: '5.10', title: '上傳諮詢演練影片連結', tools: ['Google Forms'], roles: ['學員'], pain: false },
+                        { id: '5.11', title: '上傳職業介紹影片連結', tools: ['Google Forms'], roles: ['學員'], pain: false }
+                    ],
+                    '審核批改': [
+                        { id: '5.12', title: '募集審核導師（前2-3週）', tools: ['LINE社群'], roles: ['行政助教', '審核導師'], pain: false },
+                        { id: '5.13', title: '檢核認證作業檔案', tools: ['Google Drive'], roles: ['行政助教'], pain: false },
+                        { id: '5.14', title: '請審核導師批改（前2週）', tools: ['Google Sheets'], roles: ['審核導師'], pain: false },
+                        { id: '5.15', title: '確認通過名單（前1週）', tools: ['Google Sheets'], roles: ['督導'], pain: false },
+                        { id: '5.16', title: 'Email通知認證結果（前1週）', tools: ['Email'], roles: ['行政助教', '學員'], pain: false }
+                    ],
+                    '證書製作': [
+                        { id: '5.17', title: '製作證書套版', tools: ['PowerPoint'], roles: ['行政助教'], pain: false },
+                        { id: '5.18', title: '印製證書（日本炫光紙250磅）', tools: ['影印店'], roles: ['行政助教'], pain: false }
+                    ],
+                    '結業式': [
+                        { id: '5.19', title: '調查出席人數（前1個月）', tools: ['LINE群組投票'], roles: ['行政助教'], pain: false },
+                        { id: '5.20', title: '訂場地（小樹屋/CLBC）', tools: [], roles: ['行政助教'], pain: false },
+                        { id: '5.21', title: '訂餐點（預算150/人）', tools: [], roles: ['行政助教'], pain: false },
+                        { id: '5.22', title: '確認流程與簡報（當周）', tools: ['PowerPoint'], roles: ['行政助教', '督導'], pain: false },
+                        { id: '5.23', title: '提醒攜帶物品（當周）', tools: ['LINE群組'], roles: ['行政助教'], pain: false },
+                        { id: '5.24', title: '實體結業式執行', tools: [], roles: ['督導', '助教', '學員'], pain: false },
+                        { id: '5.25', title: '現場頒證/郵寄證書', tools: [], roles: ['行政助教', '學員'], pain: false },
+                        { id: '5.26', title: 'B班回饋問卷（當天）', tools: ['Google Forms'], roles: ['行政助教', '學員'], pain: false },
+                        { id: '5.27', title: '寄送簡報電子檔（會後）', tools: ['Email'], roles: ['行政助教', '學員'], pain: false }
+                    ]
+                }
+            },
+            6: {
+                title: 'Phase 6: 認證後（歸檔 + 換證）',
+                subcategories: {
+                    '歸檔': [
+                        { id: '6.1', title: '邀請加入大俱樂部LINE社群', tools: ['LINE社群'], roles: ['行政助教'], pain: false },
+                        { id: '6.2', title: '更新CNC認證師名單', tools: ['Google Sheets'], roles: ['行政助教'], pain: false },
+                        { id: '6.3', title: '請行銷上架官網', tools: ['官網'], roles: ['行政助教', '行銷組'], pain: false },
+                        { id: '6.4', title: '匯入職業資料庫', tools: ['開課快手'], roles: ['行政助教'], pain: false },
+                        { id: '6.5', title: '挑選職業介紹影片', tools: [], roles: ['行政助教'], pain: false },
+                        { id: '6.6', title: '下載並剪輯影片', tools: [], roles: ['行政助教'], pain: false },
+                        { id: '6.7', title: '上傳YouTube備份', tools: ['YouTube'], roles: ['行政助教'], pain: false },
+                        { id: '6.8', title: '上傳至開課快手職業資料庫', tools: ['開課快手'], roles: ['行政助教'], pain: false },
+                        { id: '6.9', title: '關閉補課影片權限', tools: ['YouTube'], roles: ['行政助教'], pain: false }
+                    ],
+                    '換證': [
+                        { id: '6.10', title: '寄發換證提醒信（每年5月、11月）', tools: ['Email'], roles: ['行政助教'], pain: false },
+                        { id: '6.11', title: '審核換證資格', tools: ['Google Forms'], roles: ['行政助教'], pain: false },
+                        { id: '6.12', title: '審核換證作業', tools: [], roles: ['督導'], pain: false },
+                        { id: '6.13', title: 'Email通知換證結果', tools: ['Email'], roles: ['行政助教'], pain: false },
+                        { id: '6.14', title: '製作換證證書', tools: ['PowerPoint'], roles: ['行政助教'], pain: false },
+                        { id: '6.15', title: '確認換證費用NT$2,000', tools: [], roles: ['營運組'], pain: false }
+                    ]
+                }
+            }
+        };
+
+        let activePhases = [];
+        let activeRoles = [];
+
+        function getToolClass(tool) {
+            if (tool.includes('Google')) return 'tool-google';
+            if (tool.includes('LINE')) return 'tool-line';
+            if (tool.includes('YouTube')) return 'tool-youtube';
+            if (tool.includes('Email') || tool.includes('email')) return 'tool-email';
+            if (tool.includes('開課快手') || tool.includes('kaik')) return 'tool-kaik';
+            if (tool.includes('Figma')) return 'tool-figma';
+            return 'tool-other';
+        }
+
+        function renderSteps() {
+            const detailsContainer = document.getElementById('details');
+            detailsContainer.innerHTML = '';
+
+            const phasesToShow = activePhases.length > 0 ? activePhases : Object.keys(stepsData);
+
+            phasesToShow.forEach(phaseNum => {
+                const phase = stepsData[phaseNum];
+                const phaseColor = phaseColors[phaseNum];
+
+                const section = document.createElement('div');
+                section.className = 'detail-section';
+                section.style.setProperty('--phase-color', phaseColor);
+
+                const header = document.createElement('div');
+                header.className = 'section-header';
+
+                const titleEl = document.createElement('h2');
+                titleEl.className = 'section-title';
+                titleEl.textContent = phase.title;
+
+                const stepCount = document.createElement('span');
+                stepCount.className = 'step-count';
+                const totalSteps = Object.values(phase.subcategories).reduce((sum, steps) => sum + steps.length, 0);
+                stepCount.textContent = `${totalSteps} 步驟`;
+
+                header.appendChild(titleEl);
+                header.appendChild(stepCount);
+                section.appendChild(header);
+
+                Object.entries(phase.subcategories).forEach(([subcatName, steps]) => {
+                    const filteredSteps = activeRoles.length > 0
+                        ? steps.filter(step => step.roles.some(role => activeRoles.includes(role)))
+                        : steps;
+
+                    if (filteredSteps.length === 0) return;
+
+                    const subcatDiv = document.createElement('div');
+                    subcatDiv.className = 'subcategory';
+
+                    const subcatTitle = document.createElement('h3');
+                    subcatTitle.className = 'subcategory-title';
+                    subcatTitle.textContent = subcatName;
+                    subcatDiv.appendChild(subcatTitle);
+
+                    const grid = document.createElement('div');
+                    grid.className = 'step-grid';
+
+                    filteredSteps.forEach(step => {
+                        const card = document.createElement('div');
+                        card.className = 'step-card';
+                        if (step.pain) card.classList.add('pain-point');
+
+                        const stepHeader = document.createElement('div');
+                        stepHeader.className = 'step-header';
+
+                        const stepId = document.createElement('div');
+                        stepId.className = 'step-id';
+                        stepId.textContent = step.id;
+
+                        const stepTitle = document.createElement('div');
+                        stepTitle.className = 'step-title';
+                        stepTitle.textContent = step.title;
+
+                        if (step.pain) {
+                            const painIcon = document.createElement('span');
+                            painIcon.className = 'pain-icon';
+                            painIcon.textContent = '⚡';
+                            stepHeader.appendChild(painIcon);
+                        }
+
+                        stepHeader.appendChild(stepId);
+                        stepHeader.appendChild(stepTitle);
+                        card.appendChild(stepHeader);
+
+                        const meta = document.createElement('div');
+                        meta.className = 'step-meta';
+
+                        step.tools.forEach(tool => {
+                            const badge = document.createElement('span');
+                            badge.className = `tool-badge ${getToolClass(tool)}`;
+                            badge.textContent = tool;
+                            meta.appendChild(badge);
+                        });
+
+                        step.roles.forEach(role => {
+                            const badge = document.createElement('span');
+                            badge.className = 'role-badge';
+                            badge.textContent = role;
+                            meta.appendChild(badge);
+                        });
+
+                        card.appendChild(meta);
+                        grid.appendChild(card);
+                    });
+
+                    subcatDiv.appendChild(grid);
+                    section.appendChild(subcatDiv);
+                });
+
+                detailsContainer.appendChild(section);
+            });
+        }
+
+        function selectPhase(phaseNum) {
+            activePhases = [phaseNum];
+            activeRoles = [];
+            updateUI();
+            document.getElementById('details').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function updateUI() {
+            document.querySelectorAll('.phase-btn').forEach(btn => {
+                const phase = parseInt(btn.dataset.phase);
+                btn.classList.toggle('active', activePhases.includes(phase));
+            });
+
+            document.querySelectorAll('.role-btn').forEach(btn => {
+                const role = btn.dataset.role;
+                btn.classList.toggle('active', activeRoles.includes(role));
+            });
+
+            document.querySelectorAll('.phase-card').forEach(card => {
+                const phase = parseInt(card.dataset.phase);
+                card.classList.toggle('selected', activePhases.includes(phase));
+            });
+
+            renderSteps();
+        }
+
+        function resetFilters() {
+            activePhases = [];
+            activeRoles = [];
+            updateUI();
+            document.getElementById('overview').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.querySelectorAll('.phase-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const phase = parseInt(btn.dataset.phase);
+                if (activePhases.includes(phase)) {
+                    activePhases = activePhases.filter(p => p !== phase);
+                } else {
+                    activePhases = [phase];
+                }
+                updateUI();
+            });
+        });
+
+        document.querySelectorAll('.role-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const role = btn.dataset.role;
+                if (activeRoles.includes(role)) {
+                    activeRoles = activeRoles.filter(r => r !== role);
+                } else {
+                    activeRoles.push(role);
+                }
+                updateUI();
+            });
+        });
+
+        renderSteps();
+    </script>
+</body>
+</html>

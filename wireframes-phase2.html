@@ -1,0 +1,2772 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNC 培訓管理系統 Phase 2 線框圖</title>
+    <!--
+        版本：v1.0
+        階段：Phase 2 - 課程管理 + 督導 + 認證（8 週）
+        日期：2026-02-23
+        功能範圍：
+        - M2: 課程管理（梯次建立、排程、作業、出席追蹤）
+        - M3: 督導管理（個督預約、團督排程、學長姐媒合）
+        - M4: 認證管理（申請、審核、證書）
+        對應 PRD：Module 2-4
+    -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .wireframe-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 280px;
+            background: #2c3e50;
+            color: white;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            background: #1a252f;
+            border-bottom: 2px solid #34495e;
+        }
+
+        .sidebar-header h1 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .sidebar-header .phase {
+            font-size: 12px;
+            color: #95a5a6;
+        }
+
+        .nav-section {
+            padding: 15px 0;
+            border-bottom: 1px solid #34495e;
+        }
+
+        .nav-section-title {
+            padding: 8px 20px;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #95a5a6;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-item {
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 14px;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-item:hover {
+            background: #34495e;
+        }
+
+        .nav-item.active {
+            background: #34495e;
+            border-left-color: #3498db;
+        }
+
+        .nav-item-meta {
+            font-size: 11px;
+            color: #95a5a6;
+            margin-top: 3px;
+        }
+
+        /* Main Content */
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            background: white;
+        }
+
+        .page {
+            display: none;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .page-header {
+            border-bottom: 3px solid #ecf0f1;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .page-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .page-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 13px;
+            color: #7f8c8d;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .meta-label {
+            font-weight: 600;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .badge-public {
+            background: #27ae60;
+            color: white;
+        }
+
+        .badge-admin {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .badge-student {
+            background: #3498db;
+            color: white;
+        }
+
+        /* Wireframe Components */
+        .wireframe-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-label .required {
+            color: #e74c3c;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid #bdc3c7;
+            background: white;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .form-textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .checkbox {
+            width: 18px;
+            height: 18px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+
+        .btn-secondary {
+            background: #95a5a6;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #7f8c8d;
+        }
+
+        .btn-success {
+            background: #27ae60;
+            color: white;
+        }
+
+        .btn-danger {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn-outline {
+            background: white;
+            border: 2px solid #bdc3c7;
+            color: #333;
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 13px;
+        }
+
+        /* Table */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #ecf0f1;
+        }
+
+        .table th {
+            background: #ecf0f1;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            border-bottom: 2px solid #bdc3c7;
+        }
+
+        .table td {
+            padding: 12px;
+            border-bottom: 1px solid #ecf0f1;
+            font-size: 14px;
+        }
+
+        .table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-missing {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .status-present {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-absent {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .status-leave {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        /* Card */
+        .card {
+            border: 2px solid #ecf0f1;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: white;
+        }
+
+        .card-header {
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ecf0f1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Dashboard */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            border: 2px solid #ecf0f1;
+            padding: 20px;
+            background: white;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: #7f8c8d;
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-change {
+            font-size: 12px;
+            color: #27ae60;
+        }
+
+        /* Filter Bar */
+        .filter-bar {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border: 2px solid #ecf0f1;
+        }
+
+        .filter-item {
+            flex: 1;
+        }
+
+        /* Action Bar */
+        .action-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Alert */
+        .alert {
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            border-color: #17a2b8;
+            color: #0c5460;
+        }
+
+        .alert-warning {
+            background: #fff3cd;
+            border-color: #ffc107;
+            color: #856404;
+        }
+
+        .alert-danger {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        /* Course Card */
+        .course-card {
+            border: 2px solid #ecf0f1;
+            padding: 20px;
+            margin-bottom: 15px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .course-card:hover {
+            border-color: #3498db;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .course-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 12px;
+        }
+
+        .course-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .course-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 13px;
+            color: #7f8c8d;
+        }
+
+        /* Calendar */
+        .calendar {
+            border: 2px solid #ecf0f1;
+            background: white;
+        }
+
+        .calendar-header {
+            background: #ecf0f1;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #bdc3c7;
+        }
+
+        .calendar-title {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+        }
+
+        .calendar-day-header {
+            padding: 10px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 12px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .calendar-day {
+            padding: 10px;
+            min-height: 100px;
+            border: 1px solid #ecf0f1;
+            font-size: 13px;
+        }
+
+        .calendar-day-number {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .calendar-event {
+            background: #d1ecf1;
+            padding: 3px 6px;
+            margin-bottom: 3px;
+            font-size: 11px;
+            border-left: 3px solid #17a2b8;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: start;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checklist-icon {
+            font-size: 20px;
+            margin-top: 2px;
+        }
+
+        .checklist-content {
+            flex: 1;
+        }
+
+        .checklist-title {
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .checklist-desc {
+            font-size: 13px;
+            color: #7f8c8d;
+        }
+
+        /* Progress Bar */
+        .progress {
+            height: 8px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #27ae60;
+            transition: width 0.3s;
+        }
+
+        /* Time Slot Picker */
+        .slot-picker {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+        }
+
+        .time-slot {
+            border: 2px solid #bdc3c7;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .time-slot:hover {
+            border-color: #3498db;
+        }
+
+        .time-slot.available {
+            background: white;
+        }
+
+        .time-slot.selected {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+
+        .time-slot.booked {
+            background: #ecf0f1;
+            color: #95a5a6;
+            cursor: not-allowed;
+        }
+
+        .slot-time {
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .slot-status {
+            font-size: 11px;
+        }
+
+        /* File Upload */
+        .file-upload {
+            border: 2px dashed #bdc3c7;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .file-upload:hover {
+            border-color: #3498db;
+            background: #f8f9fa;
+        }
+
+        .upload-icon {
+            font-size: 48px;
+            color: #95a5a6;
+            margin-bottom: 10px;
+        }
+
+        .uploaded-file {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            background: #f8f9fa;
+            border: 1px solid #ecf0f1;
+            margin-top: 10px;
+        }
+
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Wizard */
+        .wizard-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .wizard-steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #ecf0f1;
+            z-index: 0;
+        }
+
+        .wizard-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid #ecf0f1;
+            margin: 0 auto 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .wizard-step.active .step-circle {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+
+        .wizard-step.completed .step-circle {
+            background: #27ae60;
+            color: white;
+            border-color: #27ae60;
+        }
+
+        .step-label {
+            font-size: 13px;
+            color: #7f8c8d;
+        }
+
+        .wizard-step.active .step-label {
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* Video Player */
+        .video-player {
+            border: 2px solid #ecf0f1;
+            background: #000;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+        }
+
+        .video-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border: 2px solid #ecf0f1;
+            border-top: none;
+        }
+
+        /* Countdown */
+        .countdown {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            background: #fff3cd;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #856404;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .wireframe-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                max-height: 300px;
+            }
+
+            .page {
+                padding: 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wireframe-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h1>CNC 培訓管理系統</h1>
+                <div class="phase">Phase 2 線框圖</div>
+            </div>
+
+            <!-- Student Section -->
+            <div class="nav-section">
+                <div class="nav-section-title">學員介面</div>
+                <div class="nav-item active" data-page="student-courses">
+                    課程總覽
+                    <div class="nav-item-meta">M2.1 · 學員</div>
+                </div>
+                <div class="nav-item" data-page="student-class-detail">
+                    課堂詳情
+                    <div class="nav-item-meta">M2.2 · 學員</div>
+                </div>
+                <div class="nav-item" data-page="student-videos">
+                    補課影片
+                    <div class="nav-item-meta">M2.3 · 學員</div>
+                </div>
+                <div class="nav-item" data-page="student-supervision-booking">
+                    督導預約
+                    <div class="nav-item-meta">M3.2 · 學員</div>
+                </div>
+                <div class="nav-item" data-page="student-group-supervision">
+                    團督排程
+                    <div class="nav-item-meta">M3.2 · 學員</div>
+                </div>
+                <div class="nav-item" data-page="student-assignments">
+                    作業繳交
+                    <div class="nav-item-meta">M2.4 · 學員</div>
+                </div>
+                <div class="nav-item" data-page="student-certification">
+                    認證申請
+                    <div class="nav-item-meta">M4.1 · 學員</div>
+                </div>
+                <div class="nav-item" data-page="student-certificates">
+                    我的證書
+                    <div class="nav-item-meta">M4.5 · 學員</div>
+                </div>
+            </div>
+
+            <!-- Admin Section -->
+            <div class="nav-section">
+                <div class="nav-section-title">管理後台</div>
+                <div class="nav-item" data-page="admin-course-management">
+                    課程管理
+                    <div class="nav-item-meta">M2.1 · 管理員</div>
+                </div>
+                <div class="nav-item" data-page="admin-cohort-wizard">
+                    梯次建立精靈
+                    <div class="nav-item-meta">M2.1 · 管理員</div>
+                </div>
+                <div class="nav-item" data-page="admin-attendance">
+                    出席管理
+                    <div class="nav-item-meta">M2.5 · 管理員</div>
+                </div>
+                <div class="nav-item" data-page="admin-video-management">
+                    影片管理
+                    <div class="nav-item-meta">M2.3 · 管理員</div>
+                </div>
+                <div class="nav-item" data-page="admin-supervision-slots">
+                    督導時段管理
+                    <div class="nav-item-meta">M3.2 · 管理員</div>
+                </div>
+                <div class="nav-item" data-page="admin-assignment-review">
+                    作業審核
+                    <div class="nav-item-meta">M2.4 · 管理員</div>
+                </div>
+                <div class="nav-item" data-page="admin-certification-review">
+                    認證審核
+                    <div class="nav-item-meta">M4.4 · 管理員</div>
+                </div>
+                <div class="nav-item" data-page="admin-certificate-management">
+                    證書管理
+                    <div class="nav-item-meta">M4.5 · 管理員</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Student: Course Overview -->
+            <div class="page active" id="student-courses">
+                <div class="page-header">
+                    <div class="page-title">我的課程</div>
+                    <div class="page-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">角色:</span>
+                            <span class="badge badge-student">學員</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">模組:</span>
+                            <span>M2.1 課程總覽</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">目前梯次</div>
+
+                    <div class="course-card">
+                        <div class="course-card-header">
+                            <div>
+                                <div class="course-title">2026 年第三梯 - A 班</div>
+                                <div class="course-meta">
+                                    <span>2026-09-06 ~ 2026-10-18</span>
+                                    <span>6 天課程</span>
+                                    <span class="badge badge-student">進行中</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 13px;">
+                                <span>課程進度</span>
+                                <span>4/6 堂</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 67%;"></div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 15px; display: flex; gap: 10px;">
+                            <button class="btn btn-primary btn-small">進入課程</button>
+                            <button class="btn btn-outline btn-small">查看行事曆</button>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-card-header">
+                            <div>
+                                <div class="course-title">2026 年第三梯 - B 班</div>
+                                <div class="course-meta">
+                                    <span>2026-10-19 ~ 2027-02-28</span>
+                                    <span>4 個月實戰培訓</span>
+                                    <span class="badge badge-student">已報名</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 13px;">
+                                <span>認證進度</span>
+                                <span>3/8 項完成</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 38%;"></div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 15px; display: flex; gap: 10px;">
+                            <button class="btn btn-outline btn-small">督導預約</button>
+                            <button class="btn btn-outline btn-small">作業繳交</button>
+                            <button class="btn btn-outline btn-small">認證申請</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">即將開始</div>
+                    <div class="alert alert-info">
+                        下次課程：2026-10-11（六）09:00 - 17:00<br>
+                        Day 5：職涯諮詢會談技巧（下）<br>
+                        <a href="#" style="color: #17a2b8; text-decoration: underline;">點此進入線上教室</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student: Class Detail -->
+            <div class="page" id="student-class-detail">
+                <div class="page-header">
+                    <div class="page-title">Day 4：職涯諮詢會談技巧（上）</div>
+                    <div class="page-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">角色:</span>
+                            <span class="badge badge-student">學員</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">日期:</span>
+                            <span>2026-10-04（六）09:00-17:00</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">講師:</span>
+                            <span>KM 老師</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">課程資訊</div>
+                    <div class="card">
+                        <div class="card-header">
+                            <span>課程大綱</span>
+                        </div>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 8px 0; border-bottom: 1px solid #ecf0f1;">09:00 - 10:30 | 會談架構：GROW 模型</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid #ecf0f1;">10:45 - 12:00 | 提問技巧與傾聽技巧</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid #ecf0f1;">13:00 - 14:30 | 實作演練：角色扮演</li>
+                            <li style="padding: 8px 0;">15:00 - 17:00 | 分組演練與回饋</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">課程教材</div>
+                    <div class="uploaded-file">
+                        <div class="file-info">
+                            <span style="font-size: 20px;">📄</span>
+                            <div>
+                                <div style="font-weight: 600;">Day4_會談技巧簡報.pdf</div>
+                                <div style="font-size: 12px; color: #7f8c8d;">2.3 MB · 上傳於 2026-10-03</div>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline btn-small">下載</button>
+                    </div>
+                    <div class="uploaded-file">
+                        <div class="file-info">
+                            <span style="font-size: 20px;">📄</span>
+                            <div>
+                                <div style="font-weight: 600;">GROW 模型工作表.docx</div>
+                                <div style="font-size: 12px; color: #7f8c8d;">156 KB · 上傳於 2026-10-03</div>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline btn-small">下載</button>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">課前作業</div>
+                    <div class="alert alert-warning">
+                        <strong>截止日期：2026-10-03 23:59</strong><br>
+                        請完成 GROW 模型自我練習，並上傳練習記錄表。
+                    </div>
+                    <div class="uploaded-file">
+                        <div class="file-info">
+                            <span style="font-size: 20px;">✅</span>
+                            <div>
+                                <div style="font-weight: 600;">學員A_GROW練習記錄.pdf</div>
+                                <div style="font-size: 12px; color: #7f8c8d;">已繳交 · 2026-10-02 16:23</div>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline btn-small">重新上傳</button>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">出席狀態</div>
+                    <div class="card">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <span style="font-size: 32px;">✅</span>
+                            <div>
+                                <div style="font-weight: 600; font-size: 16px;">已出席</div>
+                                <div style="font-size: 13px; color: #7f8c8d;">記錄於 2026-10-04 09:15</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">補課影片</div>
+                    <div class="alert alert-info">
+                        本堂課您已出席，如需複習可觀看補課影片（可觀看至 2026-10-25）
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student: Catch-up Videos -->
+            <div class="page" id="student-videos">
+                <div class="page-header">
+                    <div class="page-title">補課影片</div>
+                    <div class="page-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">角色:</span>
+                            <span class="badge badge-student">學員</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">模組:</span>
+                            <span>M2.3 補課影片管理</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-info">
+                    補課影片於課後 2 天內上架，可觀看 3 週。請於到期前完成觀看。
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">可觀看影片</div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span>Day 2：職涯理論與評估工具</span>
+                            <span class="countdown">⏱ 剩餘 12 天</span>
+                        </div>
+                        <div class="video-player">
+                            [ YouTube 播放器嵌入區域 ]
+                        </div>
+                        <div class="video-info">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span style="font-weight: 600;">課程資訊</span>
+                                <span style="font-size: 13px; color: #7f8c8d;">上傳於 2026-09-22</span>
+                            </div>
+                            <div style="font-size: 13px; color: #7f8c8d;">
+                                時長：6 小時 32 分鐘 · 到期日：2026-10-13
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span>Day 3：職涯諮詢師的角色與倫理</span>
+                            <span class="countdown">⏱ 剩餘 8 天</span>
+                        </div>
+                        <div class="video-player">
+                            [ YouTube 播放器嵌入區域 ]
+                        </div>
+                        <div class="video-info">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span style="font-weight: 600;">課程資訊</span>
+                                <span style="font-size: 13px; color: #7f8c8d;">上傳於 2026-09-30</span>
+                            </div>
+                            <div style="font-size: 13px; color: #7f8c8d;">
+                                時長：6 小時 18 分鐘 · 到期日：2026-10-21
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">已到期影片</div>
+                    <div class="card" style="background: #f8f9fa;">
+                        <div style="display: flex; align-items: center; gap: 15px; color: #7f8c8d;">
+                            <span style="font-size: 32px;">🔒</span>
+                            <div>
+                                <div style="font-weight: 600;">Day 1：職涯諮詢基礎概論</div>
+                                <div style="font-size: 13px;">已於 2026-10-07 到期</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student: Supervision Booking -->
+            <div class="page" id="student-supervision-booking">
+                <div class="page-header">
+                    <div class="page-title">個督預約</div>
+                    <div class="page-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">角色:</span>
+                            <span class="badge badge-student">學員</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">模組:</span>
+                            <span>M3.2 督導排程系統</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-info">
+                    B 班學員需完成 3 次個別督導（個督）。請於開放時間內預約時段。
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">我的預約</div>
+
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: start;">
+                            <div>
+                                <div style="font-weight: 600; font-size: 16px; margin-bottom: 5px;">個督 1 - 督導A</div>
+                                <div style="color: #7f8c8d; font-size: 14px;">2026-11-08（五）14:00 - 15:30</div>
+                            </div>
+                            <span class="status-badge status-completed">已完成</span>
+                        </div>
+                        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ecf0f1;">
+                            <a href="#" style="color: #3498db; text-decoration: underline; font-size: 14px;">查看督導記錄</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: start;">
+                            <div>
+                                <div style="font-weight: 600; font-size: 16px; margin-bottom: 5px;">個督 2 - 督導B</div>
+                                <div style="color: #7f8c8d; font-size: 14px;">2026-11-22（五）10:00 - 11:30</div>
+                            </div>
+                            <span class="status-badge status-pending">待進行</span>
+                        </div>
+                        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ecf0f1;">
+                            <button class="btn btn-outline btn-small">變更預約</button>
+                            <span style="margin-left: 10px; font-size: 13px; color: #7f8c8d;">可變更至 2026-11-20 前</span>
+                        </div>
+                    </div>
+
+                    <div class="card" style="border: 2px dashed #bdc3c7;">
+                        <div style="text-align: center; padding: 20px; color: #7f8c8d;">
+                            <div style="font-size: 32px; margin-bottom: 10px;">📅</div>
+                            <div style="font-weight: 600; margin-bottom: 5px;">個督 3 - 課程負責人</div>
+                            <div style="font-size: 14px; margin-bottom: 15px;">尚未預約</div>
+                            <button class="btn btn-primary">立即預約</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">選擇時段 - 個督 3</div>
+                    <div class="card">
+                        <div class="card-header">
+                            <span>可預約時段（2026-11 月）</span>
+                            <button class="btn btn-outline btn-small">下個月</button>
+                        </div>
+
+                        <div class="slot-picker">
+                            <div class="time-slot available">
+                                <div class="slot-time">11/25 (一) 14:00</div>
+                                <div class="slot-status">可預約</div>
+                            </div>
+                            <div class="time-slot available">
+                                <div class="slot-time">11/25 (一) 16:00</div>
+                                <div class="slot-status">可預約</div>
+                            </div>
+                            <div class="time-slot booked">
+                                <div class="slot-time">11/26 (二) 10:00</div>
+                                <div class="slot-status">已額滿</div>
+                            </div>
+                            <div class="time-slot available">
+                                <div class="slot-time">11/26 (二) 14:00</div>
+                                <div class="slot-status">可預約</div>
+                            </div>
+                            <div class="time-slot available">
+                                <div class="slot-time">11/27 (三) 10:00</div>
+                                <div class="slot-status">可預約</div>
+                            </div>
+                            <div class="time-slot booked">
+                                <div class="slot-time">11/27 (三) 14:00</div>
+                                <div class="slot-status">已額滿</div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #ecf0f1;">
+                            <button class="btn btn-primary">確認預約</button>
+                            <button class="btn btn-secondary" style="margin-left: 10px;">取消</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student: Group Supervision -->
+            <div class="page" id="student-group-supervision">
+                <div class="page-header">
+                    <div class="page-title">團督排程</div>
+                    <div class="page-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">角色:</span>
+                            <span class="badge badge-student">學員</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">模組:</span>
+                            <span>M3.2 督導排程系統</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-info">
+                    B 班共 7 次團體督導（團督）。每次 3 位學員進行個案報告，其他學員參與討論。
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">團督時程表</div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>場次</th>
+                                <th>日期時間</th>
+                                <th>報告學員</th>
+                                <th>我的狀態</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>第 1 次</strong></td>
+                                <td>2026-11-10（日）10:00-12:00</td>
+                                <td>學員 B、學員 C、學員 D</td>
+                                <td><span class="status-badge status-completed">已參與</span></td>
+                                <td><button class="btn btn-outline btn-small">查看記錄</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>第 2 次</strong></td>
+                                <td>2026-11-24（日）10:00-12:00</td>
+                                <td>學員 E、學員 F、學員 G</td>
+                                <td><span class="status-badge status-completed">已參與</span></td>
+                                <td><button class="btn btn-outline btn-small">查看記錄</button></td>
+                            </tr>
+                            <tr style="background: #fffbea;">
+                                <td><strong>第 3 次</strong></td>
+                                <td>2026-12-08（日）10:00-12:00</td>
+                                <td><strong>學員 A（我）</strong>、學員 H、學員 I</td>
+                                <td><span class="status-badge status-pending">我要報告</span></td>
+                                <td><button class="btn btn-primary btn-small">上傳報告</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>第 4 次</strong></td>
+                                <td>2026-12-22（日）10:00-12:00</td>
+                                <td>學員 J、學員 K、學員 L</td>
+                                <td><span class="status-badge status-pending">待進行</span></td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><strong>第 5 次</strong></td>
+                                <td>2027-01-05（日）10:00-12:00</td>
+                                <td>待分配</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><strong>第 6 次</strong></td>
+                                <td>2027-01-19（日）10:00-12:00</td>
+                                <td>待分配</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><strong>第 7 次</strong></td>
+                                <td>2027-02-02（日）10:00-12:00</td>
+                                <td>待分配</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">我的報告（第 3 次團督）</div>
+                    <div class="card">
+                        <div class="alert alert-warning">
+                            <strong>繳交截止：2026-12-06 23:59</strong><br>
+                            請於團督前 2 天上傳個案報告（1500 字以上），讓其他學員與督導事先閱讀。
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">個案報告 <span class="required">*</span></label>
+                            <div class="file-upload">
+                                <div class="upload-icon">📎</div>
+                                <div style="font-weight: 600; margin-bottom: 5px;">點擊上傳或拖曳檔案</div>
+                                <div style="font-size: 13px; color: #7f8c8d;">支援格式：PDF, Word（最大 10 MB）</div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary">提交報告</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student: Assignments -->
+            <div class="page" id="student-assignments">
+                <div class="page-header">
+                    <div class="page-title">作業繳交</div>
+                    <div class="page-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">角色:</span>
+                            <span class="badge badge-student">學員</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">模組:</span>
+                            <span>M2.4 作業管理</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">A 班作業</div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span>Day 1 課前作業</span>
+                            <span class="status-badge status-completed">已完成</span>
+                        </div>
+                        <div style="color: #7f8c8d; font-size: 14px; margin-bottom: 15px;">
+                            截止日期：2026-09-05 23:59
+                        </div>
+                        <div class="uploaded-file">
+                            <div class="file-info">
+                                <span style="font-size: 20px;">✅</span>
+                                <div>
+                                    <div style="font-weight: 600;">學員A_牌卡練習.jpg</div>
+                                    <div style="font-size: 12px; color: #7f8c8d;">已繳交 · 2026-09-04 18:30</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span>Day 3 課前作業</span>
+                            <span class="status-badge status-completed">已完成</span>
+                        </div>
+                        <div style="color: #7f8c8d; font-size: 14px; margin-bottom: 15px;">
+                            截止日期：2026-09-27 23:59
+                        </div>
+                        <div class="uploaded-file">
+                            <div class="file-info">
+                                <span style="font-size: 20px;">✅</span>
+                                <div>
+                                    <div style="font-weight: 600;">學員A_倫理案例分析.docx</div>
+                                    <div style="font-size: 12px; color: #7f8c8d;">已繳交 · 2026-09-26 21:15</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">B 班認證附件</div>
+
+                    <ul class="checklist">
+                        <li class="checklist-item">
+                            <div class="checklist-icon">✅</div>
+                            <div class="checklist-content">
+                                <div class="checklist-title">附件 A：實習個案總表</div>
+                                <div class="checklist-desc">已完成 · 總時數：26 小時（需 ≥ 24 小時）</div>
+                            </div>
+                            <button class="btn btn-outline btn-small">查看</button>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checklist-icon">✅</div>
+                            <div class="checklist-content">
+                                <div class="checklist-title">附件 B：諮詢同意書</div>
+                                <div class="checklist-desc">已上傳 6 份 · 符合個案數量</div>
+                            </div>
+                            <button class="btn btn-outline btn-small">查看</button>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checklist-icon">✅</div>
+                            <div class="checklist-content">
+                                <div class="checklist-title">附件 C：個案報告</div>
+                                <div class="checklist-desc">已上傳 · 最後更新：2026-11-15</div>
+                            </div>
+                            <button class="btn btn-outline btn-small">查看</button>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checklist-icon">⚠️</div>
+                            <div class="checklist-content">
+                                <div class="checklist-title">附件 D：諮詢回饋問卷</div>
+                                <div class="checklist-desc" style="color: #856404;">進行中 · 已收集 4/6 份</div>
+                            </div>
+                            <button class="btn btn-primary btn-small">繼續收集</button>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checklist-icon">⚠️</div>
+                            <div class="checklist-content">
+                                <div class="checklist-title">附件 E：團督/個督心得記錄表</div>
+                                <div class="checklist-desc" style="color: #856404;">進行中 · 已完成 5/10 次（7 團督 + 3 個督）</div>
+                            </div>
+                            <button class="btn btn-outline btn-small">查看進度</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Student: Certification -->
+            <div class="page" id="student-certification">
+                <div class="page-header">
+                    <div class="page-title">認證申請</div>
+                    <div class="page-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">角色:</span>
+                            <span class="badge badge-student">學員</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">模組:</span>
+                            <span>M4.1 認證申請工作流</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    認證申請截止日：2027-02-15<br>
+                    請確保完成所有前提條件後提出申請。系統將自動檢核資格。
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">前提條件檢核</div>
+
+                    <ul class="checklist">
+                        <li class="checklist-item">
+                            <div class="checklist-icon">✅</div>
+                            <div class="checklist-content">
+                                <div class="checklist-title">附件 A：實習時數</div>
+                                <div class="checklist-desc">已達標 · 26 小時 / 24 小時</div>
+                            </div>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checklist-icon">✅</div>
+                            <div class="checklist-content">
+                                <div class="checklist-title">附件 B：同意書</div>
+                                <div class="checklist-desc">已完成 · 數量正確</div>
+                            </div>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checklist-icon">✅</div>
+                            <div class="checklist-content">
+                                <div class="checklist-title">附件 C：個案報告</div>
+                                <div class="checklist-desc">已上傳 · 內容非空白</div>
+                            </div>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checklist-icon">❌</div>
+                            <div class="checklist-content">
+                                <div class="checklist-title">附件 D：諮詢回饋</div>
+                                <div class="checklist-desc" style="color: #721c24;">未完成 · 缺 2 份問卷</div>
+                            </div>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checklist-icon">❌</div>
+                            <div class="checklist-content">
+                                <div class="checklist-title">附件 E：督導心得</div>
+                                <div class="checklist-desc" style="color: #721c24;">未完成 · 缺 5 份記錄</div>
+                            </div>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checklist-icon">✅</div>
+                            <div class="checklist-content">
+                                <div class="checklist-title">出席率</div>
+                                <div class="checklist-desc">已達標 · 100%（12/12 堂）</div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="alert alert-danger" style="margin-top: 20px;">
+                        <strong>尚未符合認證資格</strong><br>
+                        請先完成以下項目：附件 D（缺 2 份）、附件 E（缺 5 份）
+                    </div>
+
+                    <button class="btn btn-secondary" disabled>提出認證申請</button>
+                    <span style="margin-left: 10px; color: #7f8c8d; font-size: 14px;">需完成所有前提條件</span>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">認證作業（資格通過後開放）</div>
+                    <div class="card" style="background: #f8f9fa; color: #7f8c8d;">
+                        <div style="text-align: center; padding: 20px;">
+                            <div style="font-size: 32px; margin-bottom: 10px;">🔒</div>
+                            <div>請先完成前提條件檢核，系統將自動發送筆試檔案</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student: Certificates -->
+            <div class="page" id="student-certificates">
+                <div class="page-header">
+                    <div class="page-title">我的證書</div>
+                    <div class="page-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">角色:</span>
+                            <span class="badge badge-student">學員</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">模組:</span>
+                            <span>M4.5 證書管理</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">已取得證書</div>
+
+                    <div class="card">
+                        <div style="display: flex; gap: 20px;">
+                            <div style="width: 200px; height: 140px; border: 2px solid #ecf0f1; background: #f8f9fa; display: flex; align-items: center; justify-content: center; color: #7f8c8d;">
+                                [ 證書預覽圖 ]
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 600; font-size: 18px; margin-bottom: 8px;">
+                                    CNC 職涯諮詢師認證證書
+                                </div>
+                                <div style="color: #7f8c8d; font-size: 14px; margin-bottom: 15px;">
+                                    證書編號：CNC-2026-Q3-A042<br>
+                                    發證日期：2027-03-15<br>
+                                    有效期限：2027-03-15 ~ 2030-03-14（3 年）
+                                </div>
+                                <div style="display: flex; gap: 10px;">
+                                    <button class="btn btn-primary btn-small">下載 PDF</button>
+                                    <button class="btn btn-outline btn-small">查看線上版</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-warning" style="margin-top: 20px;">
+                        您的證書將於 2030-03-14 到期，請於到期前 6 個月提出換證申請。
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">A 班修課證明</div>
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <div style="font-weight: 600; font-size: 16px; margin-bottom: 5px;">
+                                    2026 年第三梯 A 班修課證明
+                                </div>
+                                <div style="color: #7f8c8d; font-size: 14px;">
+                                    發證日期：2026-10-19
+                                </div>
+                            </div>
+                            <button class="btn btn-outline btn-small">下載 PDF</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin: Course Management -->
+            <div class="page" id="admin-course-management">
+                <div class="page-header">
+                    <div class="page-title">課程管理</div>
+                    <div class="page-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">角色:</span>
+                            <span class="badge badge-admin">管理員</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">模組:</span>
+                            <span>M2.1 課程管理</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-bar">
+                    <div></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary">+ 建立新梯次</button>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">進行中梯次</div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>梯次名稱</th>
+                                <th>期間</th>
+                                <th>報名人數</th>
+                                <th>A 班進度</th>
+                                <th>B 班進度</th>
+                                <th>狀態</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>2026 年第三梯</strong></td>
+                                <td>2026-09-06 ~ 2027-02-28</td>
+                                <td>42 人（A+B: 38, 僅B: 4）</td>
+                                <td>4/6 堂</td>
+                                <td>團督 2/7 次</td>
+                                <td><span class="status-badge status-pending">進行中</span></td>
+                                <td>
+                                    <button class="btn btn-outline btn-small">管理</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>2026 年第二梯</strong></td>
+                                <td>2026-05-04 ~ 2026-10-31</td>
+                                <td>35 人（A+B: 32, 僅B: 3）</td>
+                                <td>6/6 堂</td>
+                                <td>認證審核中</td>
+                                <td><span class="status-badge status-pending">B 班進行中</span></td>
+                                <td>
+                                    <button class="btn btn-outline btn-small">管理</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">已結束梯次</div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>梯次名稱</th>
+                                <th>期間</th>
+                                <th>報名人數</th>
+                                <th>認證人數</th>
+                                <th>認證率</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>2026 年第一梯</strong></td>
+                                <td>2026-01-06 ~ 2026-06-30</td>
+                                <td>38 人</td>
+                                <td>31 人</td>
+                                <td>82%</td>
+                                <td>
+                                    <button class="btn btn-outline btn-small">查看</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>2025 年第四梯</strong></td>
+                                <td>2025-09-07 ~ 2026-02-29</td>
+                                <td>45 人</td>
+                                <td>37 人</td>
+                                <td>82%</td>
+                                <td>
+                                    <button class="btn btn-outline btn-small">查看</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Admin: Cohort Wizard -->
+            <div class="page" id="admin-cohort-wizard">
+                <div class="page-header">
+                    <div class="page-title">梯次建立精靈</div>
+                    <div class="page-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">角色:</span>
+                            <span class="badge badge-admin">管理員</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">模組:</span>
+                            <span>M2.1 梯次建立精靈</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wizard-steps">
+                    <div class="wizard-step active">
+                        <div class="step-circle">1</div>
+                        <div class="step-label">基本資訊</div>
+                    </div>
+                    <div class="wizard-step">
+                        <div class="step-circle">2</div>
+                        <div class="step-label">課程設定</div>
+                    </div>
+                    <div class="wizard-step">
+                        <div class="step-circle">3</div>
+                        <div class="step-label">督導設定</div>
+                    </div>
+                    <div class="wizard-step">
+                        <div class="step-circle">4</div>
+                        <div class="step-label">通知設定</div>
+                    </div>
+                    <div class="wizard-step">
+                        <div class="step-circle">5</div>
+                        <div class="step-label">確認建立</div>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">步驟 1：基本資訊</div>
+
+                    <div class="card">
+                        <div class="form-group">
+                            <label class="form-label">梯次名稱 <span class="required">*</span></label>
+                            <input type="text" class="form-input" placeholder="例：2027 年第一梯">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">A 班開始日期 <span class="required">*</span></label>
+                                <input type="date" class="form-input" value="2027-03-06">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">B 班結束日期 <span class="required">*</span></label>
+                                <input type="date" class="form-input" value="2027-08-31">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">A 班課程日期（6 天）<span class="required">*</span></label>
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                                <input type="date" class="form-input" placeholder="Day 1">
+                                <input type="date" class="form-input" placeholder="Day 2">
+                                <input type="date" class="form-input" placeholder="Day 3">
+                                <input type="date" class="form-input" placeholder="Day 4">
+                                <input type="date" class="form-input" placeholder="Day 5">
+                                <input type="date" class="form-input" placeholder="Day 6">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">報名上限</label>
+                                <input type="number" class="form-input" value="50">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">複製設定自</label>
+                                <select class="form-select">
+                                    <option>請選擇...</option>
+                                    <option>2026 年第三梯</option>
+                                    <option>2026 年第二梯</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <button class="btn btn-primary">下一步：課程設定</button>
+                        <button class="btn btn-secondary" style="margin-left: 10px;">取消</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin: Attendance -->
+            <div class="page" id="admin-attendance">
+                <div class="page-header">
+                    <div class="page-title">出席管理</div>
+                    <div class="page-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">角色:</span>
+                            <span class="badge badge-admin">管理員</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">模組:</span>
+                            <span>M2.5 出席追蹤</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-bar">
+                    <div class="filter-item">
+                        <label class="form-label">梯次</label>
+                        <select class="form-select">
+                            <option selected>2026 年第三梯</option>
+                            <option>2026 年第二梯</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <label class="form-label">課堂</label>
+                        <select class="form-select">
+                            <option selected>Day 4：職涯諮詢會談技巧（上）</option>
+                            <option>Day 3：職涯諮詢師的角色與倫理</option>
+                            <option>Day 2：職涯理論與評估工具</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <label class="form-label">狀態</label>
+                        <select class="form-select">
+                            <option selected>全部</option>
+                            <option>出席</option>
+                            <option>缺席</option>
+                            <option>請假</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="action-bar">
+                    <div style="font-size: 14px; color: #7f8c8d;">
+                        共 42 位學員 · 出席：38 · 請假：2 · 缺席：2
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-outline btn-small">批次操作</button>
+                        <button class="btn btn-primary btn-small">儲存變更</button>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width: 40px;">
+                                    <input type="checkbox" class="checkbox">
+                                </th>
+                                <th>學員姓名</th>
+                                <th>出席狀態</th>
+                                <th>請假原因</th>
+                                <th>已觀看補課影片</th>
+                                <th>備註</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" class="checkbox"></td>
+                                <td><strong>學員 A</strong></td>
+                                <td>
+                                    <select class="form-select" style="width: 120px;">
+                                        <option selected>出席</option>
+                                        <option>請假</option>
+                                        <option>缺席</option>
+                                    </select>
+                                </td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td><input type="text" class="form-input" placeholder="備註"></td>
+                                <td><button class="btn btn-outline btn-small">儲存</button></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="checkbox"></td>
+                                <td><strong>學員 B</strong></td>
+                                <td>
+                                    <select class="form-select" style="width: 120px;">
+                                        <option selected>請假</option>
+                                        <option>出席</option>
+                                        <option>缺席</option>
+                                    </select>
+                                </td>
+                                <td>工作出差</td>
+                                <td><span class="status-badge status-completed">已觀看</span></td>
+                                <td><input type="text" class="form-input" placeholder="備註"></td>
+                                <td><button class="btn btn-outline btn-small">儲存</button></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="checkbox"></td>
+                                <td><strong>學員 C</strong></td>
+                                <td>
+                                    <select class="form-select" style="width: 120px;">
+                                        <option>出席</option>
+                                        <option>請假</option>
+                                        <option selected>缺席</option>
+                                    </select>
+                                </td>
+                                <td>-</td>
+                                <td><span class="status-badge status-missing">未觀看</span></td>
+                                <td><input type="text" class="form-input" placeholder="備註"></td>
+                                <td><button class="btn btn-outline btn-small">儲存</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">請假申請</div>
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+                            <div>
+                                <div style="font-weight: 600;">學員 D - Day 5 請假申請</div>
+                                <div style="font-size: 13px; color: #7f8c8d; margin-top: 3px;">提交於 2026-10-09 14:32</div>
+                            </div>
+                            <span class="status-badge status-pending">待審核</span>
+                        </div>
+                        <div style="padding: 15px; background: #f8f9fa; border: 1px solid #ecf0f1; margin-bottom: 15px;">
+                            請假原因：家人突發狀況需要照顧，無法參與 Day 5 課程，會觀看補課影片。
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="btn btn-success btn-small">核准</button>
+                            <button class="btn btn-danger btn-small">拒絕</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin: Video Management -->
+            <div class="page" id="admin-video-management">
+                <div class="page-header">
+                    <div class="page-title">影片管理</div>
+                    <div class="page-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">角色:</span>
+                            <span class="badge badge-admin">管理員</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">模組:</span>
+                            <span>M2.3 線上課程整合</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-bar">
+                    <div class="filter-item">
+                        <label class="form-label">梯次</label>
+                        <select class="form-select">
+                            <option selected>2026 年第三梯</option>
+                            <option>2026 年第二梯</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <label class="form-label">狀態</label>
+                        <select class="form-select">
+                            <option selected>全部</option>
+                            <option>可觀看</option>
+                            <option>已到期</option>
+                            <option>未上傳</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="action-bar">
+                    <div></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary">+ 上傳影片</button>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>課程</th>
+                                <th>YouTube 連結</th>
+                                <th>上傳日期</th>
+                                <th>到期日期</th>
+                                <th>觀看人數</th>
+                                <th>狀態</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Day 1：職涯諮詢基礎概論</strong></td>
+                                <td style="font-size: 12px; color: #7f8c8d;">youtube.com/watch?v=xxxxx</td>
+                                <td>2026-09-08</td>
+                                <td>2026-09-29</td>
+                                <td>38/42 人</td>
+                                <td><span class="status-badge status-missing">已到期</span></td>
+                                <td>
+                                    <button class="btn btn-outline btn-small">延長</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Day 2：職涯理論與評估工具</strong></td>
+                                <td style="font-size: 12px; color: #7f8c8d;">youtube.com/watch?v=yyyyy</td>
+                                <td>2026-09-22</td>
+                                <td>2026-10-13</td>
+                                <td>35/42 人</td>
+                                <td><span class="status-badge status-completed">可觀看</span></td>
+                                <td>
+                                    <button class="btn btn-outline btn-small">編輯</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Day 3：職涯諮詢師的角色與倫理</strong></td>
+                                <td style="font-size: 12px; color: #7f8c8d;">youtube.com/watch?v=zzzzz</td>
+                                <td>2026-09-30</td>
+                                <td>2026-10-21</td>
+                                <td>32/42 人</td>
+                                <td><span class="status-badge status-completed">可觀看</span></td>
+                                <td>
+                                    <button class="btn btn-outline btn-small">編輯</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Day 4：職涯諮詢會談技巧（上）</strong></td>
+                                <td style="color: #7f8c8d;">-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td><span class="status-badge status-pending">未上傳</span></td>
+                                <td>
+                                    <button class="btn btn-primary btn-small">上傳</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">上傳補課影片</div>
+                    <div class="card">
+                        <div class="form-group">
+                            <label class="form-label">課程 <span class="required">*</span></label>
+                            <select class="form-select">
+                                <option>請選擇課程...</option>
+                                <option selected>Day 4：職涯諮詢會談技巧（上）</option>
+                                <option>Day 5：職涯諮詢會談技巧（下）</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">YouTube 不公開連結 <span class="required">*</span></label>
+                            <input type="text" class="form-input" placeholder="https://youtube.com/watch?v=...">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">上架日期 <span class="required">*</span></label>
+                                <input type="date" class="form-input" value="2026-10-06">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">到期日期（上架後 3 週）</label>
+                                <input type="date" class="form-input" value="2026-10-27" disabled>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 20px;">
+                            <button class="btn btn-primary">儲存並上架</button>
+                            <button class="btn btn-secondary" style="margin-left: 10px;">取消</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin: Supervision Slots -->
+            <div class="page" id="admin-supervision-slots">
+                <div class="page-header">
+                    <div class="page-title">督導時段管理</div>
+                    <div class="page-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">角色:</span>
+                            <span class="badge badge-admin">管理員</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">模組:</span>
+                            <span>M3.2 督導排程系統</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-bar">
+                    <div class="filter-item">
+                        <label class="form-label">梯次</label>
+                        <select class="form-select">
+                            <option selected>2026 年第三梯</option>
+                            <option>2026 年第二梯</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <label class="form-label">督導</label>
+                        <select class="form-select">
+                            <option selected>全部</option>
+                            <option>督導 A</option>
+                            <option>督導 B</option>
+                            <option>課程負責人</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <label class="form-label">月份</label>
+                        <select class="form-select">
+                            <option>2026-10</option>
+                            <option selected>2026-11</option>
+                            <option>2026-12</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="action-bar">
+                    <div></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary">+ 新增時段</button>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">督導預約總覽</div>
+
+                    <div class="dashboard-grid">
+                        <div class="stat-card">
+                            <div class="stat-label">督導 A - 可預約</div>
+                            <div class="stat-value">8</div>
+                            <div style="font-size: 13px; color: #7f8c8d;">已預約：12/20 個時段</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">督導 B - 可預約</div>
+                            <div class="stat-value">6</div>
+                            <div style="font-size: 13px; color: #7f8c8d;">已預約：14/20 個時段</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">課程負責人 - 可預約</div>
+                            <div class="stat-value">15</div>
+                            <div style="font-size: 13px; color: #7f8c8d;">已預約：5/20 個時段</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">時段列表</div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>督導</th>
+                                <th>日期時間</th>
+                                <th>時段類型</th>
+                                <th>預約學員</th>
+                                <th>狀態</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>督導 A</strong></td>
+                                <td>2026-11-15（五）10:00-11:30</td>
+                                <td>個督 1</td>
+                                <td>學員 E</td>
+                                <td><span class="status-badge status-completed">已預約</span></td>
+                                <td>
+                                    <button class="btn btn-outline btn-small">查看</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>督導 A</strong></td>
+                                <td>2026-11-15（五）14:00-15:30</td>
+                                <td>個督 1</td>
+                                <td>-</td>
+                                <td><span class="status-badge status-pending">可預約</span></td>
+                                <td>
+                                    <button class="btn btn-outline btn-small">編輯</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>督導 B</strong></td>
+                                <td>2026-11-18（一）10:00-11:30</td>
+                                <td>個督 2</td>
+                                <td>學員 F</td>
+                                <td><span class="status-badge status-completed">已預約</span></td>
+                                <td>
+                                    <button class="btn btn-outline btn-small">查看</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>課程負責人</strong></td>
+                                <td>2026-11-25（一）14:00-15:30</td>
+                                <td>個督 3</td>
+                                <td>-</td>
+                                <td><span class="status-badge status-pending">可預約</span></td>
+                                <td>
+                                    <button class="btn btn-outline btn-small">編輯</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">新增時段</div>
+                    <div class="card">
+                        <div class="form-group">
+                            <label class="form-label">督導 <span class="required">*</span></label>
+                            <select class="form-select">
+                                <option>請選擇...</option>
+                                <option>督導 A</option>
+                                <option>督導 B</option>
+                                <option>課程負責人</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">日期 <span class="required">*</span></label>
+                                <input type="date" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">時段類型 <span class="required">*</span></label>
+                                <select class="form-select">
+                                    <option>個督 1</option>
+                                    <option>個督 2</option>
+                                    <option>個督 3</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">開始時間 <span class="required">*</span></label>
+                                <input type="time" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">結束時間 <span class="required">*</span></label>
+                                <input type="time" class="form-input">
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 20px;">
+                            <button class="btn btn-primary">新增時段</button>
+                            <button class="btn btn-secondary" style="margin-left: 10px;">取消</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin: Assignment Review -->
+            <div class="page" id="admin-assignment-review">
+                <div class="page-header">
+                    <div class="page-title">作業審核</div>
+                    <div class="page-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">角色:</span>
+                            <span class="badge badge-admin">管理員</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">模組:</span>
+                            <span>M2.4 作業管理</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-bar">
+                    <div class="filter-item">
+                        <label class="form-label">梯次</label>
+                        <select class="form-select">
+                            <option selected>2026 年第三梯</option>
+                            <option>2026 年第二梯</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <label class="form-label">作業類型</label>
+                        <select class="form-select">
+                            <option selected>B 班認證附件</option>
+                            <option>A 班課前作業</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <label class="form-label">完成度</label>
+                        <select class="form-select">
+                            <option selected>全部</option>
+                            <option>已完成</option>
+                            <option>進行中</option>
+                            <option>未開始</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">學員作業完成度</div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>學員姓名</th>
+                                <th>附件 A<br><small>實習時數</small></th>
+                                <th>附件 B<br><small>同意書</small></th>
+                                <th>附件 C<br><small>個案報告</small></th>
+                                <th>附件 D<br><small>回饋問卷</small></th>
+                                <th>附件 E<br><small>督導心得</small></th>
+                                <th>整體進度</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>學員 A</strong></td>
+                                <td><span class="status-badge status-completed">26 hrs</span></td>
+                                <td><span class="status-badge status-completed">6 份</span></td>
+                                <td><span class="status-badge status-completed">已上傳</span></td>
+                                <td><span class="status-badge status-pending">4/6</span></td>
+                                <td><span class="status-badge status-pending">5/10</span></td>
+                                <td>60%</td>
+                                <td>
+                                    <button class="btn btn-outline btn-small">查看</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>學員 B</strong></td>
+                                <td><span class="status-badge status-completed">30 hrs</span></td>
+                                <td><span class="status-badge status-completed">7 份</span></td>
+                                <td><span class="status-badge status-completed">已上傳</span></td>
+                                <td><span class="status-badge status-completed">7/7</span></td>
+                                <td><span class="status-badge status-completed">10/10</span></td>
+                                <td>100%</td>
+                                <td>
+                                    <button class="btn btn-outline btn-small">查看</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>學員 C</strong></td>
+                                <td><span class="status-badge status-missing">18 hrs</span></td>
+                                <td><span class="status-badge status-pending">4/6</span></td>
+                                <td><span class="status-badge status-missing">未上傳</span></td>
+                                <td><span class="status-badge status-pending">2/6</span></td>
+                                <td><span class="status-badge status-pending">3/10</span></td>
+                                <td>32%</td>
+                                <td>
+                                    <button class="btn btn-outline btn-small">查看</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">學員 A - 附件詳情</div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span>附件 A：實習個案總表</span>
+                            <span class="status-badge status-completed">已達標</span>
+                        </div>
+                        <div style="font-size: 14px; color: #7f8c8d; margin-bottom: 10px;">
+                            總時數：26 小時（需 ≥ 24 小時）· 個案數：6 個
+                        </div>
+                        <button class="btn btn-outline btn-small">查看明細</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span>附件 D：諮詢回饋問卷</span>
+                            <span class="status-badge status-pending">進行中</span>
+                        </div>
+                        <div style="font-size: 14px; color: #7f8c8d; margin-bottom: 10px;">
+                            已收集 4/6 份 · 缺少 2 份問卷
+                        </div>
+                        <button class="btn btn-outline btn-small">查看問卷</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span>附件 E：團督/個督心得記錄表</span>
+                            <span class="status-badge status-pending">進行中</span>
+                        </div>
+                        <div style="font-size: 14px; color: #7f8c8d; margin-bottom: 10px;">
+                            已完成 5/10 次（團督 3/7 + 個督 2/3）
+                        </div>
+                        <button class="btn btn-outline btn-small">查看記錄</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin: Certification Review -->
+            <div class="page" id="admin-certification-review">
+                <div class="page-header">
+                    <div class="page-title">認證審核</div>
+                    <div class="page-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">角色:</span>
+                            <span class="badge badge-admin">管理員</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">模組:</span>
+                            <span>M4.4 審核導師分配與批改</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-bar">
+                    <div class="filter-item">
+                        <label class="form-label">梯次</label>
+                        <select class="form-select">
+                            <option>2026 年第三梯</option>
+                            <option selected>2026 年第二梯</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <label class="form-label">審核狀態</label>
+                        <select class="form-select">
+                            <option selected>全部</option>
+                            <option>待分配</option>
+                            <option>審核中</option>
+                            <option>已完成</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">認證申請總覽</div>
+
+                    <div class="dashboard-grid">
+                        <div class="stat-card">
+                            <div class="stat-label">符合資格</div>
+                            <div class="stat-value">28</div>
+                            <div style="font-size: 13px; color: #7f8c8d;">已提出申請：28 人</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">待分配審核導師</div>
+                            <div class="stat-value">3</div>
+                            <div style="font-size: 13px; color: #7f8c8d;">需指派審核導師</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">審核中</div>
+                            <div class="stat-value">12</div>
+                            <div style="font-size: 13px; color: #7f8c8d;">審核導師批改中</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">已通過</div>
+                            <div class="stat-value">13</div>
+                            <div style="font-size: 13px; color: #7f8c8d;">待製作證書</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">認證申請列表</div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>學員姓名</th>
+                                <th>申請日期</th>
+                                <th>審核導師</th>
+                                <th>筆試</th>
+                                <th>諮詢演練影片</th>
+                                <th>職業介紹影片</th>
+                                <th>狀態</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>學員 G</strong></td>
+                                <td>2026-10-15</td>
+                                <td>學長姐 A</td>
+                                <td><span class="status-badge status-completed">已批改</span></td>
+                                <td><span class="status-badge status-completed">已批改</span></td>
+                                <td><span class="status-badge status-completed">已批改</span></td>
+                                <td><span class="status-badge status-completed">通過</span></td>
+                                <td>
+                                    <button class="btn btn-outline btn-small">查看</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>學員 H</strong></td>
+                                <td>2026-10-18</td>
+                                <td>學長姐 B</td>
+                                <td><span class="status-badge status-pending">審核中</span></td>
+                                <td><span class="status-badge status-pending">審核中</span></td>
+                                <td><span class="status-badge status-completed">已批改</span></td>
+                                <td><span class="status-badge status-pending">審核中</span></td>
+                                <td>
+                                    <button class="btn btn-outline btn-small">查看</button>
+                                </td>
+                            </tr>
+                            <tr style="background: #fffbea;">
+                                <td><strong>學員 I</strong></td>
+                                <td>2026-10-20</td>
+                                <td style="color: #856404;">-</td>
+                                <td><span class="status-badge status-pending">待分配</span></td>
+                                <td><span class="status-badge status-pending">待分配</span></td>
+                                <td><span class="status-badge status-pending">待分配</span></td>
+                                <td><span class="status-badge status-pending">待分配</span></td>
+                                <td>
+                                    <button class="btn btn-primary btn-small">分配導師</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">分配審核導師 - 學員 I</div>
+                    <div class="card">
+                        <div class="alert alert-info">
+                            <strong>系統建議：</strong>學員 I 的學長姐諮詢體驗配對為「學長姐 C」，建議由同一位學長姐擔任審核導師。
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">審核導師 <span class="required">*</span></label>
+                            <select class="form-select">
+                                <option>請選擇...</option>
+                                <option selected>學長姐 C（系統建議）</option>
+                                <option>學長姐 D</option>
+                                <option>學長姐 E</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">審核截止日期</label>
+                            <input type="date" class="form-input" value="2026-11-03">
+                            <div style="font-size: 13px; color: #7f8c8d; margin-top: 5px;">預設 14 天</div>
+                        </div>
+
+                        <div style="margin-top: 20px;">
+                            <button class="btn btn-primary">確認分配</button>
+                            <button class="btn btn-secondary" style="margin-left: 10px;">取消</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin: Certificate Management -->
+            <div class="page" id="admin-certificate-management">
+                <div class="page-header">
+                    <div class="page-title">證書管理</div>
+                    <div class="page-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">角色:</span>
+                            <span class="badge badge-admin">管理員</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">模組:</span>
+                            <span>M4.5 證書管理</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-bar">
+                    <div class="filter-item">
+                        <label class="form-label">梯次</label>
+                        <select class="form-select">
+                            <option>全部</option>
+                            <option>2026 年第三梯</option>
+                            <option selected>2026 年第二梯</option>
+                            <option>2026 年第一梯</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <label class="form-label">證書狀態</label>
+                        <select class="form-select">
+                            <option selected>全部</option>
+                            <option>待製作</option>
+                            <option>已發證</option>
+                            <option>即將到期</option>
+                            <option>已到期</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="action-bar">
+                    <div></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-outline btn-small">批次製作</button>
+                        <button class="btn btn-primary btn-small">+ 手動製作證書</button>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">證書總覽</div>
+
+                    <div class="dashboard-grid">
+                        <div class="stat-card">
+                            <div class="stat-label">待製作證書</div>
+                            <div class="stat-value">13</div>
+                            <div style="font-size: 13px; color: #7f8c8d;">認證通過待製作</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">已發證（有效）</div>
+                            <div class="stat-value">242</div>
+                            <div style="font-size: 13px; color: #7f8c8d;">目前有效證書數</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">即將到期（6 個月內）</div>
+                            <div class="stat-value">18</div>
+                            <div style="font-size: 13px; color: #7f8c8d;">需發送換證提醒</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">換證申請</div>
+                            <div class="stat-value">5</div>
+                            <div style="font-size: 13px; color: #7f8c8d;">待處理換證申請</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">證書列表</div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width: 40px;">
+                                    <input type="checkbox" class="checkbox">
+                                </th>
+                                <th>學員姓名</th>
+                                <th>證書編號</th>
+                                <th>發證日期</th>
+                                <th>到期日期</th>
+                                <th>剩餘天數</th>
+                                <th>狀態</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: #fffbea;">
+                                <td><input type="checkbox" class="checkbox"></td>
+                                <td><strong>學員 G</strong></td>
+                                <td style="color: #7f8c8d;">待產生</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td><span class="status-badge status-pending">待製作</span></td>
+                                <td>
+                                    <button class="btn btn-primary btn-small">製作證書</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="checkbox"></td>
+                                <td><strong>學員 J</strong></td>
+                                <td>CNC-2026-Q2-B015</td>
+                                <td>2026-07-20</td>
+                                <td>2029-07-19</td>
+                                <td>1064 天</td>
+                                <td><span class="status-badge status-completed">有效</span></td>
+                                <td>
+                                    <button class="btn btn-outline btn-small">查看</button>
+                                </td>
+                            </tr>
+                            <tr style="background: #fff3cd;">
+                                <td><input type="checkbox" class="checkbox"></td>
+                                <td><strong>學員 K</strong></td>
+                                <td>CNC-2023-Q3-A008</td>
+                                <td>2023-11-15</td>
+                                <td>2026-11-14</td>
+                                <td>265 天</td>
+                                <td><span class="status-badge status-pending">即將到期</span></td>
+                                <td>
+                                    <button class="btn btn-outline btn-small">發送換證提醒</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="wireframe-section">
+                    <div class="section-title">製作證書 - 學員 G</div>
+                    <div class="card">
+                        <div class="form-group">
+                            <label class="form-label">學員姓名</label>
+                            <input type="text" class="form-input" value="學員 G" disabled>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">證書編號（自動產生）</label>
+                                <input type="text" class="form-input" value="CNC-2026-Q2-B028" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">發證日期 <span class="required">*</span></label>
+                                <input type="date" class="form-input" value="2026-10-25">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">到期日期（發證日 + 3 年）</label>
+                            <input type="date" class="form-input" value="2029-10-24" disabled>
+                        </div>
+
+                        <div class="alert alert-info">
+                            證書將自動套用標準範本，包含學員姓名、證書編號、發證日期、有效期限。
+                        </div>
+
+                        <div style="margin-top: 20px;">
+                            <button class="btn btn-primary">產生證書並發送</button>
+                            <button class="btn btn-outline" style="margin-left: 10px;">僅產生（不發送）</button>
+                            <button class="btn btn-secondary" style="margin-left: 10px;">取消</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove active class from all nav items and pages
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+
+                // Add active class to clicked nav item
+                this.classList.add('active');
+
+                // Show corresponding page
+                const pageId = this.getAttribute('data-page');
+                document.getElementById(pageId).classList.add('active');
+
+                // Scroll to top
+                document.querySelector('.content').scrollTop = 0;
+            });
+        });
+
+        // Interactive elements (optional enhancements)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Time slot selection
+            document.querySelectorAll('.time-slot.available').forEach(slot => {
+                slot.addEventListener('click', function() {
+                    document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+                    this.classList.add('selected');
+                });
+            });
+
+            // Wizard navigation (example)
+            document.querySelectorAll('.wizard-step').forEach((step, index) => {
+                step.addEventListener('click', function() {
+                    // This is just for visual demonstration
+                    document.querySelectorAll('.wizard-step').forEach((s, i) => {
+                        if (i < index) {
+                            s.classList.add('completed');
+                            s.classList.remove('active');
+                        } else if (i === index) {
+                            s.classList.add('active');
+                            s.classList.remove('completed');
+                        } else {
+                            s.classList.remove('active', 'completed');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
