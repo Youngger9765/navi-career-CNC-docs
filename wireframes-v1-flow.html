@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNC V1 MVP 線框圖</title>
+    <!--
+        版本：v2.0
+        日期：2026-03-05
+        範圍：V1 MVP（17 週）— 報名 80% + 運課 30% + 畢業後 10%
+        對應：milestone-plan.md v1.3, TRD v2.0 S12
+        頁面：24 頁（P01-P24）
+    -->
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", Arial, sans-serif; background:#f5f5f5; color:#333; line-height:1.6; }
+
+        .app { display:flex; height:100vh; }
+
+        /* 側邊欄 */
+        .sidebar { width:270px; background:#1a1a2e; color:#fff; overflow-y:auto; flex-shrink:0; }
+        .sidebar-hdr { padding:16px; background:#16213e; border-bottom:2px solid #0f3460; }
+        .sidebar-hdr h1 { font-size:17px; } .sidebar-hdr .sub { font-size:13px; color:#7f8fa6; margin-top:4px; }
+        .nav-sec { padding:6px 0; border-bottom:1px solid #0f3460; }
+        .nav-sec-title { padding:8px 16px; font-size:12px; text-transform:uppercase; color:#7f8fa6; font-weight:700; letter-spacing:.5px; }
+        .nav-item { padding:10px 16px; cursor:pointer; transition:background .15s; font-size:15px; border-left:3px solid transparent; }
+        .nav-item:hover { background:#16213e; }
+        .nav-item.active { background:#16213e; border-left-color:#e94560; color:#fff; }
+        .nav-item .meta { font-size:12px; color:#7f8fa6; margin-top:2px; }
+
+        /* 主內容 */
+        .main { flex:1; overflow-y:auto; background:#fff; }
+        .page { display:none; padding:32px; max-width:1000px; margin:0 auto; }
+        .page.active { display:block; }
+        .page-hdr { border-bottom:3px solid #ecf0f1; padding-bottom:14px; margin-bottom:20px; }
+        .page-title { font-size:26px; font-weight:700; }
+        .page-desc { margin-top:6px; color:#636e72; font-size:15px; line-height:1.7; }
+        .page-meta { display:flex; gap:14px; margin-top:8px; font-size:13px; color:#7f8c8d; }
+        .badge { display:inline-block; padding:3px 10px; border-radius:3px; font-size:12px; font-weight:700; }
+        .b-pub { background:#27ae60; color:#fff; } .b-stu { background:#3498db; color:#fff; }
+        .b-adm { background:#e74c3c; color:#fff; } .b-shell { background:#f39c12; color:#fff; }
+
+        /* 頁面串接 */
+        .flow-box { background:#f8f9fa; border:2px solid #ecf0f1; padding:12px 16px; margin:16px 0; border-radius:4px; }
+        .flow-box h4 { font-size:14px; margin-bottom:8px; color:#636e72; }
+        .flow-link { display:inline-block; padding:4px 12px; margin:3px; border-radius:4px; font-size:13px; font-weight:600; cursor:pointer; transition:all .15s; }
+        .flow-link.next { background:#d4edda; color:#155724; border:1px solid #28a745; }
+        .flow-link.prev { background:#d1ecf1; color:#0c5460; border:1px solid #17a2b8; }
+        .flow-link.ext { background:#fff3cd; color:#856404; border:1px solid #ffc107; cursor:default; }
+        .flow-link:hover { opacity:.8; }
+
+        /* 線框元件 */
+        .wf { border:2px solid #ddd; background:#fafafa; padding:14px; margin:14px 0; border-radius:4px; }
+        .wf-label { font-size:12px; color:#999; text-transform:uppercase; font-weight:700; margin-bottom:8px; letter-spacing:.5px; }
+        .wf h3 { font-size:18px; margin-bottom:12px; }
+        .wf-row { display:grid; gap:10px; margin-bottom:10px; }
+        .wf-row.c2 { grid-template-columns:1fr 1fr; } .wf-row.c3 { grid-template-columns:1fr 1fr 1fr; } .wf-row.c4 { grid-template-columns:1fr 1fr 1fr 1fr; }
+        .wf-input { border:2px solid #bdc3c7; padding:8px 12px; background:#fff; font-size:14px; width:100%; }
+        .wf-btn { padding:9px 20px; border:none; font-size:14px; font-weight:600; cursor:pointer; color:#fff; display:inline-block; }
+        .wf-btn.primary { background:#3498db; } .wf-btn.success { background:#27ae60; } .wf-btn.danger { background:#e74c3c; } .wf-btn.outline { background:#fff; border:2px solid #bdc3c7; color:#333; }
+        .wf-btn.google { background:#fff; border:2px solid #ddd; color:#333; width:100%; text-align:center; padding:10px; }
+        .wf-card { border:2px solid #ecf0f1; padding:12px; background:#fff; margin-bottom:8px; }
+        .wf-card h4 { font-size:15px; margin-bottom:4px; } .wf-card p { font-size:14px; color:#7f8c8d; }
+        .wf-table { width:100%; border-collapse:collapse; border:2px solid #ecf0f1; font-size:14px; }
+        .wf-table th { background:#ecf0f1; padding:10px; text-align:left; font-weight:600; border-bottom:2px solid #bdc3c7; }
+        .wf-table td { padding:10px; border-bottom:1px solid #ecf0f1; }
+        .wf-stat { border:2px solid #ecf0f1; padding:14px; background:#fff; text-align:center; }
+        .wf-stat .num { font-size:28px; font-weight:700; } .wf-stat .lbl { font-size:12px; color:#7f8c8d; }
+        .wf-nav { display:flex; gap:0; border-bottom:2px solid #ecf0f1; margin-bottom:16px; }
+        .wf-nav-item { padding:10px 16px; font-size:14px; font-weight:600; cursor:default; border-bottom:2px solid transparent; color:#7f8c8d; }
+        .wf-nav-item.active { color:#3498db; border-bottom-color:#3498db; }
+        .wf-tag { display:inline-block; padding:3px 8px; border-radius:10px; font-size:12px; font-weight:600; }
+        .t-green { background:#d4edda; color:#155724; } .t-yellow { background:#fff3cd; color:#856404; } .t-red { background:#f8d7da; color:#721c24; } .t-blue { background:#d1ecf1; color:#0c5460; } .t-gray { background:#e9ecef; color:#495057; }
+        .wf-alert { padding:12px 16px; margin-bottom:14px; border-left:4px solid; font-size:14px; }
+        .wf-alert.info { background:#d1ecf1; border-color:#17a2b8; color:#0c5460; }
+        .wf-alert.warn { background:#fff3cd; border-color:#ffc107; color:#856404; }
+        .wf-placeholder { border:2px dashed #bdc3c7; padding:22px; text-align:center; color:#95a5a6; font-size:14px; margin:8px 0; background:#fdfdfd; }
+
+        /* 版本演進 */
+        .ver-box { border:2px solid #ecf0f1; margin:20px 0 8px; border-radius:4px; overflow:hidden; }
+        .ver-box-title { background:#ecf0f1; padding:10px 14px; font-size:14px; font-weight:700; color:#636e72; }
+        .ver-row { display:flex; border-bottom:1px solid #ecf0f1; font-size:14px; }
+        .ver-row:last-child { border-bottom:none; }
+        .ver-label { width:50px; padding:8px 10px; font-weight:700; text-align:center; flex-shrink:0; }
+        .ver-label.v1 { background:#d4edda; color:#155724; } .ver-label.v2 { background:#d1ecf1; color:#0c5460; } .ver-label.v3 { background:#e2d5f1; color:#5b2c8e; }
+        .ver-content { padding:8px 12px; flex:1; color:#555; }
+        .ver-content.current { font-weight:600; color:#333; }
+        .wf-sep { border:none; border-top:2px solid #ecf0f1; margin:16px 0; }
+        label { font-size:14px; font-weight:600; display:block; margin-bottom:4px; }
+        label .req { color:#e74c3c; }
+    </style>
+</head>
+<body>
+<div class="app">
+    <div class="sidebar">
+        <div class="sidebar-hdr">
+            <h1>CNC V1 線框圖</h1>
+            <div class="sub">MVP 17 週 | 2026/03-06</div>
+        </div>
+        <div class="nav-sec">
+            <div class="nav-sec-title">公開頁面 (S0-S2)</div>
+            <div class="nav-item active" onclick="goPage('p01')">P01 課程行銷頁<div class="meta">S1 | 公開</div></div>
+            <div class="nav-item" onclick="goPage('p02')">P02 報名表單<div class="meta">S1 | 公開</div></div>
+            <div class="nav-item" onclick="goPage('p03')">P03 付款頁<div class="meta">S2 | 公開</div></div>
+            <div class="nav-item" onclick="goPage('p04')">P04 報名成功頁<div class="meta">S1 | 公開</div></div>
+            <div class="nav-item" onclick="goPage('p05')">P05 登入頁<div class="meta">S0 | 公開</div></div>
+        </div>
+        <div class="nav-sec">
+            <div class="nav-sec-title">學員端 (S3)</div>
+            <div class="nav-item" onclick="goPage('p06')">P06 學員中心<div class="meta">S3 | 學員</div></div>
+            <div class="nav-item" onclick="goPage('p07')">P07 公告列表<div class="meta">S3 | 學員</div></div>
+            <div class="nav-item" onclick="goPage('p08')">P08 課程日曆<div class="meta">S3 | 學員</div></div>
+            <div class="nav-item" onclick="goPage('p09')">P09 Classroom 摘要<div class="meta">S3 | 學員</div></div>
+            <div class="nav-item" onclick="goPage('p10')">P10 雲端檔案<div class="meta">S3 | 學員</div></div>
+            <div class="nav-item" onclick="goPage('p11')">P11 出席紀錄<div class="meta">S3 | 學員</div></div>
+        </div>
+        <div class="nav-sec">
+            <div class="nav-sec-title">殼頁面 (S4)</div>
+            <div class="nav-item" onclick="goPage('p12')">P12 督導預約<div class="meta">S4 | 殼頁面</div></div>
+            <div class="nav-item" onclick="goPage('p13')">P13 認證進度<div class="meta">S4 | 殼頁面</div></div>
+            <div class="nav-item" onclick="goPage('p24')">P24 作業繳交 & 結果<div class="meta">S4 殼 → V2 | 學員</div></div>
+            <div class="nav-item" onclick="goPage('p14')">P14 畢業後公告<div class="meta">S4 | 殼頁面</div></div>
+            <div class="nav-item" onclick="goPage('p15')">P15 證書下載<div class="meta">S4 | 殼頁面</div></div>
+        </div>
+        <div class="nav-sec">
+            <div class="nav-sec-title">管理後台 (S1-S3)</div>
+            <div class="nav-item" onclick="goPage('p16')">P16 後台總覽<div class="meta">S1 | 管理員</div></div>
+            <div class="nav-item" onclick="goPage('p17')">P17 梯次管理<div class="meta">S1 | 管理員</div></div>
+            <div class="nav-item" onclick="goPage('p18')">P18 定價設定<div class="meta">S1 | 管理員</div></div>
+            <div class="nav-item" onclick="goPage('p19')">P19 訂單管理<div class="meta">S2 | 管理員</div></div>
+            <div class="nav-item" onclick="goPage('p20')">P20 學員管理<div class="meta">S3 | 管理員</div></div>
+            <div class="nav-item" onclick="goPage('p21')">P21 通知管理<div class="meta">S3 | 管理員</div></div>
+            <div class="nav-item" onclick="goPage('p22')">P22 認證批改管理<div class="meta">S4 殼 → V3 | 管理員</div></div>
+        </div>
+        <div class="nav-sec">
+            <div class="nav-sec-title">學長姐 / 批改者</div>
+            <div class="nav-item" onclick="goPage('p23')">P23 批改介面<div class="meta">S4 殼 → V3 | 批改者</div></div>
+        </div>
+    </div>
+
+    <div class="main">
+
+        <!-- P01 課程行銷頁 -->
+        <div class="page active" id="p01">
+            <div class="page-hdr">
+                <div class="page-title">P01：課程行銷頁</div>
+                <div class="page-desc">公開的課程介紹頁面。學員從廣告、推薦或官網進入此頁，了解 CNC 課程內容、時程、費用後點擊報名。取代目前跳轉到開課快手的外部連結。</div>
+                <div class="page-meta"><span class="badge b-pub">公開</span><span>Sprint: S1</span><span>路由: /courses/cnc</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4>
+                <span class="flow-link next" onclick="goPage('p05')">下一步: P05 登入（未登入時）</span>
+                <span class="flow-link next" onclick="goPage('p02')">下一步: P02 報名表單（已登入時）</span>
+            </div>
+            <div class="wf">
+                <div class="wf-label">導覽列</div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:2px solid #ecf0f1;">
+                    <div style="font-weight:700;">職游 Logo</div>
+                    <div style="display:flex;gap:14px;font-size:12px;"><span>課程</span><span>關於我們</span><span>FAQ</span><span class="wf-btn primary" style="padding:4px 12px;font-size:11px;" onclick="goPage('p05')">登入</span></div>
+                </div>
+            </div>
+            <div class="wf">
+                <div class="wf-label">主視覺區</div>
+                <div style="background:#ecf0f1;padding:32px;text-align:center;">
+                    <div style="font-size:20px;font-weight:700;">CNC 職涯諮詢師培訓</div>
+                    <div style="font-size:13px;color:#636e72;margin:10px 0;">台灣最專業的職涯諮詢認證課程</div>
+                    <div class="wf-btn primary" style="padding:10px 28px;" onclick="goPage('p05')">立即報名</div>
+                </div>
+            </div>
+            <div class="wf">
+                <div class="wf-label">近期梯次</div>
+                <div class="wf-row c3">
+                    <div class="wf-card"><h4>CNC 第 15 期（A+B 雙證照）</h4><p>2026/07 - 2026/10</p><p><span class="t-green wf-tag">早鳥</span> NT$42,000</p></div>
+                    <div class="wf-card"><h4>CNC 第 15 期（僅 A 班）</h4><p>2026/07 - 2026/08</p><p>NT$28,000</p></div>
+                    <div class="wf-card"><h4>一日體驗班</h4><p>2026/06/15</p><p>NT$3,800</p></div>
+                </div>
+            </div>
+            <div class="wf">
+                <div class="wf-label">內容區塊</div>
+                <div class="wf-placeholder">課程介紹（文字 + 影片 + 圖片）</div>
+                <div class="wf-placeholder">講師介紹</div>
+                <div class="wf-placeholder">學長姐見證</div>
+                <div class="wf-placeholder">常見問題 FAQ</div>
+            </div>            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">課程介紹 + 梯次列表 + 報名 CTA。內容由管理員手動維護。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">動態內容管理（CMS）、學長姐見證自動拉取、SEO 優化、A/B 測試。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">多語系（出海）、代理商專屬行銷頁、行銷數據追蹤（轉換率、完成時間）。</div></div>
+
+        </div>
+        </div>
+
+        <!-- P02 報名表單 -->
+        <div class="page" id="p02">
+            <div class="page-hdr">
+                <div class="page-title">P02：報名表單</div>
+                <div class="page-desc">需登入後才能進入。多步驟報名流程：選擇課程商品（班別 + 梯次）、確認/補充個人資料（姓名 Email 由 Google 帳號自動帶入）、輸入優惠碼。校友身分自動偵測並套用老友方案。名額即時檢查（跨班連動）。送出後進入付款頁。</div>
+                <div class="page-meta"><span class="badge b-stu">需登入</span><span>Sprint: S1</span><span>路由: /register/:cohortId</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4>
+                <span class="flow-link prev" onclick="goPage('p05')">上一步: P05 登入</span>
+                <span class="flow-link next" onclick="goPage('p03')">下一步: P03 付款頁</span>
+            </div>
+            <div class="wf">
+                <div class="wf-label">步驟一：選擇課程</div>
+                <h3>選擇您的課程方案</h3>
+                <div class="wf-row c2">
+                    <div class="wf-card" style="border-color:#3498db;"><h4>CNC 第 15 期 - A+B 雙證照班</h4><p>2026/07 - 2026/10</p><p style="margin-top:4px;"><strong>NT$52,000</strong> <span class="t-green wf-tag">早鳥 -$10,000</span></p><p><span class="t-blue wf-tag">剩餘 12 個名額</span></p></div>
+                    <div class="wf-card"><h4>CNC 第 15 期 - 僅 A 班</h4><p>2026/07 - 2026/08</p><p style="margin-top:4px;"><strong>NT$28,000</strong></p><p><span class="t-yellow wf-tag">剩餘 5 個名額</span></p></div>
+                </div>
+                <div class="wf-alert warn">名額提醒：A+B 雙證照班與 A 班共享名額，A 班額滿可能影響雙證照班。</div>
+            </div>
+            <div class="wf">
+                <div class="wf-label">步驟二：個人資料</div>
+                <div class="wf-alert info">姓名與 Email 已由 Google 帳號自動帶入。校友身分已自動偵測。</div>
+                <div class="wf-row c2">
+                    <div><label>姓名 <span class="req">*</span></label><input class="wf-input" value="王小明（Google 帳號帶入）" style="background:#ecf0f1;"></div>
+                    <div><label>Email <span class="req">*</span></label><input class="wf-input" value="xiaoming@gmail.com（Google 帳號帶入）" style="background:#ecf0f1;"></div>
+                </div>
+                <div class="wf-row c2">
+                    <div><label>手機 <span class="req">*</span></label><input class="wf-input" placeholder="0912-345-678"></div>
+                    <div><label>寄送地址 <span class="req">*</span></label><input class="wf-input" placeholder="課程教材寄送地址"></div>
+                </div>
+                <div style="margin-top:6px;"><label>是否已有職涯牌卡？ <span class="req">*</span></label>
+                    <div style="display:flex;gap:14px;margin-top:4px;">
+                        <label style="font-weight:400;"><input type="radio" name="card"> 是</label>
+                        <label style="font-weight:400;"><input type="radio" name="card"> 否（會隨課程附贈）</label>
+                    </div>
+                </div>
+            </div>
+            <div class="wf">
+                <div class="wf-label">步驟三：優惠碼 &amp; 金額摘要</div>
+                <div><label>優惠碼</label><div style="display:flex;gap:6px;"><input class="wf-input" placeholder="輸入優惠碼" style="width:200px;"><button class="wf-btn outline">套用</button></div></div>
+                <hr class="wf-sep">
+                <div style="font-size:13px;">
+                    <div style="display:flex;justify-content:space-between;margin:4px 0;"><span>CNC 第 15 期 A+B</span><span>NT$52,000</span></div>
+                    <div style="display:flex;justify-content:space-between;margin:4px 0;color:#27ae60;"><span>早鳥優惠</span><span>-NT$10,000</span></div>
+                    <div style="display:flex;justify-content:space-between;margin:4px 0;font-size:16px;font-weight:700;border-top:2px solid #333;padding-top:6px;"><span>應付金額</span><span>NT$42,000</span></div>
+                </div>
+                <div style="margin-top:14px;"><button class="wf-btn primary" style="width:100%;padding:12px;" onclick="goPage('p03')">前往付款</button></div>
+            </div>            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">選課 + 個人資料（Google 帶入）+ 優惠碼 + 名額檢查（跨班連動）。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">周邊商品加購（同單多商品）、升級/延期自助申請表單。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">AI 推薦課程組合、國際代理商報名入口。</div></div>
+
+        </div>
+        </div>
+
+        <!-- P03 付款頁 -->
+        <div class="page" id="p03">
+            <div class="page-hdr">
+                <div class="page-title">P03：付款頁</div>
+                <div class="page-desc">串接金流商（綠界/藍新）的付款頁面。支援信用卡（一次付清 + 分期）及 ATM 轉帳。付款成功後自動：更新訂單狀態、開立電子發票（EZPAY）、寄送確認信。V1 只處理正向流程（收款），退款為半自動。</div>
+                <div class="page-meta"><span class="badge b-pub">公開</span><span>Sprint: S2</span><span>路由: /checkout/:orderId</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4>
+                <span class="flow-link prev" onclick="goPage('p02')">上一步: P02 報名表單</span>
+                <span class="flow-link next" onclick="goPage('p04')">下一步: P04 報名成功</span>
+                <span class="flow-link ext">外部: 金流商閘道</span>
+                <span class="flow-link ext">外部: EZPAY 電子發票</span>
+            </div>
+            <div class="wf">
+                <div class="wf-label">訂單摘要</div>
+                <div class="wf-card"><div style="display:flex;justify-content:space-between;"><h4>CNC 第 15 期 A+B 雙證照班</h4><span style="font-weight:700;">NT$42,000</span></div><p>2026/07 - 2026/10 | 已套用早鳥優惠</p></div>
+            </div>
+            <div class="wf">
+                <div class="wf-label">付款方式</div>
+                <div class="wf-row c3">
+                    <div class="wf-card" style="border-color:#3498db;text-align:center;"><div style="font-size:20px;">信用卡</div><p>一次付清</p></div>
+                    <div class="wf-card" style="text-align:center;"><div style="font-size:20px;">分期</div><p>3/6/12 期</p></div>
+                    <div class="wf-card" style="text-align:center;"><div style="font-size:20px;">ATM</div><p>銀行轉帳</p></div>
+                </div>
+            </div>
+            <div class="wf">
+                <div class="wf-label">發票資訊</div>
+                <div style="display:flex;gap:14px;margin-bottom:10px;">
+                    <label style="font-weight:400;"><input type="radio" name="inv" checked> 個人（二聯）</label>
+                    <label style="font-weight:400;"><input type="radio" name="inv"> 公司（三聯）</label>
+                </div>
+                <div class="wf-row c2">
+                    <div><label>載具類型</label><select class="wf-input"><option>手機條碼</option><option>自然人憑證</option><option>捐贈</option></select></div>
+                    <div><label>載具編號</label><input class="wf-input" placeholder="/ABC+123"></div>
+                </div>
+            </div>
+            <div style="margin-top:14px;"><button class="wf-btn success" style="width:100%;padding:12px;" onclick="goPage('p04')">確認付款 NT$42,000</button></div>            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">信用卡（一次/分期）+ ATM。全額退款半自動，部分退款手動。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">部分退款全自動（需會計 SOP）、升級補差額自動化、自動對帳。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">跨境支付（出海）、多幣別、訂閱制（線上排課系統）。</div></div>
+
+        </div>
+        </div>
+
+        <!-- P04 報名成功 -->
+        <div class="page" id="p04">
+            <div class="page-hdr">
+                <div class="page-title">P04：報名成功頁</div>
+                <div class="page-desc">付款成功後的確認頁面。因為已登入，直接顯示訂單編號、後續步驟（課前調查、加入 LINE 群、進入學員中心）。系統同時自動寄送確認信。</div>
+                <div class="page-meta"><span class="badge b-stu">需登入</span><span>Sprint: S1</span><span>路由: /register/success/:orderId</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4>
+                <span class="flow-link prev" onclick="goPage('p03')">上一步: P03 付款頁</span>
+                <span class="flow-link next" onclick="goPage('p06')">下一步: P06 學員中心</span>
+                <span class="flow-link ext">觸發: 報名確認信</span>
+                <span class="flow-link ext">外部: LINE 課程群組</span>
+            </div>
+            <div class="wf" style="text-align:center;padding:28px;">
+                <div style="font-size:40px;color:#27ae60;">&#10003;</div>
+                <h3>報名成功！</h3>
+                <p style="color:#636e72;margin:6px 0;">訂單編號 #CNC-2026-0815</p>
+                <div class="wf-card" style="text-align:left;max-width:460px;margin:16px auto;">
+                    <h4>後續步驟：</h4>
+                    <p>1. 確認信已寄至您的 Email</p>
+                    <p>2. 填寫<a href="#">課前調查</a></p>
+                    <p>3. 加入 <a href="#">LINE 課程群組</a></p>
+                    <p>4. <a href="#" onclick="goPage('p06');return false;">前往學員中心</a></p>
+                </div>
+                <p style="font-size:11px;color:#999;">課程教材將於開課前 2 週寄出。</p>
+            </div>            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">確認頁 + 自動寄送確認信 + 後續步驟指引。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">加購推薦（周邊商品）、社群分享按鈕、推薦碼機制。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">個人化歡迎流程（依課程類型不同引導）。</div></div>
+
+        </div>
+        </div>
+
+        <!-- P05 登入 -->
+        <div class="page" id="p05">
+            <div class="page-hdr">
+                <div class="page-title">P05：登入頁（Google OAuth）</div>
+                <div class="page-desc">透過 Google OAuth 2.0 單一登入。支援 Workspace 帳號與一般 Gmail。報名前必須先登入，系統自動帶入帳號資訊並偵測是否為校友（套用老友方案）。登入後依來源導向：從報名入口來 → 報名表單，已有帳號 → 學員中心，管理員 → 後台。</div>
+                <div class="page-meta"><span class="badge b-pub">公開</span><span>Sprint: S0</span><span>路由: /login</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4>
+                <span class="flow-link prev" onclick="goPage('p01')">來源: P01 課程行銷頁（立即報名）</span>
+                <span class="flow-link next" onclick="goPage('p02')">導向: P02 報名表單（從報名入口來）</span>
+                <span class="flow-link next" onclick="goPage('p06')">導向: P06 學員中心（已報名學員）</span>
+                <span class="flow-link next" onclick="goPage('p16')">導向: P16 後台總覽（角色=管理員）</span>
+            </div>
+            <div style="max-width:340px;margin:36px auto;">
+                <div class="wf" style="text-align:center;">
+                    <div style="font-size:18px;font-weight:700;margin-bottom:20px;">CNC 培訓管理系統</div>
+                    <button class="wf-btn google" onclick="goPage('p02')">使用 Google 帳號登入</button>
+                    <p style="font-size:11px;color:#999;margin-top:16px;">登入後自動帶入姓名與 Email。<br>支援 Gmail 與 Workspace 帳號。<br>校友登入後自動套用老友優惠。</p>
+                </div>
+            </div>            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">Google OAuth 登入，自動比對報名記錄，依角色導向。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">雙因素驗證（選用）、記住裝置、登入紀錄。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">代理商 SSO、國際化登入頁。</div></div>
+
+        </div>
+        </div>
+
+        <!-- P06 學員中心 -->
+        <div class="page" id="p06">
+            <div class="page-hdr">
+                <div class="page-title">P06：學員中心（一站式入口）</div>
+                <div class="page-desc">學員登入後的主頁面。一覽所有重要資訊：目前梯次進度、近期活動、最新公告、快捷連結到 Classroom/Drive/Calendar。V1 顯示摘要 + 外部工具連結，V2+ 逐步收回為內建功能。</div>
+                <div class="page-meta"><span class="badge b-stu">學員</span><span>Sprint: S3</span><span>路由: /student</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4>
+                <span class="flow-link prev" onclick="goPage('p05')">來源: P05 登入</span>
+                <span class="flow-link next" onclick="goPage('p07')">P07 公告</span>
+                <span class="flow-link next" onclick="goPage('p08')">P08 日曆</span>
+                <span class="flow-link next" onclick="goPage('p09')">P09 Classroom</span>
+                <span class="flow-link next" onclick="goPage('p10')">P10 檔案</span>
+                <span class="flow-link next" onclick="goPage('p11')">P11 出席</span>
+                <span class="flow-link next" onclick="goPage('p12')">P12 督導</span>
+                <span class="flow-link next" onclick="goPage('p13')">P13 認證</span>
+                <span class="flow-link next" onclick="goPage('p14')">P14 畢業後</span>
+            </div>
+            <div class="wf">
+                <div class="wf-label">歡迎區</div>
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <div><span style="font-size:16px;font-weight:700;">歡迎回來，王小明</span><br><span style="font-size:11px;color:#7f8c8d;">CNC 第 14 期 | A+B 雙證照 | 進行中（B 班階段）</span></div>
+                    <div class="wf-btn outline" style="font-size:11px;">個人資料</div>
+                </div>
+            </div>
+            <div class="wf">
+                <div class="wf-label">進度統計</div>
+                <div class="wf-row c4">
+                    <div class="wf-stat"><div class="num">4/6</div><div class="lbl">A 班出席</div></div>
+                    <div class="wf-stat"><div class="num">2/7</div><div class="lbl">團督</div></div>
+                    <div class="wf-stat"><div class="num">0/3</div><div class="lbl">個督</div></div>
+                    <div class="wf-stat"><div class="num">待申請</div><div class="lbl">認證狀態</div></div>
+                </div>
+            </div>
+            <div class="wf">
+                <div class="wf-label">近期活動</div>
+                <div class="wf-card"><h4>A 班 Day 5 — 3/15（六）09:00-17:00</h4><p>Google Meet 連結 | 作業：個案報告 #3</p></div>
+                <div class="wf-card"><h4>團督第 3 次 — 3/22（六）14:00-16:00</h4><p>Google Meet 連結</p></div>
+            </div>
+            <div class="wf">
+                <div class="wf-label">快捷連結</div>
+                <div class="wf-row c3">
+                    <div class="wf-card" style="cursor:pointer;text-align:center;" onclick="goPage('p07')"><h4>公告</h4><p>3 則新公告</p></div>
+                    <div class="wf-card" style="cursor:pointer;text-align:center;" onclick="goPage('p09')"><h4>Classroom</h4><p>2 份待交作業</p></div>
+                    <div class="wf-card" style="cursor:pointer;text-align:center;" onclick="goPage('p10')"><h4>課程檔案</h4><p>Drive 資料夾</p></div>
+                </div>
+                <div class="wf-row c3">
+                    <div class="wf-card" style="cursor:pointer;text-align:center;" onclick="goPage('p12')"><h4>督導預約</h4><p>預約個督</p></div>
+                    <div class="wf-card" style="cursor:pointer;text-align:center;" onclick="goPage('p13')"><h4>認證進度</h4><p>查看條件</p></div>
+                    <div class="wf-card" style="cursor:pointer;text-align:center;" onclick="goPage('p15')"><h4>證書</h4><p>下載</p></div>
+                </div>
+            </div>
+            <div class="wf">
+                <div class="wf-alert info">督導角色：V1 督導登入後看到的也是此頁面（角色 = 督導），但僅顯示其負責的學員與督導排程。V2 再做督導專屬介面。</div>
+            </div>
+            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">一站式入口：進度統計 + 近期活動 + 快捷連結（外部工具）。督導角色共用此頁。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">督導專屬視圖、作業管理（Drive API 上傳）、補課影片管理、行政日程總覽。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">遊戲化徽章進度、社群動態牆、個人化學習路徑建議。</div></div>
+            </div>
+        </div>
+
+        <!-- P07 公告 -->
+        <div class="page" id="p07">
+            <div class="page-hdr">
+                <div class="page-title">P07：公告列表</div>
+                <div class="page-desc">依時間排序的梯次公告。管理員可針對特定梯次或全體學員發布公告，支援富文字、附件、置頂。</div>
+                <div class="page-meta"><span class="badge b-stu">學員</span><span>Sprint: S3</span><span>路由: /student/announcements</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4><span class="flow-link prev" onclick="goPage('p06')">返回: P06 學員中心</span></div>
+            <div class="wf">
+                <div class="wf-card" style="border-left:4px solid #e74c3c;"><div style="display:flex;justify-content:space-between;"><h4>[置頂] 課程教材寄送通知</h4><span class="t-red wf-tag">重要</span></div><p>課程包裹將於 2026/06/20 寄出，請確認收件地址...</p><p style="font-size:10px;color:#999;margin-top:4px;">管理員發布 | 2026/06/15</p></div>
+                <div class="wf-card"><h4>A 班 Day 4 作業提醒</h4><p>請在 Day 5 前完成個案分析，上傳至指定 Drive 資料夾...</p><p style="font-size:10px;color:#999;margin-top:4px;">助教發布 | 2026/06/10</p></div>
+                <div class="wf-card"><h4>歡迎加入 CNC 第 14 期！</h4><p>恭喜加入。以下是重要日期與資源...</p><p style="font-size:10px;color:#999;margin-top:4px;">管理員發布 | 2026/06/01</p></div>
+            </div>            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">學員唯讀公告列表（管理員從 P21 發布）。支援置頂、附件。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">公告已讀追蹤、分類標籤篩選、推播通知整合。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">討論區（學員可回覆）、練功討論區。</div></div>
+
+        </div>
+        </div>
+
+        <!-- P08 日曆 -->
+        <div class="page" id="p08">
+            <div class="page-hdr">
+                <div class="page-title">P08：課程日曆</div>
+                <div class="page-desc">顯示學員所屬梯次的所有活動：A 班正課、B 班活動、督導、認證截止日。V1 採用時間軸列表，資料來自管理員設定的梯次排程。</div>
+                <div class="page-meta"><span class="badge b-stu">學員</span><span>Sprint: S3</span><span>路由: /student/calendar</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4><span class="flow-link prev" onclick="goPage('p06')">返回: P06 學員中心</span></div>
+            <div class="wf">
+                <div class="wf-nav"><div class="wf-nav-item active">行事曆</div><div class="wf-nav-item">時間軸</div></div>
+
+                <!-- 行事曆格式 -->
+                <div style="margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;">
+                    <button class="wf-btn outline" style="padding:4px 10px;font-size:11px;">&lt; 上月</button>
+                    <strong style="font-size:14px;">2026 年 3 月</strong>
+                    <button class="wf-btn outline" style="padding:4px 10px;font-size:11px;">下月 &gt;</button>
+                </div>
+                <table class="wf-table" style="table-layout:fixed;">
+                    <thead><tr><th style="text-align:center;">一</th><th style="text-align:center;">二</th><th style="text-align:center;">三</th><th style="text-align:center;">四</th><th style="text-align:center;">五</th><th style="text-align:center;color:#e74c3c;">六</th><th style="text-align:center;color:#e74c3c;">日</th></tr></thead>
+                    <tbody>
+                        <tr style="height:60px;vertical-align:top;">
+                            <td></td><td></td><td></td><td></td><td></td>
+                            <td style="background:#fff3cd;"><div style="font-size:11px;font-weight:700;">1</div><div style="font-size:9px;"><span class="t-blue wf-tag">A班 Day3</span></div></td>
+                            <td><div style="font-size:11px;">2</div></td>
+                        </tr>
+                        <tr style="height:60px;vertical-align:top;">
+                            <td><div style="font-size:11px;">3</div></td><td><div style="font-size:11px;">4</div></td><td><div style="font-size:11px;">5</div></td><td><div style="font-size:11px;">6</div></td><td><div style="font-size:11px;">7</div></td>
+                            <td style="background:#fff3cd;"><div style="font-size:11px;font-weight:700;">8</div><div style="font-size:9px;"><span class="t-blue wf-tag">A班 Day4</span></div></td>
+                            <td><div style="font-size:11px;">9</div></td>
+                        </tr>
+                        <tr style="height:60px;vertical-align:top;">
+                            <td><div style="font-size:11px;">10</div></td><td><div style="font-size:11px;">11</div></td><td><div style="font-size:11px;">12</div></td><td><div style="font-size:11px;">13</div></td><td><div style="font-size:11px;">14</div></td>
+                            <td style="background:#d4edda;"><div style="font-size:11px;font-weight:700;">15</div><div style="font-size:9px;"><span class="t-blue wf-tag">A班 Day5</span></div></td>
+                            <td><div style="font-size:11px;">16</div></td>
+                        </tr>
+                        <tr style="height:60px;vertical-align:top;">
+                            <td><div style="font-size:11px;">17</div></td><td><div style="font-size:11px;">18</div></td><td><div style="font-size:11px;">19</div></td><td><div style="font-size:11px;">20</div></td><td><div style="font-size:11px;">21</div></td>
+                            <td style="background:#fff3cd;"><div style="font-size:11px;font-weight:700;">22</div><div style="font-size:9px;"><span class="t-yellow wf-tag">團督#3</span></div></td>
+                            <td><div style="font-size:11px;">23</div></td>
+                        </tr>
+                        <tr style="height:60px;vertical-align:top;">
+                            <td><div style="font-size:11px;">24</div></td><td><div style="font-size:11px;">25</div></td><td><div style="font-size:11px;">26</div></td><td><div style="font-size:11px;">27</div></td><td><div style="font-size:11px;">28</div></td>
+                            <td style="background:#d4edda;"><div style="font-size:11px;font-weight:700;">29</div><div style="font-size:9px;"><span class="t-blue wf-tag">A班 Day6</span></div></td>
+                            <td><div style="font-size:11px;">30</div></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="margin-top:8px;font-size:10px;color:#7f8c8d;">
+                    <span class="t-blue wf-tag">A 班</span>
+                    <span class="t-green wf-tag">B 班</span>
+                    <span class="t-yellow wf-tag">督導</span>
+                    <span class="t-red wf-tag">截止日</span>
+                    &nbsp;| 綠底 = 即將到來 | 黃底 = 已完成
+                </div>
+            </div>
+            <div class="wf">
+                <div class="wf-label">時間軸（切換後顯示）</div>
+                <div style="padding-left:20px;border-left:3px solid #3498db;">
+                    <div class="wf-card" style="margin-left:10px;"><span class="t-blue wf-tag">A 班</span> <strong>Day 5</strong> — 3/15 六 09:00-17:00<br><span style="font-size:11px;color:#7f8c8d;">Meet 連結 | 作業：個案報告 #3</span></div>
+                    <div class="wf-card" style="margin-left:10px;"><span class="t-blue wf-tag">A 班</span> <strong>Day 6</strong> — 3/29 六 09:00-17:00<br><span style="font-size:11px;color:#7f8c8d;">Meet 連結 | A 班最後一堂</span></div>
+                    <div class="wf-card" style="margin-left:10px;"><span class="t-green wf-tag">B 班</span> <strong>牌卡演練會</strong> — 4/12 六 14:00-17:00<br><span style="font-size:11px;color:#7f8c8d;">小樹屋（實體）| 需回覆出席</span></div>
+                    <div class="wf-card" style="margin-left:10px;"><span class="t-yellow wf-tag">督導</span> <strong>團督第 3 次</strong> — 4/19 六 14:00-16:00<br><span style="font-size:11px;color:#7f8c8d;">Meet 連結</span></div>
+                    <div class="wf-card" style="margin-left:10px;"><span class="t-red wf-tag">截止日</span> <strong>筆試認證申請</strong> — 5/10<br><span style="font-size:11px;color:#7f8c8d;">開始後 24 小時限時</span></div>
+                </div>
+            </div>            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">行事曆格子 + 時間軸列表。資料來自梯次排程。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">跨梯次行政日程甘特圖（管理員視角）、匯出 iCal、與 Google Calendar 雙向同步。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">AI 輔助排程（避開連假、自動推薦開課日期）。</div></div>
+
+        </div>
+        </div>
+
+        <!-- P09 Classroom 摘要 -->
+        <div class="page" id="p09">
+            <div class="page-hdr">
+                <div class="page-title">P09：Classroom 整合（摘要視圖）</div>
+                <div class="page-desc">透過 Google Classroom API 讀取：課程公告、作業清單及繳交狀態。學員在此看到摘要，點擊後在新分頁開啟 Classroom 操作。V1 = 唯讀摘要，V3 = 全面取代 Classroom。</div>
+                <div class="page-meta"><span class="badge b-stu">學員</span><span>Sprint: S3</span><span>路由: /student/classroom</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4><span class="flow-link prev" onclick="goPage('p06')">返回: P06 學員中心</span><span class="flow-link ext">開啟: Google Classroom（新分頁）</span></div>
+            <div class="wf">
+                <div class="wf-alert info">V1：資料來自 Classroom API，點擊項目會開啟 Classroom。</div>
+                <div class="wf-nav"><div class="wf-nav-item active">作業</div><div class="wf-nav-item">公告</div></div>
+                <table class="wf-table">
+                    <thead><tr><th>作業名稱</th><th>截止日</th><th>狀態</th><th>操作</th></tr></thead>
+                    <tbody>
+                        <tr><td>課前作業：Day 3</td><td>3/01</td><td><span class="t-green wf-tag">已繳交</span></td><td><a href="#">開啟 Classroom</a></td></tr>
+                        <tr><td>個案報告 #2</td><td>3/08</td><td><span class="t-green wf-tag">已評分：92</span></td><td><a href="#">開啟 Classroom</a></td></tr>
+                        <tr><td>個案報告 #3</td><td>3/15</td><td><span class="t-yellow wf-tag">待繳交</span></td><td><a href="#">開啟 Classroom</a></td></tr>
+                        <tr><td>職業微整形專案</td><td>4/30</td><td><span class="t-gray wf-tag">未開始</span></td><td><a href="#">開啟 Classroom</a></td></tr>
+                    </tbody>
+                </table>
+            </div>            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">Classroom API 唯讀摘要（作業狀態、公告），點擊跳轉 Classroom。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">作業在系統內上傳（透過 Drive API），成績同步顯示。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">全面取代 Classroom：作業管理、評分、討論全部在系統內完成。</div></div>
+
+        </div>
+        </div>
+
+        <!-- P10 雲端檔案 -->
+        <div class="page" id="p10">
+            <div class="page-hdr">
+                <div class="page-title">P10：雲端檔案</div>
+                <div class="page-desc">列出梯次 Google Drive 資料夾中的檔案（開梯次時自動建立）。依子資料夾分類：講義、作業、教材、補課影片。管理員透過系統控制權限（Drive API v3）。</div>
+                <div class="page-meta"><span class="badge b-stu">學員</span><span>Sprint: S3</span><span>路由: /student/files</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4><span class="flow-link prev" onclick="goPage('p06')">返回: P06 學員中心</span><span class="flow-link ext">開啟: Google Drive（新分頁）</span></div>
+            <div class="wf">
+                <div class="wf-alert info">V1：檔案來自 Drive API，每梯次自動建立資料夾。</div>
+                <div class="wf-nav"><div class="wf-nav-item active">講義</div><div class="wf-nav-item">作業</div><div class="wf-nav-item">教材</div><div class="wf-nav-item">補課影片</div></div>
+                <table class="wf-table">
+                    <thead><tr><th>檔案名稱</th><th>類型</th><th>更新日期</th><th></th></tr></thead>
+                    <tbody>
+                        <tr><td>Day1_講義.pdf</td><td>PDF</td><td>2/15</td><td><a href="#">開啟</a></td></tr>
+                        <tr><td>Day2_講義.pdf</td><td>PDF</td><td>3/01</td><td><a href="#">開啟</a></td></tr>
+                        <tr><td>牌卡快速參考手冊.pdf</td><td>PDF</td><td>1/20</td><td><a href="#">開啟</a></td></tr>
+                        <tr><td>Day3_補課影片</td><td>YouTube</td><td>3/10</td><td><a href="#">觀看</a></td></tr>
+                    </tbody>
+                </table>
+            </div>            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">Drive API 瀏覽檔案列表，每梯次自動建立資料夾。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">系統內上傳檔案（透過 Drive API）、觀看追蹤（補課影片）。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">結構化附件繳交表單、版本控制、檔案權限細粒度管理。</div></div>
+
+        </div>
+        </div>
+
+        <!-- P11 出席紀錄 -->
+        <div class="page" id="p11">
+            <div class="page-hdr">
+                <div class="page-title">P11：出席紀錄</div>
+                <div class="page-desc">顯示學員的 A 班（6 天）及 B 班活動出席狀況。學員為唯讀，管理員從 P20 標記出席。</div>
+                <div class="page-meta"><span class="badge b-stu">學員</span><span>Sprint: S3</span><span>路由: /student/attendance</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4><span class="flow-link prev" onclick="goPage('p06')">返回: P06 學員中心</span></div>
+            <div class="wf">
+                <h3>A 班出席</h3>
+                <table class="wf-table">
+                    <thead><tr><th>堂次</th><th>日期</th><th>狀態</th></tr></thead>
+                    <tbody>
+                        <tr><td>Day 1</td><td>2/01</td><td><span class="t-green wf-tag">出席</span></td></tr>
+                        <tr><td>Day 2</td><td>2/15</td><td><span class="t-green wf-tag">出席</span></td></tr>
+                        <tr><td>Day 3</td><td>3/01</td><td><span class="t-green wf-tag">出席</span></td></tr>
+                        <tr><td>Day 4</td><td>3/08</td><td><span class="t-yellow wf-tag">缺席（已補課）</span></td></tr>
+                        <tr><td>Day 5</td><td>3/15</td><td><span class="t-gray wf-tag">尚未到來</span></td></tr>
+                        <tr><td>Day 6</td><td>3/29</td><td><span class="t-gray wf-tag">尚未到來</span></td></tr>
+                    </tbody>
+                </table>
+            </div>            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">學員唯讀出席紀錄。管理員從 P20 學員管理標記出席。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">QR Code 簽到、自動出席追蹤、缺席自動補課提醒。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">出席率分析報表、預警機制（低出席率自動通知）。</div></div>
+
+        </div>
+        </div>
+
+        <!-- P12 督導預約殼 -->
+        <div class="page" id="p12">
+            <div class="page-hdr">
+                <div class="page-title">P12：督導預約（殼頁面）</div>
+                <div class="page-desc">V1 殼頁面：列出督導類型（個督 x3 位督導、團督 x7、學長姐諮詢體驗）及 Google Calendar 預約連結。顯示完成進度。V2 將替換為系統內建預約。</div>
+                <div class="page-meta"><span class="badge b-shell">殼頁面</span><span>Sprint: S4</span><span>路由: /student/supervision</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4><span class="flow-link prev" onclick="goPage('p06')">返回: P06 學員中心</span><span class="flow-link ext">開啟: Google Calendar 預約（新分頁）</span></div>
+            <div class="wf">
+                <div class="wf-alert warn">V1 殼頁面：透過 Google Calendar 連結預約。V2 將內建預約系統。</div>
+                <h3>個別督導</h3>
+                <div class="wf-card"><div style="display:flex;justify-content:space-between;"><h4>督導：燕子老師</h4><span class="t-gray wf-tag">未預約</span></div><p>可預約時段：4/15-4/30 | <a href="#">前往 Calendar 預約</a></p></div>
+                <div class="wf-card"><div style="display:flex;justify-content:space-between;"><h4>督導：誠誠老師</h4><span class="t-gray wf-tag">未預約</span></div><p>可預約時段：5/01-5/15 | <a href="#">前往 Calendar 預約</a></p></div>
+                <div class="wf-card"><div style="display:flex;justify-content:space-between;"><h4>督導：韋丞老師</h4><span class="t-gray wf-tag">未預約</span></div><p>可預約時段：5/15-5/30 | <a href="#">前往 Calendar 預約</a></p></div>
+                <hr class="wf-sep">
+                <h3>團體督導（共 7 次）</h3>
+                <div class="wf-card"><p>依梯次日曆排定，請查看<span style="cursor:pointer;color:#3498db;" onclick="goPage('p08')">課程日曆</span>。</p></div>
+                <hr class="wf-sep">
+                <h3>學長姐諮詢體驗</h3>
+                <div class="wf-card"><p>媒合結果將透過<span style="cursor:pointer;color:#3498db;" onclick="goPage('p07')">公告</span>發布。</p></div>
+            </div>            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">殼頁面：督導列表 + Google Calendar 預約連結 + 完成進度。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">系統內建預約：督導開放時段設定、學員線上預約、費用結算。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">AI 輔助媒合（公益個案配對、學長姐諮詢體驗配對）。</div></div>
+
+        </div>
+        </div>
+
+        <!-- P13 認證進度殼 -->
+        <div class="page" id="p13">
+            <div class="page-hdr">
+                <div class="page-title">P13：認證進度（殼頁面）</div>
+                <div class="page-desc">V1 殼頁面：以清單方式顯示認證條件及完成狀態。筆試申請、影片提交、審核流程在 V1 為手動處理。V3 將加入完整的提交與審核介面。</div>
+                <div class="page-meta"><span class="badge b-shell">殼頁面</span><span>Sprint: S4</span><span>路由: /student/certification</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4>
+                <span class="flow-link prev" onclick="goPage('p06')">返回: P06 學員中心</span>
+                <span class="flow-link next" onclick="goPage('p24')">繳交 & 結果: P24 作業繳交 & 結果</span>
+                <span class="flow-link next" onclick="goPage('p15')">完成後: P15 證書下載</span>
+                <span class="flow-link next" onclick="goPage('p22')">管理端: P22 認證批改管理</span>
+            </div>
+            <div class="wf">
+                <div class="wf-alert warn">V1 殼頁面：僅顯示清單與繳交連結。附件透過 Google Drive 處理，認證作業透過 P24 繳交。V2 將加入系統內上傳。</div>
+                <h3>CNC 認證條件總覽</h3>
+                <table class="wf-table">
+                    <thead><tr><th>條件</th><th>狀態</th><th>截止日</th><th>操作</th></tr></thead>
+                    <tbody>
+                        <tr><td>A 班出席（至少 5/6）</td><td><span class="t-green wf-tag">4/6（進行中）</span></td><td>-</td><td><span style="color:#7f8c8d;font-size:11px;">自動追蹤</span></td></tr>
+                        <tr><td>B 班團督（至少 5/7）</td><td><span class="t-yellow wf-tag">2/7</span></td><td>-</td><td><span style="color:#7f8c8d;font-size:11px;">自動追蹤</span></td></tr>
+                        <tr><td>個別督導（3 次）</td><td><span class="t-yellow wf-tag">0/3</span></td><td>6/30</td><td><span style="color:#3498db;cursor:pointer;font-size:11px;" onclick="goPage('p12')">去預約</span></td></tr>
+                        <tr><td>附件 A：實習個案總表</td><td><span class="t-gray wf-tag">未提交</span></td><td>7/15</td><td><span style="color:#3498db;cursor:pointer;font-size:11px;" onclick="goPage('p24')">去繳交</span></td></tr>
+                        <tr><td>附件 B：諮詢同意書</td><td><span class="t-gray wf-tag">未提交</span></td><td>7/15</td><td><span style="color:#3498db;cursor:pointer;font-size:11px;" onclick="goPage('p24')">去繳交</span></td></tr>
+                        <tr><td>附件 C：個案報告</td><td><span class="t-gray wf-tag">未提交</span></td><td>7/15</td><td><span style="color:#3498db;cursor:pointer;font-size:11px;" onclick="goPage('p24')">去繳交</span></td></tr>
+                        <tr><td>附件 D：諮詢回饋問卷</td><td><span class="t-gray wf-tag">未完成</span></td><td>7/15</td><td><span style="color:#3498db;cursor:pointer;font-size:11px;" onclick="goPage('p24')">去填寫</span></td></tr>
+                        <tr><td>附件 E：督導心得（10 份）</td><td><span class="t-yellow wf-tag">3/10</span></td><td>7/15</td><td><span style="color:#3498db;cursor:pointer;font-size:11px;" onclick="goPage('p24')">去繳交</span></td></tr>
+                        <tr><td>筆試（24 小時限時）</td><td><span class="t-gray wf-tag">未申請</span></td><td>7/30 前申請</td><td><button class="wf-btn primary" style="padding:2px 8px;font-size:10px;" onclick="goPage('p24')">申請筆試</button></td></tr>
+                        <tr><td>影片：知識檢核</td><td><span class="t-gray wf-tag">未提交</span></td><td>8/15</td><td><span style="color:#3498db;cursor:pointer;font-size:11px;" onclick="goPage('p24')">去繳交</span></td></tr>
+                        <tr><td>影片：個案演練</td><td><span class="t-gray wf-tag">未提交</span></td><td>8/15</td><td><span style="color:#3498db;cursor:pointer;font-size:11px;" onclick="goPage('p24')">去繳交</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="wf">
+                <h3>認證審核結果</h3>
+                <div class="wf-alert info">所有條件皆達成 + 認證作業繳交後，將由學長姐批改。結果約 14 天內通知。</div>
+                <div class="wf-placeholder">尚未進入審核階段。請先完成以上所有條件。</div>
+            </div>
+            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">殼頁面：認證條件清單 + 完成狀態 + 繳交連結（P24）。提交透過 Drive。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">附件系統內繳交、資格自動檢核、筆試線上發送。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">完整批改介面（學長姐線上批改）、結果排程通知、批次證書生成。</div></div>
+            </div>
+        </div>
+
+        <!-- P24 作業繳交 & 結果 -->
+        <div class="page" id="p24">
+            <div class="page-hdr">
+                <div class="page-title">P24：作業繳交 & 批改結果</div>
+                <div class="page-desc">學員繳交認證相關作業（附件 A-E、筆試、認證影片）並查看批改結果的頁面。V1 附件透過 Google Drive 連結繳交，認證影片貼 YouTube/Drive 連結。V2 改為系統內上傳。</div>
+                <div class="page-meta"><span class="badge b-stu">學員</span><span class="badge b-shell">殼頁面</span><span>Sprint: S4 → V2</span><span>路由: /student/certification/submit</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4>
+                <span class="flow-link prev" onclick="goPage('p13')">返回: P13 認證進度</span>
+                <span class="flow-link prev" onclick="goPage('p06')">返回: P06 學員中心</span>
+                <span class="flow-link next" onclick="goPage('p15')">認證通過後: P15 證書下載</span>
+            </div>
+            <div class="wf">
+                <div class="wf-nav">
+                    <div class="wf-nav-item active">附件繳交</div>
+                    <div class="wf-nav-item">認證作業</div>
+                    <div class="wf-nav-item">批改結果</div>
+                </div>
+            </div>
+            <div class="wf">
+                <h3>附件繳交（A-E）</h3>
+                <div class="wf-alert warn">V1：附件透過 Google Drive 資料夾上傳，系統記錄繳交狀態。V2 改為系統內直接上傳。</div>
+                <table class="wf-table">
+                    <thead><tr><th>附件</th><th>說明</th><th>格式</th><th>狀態</th><th>操作</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight:600;">附件 A</td><td>實習個案總表</td><td>Excel / 系統表單</td>
+                            <td><span class="t-green wf-tag">已繳交</span></td>
+                            <td><span style="color:#3498db;cursor:pointer;font-size:12px;">查看</span> <span style="color:#7f8c8d;font-size:12px;">| 重新上傳</span></td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:600;">附件 B</td><td>諮詢同意書</td><td>PDF / 圖片</td>
+                            <td><span class="t-green wf-tag">已繳交（3份）</span></td>
+                            <td><span style="color:#3498db;cursor:pointer;font-size:12px;">查看</span></td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:600;">附件 C</td><td>個案報告</td><td>Word / PDF</td>
+                            <td><span class="t-gray wf-tag">未繳交</span></td>
+                            <td><button class="wf-btn primary" style="padding:3px 10px;font-size:11px;">上傳至 Drive</button></td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:600;">附件 D</td><td>諮詢回饋問卷</td><td>系統問卷</td>
+                            <td><span class="t-yellow wf-tag">2/3 完成</span></td>
+                            <td><span style="color:#3498db;cursor:pointer;font-size:12px;">填寫問卷</span></td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:600;">附件 E</td><td>督導心得（7 團督 + 3 個督）</td><td>Word / PDF</td>
+                            <td><span class="t-yellow wf-tag">3/10</span></td>
+                            <td><button class="wf-btn outline" style="padding:3px 10px;font-size:11px;">上傳心得</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="margin-top:8px;font-size:11px;color:#7f8c8d;">
+                    Drive 資料夾：<a style="color:#3498db;cursor:pointer;">開啟我的認證資料夾</a>（所有附件統一存放在此）
+                </div>
+            </div>
+            <div class="wf">
+                <h3>認證作業繳交</h3>
+                <div class="wf-alert info">所有附件（A-E）繳交完成且資格檢核通過後，才可繳交認證作業。</div>
+                <div class="wf-row c2">
+                    <div class="wf-card" style="border-left:4px solid #f39c12;">
+                        <h4>筆試</h4>
+                        <p>24 小時限時作答。申請後系統寄發筆試檔案（PPT），填寫後上傳。</p>
+                        <div style="margin-top:8px;">
+                            <button class="wf-btn primary" style="font-size:11px;">申請筆試</button>
+                            <span style="font-size:10px;color:#7f8c8d;margin-left:6px;">截止：2026/07/30 前申請</span>
+                        </div>
+                    </div>
+                    <div class="wf-card" style="border-left:4px solid #3498db;">
+                        <h4>知識檢核影片</h4>
+                        <p>30 分鐘深度職業簡報影片。上傳至 YouTube 或 Google Drive，貼上連結。</p>
+                        <div style="margin-top:8px;">
+                            <label style="font-weight:400;font-size:11px;">影片連結</label>
+                            <input class="wf-input" placeholder="https://youtu.be/... 或 Google Drive 連結" style="font-size:11px;">
+                            <button class="wf-btn primary" style="font-size:11px;margin-top:4px;">提交連結</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="wf-card" style="border-left:4px solid #3498db;margin-top:8px;">
+                    <h4>個案演練影片</h4>
+                    <p>現場模擬諮詢紀錄影片。上傳至 YouTube 或 Google Drive，貼上連結。</p>
+                    <div style="margin-top:8px;">
+                        <label style="font-weight:400;font-size:11px;">影片連結</label>
+                        <input class="wf-input" placeholder="https://youtu.be/... 或 Google Drive 連結" style="font-size:11px;">
+                        <button class="wf-btn primary" style="font-size:11px;margin-top:4px;">提交連結</button>
+                    </div>
+                </div>
+                <div style="margin-top:12px;">
+                    <div class="wf-alert info" style="margin-bottom:0;">提交後由行政確認 → 分派學長姐批改 → 約 14 天內出結果。可在下方「批改結果」分頁查看進度。</div>
+                </div>
+            </div>
+            <div class="wf">
+                <h3>批改結果</h3>
+                <div class="wf-alert warn">V1：批改結果透過 Email 通知 + 此頁顯示摘要。V3 將顯示完整回饋與評分細項。</div>
+                <div class="wf-card" style="border:2px solid #27ae60;background:#f0fff4;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                        <div>
+                            <h4 style="color:#27ae60;">知識檢核影片 — 通過</h4>
+                            <p>批改者：林學姐 | 批改日期：2026/07/20</p>
+                        </div>
+                        <span class="t-green wf-tag" style="font-size:12px;">通過</span>
+                    </div>
+                    <hr class="wf-sep">
+                    <div style="font-size:12px;">
+                        <div style="font-weight:600;margin-bottom:4px;">回饋摘要：</div>
+                        <p>「表達清晰、結構完整，同理心展現自然。建議加強問題聚焦能力，可嘗試在初次回應時就鎖定核心議題。整體表現優良。」</p>
+                    </div>
+                    <div style="margin-top:8px;font-size:11px;">
+                        <div style="display:flex;gap:20px;">
+                            <span>表達清晰度：★★★★☆</span>
+                            <span>同理心展現：★★★★★</span>
+                            <span>問題聚焦：★★★☆☆</span>
+                            <span>工具運用：★★★★☆</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="wf-card" style="border:2px solid #f39c12;background:#fffcf0;margin-top:8px;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                        <div>
+                            <h4 style="color:#f39c12;">個案演練影片 — 批改中</h4>
+                            <p>批改者：陳學長 | 預計完成：2026/07/25</p>
+                        </div>
+                        <span class="t-yellow wf-tag" style="font-size:12px;">批改中</span>
+                    </div>
+                    <div style="font-size:11px;color:#7f8c8d;margin-top:6px;">學長姐正在批改中，請耐心等候。</div>
+                </div>
+                <div class="wf-card" style="border:2px solid #ddd;margin-top:8px;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                        <div>
+                            <h4>筆試 — 未繳交</h4>
+                            <p>尚未申請筆試</p>
+                        </div>
+                        <span class="t-gray wf-tag" style="font-size:12px;">未繳交</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">殼頁面：附件 Drive 連結繳交、認證影片貼連結、結果摘要顯示。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">系統內上傳附件、影片連結自動驗證、筆試線上作答、即時通知。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">內嵌影片播放回饋、AI 輔助品質檢核、歷次提交版本比對。</div></div>
+            </div>
+        </div>
+
+        <!-- P14 畢業後公告 -->
+        <div class="page" id="p14">
+            <div class="page-hdr">
+                <div class="page-title">P14：畢業後公告</div>
+                <div class="page-desc">V1 最精簡的畢業後頁面：特約優惠、進修課程、合約諮詢師申請。僅完成認證的學員可見。V3 擴充為完整校友社群。</div>
+                <div class="page-meta"><span class="badge b-shell">殼頁面</span><span>Sprint: S4</span><span>路由: /alumni</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4><span class="flow-link prev" onclick="goPage('p06')">返回: P06 學員中心</span></div>
+            <div class="wf">
+                <div class="wf-alert info">V1：僅公告頁。V3 將加入社群、徽章、進修課程入口。</div>
+                <div class="wf-card" style="border-left:4px solid #3498db;"><h4>進修課程：團體引導技巧</h4><p>校友專屬 2 日工作坊。早鳥 NT$8,000（原價 NT$12,000）。</p><p style="font-size:10px;color:#999;">2026/05/01 發布</p></div>
+                <div class="wf-card"><h4>特約諮詢師申請開放</h4><p>取得 CNC 認證的諮詢師可申請加入合作夥伴網絡...</p><p style="font-size:10px;color:#999;">2026/04/15 發布</p></div>
+                <div class="wf-placeholder">V3：社群動態、徽章、資源庫</div>
+            </div>            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">殼頁面：公告列表（特約優惠、進修課程資訊）。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">校友 CRM、換證追蹤、進修課權限驗證。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">社群動態、徽章系統、遊戲化、諮詢師人才庫、職缺媒合。</div></div>
+
+        </div>
+        </div>
+
+        <!-- P15 證書下載 -->
+        <div class="page" id="p15">
+            <div class="page-hdr">
+                <div class="page-title">P15：證書下載</div>
+                <div class="page-desc">已認證學員可下載證書 PDF。V1：管理員用 Canva 設計後手動上傳。V2：系統自動產生含姓名與證書編號的 PDF。</div>
+                <div class="page-meta"><span class="badge b-shell">殼頁面</span><span>Sprint: S4</span><span>路由: /student/certificate</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4><span class="flow-link prev" onclick="goPage('p13')">來源: P13 認證進度</span><span class="flow-link prev" onclick="goPage('p06')">來源: P06 學員中心</span></div>
+            <div class="wf" style="text-align:center;">
+                <div class="wf-placeholder" style="padding:32px;">
+                    <div style="font-size:14px;font-weight:600;margin-bottom:6px;">[ 證書預覽 ]</div>
+                    <p>CNC 職涯諮詢師認證證書</p>
+                    <p>持有人：王小明</p>
+                    <p>證書編號：CNC-2026-0815</p>
+                </div>
+                <button class="wf-btn primary" style="margin-top:10px;">下載 PDF</button>
+                <p style="font-size:10px;color:#999;margin-top:10px;">V1：管理員手動上傳。V2：系統自動產生。</p>
+            </div>            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">管理員手動上傳 Canva 證書 PDF，學員下載。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">系統自動生成 PDF（含姓名、證書編號、日期）。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">線上驗證連結、證書 QR Code、國際認證格式。</div></div>
+
+        </div>
+        </div>
+
+        <!-- P16 後台總覽 -->
+        <div class="page" id="p16">
+            <div class="page-hdr">
+                <div class="page-title">P16：後台總覽</div>
+                <div class="page-desc">管理員/助教的主頁面：進行中梯次、報名數、營收摘要、待辦事項。依角色顯示不同範圍（管理員看全部，助教看負責的梯次）。</div>
+                <div class="page-meta"><span class="badge b-adm">管理員</span><span>Sprint: S1</span><span>路由: /admin</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4>
+                <span class="flow-link prev" onclick="goPage('p05')">來源: P05 登入（角色=管理員）</span>
+                <span class="flow-link next" onclick="goPage('p17')">P17 梯次</span>
+                <span class="flow-link next" onclick="goPage('p18')">P18 定價</span>
+                <span class="flow-link next" onclick="goPage('p19')">P19 訂單</span>
+                <span class="flow-link next" onclick="goPage('p20')">P20 學員</span>
+                <span class="flow-link next" onclick="goPage('p21')">P21 通知</span>
+            </div>
+            <div class="wf">
+                <div class="wf-label">關鍵指標</div>
+                <div class="wf-row c4">
+                    <div class="wf-stat"><div class="num">3</div><div class="lbl">進行中梯次</div></div>
+                    <div class="wf-stat"><div class="num">45</div><div class="lbl">在讀學員</div></div>
+                    <div class="wf-stat"><div class="num">12</div><div class="lbl">待處理報名</div></div>
+                    <div class="wf-stat"><div class="num">NT$1.2M</div><div class="lbl">本月營收</div></div>
+                </div>
+            </div>
+            <div class="wf">
+                <div class="wf-label">待辦事項</div>
+                <div class="wf-card"><h4>寄出 CNC 第 15 期教材</h4><p>截止：6/20 | 18 份包裹</p></div>
+                <div class="wf-card"><h4>上架 Day 4 補課影片</h4><p>截止：6/10 | CNC 第 14 期</p></div>
+                <div class="wf-card"><h4>寄送課前提醒信</h4><p>截止：6/13 | CNC 第 14 期 Day 5</p></div>
+            </div>
+            <div class="wf">
+                <div class="wf-label">快捷導航</div>
+                <div class="wf-row c3">
+                    <div class="wf-card" style="cursor:pointer;text-align:center;" onclick="goPage('p17')"><h4>梯次管理</h4></div>
+                    <div class="wf-card" style="cursor:pointer;text-align:center;" onclick="goPage('p19')"><h4>訂單管理</h4></div>
+                    <div class="wf-card" style="cursor:pointer;text-align:center;" onclick="goPage('p20')"><h4>學員管理</h4></div>
+                </div>
+            </div>            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">關鍵指標 + 待辦事項 + 快捷導航。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">營運儀表板（報名趨勢、營收圖表）、費用核銷自動化。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">進階 BI 報表、跨梯次比較分析、職涯發展白皮書數據。</div></div>
+
+        </div>
+        </div>
+
+        <!-- P17 梯次管理 -->
+        <div class="page" id="p17">
+            <div class="page-hdr">
+                <div class="page-title">P17：梯次管理</div>
+                <div class="page-desc">建立與管理梯次。每個梯次包含：班別類型（A/B/雙證照）、日程排程、名額上限、連結的定價方案、自動建立的 Drive 資料夾。建立梯次即觸發「一鍵開課引擎」。</div>
+                <div class="page-meta"><span class="badge b-adm">管理員</span><span>Sprint: S1</span><span>路由: /admin/cohorts</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4><span class="flow-link prev" onclick="goPage('p16')">返回: P16 後台總覽</span><span class="flow-link next" onclick="goPage('p18')">前往: P18 定價設定</span></div>
+            <div class="wf">
+                <div style="display:flex;justify-content:space-between;margin-bottom:10px;"><h3>所有梯次</h3><button class="wf-btn primary">+ 新增梯次</button></div>
+                <table class="wf-table">
+                    <thead><tr><th>梯次</th><th>類型</th><th>日期</th><th>名額</th><th>狀態</th><th></th></tr></thead>
+                    <tbody>
+                        <tr><td>CNC 第 15 期</td><td>A+B</td><td>7-10 月 2026</td><td>22/25</td><td><span class="t-green wf-tag">開放報名</span></td><td><a href="#">編輯</a></td></tr>
+                        <tr><td>CNC 第 14 期</td><td>A+B</td><td>2-6 月 2026</td><td>25/25</td><td><span class="t-blue wf-tag">進行中</span></td><td><a href="#">查看</a></td></tr>
+                        <tr><td>六月一日班</td><td>體驗班</td><td>6/15</td><td>8/30</td><td><span class="t-green wf-tag">開放報名</span></td><td><a href="#">編輯</a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="wf">
+                <div class="wf-label">新增梯次表單（彈窗）</div>
+                <div class="wf-row c2">
+                    <div><label>梯次名稱 <span class="req">*</span></label><input class="wf-input" placeholder="CNC 第 16 期"></div>
+                    <div><label>類型 <span class="req">*</span></label><select class="wf-input"><option>A+B 雙證照班</option><option>僅 A 班</option><option>一日體驗班</option><option>CDA</option></select></div>
+                </div>
+                <div class="wf-row c2">
+                    <div><label>開始日期</label><input class="wf-input" type="date"></div>
+                    <div><label>結束日期</label><input class="wf-input" type="date"></div>
+                </div>
+                <div class="wf-row c2">
+                    <div><label>名額上限</label><input class="wf-input" placeholder="25"></div>
+                    <div><label>連結定價方案</label><select class="wf-input"><option>2026 下半年標準方案</option></select></div>
+                </div>
+                <div class="wf-alert info">建立後系統自動：建立 Drive 資料夾結構、設定通知排程。</div>
+            </div>            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">梯次 CRUD + 自動建 Drive 資料夾 + 通知排程。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">一鍵開課引擎（完整版）、梯次複製、批次操作。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">AI 輔助排程（避開連假、自動推薦年度開課日期）、代理商開課授權。</div></div>
+
+        </div>
+        </div>
+
+        <!-- P18 定價設定 -->
+        <div class="page" id="p18">
+            <div class="page-hdr">
+                <div class="page-title">P18：定價設定</div>
+                <div class="page-desc">管理定價方案：各商品基本價、早鳥規則（日期範圍 + 折扣金額）、老友方案、優惠碼。管理員在此設定規則，P02 報名表單的定價引擎會即時運算。</div>
+                <div class="page-meta"><span class="badge b-adm">管理員</span><span>Sprint: S1</span><span>路由: /admin/pricing</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4><span class="flow-link prev" onclick="goPage('p17')">來源: P17 梯次管理</span><span class="flow-link prev" onclick="goPage('p16')">來源: P16 後台總覽</span></div>
+            <div class="wf">
+                <h3>定價規則</h3>
+                <table class="wf-table">
+                    <thead><tr><th>商品</th><th>原價</th><th>早鳥</th><th>老友</th><th>可疊加？</th><th></th></tr></thead>
+                    <tbody>
+                        <tr><td>CNC A+B 雙證照</td><td>NT$52,000</td><td>-NT$10,000（06/01 前）</td><td>-NT$5,000</td><td><span class="t-red wf-tag">待確認</span></td><td><a href="#">編輯</a></td></tr>
+                        <tr><td>CNC 僅 A 班</td><td>NT$28,000</td><td>-NT$5,000（06/01 前）</td><td>-NT$3,000</td><td><span class="t-red wf-tag">待確認</span></td><td><a href="#">編輯</a></td></tr>
+                        <tr><td>一日體驗班</td><td>NT$3,800</td><td>-</td><td>-NT$500</td><td>-</td><td><a href="#">編輯</a></td></tr>
+                    </tbody>
+                </table>
+                <div class="wf-alert warn">疊加規則（早鳥 + 老友可否同時使用？）需 PM 確認後才能進入 S1 開發。</div>
+            </div>
+            <div class="wf">
+                <div class="wf-label">優惠碼</div>
+                <table class="wf-table">
+                    <thead><tr><th>代碼</th><th>類型</th><th>折扣</th><th>有效期</th><th>已使用</th><th></th></tr></thead>
+                    <tbody>
+                        <tr><td>ONEDAY2026</td><td>固定金額</td><td>-NT$500</td><td>2026/12/31</td><td>12/100</td><td><a href="#">編輯</a></td></tr>
+                        <tr><td>ALUMNI10</td><td>百分比</td><td>-10%</td><td>2026/12/31</td><td>3/50</td><td><a href="#">編輯</a></td></tr>
+                    </tbody>
+                </table>
+                <button class="wf-btn outline" style="margin-top:6px;">+ 新增優惠碼</button>
+            </div>            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">基本價 + 早鳥 + 老友 + 優惠碼。疊加規則待 PM 確認。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">動態定價規則引擎、批量折扣、推薦碼追蹤。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">代理商差異化定價、區域定價（出海）。</div></div>
+
+        </div>
+        </div>
+
+        <!-- P19 訂單管理 -->
+        <div class="page" id="p19">
+            <div class="page-hdr">
+                <div class="page-title">P19：訂單管理</div>
+                <div class="page-desc">所有訂單列表，可依狀態篩選。管理員可查看訂單詳情、觸發全額退款（V1），或手動更新部分退款/升級/延期狀態（半自動 workaround）。</div>
+                <div class="page-meta"><span class="badge b-adm">管理員</span><span>Sprint: S2</span><span>路由: /admin/orders</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4><span class="flow-link prev" onclick="goPage('p16')">返回: P16 後台總覽</span><span class="flow-link ext">外部: 金流商後台（手動退款）</span><span class="flow-link ext">外部: EZPAY 後台（發票作廢）</span></div>
+            <div class="wf">
+                <div style="display:flex;gap:6px;margin-bottom:10px;">
+                    <select class="wf-input" style="width:130px;"><option>全部狀態</option><option>已付款</option><option>待付款</option><option>已退款</option></select>
+                    <select class="wf-input" style="width:130px;"><option>全部梯次</option><option>第 15 期</option><option>第 14 期</option></select>
+                    <input class="wf-input" style="width:180px;" placeholder="搜尋姓名/Email">
+                </div>
+                <table class="wf-table">
+                    <thead><tr><th>訂單編號</th><th>學員</th><th>商品</th><th>金額</th><th>狀態</th><th>日期</th><th></th></tr></thead>
+                    <tbody>
+                        <tr><td>CNC-0815</td><td>張三</td><td>第 15 期 A+B</td><td>NT$42,000</td><td><span class="t-green wf-tag">已付款</span></td><td>06/01</td><td><a href="#">詳情</a></td></tr>
+                        <tr><td>CNC-0816</td><td>李四</td><td>第 15 期 A</td><td>NT$23,000</td><td><span class="t-green wf-tag">已付款</span></td><td>06/02</td><td><a href="#">詳情</a></td></tr>
+                        <tr><td>CNC-0817</td><td>王五</td><td>第 15 期 A+B</td><td>NT$52,000</td><td><span class="t-yellow wf-tag">待付款</span></td><td>06/05</td><td><a href="#">詳情</a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="wf">
+                <div class="wf-label">訂單詳情（展開）</div>
+                <div class="wf-card">
+                    <div style="display:flex;justify-content:space-between;"><h4>訂單 #CNC-0815</h4><span class="t-green wf-tag">已付款</span></div>
+                    <div class="wf-row c2" style="margin-top:6px;">
+                        <div><p><strong>學員：</strong>張三</p><p><strong>手機：</strong>0912-345-678</p></div>
+                        <div><p><strong>商品：</strong>第 15 期 A+B</p><p><strong>付款：</strong>NT$42,000（信用卡）</p><p><strong>發票：</strong>AB-12345678</p></div>
+                    </div>
+                    <hr class="wf-sep">
+                    <div style="display:flex;gap:6px;">
+                        <button class="wf-btn danger" style="font-size:11px;">全額退款</button>
+                        <button class="wf-btn outline" style="font-size:11px;">標記：部分退款（手動）</button>
+                        <button class="wf-btn outline" style="font-size:11px;">轉梯次</button>
+                        <button class="wf-btn outline" style="font-size:11px;">升級雙證照</button>
+                    </div>
+                    <p style="font-size:10px;color:#999;margin-top:6px;">V1：部分退款與升級需至金流商後台手動操作。</p>
+                </div>
+            </div>            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">訂單列表 + 詳情 + 全額退款。部分退款/升級需至金流商後台手動操作。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">部分退款/升級全自動、自動對帳、批次退款。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">財務報表、跨期認列追蹤、會計系統匯出。</div></div>
+
+        </div>
+        </div>
+
+        <!-- P20 學員管理 -->
+        <div class="page" id="p20">
+            <div class="page-hdr">
+                <div class="page-title">P20：學員管理</div>
+                <div class="page-desc">跨梯次學員總表。可依梯次、狀態、班別篩選。檢視個別學員進度、標記出席、管理在學狀態（在讀/延期/退課）。</div>
+                <div class="page-meta"><span class="badge b-adm">管理員</span><span>Sprint: S3</span><span>路由: /admin/students</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4><span class="flow-link prev" onclick="goPage('p16')">返回: P16 後台總覽</span></div>
+            <div class="wf">
+                <div style="display:flex;gap:6px;margin-bottom:10px;">
+                    <select class="wf-input" style="width:130px;"><option>全部梯次</option><option>第 15 期</option><option>第 14 期</option></select>
+                    <select class="wf-input" style="width:130px;"><option>全部狀態</option><option>在讀</option><option>延期</option><option>退課</option><option>已認證</option></select>
+                    <input class="wf-input" style="width:180px;" placeholder="搜尋姓名/Email">
+                </div>
+                <table class="wf-table">
+                    <thead><tr><th>姓名</th><th>梯次</th><th>類型</th><th>A 班</th><th>B 班</th><th>督導</th><th>認證</th><th>狀態</th></tr></thead>
+                    <tbody>
+                        <tr><td>張三</td><td>14 期</td><td>A+B</td><td>4/6</td><td>2/7</td><td>0/3</td><td><span class="t-yellow wf-tag">進行中</span></td><td><span class="t-green wf-tag">在讀</span></td></tr>
+                        <tr><td>李四</td><td>14 期</td><td>A</td><td>6/6</td><td>-</td><td>-</td><td>-</td><td><span class="t-green wf-tag">在讀</span></td></tr>
+                        <tr><td>王五</td><td>13 期</td><td>A+B</td><td>6/6</td><td>7/7</td><td>3/3</td><td><span class="t-green wf-tag">已認證</span></td><td><span class="t-blue wf-tag">校友</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="wf">
+                <div class="wf-label">出席標記（展開學員後）</div>
+                <div class="wf-card">
+                    <h4>張三 — CNC 第 14 期 A 班出席</h4>
+                    <table class="wf-table">
+                        <thead><tr><th>堂次</th><th>日期</th><th>狀態</th><th>操作</th></tr></thead>
+                        <tbody>
+                            <tr><td>Day 1</td><td>2/01</td><td><span class="t-green wf-tag">出席</span></td><td><select class="wf-input" style="width:100px;padding:3px;"><option selected>出席</option><option>缺席</option><option>缺席（已補課）</option></select></td></tr>
+                            <tr><td>Day 5</td><td>3/15</td><td><span class="t-gray wf-tag">尚未到來</span></td><td><select class="wf-input" style="width:100px;padding:3px;"><option>-</option><option>出席</option><option>缺席</option></select></td></tr>
+                        </tbody>
+                    </table>
+                    <div style="margin-top:6px;"><button class="wf-btn primary" style="font-size:11px;">儲存出席紀錄</button></div>
+                </div>
+            </div>
+            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">學員總表 + 進度一覽 + 出席標記 + 狀態管理（在讀/延期/退課）。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">學員 CRM、標籤系統、批次操作、匯出 Excel。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">學員行為分析、預警機制（低活躍度通知）、校友管理。</div></div>
+            </div>
+        </div>
+
+        <!-- P21 通知管理 -->
+        <div class="page" id="p21">
+            <div class="page-hdr">
+                <div class="page-title">P21：通知管理</div>
+                <div class="page-desc">設定與發送通知：自動提醒（課前、作業截止、行政任務）及手動公告。V1 支援 Email 通知，內建常見情境模板。排程觸發器依梯次日程自動執行。</div>
+                <div class="page-meta"><span class="badge b-adm">管理員</span><span>Sprint: S3</span><span>路由: /admin/notifications</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4><span class="flow-link prev" onclick="goPage('p16')">返回: P16 後台總覽</span></div>
+            <div class="wf">
+                <div class="wf-nav"><div class="wf-nav-item active">自動提醒</div><div class="wf-nav-item">發送公告</div><div class="wf-nav-item">歷史紀錄</div></div>
+                <h3>自動提醒規則</h3>
+                <table class="wf-table">
+                    <thead><tr><th>觸發條件</th><th>時間</th><th>對象</th><th>模板</th><th>啟用</th></tr></thead>
+                    <tbody>
+                        <tr><td>課前提醒</td><td>上課前 3 天</td><td>學員</td><td>課前提醒 v1</td><td><span class="t-green wf-tag">開啟</span></td></tr>
+                        <tr><td>作業截止提醒</td><td>截止前 2 天</td><td>學員</td><td>作業提醒 v1</td><td><span class="t-green wf-tag">開啟</span></td></tr>
+                        <tr><td>行政：寄送教材</td><td>Day 1 前 14 天</td><td>管理員/助教</td><td>教材寄送 v1</td><td><span class="t-green wf-tag">開啟</span></td></tr>
+                        <tr><td>行政：上架影片</td><td>上課後 1 天</td><td>管理員/助教</td><td>影片上架 v1</td><td><span class="t-green wf-tag">開啟</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="wf">
+                <div class="wf-label">發送公告（切換分頁後）</div>
+                <div class="wf-row c2">
+                    <div><label>公告標題 <span class="req">*</span></label><input class="wf-input" placeholder="輸入公告標題"></div>
+                    <div><label>發送對象 <span class="req">*</span></label><select class="wf-input"><option>全部學員</option><option>CNC 第 14 期</option><option>CNC 第 15 期</option><option>校友</option></select></div>
+                </div>
+                <div><label>公告內容 <span class="req">*</span></label><div class="wf-placeholder" style="min-height:80px;text-align:left;padding:10px;">[ 富文字編輯器 ]</div></div>
+                <div class="wf-row c2" style="margin-top:8px;">
+                    <div><label>附件</label><button class="wf-btn outline" style="font-size:11px;">上傳附件</button></div>
+                    <div style="display:flex;gap:8px;align-items:end;">
+                        <label style="font-weight:400;"><input type="checkbox"> 置頂</label>
+                        <label style="font-weight:400;"><input type="checkbox"> 同時寄 Email</label>
+                    </div>
+                </div>
+                <div style="margin-top:10px;"><button class="wf-btn primary">發布公告</button> <button class="wf-btn outline">儲存草稿</button></div>
+            </div>
+            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">自動提醒規則 + 手動發送公告 + Email 通知。內建常見模板。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">LINE 推播整合、排程發送、通知已讀追蹤。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">多頻道統一管理（Email + LINE + 系統內 + 推播）、通知偏好設定。</div></div>
+            </div>
+        </div>
+
+        <!-- P22 認證批改管理 -->
+        <div class="page" id="p22">
+            <div class="page-hdr">
+                <div class="page-title">P22：認證批改管理</div>
+                <div class="page-desc">管理員管理認證批改流程的後台頁面。包含：認證申請確認、分派學長姐批改、追蹤批改進度、主管複審。支援多人批改（同一份認證可分配多位學長姐）。</div>
+                <div class="page-meta"><span class="badge b-adm">管理員</span><span class="badge b-shell">殼頁面</span><span>Sprint: S4 → V3</span><span>路由: /admin/certification</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4>
+                <span class="flow-link prev" onclick="goPage('p16')">返回: P16 後台總覽</span>
+                <span class="flow-link prev" onclick="goPage('p20')">來源: P20 學員管理</span>
+                <span class="flow-link next" onclick="goPage('p23')">查看: P23 批改介面</span>
+                <span class="flow-link next" onclick="goPage('p13')">對應: P13 認證進度（學員端）</span>
+            </div>
+            <div class="wf">
+                <div class="wf-alert warn">V1 殼頁面：僅顯示清單與狀態追蹤。分派、通知透過 Email 手動處理。V3 將加入系統內分派與自動通知。</div>
+                <div class="wf-nav">
+                    <div class="wf-nav-item active">待確認</div>
+                    <div class="wf-nav-item">批改中</div>
+                    <div class="wf-nav-item">待複審</div>
+                    <div class="wf-nav-item">已完成</div>
+                </div>
+                <h3>認證申請列表</h3>
+                <table class="wf-table">
+                    <thead><tr><th>學員</th><th>梯次</th><th>申請日期</th><th>項目</th><th>批改者</th><th>狀態</th><th>操作</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td>王小明</td><td>CNC-14</td><td>2026/06/10</td>
+                            <td>知識檢核影片 + 個案演練影片</td>
+                            <td><span class="t-blue wf-tag">林學姐</span> <span class="t-blue wf-tag">陳學長</span></td>
+                            <td><span class="t-yellow wf-tag">批改中（1/2）</span></td>
+                            <td><span style="color:#3498db;cursor:pointer;font-size:12px;" onclick="goPage('p23')">查看批改</span></td>
+                        </tr>
+                        <tr>
+                            <td>李小華</td><td>CNC-14</td><td>2026/06/08</td>
+                            <td>知識檢核影片 + 個案演練影片</td>
+                            <td><span class="t-blue wf-tag">張學姐</span></td>
+                            <td><span class="t-green wf-tag">批改完成</span></td>
+                            <td><span style="color:#e74c3c;cursor:pointer;font-size:12px;">主管複審</span></td>
+                        </tr>
+                        <tr>
+                            <td>張大文</td><td>CNC-14</td><td>2026/06/12</td>
+                            <td>筆試 + 知識檢核影片</td>
+                            <td><span class="t-gray wf-tag">未分派</span></td>
+                            <td><span class="t-red wf-tag">待確認</span></td>
+                            <td><button class="wf-btn primary" style="padding:3px 10px;font-size:11px;">確認 & 分派</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="wf">
+                <h3>分派批改（彈窗模擬）</h3>
+                <div style="border:2px solid #3498db;padding:14px;border-radius:4px;background:#f0f8ff;">
+                    <div style="font-size:14px;font-weight:700;margin-bottom:10px;">分派批改 — 張大文 (CNC-14)</div>
+                    <div class="wf-row c2">
+                        <div>
+                            <label>認證項目</label>
+                            <div style="font-size:12px;padding:6px 0;">
+                                <label style="font-weight:400;"><input type="checkbox" checked> 知識檢核影片</label>
+                                <label style="font-weight:400;"><input type="checkbox" checked> 個案演練影片</label>
+                                <label style="font-weight:400;"><input type="checkbox"> 筆試（自動計分）</label>
+                            </div>
+                        </div>
+                        <div>
+                            <label>批改者分配</label>
+                            <div style="font-size:12px;padding:6px 0;">
+                                <div style="margin-bottom:6px;">
+                                    <label style="font-weight:400;"><input type="checkbox" checked> 林學姐 — 知識檢核</label>
+                                </div>
+                                <div style="margin-bottom:6px;">
+                                    <label style="font-weight:400;"><input type="checkbox" checked> 陳學長 — 個案演練</label>
+                                </div>
+                                <div><button class="wf-btn outline" style="padding:3px 8px;font-size:10px;">+ 新增批改者</button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wf-row c2" style="margin-top:6px;">
+                        <div><label>批改截止日</label><input class="wf-input" type="text" value="2026/07/01" /></div>
+                        <div><label>備註給批改者</label><input class="wf-input" type="text" placeholder="選填：特別留意的事項" /></div>
+                    </div>
+                    <div style="margin-top:10px;">
+                        <button class="wf-btn primary">確認分派（寄送 Email 通知）</button>
+                        <button class="wf-btn outline">取消</button>
+                    </div>
+                    <div class="wf-alert info" style="margin-top:10px;margin-bottom:0;">V1：分派後系統自動寄 Email 通知批改者，附上 Google Drive 連結。V3：系統內直接批改。</div>
+                </div>
+            </div>
+            <div class="wf">
+                <h3>批改進度總覽</h3>
+                <div class="wf-row c4">
+                    <div class="wf-stat"><div class="num" style="color:#e74c3c;">3</div><div class="lbl">待確認</div></div>
+                    <div class="wf-stat"><div class="num" style="color:#f39c12;">5</div><div class="lbl">批改中</div></div>
+                    <div class="wf-stat"><div class="num" style="color:#3498db;">2</div><div class="lbl">待複審</div></div>
+                    <div class="wf-stat"><div class="num" style="color:#27ae60;">18</div><div class="lbl">已完成</div></div>
+                </div>
+                <hr class="wf-sep">
+                <h3>主管複審</h3>
+                <div class="wf-alert info">批改者完成後，管理員 / 主管在此做最終複審，確認品質一致後通知學員。</div>
+                <table class="wf-table">
+                    <thead><tr><th>學員</th><th>批改者回饋摘要</th><th>批改者評分</th><th>複審結果</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td>李小華</td>
+                            <td style="font-size:11px;">「知識檢核表達清晰，個案演練同理心佳，建議加強問題聚焦。」</td>
+                            <td><span class="t-green wf-tag">通過</span></td>
+                            <td>
+                                <button class="wf-btn success" style="padding:3px 10px;font-size:11px;">核准</button>
+                                <button class="wf-btn danger" style="padding:3px 10px;font-size:11px;">退回</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">殼頁面：認證申請清單 + 手動 Email 分派 + 進度追蹤。批改透過 Drive 完成。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">系統內分派通知、批改者線上接收任務、批改截止提醒。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">完整線上批改（含評分表、影片內嵌播放）、AI 輔助品質檢核、批次結果通知。</div></div>
+            </div>
+        </div>
+
+        <!-- P23 批改介面 -->
+        <div class="page" id="p23">
+            <div class="page-hdr">
+                <div class="page-title">P23：批改介面</div>
+                <div class="page-desc">學長姐 / 批改者專用的批改頁面。顯示被分配的學員認證資料，提供評分與回饋介面。支援多位批改者各自獨立批改同一份認證。</div>
+                <div class="page-meta"><span class="badge b-stu">批改者</span><span class="badge b-shell">殼頁面</span><span>Sprint: S4 → V3</span><span>路由: /reviewer/grading</span></div>
+            </div>
+            <div class="flow-box"><h4>頁面串接</h4>
+                <span class="flow-link prev" onclick="goPage('p22')">管理端: P22 認證批改管理</span>
+                <span class="flow-link prev" onclick="goPage('p13')">學員端: P13 認證進度</span>
+            </div>
+            <div class="wf">
+                <div class="wf-alert warn">V1 殼頁面：批改者透過 Email 收到 Drive 連結進行批改，此頁僅顯示待批改清單與狀態。V3 將支援線上直接批改。</div>
+                <h3>我的批改任務</h3>
+                <table class="wf-table">
+                    <thead><tr><th>學員</th><th>梯次</th><th>批改項目</th><th>截止日</th><th>狀態</th><th>操作</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td>王小明</td><td>CNC-14</td>
+                            <td>知識檢核影片</td><td>2026/07/01</td>
+                            <td><span class="t-yellow wf-tag">待批改</span></td>
+                            <td><button class="wf-btn primary" style="padding:3px 10px;font-size:11px;">開始批改</button></td>
+                        </tr>
+                        <tr>
+                            <td>陳美玲</td><td>CNC-13</td>
+                            <td>個案演練影片</td><td>2026/06/25</td>
+                            <td><span class="t-green wf-tag">已完成</span></td>
+                            <td><span style="color:#7f8c8d;font-size:12px;">查看回饋</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="wf">
+                <h3>批改詳情 — 王小明：知識檢核影片</h3>
+                <div class="wf-row c2">
+                    <div>
+                        <div class="wf-label">學員提交內容</div>
+                        <div class="wf-placeholder" style="min-height:140px;">
+                            [ 影片播放區 ]<br>
+                            <span style="font-size:10px;">V1：Google Drive 連結（外開）</span><br>
+                            <span style="font-size:10px;">V3：內嵌播放器</span>
+                        </div>
+                        <div style="font-size:11px;color:#7f8c8d;margin-top:4px;">
+                            提交日期：2026/06/10 | 檔案：知識檢核_王小明.mp4
+                        </div>
+                        <div style="margin-top:8px;">
+                            <a class="wf-btn outline" style="padding:4px 10px;font-size:11px;text-decoration:none;">開啟 Drive 連結</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="wf-label">其他批改者狀態</div>
+                        <div class="wf-alert info" style="margin-bottom:8px;">此學員有 2 位批改者，各自獨立批改。</div>
+                        <table class="wf-table" style="font-size:11px;">
+                            <thead><tr><th>批改者</th><th>項目</th><th>狀態</th></tr></thead>
+                            <tbody>
+                                <tr><td style="font-weight:600;">我（林學姐）</td><td>知識檢核</td><td><span class="t-yellow wf-tag">進行中</span></td></tr>
+                                <tr><td>陳學長</td><td>個案演練</td><td><span class="t-gray wf-tag">未開始</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="wf">
+                <h3>批改回饋表</h3>
+                <div class="wf-row c2">
+                    <div>
+                        <label>整體評分 <span class="req">*</span></label>
+                        <div style="font-size:12px;padding:4px 0;">
+                            <label style="font-weight:400;"><input type="radio" name="grade" checked> 通過</label>
+                            <label style="font-weight:400;margin-left:10px;"><input type="radio" name="grade"> 需修改後重交</label>
+                            <label style="font-weight:400;margin-left:10px;"><input type="radio" name="grade"> 不通過</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label>評分向度</label>
+                        <div style="font-size:11px;">
+                            <div style="display:flex;justify-content:space-between;padding:2px 0;"><span>表達清晰度</span><span>★★★★☆</span></div>
+                            <div style="display:flex;justify-content:space-between;padding:2px 0;"><span>同理心展現</span><span>★★★★★</span></div>
+                            <div style="display:flex;justify-content:space-between;padding:2px 0;"><span>問題聚焦能力</span><span>★★★☆☆</span></div>
+                            <div style="display:flex;justify-content:space-between;padding:2px 0;"><span>工具運用正確性</span><span>★★★★☆</span></div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="wf-sep">
+                <div>
+                    <label>回饋內容 <span class="req">*</span></label>
+                    <div class="wf-placeholder" style="min-height:80px;text-align:left;padding:10px;">[ 富文字編輯器 — 給學員的具體回饋 ]</div>
+                </div>
+                <div style="margin-top:6px;">
+                    <label>內部備註（僅管理員可見）</label>
+                    <div class="wf-placeholder" style="min-height:40px;text-align:left;padding:10px;">[ 給行政 / 主管的備註，學員看不到 ]</div>
+                </div>
+                <div style="margin-top:12px;">
+                    <button class="wf-btn success">提交批改結果</button>
+                    <button class="wf-btn outline">儲存草稿</button>
+                </div>
+            </div>
+            <div class="ver-box"><div class="ver-box-title">版本演進</div>
+                <div class="ver-row"><div class="ver-label v1">V1</div><div class="ver-content current">殼頁面：待批改清單 + Drive 外連。回饋透過 Email 回傳行政。</div></div>
+                <div class="ver-row"><div class="ver-label v2">V2</div><div class="ver-content">線上批改（影片內嵌播放 + 回饋表）、截止提醒、進度儀表板。</div></div>
+                <div class="ver-row"><div class="ver-label v3">V3</div><div class="ver-content">AI 輔助批改建議、影片時間標記回饋、多批改者交叉比對、品質分析報表。</div></div>
+            </div>
+        </div>
+
+    </div><!-- /main -->
+</div><!-- /app -->
+
+<script>
+function goPage(id) {
+    // 隱藏所有頁面
+    var pages = document.querySelectorAll('.page');
+    for (var i = 0; i < pages.length; i++) { pages[i].classList.remove('active'); }
+    // 移除所有 nav-item active
+    var navs = document.querySelectorAll('.nav-item');
+    for (var i = 0; i < navs.length; i++) { navs[i].classList.remove('active'); }
+    // 顯示目標頁面
+    var target = document.getElementById(id);
+    if (target) { target.classList.add('active'); }
+    // 設定對應 nav-item active（用 data 屬性匹配不到就算了）
+    for (var i = 0; i < navs.length; i++) {
+        if (navs[i].getAttribute('onclick') && navs[i].getAttribute('onclick').indexOf(id) !== -1) {
+            navs[i].classList.add('active');
+            break;
+        }
+    }
+    // 滾動到頂部
+    document.querySelector('.main').scrollTop = 0;
+}
+</script>
+</body>
+</html>
