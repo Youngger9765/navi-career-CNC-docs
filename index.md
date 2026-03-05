@@ -23,13 +23,17 @@
 
 | 文件 | 說明 |
 |------|------|
-| [功能 × 使用者旅程](feature-user-journey.md) | 17 個功能的使用者旅程對照表，映射 Phase 1-3 |
-| [Phase 1 線框稿](wireframes-phase1.html) | 13 頁互動式線框稿 — 報名 + 付款 + 通知（6 學員端 + 7 管理端） |
-| [Phase 2 線框稿](wireframes-phase2.html) | 16 頁互動式線框稿 — 課程 + 督導 + 認證（8 學員端 + 8 管理端） |
-| [Phase 3 線框稿](wireframes-phase3.html) | 13 頁互動式線框稿 — 儀表板 + CRM + 校友（4 學員端 + 9 管理端） |
+| [功能 × 使用者旅程](feature-user-journey.md) | 17 個功能的使用者旅程對照表，映射 V1-V3 |
+| [V1 MVP 線框圖](wireframes-v1-flow.html) | 24 頁互動式線框圖 — 報名→運課→認證→畢業後完整流程，含 V1/V2/V3 版本演進 |
+
+## 專案管理
+
+| 文件 | 說明 |
+|------|------|
+| [里程碑計畫](milestone-plan.md) | V1 MVP 17 週 Sprint 計畫（S0-S4）+ V2/V3 概覽，含風險總表與協作事項 |
 
 ---
 
-**技術文件**（API Spec、DB Schema）存放於私有 repo，不公開發布。
+**技術文件**（PRD、TRD、API Spec、DB Schema）存放於私有 repo，不公開發布。
 
-**文件版本**: 2026-02-23
+**文件版本**: 2026-03-06
