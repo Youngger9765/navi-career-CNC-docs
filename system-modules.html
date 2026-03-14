@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CNC 系統模組規劃 M1–M5</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+  :root {
+    --teal: #37A6A9;
+    --gold: #F9C04C;
+    --navy: #17335F;
+    --red: #E74C3C;
+    --orange: #F39C12;
+    --green: #27AE60;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --border: #e1e4e8;
+    --text: #24292e;
+    --muted: #586069;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  /* Header */
+  .header { background: linear-gradient(135deg, var(--navy), #1e4a7a); color: white; padding: 3rem 1.5rem; text-align: center; }
+  .header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+  .header p { opacity: 0.8; font-size: 0.95rem; }
+
+  /* Nav tabs */
+  .nav { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin-bottom: 2rem; overflow-x: auto; }
+  .nav button { padding: 0.75rem 1.25rem; border: none; background: none; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--muted); white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.2s; }
+  .nav button:hover { color: var(--teal); }
+  .nav button.active { color: var(--teal); border-bottom-color: var(--teal); }
+
+  /* Sections */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* Cards */
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .card h3 { font-size: 1.1rem; color: var(--navy); margin-bottom: 1rem; }
+
+  /* Module overview cards */
+  .module-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+  .module-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; text-align: center; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
+  .module-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  .module-card .tag { font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 99px; display: inline-block; margin-bottom: 0.5rem; font-weight: 600; }
+  .module-card .name { font-size: 1rem; font-weight: 700; color: var(--navy); }
+  .module-card .desc { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+  .module-card .progress { margin-top: 0.75rem; }
+  .module-card .progress-bar { height: 6px; background: #e9ecef; border-radius: 3px; overflow: hidden; }
+  .module-card .progress-fill { height: 100%; border-radius: 3px; }
+
+  /* Status badges */
+  .badge { font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 99px; font-weight: 600; display: inline-block; }
+  .badge-dev { background: #d4edda; color: #155724; }
+  .badge-wait { background: #fff3cd; color: #856404; }
+  .badge-red { background: #f8d7da; color: #721c24; }
+  .badge-yellow { background: #fff3cd; color: #856404; }
+  .badge-green { background: #d4edda; color: #155724; }
+  .badge-replace { background: #f8d7da; color: var(--red); }
+  .badge-link { background: #d1ecf1; color: #0c5460; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 1rem 0; }
+  th { background: var(--navy); color: white; text-align: left; padding: 0.6rem 0.75rem; font-weight: 600; }
+  td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); }
+  tr:hover td { background: #f1f8ff; }
+
+  /* Mermaid diagrams */
+  .mermaid { margin: 1rem 0; overflow-x: auto; }
+  .mermaid svg { max-width: 100%; }
+
+  /* Question cards */
+  .q-card { border-left: 4px solid var(--border); padding: 0.75rem 1rem; margin: 0.5rem 0; background: var(--card); border-radius: 0 6px 6px 0; }
+  .q-card.q-red { border-left-color: var(--red); background: #fdf2f2; }
+  .q-card.q-yellow { border-left-color: var(--orange); background: #fefcf3; }
+  .q-card.q-green { border-left-color: var(--green); background: #f2fdf4; }
+  .q-card .q-id { font-weight: 700; color: var(--navy); font-size: 0.8rem; }
+  .q-card .q-text { font-size: 0.85rem; margin-top: 0.25rem; }
+  .q-card .q-meta { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
+
+  /* Section title */
+  .section-title { font-size: 1.4rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+  .section-subtitle { font-size: 0.9rem; color: var(--muted); margin-bottom: 1.5rem; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .container { padding: 1rem; }
+    .header { padding: 2rem 1rem; }
+    .header h1 { font-size: 1.5rem; }
+    .module-grid { grid-template-columns: repeat(2, 1fr); }
+    table { font-size: 0.75rem; }
+    th, td { padding: 0.4rem 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>CNC 系統模組規劃（M1–M5）</h1>
+  <p>五大模組解耦合設計，可獨立開發部署 ｜ 2026-03-14</p>
+</div>
+
+<div class="container">
+
+<!-- Navigation -->
+<div class="nav" id="nav">
+  <button class="active" onclick="showSection('overview')">總覽</button>
+  <button onclick="showSection('m1')">M1 報名金流</button>
+  <button onclick="showSection('m2')">M2 行銷頁面</button>
+  <button onclick="showSection('m3')">M3 運課管理</button>
+  <button onclick="showSection('m4')">M4 督導認證</button>
+  <button onclick="showSection('m5')">M5 畢業後 CRM</button>
+  <button onclick="showSection('questions')">待釐清問題</button>
+</div>
+
+<!-- ==================== OVERVIEW ==================== -->
+<div class="section active" id="sec-overview">
+  <div class="section-title">模組依賴關係</div>
+  <div class="section-subtitle">每個模組可獨立開發部署，透過 API 介面解耦合</div>
+
+  <div class="card">
+    <div class="mermaid">
+graph LR
+  M2["<b>M2</b><br/>行銷頁面"]:::m2 -->|導流| M1["<b>M1</b><br/>報名金流"]:::m1
+  M1 -->|入班| M3["<b>M3</b><br/>運課管理"]:::m3
+  M3 -->|資格| M4["<b>M4</b><br/>督導認證"]:::m4
+  M4 -->|證書| M5["<b>M5</b><br/>畢業後 CRM"]:::m5
+  M5 -->|續證付款| M1
+
+  classDef m1 fill:#d4edda,stroke:#155724,color:#155724,stroke-width:2px
+  classDef m2 fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:2px
+  classDef m3 fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:2px
+  classDef m4 fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:2px
+  classDef m5 fill:#f8d7da,stroke:#721c24,color:#721c24,stroke-width:2px
+    </div>
+  </div>
+
+  <div class="module-grid">
+    <div class="module-card" onclick="showSection('m1')">
+      <span class="badge badge-dev">開發中</span>
+      <div class="name">M1 報名金流</div>
+      <div class="desc">下單・升級・退課</div>
+      <div class="progress"><div class="progress-bar"><div class="progress-fill" style="width:70%;background:var(--green)"></div></div></div>
+      <div style="font-size:0.75rem;color:var(--muted);margin-top:0.25rem">70% ｜ V1</div>
+    </div>
+    <div class="module-card" onclick="showSection('m2')">
+      <span class="badge badge-wait">待開發</span>
+      <div class="name">M2 行銷頁面</div>
+      <div class="desc">CMS・開課設定</div>
+      <div class="progress"><div class="progress-bar"><div class="progress-fill" style="width:40%;background:var(--orange)"></div></div></div>
+      <div style="font-size:0.75rem;color:var(--muted);margin-top:0.25rem">40% ｜ V1–V2</div>
+    </div>
+    <div class="module-card" onclick="showSection('m3')">
+      <span class="badge badge-wait">待開發</span>
+      <div class="name">M3 運課管理</div>
+      <div class="desc">教室・作業・補課</div>
+      <div class="progress"><div class="progress-bar"><div class="progress-fill" style="width:45%;background:var(--orange)"></div></div></div>
+      <div style="font-size:0.75rem;color:var(--muted);margin-top:0.25rem">45% ｜ V2</div>
+    </div>
+    <div class="module-card" onclick="showSection('m4')">
+      <span class="badge badge-wait">待開發</span>
+      <div class="name">M4 督導認證</div>
+      <div class="desc">個督・認證・證書</div>
+      <div class="progress"><div class="progress-bar"><div class="progress-fill" style="width:50%;background:var(--orange)"></div></div></div>
+      <div style="font-size:0.75rem;color:var(--muted);margin-top:0.25rem">50% ｜ V2</div>
+    </div>
+    <div class="module-card" onclick="showSection('m5')">
+      <span class="badge badge-red">規格不足</span>
+      <div class="name">M5 畢業後 CRM</div>
+      <div class="desc">續證・特約・返現</div>
+      <div class="progress"><div class="progress-bar"><div class="progress-fill" style="width:30%;background:var(--red)"></div></div></div>
+      <div style="font-size:0.75rem;color:var(--muted);margin-top:0.25rem">30% ｜ V3</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== M1 ==================== -->
+<div class="section" id="sec-m1">
+  <div class="section-title">M1：報名金流</div>
+  <div class="section-subtitle">學員從選課到付款完成的完整報名流程 ｜ <span class="badge badge-dev">開發中</span></div>
+
+  <div class="card">
+    <h3>下單報名流程</h3>
+    <div class="mermaid">
+graph TD
+  A["選擇班別<br/><small>A ／ A+B ／ A+B+C</small><br/><small>早鳥 ／ 原價</small>"]:::student --> B["登入／註冊<br/><small>信箱 + 密碼 + 驗證信</small>"]:::student
+  B --> C["填寫個人資料<br/><small>姓名・信箱・手機・地址・牌卡</small>"]:::student
+  C --> D["輸入折扣碼<br/><small>說明會 ／ 一日班 ／ 學長姐碼</small><br/><small>+ 推薦人姓名</small>"]:::student
+  D --> E["選擇付款方式<br/><small>信用卡 ／ 分期 ／ ATM ／ 超商</small>"]:::student
+  E --> F["選擇發票類型<br/><small>電子發票 ／ 捐贈 ／ 統編</small>"]:::student
+  F --> G["勾選確認規則 → 送出"]:::student
+  G --> H["導向綠界 ECPay"]:::system
+
+  H --> I{"付款結果"}:::system
+  I -->|成功| J["報名成功頁"]:::success
+  I -->|失敗| K["付款失敗頁<br/><small>失敗原因 + 重試按鈕</small>"]:::fail
+
+  J --> L["寄出成功信<br/><small>課前調查・時程・LINE・群組</small>"]:::system
+  J --> M["自動開立發票"]:::system
+  M --> N["行政確認金流<br/>上標籤"]:::admin
+
+  classDef student fill:#e3f2fd,stroke:#1565c0,color:#1565c0
+  classDef system fill:#f3e5f5,stroke:#7b1fa2,color:#7b1fa2
+  classDef admin fill:#fff3e0,stroke:#e65100,color:#e65100
+  classDef success fill:#e8f5e9,stroke:#2e7d32,color:#2e7d32
+  classDef fail fill:#ffebee,stroke:#c62828,color:#c62828
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:0.5rem;font-size:0.75rem">
+      <span style="color:#1565c0">● 學員操作</span>
+      <span style="color:#7b1fa2">● 系統處理</span>
+      <span style="color:#e65100">● 行政作業</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>升級流程</h3>
+    <div class="mermaid">
+graph LR
+  A["學員點選<br/>「升級」"]:::student --> B{"系統檢查"}:::system
+  B -->|人數OK<br/>期限內| C["顯示可升級<br/>班別"]:::system
+  B -->|人數滿<br/>或逾期| D["無法升級"]:::fail
+  C --> E["學員確認"]:::student
+  E --> F["自動加入<br/>升級班別"]:::system
+  F --> G["行政處理<br/><small>狀態更改・帳務・課務</small>"]:::admin
+
+  classDef student fill:#e3f2fd,stroke:#1565c0,color:#1565c0
+  classDef system fill:#f3e5f5,stroke:#7b1fa2,color:#7b1fa2
+  classDef admin fill:#fff3e0,stroke:#e65100,color:#e65100
+  classDef fail fill:#ffebee,stroke:#c62828,color:#c62828
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>退課流程</h3>
+    <div class="mermaid">
+graph TD
+  A["學員提出<br/>退課申請<br/><small>填寫原因</small>"]:::student --> B["系統自動<br/>退款比例試算"]:::system
+  B --> C["學員確認<br/>退款規則"]:::student
+  C --> D["通知助教"]:::system
+  D --> E["助教關心<br/>詢問延期"]:::admin
+  E --> F{"確定退課？"}:::admin
+  F -->|是| G["點選「退課」"]:::admin
+  F -->|否| H["保留報名"]:::success
+  G --> I["確定退款<br/><small>帳務：退款 + 發票</small>"]:::admin
+  I --> J["退出教室<br/><small>課務：剔除教室</small>"]:::admin
+
+  classDef student fill:#e3f2fd,stroke:#1565c0,color:#1565c0
+  classDef system fill:#f3e5f5,stroke:#7b1fa2,color:#7b1fa2
+  classDef admin fill:#fff3e0,stroke:#e65100,color:#e65100
+  classDef success fill:#e8f5e9,stroke:#2e7d32,color:#2e7d32
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>班別 & 名額</h3>
+    <table>
+      <tr><th>班別</th><th>組成</th><th>人數上限</th><th>名額池影響</th></tr>
+      <tr><td>基礎班</td><td>A</td><td>依梯次設定</td><td>A 池 −1</td></tr>
+      <tr><td>進階班</td><td>A+B</td><td>40 人</td><td>A 池 −1, B 池 −1</td></tr>
+      <tr><td>雙證照班</td><td>A+B+C</td><td>30 人</td><td>A 池 −1, B 池 −1</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>待釐清問題</h3>
+    <div class="q-card q-red"><span class="q-id">Q1</span><div class="q-text"><b>退款比例表</b>：開課前 X 天退幾%？開課後退幾%？具體數字</div><div class="q-meta">影響：退課流程、Admin 設定 ｜ 需要：美荷 + 會計</div></div>
+    <div class="q-card q-red"><span class="q-id">Q2</span><div class="q-text"><b>折扣碼疊加規則</b>：早鳥優惠 + 折扣碼可否疊加？還是取最大值？</div><div class="q-meta">影響：價格計算引擎 ｜ 需要：美荷</div></div>
+    <div class="q-card q-red"><span class="q-id">Q3</span><div class="q-text"><b>推薦獎金公式</b>：固定金額 or 百分比？何時發放？現金 or 折扣？</div><div class="q-meta">影響：報名表單 + 帳務 ｜ 需要：美荷</div></div>
+    <div class="q-card q-red"><span class="q-id">Q4</span><div class="q-text"><b>已有牌卡折價規則</b>：哪些牌卡型號折多少？折價方式（直扣 or 折扣碼）？</div><div class="q-meta">影響：報名表單 Step 2 ｜ 需要：美荷</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q5</span><div class="q-text"><b>升級金額計算</b>：A→A+B 是補差價？早鳥價是否適用升級？</div><div class="q-meta">影響：升級流程 ｜ 需要：美荷</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q6</span><div class="q-text"><b>發票供應商</b>：Simpany / 綠界 / EZpay 最終選哪個？</div><div class="q-meta">影響：發票串接 ｜ 需要：美荷 + 會計</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q7</span><div class="q-text"><b>依比例退款的發票處理</b>：會計認列方式？折讓 or 作廢重開？</div><div class="q-meta">影響：退課帳務 ｜ 需要：會計事務所</div></div>
+  </div>
+</div>
+
+<!-- ==================== M2 ==================== -->
+<div class="section" id="sec-m2">
+  <div class="section-title">M2：行銷頁面 & 開課設定</div>
+  <div class="section-subtitle">課程行銷頁面 CMS 與開課前置作業 ｜ <span class="badge badge-wait">待開發</span></div>
+
+  <div class="card">
+    <h3>開課設定流程</h3>
+    <div class="mermaid">
+graph TD
+  A["設定年度開課日期"]:::admin --> B["確認講師時間"]:::admin
+  B --> C["設定行事曆<br/><small>自動寄發給老師</small>"]:::system
+  C --> D["一鍵開設當梯次"]:::admin
+  D --> E1["建立會議連結"]:::system
+  D --> E2["建立 LINE 群組"]:::system
+  D --> E3["建立報名商品<br/><small>→ M1</small>"]:::system
+  D --> E4["設定報名成功信"]:::system
+  E3 --> F["編輯行銷頁面"]:::admin
+  F --> G["上線"]:::admin
+  G --> H["行銷頁面公開<br/><small>商品選單連動 M1</small>"]:::system
+
+  classDef admin fill:#fff3e0,stroke:#e65100,color:#e65100
+  classDef system fill:#f3e5f5,stroke:#7b1fa2,color:#7b1fa2
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>行銷頁面 CMS 功能</h3>
+    <div class="mermaid">
+graph LR
+  CMS["行銷頁面<br/>標準化模板"]:::system --> A["文字區塊"]
+  CMS --> B["影片嵌入"]
+  CMS --> C["圖片 / GIF"]
+  CMS --> D["圖片跑馬燈"]
+  CMS --> E["里程碑數字動畫"]
+  CMS --> F["搜集信箱 CTA"]
+  CMS --> G["常見問題<br/><small>下拉選單</small>"]
+  CMS --> H["商品選單<br/><small>→ M1 報名</small>"]
+
+  classDef system fill:#f3e5f5,stroke:#7b1fa2,color:#7b1fa2
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>三大行銷入口</h3>
+    <table>
+      <tr><th>入口</th><th>流程</th><th>連動 M1</th></tr>
+      <tr><td><b>一日班</b></td><td>報名 → 寄牌卡 → 上課 → 課後調查</td><td>發放折扣碼</td></tr>
+      <tr><td><b>說明會</b></td><td>Accupass → 行前提醒 → 上線 → 會後信</td><td>回放 + 折扣碼</td></tr>
+      <tr><td><b>學長姐聊聊</b></td><td>上架學長姐 → 學員預約 → 聊聊</td><td>優惠碼</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>商品類別</h3>
+    <table>
+      <tr><th>類型</th><th>購買方式</th><th>品項</th></tr>
+      <tr><td>課程類</td><td><b>需註冊帳號</b></td><td>一日班、大培訓班、CDA、進修課程、線上課程</td></tr>
+      <tr><td>電商類</td><td>非會員可購買</td><td>周邊產品（另外做）</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>待釐清問題</h3>
+    <div class="q-card q-yellow"><span class="q-id">Q8</span><div class="q-text"><b>行銷頁面 MVP 邊界</b>：自建 rich text editor（CMS）還是先靜態頁面 + Admin 改文字？開發工作量差 3-5 倍</div><div class="q-meta">需要：Young + 美荷</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q9</span><div class="q-text"><b>一日班/說明會系統化程度</b>：在 CNC 系統內管理，還是繼續用 Accupass？</div><div class="q-meta">需要：美荷</div></div>
+    <div class="q-card q-green"><span class="q-id">Q10</span><div class="q-text"><b>代理商權限範圍</b>：代理商能做什麼？跟 Admin 的差異？</div><div class="q-meta">需要：美荷</div></div>
+    <div class="q-card q-green"><span class="q-id">Q11</span><div class="q-text"><b>行銷頁面 vs 教室聯動</b>：開課 = 同步上線？還是行銷頁先上、教室後開？</div><div class="q-meta">需要：美荷 + Young</div></div>
+  </div>
+</div>
+
+<!-- ==================== M3 ==================== -->
+<div class="section" id="sec-m3">
+  <div class="section-title">M3：運課管理</div>
+  <div class="section-subtitle">取代 Google Classroom 的課程教室系統 ｜ <span class="badge badge-wait">待開發</span></div>
+
+  <div class="card">
+    <h3>運課總流程</h3>
+    <div class="mermaid">
+graph LR
+  A["M1<br/>報名成功"]:::ext --> B["確認入班"]:::system
+  B --> C["寄送包裹<br/><small>講義・牌卡</small>"]:::admin
+  B --> D["課前通知<br/><small>Email + LINE</small>"]:::system
+  B --> E["A班正課<br/><small>6 天</small>"]:::main
+  E --> F["B班活動<br/><small>14 次</small>"]:::main
+  F --> G["M4<br/>認證"]:::ext
+
+  classDef ext fill:#e0e0e0,stroke:#616161,color:#616161
+  classDef system fill:#f3e5f5,stroke:#7b1fa2,color:#7b1fa2
+  classDef admin fill:#fff3e0,stroke:#e65100,color:#e65100
+  classDef main fill:#e3f2fd,stroke:#1565c0,color:#1565c0
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>A 班正課（每天循環 × 6 天）</h3>
+    <div class="mermaid">
+graph LR
+  A["課前<br/><small>學員完成作業</small><br/><small>(Figma 連結)</small>"]:::student --> B["上課<br/><small>Google Meet</small>"]:::student
+  B --> C["課後：上架補課影片<br/><small>(YouTube 嵌入)</small>"]:::admin
+  C --> D["公告下次作業"]:::admin
+  D --> E["點名紀錄"]:::admin
+
+  classDef student fill:#e3f2fd,stroke:#1565c0,color:#1565c0
+  classDef admin fill:#fff3e0,stroke:#e65100,color:#e65100
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>B 班活動時間線</h3>
+    <div class="mermaid">
+graph TD
+  A["A班實體見面會<br/><small>訂小樹屋・調查出席・訂餐點</small>"]:::event --> B["學長姐諮詢體驗<br/><small>平分名單 → 確認 → 公告雙方</small>"]:::event
+  B --> C["團督 ×7<br/><small>個案演練 24hr・公益個案登記</small>"]:::event
+  C --> D["公益諮詢<br/><small>需求調查 → 媒合 → 公告</small>"]:::event
+  D --> E["實體結業式<br/><small>訂小樹屋・訂餐點・調查出席</small>"]:::event
+
+  classDef event fill:#e8eaf6,stroke:#283593,color:#283593
+    </div>
+    <div style="margin-top:1rem">
+      <b>學員繳交項目：</b>
+      附件A 總表 ／ 附件B 同意書 ／ 附件C 個案報告 ／ 附件D 諮詢回饋 ／ 附件E 團督/個督心得
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>工具決策（取代 vs 串連）</h3>
+    <table>
+      <tr><th>功能</th><th>現用工具</th><th>決策</th><th>說明</th></tr>
+      <tr><td>課程教室</td><td>Google Classroom</td><td><span class="badge badge-replace">取代</span></td><td>核心功能，自建</td></tr>
+      <tr><td>課程管理</td><td>開課快手</td><td><span class="badge badge-replace">取代</span></td><td>核心功能，自建</td></tr>
+      <tr><td>文件繳交</td><td>Google 文件/表單</td><td><span class="badge badge-replace">取代</span></td><td>自建上傳區</td></tr>
+      <tr><td>課前作業</td><td>Figma</td><td><span class="badge badge-link">串連</span></td><td>嵌入連結</td></tr>
+      <tr><td>課程通知</td><td>LINE</td><td><span class="badge badge-link">串連</span></td><td>發送連結</td></tr>
+      <tr><td>線上課程</td><td>Google Meet</td><td><span class="badge badge-link">串連</span></td><td>儲存連結</td></tr>
+      <tr><td>補課影片</td><td>YouTube</td><td><span class="badge badge-link">串連</span></td><td>嵌入播放</td></tr>
+      <tr><td>實體場地</td><td>小樹屋</td><td><span class="badge badge-link">串連</span></td><td>預約資訊</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>待釐清問題</h3>
+    <div class="q-card q-yellow"><span class="q-id">Q12</span><div class="q-text"><b>教室 UI/UX</b>：取代 Google Classroom 的畫面長什麼樣？需要 wireframe</div><div class="q-meta">需要：Young + 美荷</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q13</span><div class="q-text"><b>作業繳交格式</b>：附件 A-E 各是什麼格式？Word/PDF/影片？大小限制？</div><div class="q-meta">需要：美荷</div></div>
+    <div class="q-card q-green"><span class="q-id">Q14</span><div class="q-text"><b>補課影片權限控制</b>：YouTube unlisted link？觀看期限到結業式如何控制？</div><div class="q-meta">需要：Young</div></div>
+    <div class="q-card q-green"><span class="q-id">Q15</span><div class="q-text"><b>自動點名</b>：Google Meet 能 API 抓出席嗎？還是手動？</div><div class="q-meta">需要：Young</div></div>
+    <div class="q-card q-green"><span class="q-id">Q16</span><div class="q-text"><b>延期業務規則</b>：延期次數限制？名額處理？跨梯次學費差異？</div><div class="q-meta">需要：美荷</div></div>
+  </div>
+</div>
+
+<!-- ==================== M4 ==================== -->
+<div class="section" id="sec-m4">
+  <div class="section-title">M4：督導 & 認證</div>
+  <div class="section-subtitle">個督排程、認證考試、證書發放 ｜ <span class="badge badge-wait">待開發</span></div>
+
+  <div class="card">
+    <h3>督導 & 認證總流程</h3>
+    <div class="mermaid">
+graph LR
+  A["B班活動<br/>完成"]:::ext --> B["個督排程<br/><small>燕子・誠誠・韋丞</small>"]:::main
+  B --> C["公益諮詢<br/><small>媒合</small>"]:::main
+  C --> D["認證考試<br/><small>筆試 + 影片</small>"]:::main
+  D --> E["批改<br/><small>學長姐</small>"]:::admin
+  E --> F["證書發放"]:::system
+  F --> G["M5<br/>CRM"]:::ext
+
+  classDef ext fill:#e0e0e0,stroke:#616161,color:#616161
+  classDef main fill:#e3f2fd,stroke:#1565c0,color:#1565c0
+  classDef admin fill:#fff3e0,stroke:#e65100,color:#e65100
+  classDef system fill:#f3e5f5,stroke:#7b1fa2,color:#7b1fa2
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>個督排程</h3>
+    <div class="mermaid">
+graph TD
+  subgraph 每位督導重複
+    A["行政：索取<br/>可用時間"]:::admin --> B["設定<br/>預約表單"]:::system
+    B --> C["學員<br/>預約個督"]:::student
+    C --> D["個督進行<br/><small>Google Meet</small>"]:::student
+  end
+
+  S1["燕子"]:::sup --> A
+  S2["誠誠"]:::sup --> A
+  S3["韋丞"]:::sup --> A
+
+  classDef admin fill:#fff3e0,stroke:#e65100,color:#e65100
+  classDef system fill:#f3e5f5,stroke:#7b1fa2,color:#7b1fa2
+  classDef student fill:#e3f2fd,stroke:#1565c0,color:#1565c0
+  classDef sup fill:#fce4ec,stroke:#880e4f,color:#880e4f
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>認證流程</h3>
+    <div class="mermaid">
+graph TD
+  A["學員申請筆試"]:::student --> B["行政寄發筆試<br/><small>24hr 限時</small>"]:::admin
+  B --> C["學員上傳認證檔案<br/><small>知識檢核影片<br/>個案演練影片</small>"]:::student
+  C --> D["行政確認檔案<br/>分派學長姐批改"]:::admin
+  D --> E["學長姐批改"]:::admin
+  E --> F{"需要複審？"}:::system
+  F -->|是| G["複審"]:::admin
+  F -->|否| H["認證結果通知"]:::system
+  G --> H
+  H --> I["印製證書<br/>寄出 Email"]:::admin
+  I --> J["關閉 YT 權限"]:::system
+  I --> K["加入職業資料庫"]:::system
+  I --> L["上架官網"]:::admin
+
+  classDef student fill:#e3f2fd,stroke:#1565c0,color:#1565c0
+  classDef admin fill:#fff3e0,stroke:#e65100,color:#e65100
+  classDef system fill:#f3e5f5,stroke:#7b1fa2,color:#7b1fa2
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>待釐清問題</h3>
+    <div class="q-card q-green"><span class="q-id">Q17</span><div class="q-text"><b>筆試內容 & 格式</b>：線上作答 or 下載題目寫完上傳？需要防弊？</div><div class="q-meta">需要：美荷</div></div>
+    <div class="q-card q-green"><span class="q-id">Q18</span><div class="q-text"><b>批改評分標準</b>：通過/不通過？還是分數制？</div><div class="q-meta">需要：美荷</div></div>
+    <div class="q-card q-green"><span class="q-id">Q19</span><div class="q-text"><b>複審觸發條件</b>：什麼情況需要複審？</div><div class="q-meta">需要：美荷</div></div>
+    <div class="q-card q-green"><span class="q-id">Q20</span><div class="q-text"><b>公益個案來源</b>：外部申請 or 內部配對？</div><div class="q-meta">需要：美荷</div></div>
+    <div class="q-card q-green"><span class="q-id">Q21</span><div class="q-text"><b>證書模板</b>：格式、內容、防偽機制？</div><div class="q-meta">需要：美荷</div></div>
+  </div>
+</div>
+
+<!-- ==================== M5 ==================== -->
+<div class="section" id="sec-m5">
+  <div class="section-title">M5：畢業後 CRM</div>
+  <div class="section-subtitle">續證、特約諮詢師管理、推薦返現 ｜ <span class="badge badge-red">規格不足</span></div>
+
+  <div class="card">
+    <h3>CRM 總流程</h3>
+    <div class="mermaid">
+graph TD
+  A["M4 認證通過"]:::ext --> B["會員 CRM<br/><small>證書狀態・身份標籤</small>"]:::main
+  B --> C["續證<br/><small>2.5 年後自動提醒</small>"]:::main
+  B --> D["特約諮詢師申請"]:::main
+  B --> E["推薦返現計畫"]:::main
+  D --> F["資深特約晉升"]:::main
+  C -->|續證付款| G["M1 金流"]:::ext
+  E -->|折扣碼| G
+
+  classDef ext fill:#e0e0e0,stroke:#616161,color:#616161
+  classDef main fill:#e3f2fd,stroke:#1565c0,color:#1565c0
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>續證流程</h3>
+    <div class="mermaid">
+graph TD
+  A["系統自動提醒<br/><small>證書到期前通知</small>"]:::system --> B["學員點選<br/>「我要續證」"]:::student
+  B --> C["上傳檢核資料"]:::student
+  C --> D{"時數符合？"}:::system
+  D -->|不符| E["無法送出<br/><small>提示補足時數</small>"]:::fail
+  D -->|符合| F["送出申請 + 繳費<br/><small>串 M1 金流</small>"]:::student
+  F --> G["負責人確認<br/>檢核項目"]:::admin
+  G --> H["點選<br/>「續證完畢」"]:::admin
+  H --> I["證書狀態 → 有效<br/>更新證書"]:::system
+
+  classDef student fill:#e3f2fd,stroke:#1565c0,color:#1565c0
+  classDef system fill:#f3e5f5,stroke:#7b1fa2,color:#7b1fa2
+  classDef admin fill:#fff3e0,stroke:#e65100,color:#e65100
+  classDef fail fill:#ffebee,stroke:#c62828,color:#c62828
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>特約諮詢師申請</h3>
+    <div class="mermaid">
+graph TD
+  A["學員提出<br/>特約考核申請"]:::student --> B{"證書有效？"}:::system
+  B -->|無效| C["導去續證"]:::fail
+  B -->|有效| D["上傳特約<br/>檢核資料"]:::student
+  D --> E["考核通過<br/>+ 回饋"]:::system
+  E --> F["助教確認資訊<br/><small>姓名・信箱・手機<br/>合約期間・官網資訊</small>"]:::admin
+  F --> G["營運準備合約<br/><small>點點簽 → 簽回</small>"]:::admin
+  G --> H["上架預約表單<br/><small>月結表・SUPER8</small>"]:::admin
+  H --> I["官網上架"]:::admin
+  I --> J["晉升完畢<br/>上標籤"]:::system
+
+  classDef student fill:#e3f2fd,stroke:#1565c0,color:#1565c0
+  classDef system fill:#f3e5f5,stroke:#7b1fa2,color:#7b1fa2
+  classDef admin fill:#fff3e0,stroke:#e65100,color:#e65100
+  classDef fail fill:#ffebee,stroke:#c62828,color:#c62828
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>暫不納入系統（導流外部工具）</h3>
+    <p style="color:var(--muted);font-size:0.85rem;margin-bottom:0.75rem">USB 插槽原則：斷掉的地方先導到外部工具，後續迭代再收回。</p>
+    <table>
+      <tr><th>工具</th><th>處理方式</th></tr>
+      <tr><td>SUPER8</td><td>導流（提供連結）</td></tr>
+      <tr><td>點點簽</td><td>導流（提供連結）</td></tr>
+      <tr><td>月結表</td><td>營運先用目前方式</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>待釐清問題</h3>
+    <div class="q-card q-yellow"><span class="q-id">Q22</span><div class="q-text"><b>續證檢核項目</b>：具體要上傳什麼？時數怎麼算？標準是什麼？</div><div class="q-meta">需要：美荷</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q23</span><div class="q-text"><b>特約檢核項目</b>：考核內容是什麼？</div><div class="q-meta">需要：美荷</div></div>
+    <div class="q-card q-green"><span class="q-id">Q24</span><div class="q-text"><b>特約 vs 資深特約差異</b>：權限/待遇/收費有什麼不同？</div><div class="q-meta">需要：美荷</div></div>
+    <div class="q-card q-green"><span class="q-id">Q25</span><div class="q-text"><b>推薦返現計畫規則</b>：獎金金額、發放條件、發放方式？</div><div class="q-meta">需要：美荷</div></div>
+    <div class="q-card q-green"><span class="q-id">Q26</span><div class="q-text"><b>特約講師</b>：定義？申請條件？跟特約諮詢師的關係？</div><div class="q-meta">需要：美荷</div></div>
+    <div class="q-card q-green"><span class="q-id">Q27</span><div class="q-text"><b>官網展示邏輯</b>：職業資料庫、特約諮詢師頁面 UI？</div><div class="q-meta">需要：美荷</div></div>
+  </div>
+</div>
+
+<!-- ==================== QUESTIONS ==================== -->
+<div class="section" id="sec-questions">
+  <div class="section-title">待釐清問題總表</div>
+  <div class="section-subtitle">27 個問題，依急迫度分級</div>
+
+  <div class="card">
+    <h3 style="color:var(--red)">紅色 — 阻擋開發中模組</h3>
+    <div class="q-card q-red"><span class="q-id">Q1</span><div class="q-text">退款比例表（具體數字）</div><div class="q-meta">M1 ｜ 美荷 + 會計</div></div>
+    <div class="q-card q-red"><span class="q-id">Q2</span><div class="q-text">折扣碼疊加規則</div><div class="q-meta">M1 ｜ 美荷</div></div>
+    <div class="q-card q-red"><span class="q-id">Q3</span><div class="q-text">推薦獎金公式</div><div class="q-meta">M1 ｜ 美荷</div></div>
+    <div class="q-card q-red"><span class="q-id">Q4</span><div class="q-text">已有牌卡折價規則</div><div class="q-meta">M1 ｜ 美荷</div></div>
+  </div>
+
+  <div class="card">
+    <h3 style="color:var(--orange)">黃色 — 影響架構設計</h3>
+    <div class="q-card q-yellow"><span class="q-id">Q5</span><div class="q-text">升級金額計算</div><div class="q-meta">M1 ｜ 美荷</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q6</span><div class="q-text">發票供應商最終選擇</div><div class="q-meta">M1 ｜ 美荷 + 會計</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q7</span><div class="q-text">依比例退款發票處理</div><div class="q-meta">M1 ｜ 會計事務所</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q8</span><div class="q-text">行銷頁面 MVP 邊界（CMS vs 靜態）</div><div class="q-meta">M2 ｜ Young + 美荷</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q9</span><div class="q-text">一日班/說明會系統化程度</div><div class="q-meta">M2 ｜ 美荷</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q12</span><div class="q-text">教室 UI/UX wireframe</div><div class="q-meta">M3 ｜ Young + 美荷</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q13</span><div class="q-text">作業繳交格式</div><div class="q-meta">M3 ｜ 美荷</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q22</span><div class="q-text">續證檢核項目</div><div class="q-meta">M5 ｜ 美荷</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q23</span><div class="q-text">特約檢核項目</div><div class="q-meta">M5 ｜ 美荷</div></div>
+  </div>
+
+  <div class="card">
+    <h3 style="color:var(--green)">綠色 — 可延後確認</h3>
+    <div class="q-card q-green"><span class="q-id">Q10</span><div class="q-text">代理商權限範圍</div><div class="q-meta">M2 ｜ 美荷</div></div>
+    <div class="q-card q-green"><span class="q-id">Q11</span><div class="q-text">行銷頁面 vs 教室聯動</div><div class="q-meta">M2 ｜ 美荷 + Young</div></div>
+    <div class="q-card q-green"><span class="q-id">Q14–Q16</span><div class="q-text">補課影片權限、點名、延期規則</div><div class="q-meta">M3 ｜ Young / 美荷</div></div>
+    <div class="q-card q-green"><span class="q-id">Q17–Q21</span><div class="q-text">筆試格式、批改標準、複審、公益個案、證書</div><div class="q-meta">M4 ｜ 美荷</div></div>
+    <div class="q-card q-green"><span class="q-id">Q24–Q27</span><div class="q-text">特約差異、返現規則、講師定義、官網展示</div><div class="q-meta">M5 ｜ 美荷</div></div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#e3f2fd',
+      primaryBorderColor: '#1565c0',
+      primaryTextColor: '#1565c0',
+      lineColor: '#586069',
+      secondaryColor: '#fff3e0',
+      tertiaryColor: '#f3e5f5',
+      fontSize: '13px'
+    },
+    flowchart: { curve: 'basis', padding: 15 }
+  });
+
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
+    document.getElementById('sec-' + id).classList.add('active');
+    const btns = document.querySelectorAll('.nav button');
+    const names = ['overview','m1','m2','m3','m4','m5','questions'];
+    btns[names.indexOf(id)].classList.add('active');
+
+    // Re-render mermaid for newly visible sections
+    setTimeout(() => { mermaid.run(); }, 100);
+  }
+</script>
+</body>
+</html>
