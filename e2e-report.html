@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CNC E2E 測試報告</title>
 <style>
-:root{--teal:#37A6A9;--gold:#F9C04C;--navy:#17335F;--pass:#22c55e;--skip:#f59e0b;--fail:#ef4444;--bg:#f8fafc;--card:#fff;--border:#e2e8f0;--text:#1e293b;--muted:#64748b}
+:root{--teal:#37A6A9;--gold:#F9C04C;--navy:#17335F;--pass:#22c55e;--skip:#f59e0b;--fail:#ef4444;--bg:#f8fafc;--card:#fff;--border:#e2e8f0;--text:#1e293b;--muted:#64748b;--prd-red:#dc2626;--prd-red-bg:#fef2f2;--prd-red-border:#fecaca;--prd-yellow:#b45309;--prd-yellow-bg:#fffbeb;--prd-yellow-border:#fde68a;--prd-green:#166534;--prd-green-bg:#f0fdf4;--prd-green-border:#bbf7d0}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:14px}
 /* sticky summary bar */
@@ -73,6 +73,40 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .modal-img-wrap img{max-width:100%;border-radius:6px;border:1px solid var(--border);display:block}
 .modal-img-caption{font-size:11px;color:var(--muted);margin-top:4px;text-align:center}
 .no-screenshot{background:#f8fafc;border:1px dashed var(--border);border-radius:6px;padding:16px;text-align:center;color:var(--muted);font-size:13px}
+/* PRD Coverage */
+.prd-cover-hero{background:var(--navy);border-radius:10px;padding:20px 24px;margin-bottom:20px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.prd-cover-title{font-size:20px;font-weight:700;color:#fff;margin-bottom:2px}
+.prd-cover-sub{font-size:12px;color:rgba(255,255,255,.6)}
+.prd-cover-meter{flex:1;min-width:200px}
+.prd-cover-pct{font-size:36px;font-weight:800;color:var(--gold);line-height:1}
+.prd-cover-pct-label{font-size:12px;color:rgba(255,255,255,.6);margin-top:2px}
+.prd-cover-bar-wrap{background:rgba(255,255,255,.15);border-radius:99px;height:8px;margin-top:8px}
+.prd-cover-bar{height:8px;border-radius:99px;background:var(--gold)}
+.prd-legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.prd-legend-item{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--text)}
+.prd-legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.prd-dot-red{background:var(--prd-red)}
+.prd-dot-yellow{background:var(--skip)}
+.prd-dot-green{background:var(--pass)}
+.prd-group{margin-bottom:20px;background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.prd-group-header{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#f1f5f9;border-bottom:1px solid var(--border)}
+.prd-group-label{font-size:13px;font-weight:700;color:var(--navy);flex:1}
+.prd-group-stats{display:flex;gap:6px;font-size:11px}
+.prd-gs{padding:2px 7px;border-radius:99px;font-weight:600}
+.prd-gs-red{background:#fee2e2;color:#991b1b}
+.prd-gs-yellow{background:#fef9c3;color:#854d0e}
+.prd-gs-green{background:#dcfce7;color:#166534}
+.prd-row{display:flex;align-items:flex-start;gap:10px;padding:9px 14px;border-bottom:1px solid var(--border)}
+.prd-row:last-child{border-bottom:none}
+.prd-num{font-size:11px;font-weight:700;color:var(--muted);width:22px;flex-shrink:0;padding-top:2px}
+.prd-badge{flex-shrink:0;font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;margin-top:1px}
+.prd-badge-red{background:var(--prd-red-bg);color:var(--prd-red);border:1px solid var(--prd-red-border)}
+.prd-badge-yellow{background:var(--prd-yellow-bg);color:var(--prd-yellow);border:1px solid var(--prd-yellow-border)}
+.prd-badge-green{background:var(--prd-green-bg);color:var(--prd-green);border:1px solid var(--prd-green-border)}
+.prd-info{flex:1;min-width:0}
+.prd-feature-name{font-size:14px;font-weight:600;color:var(--text)}
+.prd-feature-desc{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.4}
+.prd-priority-tag{display:inline-block;font-size:10px;font-weight:600;padding:1px 6px;border-radius:4px;margin-right:4px;background:#ede9fe;color:#6d28d9}
 /* gallery */
 .gallery-section{margin-top:24px}
 .gallery-title{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:14px;padding-bottom:6px;border-bottom:2px solid var(--teal)}
@@ -101,7 +135,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <!-- TABS -->
 <div class="tabs-wrap">
   <div class="tabs">
-    <button class="tab-btn active" onclick="showTab('m1',this)">M1 報名金流</button>
+    <button class="tab-btn active" onclick="showTab('prd',this)">PRD 覆蓋率</button>
+    <button class="tab-btn" onclick="showTab('m1',this)">M1 報名金流</button>
     <button class="tab-btn" onclick="showTab('m2',this)">M2 行銷頁面</button>
     <button class="tab-btn" onclick="showTab('m3',this)">M3 運課管理</button>
     <button class="tab-btn" onclick="showTab('m4',this)">M4 督導認證</button>
@@ -812,6 +847,7 @@ function getScreenshots(t) {
 
 // ---- Render ----
 const TAB_CONFIG = [
+  {id:'prd', label:'PRD 覆蓋率'},
   {id:'m1', label:'M1 報名金流'},
   {id:'m2', label:'M2 行銷頁面'},
   {id:'m3', label:'M3 運課管理'},
@@ -822,6 +858,141 @@ const TAB_CONFIG = [
   {id:'screenshots', label:'截圖總覽'},
 ];
 
+// ---- PRD Coverage Tab ----
+const PRD_GROUPS = [
+  {
+    id: 'high',
+    label: 'HIGH — 報名核心',
+    priority: 'HIGH',
+    items: [
+      {num:1, name:'已有牌卡類型折價', desc:'「已有牌卡類型（會須折價）」— 影響定價邏輯，需 DB + form + pricing engine', status:'red'},
+      {num:2, name:'發票載具條碼', desc:'個人電子發票支援手機條碼 / 自然人憑證 — InvoiceType 只有 personal/company，缺 carrier', status:'red'},
+      {num:3, name:'發票捐贈選項', desc:'美荷規格列出 4 種發票類型，目前缺捐贈', status:'red'},
+      {num:4, name:'發票注意文字', desc:'法律聲明「不得更改」— 目前未顯示', status:'red'},
+      {num:5, name:'付款失敗頁記憶選擇', desc:'「重新購買按鍵，記憶之前的選擇」— 目前導回首頁', status:'red'},
+      {num:6, name:'折扣碼 source_type', desc:'說明會 / 一日班 / 學長姐分類 — Admin promo code 缺此欄位', status:'red'},
+      {num:7, name:'退款比例設定 Admin UI', desc:'/admin/settings 是殼頁面 — 退課流程需此設定', status:'red'},
+      {num:8, name:'學員退課申請入口', desc:'填申請原因 + 退款試算 + 勾選規則 — WithdrawModal 存在但可能 broken', status:'yellow'},
+      {num:9, name:'學員延期申請', desc:'美荷行政運課日程有「延期」節點 — 完全未建', status:'red'},
+    ]
+  },
+  {
+    id: 'medium',
+    label: 'MEDIUM — 完整體驗',
+    priority: 'MED',
+    items: [
+      {num:10, name:'海外地址 SOP 提醒', desc:'地址欄加提示文字', status:'red'},
+      {num:11, name:'退款政策連結', desc:'checkout terms checkbox 沒連到退款政策頁', status:'red'},
+      {num:12, name:'報名成功頁 — 課前調查 CTA', desc:'缺「填寫課前調查」連結', status:'red'},
+      {num:13, name:'報名成功頁 — 課程群組連結', desc:'現在是 # 佔位，需 per-cohort LINE 群組 URL', status:'red'},
+      {num:14, name:'梯次設定 — LINE 群組 URL 欄位', desc:'Admin cohort CRUD 缺此欄位', status:'red'},
+      {num:15, name:'推薦獎金金額可設定', desc:'目前硬編碼 NT$200', status:'red'},
+      {num:16, name:'報名成功信 Email', desc:'前端有成功頁但 Email 是否已串接需查後端', status:'yellow'},
+    ]
+  },
+  {
+    id: 'ops',
+    label: '運課管理',
+    priority: '運課',
+    items: [
+      {num:17, name:'B班附件繳交區', desc:'5 份結構化附件（附件A-E）', status:'red'},
+      {num:18, name:'Admin 行政日程總覽', desc:'助教追蹤所有節點的 dashboard', status:'red'},
+      {num:19, name:'通知系統', desc:'in-app + Email 通知', status:'red'},
+    ]
+  },
+  {
+    id: 'supervision',
+    label: '督導認證',
+    priority: '督導',
+    items: [
+      {num:20, name:'學員督導預約 UI', desc:'student supervision 是 read-only，沒有預約按鈕', status:'red'},
+      {num:21, name:'筆試申請入口', desc:'認證頁面沒有筆試申請', status:'red'},
+      {num:22, name:'認證結果通知 + 證書下載', desc:'無證書下載頁', status:'red'},
+    ]
+  },
+  {
+    id: 'grad',
+    label: '畢業後',
+    priority: '畢業後',
+    items: [
+      {num:23, name:'畢業後公告頁 + 進修課入口', desc:'沒有 /student/post-graduation', status:'red'},
+    ]
+  },
+];
+
+function renderPrdCoverageTab() {
+  const allItems = PRD_GROUPS.flatMap(g => g.items);
+  const totalCount = allItems.length;
+  const greenCount = allItems.filter(i => i.status === 'green').length;
+  const yellowCount = allItems.filter(i => i.status === 'yellow').length;
+  const redCount = allItems.filter(i => i.status === 'red').length;
+  const coveragePct = Math.round((greenCount / totalCount) * 100);
+  const partialPct = Math.round(((greenCount + yellowCount * 0.5) / totalCount) * 100);
+
+  let html = '';
+
+  // Hero coverage meter
+  html += `<div class="prd-cover-hero">
+    <div>
+      <div class="prd-cover-title">PRD 覆蓋率分析</div>
+      <div class="prd-cover-sub">對照美荷原始規格 — 23 項 V1 功能缺口</div>
+    </div>
+    <div class="prd-cover-meter">
+      <div class="prd-cover-pct">${coveragePct}%</div>
+      <div class="prd-cover-pct-label">已實作並測試 · ${greenCount}/${totalCount} 項</div>
+      <div class="prd-cover-bar-wrap">
+        <div class="prd-cover-bar" style="width:${Math.max(partialPct,2)}%"></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px;font-size:12px">
+      <div style="color:#f87171;font-weight:700">&#9679; 未實作 ${redCount} 項</div>
+      <div style="color:var(--gold);font-weight:700">&#9679; 存在但未完整 ${yellowCount} 項</div>
+      <div style="color:#4ade80;font-weight:700">&#9679; 實作並測試 ${greenCount} 項</div>
+    </div>
+  </div>`;
+
+  // Legend
+  html += `<div class="prd-legend">
+    <div class="prd-legend-item"><div class="prd-legend-dot prd-dot-red"></div>未實作 — 需要開發</div>
+    <div class="prd-legend-item"><div class="prd-legend-dot prd-dot-yellow"></div>存在但未完整 / 狀態未知</div>
+    <div class="prd-legend-item"><div class="prd-legend-dot prd-dot-green"></div>已實作並通過 E2E 測試</div>
+  </div>`;
+
+  // Groups
+  PRD_GROUPS.forEach(g => {
+    const gRed = g.items.filter(i => i.status === 'red').length;
+    const gYellow = g.items.filter(i => i.status === 'yellow').length;
+    const gGreen = g.items.filter(i => i.status === 'green').length;
+
+    html += `<div class="prd-group">
+      <div class="prd-group-header">
+        <div class="prd-group-label">${g.label}</div>
+        <div class="prd-group-stats">
+          ${gRed ? `<span class="prd-gs prd-gs-red">未實作 ${gRed}</span>` : ''}
+          ${gYellow ? `<span class="prd-gs prd-gs-yellow">不完整 ${gYellow}</span>` : ''}
+          ${gGreen ? `<span class="prd-gs prd-gs-green">完成 ${gGreen}</span>` : ''}
+        </div>
+      </div>`;
+
+    g.items.forEach(item => {
+      const badgeClass = item.status === 'red' ? 'prd-badge-red' : item.status === 'yellow' ? 'prd-badge-yellow' : 'prd-badge-green';
+      const badgeLabel = item.status === 'red' ? '未實作' : item.status === 'yellow' ? '不完整' : '已完成';
+      html += `<div class="prd-row">
+        <div class="prd-num">#${item.num}</div>
+        <span class="prd-badge ${badgeClass}">${badgeLabel}</span>
+        <div class="prd-info">
+          <div class="prd-feature-name">${item.name}</div>
+          <div class="prd-feature-desc">${item.desc}</div>
+        </div>
+      </div>`;
+    });
+
+    html += '</div>';
+  });
+
+  return html;
+}
+
 function renderAll() {
   const main = document.getElementById('main-content');
   main.innerHTML = '';
@@ -830,7 +1001,9 @@ function renderAll() {
     panel.id = 'tab-' + tc.id;
     panel.className = 'tab-panel' + (idx===0?' active':'');
 
-    if (tc.id === 'screenshots') {
+    if (tc.id === 'prd') {
+      panel.innerHTML = renderPrdCoverageTab();
+    } else if (tc.id === 'screenshots') {
       panel.innerHTML = renderGalleryTab();
     } else {
       panel.innerHTML = renderTestTab(tc.id, tc.label);
