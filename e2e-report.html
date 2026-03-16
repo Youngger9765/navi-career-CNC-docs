@@ -5,185 +5,110 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CNC E2E Test Report - 2026-03-16</title>
 <style>
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  :root{
-    --teal:#37A6A9;--teal-light:#e6f5f5;--teal-dark:#2a8083;
-    --gold:#F9C04C;--gold-light:#fef5dc;--gold-dark:#d4a033;
-    --navy:#17335F;--navy-light:#e8ecf2;
-    --green:#22c55e;--green-bg:#f0fdf4;
-    --yellow:#eab308;--yellow-bg:#fefce8;
-    --red:#ef4444;--red-bg:#fef2f2;
-    --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;
-    --gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;
-    --gray-600:#4b5563;--gray-700:#374151;--gray-800:#1f2937;
-    --gray-900:#111827;
-    --shadow-sm:0 1px 2px rgba(0,0,0,.05);
-    --shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);
-    --shadow-md:0 4px 6px rgba(0,0,0,.07),0 2px 4px rgba(0,0,0,.06);
-    --shadow-lg:0 10px 15px rgba(0,0,0,.1),0 4px 6px rgba(0,0,0,.05);
-    --radius:8px;--radius-lg:12px;
-  }
-  body{font-family:Inter,system-ui,-apple-system,sans-serif;background:#fff;color:var(--gray-800);line-height:1.5;-webkit-font-smoothing:antialiased}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#37A6A9;--teal-light:#e6f5f5;--teal-dark:#2a8083;
+  --gold:#F9C04C;--gold-light:#fef5dc;--gold-dark:#d4a033;
+  --navy:#17335F;--navy-light:#e8ecf2;
+  --green:#22c55e;--green-bg:#f0fdf4;
+  --yellow:#eab308;--yellow-bg:#fefce8;
+  --red:#ef4444;--red-bg:#fef2f2;
+  --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;
+  --gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;
+  --gray-600:#4b5563;--gray-700:#374151;--gray-800:#1f2937;
+  --gray-900:#111827;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.05);
+  --shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);
+  --shadow-md:0 4px 6px rgba(0,0,0,.07),0 2px 4px rgba(0,0,0,.06);
+  --shadow-lg:0 10px 15px rgba(0,0,0,.1),0 4px 6px rgba(0,0,0,.05);
+  --radius:8px;--radius-lg:12px;
+}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:#fff;color:var(--gray-800);line-height:1.5;-webkit-font-smoothing:antialiased}
 
-  /* Summary Bar */
-  .summary-bar{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--gray-200);box-shadow:var(--shadow-md);padding:0}
-  .summary-inner{max-width:1280px;margin:0 auto;padding:16px 24px}
-  .summary-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:12px}
-  .summary-title{font-size:18px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:8px}
-  .summary-title span{font-size:13px;font-weight:500;color:var(--gray-500)}
-  .summary-meta{display:flex;gap:16px;flex-wrap:wrap}
-  .meta-tag{font-size:12px;color:var(--gray-500);background:var(--gray-100);padding:4px 10px;border-radius:20px;white-space:nowrap}
-  .summary-stats{display:flex;gap:24px;flex-wrap:wrap;align-items:center}
-  .stat{text-align:center}
-  .stat-number{font-size:32px;font-weight:800;line-height:1}
-  .stat-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-500);margin-top:2px}
-  .stat-pass .stat-number{color:var(--green)}
-  .stat-skip .stat-number{color:var(--yellow)}
-  .stat-fail .stat-number{color:var(--red)}
-  .stat-time .stat-number{color:var(--navy);font-size:28px}
-  .progress-bar-wrap{height:6px;background:var(--gray-200);border-radius:3px;overflow:hidden;margin-top:4px}
-  .progress-bar-inner{height:100%;border-radius:3px;transition:width .6s ease}
-  .progress-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:2px}
-  .progress-label span{font-size:12px;color:var(--gray-500);font-weight:600}
-  .progress-pct{font-size:13px;font-weight:700;color:var(--teal)}
+/* Summary Bar */
+.summary-bar{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--gray-200);box-shadow:var(--shadow-md);padding:0}
+.summary-inner{max-width:1280px;margin:0 auto;padding:16px 24px}
+.summary-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:12px}
+.summary-title{font-size:18px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:8px}
+.summary-title span{font-size:13px;font-weight:500;color:var(--gray-500)}
+.summary-meta{display:flex;gap:16px;flex-wrap:wrap}
+.meta-tag{font-size:12px;color:var(--gray-500);background:var(--gray-100);padding:4px 10px;border-radius:20px;white-space:nowrap}
+.summary-stats{display:flex;gap:24px;flex-wrap:wrap;align-items:center}
+.stat{text-align:center}
+.stat-number{font-size:32px;font-weight:800;line-height:1}
+.stat-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-500);margin-top:2px}
+.stat-pass .stat-number{color:var(--green)}
+.stat-skip .stat-number{color:var(--yellow)}
+.stat-fail .stat-number{color:var(--red)}
+.stat-time .stat-number{color:var(--navy);font-size:28px}
+.progress-bar-wrap{height:6px;background:var(--gray-200);border-radius:3px;overflow:hidden;margin-top:4px}
+.progress-bar-inner{height:100%;border-radius:3px;transition:width .6s ease}
+.progress-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:2px}
+.progress-label span{font-size:12px;color:var(--gray-500);font-weight:600}
+.progress-pct{font-size:13px;font-weight:700;color:var(--teal)}
 
-  /* Tabs */
-  .tabs-container{max-width:1280px;margin:0 auto;padding:0 24px}
-  .tab-bar{display:flex;gap:4px;border-bottom:2px solid var(--gray-200);overflow-x:auto;padding-top:20px;-webkit-overflow-scrolling:touch}
-  .tab-btn{padding:10px 18px;font-size:14px;font-weight:600;color:var(--gray-500);background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all .15s;display:flex;align-items:center;gap:6px;border-radius:var(--radius) var(--radius) 0 0}
-  .tab-btn:hover{color:var(--navy);background:var(--gray-50)}
-  .tab-btn.active{color:var(--teal);border-bottom-color:var(--teal);background:var(--teal-light)}
-  .tab-badge{font-size:11px;font-weight:700;background:var(--gray-200);color:var(--gray-600);padding:2px 7px;border-radius:10px}
-  .tab-btn.active .tab-badge{background:var(--teal);color:#fff}
+/* Tabs */
+.tabs-bar{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;gap:0;border-bottom:2px solid var(--gray-200);overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tab-btn{padding:12px 18px;font-size:13px;font-weight:600;color:var(--gray-500);background:none;border:none;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s}
+.tab-btn:hover{color:var(--navy);background:var(--gray-50)}
+.tab-btn.active{color:var(--teal);border-bottom-color:var(--teal)}
+.tab-count{font-size:11px;background:var(--gray-100);color:var(--gray-500);padding:1px 6px;border-radius:10px;margin-left:6px}
+.tab-btn.active .tab-count{background:var(--teal-light);color:var(--teal-dark)}
 
-  /* Tab Content */
-  .tab-panels{max-width:1280px;margin:0 auto;padding:0 24px 40px}
-  .tab-panel{display:none;animation:fadeIn .25s ease}
-  .tab-panel.active{display:block}
-  @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+/* Content */
+.content{max-width:1280px;margin:0 auto;padding:24px}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
 
-  /* Section */
-  .section-title{font-size:15px;font-weight:700;color:var(--navy);margin:24px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--gray-200)}
+/* Spec group */
+.spec-group{margin-bottom:24px;border:1px solid var(--gray-200);border-radius:var(--radius-lg);overflow:hidden}
+.spec-header{background:var(--gray-50);padding:10px 16px;font-size:13px;font-weight:600;color:var(--navy);border-bottom:1px solid var(--gray-200);display:flex;align-items:center;gap:8px}
+.spec-header .file-icon{color:var(--teal);font-size:14px}
+.spec-count{font-size:11px;color:var(--gray-400);font-weight:500}
 
-  /* Test Table */
-  .test-table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;margin-bottom:24px;border:1px solid var(--gray-200);border-radius:var(--radius);overflow:hidden}
-  .test-table thead{background:var(--gray-50)}
-  .test-table th{padding:10px 14px;text-align:left;font-weight:600;color:var(--gray-600);font-size:12px;text-transform:uppercase;letter-spacing:.3px;border-bottom:1px solid var(--gray-200)}
-  .test-table td{padding:9px 14px;border-bottom:1px solid var(--gray-100)}
-  .test-table tr:last-child td{border-bottom:none}
-  .test-table tbody tr:hover{background:var(--gray-50)}
-  .test-group{font-weight:700;color:var(--navy);background:var(--navy-light) !important}
-  .test-group td{border-bottom:1px solid var(--gray-200) !important}
-  .badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.3px}
-  .badge-pass{background:var(--green-bg);color:#16a34a}
-  .badge-skip{background:var(--yellow-bg);color:#a16207}
-  .badge-fail{background:var(--red-bg);color:#dc2626}
-  .dur{color:var(--gray-400);font-variant-numeric:tabular-nums}
+/* Test rows */
+.test-row{display:flex;align-items:center;padding:8px 16px;border-bottom:1px solid var(--gray-100);gap:12px;transition:background .15s}
+.test-row:last-child{border-bottom:none}
+.test-row:hover{background:var(--gray-50)}
+.test-name{flex:1;font-size:13px;color:var(--gray-700);min-width:0}
+.test-name .describe{color:var(--gray-400);font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;white-space:nowrap}
+.badge-pass{background:var(--green-bg);color:var(--green)}
+.badge-skip{background:var(--yellow-bg);color:var(--yellow)}
+.badge-fail{background:var(--red-bg);color:var(--red)}
 
-  /* Screenshots */
-  .screenshots-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-bottom:32px}
-  .screenshot-card{border:1px solid var(--gray-200);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:all .15s;background:#fff}
-  .screenshot-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
-  .screenshot-card img{width:100%;height:180px;object-fit:cover;object-position:top;display:block;background:var(--gray-100)}
-  .screenshot-card .sc-label{padding:8px 12px;font-size:12px;font-weight:500;color:var(--gray-600);border-top:1px solid var(--gray-100);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .sc-placeholder{width:100%;height:180px;display:flex;align-items:center;justify-content:center;color:var(--gray-400);font-size:12px;background:var(--gray-100)}
+/* Thumbnails */
+.thumb-wrap{display:flex;gap:4px;flex-shrink:0}
+.thumb{width:48px;height:32px;border-radius:4px;border:1px solid var(--gray-200);object-fit:cover;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.thumb:hover{transform:scale(1.1);box-shadow:var(--shadow-md)}
 
-  /* Coverage Matrix */
-  .coverage-section{max-width:1280px;margin:0 auto;padding:0 24px 40px}
-  .coverage-table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;border:1px solid var(--gray-200);border-radius:var(--radius);overflow:hidden}
-  .coverage-table thead{background:var(--navy);color:#fff}
-  .coverage-table th{padding:10px 14px;text-align:left;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.3px}
-  .coverage-table td{padding:9px 14px;border-bottom:1px solid var(--gray-100)}
-  .coverage-table tr:last-child td{border-bottom:none}
-  .coverage-table tbody tr:hover{background:var(--gray-50)}
-  .coverage-table .module-row{background:var(--navy-light);font-weight:700;color:var(--navy)}
-  .dot{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:middle}
-  .dot-covered{background:var(--green)}
-  .dot-partial{background:var(--gold)}
-  .dot-missing{background:var(--red)}
-  .coverage-note{font-size:12px;color:var(--gray-500)}
-  .status-text{font-weight:600;font-size:12px;display:flex;align-items:center;gap:6px}
-  .status-text.covered{color:#16a34a}
-  .status-text.partial{color:var(--gold-dark)}
-  .status-text.missing{color:var(--red)}
+/* Lightbox */
+.lightbox{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.85);align-items:center;justify-content:center;padding:24px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:95vw;max-height:90vh;border-radius:var(--radius);box-shadow:var(--shadow-lg)}
+.lightbox-close{position:absolute;top:16px;right:20px;color:#fff;font-size:28px;background:none;border:none;cursor:pointer;opacity:.8;transition:opacity .2s}
+.lightbox-close:hover{opacity:1}
+.lightbox-caption{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:#fff;font-size:13px;background:rgba(0,0,0,.6);padding:6px 16px;border-radius:20px;white-space:nowrap}
 
-  /* Bug Cards */
-  .bugs-section{max-width:1280px;margin:0 auto;padding:0 24px 40px}
-  .bug-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:16px}
-  .bug-card{border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:20px;background:#fff;box-shadow:var(--shadow-sm)}
-  .bug-card:hover{box-shadow:var(--shadow)}
-  .bug-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-  .bug-id{font-weight:700;font-size:14px;color:var(--navy)}
-  .bug-severity{font-size:11px;font-weight:700;padding:3px 10px;border-radius:10px}
-  .sev-high{background:var(--red-bg);color:#dc2626}
-  .sev-low{background:var(--yellow-bg);color:#a16207}
-  .bug-status{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:10px;margin-left:6px}
-  .status-fixed{background:var(--green-bg);color:#16a34a}
-  .status-open{background:var(--red-bg);color:#dc2626}
-  .bug-title{font-size:14px;font-weight:600;color:var(--gray-800);margin-bottom:6px}
-  .bug-desc{font-size:13px;color:var(--gray-500);line-height:1.5}
-  .bug-desc code{background:var(--gray-100);padding:1px 4px;border-radius:3px;font-size:12px;color:var(--gray-700)}
+/* Screenshot gallery */
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.gallery-card{border:1px solid var(--gray-200);border-radius:var(--radius);overflow:hidden;transition:box-shadow .2s,transform .2s;cursor:pointer}
+.gallery-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.gallery-card img{width:100%;height:140px;object-fit:cover;display:block}
+.gallery-card .caption{padding:8px 12px;font-size:11px;color:var(--gray-600);font-weight:500;background:var(--gray-50);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-  /* Lightbox */
-  .lightbox{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.85);justify-content:center;align-items:center;padding:24px;cursor:pointer;animation:lbIn .2s ease}
-  .lightbox.open{display:flex}
-  .lightbox img{max-width:95vw;max-height:90vh;border-radius:var(--radius);box-shadow:0 20px 60px rgba(0,0,0,.5);cursor:default;object-fit:contain}
-  .lightbox-close{position:fixed;top:16px;right:20px;font-size:28px;color:#fff;cursor:pointer;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,.15);border:none;z-index:1001;transition:background .15s}
-  .lightbox-close:hover{background:rgba(255,255,255,.3)}
-  .lightbox-caption{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.8);font-size:13px;font-weight:500;background:rgba(0,0,0,.5);padding:6px 16px;border-radius:20px;white-space:nowrap}
-  @keyframes lbIn{from{opacity:0}to{opacity:1}}
+/* Gallery section headers */
+.gallery-section{margin-top:24px;margin-bottom:12px;font-size:15px;font-weight:700;color:var(--navy);padding-bottom:6px;border-bottom:2px solid var(--teal)}
 
-  /* Responsive */
-  @media(max-width:768px){
-    .summary-stats{gap:16px}
-    .stat-number{font-size:24px !important}
-    .summary-inner{padding:12px 16px}
-    .tab-bar{gap:0}
-    .tab-btn{padding:8px 12px;font-size:13px}
-    .tabs-container,.tab-panels,.coverage-section,.bugs-section{padding-left:16px;padding-right:16px}
-    .screenshots-grid{grid-template-columns:1fr 1fr}
-    .bug-cards{grid-template-columns:1fr}
-    .coverage-note{display:none}
-  }
-  @media(max-width:480px){
-    .screenshots-grid{grid-template-columns:1fr}
-    .meta-tag{font-size:11px}
-  }
-
-  /* Rounds Timeline */
-  .rounds-section{max-width:1280px;margin:0 auto;padding:0 24px 40px}
-  .rounds-timeline{display:flex;flex-direction:column;gap:0}
-  .round-item{display:flex;gap:20px;padding:0 0 24px 0}
-  .round-dot-col{display:flex;flex-direction:column;align-items:center;gap:0;min-width:40px}
-  .round-dot{width:16px;height:16px;border-radius:50%;background:var(--teal);border:3px solid #fff;box-shadow:0 0 0 2px var(--teal);flex-shrink:0;margin-top:4px}
-  .round-dot-new{background:var(--gold);box-shadow:0 0 0 2px var(--gold-dark)}
-  .round-connector{flex:1;width:2px;background:var(--gray-200);margin-top:4px}
-  .round-content{flex:1;padding-bottom:8px}
-  .round-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-  .round-title{font-size:15px;font-weight:700;color:var(--navy)}
-  .round-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;background:var(--teal-light);color:var(--teal-dark)}
-  .round-badge-new{background:var(--gold-light);color:var(--gold-dark)}
-  .round-items{list-style:none;display:flex;flex-direction:column;gap:4px}
-  .round-items li{font-size:13px;color:var(--gray-600);display:flex;align-items:flex-start;gap:6px}
-  .round-items li::before{content:"•";color:var(--teal);font-weight:700;margin-top:1px;flex-shrink:0}
-  .round-items li.skip::before{color:var(--yellow)}
-  .round-items li.fix::before{content:"✓";color:var(--green)}
-
-  /* Inline screenshot thumb */
-  .sc-thumb{display:inline-block;vertical-align:middle;margin-left:6px;cursor:pointer;border-radius:3px;overflow:hidden;border:1px solid var(--gray-200);transition:all .15s}
-  .sc-thumb:hover{box-shadow:var(--shadow-md);border-color:var(--teal)}
-  .sc-thumb img{width:36px;height:24px;object-fit:cover;object-position:top;display:block;background:var(--gray-100)}
-
-  /* Print */
-  @media print{
-    .summary-bar{position:static;box-shadow:none}
-    .tab-bar{display:none}
-    .tab-panel{display:block !important;page-break-inside:avoid}
-    .tab-panel::before{content:attr(data-label);display:block;font-size:18px;font-weight:700;color:var(--navy);margin:20px 0 10px;border-bottom:2px solid var(--teal);padding-bottom:6px}
-    .screenshot-card{break-inside:avoid}
-    .lightbox{display:none !important}
-    body{font-size:11px}
-  }
+/* Responsive */
+@media(max-width:768px){
+  .summary-stats{gap:16px}
+  .stat-number{font-size:24px}
+  .tab-btn{padding:10px 12px;font-size:12px}
+  .test-row{flex-wrap:wrap;gap:6px}
+  .thumb{width:40px;height:28px}
+  .gallery{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+}
 </style>
 </head>
 <body>
@@ -192,640 +117,459 @@
 <div class="summary-bar">
   <div class="summary-inner">
     <div class="summary-top">
-      <div class="summary-title">
-        CNC E2E Test Report
-        <span>Career Navigation Consultant</span>
-      </div>
+      <div class="summary-title">CNC E2E Test Report <span>2026-03-16 | Chromium | 39 spec files</span></div>
       <div class="summary-meta">
-        <span class="meta-tag">2026-03-16</span>
-        <span class="meta-tag">Cloud Run Production</span>
-        <span class="meta-tag">Playwright 1.58</span>
+        <span class="meta-tag">Playwright</span>
+        <span class="meta-tag">Next.js 14 + FastAPI</span>
+        <span class="meta-tag">Cloud Run (asia-east1)</span>
       </div>
     </div>
     <div style="display:flex;align-items:center;gap:32px;flex-wrap:wrap">
       <div class="summary-stats">
-        <div class="stat" style="border-right:1px solid var(--gray-200);padding-right:24px;margin-right:8px"><div class="stat-number" style="color:var(--navy)">182</div><div class="stat-label">Total</div></div>
+        <div class="stat"><div class="stat-number" style="color:var(--navy)">182</div><div class="stat-label">Total</div></div>
         <div class="stat stat-pass"><div class="stat-number">168</div><div class="stat-label">Passed</div></div>
         <div class="stat stat-skip"><div class="stat-number">14</div><div class="stat-label">Skipped</div></div>
         <div class="stat stat-fail"><div class="stat-number">0</div><div class="stat-label">Failed</div></div>
-        <div class="stat stat-time"><div class="stat-number">1m 32s</div><div class="stat-label">Runtime</div></div>
+        <div class="stat stat-time"><div class="stat-number">1.8m</div><div class="stat-label">Runtime</div></div>
       </div>
       <div style="flex:1;min-width:200px">
         <div class="progress-label">
-          <span>Pass Rate</span>
-          <span class="progress-pct">100%</span>
+          <span>Pass rate</span>
+          <span class="progress-pct">92.3%</span>
         </div>
         <div class="progress-bar-wrap">
-          <div class="progress-bar-inner" style="width:100%;background:linear-gradient(90deg,var(--teal),var(--green))"></div>
+          <div class="progress-bar-inner" style="width:92.3%;background:linear-gradient(90deg,var(--green),var(--teal))"></div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Module Tabs -->
-<div class="tabs-container">
-  <div class="tab-bar" role="tablist">
-    <button class="tab-btn active" data-tab="m1" role="tab">M1 報名金流 <span class="tab-badge">48</span></button>
-    <button class="tab-btn" data-tab="m2" role="tab">M2 行銷頁面 <span class="tab-badge">15</span></button>
-    <button class="tab-btn" data-tab="m3" role="tab">M3 運課管理 <span class="tab-badge">26</span></button>
-    <button class="tab-btn" data-tab="m4" role="tab">M4 督導認證 <span class="tab-badge">20</span></button>
-    <button class="tab-btn" data-tab="m5" role="tab">M5 CRM <span class="tab-badge">19</span></button>
-    <button class="tab-btn" data-tab="ac" role="tab">Access Control <span class="tab-badge">11</span></button>
-  </div>
+<!-- Tabs -->
+<div class="tabs-bar" id="tabsBar">
+  <button class="tab-btn active" data-tab="m1">M1 Registration<span class="tab-count">56</span></button>
+  <button class="tab-btn" data-tab="m2">M2 Marketing<span class="tab-count">15</span></button>
+  <button class="tab-btn" data-tab="m3">M3 Course Ops<span class="tab-count">27</span></button>
+  <button class="tab-btn" data-tab="m4">M4 Supervision<span class="tab-count">20</span></button>
+  <button class="tab-btn" data-tab="m5">M5 CRM<span class="tab-count">18</span></button>
+  <button class="tab-btn" data-tab="ac">Access Control<span class="tab-count">11</span></button>
+  <button class="tab-btn" data-tab="ss">Screenshots<span class="tab-count">29</span></button>
+  <button class="tab-btn" data-tab="mob">Mobile<span class="tab-count">6</span></button>
+  <button class="tab-btn" data-tab="gallery">Gallery</button>
 </div>
 
-<div class="tab-panels">
-
-<!-- M1 -->
-<div class="tab-panel active" data-tab="m1" data-label="M1 報名金流">
-  <h3 class="section-title">Test Results</h3>
-  <table class="test-table">
-    <thead><tr><th>Test</th><th>Status</th><th>Duration</th><th>Notes</th></tr></thead>
-    <tbody>
-      <tr class="test-group"><td colspan="4">public-browse (5 tests)</td></tr>
-      <tr><td>should display homepage hero</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.2s</td><td></td></tr>
-      <tr><td>should list available courses</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.9s</td><td></td></tr>
-      <tr><td>should show course detail page</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.1s</td><td></td></tr>
-      <tr><td>should display pricing info</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-      <tr><td>should navigate to enrollment CTA</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">student-enroll (7 tests)</td></tr>
-      <tr><td>should show enrollment form</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.3s</td><td></td></tr>
-      <tr><td>should validate required fields</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
-      <tr><td>should accept valid input</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.9s</td><td></td></tr>
-      <tr><td>should display cohort selector</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-      <tr><td>should show price breakdown</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.0s</td><td></td></tr>
-      <tr><td>should apply promo code</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.4s</td><td></td></tr>
-      <tr><td>should auto-fill logged-in user data</td><td><span class="badge badge-skip">Skip</span></td><td class="dur">--</td><td>Login session not seeded</td></tr>
-
-      <tr class="test-group"><td colspan="4">admin-enrollments (5 tests)</td></tr>
-      <tr><td>should display enrollment table</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.1s</td><td></td></tr>
-      <tr><td>should filter by status</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
-      <tr><td>should search by student name</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-      <tr><td>should open enrollment sidebar</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.2s</td><td></td></tr>
-      <tr><td>should show enrollment details</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.9s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">admin-cohorts (4 tests)</td></tr>
-      <tr><td>should list all cohorts</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.9s</td><td></td></tr>
-      <tr><td>should show cohort detail</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.0s</td><td></td></tr>
-      <tr><td>should display student count</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
-      <tr><td>should filter by status</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">admin-cohort-crud (3 tests)</td></tr>
-      <tr><td>should create new cohort <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/cohort-01-dialog-open.png" data-name="cohort-01-dialog-open.png" title="cohort-01-dialog-open.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/cohort-01-dialog-open.png" alt="cohort-01-dialog-open" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">2.1s</td><td></td></tr>
-      <tr><td>should edit cohort details <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/cohort-02-edit-form.png" data-name="cohort-02-edit-form.png" title="cohort-02-edit-form.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/cohort-02-edit-form.png" alt="cohort-02-edit-form" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.8s</td><td></td></tr>
-      <tr><td>should toggle cohort status <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/cohort-03-status-toggle.png" data-name="cohort-03-status-toggle.png" title="cohort-03-status-toggle.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/cohort-03-status-toggle.png" alt="cohort-03-status-toggle" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.3s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">admin-promo-codes (3 tests)</td></tr>
-      <tr><td>should list promo codes <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/promo-01-list.png" data-name="promo-01-list.png" title="promo-01-list.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/promo-01-list.png" alt="promo-01-list" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-      <tr><td>should show usage stats</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
-      <tr><td>should filter active codes</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">admin-promo-crud (1 test)</td></tr>
-      <tr><td>should create and delete promo code <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/promo-02-create-dialog.png" data-name="promo-02-create-dialog.png" title="promo-02-create-dialog.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/promo-02-create-dialog.png" alt="promo-02-create-dialog" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">2.4s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">admin-agents (4 tests)</td></tr>
-      <tr><td>should list agent accounts</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.9s</td><td></td></tr>
-      <tr><td>should show referral stats</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-      <tr><td>should display commission info</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
-      <tr><td>should filter by agent type</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">enroll-flow (4 tests)</td></tr>
-      <tr><td>should complete step 1 personal info <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/flow/enroll-01-course-listing.png" data-name="enroll-01-course-listing.png" title="enroll-01-course-listing.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/flow/enroll-01-course-listing.png" alt="enroll-01-course-listing" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.5s</td><td></td></tr>
-      <tr><td>should complete step 2 cohort selection <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/flow/enroll-02-form-step1.png" data-name="enroll-02-form-step1.png" title="enroll-02-form-step1.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/flow/enroll-02-form-step1.png" alt="enroll-02-form-step1" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.2s</td><td></td></tr>
-      <tr><td>should complete step 3 confirmation <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/flow/enroll-03-form-step2.png" data-name="enroll-03-form-step2.png" title="enroll-03-form-step2.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/flow/enroll-03-form-step2.png" alt="enroll-03-form-step2" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.0s</td><td></td></tr>
-      <tr><td>should reach payment page <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/flow/enroll-04-confirm.png" data-name="enroll-04-confirm.png" title="enroll-04-confirm.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/flow/enroll-04-confirm.png" alt="enroll-04-confirm" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.1s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">enroll-form-details (6 tests)</td></tr>
-      <tr><td>should validate email format</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.5s</td><td></td></tr>
-      <tr><td>should validate phone format</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.4s</td><td></td></tr>
-      <tr><td>should require terms agreement</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
-      <tr><td>should show error messages</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.5s</td><td></td></tr>
-      <tr><td>should clear errors on valid input</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
-      <tr><td>should preserve form state on navigation</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.3s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">payment-flow (6 tests)</td></tr>
-      <tr><td>should display payment summary</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.9s</td><td></td></tr>
-      <tr><td>should show ECPay button</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
-      <tr><td>should calculate discount correctly</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-      <tr><td>should show payment instructions</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
-      <tr><td>should handle payment timeout UI</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.5s</td><td></td></tr>
-      <tr><td>should display receipt info</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-    </tbody>
-  </table>
-
-  <h3 class="section-title">Screenshots</h3>
-  <div class="screenshots-grid">
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/visitor--homepage.png" data-name="visitor--homepage.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/visitor--homepage.png" alt="Homepage" loading="lazy"><div class="sc-label">visitor--homepage.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/visitor--courses.png" data-name="visitor--courses.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/visitor--courses.png" alt="Courses" loading="lazy"><div class="sc-label">visitor--courses.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/visitor--enroll.png" data-name="visitor--enroll.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/visitor--enroll.png" alt="Enrollment" loading="lazy"><div class="sc-label">visitor--enroll.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/visitor--login.png" data-name="visitor--login.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/visitor--login.png" alt="Login" loading="lazy"><div class="sc-label">visitor--login.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-dashboard.png" data-name="admin--admin-dashboard.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-dashboard.png" alt="Admin Dashboard" loading="lazy"><div class="sc-label">admin--admin-dashboard.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-enrollments.png" data-name="admin--admin-enrollments.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-enrollments.png" alt="Admin Enrollments" loading="lazy"><div class="sc-label">admin--admin-enrollments.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-cohorts.png" data-name="admin--admin-cohorts.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-cohorts.png" alt="Admin Cohorts" loading="lazy"><div class="sc-label">admin--admin-cohorts.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-promo-codes.png" data-name="admin--admin-promo-codes.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-promo-codes.png" alt="Admin Promo Codes" loading="lazy"><div class="sc-label">admin--admin-promo-codes.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-referrals.png" data-name="admin--admin-referrals.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-referrals.png" alt="Admin Referrals" loading="lazy"><div class="sc-label">admin--admin-referrals.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-refunds.png" data-name="admin--admin-refunds.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-refunds.png" alt="Admin Refunds" loading="lazy"><div class="sc-label">admin--admin-refunds.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-agents.png" data-name="admin--admin-agents.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-agents.png" alt="Admin Agents" loading="lazy"><div class="sc-label">admin--admin-agents.png</div></div>
-  </div>
-</div>
-
-<!-- M2 -->
-<div class="tab-panel" data-tab="m2" data-label="M2 行銷頁面">
-  <h3 class="section-title">Test Results</h3>
-  <table class="test-table">
-    <thead><tr><th>Test</th><th>Status</th><th>Duration</th><th>Notes</th></tr></thead>
-    <tbody>
-      <tr class="test-group"><td colspan="4">admin-pages (5 tests)</td></tr>
-      <tr><td>should list marketing pages</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.9s</td><td></td></tr>
-      <tr><td>should show page preview</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.0s</td><td></td></tr>
-      <tr><td>should filter by publish status</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
-      <tr><td>should show page analytics</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-      <tr><td>should toggle publish status</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.2s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">admin-products (5 tests)</td></tr>
-      <tr><td>should display product tabs</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-      <tr><td>should list products in table</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
-      <tr><td>should show product details</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.9s</td><td></td></tr>
-      <tr><td>should link to public page</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.1s</td><td></td></tr>
-      <tr><td>should display pricing tiers</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">admin-page-crud (1 test)</td></tr>
-      <tr><td>should create and publish new page <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/page-01-create-dialog.png" data-name="page-01-create-dialog.png" title="page-01-create-dialog.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/page-01-create-dialog.png" alt="page-01-create-dialog" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">2.8s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">admin-page-editor (4 tests)</td></tr>
-      <tr><td>should load page editor <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/page-02-editor.png" data-name="page-02-editor.png" title="page-02-editor.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/page-02-editor.png" alt="page-02-editor" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.1s</td><td></td></tr>
-      <tr><td>should edit page content</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.5s</td><td></td></tr>
-      <tr><td>should save draft</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.2s</td><td></td></tr>
-      <tr><td>should preview before publish</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.4s</td><td></td></tr>
-    </tbody>
-  </table>
-
-  <h3 class="section-title">Screenshots</h3>
-  <div class="screenshots-grid">
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-pages.png" data-name="admin--admin-pages.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-pages.png" alt="Admin Pages" loading="lazy"><div class="sc-label">admin--admin-pages.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-products.png" data-name="admin--admin-products.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-products.png" alt="Admin Products" loading="lazy"><div class="sc-label">admin--admin-products.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-marketing.png" data-name="admin--admin-marketing.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-marketing.png" alt="Admin Marketing" loading="lazy"><div class="sc-label">admin--admin-marketing.png</div></div>
-  </div>
-</div>
-
-<!-- M3 -->
-<div class="tab-panel" data-tab="m3" data-label="M3 運課管理">
-  <h3 class="section-title">Test Results</h3>
-  <table class="test-table">
-    <thead><tr><th>Test</th><th>Status</th><th>Duration</th><th>Notes</th></tr></thead>
-    <tbody>
-      <tr class="test-group"><td colspan="4">admin-classroom (4 tests)</td></tr>
-      <tr><td>should list classrooms</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.9s</td><td></td></tr>
-      <tr><td>should show classroom detail</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.1s</td><td></td></tr>
-      <tr><td>should display student roster</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-      <tr><td>should show material tabs</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">admin-classroom-crud (1 test)</td></tr>
-      <tr><td>should create new classroom <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/classroom-01-create-dialog.png" data-name="classroom-01-create-dialog.png" title="classroom-01-create-dialog.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/classroom-01-create-dialog.png" alt="classroom-01-create-dialog" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">2.3s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">classroom-detail (6 tests)</td></tr>
-      <tr><td>should show classroom overview</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.0s</td><td></td></tr>
-      <tr><td>should display announcements tab</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-      <tr><td>should show materials tab</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.9s</td><td></td></tr>
-      <tr><td>should show assignments tab</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
-      <tr><td>should show students tab</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-      <tr><td>should show grades tab</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">admin-grading (3 tests)</td></tr>
-      <tr><td>should display grading dashboard</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.9s</td><td></td></tr>
-      <tr><td>should show stat cards</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
-      <tr><td>should filter by classroom</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">admin-grading-flow (2 tests)</td></tr>
-      <tr><td>should open grading dialog <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/grading-01-dialog.png" data-name="grading-01-dialog.png" title="grading-01-dialog.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/grading-01-dialog.png" alt="grading-01-dialog" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.4s</td><td></td></tr>
-      <tr><td>should submit grade with toast <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/grading-02-toast.png" data-name="grading-02-toast.png" title="grading-02-toast.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/grading-02-toast.png" alt="grading-02-toast" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.8s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">grading-details (4 tests)</td></tr>
-      <tr><td>should show submission detail</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.9s</td><td></td></tr>
-      <tr><td>should display rubric</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
-      <tr><td>should show feedback field</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
-      <tr><td>should display grade history</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">admin-attendance (1 test)</td></tr>
-      <tr><td>should show attendance section</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">student-classroom (5 tests)</td></tr>
-      <tr><td>should show student course list</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.9s</td><td></td></tr>
-      <tr><td>should display course card</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-      <tr><td>should enter classroom view</td><td><span class="badge badge-skip">Skip</span></td><td class="dur">--</td><td>alice@test.com not seeded</td></tr>
-      <tr><td>should view assignments</td><td><span class="badge badge-skip">Skip</span></td><td class="dur">--</td><td>alice@test.com not seeded</td></tr>
-      <tr><td>should submit assignment</td><td><span class="badge badge-skip">Skip</span></td><td class="dur">--</td><td>alice@test.com not seeded</td></tr>
-    </tbody>
-  </table>
-
-  <h3 class="section-title">Screenshots</h3>
-  <div class="screenshots-grid">
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-classrooms.png" data-name="admin--admin-classrooms.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-classrooms.png" alt="Admin Classrooms" loading="lazy"><div class="sc-label">admin--admin-classrooms.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-grading.png" data-name="admin--admin-grading.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-grading.png" alt="Admin Grading" loading="lazy"><div class="sc-label">admin--admin-grading.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/student--student-courses.png" data-name="student--student-courses.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/student--student-courses.png" alt="Student Courses" loading="lazy"><div class="sc-label">student--student-courses.png</div></div>
-  </div>
-</div>
-
-<!-- M4 -->
-<div class="tab-panel" data-tab="m4" data-label="M4 督導認證">
-  <h3 class="section-title">Test Results</h3>
-  <table class="test-table">
-    <thead><tr><th>Test</th><th>Status</th><th>Duration</th><th>Notes</th></tr></thead>
-    <tbody>
-      <tr class="test-group"><td colspan="4">admin-supervision (3 tests)</td></tr>
-      <tr><td>should display supervision list</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.9s</td><td></td></tr>
-      <tr><td>should show schedule table</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-      <tr><td>should display status badges</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">admin-supervision-crud (2 tests)</td></tr>
-      <tr><td>should create supervision session <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/supervision-01-create.png" data-name="supervision-01-create.png" title="supervision-01-create.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/supervision-01-create.png" alt="supervision-01-create" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">2.1s</td><td></td></tr>
-      <tr><td>should edit supervision details <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/supervision-02-edit.png" data-name="supervision-02-edit.png" title="supervision-02-edit.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/supervision-02-edit.png" alt="supervision-02-edit" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.7s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">supervision-details (7 tests)</td></tr>
-      <tr><td>should show session info</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-      <tr><td>should display student assignment</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
-      <tr><td>should show time slot picker</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.9s</td><td></td></tr>
-      <tr><td>should display feedback form</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-      <tr><td>should show completion status</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
-      <tr><td>should display notes section</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.5s</td><td></td></tr>
-      <tr><td>should show history log</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">admin-certifications (2 tests)</td></tr>
-      <tr><td>should list certification records</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-      <tr><td>should filter by grade</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">admin-certification-flow (2 tests)</td></tr>
-      <tr><td>should open grade dialog <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/cert-01-grade-dialog.png" data-name="cert-01-grade-dialog.png" title="cert-01-grade-dialog.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/cert-01-grade-dialog.png" alt="cert-01-grade-dialog" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.3s</td><td></td></tr>
-      <tr><td>should submit certification grade <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/cert-02-submit.png" data-name="cert-02-submit.png" title="cert-02-submit.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/cert-02-submit.png" alt="cert-02-submit" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.6s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">student-supervision (2 tests)</td></tr>
-      <tr><td>should show supervision schedule</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.9s</td><td></td></tr>
-      <tr><td>should display empty state</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.5s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">student-certifications (2 tests)</td></tr>
-      <tr><td>should show certification status</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-      <tr><td>should display empty state</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.5s</td><td></td></tr>
-    </tbody>
-  </table>
-
-  <h3 class="section-title">Screenshots</h3>
-  <div class="screenshots-grid">
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-supervision.png" data-name="admin--admin-supervision.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-supervision.png" alt="Admin Supervision" loading="lazy"><div class="sc-label">admin--admin-supervision.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-certifications.png" data-name="admin--admin-certifications.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-certifications.png" alt="Admin Certifications" loading="lazy"><div class="sc-label">admin--admin-certifications.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/student--student-supervision.png" data-name="student--student-supervision.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/student--student-supervision.png" alt="Student Supervision" loading="lazy"><div class="sc-label">student--student-supervision.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/student--student-certifications.png" data-name="student--student-certifications.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/student--student-certifications.png" alt="Student Certifications" loading="lazy"><div class="sc-label">student--student-certifications.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/supervisor--admin-supervision.png" data-name="supervisor--admin-supervision.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/supervisor--admin-supervision.png" alt="Supervisor View" loading="lazy"><div class="sc-label">supervisor--admin-supervision.png</div></div>
-  </div>
-</div>
-
-<!-- M5 -->
-<div class="tab-panel" data-tab="m5" data-label="M5 CRM">
-  <h3 class="section-title">Test Results</h3>
-  <table class="test-table">
-    <thead><tr><th>Test</th><th>Status</th><th>Duration</th><th>Notes</th></tr></thead>
-    <tbody>
-      <tr class="test-group"><td colspan="4">admin-crm (5 tests)</td></tr>
-      <tr><td>should display CRM dashboard</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.0s</td><td></td></tr>
-      <tr><td>should show 3 tabs</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
-      <tr><td>should search members</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-      <tr><td>should filter by status</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
-      <tr><td>should show member detail</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.1s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">admin-crm-flow (4 tests)</td></tr>
-      <tr><td>should approve renewal request <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/crm-01-approve-dialog.png" data-name="crm-01-approve-dialog.png" title="crm-01-approve-dialog.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/crm-01-approve-dialog.png" alt="crm-01-approve-dialog" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.8s</td><td></td></tr>
-      <tr><td>should reject with reason <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/crm-02-reject-dialog.png" data-name="crm-02-reject-dialog.png" title="crm-02-reject-dialog.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/crm-02-reject-dialog.png" alt="crm-02-reject-dialog" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.5s</td><td></td></tr>
-      <tr><td>should update member status</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.2s</td><td></td></tr>
-      <tr><td>should add admin note</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.0s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">student-crm (5 tests)</td></tr>
-      <tr><td>should show certification status</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-      <tr><td>should display renewal options</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
-      <tr><td>should show special appointment info</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
-      <tr><td>should display activity log</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.9s</td><td></td></tr>
-      <tr><td>should show empty state for new users</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.5s</td><td></td></tr>
-
-      <tr class="test-group"><td colspan="4">crm-renewal-flow (5 tests)</td></tr>
-      <tr><td>should initiate renewal request</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.4s</td><td></td></tr>
-      <tr><td>should upload renewal documents</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.6s</td><td></td></tr>
-      <tr><td>should show pending status</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
-      <tr><td>should display approval result</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-      <tr><td>should update certification expiry</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.0s</td><td></td></tr>
-    </tbody>
-  </table>
-
-  <h3 class="section-title">Screenshots</h3>
-  <div class="screenshots-grid">
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-crm.png" data-name="admin--admin-crm.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/admin--admin-crm.png" alt="Admin CRM" loading="lazy"><div class="sc-label">admin--admin-crm.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/student--student-crm.png" data-name="student--student-crm.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/student--student-crm.png" alt="Student CRM" loading="lazy"><div class="sc-label">student--student-crm.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/student--student-dashboard.png" data-name="student--student-dashboard.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/student--student-dashboard.png" alt="Student Dashboard" loading="lazy"><div class="sc-label">student--student-dashboard.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/student--student-enrollments.png" data-name="student--student-enrollments.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/student--student-enrollments.png" alt="Student Enrollments" loading="lazy"><div class="sc-label">student--student-enrollments.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/student--student-payments.png" data-name="student--student-payments.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/student--student-payments.png" alt="Student Payments" loading="lazy"><div class="sc-label">student--student-payments.png</div></div>
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/student--student-profile.png" data-name="student--student-profile.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/student--student-profile.png" alt="Student Profile" loading="lazy"><div class="sc-label">student--student-profile.png</div></div>
-  </div>
-</div>
-
-<!-- Access Control -->
-<div class="tab-panel" data-tab="ac" data-label="Access Control">
-  <h3 class="section-title">Test Results</h3>
-  <table class="test-table">
-    <thead><tr><th>Test</th><th>Status</th><th>Duration</th><th>Notes</th></tr></thead>
-    <tbody>
-      <tr class="test-group"><td colspan="4">role-guards (11 tests)</td></tr>
-      <tr><td>should redirect unauthenticated to login</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
-      <tr><td>should block student from admin routes</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.5s</td><td></td></tr>
-      <tr><td>should allow admin to admin dashboard</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
-      <tr><td>should allow admin to enrollments</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
-      <tr><td>should allow admin to cohorts</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.5s</td><td></td></tr>
-      <tr><td>should allow TA to grading</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
-      <tr><td>should block TA from settings</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.5s</td><td></td></tr>
-      <tr><td>should allow student to own dashboard</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
-      <tr><td>should allow supervisor to supervision</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
-      <tr><td>should block supervisor from admin</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.5s</td><td></td></tr>
-      <tr><td>should preserve redirect after login</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
-    </tbody>
-  </table>
-
-  <h3 class="section-title">Screenshots</h3>
-  <div class="screenshots-grid">
-    <div class="screenshot-card" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/ta--admin-grading.png" data-name="ta--admin-grading.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/ta--admin-grading.png" alt="TA Grading" loading="lazy"><div class="sc-label">ta--admin-grading.png</div></div>
-  </div>
-</div>
-
-</div><!-- end tab-panels -->
-
-<!-- Rounds Timeline -->
-<div class="rounds-section">
-  <h2 style="font-size:20px;font-weight:700;color:var(--navy);margin-bottom:4px">Test Rounds</h2>
-  <p style="font-size:13px;color:var(--gray-500);margin-bottom:20px">Progressive coverage history across all test runs</p>
-  <div class="rounds-timeline">
-
-    <div class="round-item">
-      <div class="round-dot-col"><div class="round-dot"></div><div class="round-connector"></div></div>
-      <div class="round-content">
-        <div class="round-header"><span class="round-title">Round 1 — Scaffold & Happy Paths</span><span class="round-badge">+48 tests</span></div>
-        <ul class="round-items">
-          <li>M1 public browse + admin enrollment tables</li>
-          <li>Basic RBAC guards (11 tests)</li>
-          <li>Visitor screenshots baseline</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="round-item">
-      <div class="round-dot-col"><div class="round-dot"></div><div class="round-connector"></div></div>
-      <div class="round-content">
-        <div class="round-header"><span class="round-title">Round 2 — CRUD & Admin Flows</span><span class="round-badge">+40 tests</span></div>
-        <ul class="round-items">
-          <li>Admin cohort CRUD, promo code CRUD, classroom CRUD</li>
-          <li>M2 marketing pages + editor flow</li>
-          <li>Admin agent management</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="round-item">
-      <div class="round-dot-col"><div class="round-dot"></div><div class="round-connector"></div></div>
-      <div class="round-content">
-        <div class="round-header"><span class="round-title">Round 3 — Student & Supervisor Flows</span><span class="round-badge">+35 tests</span></div>
-        <ul class="round-items">
-          <li>M3 classroom detail tabs, grading dialog + toast</li>
-          <li>M4 supervision CRUD + certification flow</li>
-          <li>M5 CRM + renewal flow (student + admin)</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="round-item">
-      <div class="round-dot-col"><div class="round-dot"></div><div class="round-connector"></div></div>
-      <div class="round-content">
-        <div class="round-header"><span class="round-title">Round 4 — Enrollment Details & Payment</span><span class="round-badge">+35 tests</span></div>
-        <ul class="round-items">
-          <li>Enrollment form details validation (6 tests)</li>
-          <li>Payment flow end-to-end (6 tests)</li>
-          <li>Admin supervision details (7 tests), grading details (4 tests)</li>
-          <li>CRM flow + renewal sub-flow</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="round-item">
-      <div class="round-dot-col"><div class="round-dot round-dot-new"></div></div>
-      <div class="round-content">
-        <div class="round-header"><span class="round-title">Round 5 — Coverage Gaps &amp; Screenshots</span><span class="round-badge round-badge-new">+14 tests · 2026-03-16</span></div>
-        <ul class="round-items">
-          <li>Enrollment form multi-step flow — 3 pass, 1 skip (Zustand hydration race condition fixed)</li>
-          <li>ECPay payment mock — 3 tests</li>
-          <li>Admin attendance expanded — 2 tests</li>
-          <li>Mobile viewport tests — 6 tests</li>
-          <li class="fix">Screenshots added to 11 CRUD/flow test files (cohort, promo, classroom, supervision, certification, CRM)</li>
-          <li class="fix">Zustand hydration race condition fixed — form state now preserved on back-navigation</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- PRD Coverage Matrix -->
-<div class="coverage-section">
-  <h2 style="font-size:20px;font-weight:700;color:var(--navy);margin-bottom:4px">PRD Coverage Matrix</h2>
-  <p style="font-size:13px;color:var(--gray-500);margin-bottom:16px">PRD requirement vs E2E test coverage mapping</p>
-
-  <table class="coverage-table">
-    <thead><tr><th style="width:80px">ID</th><th>Requirement</th><th style="width:100px">Status</th><th>Notes</th></tr></thead>
-    <tbody>
-      <tr class="module-row"><td colspan="4">M1 報名金流</td></tr>
-      <tr><td>M1-01</td><td>學員完整報名流程</td><td><span class="status-text partial"><span class="dot dot-partial"></span>Partial</span></td><td class="coverage-note">報名頁+價格測了，ECPay付款流程未測</td></tr>
-      <tr><td>M1-02</td><td>學員登入後報名</td><td><span class="status-text partial"><span class="dot dot-partial"></span>Partial</span></td><td class="coverage-note">登入+報名頁，表單auto-fill未測</td></tr>
-      <tr><td>M1-03</td><td>Admin查看報名記錄</td><td><span class="status-text covered"><span class="dot dot-covered"></span>Covered</span></td><td class="coverage-note">table+篩選+sidebar</td></tr>
-      <tr><td>M1-04</td><td>Admin管理折扣碼</td><td><span class="status-text covered"><span class="dot dot-covered"></span>Covered</span></td><td class="coverage-note">CRUD完整</td></tr>
-      <tr><td>M1-05</td><td>Admin退款流程</td><td><span class="status-text partial"><span class="dot dot-partial"></span>Partial</span></td><td class="coverage-note">頁面+按鈕驗證，退款計算未測</td></tr>
-      <tr><td>M1-06</td><td>Admin管理梯次</td><td><span class="status-text covered"><span class="dot dot-covered"></span>Covered</span></td><td class="coverage-note">CRUD+detail</td></tr>
-      <tr><td>M1-07</td><td>代理商推薦碼</td><td><span class="status-text partial"><span class="dot dot-partial"></span>Partial</span></td><td class="coverage-note">頁面驗證，代理商角色未測</td></tr>
-      <tr><td>M1-08</td><td>付款失敗處理</td><td><span class="status-text partial"><span class="dot dot-partial"></span>Partial</span></td><td class="coverage-note">頁面存在，失敗內容未驗</td></tr>
-
-      <tr class="module-row"><td colspan="4">M2 行銷頁面</td></tr>
-      <tr><td>M2-01</td><td>Admin行銷頁面</td><td><span class="status-text covered"><span class="dot dot-covered"></span>Covered</span></td><td class="coverage-note">CRUD+editor+publish</td></tr>
-      <tr><td>M2-02</td><td>商品管理</td><td><span class="status-text covered"><span class="dot dot-covered"></span>Covered</span></td><td class="coverage-note">tabs+table+公開頁</td></tr>
-      <tr><td>M2-03</td><td>行銷入口</td><td><span class="status-text covered"><span class="dot dot-covered"></span>Covered</span></td><td class="coverage-note">3 channels verified</td></tr>
-      <tr><td>M2-04</td><td>訪客瀏覽課程</td><td><span class="status-text covered"><span class="dot dot-covered"></span>Covered</span></td><td class="coverage-note">homepage+courses+detail+CTA</td></tr>
-
-      <tr class="module-row"><td colspan="4">M3 運課管理</td></tr>
-      <tr><td>M3-01</td><td>Admin建立教室</td><td><span class="status-text covered"><span class="dot dot-covered"></span>Covered</span></td><td class="coverage-note">CRUD+detail</td></tr>
-      <tr><td>M3-02</td><td>上傳教材設定作業</td><td><span class="status-text partial"><span class="dot dot-partial"></span>Partial</span></td><td class="coverage-note">教室detail tabs，上傳未測</td></tr>
-      <tr><td>M3-03</td><td>學員進入課程</td><td><span class="status-text missing"><span class="dot dot-missing"></span>Missing</span></td><td class="coverage-note">alice未seed，4 tests skip</td></tr>
-      <tr><td>M3-04</td><td>學員繳交作業</td><td><span class="status-text missing"><span class="dot dot-missing"></span>Missing</span></td><td class="coverage-note">alice未seed</td></tr>
-      <tr><td>M3-05</td><td>助教批改作業</td><td><span class="status-text covered"><span class="dot dot-covered"></span>Covered</span></td><td class="coverage-note">grading dialog+toast</td></tr>
-      <tr><td>M3-06</td><td>跨班批改dashboard</td><td><span class="status-text covered"><span class="dot dot-covered"></span>Covered</span></td><td class="coverage-note">stat cards+filter</td></tr>
-      <tr><td>M3-07</td><td>出席管理</td><td><span class="status-text partial"><span class="dot dot-partial"></span>Partial</span></td><td class="coverage-note">section驗證，標記未測</td></tr>
-
-      <tr class="module-row"><td colspan="4">M4 督導認證</td></tr>
-      <tr><td>M4-01</td><td>督導排程管理</td><td><span class="status-text covered"><span class="dot dot-covered"></span>Covered</span></td><td class="coverage-note">CRUD+table+badges</td></tr>
-      <tr><td>M4-02</td><td>學員預約個督</td><td><span class="status-text partial"><span class="dot dot-partial"></span>Partial</span></td><td class="coverage-note">空狀態驗證，預約未測</td></tr>
-      <tr><td>M4-03</td><td>認證流程管理</td><td><span class="status-text covered"><span class="dot dot-covered"></span>Covered</span></td><td class="coverage-note">grade dialog+filters</td></tr>
-      <tr><td>M4-04</td><td>學員繳交認證檔案</td><td><span class="status-text partial"><span class="dot dot-partial"></span>Partial</span></td><td class="coverage-note">空狀態驗證，上傳未測</td></tr>
-      <tr><td>M4-05</td><td>督導進行個督</td><td><span class="status-text partial"><span class="dot dot-partial"></span>Partial</span></td><td class="coverage-note">supervisor可存取，填寫未測</td></tr>
-
-      <tr class="module-row"><td colspan="4">M5 CRM</td></tr>
-      <tr><td>M5-01</td><td>Admin會員CRM</td><td><span class="status-text covered"><span class="dot dot-covered"></span>Covered</span></td><td class="coverage-note">3 tabs+search+filter+detail</td></tr>
-      <tr><td>M5-02</td><td>學員畢業後狀態</td><td><span class="status-text covered"><span class="dot dot-covered"></span>Covered</span></td><td class="coverage-note">認證狀態+續證+特約</td></tr>
-      <tr><td>M5-03</td><td>續證流程</td><td><span class="status-text covered"><span class="dot dot-covered"></span>Covered</span></td><td class="coverage-note">學員申請+admin核准dialog</td></tr>
-      <tr><td>M5-04</td><td>推薦返現管理</td><td><span class="status-text covered"><span class="dot dot-covered"></span>Covered</span></td><td class="coverage-note">stat cards+empty state</td></tr>
-    </tbody>
-  </table>
-
-  <div style="display:flex;gap:20px;margin-top:12px;flex-wrap:wrap">
-    <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray-500)"><span class="dot dot-covered"></span> Covered: 17</div>
-    <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray-500)"><span class="dot dot-partial"></span> Partial: 11</div>
-    <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray-500)"><span class="dot dot-missing"></span> Missing: 2</div>
-  </div>
-</div>
-
-<!-- Bug Tracker -->
-<div class="bugs-section">
-  <h2 style="font-size:20px;font-weight:700;color:var(--navy);margin-bottom:4px">Bug Tracker</h2>
-  <p style="font-size:13px;color:var(--gray-500);margin-bottom:16px">Issues discovered during E2E testing</p>
-
-  <div class="bug-cards">
-    <div class="bug-card">
-      <div class="bug-header">
-        <span class="bug-id">BUG-E2E-001</span>
-        <div><span class="bug-severity sev-high">HIGH</span><span class="bug-status status-fixed">Fixed</span></div>
-      </div>
-      <div class="bug-title">Admin route guard allows student access</div>
-      <div class="bug-desc">Student role could access admin routes without proper redirect. Fixed by updating role check in <code>layout.tsx</code> to enforce RBAC guards on all <code>/admin/*</code> routes.</div>
-    </div>
-
-    <div class="bug-card">
-      <div class="bug-header">
-        <span class="bug-id">BUG-E2E-002</span>
-        <div><span class="bug-severity sev-low">LOW</span><span class="bug-status status-open">Open</span></div>
-      </div>
-      <div class="bug-title">alice@test.com not seeded in test DB</div>
-      <div class="bug-desc">Student test user <code>alice@test.com</code> is not in the seed data, causing 3 student-classroom tests and 1 student-enroll test to skip. Need to add alice to <code>seed.py</code> with student role and enrolled cohort.</div>
-    </div>
-
-    <div class="bug-card">
-      <div class="bug-header">
-        <span class="bug-id">BUG-E2E-003</span>
-        <div><span class="bug-severity sev-low">LOW</span><span class="bug-status status-fixed">Fixed</span></div>
-      </div>
-      <div class="bug-title">Student enrollments empty state mismatch</div>
-      <div class="bug-desc">Student enrollments page showed empty state even when data existed. Root cause: API response format mismatch between <code>{ data: [] }</code> and <code>{ items: [] }</code>. Fixed response parsing in the enrollments hook.</div>
-    </div>
-  </div>
-</div>
+<!-- Content -->
+<div class="content" id="content"></div>
 
 <!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" aria-label="Close">&times;</button>
-  <img id="lightbox-img" src="" alt="">
-  <div class="lightbox-caption" id="lightbox-caption"></div>
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <img id="lightboxImg" src="" alt="">
+  <div class="lightbox-caption" id="lightboxCaption"></div>
 </div>
 
 <script>
-(function() {
-  // Tabs
-  var tabBtns = document.querySelectorAll('.tab-btn');
-  var tabPanels = document.querySelectorAll('.tab-panel');
-  tabBtns.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var tab = this.getAttribute('data-tab');
-      tabBtns.forEach(function(b) { b.classList.remove('active'); });
-      tabPanels.forEach(function(p) { p.classList.remove('active'); });
-      this.classList.add('active');
-      document.querySelector('.tab-panel[data-tab="' + tab + '"]').classList.add('active');
+const SS = 'https://youngger9765.github.io/navi-career-CNC-docs/screenshots/';
+
+// All tests parsed from --list output
+const tests = [
+  // === ACCESS CONTROL ===
+  {tab:'ac', file:'access-control/role-guards.spec.ts', describe:'Access Control: Role-based guards > Unauthenticated visitor', name:'visitor accessing /admin/dashboard gets redirected to login', status:'pass', screenshots:[]},
+  {tab:'ac', file:'access-control/role-guards.spec.ts', describe:'Access Control: Role-based guards > Unauthenticated visitor', name:'visitor accessing /student/dashboard gets redirected to login', status:'pass', screenshots:[]},
+  {tab:'ac', file:'access-control/role-guards.spec.ts', describe:'Access Control: Role-based guards > Unauthenticated visitor', name:'visitor can access public /courses page', status:'pass', screenshots:[]},
+  {tab:'ac', file:'access-control/role-guards.spec.ts', describe:'Access Control: Role-based guards > Unauthenticated visitor', name:'visitor can access login page', status:'pass', screenshots:[]},
+  {tab:'ac', file:'access-control/role-guards.spec.ts', describe:'Access Control: Role-based guards > Student accessing admin pages', name:'student accessing /admin/dashboard is blocked \u2014 redirect or empty render', status:'pass', screenshots:[]},
+  {tab:'ac', file:'access-control/role-guards.spec.ts', describe:'Access Control: Role-based guards > Student accessing admin pages', name:'student accessing /admin/enrollments is blocked \u2014 redirect or empty render', status:'pass', screenshots:[]},
+  {tab:'ac', file:'access-control/role-guards.spec.ts', describe:'Access Control: Role-based guards > Student accessing admin pages', name:'student can access /student/dashboard', status:'pass', screenshots:[]},
+  {tab:'ac', file:'access-control/role-guards.spec.ts', describe:'Access Control: Role-based guards > Admin can access admin pages', name:'admin can access /admin/dashboard', status:'pass', screenshots:[]},
+  {tab:'ac', file:'access-control/role-guards.spec.ts', describe:'Access Control: Role-based guards > Admin can access admin pages', name:'admin can access /admin/enrollments', status:'pass', screenshots:[]},
+  {tab:'ac', file:'access-control/role-guards.spec.ts', describe:'Access Control: Role-based guards > API-level role guards', name:'student token cannot access admin API endpoints', status:'pass', screenshots:[]},
+  {tab:'ac', file:'access-control/role-guards.spec.ts', describe:'Access Control: Role-based guards > API-level role guards', name:'unauthenticated request to protected API returns 401/403', status:'pass', screenshots:[]},
+
+  // === M1 REGISTRATION ===
+  // admin-agents.spec.ts
+  {tab:'m1', file:'m1-registration/admin-agents.spec.ts', describe:'M1-07 / M2: Admin agents management', name:'agents page shows stat cards and table', status:'pass', screenshots:[SS+'admin--admin-agents.png']},
+  {tab:'m1', file:'m1-registration/admin-agents.spec.ts', describe:'M1-07 / M2: Admin agents management', name:'agents table shows correct columns', status:'pass', screenshots:[]},
+  {tab:'m1', file:'m1-registration/admin-agents.spec.ts', describe:'M1-07 / M2: Admin agents management', name:'agents page has create agent button', status:'pass', screenshots:[]},
+  {tab:'m1', file:'m1-registration/admin-agents.spec.ts', describe:'M1-07 / M2: Admin agents management', name:'referrals page shows stat cards and empty/list state', status:'pass', screenshots:[SS+'admin--admin-referrals.png']},
+
+  // admin-cohort-crud.spec.ts
+  {tab:'m1', file:'m1-registration/admin-cohort-crud.spec.ts', describe:'M1-06 CRUD: Admin cohort management', name:'admin opens create dialog, fills form, submits', status:'pass', screenshots:[SS+'crud/cohort-01-dialog-open.png',SS+'crud/cohort-02-form-filled.png',SS+'crud/cohort-03-toast-success.png']},
+  {tab:'m1', file:'m1-registration/admin-cohort-crud.spec.ts', describe:'M1-06 CRUD: Admin cohort management', name:'admin sees cohort list with table headers', status:'pass', screenshots:[SS+'crud/cohort-04-list-table.png']},
+  {tab:'m1', file:'m1-registration/admin-cohort-crud.spec.ts', describe:'M1-06 CRUD: Admin cohort management', name:'admin clicks cohort row to enter detail', status:'pass', screenshots:[]},
+
+  // admin-cohorts.spec.ts
+  {tab:'m1', file:'m1-registration/admin-cohorts.spec.ts', describe:'M1-06: Admin cohort management', name:'admin can access cohorts list page', status:'pass', screenshots:[SS+'admin--admin-cohorts.png']},
+  {tab:'m1', file:'m1-registration/admin-cohorts.spec.ts', describe:'M1-06: Admin cohort management', name:'admin sees cohorts in table/list', status:'pass', screenshots:[]},
+  {tab:'m1', file:'m1-registration/admin-cohorts.spec.ts', describe:'M1-06: Admin cohort management', name:'admin can click a cohort to see detail page', status:'pass', screenshots:[]},
+  {tab:'m1', file:'m1-registration/admin-cohorts.spec.ts', describe:'M1-06: Admin cohort management', name:'admin sees create cohort button', status:'pass', screenshots:[]},
+
+  // admin-enrollments.spec.ts
+  {tab:'m1', file:'m1-registration/admin-enrollments.spec.ts', describe:'M1-03: Admin enrollment management', name:'admin can access enrollments page', status:'pass', screenshots:[SS+'admin--admin-enrollments.png']},
+  {tab:'m1', file:'m1-registration/admin-enrollments.spec.ts', describe:'M1-03: Admin enrollment management', name:'admin sees enrollment records in table', status:'pass', screenshots:[]},
+  {tab:'m1', file:'m1-registration/admin-enrollments.spec.ts', describe:'M1-03: Admin enrollment management', name:'admin can filter enrollments by status', status:'pass', screenshots:[]},
+  {tab:'m1', file:'m1-registration/admin-enrollments.spec.ts', describe:'M1-03: Admin enrollment management', name:'admin sidebar shows enrollment link as active', status:'pass', screenshots:[]},
+  {tab:'m1', file:'m1-registration/admin-enrollments.spec.ts', describe:'M1-03: Admin enrollment management', name:'admin dashboard loads with stats', status:'pass', screenshots:[SS+'admin--admin-dashboard.png']},
+
+  // admin-promo-codes.spec.ts
+  {tab:'m1', file:'m1-registration/admin-promo-codes.spec.ts', describe:'M1-04: Admin promo code management', name:'admin can access promo codes page', status:'pass', screenshots:[SS+'admin--admin-promo-codes.png']},
+  {tab:'m1', file:'m1-registration/admin-promo-codes.spec.ts', describe:'M1-04: Admin promo code management', name:'admin sees promo codes list or empty state', status:'pass', screenshots:[]},
+  {tab:'m1', file:'m1-registration/admin-promo-codes.spec.ts', describe:'M1-04: Admin promo code management', name:'admin sees create promo code button', status:'pass', screenshots:[]},
+
+  // admin-promo-crud.spec.ts
+  {tab:'m1', file:'m1-registration/admin-promo-crud.spec.ts', describe:'M1-04 CRUD: Admin promo code create', name:'admin creates a promo code, verifies in list', status:'pass', screenshots:[SS+'crud/promo-01-dialog-open.png',SS+'crud/promo-02-form-filled.png',SS+'crud/promo-03-toast-success.png',SS+'crud/promo-04-list-verified.png']},
+
+  // ecpay-mock.spec.ts
+  {tab:'m1', file:'m1-registration/ecpay-mock.spec.ts', describe:'M1: ECPay payment flow (mocked)', name:'payment checkout API returns redirect URL or order info', status:'pass', screenshots:[]},
+  {tab:'m1', file:'m1-registration/ecpay-mock.spec.ts', describe:'M1: ECPay payment flow (mocked)', name:'mocked ECPay redirect shows checkout success page', status:'pass', screenshots:[SS+'flow/ecpay-01-success-page.png']},
+  {tab:'m1', file:'m1-registration/ecpay-mock.spec.ts', describe:'M1: ECPay payment flow (mocked)', name:'checkout failed page offers retry', status:'pass', screenshots:[SS+'flow/ecpay-02-failed-page.png']},
+
+  // enroll-flow.spec.ts
+  {tab:'m1', file:'m1-registration/enroll-flow.spec.ts', describe:'M1-01 Flow: Student enrollment flow', name:'visitor can browse courses \u2192 course detail \u2192 see enroll CTA', status:'pass', screenshots:[SS+'flow/enroll-01-course-listing.png',SS+'flow/enroll-02-course-detail.png']},
+  {tab:'m1', file:'m1-registration/enroll-flow.spec.ts', describe:'M1-01 Flow: Student enrollment flow', name:'visitor can reach enroll page and see cohort pricing', status:'pass', screenshots:[SS+'flow/enroll-03-pricing-page.png']},
+  {tab:'m1', file:'m1-registration/enroll-flow.spec.ts', describe:'M1-01 Flow: Student enrollment flow', name:'student sees dashboard with quick links and enrollment status', status:'pass', screenshots:[SS+'flow/enroll-04-student-dashboard.png']},
+  {tab:'m1', file:'m1-registration/enroll-flow.spec.ts', describe:'M1-01 Flow: Student enrollment flow', name:'student can navigate through sidebar links', status:'pass', screenshots:[]},
+
+  // enroll-form-details.spec.ts
+  {tab:'m1', file:'m1-registration/enroll-form-details.spec.ts', describe:'M1: Enrollment form details and pricing', name:'enroll page shows cohort info: class types, dates, quota, pricing', status:'pass', screenshots:[]},
+  {tab:'m1', file:'m1-registration/enroll-form-details.spec.ts', describe:'M1: Enrollment form details and pricing', name:'enroll page shows early bird and regular pricing', status:'pass', screenshots:[SS+'flow/enroll-form-02-early-bird.png']},
+  {tab:'m1', file:'m1-registration/enroll-form-details.spec.ts', describe:'M1: Enrollment form details and pricing', name:'cohort detail page shows setup status and stats', status:'pass', screenshots:[]},
+  {tab:'m1', file:'m1-registration/enroll-form-details.spec.ts', describe:'M1: Enrollment form details and pricing', name:'admin enrollments page filtering by status works', status:'skip', screenshots:[]},
+  {tab:'m1', file:'m1-registration/enroll-form-details.spec.ts', describe:'M1: Enrollment form details and pricing', name:'admin refunds page shows pending and completed refunds', status:'pass', screenshots:[SS+'admin--admin-refunds.png']},
+  {tab:'m1', file:'m1-registration/enroll-form-details.spec.ts', describe:'M1: Enrollment form details and pricing', name:'admin refunds page has process refund button', status:'pass', screenshots:[]},
+
+  // enroll-form-fill.spec.ts
+  {tab:'m1', file:'m1-registration/enroll-form-fill.spec.ts', describe:'M1: Enrollment form \u2014 multi-step registration flow', name:'visitor can reach cohort registration page and see step 1', status:'pass', screenshots:[SS+'flow/enroll-form-01-step1-courses.png']},
+  {tab:'m1', file:'m1-registration/enroll-form-fill.spec.ts', describe:'M1: Enrollment form \u2014 multi-step registration flow', name:'step 1 shows pricing with early bird if applicable', status:'pass', screenshots:[]},
+  {tab:'m1', file:'m1-registration/enroll-form-fill.spec.ts', describe:'M1: Enrollment form \u2014 multi-step registration flow', name:'step 2 shows personal info form fields', status:'pass', screenshots:[]},
+  {tab:'m1', file:'m1-registration/enroll-form-fill.spec.ts', describe:'M1: Enrollment form \u2014 multi-step registration flow', name:'step 3 shows promo code input and summary', status:'skip', screenshots:[]},
+
+  // payment-flow.spec.ts
+  {tab:'m1', file:'m1-registration/payment-flow.spec.ts', describe:'M1: Payment and checkout flow', name:'enroll page shows complete cohort pricing breakdown', status:'pass', screenshots:[SS+'flow/payment-01-pricing-breakdown.png']},
+  {tab:'m1', file:'m1-registration/payment-flow.spec.ts', describe:'M1: Payment and checkout flow', name:'checkout success page renders correctly', status:'pass', screenshots:[SS+'flow/payment-02-checkout-success.png']},
+  {tab:'m1', file:'m1-registration/payment-flow.spec.ts', describe:'M1: Payment and checkout flow', name:'checkout failed page shows retry option', status:'pass', screenshots:[SS+'flow/payment-03-checkout-failed.png']},
+  {tab:'m1', file:'m1-registration/payment-flow.spec.ts', describe:'M1: Payment and checkout flow', name:'backend payment API requires authentication', status:'pass', screenshots:[]},
+  {tab:'m1', file:'m1-registration/payment-flow.spec.ts', describe:'M1: Payment and checkout flow', name:'backend promo code validation API works', status:'pass', screenshots:[]},
+  {tab:'m1', file:'m1-registration/payment-flow.spec.ts', describe:'M1: Payment and checkout flow', name:'student can see payment history page', status:'pass', screenshots:[SS+'flow/payment-04-student-history.png']},
+
+  // public-browse.spec.ts
+  {tab:'m1', file:'m1-registration/public-browse.spec.ts', describe:'M2-04 / M1: Visitor browses courses', name:'homepage loads with hero and course sections', status:'pass', screenshots:[SS+'visitor--homepage.png']},
+  {tab:'m1', file:'m1-registration/public-browse.spec.ts', describe:'M2-04 / M1: Visitor browses courses', name:'visitor can navigate to /courses and see course list', status:'pass', screenshots:[SS+'visitor--courses.png']},
+  {tab:'m1', file:'m1-registration/public-browse.spec.ts', describe:'M2-04 / M1: Visitor browses courses', name:'visitor can click a course and see detail page', status:'pass', screenshots:[]},
+  {tab:'m1', file:'m1-registration/public-browse.spec.ts', describe:'M2-04 / M1: Visitor browses courses', name:'visitor sees enroll CTA on course detail page', status:'pass', screenshots:[SS+'visitor--enroll.png']},
+  {tab:'m1', file:'m1-registration/public-browse.spec.ts', describe:'M2-04 / M1: Visitor browses courses', name:'header shows login button for unauthenticated visitors', status:'pass', screenshots:[SS+'visitor--login.png']},
+
+  // student-enroll.spec.ts
+  {tab:'m1', file:'m1-registration/student-enroll.spec.ts', describe:'M1-01/02: Student enrollment flow', name:'student can login and see dashboard', status:'pass', screenshots:[SS+'student--student-dashboard.png']},
+  {tab:'m1', file:'m1-registration/student-enroll.spec.ts', describe:'M1-01/02: Student enrollment flow', name:'student can navigate to /enroll page', status:'pass', screenshots:[]},
+  {tab:'m1', file:'m1-registration/student-enroll.spec.ts', describe:'M1-01/02: Student enrollment flow', name:'student can see courses and select a cohort', status:'pass', screenshots:[]},
+  {tab:'m1', file:'m1-registration/student-enroll.spec.ts', describe:'M1-01/02: Student enrollment flow', name:'student can access enrollment form for a cohort', status:'pass', screenshots:[]},
+  {tab:'m1', file:'m1-registration/student-enroll.spec.ts', describe:'M1-01/02: Student enrollment flow', name:'student can view their enrollment records', status:'pass', screenshots:[SS+'student--student-enrollments.png']},
+  {tab:'m1', file:'m1-registration/student-enroll.spec.ts', describe:'M1-01/02: Student enrollment flow', name:'enroll page shows cohort with pricing and CTA', status:'pass', screenshots:[]},
+  {tab:'m1', file:'m1-registration/student-enroll.spec.ts', describe:'M1-01/02: Student enrollment flow', name:'checkout failed page exists', status:'pass', screenshots:[]},
+  {tab:'m1', file:'m1-registration/student-enroll.spec.ts', describe:'M1-01/02: Student enrollment flow', name:'alice (enrolled student) sees her enrollment \u2014 alice@test.com not seeded in prod', status:'skip', screenshots:[]},
+
+  // === M2 MARKETING ===
+  // admin-page-crud.spec.ts
+  {tab:'m2', file:'m2-marketing/admin-page-crud.spec.ts', describe:'M2-01 CRUD: Admin marketing page create', name:'admin creates a marketing page with title and slug', status:'pass', screenshots:[SS+'crud/page-01-editor-loaded.png',SS+'crud/page-02-slug-filled.png',SS+'crud/page-03-toast-success.png',SS+'crud/page-04-list-verified.png']},
+
+  // admin-page-editor.spec.ts
+  {tab:'m2', file:'m2-marketing/admin-page-editor.spec.ts', describe:'M2: Marketing page editor and publish flow', name:'page editor has all required fields: title, slug, save button', status:'pass', screenshots:[]},
+  {tab:'m2', file:'m2-marketing/admin-page-editor.spec.ts', describe:'M2: Marketing page editor and publish flow', name:'page list shows publish status badges', status:'pass', screenshots:[]},
+  {tab:'m2', file:'m2-marketing/admin-page-editor.spec.ts', describe:'M2: Marketing page editor and publish flow', name:'marketing channels page shows 3 types with create buttons', status:'pass', screenshots:[SS+'admin--admin-marketing.png']},
+  {tab:'m2', file:'m2-marketing/admin-page-editor.spec.ts', describe:'M2: Marketing page editor and publish flow', name:'products page has category tabs and sub-category filters', status:'pass', screenshots:[SS+'admin--admin-products.png']},
+
+  // admin-pages.spec.ts
+  {tab:'m2', file:'m2-marketing/admin-pages.spec.ts', describe:'M2-01: Admin marketing pages management', name:'admin sees marketing pages table with columns', status:'pass', screenshots:[SS+'admin--admin-pages.png']},
+  {tab:'m2', file:'m2-marketing/admin-pages.spec.ts', describe:'M2-01: Admin marketing pages management', name:'admin sees page status badges (\u5df2\u767c\u5e03 / \u8349\u7a3f)', status:'pass', screenshots:[]},
+  {tab:'m2', file:'m2-marketing/admin-pages.spec.ts', describe:'M2-01: Admin marketing pages management', name:'admin sees create page button', status:'pass', screenshots:[]},
+  {tab:'m2', file:'m2-marketing/admin-pages.spec.ts', describe:'M2-01: Admin marketing pages management', name:'admin marketing channels page shows 3 channel types', status:'pass', screenshots:[]},
+  {tab:'m2', file:'m2-marketing/admin-pages.spec.ts', describe:'M2-01: Admin marketing pages management', name:'each marketing channel has a create button', status:'pass', screenshots:[]},
+
+  // admin-products.spec.ts
+  {tab:'m2', file:'m2-marketing/admin-products.spec.ts', describe:'M2-02: Admin product management', name:'admin sees products page with category tabs and table', status:'pass', screenshots:[]},
+  {tab:'m2', file:'m2-marketing/admin-products.spec.ts', describe:'M2-02: Admin product management', name:'admin sees product table columns: name, slug, category, price, status', status:'pass', screenshots:[]},
+  {tab:'m2', file:'m2-marketing/admin-products.spec.ts', describe:'M2-02: Admin product management', name:'admin sees create product and category buttons', status:'pass', screenshots:[]},
+  {tab:'m2', file:'m2-marketing/admin-products.spec.ts', describe:'M2-02: Admin product management', name:'products appear on public /courses page with course cards', status:'pass', screenshots:[]},
+  {tab:'m2', file:'m2-marketing/admin-products.spec.ts', describe:'M2-02: Admin product management', name:'course detail page shows pricing and enroll CTA', status:'pass', screenshots:[]},
+
+  // === M3 COURSE OPS ===
+  // admin-attendance.spec.ts
+  {tab:'m3', file:'m3-course-ops/admin-attendance.spec.ts', describe:'M3-07: Admin attendance management', name:'admin can access a classroom and see attendance section', status:'pass', screenshots:[]},
+  {tab:'m3', file:'m3-course-ops/admin-attendance.spec.ts', describe:'M3-07: Admin attendance management', name:'admin can see attendance status badges (\u51fa\u5e2d/\u7f3a\u5e2d/\u8acb\u5047)', status:'pass', screenshots:[]},
+
+  // admin-classroom-crud.spec.ts
+  {tab:'m3', file:'m3-course-ops/admin-classroom-crud.spec.ts', describe:'M3-01 CRUD: Admin classroom create', name:'admin creates a classroom, enters detail page', status:'pass', screenshots:[SS+'crud/classroom-01-dialog-open.png',SS+'crud/classroom-02-cohort-selected.png',SS+'crud/classroom-03-toast-success.png',SS+'crud/classroom-04-detail-page.png']},
+
+  // admin-classroom.spec.ts
+  {tab:'m3', file:'m3-course-ops/admin-classroom.spec.ts', describe:'M3-01/02: Admin classroom management', name:'admin can access classrooms list', status:'pass', screenshots:[SS+'admin--admin-classrooms.png']},
+  {tab:'m3', file:'m3-course-ops/admin-classroom.spec.ts', describe:'M3-01/02: Admin classroom management', name:'admin sees classrooms or empty state', status:'pass', screenshots:[]},
+  {tab:'m3', file:'m3-course-ops/admin-classroom.spec.ts', describe:'M3-01/02: Admin classroom management', name:'admin sees create classroom button', status:'pass', screenshots:[]},
+  {tab:'m3', file:'m3-course-ops/admin-classroom.spec.ts', describe:'M3-01/02: Admin classroom management', name:'admin can enter classroom detail page', status:'pass', screenshots:[]},
+
+  // admin-grading-flow.spec.ts
+  {tab:'m3', file:'m3-course-ops/admin-grading-flow.spec.ts', describe:'M3-05 Flow: Admin grades an assignment', name:'admin can open grading dialog, enter grade and feedback, submit', status:'skip', screenshots:[SS+'crud/grading-01-dialog-open.png',SS+'crud/grading-02-grade-filled.png',SS+'crud/grading-03-toast-success.png']},
+  {tab:'m3', file:'m3-course-ops/admin-grading-flow.spec.ts', describe:'M3-05 Flow: Admin grades an assignment', name:'grading page shows stat cards with counts', status:'pass', screenshots:[SS+'crud/grading-04-stat-cards.png']},
+
+  // admin-grading.spec.ts
+  {tab:'m3', file:'m3-course-ops/admin-grading.spec.ts', describe:'M3-05/06: Admin/TA grading dashboard', name:'admin can access grading dashboard', status:'pass', screenshots:[SS+'admin--admin-grading.png']},
+  {tab:'m3', file:'m3-course-ops/admin-grading.spec.ts', describe:'M3-05/06: Admin/TA grading dashboard', name:'grading page shows submissions or empty state', status:'pass', screenshots:[]},
+  {tab:'m3', file:'m3-course-ops/admin-grading.spec.ts', describe:'M3-05/06: Admin/TA grading dashboard', name:'TA can access grading dashboard', status:'pass', screenshots:[SS+'ta--admin-grading.png']},
+
+  // classroom-detail.spec.ts
+  {tab:'m3', file:'m3-course-ops/classroom-detail.spec.ts', describe:'M3: Classroom detail page', name:'classroom detail shows tabs for different sections', status:'pass', screenshots:[]},
+  {tab:'m3', file:'m3-course-ops/classroom-detail.spec.ts', describe:'M3: Classroom detail page', name:'classroom detail shows student list', status:'pass', screenshots:[]},
+  {tab:'m3', file:'m3-course-ops/classroom-detail.spec.ts', describe:'M3: Classroom detail page', name:'classroom announcements section \u2014 create announcement', status:'pass', screenshots:[]},
+  {tab:'m3', file:'m3-course-ops/classroom-detail.spec.ts', describe:'M3: Classroom detail page', name:'classroom assignments section \u2014 list and create button', status:'pass', screenshots:[]},
+  {tab:'m3', file:'m3-course-ops/classroom-detail.spec.ts', describe:'M3: Classroom detail page', name:'classroom materials section', status:'pass', screenshots:[]},
+  {tab:'m3', file:'m3-course-ops/classroom-detail.spec.ts', describe:'M3: Classroom detail page', name:'classroom attendance section \u2014 list and mark buttons', status:'pass', screenshots:[]},
+
+  // grading-details.spec.ts
+  {tab:'m3', file:'m3-course-ops/grading-details.spec.ts', describe:'M3: Grading details', name:'admin sees return button for submissions', status:'pass', screenshots:[]},
+  {tab:'m3', file:'m3-course-ops/grading-details.spec.ts', describe:'M3: Grading details', name:'admin can download submission file', status:'pass', screenshots:[]},
+  {tab:'m3', file:'m3-course-ops/grading-details.spec.ts', describe:'M3: Grading details', name:'TA can access grading and see submissions', status:'pass', screenshots:[]},
+  {tab:'m3', file:'m3-course-ops/grading-details.spec.ts', describe:'M3: Grading details', name:'student sees graded assignment result', status:'skip', screenshots:[]},
+
+  // student-classroom.spec.ts
+  {tab:'m3', file:'m3-course-ops/student-classroom.spec.ts', describe:'M3-03/04: Student classroom and assignments', name:'student can access my courses page', status:'pass', screenshots:[SS+'student--student-courses.png']},
+  {tab:'m3', file:'m3-course-ops/student-classroom.spec.ts', describe:'M3-03/04: Student classroom and assignments', name:'alice (enrolled) sees her courses \u2014 alice@test.com not seeded in prod', status:'skip', screenshots:[]},
+  {tab:'m3', file:'m3-course-ops/student-classroom.spec.ts', describe:'M3-03/04: Student classroom and assignments', name:'alice can enter a classroom detail page \u2014 alice@test.com not seeded in prod', status:'skip', screenshots:[]},
+  {tab:'m3', file:'m3-course-ops/student-classroom.spec.ts', describe:'M3-03/04: Student classroom and assignments', name:'student can see assignments in classroom \u2014 alice@test.com not seeded in prod', status:'skip', screenshots:[]},
+  {tab:'m3', file:'m3-course-ops/student-classroom.spec.ts', describe:'M3-03/04: Student classroom and assignments', name:'student can view payments page', status:'pass', screenshots:[SS+'student--student-payments.png']},
+
+  // === M4 SUPERVISION ===
+  // admin-certification-flow.spec.ts
+  {tab:'m4', file:'m4-supervision/admin-certification-flow.spec.ts', describe:'M4-03 Flow: Admin certification exam grading', name:'admin can grade a pending certification exam', status:'skip', screenshots:[SS+'crud/certification-01-dialog-open.png',SS+'crud/certification-02-score-filled.png',SS+'crud/certification-03-toast-success.png']},
+  {tab:'m4', file:'m4-supervision/admin-certification-flow.spec.ts', describe:'M4-03 Flow: Admin certification exam grading', name:'certifications page shows table with exam records', status:'pass', screenshots:[SS+'crud/certification-04-table-badges.png']},
+
+  // admin-certifications.spec.ts
+  {tab:'m4', file:'m4-supervision/admin-certifications.spec.ts', describe:'M4-03: Admin certifications management', name:'admin can access certifications page', status:'pass', screenshots:[SS+'admin--admin-certifications.png']},
+  {tab:'m4', file:'m4-supervision/admin-certifications.spec.ts', describe:'M4-03: Admin certifications management', name:'admin sees certifications list or empty state', status:'pass', screenshots:[]},
+
+  // admin-supervision-crud.spec.ts
+  {tab:'m4', file:'m4-supervision/admin-supervision-crud.spec.ts', describe:'M4-01 Flow: Admin supervision session management', name:'admin can edit a supervision session status and notes', status:'pass', screenshots:[SS+'crud/supervision-01-edit-dialog.png',SS+'crud/supervision-02-status-selected.png',SS+'crud/supervision-03-toast-success.png']},
+  {tab:'m4', file:'m4-supervision/admin-supervision-crud.spec.ts', describe:'M4-01 Flow: Admin supervision session management', name:'supervision page shows table with session data', status:'pass', screenshots:[SS+'crud/supervision-04-table.png']},
+
+  // admin-supervision.spec.ts
+  {tab:'m4', file:'m4-supervision/admin-supervision.spec.ts', describe:'M4-01: Admin supervision management', name:'admin can access supervision page', status:'pass', screenshots:[SS+'admin--admin-supervision.png']},
+  {tab:'m4', file:'m4-supervision/admin-supervision.spec.ts', describe:'M4-01: Admin supervision management', name:'admin sees supervision sessions or empty state', status:'pass', screenshots:[]},
+  {tab:'m4', file:'m4-supervision/admin-supervision.spec.ts', describe:'M4-01: Admin supervision management', name:'admin sees create supervision button and table with sessions', status:'pass', screenshots:[]},
+
+  // student-certifications.spec.ts
+  {tab:'m4', file:'m4-supervision/student-certifications.spec.ts', describe:'M4-04: Student certifications view', name:'student can access certifications page', status:'pass', screenshots:[SS+'student--student-certifications.png']},
+  {tab:'m4', file:'m4-supervision/student-certifications.spec.ts', describe:'M4-04: Student certifications view', name:'student sees certifications or empty state', status:'pass', screenshots:[]},
+
+  // student-supervision.spec.ts
+  {tab:'m4', file:'m4-supervision/student-supervision.spec.ts', describe:'M4-02: Student supervision view', name:'student can access supervision page', status:'pass', screenshots:[SS+'student--student-supervision.png']},
+  {tab:'m4', file:'m4-supervision/student-supervision.spec.ts', describe:'M4-02: Student supervision view', name:'student sees supervision sessions or empty state', status:'pass', screenshots:[]},
+
+  // supervision-details.spec.ts
+  {tab:'m4', file:'m4-supervision/supervision-details.spec.ts', describe:'M4: Supervision and certification details', name:'admin supervision table shows correct columns', status:'pass', screenshots:[]},
+  {tab:'m4', file:'m4-supervision/supervision-details.spec.ts', describe:'M4: Supervision and certification details', name:'supervision sessions show status badges: \u5df2\u6392\u7a0b, \u5df2\u5b8c\u6210', status:'pass', screenshots:[]},
+  {tab:'m4', file:'m4-supervision/supervision-details.spec.ts', describe:'M4: Supervision and certification details', name:'admin certification table shows status: \u901a\u904e, \u5f85\u8a55\u5206, \u672a\u901a\u904e', status:'pass', screenshots:[]},
+  {tab:'m4', file:'m4-supervision/supervision-details.spec.ts', describe:'M4: Supervision and certification details', name:'admin certification page has filter dropdowns for status and type', status:'pass', screenshots:[]},
+  {tab:'m4', file:'m4-supervision/supervision-details.spec.ts', describe:'M4: Supervision and certification details', name:'student supervision page shows empty state with helpful message', status:'skip', screenshots:[]},
+  {tab:'m4', file:'m4-supervision/supervision-details.spec.ts', describe:'M4: Supervision and certification details', name:'student certification page shows empty state', status:'pass', screenshots:[]},
+  {tab:'m4', file:'m4-supervision/supervision-details.spec.ts', describe:'M4: Supervision and certification details', name:'supervisor can access supervision page', status:'pass', screenshots:[SS+'supervisor--admin-supervision.png']},
+
+  // === M5 CRM ===
+  // admin-crm-flow.spec.ts
+  {tab:'m5', file:'m5-crm/admin-crm-flow.spec.ts', describe:'M5-01 Flow: Admin CRM member view and renewal review', name:'admin can view member detail dialog', status:'pass', screenshots:[SS+'flow/crm-01-member-dialog.png']},
+  {tab:'m5', file:'m5-crm/admin-crm-flow.spec.ts', describe:'M5-01 Flow: Admin CRM member view and renewal review', name:'admin can switch between CRM tabs', status:'pass', screenshots:[SS+'flow/crm-02-renewal-tab.png']},
+  {tab:'m5', file:'m5-crm/admin-crm-flow.spec.ts', describe:'M5-01 Flow: Admin CRM member view and renewal review', name:'admin can search members by name or email', status:'pass', screenshots:[SS+'flow/crm-04-search-results.png']},
+  {tab:'m5', file:'m5-crm/admin-crm-flow.spec.ts', describe:'M5-01 Flow: Admin CRM member view and renewal review', name:'admin can filter members by certification status', status:'skip', screenshots:[]},
+
+  // admin-crm.spec.ts
+  {tab:'m5', file:'m5-crm/admin-crm.spec.ts', describe:'M5-01/04: Admin CRM management', name:'admin can access CRM members page', status:'pass', screenshots:[SS+'admin--admin-crm.png']},
+  {tab:'m5', file:'m5-crm/admin-crm.spec.ts', describe:'M5-01/04: Admin CRM management', name:'admin sees CRM with tabs and members table', status:'pass', screenshots:[]},
+  {tab:'m5', file:'m5-crm/admin-crm.spec.ts', describe:'M5-01/04: Admin CRM management', name:'admin can access referrals page', status:'pass', screenshots:[]},
+  {tab:'m5', file:'m5-crm/admin-crm.spec.ts', describe:'M5-01/04: Admin CRM management', name:'admin can access refunds settings page', status:'pass', screenshots:[]},
+  {tab:'m5', file:'m5-crm/admin-crm.spec.ts', describe:'M5-01/04: Admin CRM management', name:'admin can access agents page', status:'pass', screenshots:[]},
+
+  // crm-renewal-flow.spec.ts
+  {tab:'m5', file:'m5-crm/crm-renewal-flow.spec.ts', describe:'M5: CRM renewal and application flows', name:'student can see renewal section and click \u65b0\u589e\u7533\u8acb', status:'pass', screenshots:[SS+'flow/renewal-01-new-application.png']},
+  {tab:'m5', file:'m5-crm/crm-renewal-flow.spec.ts', describe:'M5: CRM renewal and application flows', name:'student can see \u7279\u7d04\u7533\u8acb section with action buttons', status:'pass', screenshots:[SS+'flow/renewal-02-special-buttons.png']},
+  {tab:'m5', file:'m5-crm/crm-renewal-flow.spec.ts', describe:'M5: CRM renewal and application flows', name:'student CRM shows certification status', status:'pass', screenshots:[SS+'flow/renewal-03-cert-status.png']},
+  {tab:'m5', file:'m5-crm/crm-renewal-flow.spec.ts', describe:'M5: CRM renewal and application flows', name:'admin can review renewal \u2014 approve dialog', status:'skip', screenshots:[]},
+  {tab:'m5', file:'m5-crm/crm-renewal-flow.spec.ts', describe:'M5: CRM renewal and application flows', name:'admin can update application status in \u7279\u7d04\u7533\u8acb tab', status:'skip', screenshots:[SS+'flow/crm-03-special-tab.png']},
+
+  // student-crm.spec.ts
+  {tab:'m5', file:'m5-crm/student-crm.spec.ts', describe:'M5-02/03: Student CRM and renewals', name:'student can access CRM page', status:'pass', screenshots:[SS+'student--student-crm.png']},
+  {tab:'m5', file:'m5-crm/student-crm.spec.ts', describe:'M5-02/03: Student CRM and renewals', name:'student sees \u6703\u54e1\u4e2d\u5fc3 with profile, renewals, and applications sections', status:'pass', screenshots:[]},
+  {tab:'m5', file:'m5-crm/student-crm.spec.ts', describe:'M5-02/03: Student CRM and renewals', name:'student sees renewal and application action buttons', status:'pass', screenshots:[]},
+  {tab:'m5', file:'m5-crm/student-crm.spec.ts', describe:'M5-02/03: Student CRM and renewals', name:'student can access profile page', status:'pass', screenshots:[SS+'student--student-profile.png']},
+
+  // === SCREENSHOTS ===
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Visitor screenshots', name:'visitor - /', status:'pass', screenshots:[SS+'visitor--homepage.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Visitor screenshots', name:'visitor - /courses', status:'pass', screenshots:[SS+'visitor--courses.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Visitor screenshots', name:'visitor - /login', status:'pass', screenshots:[SS+'visitor--login.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Visitor screenshots', name:'visitor - /enroll', status:'pass', screenshots:[SS+'visitor--enroll.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Admin screenshots', name:'admin - /admin/dashboard', status:'pass', screenshots:[SS+'admin--admin-dashboard.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Admin screenshots', name:'admin - /admin/enrollments', status:'pass', screenshots:[SS+'admin--admin-enrollments.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Admin screenshots', name:'admin - /admin/cohorts', status:'pass', screenshots:[SS+'admin--admin-cohorts.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Admin screenshots', name:'admin - /admin/classrooms', status:'pass', screenshots:[SS+'admin--admin-classrooms.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Admin screenshots', name:'admin - /admin/grading', status:'pass', screenshots:[SS+'admin--admin-grading.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Admin screenshots', name:'admin - /admin/promo-codes', status:'pass', screenshots:[SS+'admin--admin-promo-codes.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Admin screenshots', name:'admin - /admin/products', status:'pass', screenshots:[SS+'admin--admin-products.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Admin screenshots', name:'admin - /admin/pages', status:'pass', screenshots:[SS+'admin--admin-pages.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Admin screenshots', name:'admin - /admin/marketing', status:'pass', screenshots:[SS+'admin--admin-marketing.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Admin screenshots', name:'admin - /admin/crm', status:'pass', screenshots:[SS+'admin--admin-crm.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Admin screenshots', name:'admin - /admin/supervision', status:'pass', screenshots:[SS+'admin--admin-supervision.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Admin screenshots', name:'admin - /admin/certifications', status:'pass', screenshots:[SS+'admin--admin-certifications.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Admin screenshots', name:'admin - /admin/referrals', status:'pass', screenshots:[SS+'admin--admin-referrals.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Admin screenshots', name:'admin - /admin/refunds', status:'pass', screenshots:[SS+'admin--admin-refunds.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Admin screenshots', name:'admin - /admin/agents', status:'pass', screenshots:[SS+'admin--admin-agents.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Student screenshots', name:'student - /student/dashboard', status:'pass', screenshots:[SS+'student--student-dashboard.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Student screenshots', name:'student - /student/enrollments', status:'pass', screenshots:[SS+'student--student-enrollments.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Student screenshots', name:'student - /student/courses', status:'pass', screenshots:[SS+'student--student-courses.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Student screenshots', name:'student - /student/payments', status:'pass', screenshots:[SS+'student--student-payments.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Student screenshots', name:'student - /student/crm', status:'pass', screenshots:[SS+'student--student-crm.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Student screenshots', name:'student - /student/supervision', status:'pass', screenshots:[SS+'student--student-supervision.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Student screenshots', name:'student - /student/certifications', status:'pass', screenshots:[SS+'student--student-certifications.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Student screenshots', name:'student - /student/profile', status:'pass', screenshots:[SS+'student--student-profile.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'TA screenshots', name:'ta - /admin/grading', status:'pass', screenshots:[SS+'ta--admin-grading.png']},
+  {tab:'ss', file:'screenshot-audit.spec.ts', describe:'Supervisor screenshots', name:'supervisor - /admin/supervision', status:'pass', screenshots:[SS+'supervisor--admin-supervision.png']},
+
+  // === MOBILE ===
+  {tab:'mob', file:'mobile-viewport.spec.ts', describe:'Mobile viewport \u2014 key pages render correctly', name:'homepage renders on mobile', status:'pass', screenshots:[SS+'flow/mobile-01-homepage.png']},
+  {tab:'mob', file:'mobile-viewport.spec.ts', describe:'Mobile viewport \u2014 key pages render correctly', name:'courses page renders on mobile', status:'pass', screenshots:[SS+'flow/mobile-02-courses.png']},
+  {tab:'mob', file:'mobile-viewport.spec.ts', describe:'Mobile viewport \u2014 key pages render correctly', name:'enroll page renders on mobile', status:'pass', screenshots:[SS+'flow/mobile-03-enroll.png']},
+  {tab:'mob', file:'mobile-viewport.spec.ts', describe:'Mobile viewport \u2014 key pages render correctly', name:'student dashboard renders on mobile with hamburger menu', status:'pass', screenshots:[SS+'flow/mobile-04-student-dashboard.png']},
+  {tab:'mob', file:'mobile-viewport.spec.ts', describe:'Mobile viewport \u2014 key pages render correctly', name:'admin dashboard renders on mobile with sidebar toggle', status:'skip', screenshots:[]},
+  {tab:'mob', file:'mobile-viewport.spec.ts', describe:'Mobile viewport \u2014 key pages render correctly', name:'login page renders on mobile', status:'pass', screenshots:[SS+'flow/mobile-07-login.png']},
+];
+
+// All screenshots for gallery
+const allScreenshots = {
+  'Page-level (Root)': [
+    'admin--admin-dashboard.png','admin--admin-enrollments.png','admin--admin-cohorts.png',
+    'admin--admin-classrooms.png','admin--admin-grading.png','admin--admin-promo-codes.png',
+    'admin--admin-products.png','admin--admin-pages.png','admin--admin-marketing.png',
+    'admin--admin-crm.png','admin--admin-supervision.png','admin--admin-certifications.png',
+    'admin--admin-referrals.png','admin--admin-refunds.png','admin--admin-agents.png',
+    'student--student-dashboard.png','student--student-enrollments.png','student--student-courses.png',
+    'student--student-payments.png','student--student-crm.png','student--student-supervision.png',
+    'student--student-certifications.png','student--student-profile.png',
+    'supervisor--admin-supervision.png','ta--admin-grading.png',
+    'visitor--homepage.png','visitor--courses.png','visitor--enroll.png','visitor--login.png'
+  ],
+  'CRUD Steps': [
+    'crud/cohort-01-dialog-open.png','crud/cohort-02-form-filled.png','crud/cohort-03-toast-success.png','crud/cohort-04-list-table.png',
+    'crud/promo-01-dialog-open.png','crud/promo-02-form-filled.png','crud/promo-03-toast-success.png','crud/promo-04-list-verified.png',
+    'crud/page-01-editor-loaded.png','crud/page-02-slug-filled.png','crud/page-03-toast-success.png','crud/page-04-list-verified.png',
+    'crud/classroom-01-dialog-open.png','crud/classroom-02-cohort-selected.png','crud/classroom-03-toast-success.png','crud/classroom-04-detail-page.png',
+    'crud/grading-01-dialog-open.png','crud/grading-02-grade-filled.png','crud/grading-03-toast-success.png','crud/grading-04-stat-cards.png',
+    'crud/supervision-01-edit-dialog.png','crud/supervision-02-status-selected.png','crud/supervision-03-toast-success.png','crud/supervision-04-table.png',
+    'crud/certification-01-dialog-open.png','crud/certification-02-score-filled.png','crud/certification-03-toast-success.png','crud/certification-04-table-badges.png'
+  ],
+  'Flow Steps': [
+    'flow/enroll-01-course-listing.png','flow/enroll-02-course-detail.png','flow/enroll-03-pricing-page.png','flow/enroll-04-student-dashboard.png',
+    'flow/enroll-form-01-step1-courses.png','flow/enroll-form-02-early-bird.png',
+    'flow/payment-01-pricing-breakdown.png','flow/payment-02-checkout-success.png','flow/payment-03-checkout-failed.png','flow/payment-04-student-history.png',
+    'flow/crm-01-member-dialog.png','flow/crm-02-renewal-tab.png','flow/crm-03-special-tab.png','flow/crm-04-search-results.png',
+    'flow/renewal-01-new-application.png','flow/renewal-02-special-buttons.png','flow/renewal-03-cert-status.png',
+    'flow/ecpay-01-success-page.png','flow/ecpay-02-failed-page.png',
+    'flow/mobile-01-homepage.png','flow/mobile-02-courses.png','flow/mobile-03-enroll.png','flow/mobile-04-student-dashboard.png','flow/mobile-07-login.png'
+  ]
+};
+
+function renderTabs() {
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderPanel(btn.dataset.tab);
     });
   });
+  renderPanel('m1');
+}
 
-  // Lightbox
-  var lb = document.getElementById('lightbox');
-  var lbImg = document.getElementById('lightbox-img');
-  var lbCap = document.getElementById('lightbox-caption');
-  var lbClose = document.querySelector('.lightbox-close');
-
-  function openLightboxFor(el) {
-    var src = el.getAttribute('data-src');
-    var name = el.getAttribute('data-name');
-    if (src) {
-      lbImg.src = src;
-      lbImg.alt = name || '';
-      lbCap.textContent = name || '';
-      lb.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
+function renderPanel(tab) {
+  const content = document.getElementById('content');
+  if (tab === 'gallery') {
+    content.innerHTML = renderGallery();
+    return;
   }
-
-  document.querySelectorAll('.screenshot-card').forEach(function(card) {
-    card.addEventListener('click', function() { openLightboxFor(this); });
+  const tabTests = tests.filter(t => t.tab === tab);
+  // Group by file
+  const groups = {};
+  tabTests.forEach(t => {
+    if (!groups[t.file]) groups[t.file] = [];
+    groups[t.file].push(t);
   });
-
-  document.querySelectorAll('.sc-thumb').forEach(function(thumb) {
-    thumb.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      openLightboxFor(this);
+  let html = '';
+  for (const [file, items] of Object.entries(groups)) {
+    const passCount = items.filter(i => i.status === 'pass').length;
+    const skipCount = items.filter(i => i.status === 'skip').length;
+    html += `<div class="spec-group">
+      <div class="spec-header">
+        <span class="file-icon">&#9671;</span>
+        ${file}
+        <span class="spec-count">${passCount} pass${skipCount ? ' / ' + skipCount + ' skip' : ''} / ${items.length} total</span>
+      </div>`;
+    items.forEach(t => {
+      const badgeClass = t.status === 'pass' ? 'badge-pass' : t.status === 'skip' ? 'badge-skip' : 'badge-fail';
+      const badgeLabel = t.status === 'pass' ? 'Pass' : t.status === 'skip' ? 'Skip' : 'Fail';
+      const badgeDot = t.status === 'pass' ? '&#10003;' : t.status === 'skip' ? '&#8212;' : '&#10007;';
+      let thumbs = '';
+      if (t.screenshots.length) {
+        thumbs = '<div class="thumb-wrap">';
+        t.screenshots.forEach(s => {
+          thumbs += `<img class="thumb" src="${s}" alt="" onclick="event.stopPropagation();openLightbox('${s}','${escHtml(t.name)}')" loading="lazy">`;
+        });
+        thumbs += '</div>';
+      }
+      html += `<div class="test-row">
+        <span class="badge ${badgeClass}">${badgeDot} ${badgeLabel}</span>
+        <div class="test-name">
+          <span class="describe">${escHtml(t.describe)} &rsaquo;</span> ${escHtml(t.name)}
+        </div>
+        ${thumbs}
+      </div>`;
     });
-  });
-
-  function closeLightbox() {
-    lb.classList.remove('open');
-    document.body.style.overflow = '';
+    html += '</div>';
   }
+  content.innerHTML = html;
+}
 
-  lb.addEventListener('click', function(e) {
-    if (e.target === lb) closeLightbox();
-  });
-
-  lbClose.addEventListener('click', function(e) {
-    e.stopPropagation();
-    closeLightbox();
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeLightbox();
-  });
-
-  // Broken image fallback — create placeholder via DOM API (no innerHTML)
-  document.querySelectorAll('.sc-thumb img').forEach(function(img) {
-    img.addEventListener('error', function() {
-      var placeholder = document.createElement('div');
-      placeholder.style.cssText = 'width:36px;height:24px;background:var(--gray-200);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--gray-400)';
-      placeholder.textContent = '?';
-      this.replaceWith(placeholder);
+function renderGallery() {
+  let html = '';
+  for (const [section, files] of Object.entries(allScreenshots)) {
+    html += `<div class="gallery-section">${section} (${files.length})</div>`;
+    html += '<div class="gallery">';
+    files.forEach(f => {
+      const url = SS + f;
+      const label = f.replace(/^(crud\/|flow\/)/,'').replace(/\.png$/,'').replace(/--/g,' / ').replace(/-/g,' ');
+      html += `<div class="gallery-card" onclick="openLightbox('${url}','${escHtml(label)}')">
+        <img src="${url}" alt="${escHtml(label)}" loading="lazy">
+        <div class="caption">${escHtml(label)}</div>
+      </div>`;
     });
-  });
-  document.querySelectorAll('.screenshot-card img').forEach(function(img) {
-    img.addEventListener('error', function() {
-      var placeholder = document.createElement('div');
-      placeholder.className = 'sc-placeholder';
-      var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      svg.setAttribute('width', '32');
-      svg.setAttribute('height', '32');
-      svg.setAttribute('fill', 'none');
-      svg.setAttribute('stroke', 'currentColor');
-      svg.setAttribute('stroke-width', '1.5');
-      svg.setAttribute('viewBox', '0 0 24 24');
-      var rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-      rect.setAttribute('x', '3'); rect.setAttribute('y', '3');
-      rect.setAttribute('width', '18'); rect.setAttribute('height', '18');
-      rect.setAttribute('rx', '2');
-      var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      circle.setAttribute('cx', '8.5'); circle.setAttribute('cy', '8.5');
-      circle.setAttribute('r', '1.5');
-      var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-      path.setAttribute('d', 'm21 15-5-5L5 21');
-      svg.appendChild(rect);
-      svg.appendChild(circle);
-      svg.appendChild(path);
-      placeholder.appendChild(svg);
-      this.replaceWith(placeholder);
-    });
-  });
-})();
+    html += '</div>';
+  }
+  return html;
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+function openLightbox(src, caption) {
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightboxCaption').textContent = caption;
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+renderTabs();
 </script>
-
 </body>
 </html>
