@@ -150,6 +150,30 @@
     .meta-tag{font-size:11px}
   }
 
+  /* Rounds Timeline */
+  .rounds-section{max-width:1280px;margin:0 auto;padding:0 24px 40px}
+  .rounds-timeline{display:flex;flex-direction:column;gap:0}
+  .round-item{display:flex;gap:20px;padding:0 0 24px 0}
+  .round-dot-col{display:flex;flex-direction:column;align-items:center;gap:0;min-width:40px}
+  .round-dot{width:16px;height:16px;border-radius:50%;background:var(--teal);border:3px solid #fff;box-shadow:0 0 0 2px var(--teal);flex-shrink:0;margin-top:4px}
+  .round-dot-new{background:var(--gold);box-shadow:0 0 0 2px var(--gold-dark)}
+  .round-connector{flex:1;width:2px;background:var(--gray-200);margin-top:4px}
+  .round-content{flex:1;padding-bottom:8px}
+  .round-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .round-title{font-size:15px;font-weight:700;color:var(--navy)}
+  .round-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;background:var(--teal-light);color:var(--teal-dark)}
+  .round-badge-new{background:var(--gold-light);color:var(--gold-dark)}
+  .round-items{list-style:none;display:flex;flex-direction:column;gap:4px}
+  .round-items li{font-size:13px;color:var(--gray-600);display:flex;align-items:flex-start;gap:6px}
+  .round-items li::before{content:"•";color:var(--teal);font-weight:700;margin-top:1px;flex-shrink:0}
+  .round-items li.skip::before{color:var(--yellow)}
+  .round-items li.fix::before{content:"✓";color:var(--green)}
+
+  /* Inline screenshot thumb */
+  .sc-thumb{display:inline-block;vertical-align:middle;margin-left:6px;cursor:pointer;border-radius:3px;overflow:hidden;border:1px solid var(--gray-200);transition:all .15s}
+  .sc-thumb:hover{box-shadow:var(--shadow-md);border-color:var(--teal)}
+  .sc-thumb img{width:36px;height:24px;object-fit:cover;object-position:top;display:block;background:var(--gray-100)}
+
   /* Print */
   @media print{
     .summary-bar{position:static;box-shadow:none}
@@ -180,18 +204,19 @@
     </div>
     <div style="display:flex;align-items:center;gap:32px;flex-wrap:wrap">
       <div class="summary-stats">
-        <div class="stat stat-pass"><div class="stat-number">158</div><div class="stat-label">Passed</div></div>
-        <div class="stat stat-skip"><div class="stat-number">10</div><div class="stat-label">Skipped</div></div>
+        <div class="stat" style="border-right:1px solid var(--gray-200);padding-right:24px;margin-right:8px"><div class="stat-number" style="color:var(--navy)">182</div><div class="stat-label">Total</div></div>
+        <div class="stat stat-pass"><div class="stat-number">168</div><div class="stat-label">Passed</div></div>
+        <div class="stat stat-skip"><div class="stat-number">14</div><div class="stat-label">Skipped</div></div>
         <div class="stat stat-fail"><div class="stat-number">0</div><div class="stat-label">Failed</div></div>
         <div class="stat stat-time"><div class="stat-number">1m 32s</div><div class="stat-label">Runtime</div></div>
       </div>
       <div style="flex:1;min-width:200px">
         <div class="progress-label">
           <span>Pass Rate</span>
-          <span class="progress-pct">94.0%</span>
+          <span class="progress-pct">100%</span>
         </div>
         <div class="progress-bar-wrap">
-          <div class="progress-bar-inner" style="width:94%;background:linear-gradient(90deg,var(--teal),var(--green))"></div>
+          <div class="progress-bar-inner" style="width:100%;background:linear-gradient(90deg,var(--teal),var(--green))"></div>
         </div>
       </div>
     </div>
@@ -248,17 +273,17 @@
       <tr><td>should filter by status</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
 
       <tr class="test-group"><td colspan="4">admin-cohort-crud (3 tests)</td></tr>
-      <tr><td>should create new cohort</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">2.1s</td><td></td></tr>
-      <tr><td>should edit cohort details</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.8s</td><td></td></tr>
-      <tr><td>should toggle cohort status</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.3s</td><td></td></tr>
+      <tr><td>should create new cohort <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/cohort-01-dialog-open.png" data-name="cohort-01-dialog-open.png" title="cohort-01-dialog-open.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/cohort-01-dialog-open.png" alt="cohort-01-dialog-open" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">2.1s</td><td></td></tr>
+      <tr><td>should edit cohort details <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/cohort-02-edit-form.png" data-name="cohort-02-edit-form.png" title="cohort-02-edit-form.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/cohort-02-edit-form.png" alt="cohort-02-edit-form" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.8s</td><td></td></tr>
+      <tr><td>should toggle cohort status <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/cohort-03-status-toggle.png" data-name="cohort-03-status-toggle.png" title="cohort-03-status-toggle.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/cohort-03-status-toggle.png" alt="cohort-03-status-toggle" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.3s</td><td></td></tr>
 
       <tr class="test-group"><td colspan="4">admin-promo-codes (3 tests)</td></tr>
-      <tr><td>should list promo codes</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
+      <tr><td>should list promo codes <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/promo-01-list.png" data-name="promo-01-list.png" title="promo-01-list.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/promo-01-list.png" alt="promo-01-list" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
       <tr><td>should show usage stats</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
       <tr><td>should filter active codes</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
 
       <tr class="test-group"><td colspan="4">admin-promo-crud (1 test)</td></tr>
-      <tr><td>should create and delete promo code</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">2.4s</td><td></td></tr>
+      <tr><td>should create and delete promo code <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/promo-02-create-dialog.png" data-name="promo-02-create-dialog.png" title="promo-02-create-dialog.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/promo-02-create-dialog.png" alt="promo-02-create-dialog" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">2.4s</td><td></td></tr>
 
       <tr class="test-group"><td colspan="4">admin-agents (4 tests)</td></tr>
       <tr><td>should list agent accounts</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.9s</td><td></td></tr>
@@ -267,10 +292,10 @@
       <tr><td>should filter by agent type</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
 
       <tr class="test-group"><td colspan="4">enroll-flow (4 tests)</td></tr>
-      <tr><td>should complete step 1 personal info</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.5s</td><td></td></tr>
-      <tr><td>should complete step 2 cohort selection</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.2s</td><td></td></tr>
-      <tr><td>should complete step 3 confirmation</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.0s</td><td></td></tr>
-      <tr><td>should reach payment page</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.1s</td><td></td></tr>
+      <tr><td>should complete step 1 personal info <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/flow/enroll-01-course-listing.png" data-name="enroll-01-course-listing.png" title="enroll-01-course-listing.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/flow/enroll-01-course-listing.png" alt="enroll-01-course-listing" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.5s</td><td></td></tr>
+      <tr><td>should complete step 2 cohort selection <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/flow/enroll-02-form-step1.png" data-name="enroll-02-form-step1.png" title="enroll-02-form-step1.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/flow/enroll-02-form-step1.png" alt="enroll-02-form-step1" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.2s</td><td></td></tr>
+      <tr><td>should complete step 3 confirmation <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/flow/enroll-03-form-step2.png" data-name="enroll-03-form-step2.png" title="enroll-03-form-step2.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/flow/enroll-03-form-step2.png" alt="enroll-03-form-step2" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.0s</td><td></td></tr>
+      <tr><td>should reach payment page <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/flow/enroll-04-confirm.png" data-name="enroll-04-confirm.png" title="enroll-04-confirm.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/flow/enroll-04-confirm.png" alt="enroll-04-confirm" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.1s</td><td></td></tr>
 
       <tr class="test-group"><td colspan="4">enroll-form-details (6 tests)</td></tr>
       <tr><td>should validate email format</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.5s</td><td></td></tr>
@@ -327,10 +352,10 @@
       <tr><td>should display pricing tiers</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
 
       <tr class="test-group"><td colspan="4">admin-page-crud (1 test)</td></tr>
-      <tr><td>should create and publish new page</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">2.8s</td><td></td></tr>
+      <tr><td>should create and publish new page <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/page-01-create-dialog.png" data-name="page-01-create-dialog.png" title="page-01-create-dialog.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/page-01-create-dialog.png" alt="page-01-create-dialog" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">2.8s</td><td></td></tr>
 
       <tr class="test-group"><td colspan="4">admin-page-editor (4 tests)</td></tr>
-      <tr><td>should load page editor</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.1s</td><td></td></tr>
+      <tr><td>should load page editor <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/page-02-editor.png" data-name="page-02-editor.png" title="page-02-editor.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/page-02-editor.png" alt="page-02-editor" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.1s</td><td></td></tr>
       <tr><td>should edit page content</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.5s</td><td></td></tr>
       <tr><td>should save draft</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.2s</td><td></td></tr>
       <tr><td>should preview before publish</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.4s</td><td></td></tr>
@@ -358,7 +383,7 @@
       <tr><td>should show material tabs</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
 
       <tr class="test-group"><td colspan="4">admin-classroom-crud (1 test)</td></tr>
-      <tr><td>should create new classroom</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">2.3s</td><td></td></tr>
+      <tr><td>should create new classroom <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/classroom-01-create-dialog.png" data-name="classroom-01-create-dialog.png" title="classroom-01-create-dialog.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/classroom-01-create-dialog.png" alt="classroom-01-create-dialog" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">2.3s</td><td></td></tr>
 
       <tr class="test-group"><td colspan="4">classroom-detail (6 tests)</td></tr>
       <tr><td>should show classroom overview</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.0s</td><td></td></tr>
@@ -374,8 +399,8 @@
       <tr><td>should filter by classroom</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.7s</td><td></td></tr>
 
       <tr class="test-group"><td colspan="4">admin-grading-flow (2 tests)</td></tr>
-      <tr><td>should open grading dialog</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.4s</td><td></td></tr>
-      <tr><td>should submit grade with toast</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.8s</td><td></td></tr>
+      <tr><td>should open grading dialog <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/grading-01-dialog.png" data-name="grading-01-dialog.png" title="grading-01-dialog.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/grading-01-dialog.png" alt="grading-01-dialog" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.4s</td><td></td></tr>
+      <tr><td>should submit grade with toast <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/grading-02-toast.png" data-name="grading-02-toast.png" title="grading-02-toast.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/grading-02-toast.png" alt="grading-02-toast" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.8s</td><td></td></tr>
 
       <tr class="test-group"><td colspan="4">grading-details (4 tests)</td></tr>
       <tr><td>should show submission detail</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.9s</td><td></td></tr>
@@ -415,8 +440,8 @@
       <tr><td>should display status badges</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
 
       <tr class="test-group"><td colspan="4">admin-supervision-crud (2 tests)</td></tr>
-      <tr><td>should create supervision session</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">2.1s</td><td></td></tr>
-      <tr><td>should edit supervision details</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.7s</td><td></td></tr>
+      <tr><td>should create supervision session <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/supervision-01-create.png" data-name="supervision-01-create.png" title="supervision-01-create.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/supervision-01-create.png" alt="supervision-01-create" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">2.1s</td><td></td></tr>
+      <tr><td>should edit supervision details <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/supervision-02-edit.png" data-name="supervision-02-edit.png" title="supervision-02-edit.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/supervision-02-edit.png" alt="supervision-02-edit" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.7s</td><td></td></tr>
 
       <tr class="test-group"><td colspan="4">supervision-details (7 tests)</td></tr>
       <tr><td>should show session info</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.8s</td><td></td></tr>
@@ -432,8 +457,8 @@
       <tr><td>should filter by grade</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.6s</td><td></td></tr>
 
       <tr class="test-group"><td colspan="4">admin-certification-flow (2 tests)</td></tr>
-      <tr><td>should open grade dialog</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.3s</td><td></td></tr>
-      <tr><td>should submit certification grade</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.6s</td><td></td></tr>
+      <tr><td>should open grade dialog <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/cert-01-grade-dialog.png" data-name="cert-01-grade-dialog.png" title="cert-01-grade-dialog.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/cert-01-grade-dialog.png" alt="cert-01-grade-dialog" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.3s</td><td></td></tr>
+      <tr><td>should submit certification grade <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/cert-02-submit.png" data-name="cert-02-submit.png" title="cert-02-submit.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/cert-02-submit.png" alt="cert-02-submit" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.6s</td><td></td></tr>
 
       <tr class="test-group"><td colspan="4">student-supervision (2 tests)</td></tr>
       <tr><td>should show supervision schedule</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">0.9s</td><td></td></tr>
@@ -469,8 +494,8 @@
       <tr><td>should show member detail</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.1s</td><td></td></tr>
 
       <tr class="test-group"><td colspan="4">admin-crm-flow (4 tests)</td></tr>
-      <tr><td>should approve renewal request</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.8s</td><td></td></tr>
-      <tr><td>should reject with reason</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.5s</td><td></td></tr>
+      <tr><td>should approve renewal request <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/crm-01-approve-dialog.png" data-name="crm-01-approve-dialog.png" title="crm-01-approve-dialog.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/crm-01-approve-dialog.png" alt="crm-01-approve-dialog" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.8s</td><td></td></tr>
+      <tr><td>should reject with reason <a class="sc-thumb" data-src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/crm-02-reject-dialog.png" data-name="crm-02-reject-dialog.png" title="crm-02-reject-dialog.png"><img src="https://raw.githubusercontent.com/Youngger9765/navi-career-CNC/master/frontend/e2e/screenshots/crud/crm-02-reject-dialog.png" alt="crm-02-reject-dialog" loading="lazy"></a></td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.5s</td><td></td></tr>
       <tr><td>should update member status</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.2s</td><td></td></tr>
       <tr><td>should add admin note</td><td><span class="badge badge-pass">Pass</span></td><td class="dur">1.0s</td><td></td></tr>
 
@@ -529,6 +554,79 @@
 </div>
 
 </div><!-- end tab-panels -->
+
+<!-- Rounds Timeline -->
+<div class="rounds-section">
+  <h2 style="font-size:20px;font-weight:700;color:var(--navy);margin-bottom:4px">Test Rounds</h2>
+  <p style="font-size:13px;color:var(--gray-500);margin-bottom:20px">Progressive coverage history across all test runs</p>
+  <div class="rounds-timeline">
+
+    <div class="round-item">
+      <div class="round-dot-col"><div class="round-dot"></div><div class="round-connector"></div></div>
+      <div class="round-content">
+        <div class="round-header"><span class="round-title">Round 1 — Scaffold & Happy Paths</span><span class="round-badge">+48 tests</span></div>
+        <ul class="round-items">
+          <li>M1 public browse + admin enrollment tables</li>
+          <li>Basic RBAC guards (11 tests)</li>
+          <li>Visitor screenshots baseline</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="round-item">
+      <div class="round-dot-col"><div class="round-dot"></div><div class="round-connector"></div></div>
+      <div class="round-content">
+        <div class="round-header"><span class="round-title">Round 2 — CRUD & Admin Flows</span><span class="round-badge">+40 tests</span></div>
+        <ul class="round-items">
+          <li>Admin cohort CRUD, promo code CRUD, classroom CRUD</li>
+          <li>M2 marketing pages + editor flow</li>
+          <li>Admin agent management</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="round-item">
+      <div class="round-dot-col"><div class="round-dot"></div><div class="round-connector"></div></div>
+      <div class="round-content">
+        <div class="round-header"><span class="round-title">Round 3 — Student & Supervisor Flows</span><span class="round-badge">+35 tests</span></div>
+        <ul class="round-items">
+          <li>M3 classroom detail tabs, grading dialog + toast</li>
+          <li>M4 supervision CRUD + certification flow</li>
+          <li>M5 CRM + renewal flow (student + admin)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="round-item">
+      <div class="round-dot-col"><div class="round-dot"></div><div class="round-connector"></div></div>
+      <div class="round-content">
+        <div class="round-header"><span class="round-title">Round 4 — Enrollment Details & Payment</span><span class="round-badge">+35 tests</span></div>
+        <ul class="round-items">
+          <li>Enrollment form details validation (6 tests)</li>
+          <li>Payment flow end-to-end (6 tests)</li>
+          <li>Admin supervision details (7 tests), grading details (4 tests)</li>
+          <li>CRM flow + renewal sub-flow</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="round-item">
+      <div class="round-dot-col"><div class="round-dot round-dot-new"></div></div>
+      <div class="round-content">
+        <div class="round-header"><span class="round-title">Round 5 — Coverage Gaps &amp; Screenshots</span><span class="round-badge round-badge-new">+14 tests · 2026-03-16</span></div>
+        <ul class="round-items">
+          <li>Enrollment form multi-step flow — 3 pass, 1 skip (Zustand hydration race condition fixed)</li>
+          <li>ECPay payment mock — 3 tests</li>
+          <li>Admin attendance expanded — 2 tests</li>
+          <li>Mobile viewport tests — 6 tests</li>
+          <li class="fix">Screenshots added to 11 CRUD/flow test files (cohort, promo, classroom, supervision, certification, CRM)</li>
+          <li class="fix">Zustand hydration race condition fixed — form state now preserved on back-navigation</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <!-- PRD Coverage Matrix -->
 <div class="coverage-section">
@@ -648,17 +746,27 @@
   var lbCap = document.getElementById('lightbox-caption');
   var lbClose = document.querySelector('.lightbox-close');
 
+  function openLightboxFor(el) {
+    var src = el.getAttribute('data-src');
+    var name = el.getAttribute('data-name');
+    if (src) {
+      lbImg.src = src;
+      lbImg.alt = name || '';
+      lbCap.textContent = name || '';
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
   document.querySelectorAll('.screenshot-card').forEach(function(card) {
-    card.addEventListener('click', function() {
-      var src = this.getAttribute('data-src');
-      var name = this.getAttribute('data-name');
-      if (src) {
-        lbImg.src = src;
-        lbImg.alt = name || '';
-        lbCap.textContent = name || '';
-        lb.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      }
+    card.addEventListener('click', function() { openLightboxFor(this); });
+  });
+
+  document.querySelectorAll('.sc-thumb').forEach(function(thumb) {
+    thumb.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      openLightboxFor(this);
     });
   });
 
@@ -681,6 +789,14 @@
   });
 
   // Broken image fallback — create placeholder via DOM API (no innerHTML)
+  document.querySelectorAll('.sc-thumb img').forEach(function(img) {
+    img.addEventListener('error', function() {
+      var placeholder = document.createElement('div');
+      placeholder.style.cssText = 'width:36px;height:24px;background:var(--gray-200);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--gray-400)';
+      placeholder.textContent = '?';
+      this.replaceWith(placeholder);
+    });
+  });
   document.querySelectorAll('.screenshot-card img').forEach(function(img) {
     img.addEventListener('error', function() {
       var placeholder = document.createElement('div');
