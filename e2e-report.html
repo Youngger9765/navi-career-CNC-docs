@@ -9,72 +9,84 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:14px}
 /* sticky summary bar */
-.summary-bar{position:sticky;top:0;z-index:100;background:var(--navy);color:#fff;display:flex;align-items:center;gap:24px;padding:12px 24px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
-.summary-bar .title{font-size:18px;font-weight:700;color:var(--gold);margin-right:16px}
-.summary-bar .stat{display:flex;align-items:center;gap:6px;font-size:13px}
-.summary-bar .stat .num{font-size:20px;font-weight:700}
+.summary-bar{position:sticky;top:0;z-index:100;background:var(--navy);color:#fff;display:flex;align-items:center;gap:20px;padding:10px 24px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.summary-bar .title{font-size:17px;font-weight:700;color:var(--gold);margin-right:12px;white-space:nowrap}
+.summary-bar .stat{display:flex;align-items:center;gap:5px;font-size:12px}
+.summary-bar .stat .num{font-size:18px;font-weight:700}
 .stat-total .num{color:#fff}
 .stat-pass .num{color:#4ade80}
 .stat-skip .num{color:var(--gold)}
 .stat-fail .num{color:#f87171}
-.progress-wrap{flex:1;background:rgba(255,255,255,.15);border-radius:99px;height:8px;min-width:120px}
-.progress-fill{height:8px;border-radius:99px;background:var(--pass);transition:width .4s}
-.duration{font-size:12px;color:rgba(255,255,255,.6);margin-left:auto}
+.progress-wrap{flex:1;background:rgba(255,255,255,.15);border-radius:99px;height:6px;min-width:100px}
+.progress-fill{height:6px;border-radius:99px;background:var(--pass)}
+.duration{font-size:11px;color:rgba(255,255,255,.6);margin-left:auto;white-space:nowrap}
 /* tabs */
-.tabs-wrap{background:var(--card);border-bottom:1px solid var(--border);position:sticky;top:53px;z-index:99;overflow-x:auto}
-.tabs{display:flex;padding:0 24px;gap:4px}
-.tab-btn{padding:10px 16px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s}
+.tabs-wrap{background:var(--card);border-bottom:1px solid var(--border);position:sticky;top:50px;z-index:99;overflow-x:auto}
+.tabs{display:flex;padding:0 24px;gap:2px}
+.tab-btn{padding:8px 14px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s}
 .tab-btn.active{color:var(--teal);border-bottom-color:var(--teal)}
 .tab-btn:hover{color:var(--text)}
 /* main content */
-.main{padding:24px;max-width:1400px;margin:0 auto}
+.main{padding:16px 24px;max-width:1400px;margin:0 auto}
 .tab-panel{display:none}.tab-panel.active{display:block}
 /* module header */
-.module-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
-.module-badge{background:var(--teal);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:99px}
-.module-title{font-size:20px;font-weight:700;color:var(--navy)}
-.module-stats{margin-left:auto;display:flex;gap:8px;font-size:12px}
-.ms{padding:2px 8px;border-radius:99px;font-weight:600}
+.module-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.module-badge{background:var(--teal);color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px}
+.module-title{font-size:18px;font-weight:700;color:var(--navy)}
+.module-stats{margin-left:auto;display:flex;gap:6px;font-size:12px}
+.ms{padding:2px 7px;border-radius:99px;font-weight:600}
 .ms-pass{background:#dcfce7;color:#166534}
 .ms-skip{background:#fef9c3;color:#854d0e}
 /* spec group */
-.spec-group{margin-bottom:24px}
-.spec-group-title{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:6px 0;border-bottom:1px solid var(--border);margin-bottom:8px}
-/* test row */
-.test-row{display:flex;align-items:flex-start;gap:12px;padding:10px 12px;border-radius:8px;margin-bottom:4px;background:var(--card);border:1px solid var(--border);transition:background .15s}
-.test-row:hover{background:#f1f5f9}
-.test-status{width:20px;height:20px;border-radius:50%;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+.spec-group{margin-bottom:16px}
+.spec-group-title{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:4px 0;border-bottom:1px solid var(--border);margin-bottom:6px}
+/* test row — compact */
+.test-row{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:6px;margin-bottom:2px;background:var(--card);border:1px solid var(--border);cursor:pointer;transition:background .1s}
+.test-row:hover{background:#f1f5f9;border-color:var(--teal)}
+.test-status{width:18px;height:18px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700}
 .ts-pass{background:#dcfce7;color:#16a34a}
 .ts-skip{background:#fef9c3;color:#92400e}
 .ts-fail{background:#fee2e2;color:#dc2626}
-.test-info{flex:1}
-.test-name{font-size:13px;font-weight:500;color:var(--text)}
-.test-meta{font-size:11px;color:var(--muted);margin-top:2px}
-.api-badge{display:inline-block;background:#ede9fe;color:#6d28d9;font-size:10px;font-weight:600;padding:1px 6px;border-radius:4px;margin-left:6px}
-/* screenshot thumbnails */
-.thumb-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.thumb-item{position:relative;cursor:pointer}
-.thumb-item img{width:80px;height:54px;object-fit:cover;border-radius:4px;border:1px solid var(--border);transition:transform .2s}
-.thumb-item:hover img{transform:scale(1.05);border-color:var(--teal)}
-/* lightbox */
-.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;align-items:center;justify-content:center;padding:40px}
-.lightbox.open{display:flex}
-.lightbox img{max-width:100%;max-height:90vh;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
-.lightbox-close{position:absolute;top:20px;right:24px;color:#fff;font-size:32px;cursor:pointer;line-height:1}
-.lightbox-caption{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:#fff;background:rgba(0,0,0,.6);padding:6px 16px;border-radius:99px;font-size:13px;white-space:nowrap}
-/* screenshot gallery */
-.gallery-section{margin-top:40px}
-.gallery-title{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--teal)}
-.gallery-cat{margin-bottom:24px}
-.gallery-cat-title{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em}
-.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.test-info{flex:1;min-width:0}
+.test-name{font-size:15px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.test-meta{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.api-badge{display:inline-block;background:#ede9fe;color:#6d28d9;font-size:10px;font-weight:600;padding:1px 5px;border-radius:4px}
+.skip-badge{display:inline-block;background:#fef9c3;color:#854d0e;font-size:10px;font-weight:600;padding:1px 5px;border-radius:4px}
+/* thumbnail inline */
+.test-thumb{flex-shrink:0}
+.test-thumb img{width:48px;height:32px;object-fit:cover;border-radius:3px;border:1px solid var(--border)}
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9999;align-items:flex-start;justify-content:center;padding:40px 24px;overflow-y:auto}
+.modal-overlay.open{display:flex}
+.modal-box{background:#fff;border-radius:12px;max-width:860px;width:100%;padding:24px;position:relative;margin:auto}
+.modal-close{position:absolute;top:14px;right:16px;font-size:22px;cursor:pointer;color:var(--muted);line-height:1;border:none;background:none}
+.modal-close:hover{color:var(--text)}
+.modal-title{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:8px;padding-right:32px}
+.modal-meta{font-size:12px;color:var(--muted);margin-bottom:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.modal-badge{font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px}
+.mb-pass{background:#dcfce7;color:#166534}
+.mb-skip{background:#fef9c3;color:#854d0e}
+.mb-api{background:#ede9fe;color:#6d28d9}
+.modal-screenshots{margin-top:16px}
+.modal-screenshots h4{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;margin-bottom:10px}
+.modal-img-wrap{margin-bottom:12px}
+.modal-img-wrap img{max-width:100%;border-radius:6px;border:1px solid var(--border);display:block}
+.modal-img-caption{font-size:11px;color:var(--muted);margin-top:4px;text-align:center}
+.no-screenshot{background:#f8fafc;border:1px dashed var(--border);border-radius:6px;padding:16px;text-align:center;color:var(--muted);font-size:13px}
+/* gallery */
+.gallery-section{margin-top:24px}
+.gallery-title{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:14px;padding-bottom:6px;border-bottom:2px solid var(--teal)}
+.gallery-cat{margin-bottom:20px}
+.gallery-cat-title{font-size:11px;font-weight:600;color:var(--muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
 .gallery-item{cursor:pointer}
-.gallery-item img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;border:1px solid var(--border);transition:all .2s}
-.gallery-item:hover img{border-color:var(--teal);box-shadow:0 4px 12px rgba(55,166,169,.3)}
-.gallery-item p{font-size:11px;color:var(--muted);margin-top:4px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gallery-item img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:5px;border:1px solid var(--border);transition:all .15s}
+.gallery-item:hover img{border-color:var(--teal);box-shadow:0 3px 10px rgba(55,166,169,.25)}
+.gallery-item p{font-size:11px;color:var(--muted);margin-top:3px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 </style>
 </head>
 <body>
+
 <!-- SUMMARY BAR -->
 <div class="summary-bar">
   <span class="title">CNC E2E 測試報告</span>
@@ -89,1966 +101,911 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <!-- TABS -->
 <div class="tabs-wrap">
   <div class="tabs">
-    <button class="tab-btn active" onclick="showTab('m1')">M1 報名金流</button>
-    <button class="tab-btn" onclick="showTab('m2')">M2 行銷頁面</button>
-    <button class="tab-btn" onclick="showTab('m3')">M3 運課管理</button>
-    <button class="tab-btn" onclick="showTab('m4')">M4 督導認證</button>
-    <button class="tab-btn" onclick="showTab('m5')">M5 會員 CRM</button>
-    <button class="tab-btn" onclick="showTab('access')">權限控管</button>
-    <button class="tab-btn" onclick="showTab('mobile')">手機版</button>
-    <button class="tab-btn" onclick="showTab('gallery')">截圖總覽</button>
+    <button class="tab-btn active" onclick="showTab('m1',this)">M1 報名金流</button>
+    <button class="tab-btn" onclick="showTab('m2',this)">M2 行銷頁面</button>
+    <button class="tab-btn" onclick="showTab('m3',this)">M3 運課管理</button>
+    <button class="tab-btn" onclick="showTab('m4',this)">M4 督導認證</button>
+    <button class="tab-btn" onclick="showTab('m5',this)">M5 會員 CRM</button>
+    <button class="tab-btn" onclick="showTab('access',this)">權限控管</button>
+    <button class="tab-btn" onclick="showTab('mobile',this)">手機版</button>
+    <button class="tab-btn" onclick="showTab('screenshots',this)">截圖總覽</button>
   </div>
 </div>
 
-<div class="main">
-<!-- ==================== M1 TAB ==================== -->
-<div id="tab-m1" class="tab-panel active">
-  <div class="module-header">
-    <span class="module-badge">M1</span>
-    <span class="module-title">報名金流</span>
-    <div class="module-stats">
-      <span class="ms ms-pass">通過 67</span>
-      <span class="ms ms-skip">略過 3</span>
-    </div>
-  </div>
-
-  <!-- 訪客瀏覽課程 -->
-  <div class="spec-group">
-    <div class="spec-group-title">訪客瀏覽課程（public-browse）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">首頁載入 Hero 區塊與課程列表</div>
-        <div class="test-meta">public-browse.spec.ts › homepage loads with hero and course sections</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-01-hero.png','首頁 Hero 區塊')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-01-hero.png" alt="首頁 Hero"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">訪客瀏覽 /courses 課程列表頁</div>
-        <div class="test-meta">public-browse.spec.ts › visitor can navigate to /courses and see course list</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-02-course-list.png','課程列表')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-02-course-list.png" alt="課程列表"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/visitor--courses.png','訪客課程頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/visitor--courses.png" alt="訪客課程頁"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">訪客點擊課程進入詳情頁</div>
-        <div class="test-meta">public-browse.spec.ts › visitor can click a course and see detail page</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-03-course-detail.png','課程詳情')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-03-course-detail.png" alt="課程詳情"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">訪客在課程詳情頁看到報名 CTA</div>
-        <div class="test-meta">public-browse.spec.ts › visitor sees enroll CTA on course detail page</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-04-enroll-cta.png','報名 CTA')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-04-enroll-cta.png" alt="報名 CTA"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">未登入訪客 Header 顯示登入按鈕</div>
-        <div class="test-meta">public-browse.spec.ts › header shows login button for unauthenticated visitors</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-05-login-btn.png','登入按鈕')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-05-login-btn.png" alt="登入按鈕"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/visitor--homepage.png','訪客首頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/visitor--homepage.png" alt="訪客首頁"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 報名流程 -->
-  <div class="spec-group">
-    <div class="spec-group-title">報名流程 End-to-End（enroll-flow）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">訪客瀏覽課程 → 課程詳情 → 看到報名 CTA</div>
-        <div class="test-meta">enroll-flow.spec.ts › visitor can browse courses → course detail → see enroll CTA</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-01-course-listing.png','課程列表')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-01-course-listing.png" alt="課程列表"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-02-course-detail.png','課程詳情')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-02-course-detail.png" alt="課程詳情"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">訪客進入報名頁並看到梯次定價</div>
-        <div class="test-meta">enroll-flow.spec.ts › visitor can reach enroll page and see cohort pricing</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-03-pricing-page.png','梯次定價')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-03-pricing-page.png" alt="梯次定價"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/visitor--enroll.png','訪客報名頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/visitor--enroll.png" alt="訪客報名頁"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員儀表板顯示快速連結與報名狀態</div>
-        <div class="test-meta">enroll-flow.spec.ts › student sees dashboard with quick links and enrollment status</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-04-student-dashboard.png','學員儀表板')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-04-student-dashboard.png" alt="學員儀表板"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-dashboard.png','學員 Dashboard')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-dashboard.png" alt="學員 Dashboard"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員可透過側邊欄導航連結切換頁面</div>
-        <div class="test-meta">enroll-flow.spec.ts › student can navigate through sidebar links</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 報名表單詳情 -->
-  <div class="spec-group">
-    <div class="spec-group-title">報名表單詳情與定價（enroll-form-details）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">報名頁顯示梯次資訊：課型、日期、名額、定價</div>
-        <div class="test-meta">enroll-form-details.spec.ts › enroll page shows cohort info: class types, dates, quota, pricing</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-01-cohort-info.png','梯次資訊')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-01-cohort-info.png" alt="梯次資訊"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">報名頁顯示早鳥與一般定價</div>
-        <div class="test-meta">enroll-form-details.spec.ts › enroll page shows early bird and regular pricing</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-02-early-bird.png','早鳥定價')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-02-early-bird.png" alt="早鳥定價"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">梯次詳情頁顯示設定狀態與統計數據</div>
-        <div class="test-meta">enroll-form-details.spec.ts › cohort detail page shows setup status and stats</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-03-cohort-detail.png','梯次詳情')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-03-cohort-detail.png" alt="梯次詳情"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-cohorts.png','梯次管理')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-cohorts.png" alt="梯次管理"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員報名頁可依狀態篩選</div>
-        <div class="test-meta">enroll-form-details.spec.ts › admin enrollments page filtering by status works</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-04-status-filter.png','狀態篩選')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-04-status-filter.png" alt="狀態篩選"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員退款頁顯示待處理與已完成退款</div>
-        <div class="test-meta">enroll-form-details.spec.ts › admin refunds page shows pending and completed refunds</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-05-refunds.png','退款列表')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-05-refunds.png" alt="退款列表"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-refunds.png','退款管理')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-refunds.png" alt="退款管理"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">退款頁有「處理退款」按鈕</div>
-        <div class="test-meta">enroll-form-details.spec.ts › admin refunds page has process refund button</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-06-process-refund-btn.png','處理退款按鈕')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-06-process-refund-btn.png" alt="處理退款按鈕"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 多步驟報名表單 -->
-  <div class="spec-group">
-    <div class="spec-group-title">多步驟報名表單（enroll-form-fill）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">訪客進入梯次報名頁，看到步驟一</div>
-        <div class="test-meta">enroll-form-fill.spec.ts › visitor can reach cohort registration page and see step 1</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-form-01-step1-courses.png','步驟一')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-form-01-step1-courses.png" alt="步驟一"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">步驟一顯示早鳥定價（如適用）</div>
-        <div class="test-meta">enroll-form-fill.spec.ts › step 1 shows pricing with early bird if applicable</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-form-02-early-bird.png','早鳥定價')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-form-02-early-bird.png" alt="早鳥定價"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">步驟二顯示個人資訊填寫欄位</div>
-        <div class="test-meta">enroll-form-fill.spec.ts › step 2 shows personal info form fields</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">步驟三顯示優惠碼輸入框與報名摘要</div>
-        <div class="test-meta">enroll-form-fill.spec.ts › step 3 shows promo code input and summary</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 學員報名流程 -->
-  <div class="spec-group">
-    <div class="spec-group-title">學員報名流程（student-enroll）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員登入後看到儀表板</div>
-        <div class="test-meta">student-enroll.spec.ts › student can login and see dashboard</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-01-dashboard.png','學員儀表板')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-01-dashboard.png" alt="學員儀表板"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員可導覽至 /enroll 報名頁</div>
-        <div class="test-meta">student-enroll.spec.ts › student can navigate to /enroll page</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-02-enroll-page.png','報名頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-02-enroll-page.png" alt="報名頁"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員可瀏覽課程並選擇梯次</div>
-        <div class="test-meta">student-enroll.spec.ts › student can see courses and select a cohort</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-03-enroll-btn.png','選擇梯次')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-03-enroll-btn.png" alt="選擇梯次"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員可進入梯次報名表單</div>
-        <div class="test-meta">student-enroll.spec.ts › student can access enrollment form for a cohort</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-04-form-accessible.png','報名表單')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-04-form-accessible.png" alt="報名表單"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員可查看自己的報名紀錄</div>
-        <div class="test-meta">student-enroll.spec.ts › student can view their enrollment records</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-05-records.png','報名紀錄')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-05-records.png" alt="報名紀錄"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-enrollments.png','學員報名')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-enrollments.png" alt="學員報名"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">報名頁顯示梯次定價與 CTA</div>
-        <div class="test-meta">student-enroll.spec.ts › enroll page shows cohort with pricing and CTA</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-06-pricing-cta.png','定價 CTA')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-06-pricing-cta.png" alt="定價 CTA"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">結帳失敗頁面存在</div>
-        <div class="test-meta">student-enroll.spec.ts › checkout failed page exists</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-07-checkout-failed.png','結帳失敗')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-07-checkout-failed.png" alt="結帳失敗"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-skip">⊘</div>
-      <div class="test-info">
-        <div class="test-name">Alice（已報名學員）看到自己的報名紀錄</div>
-        <div class="test-meta">student-enroll.spec.ts › alice (enrolled student) sees her enrollment <span class="api-badge">略過：測試用帳號未在正式環境 seed</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 付款流程 -->
-  <div class="spec-group">
-    <div class="spec-group-title">付款與結帳流程（payment-flow）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">報名頁顯示完整梯次定價明細</div>
-        <div class="test-meta">payment-flow.spec.ts › enroll page shows complete cohort pricing breakdown</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/payment-01-pricing-breakdown.png','定價明細')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/payment-01-pricing-breakdown.png" alt="定價明細"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">結帳成功頁面正確顯示</div>
-        <div class="test-meta">payment-flow.spec.ts › checkout success page renders correctly</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/payment-02-checkout-success.png','結帳成功')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/payment-02-checkout-success.png" alt="結帳成功"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">結帳失敗頁面顯示重試選項</div>
-        <div class="test-meta">payment-flow.spec.ts › checkout failed page shows retry option</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/payment-03-checkout-failed.png','結帳失敗重試')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/payment-03-checkout-failed.png" alt="結帳失敗重試"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">後端付款 API 需要身份驗證</div>
-        <div class="test-meta">payment-flow.spec.ts › backend payment API requires authentication <span class="api-badge">API 測試</span></div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">後端優惠碼驗證 API 正常運作</div>
-        <div class="test-meta">payment-flow.spec.ts › backend promo code validation API works <span class="api-badge">API 測試</span></div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員可查看付款記錄頁面</div>
-        <div class="test-meta">payment-flow.spec.ts › student can see payment history page</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/payment-04-student-history.png','付款記錄')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/payment-04-student-history.png" alt="付款記錄"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-payments.png','學員付款')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-payments.png" alt="學員付款"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ECPay 綠界金流 -->
-  <div class="spec-group">
-    <div class="spec-group-title">ECPay 綠界金流（ecpay-mock）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">付款結帳 API 回傳重導向 URL 或訂單資訊</div>
-        <div class="test-meta">ecpay-mock.spec.ts › payment checkout API returns redirect URL or order info <span class="api-badge">API 測試</span></div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">模擬 ECPay 重導向顯示結帳成功頁</div>
-        <div class="test-meta">ecpay-mock.spec.ts › mocked ECPay redirect shows checkout success page</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/ecpay-01-success-page.png','ECPay 成功')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/ecpay-01-success-page.png" alt="ECPay 成功"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">結帳失敗頁面提供重試機制</div>
-        <div class="test-meta">ecpay-mock.spec.ts › checkout failed page offers retry</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/ecpay-02-failed-page.png','ECPay 失敗')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/ecpay-02-failed-page.png" alt="ECPay 失敗"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 管理員梯次管理 -->
-  <div class="spec-group">
-    <div class="spec-group-title">管理員梯次管理（admin-cohorts + admin-cohort-crud）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可進入梯次列表頁</div>
-        <div class="test-meta">admin-cohorts.spec.ts › admin can access cohorts list page</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohorts-smoke-01-list-page.png','梯次列表')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohorts-smoke-01-list-page.png" alt="梯次列表"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員在表格中看到梯次資料</div>
-        <div class="test-meta">admin-cohorts.spec.ts › admin sees cohorts in table/list</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohorts-smoke-02-table.png','梯次表格')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohorts-smoke-02-table.png" alt="梯次表格"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員點擊梯次進入詳情頁</div>
-        <div class="test-meta">admin-cohorts.spec.ts › admin can click a cohort to see detail page</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員看到「新增梯次」按鈕</div>
-        <div class="test-meta">admin-cohorts.spec.ts › admin sees create cohort button</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohorts-smoke-04-create-btn.png','新增按鈕')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohorts-smoke-04-create-btn.png" alt="新增按鈕"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員開啟新增梯次 Dialog，填寫表單，送出</div>
-        <div class="test-meta">admin-cohort-crud.spec.ts › admin opens create dialog, fills form, submits</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohort-01-dialog-open.png','Dialog 開啟')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohort-01-dialog-open.png" alt="Dialog 開啟"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohort-02-form-filled.png','表單填寫')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohort-02-form-filled.png" alt="表單填寫"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohort-03-toast-success.png','成功提示')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohort-03-toast-success.png" alt="成功提示"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員看到含表頭的梯次列表</div>
-        <div class="test-meta">admin-cohort-crud.spec.ts › admin sees cohort list with table headers</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohort-04-list-table.png','梯次表格')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohort-04-list-table.png" alt="梯次表格"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員點擊梯次列進入詳情頁</div>
-        <div class="test-meta">admin-cohort-crud.spec.ts › admin clicks cohort row to enter detail</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 管理員報名管理 -->
-  <div class="spec-group">
-    <div class="spec-group-title">管理員報名管理（admin-enrollments）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可進入報名列表頁</div>
-        <div class="test-meta">admin-enrollments.spec.ts › admin can access enrollments page</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/enrollments-01-list-page.png','報名列表')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/enrollments-01-list-page.png" alt="報名列表"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-enrollments.png','管理員報名')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-enrollments.png" alt="管理員報名"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員在表格中看到報名紀錄</div>
-        <div class="test-meta">admin-enrollments.spec.ts › admin sees enrollment records in table</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/enrollments-02-table.png','報名表格')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/enrollments-02-table.png" alt="報名表格"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可依狀態篩選報名紀錄</div>
-        <div class="test-meta">admin-enrollments.spec.ts › admin can filter enrollments by status</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/enrollments-03-filter.png','狀態篩選')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/enrollments-03-filter.png" alt="狀態篩選"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員側邊欄報名連結顯示為啟用狀態</div>
-        <div class="test-meta">admin-enrollments.spec.ts › admin sidebar shows enrollment link as active</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/enrollments-04-sidebar-active.png','側邊欄啟用')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/enrollments-04-sidebar-active.png" alt="側邊欄啟用"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員儀表板載入並顯示統計數據</div>
-        <div class="test-meta">admin-enrollments.spec.ts › admin dashboard loads with stats</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/enrollments-05-dashboard.png','儀表板統計')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/enrollments-05-dashboard.png" alt="儀表板統計"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-dashboard.png','管理員儀表板')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-dashboard.png" alt="管理員儀表板"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 優惠碼管理 -->
-  <div class="spec-group">
-    <div class="spec-group-title">管理員優惠碼管理（admin-promo-codes + admin-promo-crud）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可進入優惠碼列表頁</div>
-        <div class="test-meta">admin-promo-codes.spec.ts › admin can access promo codes page</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-smoke-01-list-page.png','優惠碼列表')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-smoke-01-list-page.png" alt="優惠碼列表"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-promo-codes.png','管理員優惠碼')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-promo-codes.png" alt="管理員優惠碼"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員看到優惠碼列表或空狀態</div>
-        <div class="test-meta">admin-promo-codes.spec.ts › admin sees promo codes list or empty state</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-smoke-02-table.png','優惠碼表格')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-smoke-02-table.png" alt="優惠碼表格"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員看到「新增優惠碼」按鈕</div>
-        <div class="test-meta">admin-promo-codes.spec.ts › admin sees create promo code button</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-smoke-03-create-btn.png','新增按鈕')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-smoke-03-create-btn.png" alt="新增按鈕"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員建立優惠碼並在列表中驗證</div>
-        <div class="test-meta">admin-promo-crud.spec.ts › admin creates a promo code, verifies in list</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-01-dialog-open.png','Dialog 開啟')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-01-dialog-open.png" alt="Dialog 開啟"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-02-form-filled.png','表單填寫')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-02-form-filled.png" alt="表單填寫"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-03-toast-success.png','成功提示')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-03-toast-success.png" alt="成功提示"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-04-list-verified.png','列表驗證')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-04-list-verified.png" alt="列表驗證"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 代理商管理 -->
-  <div class="spec-group">
-    <div class="spec-group-title">管理員代理商管理（admin-agents）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">代理商頁面顯示統計卡片與資料表</div>
-        <div class="test-meta">admin-agents.spec.ts › agents page shows stat cards and table</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/agents-01-stat-cards.png','統計卡片')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/agents-01-stat-cards.png" alt="統計卡片"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-agents.png','管理員代理商')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-agents.png" alt="管理員代理商"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">代理商資料表顯示正確欄位</div>
-        <div class="test-meta">admin-agents.spec.ts › agents table shows correct columns</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/agents-02-table-columns.png','表格欄位')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/agents-02-table-columns.png" alt="表格欄位"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">代理商頁面有「新增代理商」按鈕</div>
-        <div class="test-meta">admin-agents.spec.ts › agents page has create agent button</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/agents-03-create-btn.png','新增按鈕')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/agents-03-create-btn.png" alt="新增按鈕"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">推薦人頁面顯示統計卡片與列表狀態</div>
-        <div class="test-meta">admin-agents.spec.ts › referrals page shows stat cards and empty/list state</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/agents-04-referrals-stats.png','推薦人統計')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/agents-04-referrals-stats.png" alt="推薦人統計"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-referrals.png','管理員推薦人')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-referrals.png" alt="管理員推薦人"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- ==================== M2 TAB ==================== -->
-<div id="tab-m2" class="tab-panel">
-  <div class="module-header">
-    <span class="module-badge">M2</span>
-    <span class="module-title">行銷頁面</span>
-    <div class="module-stats">
-      <span class="ms ms-pass">通過 13</span>
-    </div>
-  </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">管理員行銷頁面管理（admin-pages）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員看到行銷頁面表格與欄位</div>
-        <div class="test-meta">admin-pages.spec.ts › admin sees marketing pages table with columns</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-pages.png','行銷頁面')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-pages.png" alt="行銷頁面"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員看到頁面狀態標籤（已發布 / 草稿）</div>
-        <div class="test-meta">admin-pages.spec.ts › admin sees page status badges (已發布 / 草稿)</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員看到「新增頁面」按鈕</div>
-        <div class="test-meta">admin-pages.spec.ts › admin sees create page button</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">行銷頻道頁面顯示 3 種頻道類型</div>
-        <div class="test-meta">admin-pages.spec.ts › admin marketing channels page shows 3 channel types</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-marketing.png','行銷頻道')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-marketing.png" alt="行銷頻道"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">每個行銷頻道都有建立按鈕</div>
-        <div class="test-meta">admin-pages.spec.ts › each marketing channel has a create button</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">管理員商品管理（admin-products）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員看到商品頁面含分類標籤與資料表</div>
-        <div class="test-meta">admin-products.spec.ts › admin sees products page with category tabs and table</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-products.png','商品管理')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-products.png" alt="商品管理"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">商品表格顯示欄位：名稱、Slug、分類、價格、狀態</div>
-        <div class="test-meta">admin-products.spec.ts › admin sees product table columns: name, slug, category, price, status</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員看到「新增商品」與「新增分類」按鈕</div>
-        <div class="test-meta">admin-products.spec.ts › admin sees create product and category buttons</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">商品顯示在公開 /courses 頁面的課程卡片</div>
-        <div class="test-meta">admin-products.spec.ts › products appear on public /courses page with course cards</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/visitor--courses.png','公開課程頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/visitor--courses.png" alt="公開課程頁"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">課程詳情頁顯示定價與報名 CTA</div>
-        <div class="test-meta">admin-products.spec.ts › course detail page shows pricing and enroll CTA</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-04-enroll-cta.png','報名 CTA')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-04-enroll-cta.png" alt="報名 CTA"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">頁面編輯器與發布（admin-page-editor + admin-page-crud）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">頁面編輯器含必要欄位：標題、Slug、儲存按鈕</div>
-        <div class="test-meta">admin-page-editor.spec.ts › page editor has all required fields: title, slug, save button</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/page-01-editor-loaded.png','編輯器載入')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/page-01-editor-loaded.png" alt="編輯器載入"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">頁面列表顯示發布狀態標籤</div>
-        <div class="test-meta">admin-page-editor.spec.ts › page list shows publish status badges</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">行銷頻道頁面顯示 3 種類型含建立按鈕</div>
-        <div class="test-meta">admin-page-editor.spec.ts › marketing channels page shows 3 types with create buttons</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">商品頁面有分類標籤與子分類篩選</div>
-        <div class="test-meta">admin-page-editor.spec.ts › products page has category tabs and sub-category filters</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員建立行銷頁面（填寫標題與 Slug）</div>
-        <div class="test-meta">admin-page-crud.spec.ts › admin creates a marketing page with title and slug</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/page-01-editor-loaded.png','建立頁面')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/page-01-editor-loaded.png" alt="建立頁面"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/page-02-slug-filled.png','Slug 填寫')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/page-02-slug-filled.png" alt="Slug 填寫"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/page-03-toast-success.png','成功提示')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/page-03-toast-success.png" alt="成功提示"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/page-04-list-verified.png','列表驗證')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/page-04-list-verified.png" alt="列表驗證"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- ==================== M3 TAB ==================== -->
-<div id="tab-m3" class="tab-panel">
-  <div class="module-header">
-    <span class="module-badge">M3</span>
-    <span class="module-title">運課管理</span>
-    <div class="module-stats">
-      <span class="ms ms-pass">通過 22</span>
-      <span class="ms ms-skip">略過 4</span>
-    </div>
-  </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">管理員教室管理（admin-classroom + admin-classroom-crud）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可進入教室列表頁</div>
-        <div class="test-meta">admin-classroom.spec.ts › admin can access classrooms list</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-classrooms.png','教室列表')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-classrooms.png" alt="教室列表"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員看到教室列表或空狀態</div>
-        <div class="test-meta">admin-classroom.spec.ts › admin sees classrooms or empty state</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員看到「新增教室」按鈕</div>
-        <div class="test-meta">admin-classroom.spec.ts › admin sees create classroom button</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可進入教室詳情頁</div>
-        <div class="test-meta">admin-classroom.spec.ts › admin can enter classroom detail page</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員建立教室並進入詳情頁</div>
-        <div class="test-meta">admin-classroom-crud.spec.ts › admin creates a classroom, enters detail page</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/classroom-01-dialog-open.png','Dialog 開啟')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/classroom-01-dialog-open.png" alt="Dialog 開啟"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/classroom-02-cohort-selected.png','梯次選擇')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/classroom-02-cohort-selected.png" alt="梯次選擇"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/classroom-03-toast-success.png','成功提示')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/classroom-03-toast-success.png" alt="成功提示"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/classroom-04-detail-page.png','教室詳情')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/classroom-04-detail-page.png" alt="教室詳情"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">教室詳情頁（classroom-detail）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">教室詳情顯示各功能分頁標籤</div>
-        <div class="test-meta">classroom-detail.spec.ts › classroom detail shows tabs for different sections</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">教室詳情顯示學員名單</div>
-        <div class="test-meta">classroom-detail.spec.ts › classroom detail shows student list</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">教室公告區塊 — 新增公告功能</div>
-        <div class="test-meta">classroom-detail.spec.ts › classroom announcements section — create announcement</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">教室作業區塊 — 作業列表與新增按鈕</div>
-        <div class="test-meta">classroom-detail.spec.ts › classroom assignments section — list and create button</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">教室教材區塊</div>
-        <div class="test-meta">classroom-detail.spec.ts › classroom materials section</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">教室出席區塊 — 出席列表與標記按鈕</div>
-        <div class="test-meta">classroom-detail.spec.ts › classroom attendance section — list and mark buttons</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">管理員評分管理（admin-grading + admin-grading-flow）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可進入評分儀表板</div>
-        <div class="test-meta">admin-grading.spec.ts › admin can access grading dashboard</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-grading.png','評分管理')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-grading.png" alt="評分管理"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">評分頁顯示作業繳交或空狀態</div>
-        <div class="test-meta">admin-grading.spec.ts › grading page shows submissions or empty state</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">助教可進入評分儀表板</div>
-        <div class="test-meta">admin-grading.spec.ts › TA can access grading dashboard</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/ta--admin-grading.png','助教評分')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/ta--admin-grading.png" alt="助教評分"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員開啟評分 Dialog，輸入分數與意見，送出</div>
-        <div class="test-meta">admin-grading-flow.spec.ts › admin can open grading dialog, enter grade and feedback, submit</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/grading-01-dialog-open.png','評分 Dialog')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/grading-01-dialog-open.png" alt="評分 Dialog"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/grading-02-grade-filled.png','分數填寫')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/grading-02-grade-filled.png" alt="分數填寫"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/grading-03-toast-success.png','成功提示')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/grading-03-toast-success.png" alt="成功提示"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">評分頁顯示含計數的統計卡片</div>
-        <div class="test-meta">admin-grading-flow.spec.ts › grading page shows stat cards with counts</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/grading-04-stat-cards.png','統計卡片')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/grading-04-stat-cards.png" alt="統計卡片"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">評分細節（grading-details）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員看到作業繳交的退還按鈕</div>
-        <div class="test-meta">grading-details.spec.ts › admin sees return button for submissions</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可下載作業繳交檔案</div>
-        <div class="test-meta">grading-details.spec.ts › admin can download submission file</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">助教可進入評分並看到繳交作業</div>
-        <div class="test-meta">grading-details.spec.ts › TA can access grading and see submissions</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員看到已評分的作業結果</div>
-        <div class="test-meta">grading-details.spec.ts › student sees graded assignment result</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">管理員出席管理（admin-attendance）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可進入教室並看到出席區塊</div>
-        <div class="test-meta">admin-attendance.spec.ts › admin can access a classroom and see attendance section</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員看到出席狀態標籤（出席 / 缺席 / 請假）</div>
-        <div class="test-meta">admin-attendance.spec.ts › admin can see attendance status badges (出席/缺席/請假)</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">學員教室（student-classroom）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員可進入我的課程頁面</div>
-        <div class="test-meta">student-classroom.spec.ts › student can access my courses page</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-courses.png','學員課程')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-courses.png" alt="學員課程"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-skip">⊘</div>
-      <div class="test-info">
-        <div class="test-name">Alice（已報名）看到自己的課程</div>
-        <div class="test-meta">student-classroom.spec.ts › alice (enrolled) sees her courses <span class="api-badge">略過：測試用帳號未在正式環境 seed</span></div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-skip">⊘</div>
-      <div class="test-info">
-        <div class="test-name">Alice 可進入教室詳情頁</div>
-        <div class="test-meta">student-classroom.spec.ts › alice can enter a classroom detail page <span class="api-badge">略過：測試用帳號未在正式環境 seed</span></div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-skip">⊘</div>
-      <div class="test-info">
-        <div class="test-name">學員可在教室中看到作業</div>
-        <div class="test-meta">student-classroom.spec.ts › student can see assignments in classroom <span class="api-badge">略過：測試用帳號未在正式環境 seed</span></div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員可查看付款頁面</div>
-        <div class="test-meta">student-classroom.spec.ts › student can view payments page</div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- ==================== M4 TAB ==================== -->
-<div id="tab-m4" class="tab-panel">
-  <div class="module-header">
-    <span class="module-badge">M4</span>
-    <span class="module-title">督導認證</span>
-    <div class="module-stats">
-      <span class="ms ms-pass">通過 25</span>
-    </div>
-  </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">管理員督導管理（admin-supervision + admin-supervision-crud）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可進入督導頁面</div>
-        <div class="test-meta">admin-supervision.spec.ts › admin can access supervision page</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-supervision.png','督導管理')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-supervision.png" alt="督導管理"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員看到督導場次列表或空狀態</div>
-        <div class="test-meta">admin-supervision.spec.ts › admin sees supervision sessions or empty state</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員看到「新增督導」按鈕與含場次的資料表</div>
-        <div class="test-meta">admin-supervision.spec.ts › admin sees create supervision button and table with sessions</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員編輯督導場次狀態與備註</div>
-        <div class="test-meta">admin-supervision-crud.spec.ts › admin can edit a supervision session status and notes</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/supervision-01-edit-dialog.png','編輯 Dialog')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/supervision-01-edit-dialog.png" alt="編輯 Dialog"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/supervision-02-status-selected.png','狀態選擇')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/supervision-02-status-selected.png" alt="狀態選擇"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/supervision-03-toast-success.png','成功提示')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/supervision-03-toast-success.png" alt="成功提示"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">督導頁面顯示含場次資料的資料表</div>
-        <div class="test-meta">admin-supervision-crud.spec.ts › supervision page shows table with session data</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/supervision-04-table.png','督導資料表')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/supervision-04-table.png" alt="督導資料表"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">督導與認證細節（supervision-details）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">督導資料表顯示正確欄位</div>
-        <div class="test-meta">supervision-details.spec.ts › admin supervision table shows correct columns</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">督導場次顯示狀態標籤：已排程、已完成</div>
-        <div class="test-meta">supervision-details.spec.ts › supervision sessions show status badges: 已排程, 已完成</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">認證資料表顯示狀態：通過、待評分、未通過</div>
-        <div class="test-meta">supervision-details.spec.ts › admin certification table shows status: 通過, 待評分, 未通過</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-certifications.png','認證管理')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-certifications.png" alt="認證管理"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員認證頁有狀態與類型篩選下拉</div>
-        <div class="test-meta">supervision-details.spec.ts › admin certification page has filter dropdowns for status and type</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員督導頁顯示含提示訊息的空狀態</div>
-        <div class="test-meta">supervision-details.spec.ts › student supervision page shows empty state with helpful message</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-supervision.png','學員督導')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-supervision.png" alt="學員督導"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員認證頁顯示空狀態</div>
-        <div class="test-meta">supervision-details.spec.ts › student certification page shows empty state</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-certifications.png','學員認證')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-certifications.png" alt="學員認證"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">督導角色可進入督導頁面</div>
-        <div class="test-meta">supervision-details.spec.ts › supervisor can access supervision page</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/supervisor--admin-supervision.png','督導頁面')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/supervisor--admin-supervision.png" alt="督導頁面"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">管理員認證管理（admin-certifications + admin-certification-flow）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可進入認證頁面</div>
-        <div class="test-meta">admin-certifications.spec.ts › admin can access certifications page</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員看到認證列表或空狀態</div>
-        <div class="test-meta">admin-certifications.spec.ts › admin sees certifications list or empty state</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員對待評分認證考試進行評分</div>
-        <div class="test-meta">admin-certification-flow.spec.ts › admin can grade a pending certification exam</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/certification-01-dialog-open.png','評分 Dialog')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/certification-01-dialog-open.png" alt="評分 Dialog"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/certification-02-score-filled.png','分數填寫')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/certification-02-score-filled.png" alt="分數填寫"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/certification-03-toast-success.png','成功提示')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/certification-03-toast-success.png" alt="成功提示"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">認證頁面顯示含考試紀錄的資料表</div>
-        <div class="test-meta">admin-certification-flow.spec.ts › certifications page shows table with exam records</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/certification-04-table-badges.png','認證資料表')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/certification-04-table-badges.png" alt="認證資料表"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">學員督導與認證檢視（student-supervision + student-certifications）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員可進入督導頁面</div>
-        <div class="test-meta">student-supervision.spec.ts › student can access supervision page</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員看到督導場次或空狀態</div>
-        <div class="test-meta">student-supervision.spec.ts › student sees supervision sessions or empty state</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員可進入認證頁面</div>
-        <div class="test-meta">student-certifications.spec.ts › student can access certifications page</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員看到認證紀錄或空狀態</div>
-        <div class="test-meta">student-certifications.spec.ts › student sees certifications or empty state</div>
-      </div>
-    </div>
-  </div>
+<div class="main" id="main-content">
+  <!-- tabs rendered by JS -->
 </div>
 
-<!-- ==================== M5 TAB ==================== -->
-<div id="tab-m5" class="tab-panel">
-  <div class="module-header">
-    <span class="module-badge">M5</span>
-    <span class="module-title">會員 CRM</span>
-    <div class="module-stats">
-      <span class="ms ms-pass">通過 22</span>
-    </div>
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModalIfBg(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="modal-title" id="modal-title"></div>
+    <div class="modal-meta" id="modal-meta"></div>
+    <div class="modal-screenshots" id="modal-screenshots"></div>
   </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">管理員 CRM 管理（admin-crm）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可進入 CRM 會員頁面</div>
-        <div class="test-meta">admin-crm.spec.ts › admin can access CRM members page</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-crm.png','管理員 CRM')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-crm.png" alt="管理員 CRM"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">CRM 頁面顯示分頁標籤與會員資料表</div>
-        <div class="test-meta">admin-crm.spec.ts › admin sees CRM with tabs and members table</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可進入推薦人頁面</div>
-        <div class="test-meta">admin-crm.spec.ts › admin can access referrals page</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可進入退款設定頁面</div>
-        <div class="test-meta">admin-crm.spec.ts › admin can access refunds settings page</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可進入代理商頁面</div>
-        <div class="test-meta">admin-crm.spec.ts › admin can access agents page</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">管理員 CRM 流程（admin-crm-flow）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可查看會員詳細 Dialog</div>
-        <div class="test-meta">admin-crm-flow.spec.ts › admin can view member detail dialog</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/crm-01-member-dialog.png','會員 Dialog')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/crm-01-member-dialog.png" alt="會員 Dialog"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可在 CRM 分頁標籤間切換</div>
-        <div class="test-meta">admin-crm-flow.spec.ts › admin can switch between CRM tabs</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/crm-02-renewal-tab.png','續費分頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/crm-02-renewal-tab.png" alt="續費分頁"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/crm-03-special-tab.png','特約分頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/crm-03-special-tab.png" alt="特約分頁"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可依姓名或 Email 搜尋會員</div>
-        <div class="test-meta">admin-crm-flow.spec.ts › admin can search members by name or email</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/crm-04-search-results.png','搜尋結果')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/crm-04-search-results.png" alt="搜尋結果"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可依認證狀態篩選會員</div>
-        <div class="test-meta">admin-crm-flow.spec.ts › admin can filter members by certification status</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">CRM 續費與申請流程（crm-renewal-flow）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員看到續費區塊並點擊「新增申請」</div>
-        <div class="test-meta">crm-renewal-flow.spec.ts › student can see renewal section and click 新增申請</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/renewal-01-new-application.png','新增申請')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/renewal-01-new-application.png" alt="新增申請"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員看到「特約申請」區塊與操作按鈕</div>
-        <div class="test-meta">crm-renewal-flow.spec.ts › student can see 特約申請 section with action buttons</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/renewal-02-special-buttons.png','特約按鈕')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/renewal-02-special-buttons.png" alt="特約按鈕"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員 CRM 顯示認證狀態</div>
-        <div class="test-meta">crm-renewal-flow.spec.ts › student CRM shows certification status</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/renewal-03-cert-status.png','認證狀態')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/renewal-03-cert-status.png" alt="認證狀態"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-crm.png','學員 CRM')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-crm.png" alt="學員 CRM"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可審核續費申請（核准 Dialog）</div>
-        <div class="test-meta">crm-renewal-flow.spec.ts › admin can review renewal — approve dialog</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可在「特約申請」分頁更新申請狀態</div>
-        <div class="test-meta">crm-renewal-flow.spec.ts › admin can update application status in 特約申請 tab</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">學員 CRM（student-crm）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員可進入 CRM 頁面</div>
-        <div class="test-meta">student-crm.spec.ts › student can access CRM page</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員看到「會員中心」含個人資料、續費與申請區塊</div>
-        <div class="test-meta">student-crm.spec.ts › student sees 會員中心 with profile, renewals, and applications sections</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員看到續費與申請操作按鈕</div>
-        <div class="test-meta">student-crm.spec.ts › student sees renewal and application action buttons</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員可進入個人資料頁面</div>
-        <div class="test-meta">student-crm.spec.ts › student can access profile page</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-profile.png','學員個人資料')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-profile.png" alt="學員個人資料"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- ==================== ACCESS CONTROL TAB ==================== -->
-<div id="tab-access" class="tab-panel">
-  <div class="module-header">
-    <span class="module-badge" style="background:var(--navy)">RBAC</span>
-    <span class="module-title">權限控管</span>
-    <div class="module-stats">
-      <span class="ms ms-pass">通過 11</span>
-    </div>
-  </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">未認證訪客（role-guards.spec.ts）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">未登入訪客存取 /admin/dashboard → 被重導至登入頁</div>
-        <div class="test-meta">role-guards.spec.ts › Unauthenticated visitor › visitor accessing /admin/dashboard gets redirected to login</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-01-admin-redirect-login.png','重導至登入')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-01-admin-redirect-login.png" alt="重導至登入"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">未登入訪客存取 /student/dashboard → 被重導至登入頁</div>
-        <div class="test-meta">role-guards.spec.ts › Unauthenticated visitor › visitor accessing /student/dashboard gets redirected to login</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-02-student-redirect-login.png','重導至登入')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-02-student-redirect-login.png" alt="重導至登入"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">訪客可存取公開的 /courses 頁面</div>
-        <div class="test-meta">role-guards.spec.ts › Unauthenticated visitor › visitor can access public /courses page</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-03-public-courses.png','公開課程')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-03-public-courses.png" alt="公開課程"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">訪客可存取登入頁</div>
-        <div class="test-meta">role-guards.spec.ts › Unauthenticated visitor › visitor can access login page</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-04-login-page.png','登入頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-04-login-page.png" alt="登入頁"></div>
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/visitor--login.png','訪客登入頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/visitor--login.png" alt="訪客登入頁"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">學員存取管理員頁面（角色隔離）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員存取 /admin/dashboard → 被封鎖（重導或空白）</div>
-        <div class="test-meta">role-guards.spec.ts › Student accessing admin pages › student accessing /admin/dashboard is blocked</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-05-student-blocked-admin.png','學員被封鎖')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-05-student-blocked-admin.png" alt="學員被封鎖"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員存取 /admin/enrollments → 被封鎖（重導或空白）</div>
-        <div class="test-meta">role-guards.spec.ts › Student accessing admin pages › student accessing /admin/enrollments is blocked</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-06-student-blocked-enrollments.png','學員被封鎖')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-06-student-blocked-enrollments.png" alt="學員被封鎖"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員可正常存取 /student/dashboard</div>
-        <div class="test-meta">role-guards.spec.ts › Student accessing admin pages › student can access /student/dashboard</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-07-student-own-dashboard.png','學員儀表板')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-07-student-own-dashboard.png" alt="學員儀表板"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">管理員存取管理員頁面</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可存取 /admin/dashboard</div>
-        <div class="test-meta">role-guards.spec.ts › Admin can access admin pages › admin can access /admin/dashboard</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-08-admin-dashboard.png','管理員儀表板')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-08-admin-dashboard.png" alt="管理員儀表板"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員可存取 /admin/enrollments</div>
-        <div class="test-meta">role-guards.spec.ts › Admin can access admin pages › admin can access /admin/enrollments</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-09-admin-enrollments.png','管理員報名頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-09-admin-enrollments.png" alt="管理員報名頁"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">API 層級權限控管</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員 Token 無法存取管理員 API 端點</div>
-        <div class="test-meta">role-guards.spec.ts › API-level role guards › student token cannot access admin API endpoints <span class="api-badge">API 測試</span></div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">未認證請求存取受保護 API → 回傳 401/403</div>
-        <div class="test-meta">role-guards.spec.ts › API-level role guards › unauthenticated request to protected API returns 401/403 <span class="api-badge">API 測試</span></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ==================== MOBILE TAB ==================== -->
-<div id="tab-mobile" class="tab-panel">
-  <div class="module-header">
-    <span class="module-badge" style="background:#7c3aed">手機</span>
-    <span class="module-title">手機版響應式</span>
-    <div class="module-stats">
-      <span class="ms ms-pass">通過 6</span>
-    </div>
-  </div>
-
-  <div class="spec-group">
-    <div class="spec-group-title">行動裝置視窗測試（mobile-viewport.spec.ts）</div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">首頁在手機版正確顯示</div>
-        <div class="test-meta">mobile-viewport.spec.ts › homepage renders on mobile</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/mobile-01-homepage.png','手機首頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/mobile-01-homepage.png" alt="手機首頁"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">課程列表頁在手機版正確顯示</div>
-        <div class="test-meta">mobile-viewport.spec.ts › courses page renders on mobile</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/mobile-02-courses.png','手機課程頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/mobile-02-courses.png" alt="手機課程頁"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">報名頁在手機版正確顯示</div>
-        <div class="test-meta">mobile-viewport.spec.ts › enroll page renders on mobile</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/mobile-03-enroll.png','手機報名頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/mobile-03-enroll.png" alt="手機報名頁"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">學員儀表板在手機版顯示漢堡選單</div>
-        <div class="test-meta">mobile-viewport.spec.ts › student dashboard renders on mobile with hamburger menu</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/mobile-04-student-dashboard.png','手機學員儀表板')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/mobile-04-student-dashboard.png" alt="手機學員儀表板"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">管理員儀表板在手機版顯示側邊欄切換</div>
-        <div class="test-meta">mobile-viewport.spec.ts › admin dashboard renders on mobile with sidebar toggle</div>
-      </div>
-    </div>
-
-    <div class="test-row">
-      <div class="test-status ts-pass">✓</div>
-      <div class="test-info">
-        <div class="test-name">登入頁在手機版正確顯示</div>
-        <div class="test-meta">mobile-viewport.spec.ts › login page renders on mobile</div>
-        <div class="thumb-row">
-          <div class="thumb-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/mobile-07-login.png','手機登入頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/mobile-07-login.png" alt="手機登入頁"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- ==================== GALLERY TAB ==================== -->
-<div id="tab-gallery" class="tab-panel">
-  <div class="module-header">
-    <span class="module-badge" style="background:#0f766e">截圖</span>
-    <span class="module-title">截圖總覽（123 張）</span>
-  </div>
-
-  <div class="gallery-section">
-    <div class="gallery-cat">
-      <div class="gallery-cat-title">訪客頁面（4 張）</div>
-      <div class="gallery-grid">
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/visitor--homepage.png','訪客首頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/visitor--homepage.png" alt="訪客首頁"><p>訪客首頁</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/visitor--courses.png','課程列表')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/visitor--courses.png" alt="課程列表"><p>課程列表</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/visitor--login.png','登入頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/visitor--login.png" alt="登入頁"><p>登入頁</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/visitor--enroll.png','報名頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/visitor--enroll.png" alt="報名頁"><p>報名頁</p></div>
-      </div>
-    </div>
-
-    <div class="gallery-cat">
-      <div class="gallery-cat-title">管理員頁面（15 張）</div>
-      <div class="gallery-grid">
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-dashboard.png','儀表板')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-dashboard.png" alt="儀表板"><p>儀表板</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-enrollments.png','報名管理')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-enrollments.png" alt="報名管理"><p>報名管理</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-cohorts.png','梯次管理')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-cohorts.png" alt="梯次管理"><p>梯次管理</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-classrooms.png','教室管理')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-classrooms.png" alt="教室管理"><p>教室管理</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-grading.png','評分管理')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-grading.png" alt="評分管理"><p>評分管理</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-promo-codes.png','優惠碼')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-promo-codes.png" alt="優惠碼"><p>優惠碼</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-products.png','商品管理')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-products.png" alt="商品管理"><p>商品管理</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-pages.png','行銷頁面')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-pages.png" alt="行銷頁面"><p>行銷頁面</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-marketing.png','行銷頻道')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-marketing.png" alt="行銷頻道"><p>行銷頻道</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-crm.png','CRM')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-crm.png" alt="CRM"><p>CRM</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-supervision.png','督導管理')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-supervision.png" alt="督導管理"><p>督導管理</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-certifications.png','認證管理')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-certifications.png" alt="認證管理"><p>認證管理</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-referrals.png','推薦人')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-referrals.png" alt="推薦人"><p>推薦人</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-refunds.png','退款管理')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-refunds.png" alt="退款管理"><p>退款管理</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-agents.png','代理商')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/admin--admin-agents.png" alt="代理商"><p>代理商</p></div>
-      </div>
-    </div>
-
-    <div class="gallery-cat">
-      <div class="gallery-cat-title">學員頁面（8 張）</div>
-      <div class="gallery-grid">
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-dashboard.png','學員儀表板')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-dashboard.png" alt="學員儀表板"><p>學員儀表板</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-enrollments.png','我的報名')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-enrollments.png" alt="我的報名"><p>我的報名</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-courses.png','我的課程')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-courses.png" alt="我的課程"><p>我的課程</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-payments.png','付款記錄')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-payments.png" alt="付款記錄"><p>付款記錄</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-crm.png','會員中心')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-crm.png" alt="會員中心"><p>會員中心</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-supervision.png','我的督導')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-supervision.png" alt="我的督導"><p>我的督導</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-certifications.png','我的認證')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-certifications.png" alt="我的認證"><p>我的認證</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-profile.png','個人資料')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/student--student-profile.png" alt="個人資料"><p>個人資料</p></div>
-      </div>
-    </div>
-
-    <div class="gallery-cat">
-      <div class="gallery-cat-title">其他角色（2 張）</div>
-      <div class="gallery-grid">
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/ta--admin-grading.png','助教評分')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/ta--admin-grading.png" alt="助教評分"><p>助教評分</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/supervisor--admin-supervision.png','督導頁面')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/supervisor--admin-supervision.png" alt="督導頁面"><p>督導頁面</p></div>
-      </div>
-    </div>
-
-    <div class="gallery-cat">
-      <div class="gallery-cat-title">CRUD 操作截圖（43 張）</div>
-      <div class="gallery-grid">
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohort-01-dialog-open.png','梯次新增 Dialog')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohort-01-dialog-open.png" alt="梯次新增 Dialog"><p>梯次新增 Dialog</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohort-02-form-filled.png','梯次表單填寫')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohort-02-form-filled.png" alt="梯次表單填寫"><p>梯次表單填寫</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohort-03-toast-success.png','梯次建立成功')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohort-03-toast-success.png" alt="梯次建立成功"><p>梯次建立成功</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohort-04-list-table.png','梯次列表')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohort-04-list-table.png" alt="梯次列表"><p>梯次列表</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohorts-smoke-01-list-page.png','梯次列表頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohorts-smoke-01-list-page.png" alt="梯次列表頁"><p>梯次列表頁</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohorts-smoke-02-table.png','梯次表格')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohorts-smoke-02-table.png" alt="梯次表格"><p>梯次表格</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohorts-smoke-04-create-btn.png','新增梯次按鈕')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/cohorts-smoke-04-create-btn.png" alt="新增梯次按鈕"><p>新增梯次按鈕</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/enrollments-01-list-page.png','報名列表頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/enrollments-01-list-page.png" alt="報名列表頁"><p>報名列表頁</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/enrollments-02-table.png','報名表格')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/enrollments-02-table.png" alt="報名表格"><p>報名表格</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/enrollments-03-filter.png','狀態篩選')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/enrollments-03-filter.png" alt="狀態篩選"><p>狀態篩選</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/enrollments-04-sidebar-active.png','側邊欄啟用')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/enrollments-04-sidebar-active.png" alt="側邊欄啟用"><p>側邊欄啟用</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/enrollments-05-dashboard.png','儀表板統計')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/enrollments-05-dashboard.png" alt="儀表板統計"><p>儀表板統計</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-01-dialog-open.png','優惠碼 Dialog')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-01-dialog-open.png" alt="優惠碼 Dialog"><p>優惠碼 Dialog</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-02-form-filled.png','優惠碼表單')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-02-form-filled.png" alt="優惠碼表單"><p>優惠碼表單</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-03-toast-success.png','優惠碼成功')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-03-toast-success.png" alt="優惠碼成功"><p>優惠碼成功</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-04-list-verified.png','優惠碼驗證')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-04-list-verified.png" alt="優惠碼驗證"><p>優惠碼驗證</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-smoke-01-list-page.png','優惠碼列表')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-smoke-01-list-page.png" alt="優惠碼列表"><p>優惠碼列表</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-smoke-02-table.png','優惠碼表格')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-smoke-02-table.png" alt="優惠碼表格"><p>優惠碼表格</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-smoke-03-create-btn.png','新增優惠碼')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/promo-smoke-03-create-btn.png" alt="新增優惠碼"><p>新增優惠碼</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/classroom-01-dialog-open.png','教室新增 Dialog')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/classroom-01-dialog-open.png" alt="教室新增 Dialog"><p>教室新增 Dialog</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/classroom-02-cohort-selected.png','梯次選擇')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/classroom-02-cohort-selected.png" alt="梯次選擇"><p>梯次選擇</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/classroom-03-toast-success.png','教室建立成功')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/classroom-03-toast-success.png" alt="教室建立成功"><p>教室建立成功</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/classroom-04-detail-page.png','教室詳情')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/classroom-04-detail-page.png" alt="教室詳情"><p>教室詳情</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/grading-01-dialog-open.png','評分 Dialog')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/grading-01-dialog-open.png" alt="評分 Dialog"><p>評分 Dialog</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/grading-02-grade-filled.png','分數填寫')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/grading-02-grade-filled.png" alt="分數填寫"><p>分數填寫</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/grading-03-toast-success.png','評分成功')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/grading-03-toast-success.png" alt="評分成功"><p>評分成功</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/grading-04-stat-cards.png','評分統計')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/grading-04-stat-cards.png" alt="評分統計"><p>評分統計</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/supervision-01-edit-dialog.png','督導編輯 Dialog')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/supervision-01-edit-dialog.png" alt="督導編輯 Dialog"><p>督導編輯 Dialog</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/supervision-02-status-selected.png','督導狀態')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/supervision-02-status-selected.png" alt="督導狀態"><p>督導狀態</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/supervision-03-toast-success.png','督導更新成功')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/supervision-03-toast-success.png" alt="督導更新成功"><p>督導更新成功</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/supervision-04-table.png','督導資料表')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/supervision-04-table.png" alt="督導資料表"><p>督導資料表</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/certification-01-dialog-open.png','認證 Dialog')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/certification-01-dialog-open.png" alt="認證 Dialog"><p>認證 Dialog</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/certification-02-score-filled.png','認證分數')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/certification-02-score-filled.png" alt="認證分數"><p>認證分數</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/certification-03-toast-success.png','認證評分成功')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/certification-03-toast-success.png" alt="認證評分成功"><p>認證評分成功</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/certification-04-table-badges.png','認證資料表')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/certification-04-table-badges.png" alt="認證資料表"><p>認證資料表</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/agents-01-stat-cards.png','代理商統計')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/agents-01-stat-cards.png" alt="代理商統計"><p>代理商統計</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/agents-02-table-columns.png','代理商欄位')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/agents-02-table-columns.png" alt="代理商欄位"><p>代理商欄位</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/agents-03-create-btn.png','新增代理商')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/agents-03-create-btn.png" alt="新增代理商"><p>新增代理商</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/agents-04-referrals-stats.png','推薦人統計')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/agents-04-referrals-stats.png" alt="推薦人統計"><p>推薦人統計</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/page-01-editor-loaded.png','頁面編輯器')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/page-01-editor-loaded.png" alt="頁面編輯器"><p>頁面編輯器</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/page-02-slug-filled.png','Slug 填寫')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/page-02-slug-filled.png" alt="Slug 填寫"><p>Slug 填寫</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/page-03-toast-success.png','頁面建立成功')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/page-03-toast-success.png" alt="頁面建立成功"><p>頁面建立成功</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/page-04-list-verified.png','頁面列表')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/crud/page-04-list-verified.png" alt="頁面列表"><p>頁面列表</p></div>
-      </div>
-    </div>
-
-    <div class="gallery-cat">
-      <div class="gallery-cat-title">流程截圖（51 張）</div>
-      <div class="gallery-grid">
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-01-hero.png','首頁 Hero')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-01-hero.png" alt="首頁 Hero"><p>首頁 Hero</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-02-course-list.png','課程列表')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-02-course-list.png" alt="課程列表"><p>課程列表</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-03-course-detail.png','課程詳情')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-03-course-detail.png" alt="課程詳情"><p>課程詳情</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-04-enroll-cta.png','報名 CTA')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-04-enroll-cta.png" alt="報名 CTA"><p>報名 CTA</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-05-login-btn.png','登入按鈕')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/browse-05-login-btn.png" alt="登入按鈕"><p>登入按鈕</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-01-course-listing.png','報名課程列表')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-01-course-listing.png" alt="報名課程列表"><p>報名課程列表</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-02-course-detail.png','報名課程詳情')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-02-course-detail.png" alt="報名課程詳情"><p>報名課程詳情</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-03-pricing-page.png','定價頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-03-pricing-page.png" alt="定價頁"><p>定價頁</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-04-student-dashboard.png','學員儀表板')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-04-student-dashboard.png" alt="學員儀表板"><p>學員儀表板</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-01-cohort-info.png','梯次資訊')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-01-cohort-info.png" alt="梯次資訊"><p>梯次資訊</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-02-early-bird.png','早鳥定價')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-02-early-bird.png" alt="早鳥定價"><p>早鳥定價</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-03-cohort-detail.png','梯次詳情')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-03-cohort-detail.png" alt="梯次詳情"><p>梯次詳情</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-04-status-filter.png','狀態篩選')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-04-status-filter.png" alt="狀態篩選"><p>狀態篩選</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-05-refunds.png','退款列表')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-05-refunds.png" alt="退款列表"><p>退款列表</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-06-process-refund-btn.png','處理退款')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-details-06-process-refund-btn.png" alt="處理退款"><p>處理退款</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-form-01-step1-courses.png','報名步驟一')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-form-01-step1-courses.png" alt="報名步驟一"><p>報名步驟一</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-form-02-early-bird.png','早鳥定價')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/enroll-form-02-early-bird.png" alt="早鳥定價"><p>早鳥定價</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-01-dashboard.png','學員儀表板')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-01-dashboard.png" alt="學員儀表板"><p>學員儀表板</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-02-enroll-page.png','報名頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-02-enroll-page.png" alt="報名頁"><p>報名頁</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-03-enroll-btn.png','選擇梯次')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-03-enroll-btn.png" alt="選擇梯次"><p>選擇梯次</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-04-form-accessible.png','報名表單')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-04-form-accessible.png" alt="報名表單"><p>報名表單</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-05-records.png','報名紀錄')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-05-records.png" alt="報名紀錄"><p>報名紀錄</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-06-pricing-cta.png','定價 CTA')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-06-pricing-cta.png" alt="定價 CTA"><p>定價 CTA</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-07-checkout-failed.png','結帳失敗')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/student-enroll-07-checkout-failed.png" alt="結帳失敗"><p>結帳失敗</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/payment-01-pricing-breakdown.png','定價明細')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/payment-01-pricing-breakdown.png" alt="定價明細"><p>定價明細</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/payment-02-checkout-success.png','結帳成功')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/payment-02-checkout-success.png" alt="結帳成功"><p>結帳成功</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/payment-03-checkout-failed.png','結帳失敗')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/payment-03-checkout-failed.png" alt="結帳失敗"><p>結帳失敗</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/payment-04-student-history.png','付款記錄')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/payment-04-student-history.png" alt="付款記錄"><p>付款記錄</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/ecpay-01-success-page.png','ECPay 成功')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/ecpay-01-success-page.png" alt="ECPay 成功"><p>ECPay 成功</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/ecpay-02-failed-page.png','ECPay 失敗')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/ecpay-02-failed-page.png" alt="ECPay 失敗"><p>ECPay 失敗</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/crm-01-member-dialog.png','會員 Dialog')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/crm-01-member-dialog.png" alt="會員 Dialog"><p>會員 Dialog</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/crm-02-renewal-tab.png','續費分頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/crm-02-renewal-tab.png" alt="續費分頁"><p>續費分頁</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/crm-03-special-tab.png','特約分頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/crm-03-special-tab.png" alt="特約分頁"><p>特約分頁</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/crm-04-search-results.png','CRM 搜尋')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/crm-04-search-results.png" alt="CRM 搜尋"><p>CRM 搜尋</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/renewal-01-new-application.png','新增申請')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/renewal-01-new-application.png" alt="新增申請"><p>新增申請</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/renewal-02-special-buttons.png','特約按鈕')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/renewal-02-special-buttons.png" alt="特約按鈕"><p>特約按鈕</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/renewal-03-cert-status.png','認證狀態')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/renewal-03-cert-status.png" alt="認證狀態"><p>認證狀態</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-01-admin-redirect-login.png','管理員重導')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-01-admin-redirect-login.png" alt="管理員重導"><p>管理員重導</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-02-student-redirect-login.png','學員重導')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-02-student-redirect-login.png" alt="學員重導"><p>學員重導</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-03-public-courses.png','公開課程')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-03-public-courses.png" alt="公開課程"><p>公開課程</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-04-login-page.png','登入頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-04-login-page.png" alt="登入頁"><p>登入頁</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-05-student-blocked-admin.png','學員被封鎖')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-05-student-blocked-admin.png" alt="學員被封鎖"><p>學員被封鎖</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-06-student-blocked-enrollments.png','學員被封鎖')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-06-student-blocked-enrollments.png" alt="學員被封鎖"><p>學員被封鎖</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-07-student-own-dashboard.png','學員儀表板')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-07-student-own-dashboard.png" alt="學員儀表板"><p>學員儀表板</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-08-admin-dashboard.png','管理員儀表板')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-08-admin-dashboard.png" alt="管理員儀表板"><p>管理員儀表板</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-09-admin-enrollments.png','管理員報名')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/access-09-admin-enrollments.png" alt="管理員報名"><p>管理員報名</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/mobile-01-homepage.png','手機首頁')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/mobile-01-homepage.png" alt="手機首頁"><p>手機首頁</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/mobile-02-courses.png','手機課程')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/mobile-02-courses.png" alt="手機課程"><p>手機課程</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/mobile-03-enroll.png','手機報名')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/mobile-03-enroll.png" alt="手機報名"><p>手機報名</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/mobile-04-student-dashboard.png','手機學員')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/mobile-04-student-dashboard.png" alt="手機學員"><p>手機學員</p></div>
-        <div class="gallery-item" onclick="openLightbox('https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/mobile-07-login.png','手機登入')"><img src="https://youngger9765.github.io/navi-career-CNC-docs/screenshots/flow/mobile-07-login.png" alt="手機登入"><p>手機登入</p></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-</div><!-- /main -->
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-  <span class="lightbox-close" onclick="document.getElementById('lightbox').classList.remove('open')">×</span>
-  <img id="lightbox-img" src="" alt="">
-  <div class="lightbox-caption" id="lightbox-caption"></div>
 </div>
 
 <script>
-function showTab(id){
-  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('tab-'+id).classList.add('active');
-  event.target.classList.add('active');
-}
-function openLightbox(src,caption){
-  const lb=document.getElementById('lightbox');
-  document.getElementById('lightbox-img').src=src;
-  document.getElementById('lightbox-caption').textContent=caption||'';
-  lb.classList.add('open');
-}
-function closeLightbox(e){
-  if(e.target===document.getElementById('lightbox')){
-    document.getElementById('lightbox').classList.remove('open');
+const BASE = 'https://youngger9765.github.io/navi-career-CNC-docs/screenshots/';
+
+// Page-level fallback map: path segment → root screenshot filename
+const PAGE_FALLBACK = {
+  '/admin/cohorts': 'admin--admin-cohorts.png',
+  '/admin/enrollments': 'admin--admin-enrollments.png',
+  '/admin/pages': 'admin--admin-pages.png',
+  '/admin/products': 'admin--admin-products.png',
+  '/admin/classrooms': 'admin--admin-classrooms.png',
+  '/admin/grading': 'admin--admin-grading.png',
+  '/admin/supervision': 'admin--admin-supervision.png',
+  '/admin/certifications': 'admin--admin-certifications.png',
+  '/admin/crm': 'admin--admin-crm.png',
+  '/admin/agents': 'admin--admin-agents.png',
+  '/admin/marketing': 'admin--admin-marketing.png',
+  '/admin/refunds': 'admin--admin-refunds.png',
+  '/admin/promo-codes': 'admin--admin-promo-codes.png',
+  '/admin/referrals': 'admin--admin-referrals.png',
+  '/admin/dashboard': 'admin--admin-dashboard.png',
+  '/student/dashboard': 'student--student-dashboard.png',
+  '/student/enrollments': 'student--student-enrollments.png',
+  '/student/courses': 'student--student-courses.png',
+  '/student/payments': 'student--student-payments.png',
+  '/student/crm': 'student--student-crm.png',
+  '/student/supervision': 'student--student-supervision.png',
+  '/student/certifications': 'student--student-certifications.png',
+  '/student/profile': 'student--student-profile.png',
+  '/courses': 'visitor--courses.png',
+  '/enroll': 'visitor--enroll.png',
+  '/login': 'visitor--login.png',
+  '/': 'visitor--homepage.png',
+};
+
+// Helper: resolve screenshot URLs for a test
+// primary: array of specific screenshot paths (relative, can be 'flow/xxx.png' or 'crud/xxx.png')
+// pages: array of page paths visited (for fallback)
+// apiOnly: bool
+function resolveScreenshots(primary, pages, apiOnly) {
+  if (apiOnly) return [];
+  const urls = [];
+  if (primary && primary.length) {
+    primary.forEach(p => urls.push({url: BASE + p, label: ''}));
   }
+  if (urls.length === 0 && pages && pages.length) {
+    // try each page for a fallback
+    for (const pg of pages) {
+      const f = PAGE_FALLBACK[pg];
+      if (f) { urls.push({url: BASE + f, label: '頁面截圖'}); break; }
+    }
+  }
+  return urls;
 }
-document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('lightbox').classList.remove('open');});
+
+// All 182 tests
+// format: {name, spec, status('pass'|'skip'), pages:[], shots:[], apiOnly:bool}
+// shots = specific screenshot paths relative to BASE
+// pages = page paths visited for fallback lookup
+const TESTS = [
+/* ===== ACCESS CONTROL ===== */
+{tab:'access', group:'未認證訪客（role-guards）',
+ name:'未認證訪客造訪 /admin/dashboard 被重導至登入頁', spec:'access-control/role-guards.spec.ts',
+ status:'pass', pages:['/admin/dashboard','/login'], shots:['flow/access-01-admin-redirect-login.png']},
+{tab:'access', group:'未認證訪客（role-guards）',
+ name:'未認證訪客造訪 /student/dashboard 被重導至登入頁', spec:'access-control/role-guards.spec.ts',
+ status:'pass', pages:['/student/dashboard','/login'], shots:['flow/access-02-student-redirect-login.png']},
+{tab:'access', group:'未認證訪客（role-guards）',
+ name:'訪客可存取公開 /courses 頁面', spec:'access-control/role-guards.spec.ts',
+ status:'pass', pages:['/courses'], shots:['flow/access-03-public-courses.png']},
+{tab:'access', group:'未認證訪客（role-guards）',
+ name:'訪客可存取登入頁', spec:'access-control/role-guards.spec.ts',
+ status:'pass', pages:['/login'], shots:['flow/access-04-login-page.png']},
+{tab:'access', group:'學員存取管理員頁面（role-guards）',
+ name:'學員存取 /admin/dashboard 被封鎖', spec:'access-control/role-guards.spec.ts',
+ status:'pass', pages:['/admin/dashboard'], shots:['flow/access-05-student-blocked-admin.png']},
+{tab:'access', group:'學員存取管理員頁面（role-guards）',
+ name:'學員存取 /admin/enrollments 被封鎖', spec:'access-control/role-guards.spec.ts',
+ status:'pass', pages:['/admin/enrollments'], shots:['flow/access-06-student-blocked-enrollments.png']},
+{tab:'access', group:'學員存取管理員頁面（role-guards）',
+ name:'學員可存取 /student/dashboard', spec:'access-control/role-guards.spec.ts',
+ status:'pass', pages:['/student/dashboard'], shots:['flow/access-07-student-own-dashboard.png']},
+{tab:'access', group:'管理員可存取管理頁面（role-guards）',
+ name:'管理員可存取 /admin/dashboard', spec:'access-control/role-guards.spec.ts',
+ status:'pass', pages:['/admin/dashboard'], shots:['flow/access-08-admin-dashboard.png']},
+{tab:'access', group:'管理員可存取管理頁面（role-guards）',
+ name:'管理員可存取 /admin/enrollments', spec:'access-control/role-guards.spec.ts',
+ status:'pass', pages:['/admin/enrollments'], shots:['flow/access-09-admin-enrollments.png']},
+{tab:'access', group:'API 層級權限（role-guards）',
+ name:'學員 Token 無法存取管理員 API 端點', spec:'access-control/role-guards.spec.ts',
+ status:'pass', pages:[], shots:[], apiOnly:true},
+{tab:'access', group:'API 層級權限（role-guards）',
+ name:'未認證請求受保護 API 返回 401/403', spec:'access-control/role-guards.spec.ts',
+ status:'pass', pages:[], shots:[], apiOnly:true},
+
+/* ===== M1 ===== */
+{tab:'m1', group:'訪客瀏覽課程（public-browse）',
+ name:'首頁載入 Hero 區塊與課程列表', spec:'m1-registration/public-browse.spec.ts',
+ status:'pass', pages:['/'], shots:['flow/browse-01-hero.png']},
+{tab:'m1', group:'訪客瀏覽課程（public-browse）',
+ name:'訪客瀏覽 /courses 課程列表頁', spec:'m1-registration/public-browse.spec.ts',
+ status:'pass', pages:['/courses'], shots:['flow/browse-02-course-list.png','visitor--courses.png']},
+{tab:'m1', group:'訪客瀏覽課程（public-browse）',
+ name:'訪客點擊課程進入詳情頁', spec:'m1-registration/public-browse.spec.ts',
+ status:'pass', pages:['/courses'], shots:['flow/browse-03-course-detail.png']},
+{tab:'m1', group:'訪客瀏覽課程（public-browse）',
+ name:'訪客在課程詳情頁看到報名 CTA', spec:'m1-registration/public-browse.spec.ts',
+ status:'pass', pages:['/courses'], shots:['flow/browse-04-enroll-cta.png']},
+{tab:'m1', group:'訪客瀏覽課程（public-browse）',
+ name:'未登入訪客 Header 顯示登入按鈕', spec:'m1-registration/public-browse.spec.ts',
+ status:'pass', pages:['/'], shots:['flow/browse-05-login-btn.png','visitor--homepage.png']},
+
+{tab:'m1', group:'報名流程 End-to-End（enroll-flow）',
+ name:'訪客瀏覽課程 → 課程詳情 → 看到報名 CTA', spec:'m1-registration/enroll-flow.spec.ts',
+ status:'pass', pages:['/courses'], shots:['flow/enroll-01-course-listing.png','flow/enroll-02-course-detail.png']},
+{tab:'m1', group:'報名流程 End-to-End（enroll-flow）',
+ name:'訪客進入報名頁並看到梯次定價', spec:'m1-registration/enroll-flow.spec.ts',
+ status:'pass', pages:['/enroll'], shots:['flow/enroll-03-pricing-page.png','visitor--enroll.png']},
+{tab:'m1', group:'報名流程 End-to-End（enroll-flow）',
+ name:'學員儀表板顯示快速連結與報名狀態', spec:'m1-registration/enroll-flow.spec.ts',
+ status:'pass', pages:['/student/dashboard'], shots:['flow/enroll-04-student-dashboard.png','student--student-dashboard.png']},
+{tab:'m1', group:'報名流程 End-to-End（enroll-flow）',
+ name:'學員可透過側邊欄導航連結切換頁面', spec:'m1-registration/enroll-flow.spec.ts',
+ status:'pass', pages:['/student/dashboard'], shots:[]},
+
+{tab:'m1', group:'報名表單詳情與定價（enroll-form-details）',
+ name:'報名頁顯示梯次資訊：課型、日期、名額、定價', spec:'m1-registration/enroll-form-details.spec.ts',
+ status:'pass', pages:['/enroll'], shots:['flow/enroll-details-01-cohort-info.png']},
+{tab:'m1', group:'報名表單詳情與定價（enroll-form-details）',
+ name:'報名頁顯示早鳥與一般定價', spec:'m1-registration/enroll-form-details.spec.ts',
+ status:'pass', pages:['/enroll'], shots:['flow/enroll-details-02-early-bird.png']},
+{tab:'m1', group:'報名表單詳情與定價（enroll-form-details）',
+ name:'梯次詳情頁顯示設定狀態與統計數據', spec:'m1-registration/enroll-form-details.spec.ts',
+ status:'pass', pages:['/admin/cohorts'], shots:['flow/enroll-details-03-cohort-detail.png','admin--admin-cohorts.png']},
+{tab:'m1', group:'報名表單詳情與定價（enroll-form-details）',
+ name:'管理員報名頁可依狀態篩選', spec:'m1-registration/enroll-form-details.spec.ts',
+ status:'pass', pages:['/admin/enrollments'], shots:['flow/enroll-details-04-status-filter.png']},
+{tab:'m1', group:'報名表單詳情與定價（enroll-form-details）',
+ name:'管理員退款頁顯示待處理與已完成退款', spec:'m1-registration/enroll-form-details.spec.ts',
+ status:'pass', pages:['/admin/refunds'], shots:['flow/enroll-details-05-refunds.png','admin--admin-refunds.png']},
+{tab:'m1', group:'報名表單詳情與定價（enroll-form-details）',
+ name:'退款頁有「處理退款」按鈕', spec:'m1-registration/enroll-form-details.spec.ts',
+ status:'pass', pages:['/admin/refunds'], shots:['flow/enroll-details-06-process-refund-btn.png']},
+
+{tab:'m1', group:'多步驟報名表單（enroll-form-fill）',
+ name:'訪客進入梯次報名頁，看到步驟一', spec:'m1-registration/enroll-form-fill.spec.ts',
+ status:'pass', pages:['/enroll'], shots:['flow/enroll-form-01-step1-courses.png']},
+{tab:'m1', group:'多步驟報名表單（enroll-form-fill）',
+ name:'步驟一顯示早鳥定價（如適用）', spec:'m1-registration/enroll-form-fill.spec.ts',
+ status:'pass', pages:['/enroll'], shots:['flow/enroll-form-02-early-bird.png']},
+{tab:'m1', group:'多步驟報名表單（enroll-form-fill）',
+ name:'步驟二顯示個人資訊填寫欄位', spec:'m1-registration/enroll-form-fill.spec.ts',
+ status:'pass', pages:['/enroll'], shots:[]},
+{tab:'m1', group:'多步驟報名表單（enroll-form-fill）',
+ name:'步驟三顯示優惠碼輸入框與報名摘要', spec:'m1-registration/enroll-form-fill.spec.ts',
+ status:'pass', pages:['/enroll'], shots:[]},
+
+{tab:'m1', group:'學員報名流程（student-enroll）',
+ name:'學員登入後看到儀表板', spec:'m1-registration/student-enroll.spec.ts',
+ status:'pass', pages:['/student/dashboard'], shots:['flow/student-enroll-01-dashboard.png']},
+{tab:'m1', group:'學員報名流程（student-enroll）',
+ name:'學員可導覽至 /enroll 報名頁', spec:'m1-registration/student-enroll.spec.ts',
+ status:'pass', pages:['/enroll'], shots:['flow/student-enroll-02-enroll-page.png']},
+{tab:'m1', group:'學員報名流程（student-enroll）',
+ name:'學員可瀏覽課程並選擇梯次', spec:'m1-registration/student-enroll.spec.ts',
+ status:'pass', pages:['/enroll'], shots:['flow/student-enroll-03-enroll-btn.png']},
+{tab:'m1', group:'學員報名流程（student-enroll）',
+ name:'學員可進入梯次報名表單', spec:'m1-registration/student-enroll.spec.ts',
+ status:'pass', pages:['/enroll'], shots:['flow/student-enroll-04-form-accessible.png']},
+{tab:'m1', group:'學員報名流程（student-enroll）',
+ name:'學員可查看自己的報名紀錄', spec:'m1-registration/student-enroll.spec.ts',
+ status:'pass', pages:['/student/enrollments'], shots:['flow/student-enroll-05-records.png','student--student-enrollments.png']},
+{tab:'m1', group:'學員報名流程（student-enroll）',
+ name:'報名頁顯示梯次定價與報名 CTA', spec:'m1-registration/student-enroll.spec.ts',
+ status:'pass', pages:['/enroll'], shots:['flow/student-enroll-06-pricing-cta.png']},
+{tab:'m1', group:'學員報名流程（student-enroll）',
+ name:'結帳失敗頁面存在', spec:'m1-registration/student-enroll.spec.ts',
+ status:'pass', pages:['/enroll'], shots:['flow/student-enroll-07-checkout-failed.png']},
+{tab:'m1', group:'學員報名流程（student-enroll）',
+ name:'alice（已報名學員）看到她的報名 — alice@test.com 未在 prod 植入', spec:'m1-registration/student-enroll.spec.ts',
+ status:'skip', pages:['/student/enrollments'], shots:[]},
+
+{tab:'m1', group:'付款與結帳流程（payment-flow）',
+ name:'報名頁顯示完整梯次定價明細', spec:'m1-registration/payment-flow.spec.ts',
+ status:'pass', pages:['/enroll'], shots:['flow/payment-01-pricing-breakdown.png']},
+{tab:'m1', group:'付款與結帳流程（payment-flow）',
+ name:'結帳成功頁面正確渲染', spec:'m1-registration/payment-flow.spec.ts',
+ status:'pass', pages:['/enroll'], shots:['flow/payment-02-checkout-success.png']},
+{tab:'m1', group:'付款與結帳流程（payment-flow）',
+ name:'結帳失敗頁面顯示重試選項', spec:'m1-registration/payment-flow.spec.ts',
+ status:'pass', pages:['/enroll'], shots:['flow/payment-03-checkout-failed.png']},
+{tab:'m1', group:'付款與結帳流程（payment-flow）',
+ name:'後端付款 API 需要認證', spec:'m1-registration/payment-flow.spec.ts',
+ status:'pass', pages:[], shots:[], apiOnly:true},
+{tab:'m1', group:'付款與結帳流程（payment-flow）',
+ name:'後端優惠碼驗證 API 正常運作', spec:'m1-registration/payment-flow.spec.ts',
+ status:'pass', pages:[], shots:[], apiOnly:true},
+{tab:'m1', group:'付款與結帳流程（payment-flow）',
+ name:'學員可查看付款記錄頁', spec:'m1-registration/payment-flow.spec.ts',
+ status:'pass', pages:['/student/payments'], shots:['flow/payment-04-student-history.png']},
+
+{tab:'m1', group:'ECPay 金流（ecpay-mock）',
+ name:'付款結帳 API 返回重導 URL 或訂單資訊', spec:'m1-registration/ecpay-mock.spec.ts',
+ status:'pass', pages:[], shots:[], apiOnly:true},
+{tab:'m1', group:'ECPay 金流（ecpay-mock）',
+ name:'模擬 ECPay 重導顯示結帳成功頁', spec:'m1-registration/ecpay-mock.spec.ts',
+ status:'pass', pages:['/enroll'], shots:['flow/ecpay-01-success-page.png']},
+{tab:'m1', group:'ECPay 金流（ecpay-mock）',
+ name:'結帳失敗頁提供重試選項', spec:'m1-registration/ecpay-mock.spec.ts',
+ status:'pass', pages:['/enroll'], shots:['flow/ecpay-02-failed-page.png']},
+
+{tab:'m1', group:'管理員梯次管理（admin-cohorts）',
+ name:'管理員可存取梯次列表頁', spec:'m1-registration/admin-cohorts.spec.ts',
+ status:'pass', pages:['/admin/cohorts'], shots:[]},
+{tab:'m1', group:'管理員梯次管理（admin-cohorts）',
+ name:'管理員在表格/列表中看到梯次', spec:'m1-registration/admin-cohorts.spec.ts',
+ status:'pass', pages:['/admin/cohorts'], shots:[]},
+{tab:'m1', group:'管理員梯次管理（admin-cohorts）',
+ name:'管理員可點擊梯次進入詳情頁', spec:'m1-registration/admin-cohorts.spec.ts',
+ status:'pass', pages:['/admin/cohorts'], shots:[]},
+{tab:'m1', group:'管理員梯次管理（admin-cohorts）',
+ name:'管理員看到新增梯次按鈕', spec:'m1-registration/admin-cohorts.spec.ts',
+ status:'pass', pages:['/admin/cohorts'], shots:[]},
+
+{tab:'m1', group:'梯次管理 CRUD（admin-cohort-crud）',
+ name:'管理員開啟新增 Dialog、填寫表單、送出', spec:'m1-registration/admin-cohort-crud.spec.ts',
+ status:'pass', pages:['/admin/cohorts'], shots:['crud/cohort-01-dialog-open.png','crud/cohort-02-form-filled.png','crud/cohort-03-toast-success.png']},
+{tab:'m1', group:'梯次管理 CRUD（admin-cohort-crud）',
+ name:'管理員看到梯次列表與表格標題', spec:'m1-registration/admin-cohort-crud.spec.ts',
+ status:'pass', pages:['/admin/cohorts'], shots:['crud/cohort-04-list-verified.png']},
+{tab:'m1', group:'梯次管理 CRUD（admin-cohort-crud）',
+ name:'管理員點擊梯次進入詳情', spec:'m1-registration/admin-cohort-crud.spec.ts',
+ status:'pass', pages:['/admin/cohorts'], shots:[]},
+
+{tab:'m1', group:'梯次 Smoke Test（cohorts-smoke）',
+ name:'梯次列表頁快速可用性驗證', spec:'m1-registration/admin-cohort-crud.spec.ts',
+ status:'pass', pages:['/admin/cohorts'], shots:['crud/cohorts-smoke-01-list.png','crud/cohorts-smoke-02-detail.png']},
+
+{tab:'m1', group:'管理員報名管理（admin-enrollments）',
+ name:'管理員可存取報名管理頁', spec:'m1-registration/admin-enrollments.spec.ts',
+ status:'pass', pages:['/admin/enrollments'], shots:[]},
+{tab:'m1', group:'管理員報名管理（admin-enrollments）',
+ name:'管理員在表格中看到報名紀錄', spec:'m1-registration/admin-enrollments.spec.ts',
+ status:'pass', pages:['/admin/enrollments'], shots:['crud/enrollments-01-table.png']},
+{tab:'m1', group:'管理員報名管理（admin-enrollments）',
+ name:'管理員可依狀態篩選報名', spec:'m1-registration/admin-enrollments.spec.ts',
+ status:'pass', pages:['/admin/enrollments'], shots:['crud/enrollments-02-filter.png']},
+{tab:'m1', group:'管理員報名管理（admin-enrollments）',
+ name:'管理員側邊欄顯示報名連結為啟用', spec:'m1-registration/admin-enrollments.spec.ts',
+ status:'pass', pages:['/admin/enrollments'], shots:['crud/enrollments-03-sidebar-active.png']},
+{tab:'m1', group:'管理員報名管理（admin-enrollments）',
+ name:'管理員 Dashboard 載入並顯示統計', spec:'m1-registration/admin-enrollments.spec.ts',
+ status:'pass', pages:['/admin/dashboard'], shots:['crud/enrollments-04-dashboard-stats.png']},
+
+{tab:'m1', group:'報名管理 CRUD（enrollments-crud）',
+ name:'報名資料完整 CRUD 流程驗證', spec:'m1-registration/admin-enrollments.spec.ts',
+ status:'pass', pages:['/admin/enrollments'], shots:['crud/enrollments-05-detail.png']},
+
+{tab:'m1', group:'管理員優惠碼管理（admin-promo-codes）',
+ name:'管理員可存取優惠碼頁', spec:'m1-registration/admin-promo-codes.spec.ts',
+ status:'pass', pages:['/admin/promo-codes'], shots:[]},
+{tab:'m1', group:'管理員優惠碼管理（admin-promo-codes）',
+ name:'管理員看到優惠碼列表或空狀態', spec:'m1-registration/admin-promo-codes.spec.ts',
+ status:'pass', pages:['/admin/promo-codes'], shots:[]},
+{tab:'m1', group:'管理員優惠碼管理（admin-promo-codes）',
+ name:'管理員看到新增優惠碼按鈕', spec:'m1-registration/admin-promo-codes.spec.ts',
+ status:'pass', pages:['/admin/promo-codes'], shots:[]},
+
+{tab:'m1', group:'優惠碼 CRUD（admin-promo-crud）',
+ name:'管理員新增優惠碼並在列表中驗證', spec:'m1-registration/admin-promo-crud.spec.ts',
+ status:'pass', pages:['/admin/promo-codes'], shots:['crud/promo-01-dialog-open.png','crud/promo-02-form-filled.png','crud/promo-03-list-verified.png','crud/promo-04-delete-confirm.png']},
+
+{tab:'m1', group:'優惠碼 Smoke Test（promo-smoke）',
+ name:'優惠碼頁快速可用性驗證 1', spec:'m1-registration/admin-promo-codes.spec.ts',
+ status:'pass', pages:['/admin/promo-codes'], shots:['crud/promo-smoke-01-page-loaded.png']},
+{tab:'m1', group:'優惠碼 Smoke Test（promo-smoke）',
+ name:'優惠碼頁快速可用性驗證 2', spec:'m1-registration/admin-promo-codes.spec.ts',
+ status:'pass', pages:['/admin/promo-codes'], shots:['crud/promo-smoke-03-filter.png']},
+
+{tab:'m1', group:'代理商管理（admin-agents）',
+ name:'代理商頁顯示統計卡片與資料表', spec:'m1-registration/admin-agents.spec.ts',
+ status:'pass', pages:['/admin/agents'], shots:['crud/agents-01-stat-cards.png']},
+{tab:'m1', group:'代理商管理（admin-agents）',
+ name:'代理商資料表顯示正確欄位', spec:'m1-registration/admin-agents.spec.ts',
+ status:'pass', pages:['/admin/agents'], shots:['crud/agents-02-table-columns.png']},
+{tab:'m1', group:'代理商管理（admin-agents）',
+ name:'代理商頁有新增代理商按鈕', spec:'m1-registration/admin-agents.spec.ts',
+ status:'pass', pages:['/admin/agents'], shots:['crud/agents-03-create-btn.png']},
+{tab:'m1', group:'代理商管理（admin-agents）',
+ name:'推薦人頁顯示統計卡片與空/列表狀態', spec:'m1-registration/admin-agents.spec.ts',
+ status:'pass', pages:['/admin/referrals'], shots:['crud/agents-04-referrals-stats.png']},
+
+/* ===== M2 ===== */
+{tab:'m2', group:'行銷頁面管理（admin-pages）',
+ name:'管理員看到行銷頁面表格與欄位', spec:'m2-marketing/admin-pages.spec.ts',
+ status:'pass', pages:['/admin/pages'], shots:[]},
+{tab:'m2', group:'行銷頁面管理（admin-pages）',
+ name:'管理員看到頁面狀態標籤（已發布 / 草稿）', spec:'m2-marketing/admin-pages.spec.ts',
+ status:'pass', pages:['/admin/pages'], shots:[]},
+{tab:'m2', group:'行銷頁面管理（admin-pages）',
+ name:'管理員看到新增頁面按鈕', spec:'m2-marketing/admin-pages.spec.ts',
+ status:'pass', pages:['/admin/pages'], shots:[]},
+{tab:'m2', group:'行銷頁面管理（admin-pages）',
+ name:'管理員行銷頻道頁顯示 3 種頻道類型', spec:'m2-marketing/admin-pages.spec.ts',
+ status:'pass', pages:['/admin/marketing'], shots:[]},
+{tab:'m2', group:'行銷頁面管理（admin-pages）',
+ name:'每個行銷頻道有新增按鈕', spec:'m2-marketing/admin-pages.spec.ts',
+ status:'pass', pages:['/admin/marketing'], shots:[]},
+
+{tab:'m2', group:'頁面編輯器（admin-page-editor）',
+ name:'頁面編輯器有所有必填欄位：標題、slug、儲存按鈕', spec:'m2-marketing/admin-page-editor.spec.ts',
+ status:'pass', pages:['/admin/pages'], shots:['crud/page-01-editor-loaded.png']},
+{tab:'m2', group:'頁面編輯器（admin-page-editor）',
+ name:'頁面列表顯示發布狀態標籤', spec:'m2-marketing/admin-page-editor.spec.ts',
+ status:'pass', pages:['/admin/pages'], shots:['crud/page-04-list-verified.png']},
+{tab:'m2', group:'頁面編輯器（admin-page-editor）',
+ name:'行銷頻道頁顯示 3 種類型與新增按鈕', spec:'m2-marketing/admin-page-editor.spec.ts',
+ status:'pass', pages:['/admin/marketing'], shots:[]},
+{tab:'m2', group:'頁面編輯器（admin-page-editor）',
+ name:'商品頁有分類 Tab 與子分類篩選', spec:'m2-marketing/admin-page-editor.spec.ts',
+ status:'pass', pages:['/admin/products'], shots:[]},
+
+{tab:'m2', group:'行銷頁面 CRUD（admin-page-crud）',
+ name:'管理員新增含標題和 slug 的行銷頁面', spec:'m2-marketing/admin-page-crud.spec.ts',
+ status:'pass', pages:['/admin/pages'], shots:['crud/page-01-editor-loaded.png','crud/page-02-slug-filled.png','crud/page-03-toast-success.png','crud/page-04-list-verified.png']},
+
+{tab:'m2', group:'商品管理（admin-products）',
+ name:'管理員看到商品頁含分類 Tab 與資料表', spec:'m2-marketing/admin-products.spec.ts',
+ status:'pass', pages:['/admin/products'], shots:[]},
+{tab:'m2', group:'商品管理（admin-products）',
+ name:'管理員看到商品表格欄位：名稱、slug、分類、價格、狀態', spec:'m2-marketing/admin-products.spec.ts',
+ status:'pass', pages:['/admin/products'], shots:[]},
+{tab:'m2', group:'商品管理（admin-products）',
+ name:'管理員看到新增商品與分類按鈕', spec:'m2-marketing/admin-products.spec.ts',
+ status:'pass', pages:['/admin/products'], shots:[]},
+{tab:'m2', group:'商品管理（admin-products）',
+ name:'商品出現在公開 /courses 頁面的課程卡片', spec:'m2-marketing/admin-products.spec.ts',
+ status:'pass', pages:['/courses'], shots:[]},
+{tab:'m2', group:'商品管理（admin-products）',
+ name:'課程詳情頁顯示定價與報名 CTA', spec:'m2-marketing/admin-products.spec.ts',
+ status:'pass', pages:['/courses'], shots:[]},
+
+/* ===== M3 ===== */
+{tab:'m3', group:'教室管理（admin-classroom）',
+ name:'管理員可存取教室列表', spec:'m3-course-ops/admin-classroom.spec.ts',
+ status:'pass', pages:['/admin/classrooms'], shots:[]},
+{tab:'m3', group:'教室管理（admin-classroom）',
+ name:'管理員看到教室或空狀態', spec:'m3-course-ops/admin-classroom.spec.ts',
+ status:'pass', pages:['/admin/classrooms'], shots:[]},
+{tab:'m3', group:'教室管理（admin-classroom）',
+ name:'管理員看到新增教室按鈕', spec:'m3-course-ops/admin-classroom.spec.ts',
+ status:'pass', pages:['/admin/classrooms'], shots:[]},
+{tab:'m3', group:'教室管理（admin-classroom）',
+ name:'管理員可進入教室詳情頁', spec:'m3-course-ops/admin-classroom.spec.ts',
+ status:'pass', pages:['/admin/classrooms'], shots:[]},
+
+{tab:'m3', group:'教室 CRUD（admin-classroom-crud）',
+ name:'管理員新增教室並進入詳情頁', spec:'m3-course-ops/admin-classroom-crud.spec.ts',
+ status:'pass', pages:['/admin/classrooms'], shots:['crud/classroom-01-dialog-open.png','crud/classroom-02-form-filled.png','crud/classroom-03-detail-page.png','crud/classroom-04-toast-success.png']},
+
+{tab:'m3', group:'教室詳情（classroom-detail）',
+ name:'教室詳情顯示各功能 Tab', spec:'m3-course-ops/classroom-detail.spec.ts',
+ status:'pass', pages:['/admin/classrooms'], shots:[]},
+{tab:'m3', group:'教室詳情（classroom-detail）',
+ name:'教室詳情顯示學員列表', spec:'m3-course-ops/classroom-detail.spec.ts',
+ status:'pass', pages:['/admin/classrooms'], shots:[]},
+{tab:'m3', group:'教室詳情（classroom-detail）',
+ name:'教室公告區塊 — 新增公告', spec:'m3-course-ops/classroom-detail.spec.ts',
+ status:'pass', pages:['/admin/classrooms'], shots:[]},
+{tab:'m3', group:'教室詳情（classroom-detail）',
+ name:'教室作業區塊 — 列表與新增按鈕', spec:'m3-course-ops/classroom-detail.spec.ts',
+ status:'pass', pages:['/admin/classrooms'], shots:[]},
+{tab:'m3', group:'教室詳情（classroom-detail）',
+ name:'教室教材區塊', spec:'m3-course-ops/classroom-detail.spec.ts',
+ status:'pass', pages:['/admin/classrooms'], shots:[]},
+{tab:'m3', group:'教室詳情（classroom-detail）',
+ name:'教室出缺席區塊 — 列表與標記按鈕', spec:'m3-course-ops/classroom-detail.spec.ts',
+ status:'pass', pages:['/admin/classrooms'], shots:[]},
+
+{tab:'m3', group:'出缺席管理（admin-attendance）',
+ name:'管理員可進入教室並看到出缺席區塊', spec:'m3-course-ops/admin-attendance.spec.ts',
+ status:'pass', pages:['/admin/classrooms'], shots:[]},
+{tab:'m3', group:'出缺席管理（admin-attendance）',
+ name:'管理員可看到出缺席狀態標籤（出席/缺席/請假）', spec:'m3-course-ops/admin-attendance.spec.ts',
+ status:'pass', pages:['/admin/classrooms'], shots:[]},
+
+{tab:'m3', group:'批改管理（admin-grading）',
+ name:'管理員可存取批改儀表板', spec:'m3-course-ops/admin-grading.spec.ts',
+ status:'pass', pages:['/admin/grading'], shots:[]},
+{tab:'m3', group:'批改管理（admin-grading）',
+ name:'批改頁顯示繳交作業或空狀態', spec:'m3-course-ops/admin-grading.spec.ts',
+ status:'pass', pages:['/admin/grading'], shots:[]},
+{tab:'m3', group:'批改管理（admin-grading）',
+ name:'助教可存取批改儀表板', spec:'m3-course-ops/admin-grading.spec.ts',
+ status:'pass', pages:['/admin/grading'], shots:[]},
+
+{tab:'m3', group:'批改流程（admin-grading-flow）',
+ name:'管理員可開啟批改 Dialog、輸入分數與回饋、送出', spec:'m3-course-ops/admin-grading-flow.spec.ts',
+ status:'pass', pages:['/admin/grading'], shots:['crud/grading-01-dialog-open.png','crud/grading-02-score-filled.png','crud/grading-03-toast-success.png']},
+{tab:'m3', group:'批改流程（admin-grading-flow）',
+ name:'批改頁顯示統計卡片與數量', spec:'m3-course-ops/admin-grading-flow.spec.ts',
+ status:'pass', pages:['/admin/grading'], shots:['crud/grading-04-stat-cards.png']},
+
+{tab:'m3', group:'批改細節（grading-details）',
+ name:'管理員看到繳交作業的退回按鈕', spec:'m3-course-ops/grading-details.spec.ts',
+ status:'pass', pages:['/admin/grading'], shots:[]},
+{tab:'m3', group:'批改細節（grading-details）',
+ name:'管理員可下載繳交作業檔案', spec:'m3-course-ops/grading-details.spec.ts',
+ status:'pass', pages:['/admin/grading'], shots:[]},
+{tab:'m3', group:'批改細節（grading-details）',
+ name:'助教可存取批改並看到繳交作業', spec:'m3-course-ops/grading-details.spec.ts',
+ status:'pass', pages:['/admin/grading'], shots:[]},
+{tab:'m3', group:'批改細節（grading-details）',
+ name:'學員看到已批改作業的結果', spec:'m3-course-ops/grading-details.spec.ts',
+ status:'pass', pages:['/student/courses'], shots:[]},
+
+{tab:'m3', group:'學員教室（student-classroom）',
+ name:'學員可存取我的課程頁', spec:'m3-course-ops/student-classroom.spec.ts',
+ status:'pass', pages:['/student/courses'], shots:[]},
+{tab:'m3', group:'學員教室（student-classroom）',
+ name:'alice（已報名）看到她的課程 — alice@test.com 未在 prod 植入', spec:'m3-course-ops/student-classroom.spec.ts',
+ status:'skip', pages:['/student/courses'], shots:[]},
+{tab:'m3', group:'學員教室（student-classroom）',
+ name:'alice 可進入教室詳情頁 — alice@test.com 未在 prod 植入', spec:'m3-course-ops/student-classroom.spec.ts',
+ status:'skip', pages:['/student/courses'], shots:[]},
+{tab:'m3', group:'學員教室（student-classroom）',
+ name:'學員可在教室看到作業 — alice@test.com 未在 prod 植入', spec:'m3-course-ops/student-classroom.spec.ts',
+ status:'skip', pages:['/student/courses'], shots:[]},
+{tab:'m3', group:'學員教室（student-classroom）',
+ name:'學員可查看付款記錄頁', spec:'m3-course-ops/student-classroom.spec.ts',
+ status:'pass', pages:['/student/payments'], shots:[]},
+
+/* ===== M4 ===== */
+{tab:'m4', group:'督導管理（admin-supervision）',
+ name:'管理員可存取督導頁', spec:'m4-supervision/admin-supervision.spec.ts',
+ status:'pass', pages:['/admin/supervision'], shots:[]},
+{tab:'m4', group:'督導管理（admin-supervision）',
+ name:'管理員看到督導會談或空狀態', spec:'m4-supervision/admin-supervision.spec.ts',
+ status:'pass', pages:['/admin/supervision'], shots:[]},
+{tab:'m4', group:'督導管理（admin-supervision）',
+ name:'管理員看到新增督導按鈕與含會談的資料表', spec:'m4-supervision/admin-supervision.spec.ts',
+ status:'pass', pages:['/admin/supervision'], shots:[]},
+
+{tab:'m4', group:'督導 CRUD（admin-supervision-crud）',
+ name:'管理員可編輯督導會談狀態與備註', spec:'m4-supervision/admin-supervision-crud.spec.ts',
+ status:'pass', pages:['/admin/supervision'], shots:['crud/supervision-01-dialog-open.png','crud/supervision-02-status-changed.png','crud/supervision-03-toast-success.png']},
+{tab:'m4', group:'督導 CRUD（admin-supervision-crud）',
+ name:'督導頁顯示含會談資料的資料表', spec:'m4-supervision/admin-supervision-crud.spec.ts',
+ status:'pass', pages:['/admin/supervision'], shots:['crud/supervision-04-table-verified.png']},
+
+{tab:'m4', group:'督導與認證細節（supervision-details）',
+ name:'管理員督導資料表顯示正確欄位', spec:'m4-supervision/supervision-details.spec.ts',
+ status:'pass', pages:['/admin/supervision'], shots:[]},
+{tab:'m4', group:'督導與認證細節（supervision-details）',
+ name:'督導會談顯示狀態標籤：已排程、已完成', spec:'m4-supervision/supervision-details.spec.ts',
+ status:'pass', pages:['/admin/supervision'], shots:[]},
+{tab:'m4', group:'督導與認證細節（supervision-details）',
+ name:'管理員認證資料表顯示狀態：通過、待評分、未通過', spec:'m4-supervision/supervision-details.spec.ts',
+ status:'pass', pages:['/admin/certifications'], shots:[]},
+{tab:'m4', group:'督導與認證細節（supervision-details）',
+ name:'管理員認證頁有狀態與類型篩選下拉選單', spec:'m4-supervision/supervision-details.spec.ts',
+ status:'pass', pages:['/admin/certifications'], shots:[]},
+{tab:'m4', group:'督導與認證細節（supervision-details）',
+ name:'學員督導頁顯示空狀態與提示訊息', spec:'m4-supervision/supervision-details.spec.ts',
+ status:'pass', pages:['/student/supervision'], shots:[]},
+{tab:'m4', group:'督導與認證細節（supervision-details）',
+ name:'學員認證頁顯示空狀態', spec:'m4-supervision/supervision-details.spec.ts',
+ status:'pass', pages:['/student/certifications'], shots:[]},
+{tab:'m4', group:'督導與認證細節（supervision-details）',
+ name:'督導可存取督導頁', spec:'m4-supervision/supervision-details.spec.ts',
+ status:'pass', pages:['/admin/supervision'], shots:[]},
+
+{tab:'m4', group:'認證管理（admin-certifications）',
+ name:'管理員可存取認證頁', spec:'m4-supervision/admin-certifications.spec.ts',
+ status:'pass', pages:['/admin/certifications'], shots:[]},
+{tab:'m4', group:'認證管理（admin-certifications）',
+ name:'管理員看到認證列表或空狀態', spec:'m4-supervision/admin-certifications.spec.ts',
+ status:'pass', pages:['/admin/certifications'], shots:[]},
+
+{tab:'m4', group:'認證流程（admin-certification-flow）',
+ name:'管理員可批改待審認證測驗', spec:'m4-supervision/admin-certification-flow.spec.ts',
+ status:'pass', pages:['/admin/certifications'], shots:['crud/certification-01-dialog-open.png','crud/certification-02-score-filled.png','crud/certification-03-toast-success.png']},
+{tab:'m4', group:'認證流程（admin-certification-flow）',
+ name:'認證頁顯示含測驗紀錄的資料表', spec:'m4-supervision/admin-certification-flow.spec.ts',
+ status:'pass', pages:['/admin/certifications'], shots:['crud/certification-04-table-badges.png']},
+
+{tab:'m4', group:'學員督導（student-supervision）',
+ name:'學員可存取督導頁', spec:'m4-supervision/student-supervision.spec.ts',
+ status:'pass', pages:['/student/supervision'], shots:[]},
+{tab:'m4', group:'學員督導（student-supervision）',
+ name:'學員看到督導會談或空狀態', spec:'m4-supervision/student-supervision.spec.ts',
+ status:'pass', pages:['/student/supervision'], shots:[]},
+
+{tab:'m4', group:'學員認證（student-certifications）',
+ name:'學員可存取認證頁', spec:'m4-supervision/student-certifications.spec.ts',
+ status:'pass', pages:['/student/certifications'], shots:[]},
+{tab:'m4', group:'學員認證（student-certifications）',
+ name:'學員看到認證或空狀態', spec:'m4-supervision/student-certifications.spec.ts',
+ status:'pass', pages:['/student/certifications'], shots:[]},
+
+/* ===== M5 ===== */
+{tab:'m5', group:'管理員 CRM（admin-crm）',
+ name:'管理員可存取 CRM 會員頁', spec:'m5-crm/admin-crm.spec.ts',
+ status:'pass', pages:['/admin/crm'], shots:[]},
+{tab:'m5', group:'管理員 CRM（admin-crm）',
+ name:'管理員看到 CRM 含 Tab 與會員資料表', spec:'m5-crm/admin-crm.spec.ts',
+ status:'pass', pages:['/admin/crm'], shots:[]},
+{tab:'m5', group:'管理員 CRM（admin-crm）',
+ name:'管理員可存取推薦人頁', spec:'m5-crm/admin-crm.spec.ts',
+ status:'pass', pages:['/admin/referrals'], shots:[]},
+{tab:'m5', group:'管理員 CRM（admin-crm）',
+ name:'管理員可存取退款設定頁', spec:'m5-crm/admin-crm.spec.ts',
+ status:'pass', pages:['/admin/refunds'], shots:[]},
+{tab:'m5', group:'管理員 CRM（admin-crm）',
+ name:'管理員可存取代理商頁', spec:'m5-crm/admin-crm.spec.ts',
+ status:'pass', pages:['/admin/agents'], shots:[]},
+
+{tab:'m5', group:'CRM 流程（admin-crm-flow）',
+ name:'管理員可查看會員詳情 Dialog', spec:'m5-crm/admin-crm-flow.spec.ts',
+ status:'pass', pages:['/admin/crm'], shots:['flow/crm-01-member-dialog.png']},
+{tab:'m5', group:'CRM 流程（admin-crm-flow）',
+ name:'管理員可切換 CRM Tab', spec:'m5-crm/admin-crm-flow.spec.ts',
+ status:'pass', pages:['/admin/crm'], shots:['flow/crm-02-renewal-tab.png']},
+{tab:'m5', group:'CRM 流程（admin-crm-flow）',
+ name:'管理員可依姓名或 Email 搜尋會員', spec:'m5-crm/admin-crm-flow.spec.ts',
+ status:'pass', pages:['/admin/crm'], shots:['flow/crm-04-search-results.png']},
+{tab:'m5', group:'CRM 流程（admin-crm-flow）',
+ name:'管理員可依認證狀態篩選會員', spec:'m5-crm/admin-crm-flow.spec.ts',
+ status:'pass', pages:['/admin/crm'], shots:[]},
+
+{tab:'m5', group:'續費與申請流程（crm-renewal-flow）',
+ name:'學員可看到續費區塊並點擊新增申請', spec:'m5-crm/crm-renewal-flow.spec.ts',
+ status:'pass', pages:['/student/crm'], shots:['flow/renewal-01-new-application.png']},
+{tab:'m5', group:'續費與申請流程（crm-renewal-flow）',
+ name:'學員可看到特約申請區塊與操作按鈕', spec:'m5-crm/crm-renewal-flow.spec.ts',
+ status:'pass', pages:['/student/crm'], shots:['flow/renewal-02-special-buttons.png']},
+{tab:'m5', group:'續費與申請流程（crm-renewal-flow）',
+ name:'學員 CRM 顯示認證狀態', spec:'m5-crm/crm-renewal-flow.spec.ts',
+ status:'pass', pages:['/student/crm'], shots:['flow/renewal-03-cert-status.png']},
+{tab:'m5', group:'續費與申請流程（crm-renewal-flow）',
+ name:'管理員可審核續費 — 核准 Dialog', spec:'m5-crm/crm-renewal-flow.spec.ts',
+ status:'pass', pages:['/admin/crm'], shots:[]},
+{tab:'m5', group:'續費與申請流程（crm-renewal-flow）',
+ name:'管理員可更新特約申請 Tab 中的申請狀態', spec:'m5-crm/crm-renewal-flow.spec.ts',
+ status:'pass', pages:['/admin/crm'], shots:['flow/crm-03-special-tab.png']},
+
+{tab:'m5', group:'學員 CRM（student-crm）',
+ name:'學員可存取 CRM 頁', spec:'m5-crm/student-crm.spec.ts',
+ status:'pass', pages:['/student/crm'], shots:[]},
+{tab:'m5', group:'學員 CRM（student-crm）',
+ name:'學員看到會員中心含個人檔案、續費、申請區塊', spec:'m5-crm/student-crm.spec.ts',
+ status:'pass', pages:['/student/crm'], shots:[]},
+{tab:'m5', group:'學員 CRM（student-crm）',
+ name:'學員看到續費與申請操作按鈕', spec:'m5-crm/student-crm.spec.ts',
+ status:'pass', pages:['/student/crm'], shots:[]},
+{tab:'m5', group:'學員 CRM（student-crm）',
+ name:'學員可存取個人檔案頁', spec:'m5-crm/student-crm.spec.ts',
+ status:'pass', pages:['/student/profile'], shots:[]},
+
+/* ===== MOBILE ===== */
+{tab:'mobile', group:'手機版關鍵頁面（mobile-viewport）',
+ name:'首頁在手機版正確渲染', spec:'mobile-viewport.spec.ts',
+ status:'pass', pages:['/'], shots:['flow/mobile-01-homepage.png']},
+{tab:'mobile', group:'手機版關鍵頁面（mobile-viewport）',
+ name:'課程頁在手機版正確渲染', spec:'mobile-viewport.spec.ts',
+ status:'pass', pages:['/courses'], shots:['flow/mobile-02-courses.png']},
+{tab:'mobile', group:'手機版關鍵頁面（mobile-viewport）',
+ name:'報名頁在手機版正確渲染', spec:'mobile-viewport.spec.ts',
+ status:'pass', pages:['/enroll'], shots:['flow/mobile-03-enroll.png']},
+{tab:'mobile', group:'手機版關鍵頁面（mobile-viewport）',
+ name:'學員儀表板在手機版正確渲染（含漢堡選單）', spec:'mobile-viewport.spec.ts',
+ status:'pass', pages:['/student/dashboard'], shots:['flow/mobile-04-student-dashboard.png']},
+{tab:'mobile', group:'手機版關鍵頁面（mobile-viewport）',
+ name:'管理員儀表板在手機版正確渲染（含側邊欄切換）', spec:'mobile-viewport.spec.ts',
+ status:'pass', pages:['/admin/dashboard'], shots:[]},
+{tab:'mobile', group:'手機版關鍵頁面（mobile-viewport）',
+ name:'登入頁在手機版正確渲染', spec:'mobile-viewport.spec.ts',
+ status:'pass', pages:['/login'], shots:['flow/mobile-07-login.png']},
+
+/* ===== SCREENSHOTS (screenshot-audit) ===== */
+{tab:'screenshots', group:'訪客截圖（screenshot-audit）',
+ name:'訪客 - 首頁 /', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/'], shots:['visitor--homepage.png']},
+{tab:'screenshots', group:'訪客截圖（screenshot-audit）',
+ name:'訪客 - 課程 /courses', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/courses'], shots:['visitor--courses.png']},
+{tab:'screenshots', group:'訪客截圖（screenshot-audit）',
+ name:'訪客 - 登入 /login', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/login'], shots:['visitor--login.png']},
+{tab:'screenshots', group:'訪客截圖（screenshot-audit）',
+ name:'訪客 - 報名 /enroll', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/enroll'], shots:['visitor--enroll.png']},
+{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
+ name:'管理員 - /admin/dashboard', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/admin/dashboard'], shots:['admin--admin-dashboard.png']},
+{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
+ name:'管理員 - /admin/enrollments', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/admin/enrollments'], shots:['admin--admin-enrollments.png']},
+{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
+ name:'管理員 - /admin/cohorts', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/admin/cohorts'], shots:['admin--admin-cohorts.png']},
+{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
+ name:'管理員 - /admin/classrooms', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/admin/classrooms'], shots:['admin--admin-classrooms.png']},
+{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
+ name:'管理員 - /admin/grading', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/admin/grading'], shots:['admin--admin-grading.png']},
+{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
+ name:'管理員 - /admin/promo-codes', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/admin/promo-codes'], shots:['admin--admin-promo-codes.png']},
+{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
+ name:'管理員 - /admin/products', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/admin/products'], shots:['admin--admin-products.png']},
+{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
+ name:'管理員 - /admin/pages', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/admin/pages'], shots:['admin--admin-pages.png']},
+{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
+ name:'管理員 - /admin/marketing', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/admin/marketing'], shots:['admin--admin-marketing.png']},
+{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
+ name:'管理員 - /admin/crm', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/admin/crm'], shots:['admin--admin-crm.png']},
+{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
+ name:'管理員 - /admin/supervision', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/admin/supervision'], shots:['admin--admin-supervision.png']},
+{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
+ name:'管理員 - /admin/certifications', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/admin/certifications'], shots:['admin--admin-certifications.png']},
+{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
+ name:'管理員 - /admin/referrals', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/admin/referrals'], shots:['admin--admin-referrals.png']},
+{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
+ name:'管理員 - /admin/refunds', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/admin/refunds'], shots:['admin--admin-refunds.png']},
+{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
+ name:'管理員 - /admin/agents', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/admin/agents'], shots:['admin--admin-agents.png']},
+{tab:'screenshots', group:'學員截圖（screenshot-audit）',
+ name:'學員 - /student/dashboard', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/student/dashboard'], shots:['student--student-dashboard.png']},
+{tab:'screenshots', group:'學員截圖（screenshot-audit）',
+ name:'學員 - /student/enrollments', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/student/enrollments'], shots:['student--student-enrollments.png']},
+{tab:'screenshots', group:'學員截圖（screenshot-audit）',
+ name:'學員 - /student/courses', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/student/courses'], shots:['student--student-courses.png']},
+{tab:'screenshots', group:'學員截圖（screenshot-audit）',
+ name:'學員 - /student/payments', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/student/payments'], shots:['student--student-payments.png']},
+{tab:'screenshots', group:'學員截圖（screenshot-audit）',
+ name:'學員 - /student/crm', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/student/crm'], shots:['student--student-crm.png']},
+{tab:'screenshots', group:'學員截圖（screenshot-audit）',
+ name:'學員 - /student/supervision', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/student/supervision'], shots:['student--student-supervision.png']},
+{tab:'screenshots', group:'學員截圖（screenshot-audit）',
+ name:'學員 - /student/certifications', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/student/certifications'], shots:['student--student-certifications.png']},
+{tab:'screenshots', group:'學員截圖（screenshot-audit）',
+ name:'學員 - /student/profile', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/student/profile'], shots:['student--student-profile.png']},
+{tab:'screenshots', group:'助教截圖（screenshot-audit）',
+ name:'助教 - /admin/grading', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/admin/grading'], shots:['ta--admin-grading.png']},
+{tab:'screenshots', group:'督導截圖（screenshot-audit）',
+ name:'督導 - /admin/supervision', spec:'screenshot-audit.spec.ts',
+ status:'pass', pages:['/admin/supervision'], shots:['supervisor--admin-supervision.png']},
+];
+
+// ---- Resolve screenshots with fallback logic ----
+function getScreenshots(t) {
+  if (t.apiOnly) return [];
+  const urls = [];
+  if (t.shots && t.shots.length) {
+    t.shots.forEach(s => urls.push({url: BASE + s, label: s.replace(/^(flow|crud)\//, '').replace('.png','')}));
+  }
+  if (urls.length === 0 && t.pages && t.pages.length) {
+    for (const pg of t.pages) {
+      const f = PAGE_FALLBACK[pg];
+      if (f) { urls.push({url: BASE + f, label: '頁面截圖'}); break; }
+    }
+  }
+  return urls;
+}
+
+// ---- Render ----
+const TAB_CONFIG = [
+  {id:'m1', label:'M1 報名金流'},
+  {id:'m2', label:'M2 行銷頁面'},
+  {id:'m3', label:'M3 運課管理'},
+  {id:'m4', label:'M4 督導認證'},
+  {id:'m5', label:'M5 會員 CRM'},
+  {id:'access', label:'權限控管'},
+  {id:'mobile', label:'手機版'},
+  {id:'screenshots', label:'截圖總覽'},
+];
+
+function renderAll() {
+  const main = document.getElementById('main-content');
+  main.innerHTML = '';
+  TAB_CONFIG.forEach((tc, idx) => {
+    const panel = document.createElement('div');
+    panel.id = 'tab-' + tc.id;
+    panel.className = 'tab-panel' + (idx===0?' active':'');
+
+    if (tc.id === 'screenshots') {
+      panel.innerHTML = renderGalleryTab();
+    } else {
+      panel.innerHTML = renderTestTab(tc.id, tc.label);
+    }
+    main.appendChild(panel);
+  });
+}
+
+function renderTestTab(tabId, label) {
+  const tests = TESTS.filter(t => t.tab === tabId);
+  const pass = tests.filter(t=>t.status==='pass').length;
+  const skip = tests.filter(t=>t.status==='skip').length;
+  // group
+  const groups = {};
+  tests.forEach(t => {
+    if (!groups[t.group]) groups[t.group] = [];
+    groups[t.group].push(t);
+  });
+  const moduleId = label.split(' ')[0];
+  let html = `<div class="module-header">
+    <span class="module-badge">${moduleId}</span>
+    <span class="module-title">${label.replace(moduleId+' ','')}</span>
+    <div class="module-stats">
+      <span class="ms ms-pass">通過 ${pass}</span>
+      ${skip?`<span class="ms ms-skip">略過 ${skip}</span>`:''}
+    </div>
+  </div>`;
+  Object.keys(groups).forEach(g => {
+    html += `<div class="spec-group"><div class="spec-group-title">${g}</div>`;
+    groups[g].forEach((t, i) => {
+      const tid = tabId + '_' + g.replace(/[^a-z0-9]/gi,'') + '_' + i;
+      const shots = getScreenshots(t);
+      const thumb = shots.length ? `<div class="test-thumb"><img src="${shots[0].url}" alt="" onerror="this.style.display='none'"></div>` : '';
+      const apiB = t.apiOnly ? `<span class="api-badge">API</span>` : '';
+      const skipB = t.status==='skip' ? `<span class="skip-badge">略過</span>` : '';
+      const statusClass = t.status==='pass'?'ts-pass':t.status==='skip'?'ts-skip':'ts-fail';
+      const statusIcon = t.status==='pass'?'✓':t.status==='skip'?'−':'✗';
+      html += `<div class="test-row" onclick="openModal(${JSON.stringify(tid)})">
+        <div class="test-status ${statusClass}">${statusIcon}</div>
+        <div class="test-info">
+          <div class="test-name">${t.name}${apiB}${skipB}</div>
+          <div class="test-meta">${t.spec}</div>
+        </div>
+        ${thumb}
+      </div>`;
+      // store test data
+      window._testData = window._testData || {};
+      window._testData[tid] = t;
+    });
+    html += '</div>';
+  });
+  return html;
+}
+
+function renderGalleryTab() {
+  const rootScreenshots = [
+    ['admin--admin-dashboard.png','管理員首頁'],['admin--admin-enrollments.png','報名管理'],['admin--admin-cohorts.png','梯次管理'],
+    ['admin--admin-classrooms.png','教室管理'],['admin--admin-grading.png','批改管理'],['admin--admin-promo-codes.png','優惠碼'],
+    ['admin--admin-products.png','商品管理'],['admin--admin-pages.png','行銷頁面'],['admin--admin-marketing.png','行銷頻道'],
+    ['admin--admin-crm.png','CRM 管理'],['admin--admin-supervision.png','督導管理'],['admin--admin-certifications.png','認證管理'],
+    ['admin--admin-referrals.png','推薦人管理'],['admin--admin-refunds.png','退款管理'],['admin--admin-agents.png','代理商管理'],
+    ['student--student-dashboard.png','學員首頁'],['student--student-enrollments.png','學員報名'],['student--student-courses.png','我的課程'],
+    ['student--student-payments.png','付款記錄'],['student--student-crm.png','學員 CRM'],['student--student-supervision.png','學員督導'],
+    ['student--student-certifications.png','學員認證'],['student--student-profile.png','個人資料'],
+    ['supervisor--admin-supervision.png','督導視角'],['ta--admin-grading.png','助教批改'],
+    ['visitor--homepage.png','訪客首頁'],['visitor--courses.png','訪客課程'],['visitor--enroll.png','訪客報名'],['visitor--login.png','登入頁'],
+  ];
+  const crudScreenshots = [
+    ['crud/agents-01-stat-cards.png','代理商統計'],['crud/agents-02-table-columns.png','代理商欄位'],['crud/agents-03-create-btn.png','新增代理商'],['crud/agents-04-referrals-stats.png','推薦人統計'],
+    ['crud/certification-01-dialog-open.png','認證 Dialog'],['crud/certification-02-score-filled.png','認證分數'],['crud/certification-03-toast-success.png','認證評分成功'],['crud/certification-04-table-badges.png','認證資料表'],
+    ['crud/classroom-01-dialog-open.png','教室 Dialog'],['crud/classroom-02-form-filled.png','教室表單'],['crud/classroom-03-detail-page.png','教室詳情'],['crud/classroom-04-toast-success.png','教室建立成功'],
+    ['crud/cohort-01-dialog-open.png','梯次 Dialog'],['crud/cohort-02-form-filled.png','梯次表單'],['crud/cohort-03-toast-success.png','梯次建立成功'],['crud/cohort-04-list-verified.png','梯次列表'],
+    ['crud/cohorts-smoke-01-list.png','梯次列表 Smoke'],['crud/cohorts-smoke-02-detail.png','梯次詳情 Smoke'],['crud/cohorts-smoke-04-filter.png','梯次篩選 Smoke'],
+    ['crud/enrollments-01-table.png','報名資料表'],['crud/enrollments-02-filter.png','報名篩選'],['crud/enrollments-03-sidebar-active.png','側邊欄啟用'],['crud/enrollments-04-dashboard-stats.png','儀表板統計'],['crud/enrollments-05-detail.png','報名詳情'],
+    ['crud/grading-01-dialog-open.png','批改 Dialog'],['crud/grading-02-score-filled.png','批改分數'],['crud/grading-03-toast-success.png','批改成功'],['crud/grading-04-stat-cards.png','批改統計'],
+    ['crud/page-01-editor-loaded.png','頁面編輯器'],['crud/page-02-slug-filled.png','Slug 填寫'],['crud/page-03-toast-success.png','頁面建立成功'],['crud/page-04-list-verified.png','頁面列表'],
+    ['crud/promo-01-dialog-open.png','優惠碼 Dialog'],['crud/promo-02-form-filled.png','優惠碼表單'],['crud/promo-03-list-verified.png','優惠碼列表'],['crud/promo-04-delete-confirm.png','刪除確認'],
+    ['crud/promo-smoke-01-page-loaded.png','優惠碼頁 Smoke'],['crud/promo-smoke-03-filter.png','優惠碼篩選 Smoke'],
+    ['crud/supervision-01-dialog-open.png','督導 Dialog'],['crud/supervision-02-status-changed.png','督導狀態'],['crud/supervision-03-toast-success.png','督導更新成功'],['crud/supervision-04-table-verified.png','督導資料表'],
+  ];
+  const flowScreenshots = [
+    ['flow/access-01-admin-redirect-login.png','管理員重導'],['flow/access-02-student-redirect-login.png','學員重導'],['flow/access-03-public-courses.png','公開課程'],['flow/access-04-login-page.png','登入頁'],
+    ['flow/access-05-student-blocked-admin.png','學員被封鎖'],['flow/access-06-student-blocked-enrollments.png','學員被封鎖 2'],['flow/access-07-student-own-dashboard.png','學員儀表板'],['flow/access-08-admin-dashboard.png','管理員儀表板'],['flow/access-09-admin-enrollments.png','管理員報名'],
+    ['flow/browse-01-hero.png','首頁 Hero'],['flow/browse-02-course-list.png','課程列表'],['flow/browse-03-course-detail.png','課程詳情'],['flow/browse-04-enroll-cta.png','報名 CTA'],['flow/browse-05-login-btn.png','登入按鈕'],
+    ['flow/crm-01-member-dialog.png','會員 Dialog'],['flow/crm-02-renewal-tab.png','續費分頁'],['flow/crm-03-special-tab.png','特約分頁'],['flow/crm-04-search-results.png','CRM 搜尋'],
+    ['flow/ecpay-01-success-page.png','ECPay 成功'],['flow/ecpay-02-failed-page.png','ECPay 失敗'],
+    ['flow/enroll-01-course-listing.png','報名課程列表'],['flow/enroll-02-course-detail.png','報名課程詳情'],['flow/enroll-03-pricing-page.png','定價頁'],['flow/enroll-04-student-dashboard.png','學員儀表板'],
+    ['flow/enroll-details-01-cohort-info.png','梯次資訊'],['flow/enroll-details-02-early-bird.png','早鳥定價'],['flow/enroll-details-03-cohort-detail.png','梯次詳情'],['flow/enroll-details-04-status-filter.png','狀態篩選'],['flow/enroll-details-05-refunds.png','退款列表'],['flow/enroll-details-06-process-refund-btn.png','處理退款'],
+    ['flow/enroll-form-01-step1-courses.png','報名步驟一'],['flow/enroll-form-02-early-bird.png','早鳥定價'],
+    ['flow/mobile-01-homepage.png','手機首頁'],['flow/mobile-02-courses.png','手機課程'],['flow/mobile-03-enroll.png','手機報名'],['flow/mobile-04-student-dashboard.png','手機學員'],['flow/mobile-07-login.png','手機登入'],
+    ['flow/payment-01-pricing-breakdown.png','定價明細'],['flow/payment-02-checkout-success.png','結帳成功'],['flow/payment-03-checkout-failed.png','結帳失敗'],['flow/payment-04-student-history.png','付款記錄'],
+    ['flow/renewal-01-new-application.png','新增申請'],['flow/renewal-02-special-buttons.png','特約按鈕'],['flow/renewal-03-cert-status.png','認證狀態'],
+    ['flow/student-enroll-01-dashboard.png','學員儀表板'],['flow/student-enroll-02-enroll-page.png','報名頁'],['flow/student-enroll-03-enroll-btn.png','選擇梯次'],['flow/student-enroll-04-form-accessible.png','報名表單'],['flow/student-enroll-05-records.png','報名紀錄'],['flow/student-enroll-06-pricing-cta.png','定價 CTA'],['flow/student-enroll-07-checkout-failed.png','結帳失敗'],
+  ];
+
+  function gridItems(list) {
+    return list.map(([path, label]) =>
+      `<div class="gallery-item" onclick="openLightboxDirect('${BASE+path}','${label}')"><img src="${BASE+path}" alt="${label}" onerror="this.parentElement.style.display='none'"><p>${label}</p></div>`
+    ).join('');
+  }
+
+  return `<div class="gallery-section">
+    <div class="gallery-title">截圖總覽</div>
+    <div class="gallery-cat">
+      <div class="gallery-cat-title">頁面截圖（29 張）</div>
+      <div class="gallery-grid">${gridItems(rootScreenshots)}</div>
+    </div>
+    <div class="gallery-cat">
+      <div class="gallery-cat-title">CRUD 操作截圖（43 張）</div>
+      <div class="gallery-grid">${gridItems(crudScreenshots)}</div>
+    </div>
+    <div class="gallery-cat">
+      <div class="gallery-cat-title">流程截圖（51 張）</div>
+      <div class="gallery-grid">${gridItems(flowScreenshots)}</div>
+    </div>
+  </div>`;
+}
+
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
+function openModal(tid) {
+  const t = window._testData[tid];
+  if (!t) return;
+  const shots = getScreenshots(t);
+  document.getElementById('modal-title').textContent = t.name;
+
+  const statusLabel = t.status==='pass'?'通過':'略過';
+  const statusClass = t.status==='pass'?'mb-pass':'mb-skip';
+  let metaHtml = `<span class="modal-badge ${statusClass}">${statusLabel}</span>
+    <span style="color:var(--muted)">${t.spec}</span>`;
+  if (t.apiOnly) metaHtml += `<span class="modal-badge mb-api">API 測試</span>`;
+  document.getElementById('modal-meta').innerHTML = metaHtml;
+
+  let screenshotHtml = '';
+  if (t.apiOnly) {
+    screenshotHtml = `<div class="no-screenshot">此測試無截圖（API 測試或條件略過）</div>`;
+  } else if (shots.length === 0) {
+    screenshotHtml = `<div class="no-screenshot">此測試無截圖（API 測試或條件略過）</div>`;
+  } else {
+    screenshotHtml = `<h4>測試截圖</h4>`;
+    shots.forEach(s => {
+      screenshotHtml += `<div class="modal-img-wrap">
+        <img src="${s.url}" alt="${s.label}" onerror="this.parentElement.innerHTML='<div class=\\'no-screenshot\\'>截圖載入失敗</div>'">
+        ${s.label ? `<div class="modal-img-caption">${s.label}</div>` : ''}
+      </div>`;
+    });
+  }
+  document.getElementById('modal-screenshots').innerHTML = screenshotHtml;
+  document.getElementById('modal').classList.add('open');
+}
+
+function openLightboxDirect(url, caption) {
+  // reuse modal for gallery
+  document.getElementById('modal-title').textContent = caption;
+  document.getElementById('modal-meta').innerHTML = '';
+  document.getElementById('modal-screenshots').innerHTML =
+    `<div class="modal-img-wrap"><img src="${url}" alt="${caption}" onerror="this.parentElement.innerHTML='<div class=\\'no-screenshot\\'>截圖載入失敗</div>'"></div>`;
+  document.getElementById('modal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+}
+function closeModalIfBg(e) {
+  if (e.target === document.getElementById('modal')) closeModal();
+}
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeModal(); });
+
+// Boot
+renderAll();
 </script>
 </body>
 </html>
