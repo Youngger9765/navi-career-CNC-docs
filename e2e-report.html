@@ -942,9 +942,9 @@ const PRD_GROUPS = [
       {num:33, name:'排程發信 (cron)', desc:'【已修】ScheduledEmail DB model + POST /internal/process-scheduled-emails endpoint。infra/cloud-scheduler-setup.sh 建 GCP cron job（每 5 分鐘）', status:'green'},
       {num:34, name:'行銷自動化（一日班/說明會/學長姐）', desc:'【已修】admin/marketing 3 tabs CRUD（說明會/一日班/學長姐）。Create/Edit dialog。自動發信按鈕 disabled 標示「需要排程系統」', status:'green'},
       {num:35, name:'CMS 進階動畫', desc:'【已修】CMS editor 新增 GIF block（URL+preview）+ Carousel block（multi-URL+auto-rotate 3s+dot indicators）', status:'green'},
-      {num:36, name:'電商非會員購買', desc:'【阻塞】目前所有結帳都需要登入。Guest checkout 需要獨立架構設計。V2 scope', status:'red'},
+      {num:36, name:'電商非會員購買', desc:'【V2 SPEC】需求：牌卡等周邊商品允許非會員購買（不需登入）。架構：新增 /checkout/guest 路由，收 name+email+phone+address+payment，不建 User record，建 GuestOrder model（order_id, contact_info JSONB, items JSONB, payment_status, shipping_status）。ECPay 付款成功後寄確認信到 email。與現有 Enrollment 完全獨立，不共用 auth middleware', status:'red'},
       {num:37, name:'課前包裹寄送管理', desc:'【已修】admin/shipments CRUD 頁面：status flow（pending→packed→shipped→delivered）+ tracking number + summary cards。sidebar 新增「出貨管理」', status:'green'},
-      {num:38, name:'按商品拆分退款', desc:'【阻塞】目前 1 enrollment = 1 筆金額。多商品退款需要 order item 架構重構。V3 scope', status:'red'},
+      {num:38, name:'按商品拆分退款', desc:'【V3 SPEC】需求：學員同時報 A+B+牌卡，退課時只退 B 班保留 A 班。架構：新增 OrderItem model（order_id, product_type, unit_price, quantity, refund_status）。Enrollment 改為 has_many OrderItems。退款 API 改為接受 item_ids[] 參數，per-item 計算退款金額。發票也要 per-item 折讓。前端退課 modal 改為 checkbox 選擇要退哪些項目', status:'red'},
     ]
   },
 ];
