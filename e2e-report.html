@@ -104,6 +104,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .prd-info{flex:1;min-width:0}
 .prd-feature-name{font-size:14px;font-weight:600;color:var(--text)}
 .prd-feature-desc{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.4}
+.prd-linked{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .prd-version-tag{display:inline-block;font-size:10px;font-weight:600;padding:1px 6px;border-radius:4px;margin-right:4px;background:#ede9fe;color:#6d28d9}
 .prd-module-tag{display:inline-block;font-size:10px;font-weight:600;padding:1px 6px;border-radius:4px;margin-right:4px;background:#e0f2fe;color:#0369a1}
 .gallery-section{margin-top:24px}
@@ -115,6 +116,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .gallery-item img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:5px;border:1px solid var(--border);transition:all .15s}
 .gallery-item:hover img{border-color:var(--teal);box-shadow:0 3px 10px rgba(55,166,169,.25)}
 .gallery-item p{font-size:11px;color:var(--muted);margin-top:3px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.test-verify{font-size:11px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vb{display:inline-block;font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;margin-right:4px;vertical-align:middle}
+.vb-ai{background:#dcfce7;color:#166534}
+.vb-pending{background:#fef9c3;color:#854d0e}
+.vb-api{background:#ede9fe;color:#6d28d9}
+.modal-spec{font-size:12px;color:var(--text);margin-top:6px;padding:4px 8px;background:#f1f5f9;border-radius:4px}
+.modal-spec b{color:var(--teal)}
 .verify-box{background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:12px}
 .verify-box.verify-api{background:#ede9fe;border-color:#c4b5fd;color:#6d28d9;font-size:13px}
 .verify-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:12px;color:var(--muted)}
@@ -295,11 +303,22 @@ function renderTestTab(tabId, label) {
       var statusClass = t.status==='pass'?'ts-pass':t.status==='skip'?'ts-skip':'ts-fail';
       var statusIcon = t.status==='pass'?'✓':t.status==='skip'?'−':'✗';
       var dur = t.duration ? ' · ' + Math.round(t.duration/1000) + 's' : '';
+      // Build AI verification summary for list row
+      var v = t.verification;
+      var verifyLine = '';
+      if (v && v.method === 'api-only') {
+        verifyLine = '<div class="test-verify"><span class="vb vb-api">API</span>透過 HTTP status code 驗證</div>';
+      } else if (v && v.analyses && v.analyses.length) {
+        var a = v.analyses[0];
+        var tag = a.needsReview ? '<span class="vb vb-pending">待審查</span>' : '<span class="vb vb-ai">AI 已審查</span>';
+        verifyLine = '<div class="test-verify">' + tag + escHtml(a.description) + '</div>';
+      }
       html += '<div class="test-row" onclick="openModal(\'' + tid + '\')">' +
         '<div class="test-status ' + statusClass + '">' + statusIcon + '</div>' +
         '<div class="test-info">' +
         '<div class="test-name">' + escHtml(t.name) + apiB + skipB + failB + '</div>' +
         '<div class="test-meta">' + escHtml(t.spec) + dur + '</div>' +
+        verifyLine +
         '</div>' + thumb + '</div>';
       _testData[tid] = t;
     });
@@ -383,12 +402,30 @@ function renderPrdGroups(items) {
       var tags = (item.module ? '<span class="prd-module-tag">' + item.module + '</span>' : '') +
                  (item.version ? '<span class="prd-version-tag">' + item.version + '</span>' : '');
       var clickAttr = item.screenshot ? ' style="cursor:pointer" onclick="openPrdScreenshot(\'screenshots/' + item.screenshot + '\',\'' + escAttr(item.name) + '\')"' : '';
+      // Find linked test verification
+      var linkedVerify = '';
+      if (item.linkedTests && item.linkedTests.length && DATA.tests) {
+        var linked = DATA.tests.filter(function(t) {
+          return item.linkedTests.some(function(lt) { return t.spec.indexOf(lt) >= 0; });
+        });
+        if (linked.length) {
+          var passCount = linked.filter(function(t){return t.status==='pass';}).length;
+          linkedVerify = '<div class="prd-linked"><span class="vb vb-ai">E2E</span>' + passCount + '/' + linked.length + ' 測試通過';
+          // Show first linked test's AI analysis if available
+          var withAI = linked.find(function(t) { return t.verification && t.verification.analyses && t.verification.analyses[0] && !t.verification.analyses[0].needsReview; });
+          if (withAI) {
+            linkedVerify += ' · <span style="color:var(--teal)">AI：</span>' + escHtml(withAI.verification.analyses[0].description);
+          }
+          linkedVerify += '</div>';
+        }
+      }
       html += '<div class="prd-row"' + clickAttr + '>' +
         '<div class="prd-num">#' + item.num + '</div>' +
         '<span class="prd-badge ' + badgeClass + '">' + badgeLabel + '</span>' +
         '<div class="prd-info">' +
         '<div class="prd-feature-name">' + tags + escHtml(item.name) + '</div>' +
         '<div class="prd-feature-desc">' + escHtml(item.desc) + '</div>' +
+        linkedVerify +
         '</div>' + thumbHtml + '</div>';
     });
     html += '</div>';
@@ -436,10 +473,10 @@ function openModal(tid) {
   document.getElementById('modal-title').textContent = t.name;
   var statusLabel = t.status==='pass'?'通過':t.status==='skip'?'略過':'失敗';
   var statusClass = t.status==='pass'?'mb-pass':t.status==='skip'?'mb-skip':'mb-fail';
-  var metaHtml = '<span class="modal-badge ' + statusClass + '">' + statusLabel + '</span>' +
-    '<span style="color:var(--muted)">' + escHtml(t.spec) + '</span>';
+  var metaHtml = '<span class="modal-badge ' + statusClass + '">' + statusLabel + '</span>';
   if (t.duration) metaHtml += '<span style="color:var(--muted)">' + Math.round(t.duration/1000) + 's</span>';
   if (t.apiOnly) metaHtml += '<span class="modal-badge mb-api">API 測試</span>';
+  metaHtml += '<div class="modal-spec"><b>規格：</b>' + escHtml(t.spec) + '</div>';
   document.getElementById('modal-meta').innerHTML = metaHtml;
 
   var screenshotHtml = '';
