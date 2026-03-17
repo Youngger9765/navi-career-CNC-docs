@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-17T16:03:41.089Z",
-  "commitSha": "28b9bbb",
+  "generatedAt": "2026-03-17T16:14:20.412Z",
+  "commitSha": "d3e13be",
   "summary": {
     "total": 240,
-    "passed": 37,
+    "passed": 230,
     "skipped": 0,
-    "failed": 203
+    "failed": 10
   },
   "tests": [
     {
@@ -14,7 +14,7 @@
       "tab": "access",
       "group": "Unauthenticated visitor",
       "status": "pass",
-      "duration": 4726,
+      "duration": 5288,
       "shots": []
     },
     {
@@ -23,7 +23,7 @@
       "tab": "access",
       "group": "Unauthenticated visitor",
       "status": "pass",
-      "duration": 8090,
+      "duration": 6023,
       "shots": []
     },
     {
@@ -32,7 +32,7 @@
       "tab": "access",
       "group": "Unauthenticated visitor",
       "status": "pass",
-      "duration": 11472,
+      "duration": 6240,
       "shots": []
     },
     {
@@ -41,7 +41,7 @@
       "tab": "access",
       "group": "Unauthenticated visitor",
       "status": "pass",
-      "duration": 4227,
+      "duration": 3233,
       "shots": []
     },
     {
@@ -49,66 +49,54 @@
       "spec": "access-control/role-guards.spec.ts",
       "tab": "access",
       "group": "Student accessing admin pages",
-      "status": "fail",
-      "duration": 4100,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 6344,
+      "shots": []
     },
     {
       "name": "student accessing /admin/enrollments is blocked — redirect or empty render",
       "spec": "access-control/role-guards.spec.ts",
       "tab": "access",
       "group": "Student accessing admin pages",
-      "status": "fail",
-      "duration": 3281,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5379,
+      "shots": []
     },
     {
       "name": "student can access /student/dashboard",
       "spec": "access-control/role-guards.spec.ts",
       "tab": "access",
       "group": "Student accessing admin pages",
-      "status": "fail",
-      "duration": 1121,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4486,
+      "shots": []
     },
     {
       "name": "admin can access /admin/dashboard",
       "spec": "access-control/role-guards.spec.ts",
       "tab": "access",
       "group": "Admin can access admin pages",
-      "status": "fail",
-      "duration": 1274,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5275,
+      "shots": []
     },
     {
       "name": "admin can access /admin/enrollments",
       "spec": "access-control/role-guards.spec.ts",
       "tab": "access",
       "group": "Admin can access admin pages",
-      "status": "fail",
-      "duration": 1009,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4916,
+      "shots": []
     },
     {
       "name": "student token cannot access admin API endpoints",
       "spec": "access-control/role-guards.spec.ts",
       "tab": "access",
       "group": "API-level role guards",
-      "status": "fail",
-      "duration": 1246,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 2011,
+      "shots": []
     },
     {
       "name": "unauthenticated request to protected API returns 401/403",
@@ -116,7 +104,7 @@
       "tab": "access",
       "group": "API-level role guards",
       "status": "pass",
-      "duration": 480,
+      "duration": 457,
       "shots": []
     },
     {
@@ -124,52 +112,44 @@
       "spec": "m1-registration/admin-agents.spec.ts",
       "tab": "m1",
       "group": "M1-07 / M2: Admin agents (代理商) management",
-      "status": "fail",
-      "duration": 1115,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4370,
+      "shots": []
     },
     {
       "name": "agents table shows correct columns",
       "spec": "m1-registration/admin-agents.spec.ts",
       "tab": "m1",
       "group": "M1-07 / M2: Admin agents (代理商) management",
-      "status": "fail",
-      "duration": 990,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4772,
+      "shots": []
     },
     {
       "name": "agents page has create agent button",
       "spec": "m1-registration/admin-agents.spec.ts",
       "tab": "m1",
       "group": "M1-07 / M2: Admin agents (代理商) management",
-      "status": "fail",
-      "duration": 1149,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4614,
+      "shots": []
     },
     {
       "name": "referrals page shows stat cards and empty/list state",
       "spec": "m1-registration/admin-agents.spec.ts",
       "tab": "m1",
       "group": "M1-07 / M2: Admin agents (代理商) management",
-      "status": "fail",
-      "duration": 1188,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4618,
+      "shots": []
     },
     {
       "name": "admin opens create dialog, fills form, submits",
       "spec": "m1-registration/admin-cohort-crud.spec.ts",
       "tab": "m1",
       "group": "M1-06 CRUD: Admin cohort management",
-      "status": "fail",
-      "duration": 4,
+      "status": "pass",
+      "duration": 6534,
       "shots": []
     },
     {
@@ -177,8 +157,8 @@
       "spec": "m1-registration/admin-cohort-crud.spec.ts",
       "tab": "m1",
       "group": "M1-06 CRUD: Admin cohort management",
-      "status": "fail",
-      "duration": 1,
+      "status": "pass",
+      "duration": 4696,
       "shots": []
     },
     {
@@ -186,8 +166,8 @@
       "spec": "m1-registration/admin-cohort-crud.spec.ts",
       "tab": "m1",
       "group": "M1-06 CRUD: Admin cohort management",
-      "status": "fail",
-      "duration": 1,
+      "status": "pass",
+      "duration": 5050,
       "shots": []
     },
     {
@@ -195,140 +175,116 @@
       "spec": "m1-registration/admin-cohorts.spec.ts",
       "tab": "m1",
       "group": "M1-06: Admin cohort management",
-      "status": "fail",
-      "duration": 953,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4346,
+      "shots": []
     },
     {
       "name": "admin sees cohorts in table/list",
       "spec": "m1-registration/admin-cohorts.spec.ts",
       "tab": "m1",
       "group": "M1-06: Admin cohort management",
-      "status": "fail",
-      "duration": 1126,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4674,
+      "shots": []
     },
     {
       "name": "admin can click a cohort to see detail page",
       "spec": "m1-registration/admin-cohorts.spec.ts",
       "tab": "m1",
       "group": "M1-06: Admin cohort management",
-      "status": "fail",
-      "duration": 1714,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4366,
+      "shots": []
     },
     {
       "name": "admin sees create cohort button",
       "spec": "m1-registration/admin-cohorts.spec.ts",
       "tab": "m1",
       "group": "M1-06: Admin cohort management",
-      "status": "fail",
-      "duration": 1041,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5018,
+      "shots": []
     },
     {
       "name": "admin can access enrollments page",
       "spec": "m1-registration/admin-enrollments.spec.ts",
       "tab": "m1",
       "group": "M1-03: Admin enrollment management",
-      "status": "fail",
-      "duration": 1066,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5048,
+      "shots": []
     },
     {
       "name": "admin sees enrollment records in table",
       "spec": "m1-registration/admin-enrollments.spec.ts",
       "tab": "m1",
       "group": "M1-03: Admin enrollment management",
-      "status": "fail",
-      "duration": 1113,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4766,
+      "shots": []
     },
     {
       "name": "admin can filter enrollments by status",
       "spec": "m1-registration/admin-enrollments.spec.ts",
       "tab": "m1",
       "group": "M1-03: Admin enrollment management",
-      "status": "fail",
-      "duration": 1187,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4819,
+      "shots": []
     },
     {
       "name": "admin sidebar shows enrollment link as active",
       "spec": "m1-registration/admin-enrollments.spec.ts",
       "tab": "m1",
       "group": "M1-03: Admin enrollment management",
-      "status": "fail",
-      "duration": 1020,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4477,
+      "shots": []
     },
     {
       "name": "admin dashboard loads with stats",
       "spec": "m1-registration/admin-enrollments.spec.ts",
       "tab": "m1",
       "group": "M1-03: Admin enrollment management",
-      "status": "fail",
-      "duration": 1261,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5070,
+      "shots": []
     },
     {
       "name": "admin can access promo codes page",
       "spec": "m1-registration/admin-promo-codes.spec.ts",
       "tab": "m1",
       "group": "M1-04: Admin promo code management",
-      "status": "fail",
-      "duration": 1146,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4536,
+      "shots": []
     },
     {
       "name": "admin sees promo codes list or empty state",
       "spec": "m1-registration/admin-promo-codes.spec.ts",
       "tab": "m1",
       "group": "M1-04: Admin promo code management",
-      "status": "fail",
-      "duration": 1185,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4658,
+      "shots": []
     },
     {
       "name": "admin sees create promo code button",
       "spec": "m1-registration/admin-promo-codes.spec.ts",
       "tab": "m1",
       "group": "M1-04: Admin promo code management",
-      "status": "fail",
-      "duration": 977,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4560,
+      "shots": []
     },
     {
       "name": "admin creates a promo code, verifies in list",
       "spec": "m1-registration/admin-promo-crud.spec.ts",
       "tab": "m1",
       "group": "M1-04 CRUD: Admin promo code create → verify → delete",
-      "status": "fail",
-      "duration": 1,
+      "status": "pass",
+      "duration": 6807,
       "shots": []
     },
     {
@@ -336,11 +292,9 @@
       "spec": "m1-registration/ecpay-mock.spec.ts",
       "tab": "m1",
       "group": "M1: ECPay payment flow (mocked)",
-      "status": "fail",
-      "duration": 1100,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 1164,
+      "shots": []
     },
     {
       "name": "mocked ECPay redirect shows checkout success page",
@@ -348,7 +302,7 @@
       "tab": "m1",
       "group": "M1: ECPay payment flow (mocked)",
       "status": "pass",
-      "duration": 3950,
+      "duration": 3458,
       "shots": []
     },
     {
@@ -366,7 +320,7 @@
       "tab": "m1",
       "group": "M1-01 Flow: Student enrollment flow end-to-end",
       "status": "pass",
-      "duration": 4919,
+      "duration": 5545,
       "shots": []
     },
     {
@@ -375,7 +329,7 @@
       "tab": "m1",
       "group": "M1-01 Flow: Student enrollment flow end-to-end",
       "status": "pass",
-      "duration": 3474,
+      "duration": 2671,
       "shots": []
     },
     {
@@ -383,22 +337,18 @@
       "spec": "m1-registration/enroll-flow.spec.ts",
       "tab": "m1",
       "group": "M1-01 Flow: Student enrollment flow end-to-end",
-      "status": "fail",
-      "duration": 985,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3947,
+      "shots": []
     },
     {
       "name": "student can navigate through sidebar links",
       "spec": "m1-registration/enroll-flow.spec.ts",
       "tab": "m1",
       "group": "M1-01 Flow: Student enrollment flow end-to-end",
-      "status": "fail",
-      "duration": 1046,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3437,
+      "shots": []
     },
     {
       "name": "visitor can browse courses → course detail → see enroll CTA",
@@ -406,7 +356,7 @@
       "tab": "m1",
       "group": "M1-01 Flow: Student enrollment flow end-to-end",
       "status": "pass",
-      "duration": 6228,
+      "duration": 6849,
       "shots": []
     },
     {
@@ -415,7 +365,7 @@
       "tab": "m1",
       "group": "M1-01 Flow: Student enrollment flow end-to-end",
       "status": "pass",
-      "duration": 3011,
+      "duration": 2994,
       "shots": []
     },
     {
@@ -423,22 +373,18 @@
       "spec": "m1-registration/enroll-flow.spec.ts",
       "tab": "m1",
       "group": "M1-01 Flow: Student enrollment flow end-to-end",
-      "status": "fail",
-      "duration": 1210,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4053,
+      "shots": []
     },
     {
       "name": "student can navigate through sidebar links",
       "spec": "m1-registration/enroll-flow.spec.ts",
       "tab": "m1",
       "group": "M1-01 Flow: Student enrollment flow end-to-end",
-      "status": "fail",
-      "duration": 1108,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3318,
+      "shots": []
     },
     {
       "name": "enroll page shows cohort info: class types, dates, quota, pricing",
@@ -446,7 +392,7 @@
       "tab": "m1",
       "group": "M1: Enrollment form details and pricing",
       "status": "pass",
-      "duration": 3421,
+      "duration": 4064,
       "shots": []
     },
     {
@@ -455,7 +401,7 @@
       "tab": "m1",
       "group": "M1: Enrollment form details and pricing",
       "status": "pass",
-      "duration": 3094,
+      "duration": 3201,
       "shots": []
     },
     {
@@ -463,44 +409,36 @@
       "spec": "m1-registration/enroll-form-details.spec.ts",
       "tab": "m1",
       "group": "M1: Enrollment form details and pricing",
-      "status": "fail",
-      "duration": 876,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5623,
+      "shots": []
     },
     {
       "name": "admin enrollments page filtering by status works",
       "spec": "m1-registration/enroll-form-details.spec.ts",
       "tab": "m1",
       "group": "M1: Enrollment form details and pricing",
-      "status": "fail",
-      "duration": 1194,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5256,
+      "shots": []
     },
     {
       "name": "admin refunds page shows pending and completed refunds",
       "spec": "m1-registration/enroll-form-details.spec.ts",
       "tab": "m1",
       "group": "M1: Enrollment form details and pricing",
-      "status": "fail",
-      "duration": 1000,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4287,
+      "shots": []
     },
     {
       "name": "admin refunds page has process refund button",
       "spec": "m1-registration/enroll-form-details.spec.ts",
       "tab": "m1",
       "group": "M1: Enrollment form details and pricing",
-      "status": "fail",
-      "duration": 1061,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5585,
+      "shots": []
     },
     {
       "name": "visitor can reach cohort registration page and see step 1",
@@ -508,7 +446,7 @@
       "tab": "m1",
       "group": "M1: Enrollment form — multi-step registration flow",
       "status": "pass",
-      "duration": 3290,
+      "duration": 3019,
       "shots": []
     },
     {
@@ -517,7 +455,7 @@
       "tab": "m1",
       "group": "M1: Enrollment form — multi-step registration flow",
       "status": "pass",
-      "duration": 2897,
+      "duration": 2935,
       "shots": []
     },
     {
@@ -526,7 +464,7 @@
       "tab": "m1",
       "group": "M1: Enrollment form — multi-step registration flow",
       "status": "pass",
-      "duration": 2767,
+      "duration": 2459,
       "shots": []
     },
     {
@@ -535,7 +473,7 @@
       "tab": "m1",
       "group": "M1: Enrollment form — multi-step registration flow",
       "status": "pass",
-      "duration": 2226,
+      "duration": 2642,
       "shots": []
     },
     {
@@ -553,7 +491,7 @@
       "tab": "m1",
       "group": "M1: Payment and checkout flow",
       "status": "pass",
-      "duration": 3110,
+      "duration": 3403,
       "shots": []
     },
     {
@@ -562,7 +500,7 @@
       "tab": "m1",
       "group": "M1: Payment and checkout flow",
       "status": "pass",
-      "duration": 3249,
+      "duration": 3084,
       "shots": []
     },
     {
@@ -571,7 +509,7 @@
       "tab": "m1",
       "group": "M1: Payment and checkout flow",
       "status": "pass",
-      "duration": 289,
+      "duration": 195,
       "shots": []
     },
     {
@@ -579,22 +517,18 @@
       "spec": "m1-registration/payment-flow.spec.ts",
       "tab": "m1",
       "group": "M1: Payment and checkout flow",
-      "status": "fail",
-      "duration": 905,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 1179,
+      "shots": []
     },
     {
       "name": "student can see payment history page",
       "spec": "m1-registration/payment-flow.spec.ts",
       "tab": "m1",
       "group": "M1: Payment and checkout flow",
-      "status": "fail",
-      "duration": 1298,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5303,
+      "shots": []
     },
     {
       "name": "homepage loads with hero and course sections",
@@ -602,7 +536,7 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 3189,
+      "duration": 3564,
       "shots": []
     },
     {
@@ -611,7 +545,7 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 4729,
+      "duration": 5275,
       "shots": []
     },
     {
@@ -620,7 +554,7 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 5942,
+      "duration": 5844,
       "shots": []
     },
     {
@@ -629,7 +563,7 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 4992,
+      "duration": 5261,
       "shots": []
     },
     {
@@ -638,7 +572,7 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 4461,
+      "duration": 3815,
       "shots": []
     },
     {
@@ -647,7 +581,7 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "fail",
-      "duration": 9208,
+      "duration": 9132,
       "shots": [
         "test-failed-1.png"
       ]
@@ -658,7 +592,7 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 4163,
+      "duration": 5392,
       "shots": []
     },
     {
@@ -667,7 +601,7 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "fail",
-      "duration": 15027,
+      "duration": 16060,
       "shots": [
         "test-failed-1.png"
       ]
@@ -678,7 +612,7 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "fail",
-      "duration": 14959,
+      "duration": 15631,
       "shots": [
         "test-failed-1.png"
       ]
@@ -689,7 +623,7 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "fail",
-      "duration": 8170,
+      "duration": 8138,
       "shots": [
         "test-failed-1.png"
       ]
@@ -699,66 +633,54 @@
       "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
-      "status": "fail",
-      "duration": 1019,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4214,
+      "shots": []
     },
     {
       "name": "student can navigate to /enroll page",
       "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
-      "status": "fail",
-      "duration": 983,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3893,
+      "shots": []
     },
     {
       "name": "student can see courses and select a cohort",
       "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
-      "status": "fail",
-      "duration": 981,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4998,
+      "shots": []
     },
     {
       "name": "student can access enrollment form for a cohort",
       "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
-      "status": "fail",
-      "duration": 1324,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4443,
+      "shots": []
     },
     {
       "name": "student can view their enrollment records",
       "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
-      "status": "fail",
-      "duration": 1141,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4809,
+      "shots": []
     },
     {
       "name": "enroll page shows cohort with pricing and CTA",
       "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
-      "status": "fail",
-      "duration": 1164,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4157,
+      "shots": []
     },
     {
       "name": "checkout failed page exists",
@@ -766,7 +688,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "pass",
-      "duration": 2614,
+      "duration": 2742,
       "shots": []
     },
     {
@@ -774,33 +696,27 @@
       "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
-      "status": "fail",
-      "duration": 1425,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4466,
+      "shots": []
     },
     {
       "name": "student can login and see dashboard",
       "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
-      "status": "fail",
-      "duration": 952,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3919,
+      "shots": []
     },
     {
       "name": "student can navigate to /enroll page",
       "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
-      "status": "fail",
-      "duration": 1279,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4711,
+      "shots": []
     },
     {
       "name": "student can see courses and select a cohort",
@@ -808,7 +724,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "fail",
-      "duration": 1239,
+      "duration": 15630,
       "shots": [
         "test-failed-1.png"
       ]
@@ -818,33 +734,27 @@
       "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
-      "status": "fail",
-      "duration": 821,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4414,
+      "shots": []
     },
     {
       "name": "student can view their enrollment records",
       "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
-      "status": "fail",
-      "duration": 853,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3106,
+      "shots": []
     },
     {
       "name": "enroll page shows cohort with pricing and CTA",
       "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
-      "status": "fail",
-      "duration": 880,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3469,
+      "shots": []
     },
     {
       "name": "checkout failed page exists",
@@ -852,7 +762,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "pass",
-      "duration": 3223,
+      "duration": 2851,
       "shots": []
     },
     {
@@ -860,327 +770,269 @@
       "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
-      "status": "fail",
-      "duration": 1298,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3654,
+      "shots": []
     },
     {
       "name": "enrollments page loads with 報名紀錄 heading",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
-      "status": "fail",
-      "duration": 1044,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3606,
+      "shots": []
     },
     {
       "name": "student with active a_only enrollment sees 升級 button",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
-      "status": "fail",
-      "duration": 1284,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3322,
+      "shots": []
     },
     {
       "name": "clicking 升級 opens UpgradeModal with 升級方案 title",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
-      "status": "fail",
-      "duration": 1144,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4755,
+      "shots": []
     },
     {
       "name": "UpgradeModal has 確認升級 and 取消 buttons",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
-      "status": "fail",
-      "duration": 1099,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4869,
+      "shots": []
     },
     {
       "name": "enrollments page loads with 報名紀錄 heading",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
-      "status": "fail",
-      "duration": 975,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3180,
+      "shots": []
     },
     {
       "name": "student with active a_only enrollment sees 升級 button",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
-      "status": "fail",
-      "duration": 1873,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3347,
+      "shots": []
     },
     {
       "name": "clicking 升級 opens UpgradeModal with 升級方案 title",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
-      "status": "fail",
-      "duration": 3008,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4210,
+      "shots": []
     },
     {
       "name": "UpgradeModal has 確認升級 and 取消 buttons",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
-      "status": "fail",
-      "duration": 1090,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3880,
+      "shots": []
     },
     {
       "name": "student with active enrollment sees 申請退課 button",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
-      "status": "fail",
-      "duration": 1039,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3718,
+      "shots": []
     },
     {
       "name": "clicking 申請退課 opens WithdrawModal with reason Textarea",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
-      "status": "fail",
-      "duration": 1035,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3462,
+      "shots": []
     },
     {
       "name": "WithdrawModal submit button is disabled without reason text",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
-      "status": "fail",
-      "duration": 1187,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5108,
+      "shots": []
     },
     {
       "name": "WithdrawModal shows 目前方案 badge inside dialog",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
-      "status": "fail",
-      "duration": 1164,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4541,
+      "shots": []
     },
     {
       "name": "student with active enrollment sees 申請退課 button",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
-      "status": "fail",
-      "duration": 1071,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3367,
+      "shots": []
     },
     {
       "name": "clicking 申請退課 opens WithdrawModal with reason Textarea",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
-      "status": "fail",
-      "duration": 1027,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3125,
+      "shots": []
     },
     {
       "name": "WithdrawModal submit button is disabled without reason text",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
-      "status": "fail",
-      "duration": 1114,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3477,
+      "shots": []
     },
     {
       "name": "WithdrawModal shows 目前方案 badge inside dialog",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
-      "status": "fail",
-      "duration": 1063,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3125,
+      "shots": []
     },
     {
       "name": "checkout page shows 發票資訊 section with two type buttons",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
-      "status": "fail",
-      "duration": 1086,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3691,
+      "shots": []
     },
     {
       "name": "checkout shows 個人電子發票 and 公司三聯式發票 toggle buttons",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
-      "status": "fail",
-      "duration": 1096,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3477,
+      "shots": []
     },
     {
       "name": "default invoice type is 個人電子發票 (personal) with 手機載具 info",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
-      "status": "fail",
-      "duration": 1073,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3991,
+      "shots": []
     },
     {
       "name": "selecting 公司三聯式發票 shows 統一編號 and 公司名稱 fields",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
-      "status": "fail",
-      "duration": 1143,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4072,
+      "shots": []
     },
     {
       "name": "switching back to 個人電子發票 hides company fields",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
-      "status": "fail",
-      "duration": 1048,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4473,
+      "shots": []
     },
     {
       "name": "公司三聯式發票 — 統一編號 input only accepts numeric, max 8 chars",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
-      "status": "fail",
-      "duration": 931,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4218,
+      "shots": []
     },
     {
       "name": "checkout page shows 發票資訊 section with two type buttons",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
-      "status": "fail",
-      "duration": 1083,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4003,
+      "shots": []
     },
     {
       "name": "checkout shows 個人電子發票 and 公司三聯式發票 toggle buttons",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
-      "status": "fail",
-      "duration": 1094,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3060,
+      "shots": []
     },
     {
       "name": "default invoice type is 個人電子發票 (personal) with 手機載具 info",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
-      "status": "fail",
-      "duration": 1112,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3050,
+      "shots": []
     },
     {
       "name": "selecting 公司三聯式發票 shows 統一編號 and 公司名稱 fields",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
-      "status": "fail",
-      "duration": 1061,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3729,
+      "shots": []
     },
     {
       "name": "switching back to 個人電子發票 hides company fields",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
-      "status": "fail",
-      "duration": 1078,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3736,
+      "shots": []
     },
     {
       "name": "公司三聯式發票 — 統一編號 input only accepts numeric, max 8 chars",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
-      "status": "fail",
-      "duration": 1770,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3325,
+      "shots": []
     },
     {
       "name": "admin creates a marketing page with title and slug",
       "spec": "m2-marketing/admin-page-crud.spec.ts",
       "tab": "m2",
       "group": "M2-01 CRUD: Admin marketing page create → verify → delete",
-      "status": "fail",
-      "duration": 1,
+      "status": "pass",
+      "duration": 9094,
       "shots": []
     },
     {
@@ -1188,22 +1040,18 @@
       "spec": "m2-marketing/admin-page-editor.spec.ts",
       "tab": "m2",
       "group": "M2: Marketing page editor and publish flow",
-      "status": "fail",
-      "duration": 1099,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4276,
+      "shots": []
     },
     {
       "name": "page list shows publish status badges",
       "spec": "m2-marketing/admin-page-editor.spec.ts",
       "tab": "m2",
       "group": "M2: Marketing page editor and publish flow",
-      "status": "fail",
-      "duration": 993,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 6289,
+      "shots": []
     },
     {
       "name": "marketing channels page shows 3 types with create buttons",
@@ -1211,7 +1059,7 @@
       "tab": "m2",
       "group": "M2: Marketing page editor and publish flow",
       "status": "fail",
-      "duration": 1029,
+      "duration": 16258,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1221,44 +1069,36 @@
       "spec": "m2-marketing/admin-page-editor.spec.ts",
       "tab": "m2",
       "group": "M2: Marketing page editor and publish flow",
-      "status": "fail",
-      "duration": 1084,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4752,
+      "shots": []
     },
     {
       "name": "admin sees marketing pages table with columns",
       "spec": "m2-marketing/admin-pages.spec.ts",
       "tab": "m2",
       "group": "M2-01: Admin marketing pages management",
-      "status": "fail",
-      "duration": 1188,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5123,
+      "shots": []
     },
     {
       "name": "admin sees page status badges (已發布 / 草稿)",
       "spec": "m2-marketing/admin-pages.spec.ts",
       "tab": "m2",
       "group": "M2-01: Admin marketing pages management",
-      "status": "fail",
-      "duration": 1065,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5028,
+      "shots": []
     },
     {
       "name": "admin sees create page button",
       "spec": "m2-marketing/admin-pages.spec.ts",
       "tab": "m2",
       "group": "M2-01: Admin marketing pages management",
-      "status": "fail",
-      "duration": 988,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5286,
+      "shots": []
     },
     {
       "name": "admin marketing channels page shows 3 channel types",
@@ -1266,7 +1106,7 @@
       "tab": "m2",
       "group": "M2-01: Admin marketing pages management",
       "status": "fail",
-      "duration": 1198,
+      "duration": 14938,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1277,7 +1117,7 @@
       "tab": "m2",
       "group": "M2-01: Admin marketing pages management",
       "status": "fail",
-      "duration": 1089,
+      "duration": 14877,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1287,85 +1127,71 @@
       "spec": "m2-marketing/admin-products.spec.ts",
       "tab": "m2",
       "group": "M2-02: Admin product management",
-      "status": "fail",
-      "duration": 1103,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4719,
+      "shots": []
     },
     {
       "name": "admin sees product table columns: name, slug, category, price, status",
       "spec": "m2-marketing/admin-products.spec.ts",
       "tab": "m2",
       "group": "M2-02: Admin product management",
-      "status": "fail",
-      "duration": 1046,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4412,
+      "shots": []
     },
     {
       "name": "admin sees create product and category buttons",
       "spec": "m2-marketing/admin-products.spec.ts",
       "tab": "m2",
       "group": "M2-02: Admin product management",
-      "status": "fail",
-      "duration": 1034,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4585,
+      "shots": []
     },
     {
       "name": "products appear on public /courses page with course cards",
       "spec": "m2-marketing/admin-products.spec.ts",
       "tab": "m2",
       "group": "M2-02: Admin product management",
-      "status": "fail",
-      "duration": 1058,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5272,
+      "shots": []
     },
     {
       "name": "course detail page shows pricing and enroll CTA",
       "spec": "m2-marketing/admin-products.spec.ts",
       "tab": "m2",
       "group": "M2-02: Admin product management",
-      "status": "fail",
-      "duration": 1089,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5338,
+      "shots": []
     },
     {
       "name": "admin can access a classroom and see attendance section",
       "spec": "m3-course-ops/admin-attendance.spec.ts",
       "tab": "m3",
       "group": "M3-07: Admin attendance management",
-      "status": "fail",
-      "duration": 1045,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4627,
+      "shots": []
     },
     {
       "name": "admin can see attendance status badges (出席/缺席/請假)",
       "spec": "m3-course-ops/admin-attendance.spec.ts",
       "tab": "m3",
       "group": "M3-07: Admin attendance management",
-      "status": "fail",
-      "duration": 1164,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3635,
+      "shots": []
     },
     {
       "name": "admin creates a classroom, enters detail page",
       "spec": "m3-course-ops/admin-classroom-crud.spec.ts",
       "tab": "m3",
       "group": "M3-01 CRUD: Admin classroom create → detail → delete",
-      "status": "fail",
-      "duration": 1,
+      "status": "pass",
+      "duration": 7494,
       "shots": []
     },
     {
@@ -1373,748 +1199,648 @@
       "spec": "m3-course-ops/admin-classroom.spec.ts",
       "tab": "m3",
       "group": "M3-01/02: Admin classroom management",
-      "status": "fail",
-      "duration": 1026,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4178,
+      "shots": []
     },
     {
       "name": "admin sees classrooms or empty state",
       "spec": "m3-course-ops/admin-classroom.spec.ts",
       "tab": "m3",
       "group": "M3-01/02: Admin classroom management",
-      "status": "fail",
-      "duration": 1025,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4527,
+      "shots": []
     },
     {
       "name": "admin sees create classroom button",
       "spec": "m3-course-ops/admin-classroom.spec.ts",
       "tab": "m3",
       "group": "M3-01/02: Admin classroom management",
-      "status": "fail",
-      "duration": 1016,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4779,
+      "shots": []
     },
     {
       "name": "admin can enter classroom detail page",
       "spec": "m3-course-ops/admin-classroom.spec.ts",
       "tab": "m3",
       "group": "M3-01/02: Admin classroom management",
-      "status": "fail",
-      "duration": 1409,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4500,
+      "shots": []
     },
     {
       "name": "admin can open grading dialog, enter grade and feedback, submit",
       "spec": "m3-course-ops/admin-grading-flow.spec.ts",
       "tab": "m3",
       "group": "M3-05 Flow: Admin grades an assignment",
-      "status": "fail",
-      "duration": 1063,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5111,
+      "shots": []
     },
     {
       "name": "grading page shows stat cards with counts",
       "spec": "m3-course-ops/admin-grading-flow.spec.ts",
       "tab": "m3",
       "group": "M3-05 Flow: Admin grades an assignment",
-      "status": "fail",
-      "duration": 946,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3478,
+      "shots": []
     },
     {
       "name": "admin can access grading dashboard",
       "spec": "m3-course-ops/admin-grading.spec.ts",
       "tab": "m3",
       "group": "M3-05/06: Admin/TA grading dashboard",
-      "status": "fail",
-      "duration": 1007,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4774,
+      "shots": []
     },
     {
       "name": "grading page shows submissions or empty state",
       "spec": "m3-course-ops/admin-grading.spec.ts",
       "tab": "m3",
       "group": "M3-05/06: Admin/TA grading dashboard",
-      "status": "fail",
-      "duration": 1062,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5171,
+      "shots": []
     },
     {
       "name": "TA can access grading dashboard",
       "spec": "m3-course-ops/admin-grading.spec.ts",
       "tab": "m3",
       "group": "M3-05/06: Admin/TA grading dashboard",
-      "status": "fail",
-      "duration": 1063,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5391,
+      "shots": []
     },
     {
       "name": "classroom detail shows tabs for different sections",
       "spec": "m3-course-ops/classroom-detail.spec.ts",
       "tab": "m3",
       "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
-      "status": "fail",
-      "duration": 1030,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4353,
+      "shots": []
     },
     {
       "name": "classroom detail shows student list",
       "spec": "m3-course-ops/classroom-detail.spec.ts",
       "tab": "m3",
       "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
-      "status": "fail",
-      "duration": 1088,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4947,
+      "shots": []
     },
     {
       "name": "classroom announcements section — create announcement",
       "spec": "m3-course-ops/classroom-detail.spec.ts",
       "tab": "m3",
       "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
-      "status": "fail",
-      "duration": 998,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4631,
+      "shots": []
     },
     {
       "name": "classroom assignments section — list and create button",
       "spec": "m3-course-ops/classroom-detail.spec.ts",
       "tab": "m3",
       "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
-      "status": "fail",
-      "duration": 1085,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3934,
+      "shots": []
     },
     {
       "name": "classroom materials section",
       "spec": "m3-course-ops/classroom-detail.spec.ts",
       "tab": "m3",
       "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
-      "status": "fail",
-      "duration": 1055,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4828,
+      "shots": []
     },
     {
       "name": "classroom attendance section — list and mark buttons",
       "spec": "m3-course-ops/classroom-detail.spec.ts",
       "tab": "m3",
       "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
-      "status": "fail",
-      "duration": 1033,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4040,
+      "shots": []
     },
     {
       "name": "admin sees return button for submissions",
       "spec": "m3-course-ops/grading-details.spec.ts",
       "tab": "m3",
       "group": "M3: Grading details — return, download, cross-role",
-      "status": "fail",
-      "duration": 1033,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4672,
+      "shots": []
     },
     {
       "name": "admin can download submission file",
       "spec": "m3-course-ops/grading-details.spec.ts",
       "tab": "m3",
       "group": "M3: Grading details — return, download, cross-role",
-      "status": "fail",
-      "duration": 1030,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4346,
+      "shots": []
     },
     {
       "name": "TA can access grading and see submissions",
       "spec": "m3-course-ops/grading-details.spec.ts",
       "tab": "m3",
       "group": "M3: Grading details — return, download, cross-role",
-      "status": "fail",
-      "duration": 1136,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3369,
+      "shots": []
     },
     {
       "name": "student sees graded assignment result",
       "spec": "m3-course-ops/grading-details.spec.ts",
       "tab": "m3",
       "group": "M3: Grading details — return, download, cross-role",
-      "status": "fail",
-      "duration": 963,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3974,
+      "shots": []
     },
     {
       "name": "student can access my courses page",
       "spec": "m3-course-ops/student-classroom.spec.ts",
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
-      "status": "fail",
-      "duration": 1093,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4030,
+      "shots": []
     },
     {
       "name": "alice (enrolled) sees her courses",
       "spec": "m3-course-ops/student-classroom.spec.ts",
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
-      "status": "fail",
-      "duration": 998,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4532,
+      "shots": []
     },
     {
       "name": "alice can enter a classroom detail page",
       "spec": "m3-course-ops/student-classroom.spec.ts",
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
-      "status": "fail",
-      "duration": 986,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5123,
+      "shots": []
     },
     {
       "name": "student can see assignments in classroom",
       "spec": "m3-course-ops/student-classroom.spec.ts",
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
-      "status": "fail",
-      "duration": 1020,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4920,
+      "shots": []
     },
     {
       "name": "student can view payments page",
       "spec": "m3-course-ops/student-classroom.spec.ts",
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
-      "status": "fail",
-      "duration": 1052,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4488,
+      "shots": []
     },
     {
       "name": "student can access my courses page",
       "spec": "m3-course-ops/student-classroom.spec.ts",
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
-      "status": "fail",
-      "duration": 981,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3842,
+      "shots": []
     },
     {
       "name": "alice (enrolled) sees her courses",
       "spec": "m3-course-ops/student-classroom.spec.ts",
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
-      "status": "fail",
-      "duration": 1041,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3431,
+      "shots": []
     },
     {
       "name": "alice can enter a classroom detail page",
       "spec": "m3-course-ops/student-classroom.spec.ts",
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
-      "status": "fail",
-      "duration": 1184,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4137,
+      "shots": []
     },
     {
       "name": "student can see assignments in classroom",
       "spec": "m3-course-ops/student-classroom.spec.ts",
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
-      "status": "fail",
-      "duration": 955,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3899,
+      "shots": []
     },
     {
       "name": "student can view payments page",
       "spec": "m3-course-ops/student-classroom.spec.ts",
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
-      "status": "fail",
-      "duration": 980,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3406,
+      "shots": []
     },
     {
       "name": "admin can grade a pending certification exam",
       "spec": "m4-supervision/admin-certification-flow.spec.ts",
       "tab": "m4",
       "group": "M4-03 Flow: Admin certification exam grading",
-      "status": "fail",
-      "duration": 1020,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 9039,
+      "shots": []
     },
     {
       "name": "certifications page shows table with exam records",
       "spec": "m4-supervision/admin-certification-flow.spec.ts",
       "tab": "m4",
       "group": "M4-03 Flow: Admin certification exam grading",
-      "status": "fail",
-      "duration": 927,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4105,
+      "shots": []
     },
     {
       "name": "admin can access certifications page",
       "spec": "m4-supervision/admin-certifications.spec.ts",
       "tab": "m4",
       "group": "M4-03: Admin certifications management",
-      "status": "fail",
-      "duration": 1027,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 6541,
+      "shots": []
     },
     {
       "name": "admin sees certifications list or empty state",
       "spec": "m4-supervision/admin-certifications.spec.ts",
       "tab": "m4",
       "group": "M4-03: Admin certifications management",
-      "status": "fail",
-      "duration": 1087,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 6357,
+      "shots": []
     },
     {
       "name": "admin can edit a supervision session status and notes",
       "spec": "m4-supervision/admin-supervision-crud.spec.ts",
       "tab": "m4",
       "group": "M4-01 Flow: Admin supervision session management",
-      "status": "fail",
-      "duration": 994,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 8827,
+      "shots": []
     },
     {
       "name": "supervision page shows table with session data",
       "spec": "m4-supervision/admin-supervision-crud.spec.ts",
       "tab": "m4",
       "group": "M4-01 Flow: Admin supervision session management",
-      "status": "fail",
-      "duration": 998,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4189,
+      "shots": []
     },
     {
       "name": "admin can access supervision page",
       "spec": "m4-supervision/admin-supervision.spec.ts",
       "tab": "m4",
       "group": "M4-01: Admin supervision management",
-      "status": "fail",
-      "duration": 1066,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4712,
+      "shots": []
     },
     {
       "name": "admin sees supervision sessions or empty state",
       "spec": "m4-supervision/admin-supervision.spec.ts",
       "tab": "m4",
       "group": "M4-01: Admin supervision management",
-      "status": "fail",
-      "duration": 1132,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4928,
+      "shots": []
     },
     {
       "name": "admin sees create supervision button and table with sessions",
       "spec": "m4-supervision/admin-supervision.spec.ts",
       "tab": "m4",
       "group": "M4-01: Admin supervision management",
-      "status": "fail",
-      "duration": 1160,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4461,
+      "shots": []
     },
     {
       "name": "student can access certifications page",
       "spec": "m4-supervision/student-certifications.spec.ts",
       "tab": "m4",
       "group": "M4-04: Student certifications view",
-      "status": "fail",
-      "duration": 992,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4011,
+      "shots": []
     },
     {
       "name": "student sees certifications or empty state",
       "spec": "m4-supervision/student-certifications.spec.ts",
       "tab": "m4",
       "group": "M4-04: Student certifications view",
-      "status": "fail",
-      "duration": 1020,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4118,
+      "shots": []
     },
     {
       "name": "student can access certifications page",
       "spec": "m4-supervision/student-certifications.spec.ts",
       "tab": "m4",
       "group": "M4-04: Student certifications view",
-      "status": "fail",
-      "duration": 1145,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3176,
+      "shots": []
     },
     {
       "name": "student sees certifications or empty state",
       "spec": "m4-supervision/student-certifications.spec.ts",
       "tab": "m4",
       "group": "M4-04: Student certifications view",
-      "status": "fail",
-      "duration": 1156,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3052,
+      "shots": []
     },
     {
       "name": "student can access supervision page",
       "spec": "m4-supervision/student-supervision.spec.ts",
       "tab": "m4",
       "group": "M4-02: Student supervision view",
-      "status": "fail",
-      "duration": 1073,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4085,
+      "shots": []
     },
     {
       "name": "student sees supervision sessions or empty state",
       "spec": "m4-supervision/student-supervision.spec.ts",
       "tab": "m4",
       "group": "M4-02: Student supervision view",
-      "status": "fail",
-      "duration": 1029,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4407,
+      "shots": []
     },
     {
       "name": "student can access supervision page",
       "spec": "m4-supervision/student-supervision.spec.ts",
       "tab": "m4",
       "group": "M4-02: Student supervision view",
-      "status": "fail",
-      "duration": 976,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3268,
+      "shots": []
     },
     {
       "name": "student sees supervision sessions or empty state",
       "spec": "m4-supervision/student-supervision.spec.ts",
       "tab": "m4",
       "group": "M4-02: Student supervision view",
-      "status": "fail",
-      "duration": 1093,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3218,
+      "shots": []
     },
     {
       "name": "admin supervision table shows correct columns",
       "spec": "m4-supervision/supervision-details.spec.ts",
       "tab": "m4",
       "group": "M4: Supervision and certification details",
-      "status": "fail",
-      "duration": 991,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4386,
+      "shots": []
     },
     {
       "name": "supervision sessions show status badges: 已排程, 已完成",
       "spec": "m4-supervision/supervision-details.spec.ts",
       "tab": "m4",
       "group": "M4: Supervision and certification details",
-      "status": "fail",
-      "duration": 1024,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5306,
+      "shots": []
     },
     {
       "name": "admin certification table shows status: 通過, 待評分, 未通過",
       "spec": "m4-supervision/supervision-details.spec.ts",
       "tab": "m4",
       "group": "M4: Supervision and certification details",
-      "status": "fail",
-      "duration": 1017,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4895,
+      "shots": []
     },
     {
       "name": "admin certification page has filter dropdowns for status and type",
       "spec": "m4-supervision/supervision-details.spec.ts",
       "tab": "m4",
       "group": "M4: Supervision and certification details",
-      "status": "fail",
-      "duration": 1073,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4865,
+      "shots": []
     },
     {
       "name": "student supervision page shows empty state with helpful message",
       "spec": "m4-supervision/supervision-details.spec.ts",
       "tab": "m4",
       "group": "M4: Supervision and certification details",
-      "status": "fail",
-      "duration": 1130,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4331,
+      "shots": []
     },
     {
       "name": "student certification page shows empty state",
       "spec": "m4-supervision/supervision-details.spec.ts",
       "tab": "m4",
       "group": "M4: Supervision and certification details",
-      "status": "fail",
-      "duration": 1038,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3951,
+      "shots": []
     },
     {
       "name": "supervisor can access supervision page",
       "spec": "m4-supervision/supervision-details.spec.ts",
       "tab": "m4",
       "group": "M4: Supervision and certification details",
-      "status": "fail",
-      "duration": 1055,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5022,
+      "shots": []
     },
     {
       "name": "admin can view member detail dialog",
       "spec": "m5-crm/admin-crm-flow.spec.ts",
       "tab": "m5",
       "group": "M5-01 Flow: Admin CRM member view and renewal review",
-      "status": "fail",
-      "duration": 958,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4815,
+      "shots": []
     },
     {
       "name": "admin can switch between CRM tabs",
       "spec": "m5-crm/admin-crm-flow.spec.ts",
       "tab": "m5",
       "group": "M5-01 Flow: Admin CRM member view and renewal review",
-      "status": "fail",
-      "duration": 1010,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3598,
+      "shots": []
     },
     {
       "name": "admin can search members by name or email",
       "spec": "m5-crm/admin-crm-flow.spec.ts",
       "tab": "m5",
       "group": "M5-01 Flow: Admin CRM member view and renewal review",
-      "status": "fail",
-      "duration": 983,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3560,
+      "shots": []
     },
     {
       "name": "admin can filter members by certification status",
       "spec": "m5-crm/admin-crm-flow.spec.ts",
       "tab": "m5",
       "group": "M5-01 Flow: Admin CRM member view and renewal review",
-      "status": "fail",
-      "duration": 1080,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3149,
+      "shots": []
     },
     {
       "name": "admin can access CRM members page",
       "spec": "m5-crm/admin-crm.spec.ts",
       "tab": "m5",
       "group": "M5-01/04: Admin CRM management",
-      "status": "fail",
-      "duration": 958,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4395,
+      "shots": []
     },
     {
       "name": "admin sees CRM with tabs and members table",
       "spec": "m5-crm/admin-crm.spec.ts",
       "tab": "m5",
       "group": "M5-01/04: Admin CRM management",
-      "status": "fail",
-      "duration": 1054,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4089,
+      "shots": []
     },
     {
       "name": "admin can access referrals page",
       "spec": "m5-crm/admin-crm.spec.ts",
       "tab": "m5",
       "group": "M5-01/04: Admin CRM management",
-      "status": "fail",
-      "duration": 981,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4749,
+      "shots": []
     },
     {
       "name": "admin can access refunds settings page",
       "spec": "m5-crm/admin-crm.spec.ts",
       "tab": "m5",
       "group": "M5-01/04: Admin CRM management",
-      "status": "fail",
-      "duration": 1065,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4923,
+      "shots": []
     },
     {
       "name": "admin can access agents page",
       "spec": "m5-crm/admin-crm.spec.ts",
       "tab": "m5",
       "group": "M5-01/04: Admin CRM management",
-      "status": "fail",
-      "duration": 1047,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4205,
+      "shots": []
     },
     {
       "name": "student can see renewal section and click 新增申請",
       "spec": "m5-crm/crm-renewal-flow.spec.ts",
       "tab": "m5",
       "group": "M5: CRM renewal and application flows",
-      "status": "fail",
-      "duration": 1053,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4163,
+      "shots": []
     },
     {
       "name": "student can see 特約申請 section with action buttons",
       "spec": "m5-crm/crm-renewal-flow.spec.ts",
       "tab": "m5",
       "group": "M5: CRM renewal and application flows",
-      "status": "fail",
-      "duration": 999,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4225,
+      "shots": []
     },
     {
       "name": "student CRM shows certification status",
       "spec": "m5-crm/crm-renewal-flow.spec.ts",
       "tab": "m5",
       "group": "M5: CRM renewal and application flows",
-      "status": "fail",
-      "duration": 1127,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4833,
+      "shots": []
     },
     {
       "name": "admin can review renewal — approve dialog",
       "spec": "m5-crm/crm-renewal-flow.spec.ts",
       "tab": "m5",
       "group": "M5: CRM renewal and application flows",
-      "status": "fail",
-      "duration": 1065,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5013,
+      "shots": []
     },
     {
       "name": "admin can update application status in 特約申請 tab",
       "spec": "m5-crm/crm-renewal-flow.spec.ts",
       "tab": "m5",
       "group": "M5: CRM renewal and application flows",
-      "status": "fail",
-      "duration": 1083,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4450,
+      "shots": []
     },
     {
       "name": "student can access CRM page",
       "spec": "m5-crm/student-crm.spec.ts",
       "tab": "m5",
       "group": "M5-02/03: Student CRM and renewals",
-      "status": "fail",
-      "duration": 1179,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4046,
+      "shots": []
+    },
+    {
+      "name": "student sees 會員中心 with profile, renewals, and applications sections",
+      "spec": "m5-crm/student-crm.spec.ts",
+      "tab": "m5",
+      "group": "M5-02/03: Student CRM and renewals",
+      "status": "pass",
+      "duration": 4292,
+      "shots": []
+    },
+    {
+      "name": "student sees renewal and application action buttons",
+      "spec": "m5-crm/student-crm.spec.ts",
+      "tab": "m5",
+      "group": "M5-02/03: Student CRM and renewals",
+      "status": "pass",
+      "duration": 4739,
+      "shots": []
+    },
+    {
+      "name": "student can access profile page",
+      "spec": "m5-crm/student-crm.spec.ts",
+      "tab": "m5",
+      "group": "M5-02/03: Student CRM and renewals",
+      "status": "pass",
+      "duration": 4724,
+      "shots": []
+    },
+    {
+      "name": "student can access CRM page",
+      "spec": "m5-crm/student-crm.spec.ts",
+      "tab": "m5",
+      "group": "M5-02/03: Student CRM and renewals",
+      "status": "pass",
+      "duration": 3194,
+      "shots": []
     },
     {
       "name": "student sees 會員中心 with profile, renewals, and applications sections",
@@ -2122,7 +1848,7 @@
       "tab": "m5",
       "group": "M5-02/03: Student CRM and renewals",
       "status": "fail",
-      "duration": 1004,
+      "duration": 13878,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2133,7 +1859,7 @@
       "tab": "m5",
       "group": "M5-02/03: Student CRM and renewals",
       "status": "fail",
-      "duration": 1024,
+      "duration": 8263,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2143,55 +1869,9 @@
       "spec": "m5-crm/student-crm.spec.ts",
       "tab": "m5",
       "group": "M5-02/03: Student CRM and renewals",
-      "status": "fail",
-      "duration": 1189,
-      "shots": [
-        "test-failed-1.png"
-      ]
-    },
-    {
-      "name": "student can access CRM page",
-      "spec": "m5-crm/student-crm.spec.ts",
-      "tab": "m5",
-      "group": "M5-02/03: Student CRM and renewals",
-      "status": "fail",
-      "duration": 1021,
-      "shots": [
-        "test-failed-1.png"
-      ]
-    },
-    {
-      "name": "student sees 會員中心 with profile, renewals, and applications sections",
-      "spec": "m5-crm/student-crm.spec.ts",
-      "tab": "m5",
-      "group": "M5-02/03: Student CRM and renewals",
-      "status": "fail",
-      "duration": 1065,
-      "shots": [
-        "test-failed-1.png"
-      ]
-    },
-    {
-      "name": "student sees renewal and application action buttons",
-      "spec": "m5-crm/student-crm.spec.ts",
-      "tab": "m5",
-      "group": "M5-02/03: Student CRM and renewals",
-      "status": "fail",
-      "duration": 1133,
-      "shots": [
-        "test-failed-1.png"
-      ]
-    },
-    {
-      "name": "student can access profile page",
-      "spec": "m5-crm/student-crm.spec.ts",
-      "tab": "m5",
-      "group": "M5-02/03: Student CRM and renewals",
-      "status": "fail",
-      "duration": 1021,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 2933,
+      "shots": []
     },
     {
       "name": "homepage renders on mobile",
@@ -2199,7 +1879,7 @@
       "tab": "mobile",
       "group": "Mobile viewport — key pages render correctly",
       "status": "pass",
-      "duration": 4043,
+      "duration": 3480,
       "shots": []
     },
     {
@@ -2208,7 +1888,7 @@
       "tab": "mobile",
       "group": "Mobile viewport — key pages render correctly",
       "status": "pass",
-      "duration": 4727,
+      "duration": 3939,
       "shots": []
     },
     {
@@ -2217,7 +1897,7 @@
       "tab": "mobile",
       "group": "Mobile viewport — key pages render correctly",
       "status": "pass",
-      "duration": 3505,
+      "duration": 3171,
       "shots": []
     },
     {
@@ -2225,22 +1905,18 @@
       "spec": "mobile-viewport.spec.ts",
       "tab": "mobile",
       "group": "Mobile viewport — key pages render correctly",
-      "status": "fail",
-      "duration": 987,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3888,
+      "shots": []
     },
     {
       "name": "admin dashboard renders on mobile with sidebar toggle",
       "spec": "mobile-viewport.spec.ts",
       "tab": "mobile",
       "group": "Mobile viewport — key pages render correctly",
-      "status": "fail",
-      "duration": 874,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3772,
+      "shots": []
     },
     {
       "name": "login page renders on mobile",
@@ -2248,7 +1924,7 @@
       "tab": "mobile",
       "group": "Mobile viewport — key pages render correctly",
       "status": "pass",
-      "duration": 2675,
+      "duration": 3053,
       "shots": []
     },
     {
@@ -2257,7 +1933,7 @@
       "tab": "screenshots",
       "group": "Visitor screenshots",
       "status": "pass",
-      "duration": 4400,
+      "duration": 4250,
       "shots": []
     },
     {
@@ -2266,7 +1942,7 @@
       "tab": "screenshots",
       "group": "Visitor screenshots",
       "status": "pass",
-      "duration": 5445,
+      "duration": 4884,
       "shots": []
     },
     {
@@ -2275,7 +1951,7 @@
       "tab": "screenshots",
       "group": "Visitor screenshots",
       "status": "pass",
-      "duration": 2663,
+      "duration": 3450,
       "shots": []
     },
     {
@@ -2284,7 +1960,7 @@
       "tab": "screenshots",
       "group": "Visitor screenshots",
       "status": "pass",
-      "duration": 3581,
+      "duration": 3324,
       "shots": []
     },
     {
@@ -2292,275 +1968,225 @@
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Admin screenshots",
-      "status": "fail",
-      "duration": 1154,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4297,
+      "shots": []
     },
     {
       "name": "admin - /admin/enrollments",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Admin screenshots",
-      "status": "fail",
-      "duration": 1522,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4331,
+      "shots": []
     },
     {
       "name": "admin - /admin/cohorts",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Admin screenshots",
-      "status": "fail",
-      "duration": 1538,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4272,
+      "shots": []
     },
     {
       "name": "admin - /admin/classrooms",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Admin screenshots",
-      "status": "fail",
-      "duration": 988,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4658,
+      "shots": []
     },
     {
       "name": "admin - /admin/grading",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Admin screenshots",
-      "status": "fail",
-      "duration": 1138,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4526,
+      "shots": []
     },
     {
       "name": "admin - /admin/promo-codes",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Admin screenshots",
-      "status": "fail",
-      "duration": 1053,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4321,
+      "shots": []
     },
     {
       "name": "admin - /admin/products",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Admin screenshots",
-      "status": "fail",
-      "duration": 965,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4793,
+      "shots": []
     },
     {
       "name": "admin - /admin/pages",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Admin screenshots",
-      "status": "fail",
-      "duration": 1038,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4940,
+      "shots": []
     },
     {
       "name": "admin - /admin/marketing",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Admin screenshots",
-      "status": "fail",
-      "duration": 1120,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4796,
+      "shots": []
     },
     {
       "name": "admin - /admin/crm",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Admin screenshots",
-      "status": "fail",
-      "duration": 1281,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4566,
+      "shots": []
     },
     {
       "name": "admin - /admin/supervision",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Admin screenshots",
-      "status": "fail",
-      "duration": 1084,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4098,
+      "shots": []
     },
     {
       "name": "admin - /admin/certifications",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Admin screenshots",
-      "status": "fail",
-      "duration": 976,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 5025,
+      "shots": []
     },
     {
       "name": "admin - /admin/referrals",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Admin screenshots",
-      "status": "fail",
-      "duration": 1301,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4453,
+      "shots": []
     },
     {
       "name": "admin - /admin/refunds",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Admin screenshots",
-      "status": "fail",
-      "duration": 1036,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4716,
+      "shots": []
     },
     {
       "name": "admin - /admin/agents",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Admin screenshots",
-      "status": "fail",
-      "duration": 1035,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4730,
+      "shots": []
     },
     {
       "name": "student - /student/dashboard",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Student screenshots",
-      "status": "fail",
-      "duration": 1254,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4672,
+      "shots": []
     },
     {
       "name": "student - /student/enrollments",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Student screenshots",
-      "status": "fail",
-      "duration": 1274,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4003,
+      "shots": []
     },
     {
       "name": "student - /student/courses",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Student screenshots",
-      "status": "fail",
-      "duration": 1014,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4538,
+      "shots": []
     },
     {
       "name": "student - /student/payments",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Student screenshots",
-      "status": "fail",
-      "duration": 1026,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4278,
+      "shots": []
     },
     {
       "name": "student - /student/crm",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Student screenshots",
-      "status": "fail",
-      "duration": 988,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4297,
+      "shots": []
     },
     {
       "name": "student - /student/supervision",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Student screenshots",
-      "status": "fail",
-      "duration": 1059,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 3961,
+      "shots": []
     },
     {
       "name": "student - /student/certifications",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Student screenshots",
-      "status": "fail",
-      "duration": 983,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4076,
+      "shots": []
     },
     {
       "name": "student - /student/profile",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Student screenshots",
-      "status": "fail",
-      "duration": 1239,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4574,
+      "shots": []
     },
     {
       "name": "ta - /admin/grading",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "TA screenshots",
-      "status": "fail",
-      "duration": 1106,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4512,
+      "shots": []
     },
     {
       "name": "supervisor - /admin/supervision",
       "spec": "screenshot-audit.spec.ts",
       "tab": "screenshots",
       "group": "Supervisor screenshots",
-      "status": "fail",
-      "duration": 1076,
-      "shots": [
-        "test-failed-1.png"
-      ]
+      "status": "pass",
+      "duration": 4971,
+      "shots": []
     }
   ],
   "prdCoverage": {
@@ -3156,6 +2782,8 @@
       "crud/agents-02-table-columns.png",
       "crud/agents-03-create-btn.png",
       "crud/agents-04-referrals-stats.png",
+      "crud/attendance-01-classroom-detail.png",
+      "crud/attendance-03-status-badges.png",
       "crud/certification-01-dialog-open.png",
       "crud/certification-02-score-filled.png",
       "crud/certification-03-toast-success.png",
@@ -3229,6 +2857,12 @@
       "flow/enroll-details-06-process-refund-btn.png",
       "flow/enroll-form-01-step1-courses.png",
       "flow/enroll-form-02-early-bird.png",
+      "flow/invoice-01-section-heading.png",
+      "flow/invoice-02-type-buttons.png",
+      "flow/invoice-03-personal-default.png",
+      "flow/invoice-04-company-fields.png",
+      "flow/invoice-05-switch-back-personal.png",
+      "flow/invoice-06-taxid-filled.png",
       "flow/mobile-01-homepage.png",
       "flow/mobile-02-courses.png",
       "flow/mobile-03-enroll.png",
@@ -3247,7 +2881,15 @@
       "flow/student-enroll-04-form-accessible.png",
       "flow/student-enroll-05-records.png",
       "flow/student-enroll-06-pricing-cta.png",
-      "flow/student-enroll-07-checkout-failed.png"
+      "flow/student-enroll-07-checkout-failed.png",
+      "flow/upgrade-01-page-heading.png",
+      "flow/upgrade-02-upgrade-btn.png",
+      "flow/upgrade-03-modal-open.png",
+      "flow/upgrade-04-modal-buttons.png",
+      "flow/withdraw-01-withdraw-btn.png",
+      "flow/withdraw-02-modal-open.png",
+      "flow/withdraw-03-reason-filled.png",
+      "flow/withdraw-04-modal-plan.png"
     ],
     "prd-gaps": []
   }
