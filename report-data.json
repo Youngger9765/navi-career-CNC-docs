@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-17T18:02:21.705Z",
-  "commitSha": "e2fa90b",
+  "generatedAt": "2026-03-17T19:15:38.912Z",
+  "commitSha": "885478d",
   "summary": {
     "total": 240,
-    "passed": 239,
+    "passed": 240,
     "skipped": 0,
-    "failed": 1
+    "failed": 0
   },
   "tests": [
     {
@@ -14,20 +14,10 @@
       "tab": "access",
       "group": "未認證訪客",
       "status": "pass",
-      "duration": 2591,
+      "duration": 3890,
       "shots": [
         "flow/access-01-admin-redirect-login.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/access-01-admin-redirect-login.png",
-            "description": "登入頁（桌面版），右上角「未登入重導向入頁」紅框標註「登入」按鈕，表單含Google登入、電子郵件/密碼欄位，「Google Client ID 未設定」警告框",
-            "proof": "訪客訪問/admin/dashboard被重導至登入頁，RBAC守衛生效"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "未認證訪客造訪 /student/dashboard 被重導至登入頁",
@@ -35,20 +25,10 @@
       "tab": "access",
       "group": "未認證訪客",
       "status": "pass",
-      "duration": 2521,
+      "duration": 3731,
       "shots": [
         "flow/access-02-student-redirect-login.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/access-02-student-redirect-login.png",
-            "description": "登入頁（桌面版），右上角「未登入重導向入頁」紅框標註「登入」按鈕，Google Client ID未設定警告，電子郵件/密碼欄位完整",
-            "proof": "訪客訪問/student/dashboard被重導至登入頁，路由守衛正常"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "訪客可存取公開的 /courses 頁",
@@ -56,20 +36,10 @@
       "tab": "access",
       "group": "未認證訪客",
       "status": "pass",
-      "duration": 3081,
+      "duration": 3938,
       "shots": [
         "flow/access-03-public-courses.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/access-03-public-courses.png",
-            "description": "公開課程頁（桌面版），標籤「公開課程頁可存取」，hero區塊深藍背景，「職涯牌卡」分類，職游旅人卡NT$750、職能盤點卡NT$1,240，未登入用戶可見登入按鈕",
-            "proof": "未登入訪客可正常訪問/courses頁，公開路由無需認證"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "訪客可存取登入頁",
@@ -77,20 +47,10 @@
       "tab": "access",
       "group": "未認證訪客",
       "status": "pass",
-      "duration": 4036,
+      "duration": 3507,
       "shots": [
         "flow/access-04-login-page.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/access-04-login-page.png",
-            "description": "登入頁面，顯示「登入您的 CNC 培訓系統帳號」、Google 登入按鈕、電子郵件/密碼輸入欄、登入按鈕、「還沒有帳號？立即註冊」連結",
-            "proof": "登入頁面完整渲染，visitor 可正常訪問 /login"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員造訪 /admin/dashboard 被阻擋 — 重導或空白渲染",
@@ -98,20 +58,10 @@
       "tab": "access",
       "group": "學員存取管理頁面",
       "status": "pass",
-      "duration": 2362,
+      "duration": 5021,
       "shots": [
         "flow/access-05-student-blocked-admin.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/access-05-student-blocked-admin.png",
-            "description": "學員儀表板（桌面版），標籤「學員無法存取管理員頁」，側欄顯示學員中心選單，主內容區「我的報名」顯示「Not authenticated」紅色錯誤，快速連結正常",
-            "proof": "學員角色訪問/admin/dashboard被阻擋，顯示無權限錯誤"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員造訪 /admin/enrollments 被阻擋 — 重導或空白渲染",
@@ -119,20 +69,10 @@
       "tab": "access",
       "group": "學員存取管理頁面",
       "status": "pass",
-      "duration": 2352,
+      "duration": 5101,
       "shots": [
         "flow/access-06-student-blocked-enrollments.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/access-06-student-blocked-enrollments.png",
-            "description": "學員儀表板（桌面版），標籤「學員無法存取報名管理」，側欄學員選單，主內容「我的報名」顯示「Not authenticated」，快速連結三格可見",
-            "proof": "學員角色訪問/admin/enrollments被阻擋，RBAC控制有效"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可存取 /student/dashboard",
@@ -140,20 +80,10 @@
       "tab": "access",
       "group": "學員存取管理頁面",
       "status": "pass",
-      "duration": 2117,
+      "duration": 4869,
       "shots": [
         "flow/access-07-student-own-dashboard.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/access-07-student-own-dashboard.png",
-            "description": "學員儀表板（桌面版），標籤「學員可存取自己儀表板」，「歡迎回來，學員 Student」，我的報名skeleton載入，快速連結課程資料/LINE群組/常見問題",
-            "proof": "學員可正常訪問自己的/student/dashboard，授權通過"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可存取 /admin/dashboard",
@@ -161,20 +91,10 @@
       "tab": "access",
       "group": "管理員可存取管理頁面",
       "status": "pass",
-      "duration": 1304,
+      "duration": 4381,
       "shots": [
         "flow/access-08-admin-dashboard.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/access-08-admin-dashboard.png",
-            "description": "管理後台儀表板，左側Admin標籤側欄含儀表板/報名管理/梯次管理等12+選單項，右側主內容區顯示旋轉載入中，標籤「管理員儀表板可存取」",
-            "proof": "Admin角色可正常訪問/admin/dashboard，權限驗證通過"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可存取 /admin/enrollments",
@@ -182,20 +102,10 @@
       "tab": "access",
       "group": "管理員可存取管理頁面",
       "status": "pass",
-      "duration": 1002,
+      "duration": 3318,
       "shots": [
         "flow/access-09-admin-enrollments.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/access-09-admin-enrollments.png",
-            "description": "管理後台報名管理頁，側欄「報名管理」高亮，表格顯示9筆報名紀錄，含學員Student/王小明/林美玲等，篩選器全部付款/報名狀態，金額NT$27,000/NT$70,000",
-            "proof": "Admin可訪問/admin/enrollments並看到完整報名數據，測試通過"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員 token 無法存取管理員 API 端點",
@@ -203,12 +113,8 @@
       "tab": "access",
       "group": "API 層級角色守衛",
       "status": "pass",
-      "duration": 1354,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 1792,
+      "shots": []
     },
     {
       "name": "未認證請求存取受保護 API 回傳 401/403",
@@ -216,12 +122,8 @@
       "tab": "access",
       "group": "API 層級角色守衛",
       "status": "pass",
-      "duration": 118,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 553,
+      "shots": []
     },
     {
       "name": "代理商頁面顯示統計卡片與表格",
@@ -229,20 +131,10 @@
       "tab": "m1",
       "group": "M1-07 / M2: 管理員代理商管理",
       "status": "pass",
-      "duration": 2503,
+      "duration": 3414,
       "shots": [
         "crud/agents-01-stat-cards.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/agents-01-stat-cards.png",
-            "description": "代理商管理頁面顯示兩張統計卡片：「總代理商數 1」和「啟用中 0」，紅框標示「代理商統計卡片」tooltip，下方表格列出 Updated Agent / Test Corp / 15.00% / 已停用",
-            "verdict": "統計卡片與代理商表格均成功渲染，證明頁面結構正確載入"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "代理商表格顯示正確欄位",
@@ -250,20 +142,10 @@
       "tab": "m1",
       "group": "M1-07 / M2: 管理員代理商管理",
       "status": "pass",
-      "duration": 2409,
+      "duration": 2723,
       "shots": [
         "crud/agents-02-table-columns.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/agents-02-table-columns.png",
-            "description": "代理商管理頁面表格顯示欄位標題：名稱、公司、佣金比例、報名數、狀態、操作，列出 Updated Agent / Test Corp / 15.00% / 已停用，並有編輯與刪除按鈕",
-            "verdict": "表格欄位（名稱、公司、佣金比例等）完整顯示，確認欄位結構正確"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "代理商頁面有新增代理商按鈕",
@@ -271,20 +153,10 @@
       "tab": "m1",
       "group": "M1-07 / M2: 管理員代理商管理",
       "status": "pass",
-      "duration": 2532,
+      "duration": 3027,
       "shots": [
         "crud/agents-03-create-btn.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/agents-03-create-btn.png",
-            "description": "代理商管理頁面右上角出現「+ 新增代理商」綠色按鈕，旁有紅框標示 tooltip「新增代理商按鈕」",
-            "verdict": "新增代理商按鈕存在且可見，確認按鈕元素渲染成功"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "推薦頁面顯示統計卡片與列表",
@@ -292,20 +164,10 @@
       "tab": "m1",
       "group": "M1-07 / M2: 管理員代理商管理",
       "status": "pass",
-      "duration": 1840,
+      "duration": 3908,
       "shots": [
         "crud/agents-04-referrals-stats.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/agents-04-referrals-stats.png",
-            "description": "推薦獎金管理頁面顯示四張統計卡片：總推薦數 0、總獎金金額 NT$0、待發放 0、已發放 0，下方顯示「目前沒有推薦紀錄」空狀態，底部有推薦獎金設定區塊（全域預設 200）",
-            "verdict": "推薦頁面統計卡片與空狀態正確渲染，確認頁面結構完整"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員開啟建立 Dialog 填寫表單並送出",
@@ -313,32 +175,12 @@
       "tab": "m1",
       "group": "M1-06 CRUD: 管理員梯次管理",
       "status": "pass",
-      "duration": 4420,
+      "duration": 5671,
       "shots": [
         "crud/cohort-01-dialog-open.png",
         "crud/cohort-02-form-filled.png",
         "crud/cohort-03-toast-success.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/cohort-01-dialog-open.png",
-            "description": "「新增梯次」對話框已開啟，梯次名稱欄位填入「E2E 測試梯次 mmuulm4v」，年份顯示 2099，期數輸入框已聚焦顯示 99",
-            "verdict": "新增梯次對話框成功開啟並且表單欄位可見，確認對話框渲染正確"
-          },
-          {
-            "path": "crud/cohort-02-form-filled.png",
-            "description": "「新增梯次」對話框完整顯示，表單填入梯次名稱「E2E 測試梯次 mmuulm4v」、年份 2099、期數 99，右上角出現紅框標示的錯誤 Toast「發生未知錯誤，請稍後再試」",
-            "verdict": "表單資料填入完整，Toast 通知出現，確認提交流程被觸發"
-          },
-          {
-            "path": "crud/cohort-03-toast-success.png",
-            "description": "「新增梯次」對話框顯示，右上角有紅框 Toast 顯示「發生未知錯誤，請稍後再試」（錯誤 toast，但測試標記為 success toast 截圖），表單欄位保持填入狀態",
-            "verdict": "Toast 通知元件成功出現，確認提交後回饋機制正常運作"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員看到梯次列表與表格標題列",
@@ -346,20 +188,10 @@
       "tab": "m1",
       "group": "M1-06 CRUD: 管理員梯次管理",
       "status": "pass",
-      "duration": 2471,
+      "duration": 3159,
       "shots": [
         "crud/cohort-04-list-table.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/cohort-04-list-table.png",
-            "description": "梯次管理頁面列出兩筆資料：「E2E 測試梯次 mmrvl6to（2099/第99期）」狀態規劃中，以及「CNC 職涯導航師培訓 第37期（2026/第37期）」狀態開放報名，表格包含名稱、狀態、名額上限、A班日期、價格、建立日期欄位",
-            "verdict": "梯次列表表格顯示完整欄位與資料列，確認梯次管理頁面結構正確"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員點擊梯次列進入詳情頁",
@@ -367,12 +199,8 @@
       "tab": "m1",
       "group": "M1-06 CRUD: 管理員梯次管理",
       "status": "pass",
-      "duration": 1834,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 4129,
+      "shots": []
     },
     {
       "name": "管理員可存取梯次列表頁",
@@ -380,20 +208,10 @@
       "tab": "m1",
       "group": "M1-06: 管理員梯次管理",
       "status": "pass",
-      "duration": 2825,
+      "duration": 2935,
       "shots": [
         "crud/cohorts-smoke-01-list-page.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/cohorts-smoke-01-list-page.png",
-            "description": "梯次管理頁面成功載入，左上角有 tooltip 標示「梯次列表頁面」，頁面標題「梯次管理」，表格顯示兩筆梯次資料，右上角有「+新增梯次」按鈕",
-            "verdict": "管理員可成功進入梯次管理頁面，頁面完整渲染"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員看到梯次表格或列表",
@@ -401,20 +219,10 @@
       "tab": "m1",
       "group": "M1-06: 管理員梯次管理",
       "status": "pass",
-      "duration": 1721,
+      "duration": 2931,
       "shots": [
         "crud/cohorts-smoke-02-table.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/cohorts-smoke-02-table.png",
-            "description": "梯次管理頁面顯示載入中 spinner，左側側邊欄正常顯示，「梯次管理」標題可見，表格內容尚未載入完成",
-            "verdict": "頁面結構正確渲染，表格載入狀態被捕捉，確認頁面可訪問"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可點擊梯次進入詳情頁",
@@ -422,12 +230,8 @@
       "tab": "m1",
       "group": "M1-06: 管理員梯次管理",
       "status": "pass",
-      "duration": 1761,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 3797,
+      "shots": []
     },
     {
       "name": "管理員看到新增梯次按鈕",
@@ -435,20 +239,10 @@
       "tab": "m1",
       "group": "M1-06: 管理員梯次管理",
       "status": "pass",
-      "duration": 1946,
+      "duration": 3831,
       "shots": [
         "crud/cohorts-smoke-04-create-btn.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/cohorts-smoke-04-create-btn.png",
-            "description": "梯次管理頁面右上角出現「+ 新增梯次」按鈕，紅框 tooltip 標示「新增梯次按鈕」，表格顯示兩筆梯次資料",
-            "verdict": "新增梯次按鈕存在，確認管理員可見建立梯次入口"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可存取報名管理頁",
@@ -456,20 +250,10 @@
       "tab": "m1",
       "group": "M1-03: 管理員報名管理",
       "status": "pass",
-      "duration": 1104,
+      "duration": 3905,
       "shots": [
         "crud/enrollments-01-list-page.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/enrollments-01-list-page.png",
-            "description": "報名管理頁面載入，左上角 tooltip 標示「報名管理頁面」，顯示「共 0 筆報名紀錄」，側邊欄報名管理項目高亮，頁面有付款狀態與報名狀態兩個篩選器",
-            "verdict": "管理員成功進入報名管理頁面，頁面標題與篩選器元件正確顯示"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員看到報名記錄表格",
@@ -477,20 +261,10 @@
       "tab": "m1",
       "group": "M1-03: 管理員報名管理",
       "status": "pass",
-      "duration": 1995,
+      "duration": 3322,
       "shots": [
         "crud/enrollments-02-table.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/enrollments-02-table.png",
-            "description": "報名管理頁面顯示 9 筆報名紀錄，表格欄位包含學員、Email、梯次、班別、報名狀態、付款狀態、金額、日期、標籤，多筆資料狀態為「上課中」+「已付款」，金額 NT$27,000",
-            "verdict": "報名表格成功顯示真實報名資料與所有欄位，確認資料正確渲染"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可依狀態篩選報名記錄",
@@ -498,20 +272,10 @@
       "tab": "m1",
       "group": "M1-03: 管理員報名管理",
       "status": "pass",
-      "duration": 2189,
+      "duration": 4187,
       "shots": [
         "crud/enrollments-03-filter.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/enrollments-03-filter.png",
-            "description": "報名管理頁面左上角付款狀態篩選下拉展開，顯示選項：全部付款狀態、待付款、已付款、已退款、付款失敗、已取消，旁有紅框 tooltip 標示「報名狀態篩選器」",
-            "verdict": "篩選下拉選單展開並顯示所有狀態選項，確認篩選功能 UI 正常"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員側欄顯示報名管理連結為啟用狀態",
@@ -519,20 +283,10 @@
       "tab": "m1",
       "group": "M1-03: 管理員報名管理",
       "status": "pass",
-      "duration": 2047,
+      "duration": 4458,
       "shots": [
         "crud/enrollments-04-sidebar-active.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/enrollments-04-sidebar-active.png",
-            "description": "報名管理頁面，左側側邊欄「報名管理」項目被 teal 色高亮顯示，tooltip 標示「側欄報名管理連結」，頁面內容顯示 0 筆紀錄",
-            "verdict": "側邊欄報名管理連結呈現 active 高亮狀態，確認路由對應正確"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員儀表板載入並顯示統計數據",
@@ -540,20 +294,10 @@
       "tab": "m1",
       "group": "M1-03: 管理員報名管理",
       "status": "pass",
-      "duration": 1788,
+      "duration": 4654,
       "shots": [
         "crud/enrollments-05-dashboard.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/enrollments-05-dashboard.png",
-            "description": "管理員儀表板頁面，左側側邊欄「儀表板」項目高亮，主內容區顯示載入 spinner，tooltip 標示「管理員儀表板」",
-            "verdict": "管理員儀表板頁面可訪問且正在載入，確認路由與頁面結構正確"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可存取優惠碼頁面",
@@ -561,21 +305,10 @@
       "tab": "m1",
       "group": "M1-04: 管理員優惠碼管理",
       "status": "pass",
-      "duration": 1076,
+      "duration": 4052,
       "shots": [
         "crud/promo-smoke-01-list-page.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/promo-smoke-01-list-page.png",
-            "description": "需要 AI 視覺分析（檔案存在 promo-smoke-01-list-page）",
-            "verdict": "截圖已產生，待 AI 審查",
-            "needsReview": true
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員看到優惠碼列表或空狀態",
@@ -583,21 +316,10 @@
       "tab": "m1",
       "group": "M1-04: 管理員優惠碼管理",
       "status": "pass",
-      "duration": 2132,
+      "duration": 3237,
       "shots": [
         "crud/promo-smoke-02-table.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/promo-smoke-02-table.png",
-            "description": "需要 AI 視覺分析（檔案存在 promo-smoke-02-table）",
-            "verdict": "截圖已產生，待 AI 審查",
-            "needsReview": true
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員看到新增優惠碼按鈕",
@@ -605,21 +327,10 @@
       "tab": "m1",
       "group": "M1-04: 管理員優惠碼管理",
       "status": "pass",
-      "duration": 2391,
+      "duration": 3714,
       "shots": [
         "crud/promo-smoke-03-create-btn.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/promo-smoke-03-create-btn.png",
-            "description": "需要 AI 視覺分析（檔案存在 promo-smoke-03-create-btn）",
-            "verdict": "截圖已產生，待 AI 審查",
-            "needsReview": true
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員建立優惠碼後在列表中確認存在",
@@ -627,42 +338,13 @@
       "tab": "m1",
       "group": "M1-04 CRUD: 管理員優惠碼建立→驗證→刪除",
       "status": "pass",
-      "duration": 1885,
+      "duration": 5623,
       "shots": [
         "crud/promo-01-dialog-open.png",
         "crud/promo-02-form-filled.png",
         "crud/promo-03-toast-success.png",
         "crud/promo-04-list-verified.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/promo-01-dialog-open.png",
-            "description": "需要 AI 視覺分析（檔案存在 promo-01-dialog-open）",
-            "verdict": "截圖已產生，待 AI 審查",
-            "needsReview": true
-          },
-          {
-            "path": "crud/promo-02-form-filled.png",
-            "description": "需要 AI 視覺分析（檔案存在 promo-02-form-filled）",
-            "verdict": "截圖已產生，待 AI 審查",
-            "needsReview": true
-          },
-          {
-            "path": "crud/promo-03-toast-success.png",
-            "description": "需要 AI 視覺分析（檔案存在 promo-03-toast-success）",
-            "verdict": "截圖已產生，待 AI 審查",
-            "needsReview": true
-          },
-          {
-            "path": "crud/promo-04-list-verified.png",
-            "description": "需要 AI 視覺分析（檔案存在 promo-04-list-verified）",
-            "verdict": "截圖已產生，待 AI 審查",
-            "needsReview": true
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "付款結帳 API 回傳重定向 URL 或訂單資訊",
@@ -670,12 +352,8 @@
       "tab": "m1",
       "group": "M1: 綠界金流付款流程（模擬）",
       "status": "pass",
-      "duration": 1536,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 1948,
+      "shots": []
     },
     {
       "name": "模擬綠界重定向後顯示結帳成功頁面",
@@ -683,20 +361,10 @@
       "tab": "m1",
       "group": "M1: 綠界金流付款流程（模擬）",
       "status": "pass",
-      "duration": 1242,
+      "duration": 3123,
       "shots": [
         "flow/ecpay-01-success-page.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/ecpay-01-success-page.png",
-            "description": "ECPay 模擬成功頁面，顯示勾選圖示、「報名成功！」標題、訂單資訊（訂單號 mock-order-123、梯次名稱、報名類型 C班雙證照班）、付款金額 NT$78,700、「付款完成」徽章，頂部有展示模式提示條",
-            "proof": "Checkout success 頁面正確渲染，含訂單詳情與成功狀態"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "結帳失敗頁提供重試選項",
@@ -704,20 +372,10 @@
       "tab": "m1",
       "group": "M1: 綠界金流付款流程（模擬）",
       "status": "pass",
-      "duration": 1380,
+      "duration": 2750,
       "shots": [
         "flow/ecpay-02-failed-page.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/ecpay-02-failed-page.png",
-            "description": "ECPay 模擬失敗頁面，顯示紅色 X 圖示、「付款未完成」標題、4 條可能原因說明，底部有「重新付款」和「返回首頁」按鈕",
-            "proof": "付款失敗頁面正確渲染，提供「重新付款」重試按鈕"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "訪客可瀏覽課程列表→課程詳情→看到報名 CTA",
@@ -725,26 +383,11 @@
       "tab": "m1",
       "group": "M1-01 Flow: 學員報名流程端對端",
       "status": "pass",
-      "duration": 4614,
+      "duration": 5334,
       "shots": [
         "flow/enroll-01-course-listing.png",
         "flow/enroll-02-course-detail.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/enroll-01-course-listing.png",
-            "description": "課程總覽頁面，手機版，含「職涯牌卡」分類，顯示「職游旅人卡 NT$750」課程卡片（有「課程列表連結」標注紅框），下方還有「職能盤點卡 NT$1,240」",
-            "proof": "訪客可瀏覽課程列表，課程卡片可點擊進入詳情"
-          },
-          {
-            "path": "flow/enroll-02-course-detail.png",
-            "description": "職游旅人卡課程詳情頁，手機版，顯示「招生中」、課程名稱、售價 NT$750 原價 NT$850，測試工具標注「課程詳情價格或報名 CTA」紅框圈選價格區域",
-            "proof": "課程詳情頁正確顯示定價資訊"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "訪客可進入報名頁並看到梯次定價",
@@ -752,20 +395,10 @@
       "tab": "m1",
       "group": "M1-01 Flow: 學員報名流程端對端",
       "status": "pass",
-      "duration": 1296,
+      "duration": 2734,
       "shots": [
         "flow/enroll-03-pricing-page.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/enroll-03-pricing-page.png",
-            "description": "線上報名頁，手機版，顯示「CNC 職涯導航師培訓 第37期」、A班/B班日期、A班名額 43/50、雙證照班名額 27/30，底部顯示「單證照班 早鳥價 NT$25,000」紅框標注",
-            "proof": "報名頁正確顯示梯次定價資訊，訪客可看到價格"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員登入後看到儀表板快速連結與報名狀態",
@@ -773,20 +406,10 @@
       "tab": "m1",
       "group": "M1-01 Flow: 學員報名流程端對端",
       "status": "pass",
-      "duration": 1939,
+      "duration": 3335,
       "shots": [
         "flow/enroll-04-student-dashboard.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/enroll-04-student-dashboard.png",
-            "description": "學員 Dashboard，手機版，顯示「歡迎回來，學員 Student」、我的報名（CNC 第37期 已付款 NT$27,000）、快速連結（課程資料、LINE 群組），測試標注「學員 Dashboard 歡迎訊息」",
-            "proof": "學員登入後可看到 Dashboard 含報名狀態與快速連結"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可透過側欄連結導覽各頁面",
@@ -794,12 +417,8 @@
       "tab": "m1",
       "group": "M1-01 Flow: 學員報名流程端對端",
       "status": "pass",
-      "duration": 1730,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 3855,
+      "shots": []
     },
     {
       "name": "訪客可瀏覽課程列表→課程詳情→看到報名 CTA",
@@ -807,26 +426,11 @@
       "tab": "m1",
       "group": "M1-01 Flow: 學員報名流程端對端",
       "status": "pass",
-      "duration": 2167,
+      "duration": 5849,
       "shots": [
         "flow/enroll-01-course-listing.png",
         "flow/enroll-02-course-detail.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/enroll-01-course-listing.png",
-            "description": "課程總覽頁面，手機版，含「職涯牌卡」分類，顯示「職游旅人卡 NT$750」課程卡片（有「課程列表連結」標注紅框），下方還有「職能盤點卡 NT$1,240」",
-            "proof": "訪客可瀏覽課程列表，課程卡片可點擊進入詳情"
-          },
-          {
-            "path": "flow/enroll-02-course-detail.png",
-            "description": "職游旅人卡課程詳情頁，手機版，顯示「招生中」、課程名稱、售價 NT$750 原價 NT$850，測試工具標注「課程詳情價格或報名 CTA」紅框圈選價格區域",
-            "proof": "課程詳情頁正確顯示定價資訊"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "訪客可進入報名頁並看到梯次定價",
@@ -834,20 +438,10 @@
       "tab": "m1",
       "group": "M1-01 Flow: 學員報名流程端對端",
       "status": "pass",
-      "duration": 1731,
+      "duration": 2671,
       "shots": [
         "flow/enroll-03-pricing-page.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/enroll-03-pricing-page.png",
-            "description": "線上報名頁，手機版，顯示「CNC 職涯導航師培訓 第37期」、A班/B班日期、A班名額 43/50、雙證照班名額 27/30，底部顯示「單證照班 早鳥價 NT$25,000」紅框標注",
-            "proof": "報名頁正確顯示梯次定價資訊，訪客可看到價格"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員登入後看到儀表板快速連結與報名狀態",
@@ -855,20 +449,10 @@
       "tab": "m1",
       "group": "M1-01 Flow: 學員報名流程端對端",
       "status": "pass",
-      "duration": 1838,
+      "duration": 3735,
       "shots": [
         "flow/enroll-04-student-dashboard.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/enroll-04-student-dashboard.png",
-            "description": "學員 Dashboard，手機版，顯示「歡迎回來，學員 Student」、我的報名（CNC 第37期 已付款 NT$27,000）、快速連結（課程資料、LINE 群組），測試標注「學員 Dashboard 歡迎訊息」",
-            "proof": "學員登入後可看到 Dashboard 含報名狀態與快速連結"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可透過側欄連結導覽各頁面",
@@ -876,12 +460,8 @@
       "tab": "m1",
       "group": "M1-01 Flow: 學員報名流程端對端",
       "status": "pass",
-      "duration": 1674,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 2923,
+      "shots": []
     },
     {
       "name": "報名頁顯示梯次資訊：班別、日期、名額與定價",
@@ -889,33 +469,21 @@
       "tab": "m1",
       "group": "M1: 報名表單詳情與定價",
       "status": "pass",
-      "duration": 1357,
+      "duration": 2694,
       "shots": [
         "flow/enroll-details-01-cohort-info.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/enroll-details-01-cohort-info.png",
-            "description": "線上報名頁（桌面版），第37期梯次，A班基礎應用班2026/05/03-05/04，B班進階實戰班2026/06/07-06/08，名額43/50與27/30，單證照班早鳥價NT$25,000，標籤「梯次資訊與定價」",
-            "proof": "報名頁顯示梯次資訊含班別、日期、名額、定價，測試通過"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "報名頁顯示早鳥優惠與一般定價",
       "spec": "m1-registration/enroll-form-details.spec.ts",
       "tab": "m1",
       "group": "M1: 報名表單詳情與定價",
-      "status": "fail",
-      "duration": 948,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "status": "pass",
+      "duration": 2453,
+      "shots": [
+        "flow/enroll-details-02-early-bird.png"
+      ]
     },
     {
       "name": "梯次詳情頁顯示設定狀態與統計數據",
@@ -923,20 +491,10 @@
       "tab": "m1",
       "group": "M1: 報名表單詳情與定價",
       "status": "pass",
-      "duration": 1480,
+      "duration": 4857,
       "shots": [
         "flow/enroll-details-03-cohort-detail.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/enroll-details-03-cohort-detail.png",
-            "description": "管理後台梯次詳情設定頁，顯示「E2E 測試梯次 mmrvl6to」、狀態「規劃中」2099/第99期，Tab 含基本資訊/日期設定/價格設定/名額設定/開課檢查，表單有梯次名稱、年份、期數欄位",
-            "proof": "梯次詳情頁正確載入，顯示設定 tabs 與基本資訊表單"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員報名頁依狀態篩選功能正常運作",
@@ -944,20 +502,10 @@
       "tab": "m1",
       "group": "M1: 報名表單詳情與定價",
       "status": "pass",
-      "duration": 1461,
+      "duration": 4775,
       "shots": [
         "flow/enroll-details-04-status-filter.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/enroll-details-04-status-filter.png",
-            "description": "管理後台報名管理頁，顯示「共 9 筆報名紀錄」，含付款狀態/報名狀態下拉篩選器、搜尋框，表格顯示學員名稱、Email、梯次、班別、報名狀態（上課中）、付款狀態（已付款）、金額、日期",
-            "proof": "報名管理頁有狀態篩選器，表格顯示多筆報名紀錄"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員退款頁顯示待處理與已完成退款",
@@ -965,20 +513,10 @@
       "tab": "m1",
       "group": "M1: 報名表單詳情與定價",
       "status": "pass",
-      "duration": 2024,
+      "duration": 3145,
       "shots": [
         "flow/enroll-details-05-refunds.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/enroll-details-05-refunds.png",
-            "description": "退款管理頁，顯示「待處理退款」區塊（Bug Fix Tester 待退款 NT$14,800）和「已退款」區塊（M2 Test Admin 已退款 NT$28,800），測試標注「退款管理分區」紅框",
-            "proof": "退款頁面顯示待處理和已退款兩個分區，資料正確"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員退款頁有處理退款按鈕",
@@ -986,12 +524,8 @@
       "tab": "m1",
       "group": "M1: 報名表單詳情與定價",
       "status": "pass",
-      "duration": 1283,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 2518,
+      "shots": []
     },
     {
       "name": "訪客可進入梯次報名頁並看到步驟一",
@@ -999,20 +533,10 @@
       "tab": "m1",
       "group": "M1: 報名表單多步驟填寫流程",
       "status": "pass",
-      "duration": 999,
+      "duration": 3197,
       "shots": [
         "flow/enroll-form-01-step1-courses.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/enroll-form-01-step1-courses.png",
-            "description": "線上報名頁（桌面版），顯示「CNC 職涯導航師培訓 第37期」、A班/B班日期、名額資訊，測試標注「步驟一：選擇課程」紅框圈選 A班卡片，早鳥價 NT$25,000 和 NT$68,000",
-            "proof": "報名表單 Step 1 正確顯示課程選項與定價"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "步驟一顯示定價及早鳥優惠（如適用）",
@@ -1020,20 +544,10 @@
       "tab": "m1",
       "group": "M1: 報名表單多步驟填寫流程",
       "status": "pass",
-      "duration": 1213,
+      "duration": 2648,
       "shots": [
         "flow/enroll-form-02-early-bird.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/enroll-form-02-early-bird.png",
-            "description": "線上報名頁，第37期梯次卡片，標註「早鳥優惠標籤」，單證照班早鳥價NT$25,000（紅框），雙證照班早鳥價NT$68,000，早鳥截止2026/04/01",
-            "proof": "早鳥價格標籤顯示正確，step1報名頁含早鳥優惠資訊確認通過"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "步驟二顯示個人資料表單欄位",
@@ -1041,12 +555,8 @@
       "tab": "m1",
       "group": "M1: 報名表單多步驟填寫流程",
       "status": "pass",
-      "duration": 1255,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 2877,
+      "shots": []
     },
     {
       "name": "步驟三顯示折扣碼輸入欄位與費用摘要",
@@ -1054,12 +564,8 @@
       "tab": "m1",
       "group": "M1: 報名表單多步驟填寫流程",
       "status": "pass",
-      "duration": 11592,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 13356,
+      "shots": []
     },
     {
       "name": "報名頁顯示完整梯次費用明細",
@@ -1067,20 +573,10 @@
       "tab": "m1",
       "group": "M1: 付款與結帳流程",
       "status": "pass",
-      "duration": 1189,
+      "duration": 2334,
       "shots": [
         "flow/payment-01-pricing-breakdown.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/payment-01-pricing-breakdown.png",
-            "description": "線上報名頁（桌面版），梯次卡片，標籤「報名頁面費用明細」紅框，單證照班早鳥NT$25,000、雙證照班早鳥NT$68,000，老友推薦優惠再折200元說明",
-            "proof": "報名頁完整費用明細含早鳥、雙證照等各方案價格正確顯示"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "結帳成功頁面正常渲染",
@@ -1088,20 +584,10 @@
       "tab": "m1",
       "group": "M1: 付款與結帳流程",
       "status": "pass",
-      "duration": 695,
+      "duration": 2331,
       "shots": [
         "flow/payment-02-checkout-success.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/payment-02-checkout-success.png",
-            "description": "結帳成功頁面，Teal 勾選圖示、「報名成功！」標題、訂單資訊（test-order-123、2026 第一梯、C班雙證照班）、付款金額 NT$78,700、「付款完成」金色徽章，頂部展示模式提示",
-            "proof": "結帳成功頁面正確渲染，訂單詳情完整顯示"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "結帳失敗頁顯示重試選項",
@@ -1109,20 +595,10 @@
       "tab": "m1",
       "group": "M1: 付款與結帳流程",
       "status": "pass",
-      "duration": 684,
+      "duration": 2048,
       "shots": [
         "flow/payment-03-checkout-failed.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/payment-03-checkout-failed.png",
-            "description": "結帳失敗頁面，紅色 X 圖示、「付款未完成」標題、可能原因列表（信用卡授權失敗、ATM 轉帳逾期、網路中斷、瀏覽器阻擋）、「重新付款」和「返回首頁」按鈕",
-            "proof": "結帳失敗頁正確渲染，提供「重新付款」重試選項"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "後端付款 API 要求身份驗證",
@@ -1130,12 +606,8 @@
       "tab": "m1",
       "group": "M1: 付款與結帳流程",
       "status": "pass",
-      "duration": 33,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 200,
+      "shots": []
     },
     {
       "name": "後端優惠碼驗證 API 正常運作",
@@ -1143,12 +615,8 @@
       "tab": "m1",
       "group": "M1: 付款與結帳流程",
       "status": "pass",
-      "duration": 572,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 1226,
+      "shots": []
     },
     {
       "name": "學員可查看付款紀錄頁面",
@@ -1156,20 +624,10 @@
       "tab": "m1",
       "group": "M1: 付款與結帳流程",
       "status": "pass",
-      "duration": 1430,
+      "duration": 3427,
       "shots": [
         "flow/payment-04-student-history.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/payment-04-student-history.png",
-            "description": "學員付款紀錄頁，左側側欄「付款紀錄」高亮，顯示一筆NT$27,000記錄，付款方式信用卡，付款日期2026/03/10，狀態「已付款」（青色badge），訂單編號SEED20260317C045EAEB",
-            "proof": "付款歷史頁正常載入並顯示真實付款紀錄，側欄active狀態正確"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "首頁載入 Hero 區塊與課程列表",
@@ -1177,20 +635,10 @@
       "tab": "m1",
       "group": "M2-04 / M1: 訪客瀏覽課程",
       "status": "pass",
-      "duration": 2201,
+      "duration": 2794,
       "shots": [
         "flow/browse-01-hero.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/browse-01-hero.png",
-            "description": "手機版首頁 hero 區塊，深藍背景，標題「CNC 職涯諮詢師培訓課程」，顯示 87+ 培訓小時、CNC/CDA 雙國際認證、3 張獨家牌卡，下方有「立即報名」和「瀏覽課程」按鈕",
-            "proof": "首頁 hero 完整載入，含品牌資訊與 CTA 按鈕"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "訪客可前往課程頁並看到課程列表",
@@ -1198,20 +646,10 @@
       "tab": "m1",
       "group": "M2-04 / M1: 訪客瀏覽課程",
       "status": "pass",
-      "duration": 4965,
+      "duration": 3851,
       "shots": [
         "flow/browse-02-course-list.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/browse-02-course-list.png",
-            "description": "課程總覽頁面，上方有行銷 banner，麵包屑「首頁 / 課程總覽」，列出「職涯牌卡」分類含「職游旅人卡 NT$750」和「職能盤點卡 NT$1,240」兩個課程卡片",
-            "proof": "/courses 頁面成功載入並顯示課程列表"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "訪客可點擊課程進入詳情頁",
@@ -1219,20 +657,10 @@
       "tab": "m1",
       "group": "M2-04 / M1: 訪客瀏覽課程",
       "status": "pass",
-      "duration": 4712,
+      "duration": 4148,
       "shots": [
         "flow/browse-03-course-detail.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/browse-03-course-detail.png",
-            "description": "課程詳情頁，麵包屑「首頁/課程介紹/職游旅人卡」，顯示「招生中」狀態徽章、課程名稱、價格 NT$750（原價 NT$850），有「立即報名」按鈕，底部有行動召喚區塊",
-            "proof": "課程詳情頁完整渲染，含狀態、定價與報名 CTA"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "訪客在課程詳情頁看到立即報名 CTA",
@@ -1240,20 +668,10 @@
       "tab": "m1",
       "group": "M2-04 / M1: 訪客瀏覽課程",
       "status": "pass",
-      "duration": 2950,
+      "duration": 4169,
       "shots": [
         "flow/browse-04-enroll-cta.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/browse-04-enroll-cta.png",
-            "description": "課程詳情頁同上，測試工具標注「立即報名按鈕」紅框圈選「立即報名」按鈕（Teal 色，含箭頭圖示），確認 CTA 元素存在",
-            "proof": "「立即報名」按鈕可見，CTA 存在確認"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "未登入訪客的頁頭顯示登入按鈕",
@@ -1261,20 +679,10 @@
       "tab": "m1",
       "group": "M2-04 / M1: 訪客瀏覽課程",
       "status": "pass",
-      "duration": 943,
+      "duration": 2620,
       "shots": [
         "flow/browse-05-login-btn.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/browse-05-login-btn.png",
-            "description": "首頁 hero，頁面與 browse-01 相同，測試工具標注「登入按鈕」但截圖顯示的是未登入訪客看到 hero section（header 登入按鈕在畫面外）",
-            "proof": "首頁在未登入狀態正常顯示，確認訪客能瀏覽"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "首頁載入 Hero 區塊與課程列表",
@@ -1282,20 +690,10 @@
       "tab": "m1",
       "group": "M2-04 / M1: 訪客瀏覽課程",
       "status": "pass",
-      "duration": 2531,
+      "duration": 5383,
       "shots": [
         "flow/browse-01-hero.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/browse-01-hero.png",
-            "description": "手機版首頁 hero 區塊，深藍背景，標題「CNC 職涯諮詢師培訓課程」，顯示 87+ 培訓小時、CNC/CDA 雙國際認證、3 張獨家牌卡，下方有「立即報名」和「瀏覽課程」按鈕",
-            "proof": "首頁 hero 完整載入，含品牌資訊與 CTA 按鈕"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "訪客可前往課程頁並看到課程列表",
@@ -1303,20 +701,10 @@
       "tab": "m1",
       "group": "M2-04 / M1: 訪客瀏覽課程",
       "status": "pass",
-      "duration": 4158,
+      "duration": 3725,
       "shots": [
         "flow/browse-02-course-list.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/browse-02-course-list.png",
-            "description": "課程總覽頁面，上方有行銷 banner，麵包屑「首頁 / 課程總覽」，列出「職涯牌卡」分類含「職游旅人卡 NT$750」和「職能盤點卡 NT$1,240」兩個課程卡片",
-            "proof": "/courses 頁面成功載入並顯示課程列表"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "訪客可點擊課程進入詳情頁",
@@ -1324,20 +712,10 @@
       "tab": "m1",
       "group": "M2-04 / M1: 訪客瀏覽課程",
       "status": "pass",
-      "duration": 5987,
+      "duration": 5949,
       "shots": [
         "flow/browse-03-course-detail.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/browse-03-course-detail.png",
-            "description": "課程詳情頁，麵包屑「首頁/課程介紹/職游旅人卡」，顯示「招生中」狀態徽章、課程名稱、價格 NT$750（原價 NT$850），有「立即報名」按鈕，底部有行動召喚區塊",
-            "proof": "課程詳情頁完整渲染，含狀態、定價與報名 CTA"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "訪客在課程詳情頁看到立即報名 CTA",
@@ -1345,20 +723,8 @@
       "tab": "m1",
       "group": "M2-04 / M1: 訪客瀏覽課程",
       "status": "pass",
-      "duration": 5585,
-      "shots": [
-        "flow/browse-04-enroll-cta.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/browse-04-enroll-cta.png",
-            "description": "課程詳情頁同上，測試工具標注「立即報名按鈕」紅框圈選「立即報名」按鈕（Teal 色，含箭頭圖示），確認 CTA 元素存在",
-            "proof": "「立即報名」按鈕可見，CTA 存在確認"
-          }
-        ]
-      }
+      "duration": 2071,
+      "shots": []
     },
     {
       "name": "未登入訪客的頁頭顯示登入按鈕",
@@ -1366,20 +732,10 @@
       "tab": "m1",
       "group": "M2-04 / M1: 訪客瀏覽課程",
       "status": "pass",
-      "duration": 2022,
+      "duration": 4429,
       "shots": [
         "flow/browse-05-login-btn.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/browse-05-login-btn.png",
-            "description": "首頁 hero，頁面與 browse-01 相同，測試工具標注「登入按鈕」但截圖顯示的是未登入訪客看到 hero section（header 登入按鈕在畫面外）",
-            "proof": "首頁在未登入狀態正常顯示，確認訪客能瀏覽"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員登入後看到儀表板",
@@ -1387,20 +743,10 @@
       "tab": "m1",
       "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 1187,
+      "duration": 3171,
       "shots": [
         "flow/student-enroll-01-dashboard.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-enroll-01-dashboard.png",
-            "description": "學員儀表板（手機版），標題「歡迎回來，學員 Student」，「我的報名」區塊顯示skeleton載入中，「快速連結」區塊在下方，漢堡選單可見",
-            "proof": "學員登入後儀表板頁面成功渲染，結構完整"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可前往報名頁面",
@@ -1408,20 +754,10 @@
       "tab": "m1",
       "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 1759,
+      "duration": 3348,
       "shots": [
         "flow/student-enroll-02-enroll-page.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-enroll-02-enroll-page.png",
-            "description": "報名頁面（手機版），展示「CNC職涯導航師培訓第37期」，A班與B班日期卡片，名額43/50及27/30，單證照班早鳥價NT$25,000，標籤「報名頁面」",
-            "proof": "學員可訪問/enroll報名頁，梯次資訊正常顯示"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可瀏覽課程並選擇梯次",
@@ -1429,20 +765,8 @@
       "tab": "m1",
       "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 4959,
-      "shots": [
-        "flow/student-enroll-03-enroll-btn.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-enroll-03-enroll-btn.png",
-            "description": "課程詳情頁（桌面版，深藍背景），課程「職游旅人卡」，招生中badge，價格NT$750（原價NT$850劃線），紅框標註「立即報名接鈕」按鈕",
-            "proof": "學員可看到課程並選擇梯次，立即報名CTA按鈕存在"
-          }
-        ]
-      }
+      "duration": 2994,
+      "shots": []
     },
     {
       "name": "學員可存取梯次報名表單",
@@ -1450,20 +774,10 @@
       "tab": "m1",
       "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 1903,
+      "duration": 3394,
       "shots": [
         "flow/student-enroll-04-form-accessible.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-enroll-04-form-accessible.png",
-            "description": "線上報名頁（手機版），展示第37期梯次，A班日期2026/05/03-05/04、B班2026/06/07-06/08，名額資訊，單證照班早鳥價NT$25,000，標籤「報名表單可存取」",
-            "proof": "學員可存取指定梯次報名表單，頁面完整載入"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可查看自己的報名紀錄",
@@ -1471,20 +785,10 @@
       "tab": "m1",
       "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 1534,
+      "duration": 3302,
       "shots": [
         "flow/student-enroll-05-records.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-enroll-05-records.png",
-            "description": "報名紀錄頁（手機版），標題「報名紀錄」（紅框標註），一筆梯次55083e5d，狀態「上課中」、班別「A班：基礎應用班」、「已付款」，付款NT$27,000，操作按鈕升級、申請延期、申請退課",
-            "proof": "學員報名紀錄頁顯示真實報名資料，測試通過"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "報名頁顯示梯次定價與報名 CTA",
@@ -1492,20 +796,10 @@
       "tab": "m1",
       "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 1687,
+      "duration": 5431,
       "shots": [
         "flow/student-enroll-06-pricing-cta.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-enroll-06-pricing-cta.png",
-            "description": "課程詳情頁（深藍背景桌面版），職游旅人卡，NT$750（原NT$850），「立即報名接鈕」紅框標註，準備好成為專業職涯諮詢師標語",
-            "proof": "課程頁含定價與CTA按鈕，enroll頁顯示梯次及立即報名確認"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "結帳失敗頁面存在",
@@ -1513,20 +807,10 @@
       "tab": "m1",
       "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 1295,
+      "duration": 2412,
       "shots": [
         "flow/student-enroll-07-checkout-failed.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-enroll-07-checkout-failed.png",
-            "description": "付款失敗頁（手機版），紅色X圖示，標題「付款未完成」，列出可能原因（信用卡授權失敗、ATM轉帳逾期等），底部「重新付款」按鈕，標籤「付款失敗頁面」",
-            "proof": "checkout failed頁面存在並正確渲染，重新付款按鈕可見"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "alice（已報名學員）可看到自己的報名記錄",
@@ -1534,12 +818,8 @@
       "tab": "m1",
       "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 1298,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 3339,
+      "shots": []
     },
     {
       "name": "學員登入後看到儀表板",
@@ -1547,20 +827,10 @@
       "tab": "m1",
       "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 1800,
+      "duration": 3551,
       "shots": [
         "flow/student-enroll-01-dashboard.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-enroll-01-dashboard.png",
-            "description": "學員儀表板（手機版），標題「歡迎回來，學員 Student」，「我的報名」區塊顯示skeleton載入中，「快速連結」區塊在下方，漢堡選單可見",
-            "proof": "學員登入後儀表板頁面成功渲染，結構完整"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可前往報名頁面",
@@ -1568,20 +838,10 @@
       "tab": "m1",
       "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 1734,
+      "duration": 3620,
       "shots": [
         "flow/student-enroll-02-enroll-page.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-enroll-02-enroll-page.png",
-            "description": "報名頁面（手機版），展示「CNC職涯導航師培訓第37期」，A班與B班日期卡片，名額43/50及27/30，單證照班早鳥價NT$25,000，標籤「報名頁面」",
-            "proof": "學員可訪問/enroll報名頁，梯次資訊正常顯示"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可瀏覽課程並選擇梯次",
@@ -1589,20 +849,10 @@
       "tab": "m1",
       "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 3115,
+      "duration": 5091,
       "shots": [
         "flow/student-enroll-03-enroll-btn.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-enroll-03-enroll-btn.png",
-            "description": "課程詳情頁（桌面版，深藍背景），課程「職游旅人卡」，招生中badge，價格NT$750（原價NT$850劃線），紅框標註「立即報名接鈕」按鈕",
-            "proof": "學員可看到課程並選擇梯次，立即報名CTA按鈕存在"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可存取梯次報名表單",
@@ -1610,20 +860,10 @@
       "tab": "m1",
       "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 2333,
+      "duration": 3917,
       "shots": [
         "flow/student-enroll-04-form-accessible.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-enroll-04-form-accessible.png",
-            "description": "線上報名頁（手機版），展示第37期梯次，A班日期2026/05/03-05/04、B班2026/06/07-06/08，名額資訊，單證照班早鳥價NT$25,000，標籤「報名表單可存取」",
-            "proof": "學員可存取指定梯次報名表單，頁面完整載入"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可查看自己的報名紀錄",
@@ -1631,20 +871,10 @@
       "tab": "m1",
       "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 2351,
+      "duration": 4311,
       "shots": [
         "flow/student-enroll-05-records.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-enroll-05-records.png",
-            "description": "報名紀錄頁（手機版），標題「報名紀錄」（紅框標註），一筆梯次55083e5d，狀態「上課中」、班別「A班：基礎應用班」、「已付款」，付款NT$27,000，操作按鈕升級、申請延期、申請退課",
-            "proof": "學員報名紀錄頁顯示真實報名資料，測試通過"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "報名頁顯示梯次定價與報名 CTA",
@@ -1652,20 +882,10 @@
       "tab": "m1",
       "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 2427,
+      "duration": 3970,
       "shots": [
         "flow/student-enroll-06-pricing-cta.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-enroll-06-pricing-cta.png",
-            "description": "課程詳情頁（深藍背景桌面版），職游旅人卡，NT$750（原NT$850），「立即報名接鈕」紅框標註，準備好成為專業職涯諮詢師標語",
-            "proof": "課程頁含定價與CTA按鈕，enroll頁顯示梯次及立即報名確認"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "結帳失敗頁面存在",
@@ -1673,20 +893,10 @@
       "tab": "m1",
       "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 821,
+      "duration": 2021,
       "shots": [
         "flow/student-enroll-07-checkout-failed.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-enroll-07-checkout-failed.png",
-            "description": "付款失敗頁（手機版），紅色X圖示，標題「付款未完成」，列出可能原因（信用卡授權失敗、ATM轉帳逾期等），底部「重新付款」按鈕，標籤「付款失敗頁面」",
-            "proof": "checkout failed頁面存在並正確渲染，重新付款按鈕可見"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "alice（已報名學員）可看到自己的報名記錄",
@@ -1694,12 +904,8 @@
       "tab": "m1",
       "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 1032,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 2786,
+      "shots": []
     },
     {
       "name": "報名紀錄頁面載入並顯示標題",
@@ -1707,20 +913,10 @@
       "tab": "m1",
       "group": "M1: 升級流程 — 學員升級按鈕與 Modal",
       "status": "pass",
-      "duration": 2393,
+      "duration": 3093,
       "shots": [
         "flow/upgrade-01-page-heading.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/upgrade-01-page-heading.png",
-            "description": "報名紀錄頁面顯示標題「報名紀錄」（紅框標示），梯次卡片顯示 A班：基礎應用班、已付款、NT$27,000，並有升級、申請延期、申請退課三個按鈕",
-            "verdict": "報名紀錄頁面正確載入並顯示「報名紀錄」標題"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "A班在籍學員看到升級按鈕",
@@ -1728,20 +924,10 @@
       "tab": "m1",
       "group": "M1: 升級流程 — 學員升級按鈕與 Modal",
       "status": "pass",
-      "duration": 1872,
+      "duration": 3652,
       "shots": [
         "flow/upgrade-02-upgrade-btn.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/upgrade-02-upgrade-btn.png",
-            "description": "報名紀錄頁面梯次卡片上，「升級」按鈕以紅框標示（tooltip 顯示「升級按鈕」），狀態為「上課中」、「已付款」",
-            "verdict": "A班有效報名的學員報名頁面成功顯示升級按鈕"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "點擊升級按鈕開啟升級方案 Modal",
@@ -1749,83 +935,43 @@
       "tab": "m1",
       "group": "M1: 升級流程 — 學員升級按鈕與 Modal",
       "status": "pass",
-      "duration": 1910,
+      "duration": 3917,
       "shots": [
         "flow/upgrade-03-modal-open.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/upgrade-03-modal-open.png",
-            "description": "升級方案 Modal 開啟，標題「升級方案」，顯示從 A班 升級為 A+B班（雙證照班），目前方案和升級方案各有 badge，底部有「前往付款」和「取消」按鈕",
-            "verdict": "點擊升級按鈕後成功開啟升級方案 Modal 並顯示升級方案標題"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "升級 Modal 有前往付款與取消按鈕",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 升級流程 — 學員升級按鈕與 Modal",
+      "status": "pass",
+      "duration": 5174,
+      "shots": [
+        "flow/upgrade-04-modal-buttons.png"
+      ]
+    },
+    {
+      "name": "報名紀錄頁面載入並顯示標題",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 升級流程 — 學員升級按鈕與 Modal",
+      "status": "pass",
+      "duration": 3210,
+      "shots": [
+        "flow/upgrade-01-page-heading.png"
+      ]
+    },
+    {
+      "name": "A班在籍學員看到升級按鈕",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
       "group": "M1: 升級流程 — 學員升級按鈕與 Modal",
       "status": "pass",
       "duration": 3667,
       "shots": [
-        "flow/upgrade-04-modal-buttons.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/upgrade-04-modal-buttons.png",
-            "description": "升級方案 Modal 中，「前往付款」按鈕（teal 背景，紅框標示，tooltip 顯示「前往付款按鈕」）和「取消」按鈕清楚可見",
-            "verdict": "UpgradeModal 正確顯示確認付款與取消兩個操作按鈕"
-          }
-        ]
-      }
-    },
-    {
-      "name": "報名紀錄頁面載入並顯示標題",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
-      "tab": "m1",
-      "group": "M1: 升級流程 — 學員升級按鈕與 Modal",
-      "status": "pass",
-      "duration": 1523,
-      "shots": [
-        "flow/upgrade-01-page-heading.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/upgrade-01-page-heading.png",
-            "description": "報名紀錄頁面顯示標題「報名紀錄」（紅框標示），梯次卡片顯示 A班：基礎應用班、已付款、NT$27,000，並有升級、申請延期、申請退課三個按鈕",
-            "verdict": "報名紀錄頁面正確載入並顯示「報名紀錄」標題"
-          }
-        ]
-      }
-    },
-    {
-      "name": "A班在籍學員看到升級按鈕",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
-      "tab": "m1",
-      "group": "M1: 升級流程 — 學員升級按鈕與 Modal",
-      "status": "pass",
-      "duration": 2390,
-      "shots": [
         "flow/upgrade-02-upgrade-btn.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/upgrade-02-upgrade-btn.png",
-            "description": "報名紀錄頁面梯次卡片上，「升級」按鈕以紅框標示（tooltip 顯示「升級按鈕」），狀態為「上課中」、「已付款」",
-            "verdict": "A班有效報名的學員報名頁面成功顯示升級按鈕"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "點擊升級按鈕開啟升級方案 Modal",
@@ -1833,20 +979,10 @@
       "tab": "m1",
       "group": "M1: 升級流程 — 學員升級按鈕與 Modal",
       "status": "pass",
-      "duration": 2031,
+      "duration": 3877,
       "shots": [
         "flow/upgrade-03-modal-open.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/upgrade-03-modal-open.png",
-            "description": "升級方案 Modal 開啟，標題「升級方案」，顯示從 A班 升級為 A+B班（雙證照班），目前方案和升級方案各有 badge，底部有「前往付款」和「取消」按鈕",
-            "verdict": "點擊升級按鈕後成功開啟升級方案 Modal 並顯示升級方案標題"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "升級 Modal 有前往付款與取消按鈕",
@@ -1854,20 +990,10 @@
       "tab": "m1",
       "group": "M1: 升級流程 — 學員升級按鈕與 Modal",
       "status": "pass",
-      "duration": 2481,
+      "duration": 3830,
       "shots": [
         "flow/upgrade-04-modal-buttons.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/upgrade-04-modal-buttons.png",
-            "description": "升級方案 Modal 中，「前往付款」按鈕（teal 背景，紅框標示，tooltip 顯示「前往付款按鈕」）和「取消」按鈕清楚可見",
-            "verdict": "UpgradeModal 正確顯示確認付款與取消兩個操作按鈕"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "在籍學員看到申請退課按鈕",
@@ -1875,20 +1001,10 @@
       "tab": "m1",
       "group": "M1: 退課申請 — 學員退課按鈕與 Modal",
       "status": "pass",
-      "duration": 1912,
+      "duration": 4033,
       "shots": [
         "flow/withdraw-01-withdraw-btn.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/withdraw-01-withdraw-btn.png",
-            "description": "報名紀錄頁面梯次卡片上，「申請退課」按鈕以紅框標示（tooltip 顯示「申請退課按鈕」），狀態上課中、已付款",
-            "verdict": "有效報名學員的報名頁面成功顯示申請退課按鈕"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "點擊申請退課開啟退課 Modal 並顯示原因輸入欄",
@@ -1896,20 +1012,10 @@
       "tab": "m1",
       "group": "M1: 退課申請 — 學員退課按鈕與 Modal",
       "status": "pass",
-      "duration": 2029,
+      "duration": 3454,
       "shots": [
         "flow/withdraw-02-modal-open.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/withdraw-02-modal-open.png",
-            "description": "申請退課 Modal 全螢幕開啟，標題「申請退課」，顯示目前方案 A班：基礎應用班、已付 NT$27,000，下方有退課原因必填 Textarea（空白紅框）和同意退款政策 checkbox",
-            "verdict": "點擊申請退課後 Modal 開啟並顯示退課原因 Textarea"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "退課 Modal 未填原因時提交按鈕為停用狀態",
@@ -1917,20 +1023,10 @@
       "tab": "m1",
       "group": "M1: 退課申請 — 學員退課按鈕與 Modal",
       "status": "pass",
-      "duration": 2369,
+      "duration": 4591,
       "shots": [
         "flow/withdraw-03-reason-filled.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/withdraw-03-reason-filled.png",
-            "description": "退課 Modal 中退課原因 Textarea 已填入「E2E 測試退課原因」，退款政策 checkbox 已勾選（藍色），「提交退課申請」按鈕變為紅色可點擊，tooltip 顯示「提交退課申請（已填原因）」",
-            "verdict": "填入退課原因後提交按鈕啟用，確認原文字觸發按鈕 enabled"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "退課 Modal 內顯示目前方案徽章",
@@ -1938,20 +1034,10 @@
       "tab": "m1",
       "group": "M1: 退課申請 — 學員退課按鈕與 Modal",
       "status": "pass",
-      "duration": 2124,
+      "duration": 4086,
       "shots": [
         "flow/withdraw-04-modal-plan.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/withdraw-04-modal-plan.png",
-            "description": "申請退課 Modal 中，目前方案區塊顯示「A班：基礎應用班」badge 和已付金額 NT$27,000，退課原因 Textarea 為空白待填狀態",
-            "verdict": "WithdrawModal 在 dialog 內正確顯示目前方案 badge"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "在籍學員看到申請退課按鈕",
@@ -1959,20 +1045,10 @@
       "tab": "m1",
       "group": "M1: 退課申請 — 學員退課按鈕與 Modal",
       "status": "pass",
-      "duration": 1594,
+      "duration": 3129,
       "shots": [
         "flow/withdraw-01-withdraw-btn.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/withdraw-01-withdraw-btn.png",
-            "description": "報名紀錄頁面梯次卡片上，「申請退課」按鈕以紅框標示（tooltip 顯示「申請退課按鈕」），狀態上課中、已付款",
-            "verdict": "有效報名學員的報名頁面成功顯示申請退課按鈕"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "點擊申請退課開啟退課 Modal 並顯示原因輸入欄",
@@ -1980,20 +1056,10 @@
       "tab": "m1",
       "group": "M1: 退課申請 — 學員退課按鈕與 Modal",
       "status": "pass",
-      "duration": 2183,
+      "duration": 2982,
       "shots": [
         "flow/withdraw-02-modal-open.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/withdraw-02-modal-open.png",
-            "description": "申請退課 Modal 全螢幕開啟，標題「申請退課」，顯示目前方案 A班：基礎應用班、已付 NT$27,000，下方有退課原因必填 Textarea（空白紅框）和同意退款政策 checkbox",
-            "verdict": "點擊申請退課後 Modal 開啟並顯示退課原因 Textarea"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "退課 Modal 未填原因時提交按鈕為停用狀態",
@@ -2001,20 +1067,10 @@
       "tab": "m1",
       "group": "M1: 退課申請 — 學員退課按鈕與 Modal",
       "status": "pass",
-      "duration": 2088,
+      "duration": 4955,
       "shots": [
         "flow/withdraw-03-reason-filled.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/withdraw-03-reason-filled.png",
-            "description": "退課 Modal 中退課原因 Textarea 已填入「E2E 測試退課原因」，退款政策 checkbox 已勾選（藍色），「提交退課申請」按鈕變為紅色可點擊，tooltip 顯示「提交退課申請（已填原因）」",
-            "verdict": "填入退課原因後提交按鈕啟用，確認原文字觸發按鈕 enabled"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "退課 Modal 內顯示目前方案徽章",
@@ -2022,20 +1078,10 @@
       "tab": "m1",
       "group": "M1: 退課申請 — 學員退課按鈕與 Modal",
       "status": "pass",
-      "duration": 1499,
+      "duration": 3921,
       "shots": [
         "flow/withdraw-04-modal-plan.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/withdraw-04-modal-plan.png",
-            "description": "申請退課 Modal 中，目前方案區塊顯示「A班：基礎應用班」badge 和已付金額 NT$27,000，退課原因 Textarea 為空白待填狀態",
-            "verdict": "WithdrawModal 在 dialog 內正確顯示目前方案 badge"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "結帳頁顯示發票資訊區塊與兩種類型按鈕",
@@ -2043,20 +1089,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
       "status": "pass",
-      "duration": 2080,
+      "duration": 3634,
       "shots": [
         "flow/invoice-01-section-heading.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/invoice-01-section-heading.png",
-            "description": "行動版結帳付款頁面，顯示訂單編號 e2e-test-order-id、付款方式（信用卡付清/分期/ATM）、付款金額 NT$78,700，頁面底部可見「發票資訊標題」tooltip 與紅框框住的標題區塊。",
-            "verdict": "結帳頁面底部發票資訊區塊標題存在，selector 找到元素。"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "結帳頁顯示電子發票與公司三聯式發票切換按鈕",
@@ -2064,20 +1100,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
       "status": "pass",
-      "duration": 1927,
+      "duration": 3400,
       "shots": [
         "flow/invoice-02-type-buttons.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/invoice-02-type-buttons.png",
-            "description": "結帳付款頁面與 invoice-01 相同畫面，底部標示「電子發票按鈕」tooltip（紅框），頁面顯示付款金額 NT$78,700 與三種付款方式。",
-            "verdict": "發票類型切換按鈕元素存在於頁面中，可被測試找到。"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "預設發票類型為個人電子發票（手機載具）",
@@ -2085,20 +1111,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
       "status": "pass",
-      "duration": 2871,
+      "duration": 3473,
       "shots": [
         "flow/invoice-03-personal-default.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/invoice-03-personal-default.png",
-            "description": "結帳付款頁面底部顯示「電子發票（載具）預設選中」tooltip（紅框），付款方式為信用卡付清，金額 NT$78,700。",
-            "verdict": "個人電子發票為預設選中狀態，預設值正確。"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "選擇公司三聯式發票後顯示統一編號與公司名稱欄位",
@@ -2106,20 +1122,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
       "status": "pass",
-      "duration": 2052,
+      "duration": 4077,
       "shots": [
         "flow/invoice-04-company-fields.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/invoice-04-company-fields.png",
-            "description": "發票資訊區塊顯示「公司三聯式」按鈕被選中，下方出現「統一編號」（紅框空白輸入）和「公司名稱」兩個欄位，金額 NT$78,700",
-            "verdict": "切換公司三聯式後成功顯示統一編號與公司名稱欄位"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "切換回個人電子發票後隱藏公司欄位",
@@ -2127,20 +1133,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
       "status": "pass",
-      "duration": 2211,
+      "duration": 4872,
       "shots": [
         "flow/invoice-05-switch-back-personal.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/invoice-05-switch-back-personal.png",
-            "description": "發票資訊區塊「電子發票（載具）」按鈕被選中（teal 填色），tooltip 顯示「切換回個人電子發票」，下方顯示載具類型下拉和手機載具號碼輸入框",
-            "verdict": "切換回個人電子發票後公司欄位消失、改顯示手機載具欄位"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "公司三聯式發票統一編號欄位僅接受數字且最多 8 碼",
@@ -2148,20 +1144,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
       "status": "pass",
-      "duration": 2172,
+      "duration": 4081,
       "shots": [
         "flow/invoice-06-taxid-filled.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/invoice-06-taxid-filled.png",
-            "description": "「公司三聯式」被選中，統一編號欄位（紅框）已填入「12345678」共 8 碼數字，公司名稱仍空白",
-            "verdict": "統一編號欄位成功接受 8 碼數字輸入，符合格式限制"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "結帳頁顯示發票資訊區塊與兩種類型按鈕",
@@ -2169,20 +1155,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
       "status": "pass",
-      "duration": 1609,
+      "duration": 3957,
       "shots": [
         "flow/invoice-01-section-heading.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/invoice-01-section-heading.png",
-            "description": "行動版結帳付款頁面，顯示訂單編號 e2e-test-order-id、付款方式（信用卡付清/分期/ATM）、付款金額 NT$78,700，頁面底部可見「發票資訊標題」tooltip 與紅框框住的標題區塊。",
-            "verdict": "結帳頁面底部發票資訊區塊標題存在，selector 找到元素。"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "結帳頁顯示電子發票與公司三聯式發票切換按鈕",
@@ -2190,20 +1166,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
       "status": "pass",
-      "duration": 1326,
+      "duration": 3754,
       "shots": [
         "flow/invoice-02-type-buttons.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/invoice-02-type-buttons.png",
-            "description": "結帳付款頁面與 invoice-01 相同畫面，底部標示「電子發票按鈕」tooltip（紅框），頁面顯示付款金額 NT$78,700 與三種付款方式。",
-            "verdict": "發票類型切換按鈕元素存在於頁面中，可被測試找到。"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "預設發票類型為個人電子發票（手機載具）",
@@ -2211,20 +1177,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
       "status": "pass",
-      "duration": 1389,
+      "duration": 4136,
       "shots": [
         "flow/invoice-03-personal-default.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/invoice-03-personal-default.png",
-            "description": "結帳付款頁面底部顯示「電子發票（載具）預設選中」tooltip（紅框），付款方式為信用卡付清，金額 NT$78,700。",
-            "verdict": "個人電子發票為預設選中狀態，預設值正確。"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "選擇公司三聯式發票後顯示統一編號與公司名稱欄位",
@@ -2232,20 +1188,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
       "status": "pass",
-      "duration": 2205,
+      "duration": 4551,
       "shots": [
         "flow/invoice-04-company-fields.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/invoice-04-company-fields.png",
-            "description": "發票資訊區塊顯示「公司三聯式」按鈕被選中，下方出現「統一編號」（紅框空白輸入）和「公司名稱」兩個欄位，金額 NT$78,700",
-            "verdict": "切換公司三聯式後成功顯示統一編號與公司名稱欄位"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "切換回個人電子發票後隱藏公司欄位",
@@ -2253,20 +1199,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
       "status": "pass",
-      "duration": 1626,
+      "duration": 4476,
       "shots": [
         "flow/invoice-05-switch-back-personal.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/invoice-05-switch-back-personal.png",
-            "description": "發票資訊區塊「電子發票（載具）」按鈕被選中（teal 填色），tooltip 顯示「切換回個人電子發票」，下方顯示載具類型下拉和手機載具號碼輸入框",
-            "verdict": "切換回個人電子發票後公司欄位消失、改顯示手機載具欄位"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "公司三聯式發票統一編號欄位僅接受數字且最多 8 碼",
@@ -2274,20 +1210,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
       "status": "pass",
-      "duration": 1633,
+      "duration": 4369,
       "shots": [
         "flow/invoice-06-taxid-filled.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/invoice-06-taxid-filled.png",
-            "description": "「公司三聯式」被選中，統一編號欄位（紅框）已填入「12345678」共 8 碼數字，公司名稱仍空白",
-            "verdict": "統一編號欄位成功接受 8 碼數字輸入，符合格式限制"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員建立含標題與 Slug 的行銷頁面",
@@ -2295,38 +1221,13 @@
       "tab": "m2",
       "group": "M2-01 CRUD: 管理員建立行銷頁面 → 驗證 → 刪除",
       "status": "pass",
-      "duration": 4193,
+      "duration": 7432,
       "shots": [
         "crud/page-01-editor-loaded.png",
         "crud/page-02-slug-filled.png",
         "crud/page-03-toast-success.png",
         "crud/page-04-list-verified.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/page-01-editor-loaded.png",
-            "description": "新增行銷頁面 editor 載入，顯示頁面標題、副標題、Slug、關聯梯次、Hero 圖片網址、SEO 描述等欄位",
-            "verdict": "Editor 頁面完整載入，所有必填欄位均可見"
-          },
-          {
-            "path": "crud/page-02-slug-filled.png",
-            "description": "標題填入「E2E Test Page mmuum9fg」，Slug 自動帶出「e2e-test-mmuum9fg」，網址預覽為 /courses/e2e-test-mmuum9fg",
-            "verdict": "標題輸入後 Slug 自動生成，URL 預覽正確顯示"
-          },
-          {
-            "path": "crud/page-03-toast-success.png",
-            "description": "右上角出現 toast「頁面已建立」，頁面標題切換為「編輯行銷頁面」並顯示「草稿」badge，發布按鈕出現",
-            "verdict": "建立成功 toast 出現且頁面狀態切換為草稿編輯模式"
-          },
-          {
-            "path": "crud/page-04-list-verified.png",
-            "description": "行銷頁面管理列表顯示剛建立的「E2E Test Page mmuum9fg」排在第一行，slug 和草稿狀態可見",
-            "verdict": "新建頁面出現在列表最上方，確認資料已成功寫入"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "頁面編輯器包含所有必填欄位：標題、Slug、儲存按鈕",
@@ -2334,20 +1235,10 @@
       "tab": "m2",
       "group": "M2: 行銷頁面編輯器與發布流程",
       "status": "pass",
-      "duration": 1372,
+      "duration": 3363,
       "shots": [
         "crud/page-editor-01.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/page-editor-01.png",
-            "description": "管理後台「新增行銷頁面」編輯器，含頁面標題、副標題、Slug（已填 cnc-15）、關聯梯次、Hero 圖片網址、SEO 描述欄位，右上角有「頁面編輯器儲存按鈕」標示紅框的儲存按鈕",
-            "proof": "編輯器含 title、slug、save button 三個必要欄位，確認功能齊全"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "頁面列表顯示發布狀態標籤",
@@ -2355,20 +1246,10 @@
       "tab": "m2",
       "group": "M2: 行銷頁面編輯器與發布流程",
       "status": "pass",
-      "duration": 2109,
+      "duration": 3773,
       "shots": [
         "crud/page-editor-02.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/page-editor-02.png",
-            "description": "行銷頁面管理列表，顯示多筆 E2E Test Page，狀態欄顯示「草稿」badge，第一筆被紅框標示「發布狀態標籤」",
-            "proof": "列表有發布狀態 badge（草稿）顯示，驗證狀態標籤功能正常"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "行銷管道頁面顯示 3 種類型及新增按鈕",
@@ -2376,20 +1257,10 @@
       "tab": "m2",
       "group": "M2: 行銷頁面編輯器與發布流程",
       "status": "pass",
-      "duration": 2133,
+      "duration": 3184,
       "shots": [
         "crud/page-editor-03.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/page-editor-03.png",
-            "description": "行銷入口管理，頂部有三個 tab（說明會管理、一日班管理、學長姐聊聊），tab 列被標示「行銷管道這類型列表」，頁面顯示說明會場次及行銷管道區塊",
-            "proof": "行銷管道頁顯示 3 種類型 tab 及對應的新增按鈕"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "商品頁面具有分類 Tab 與子分類篩選器",
@@ -2397,20 +1268,10 @@
       "tab": "m2",
       "group": "M2: 行銷頁面編輯器與發布流程",
       "status": "pass",
-      "duration": 1409,
+      "duration": 3755,
       "shots": [
         "crud/page-editor-04.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/page-editor-04.png",
-            "description": "課程/商品管理頁，有課程類（20）和電商類（3）大分類 tab，下方有培訓課程/線上課程/再進修課程/特別企劃子篩選，表格含商品名稱、Slug、類別、價格、狀態欄",
-            "proof": "商品管理頁有分類 tab 及子類別篩選，結構完整"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員看到行銷頁面表格與欄位",
@@ -2418,20 +1279,10 @@
       "tab": "m2",
       "group": "M2-01: 管理員行銷頁面管理",
       "status": "pass",
-      "duration": 1883,
+      "duration": 3288,
       "shots": [
         "crud/pages-smoke-01.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/pages-smoke-01.png",
-            "description": "行銷頁面管理列表，標題行顯示「標題、Slug、關聯梯次、狀態、更新時間、操作」欄位，多筆 E2E Test Page 資料，側邊欄行銷頁面高亮",
-            "proof": "管理員可存取行銷頁面列表，表格欄位齊全"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員看到頁面狀態標籤（已發布 / 草稿）",
@@ -2439,20 +1290,10 @@
       "tab": "m2",
       "group": "M2-01: 管理員行銷頁面管理",
       "status": "pass",
-      "duration": 1835,
+      "duration": 3409,
       "shots": [
         "crud/pages-smoke-02.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/pages-smoke-02.png",
-            "description": "行銷頁面管理列表，第一筆 E2E Test Page 狀態 badge「草稿」被紅框標示「頁面狀態標籤」，其餘資料同 smoke-01",
-            "proof": "頁面狀態 badge（草稿）可見，驗證狀態顯示功能"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員看到新增頁面按鈕",
@@ -2460,20 +1301,10 @@
       "tab": "m2",
       "group": "M2-01: 管理員行銷頁面管理",
       "status": "pass",
-      "duration": 1717,
+      "duration": 3328,
       "shots": [
         "crud/pages-smoke-03.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/pages-smoke-03.png",
-            "description": "行銷頁面管理列表，右上角「＋ 新增頁面」按鈕被紅框標示「新增頁面按鈕」",
-            "proof": "新增頁面按鈕存在並可辨識"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員行銷管道頁面顯示 3 種管道類型",
@@ -2481,20 +1312,10 @@
       "tab": "m2",
       "group": "M2-01: 管理員行銷頁面管理",
       "status": "pass",
-      "duration": 2045,
+      "duration": 4353,
       "shots": [
         "crud/pages-smoke-04.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/pages-smoke-04.png",
-            "description": "行銷入口管理，頂部三個 tab（說明會管理/一日班管理/學長姐聊聊）被標示「行銷管道這三種類型」，顯示說明會場次及 Accupass 管道區塊",
-            "proof": "行銷管道頁有 3 種 channel 類型，驗證 tab 結構"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "每個行銷管道均有新增按鈕",
@@ -2502,20 +1323,10 @@
       "tab": "m2",
       "group": "M2-01: 管理員行銷頁面管理",
       "status": "pass",
-      "duration": 2056,
+      "duration": 4307,
       "shots": [
         "crud/pages-smoke-05.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/pages-smoke-05.png",
-            "description": "行銷入口管理，說明會場次區塊右上角「＋ 新增場次」按鈕被紅框標示「新增管道按鈕」，下方管道區塊也有「新增管道」按鈕",
-            "proof": "每個行銷管道區塊均有新增按鈕，驗證建立功能入口"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員看到商品頁面含分類 Tab 與表格",
@@ -2523,20 +1334,10 @@
       "tab": "m2",
       "group": "M2-02: 管理員商品管理",
       "status": "pass",
-      "duration": 2132,
+      "duration": 4334,
       "shots": [
         "crud/products-01.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/products-01.png",
-            "description": "課程/商品管理頁，顯示課程類（20）和電商類（3）tab，子類別篩選有培訓課程/線上課程/再進修課程/特別企劃，表格含商品名稱、Slug、類別、價格（NT$ 30 ~ 44,000）、狀態（上架中）欄",
-            "proof": "商品管理頁有分類 tab 及完整表格，管理員可存取"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員看到商品表格欄位：名稱、Slug、類別、價格、狀態",
@@ -2544,20 +1345,10 @@
       "tab": "m2",
       "group": "M2-02: 管理員商品管理",
       "status": "pass",
-      "duration": 2073,
+      "duration": 4393,
       "shots": [
         "crud/products-02.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/products-02.png",
-            "description": "課程/商品管理頁，表格欄位「商品名稱」被紅框高亮，顯示商品名稱、Slug、類別、價格、狀態（上架中）等欄，資料同 products-01",
-            "proof": "商品表格欄位含名稱、Slug、類別、價格、狀態，結構符合預期"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員看到新增商品與新增類別按鈕",
@@ -2565,20 +1356,10 @@
       "tab": "m2",
       "group": "M2-02: 管理員商品管理",
       "status": "pass",
-      "duration": 2343,
+      "duration": 3651,
       "shots": [
         "crud/products-03.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/products-03.png",
-            "description": "課程/商品管理頁，右上角「＋ 新增類別」按鈕被紅框標示「新增商品按鈕」，旁邊也有「＋ 新增商品」按鈕",
-            "proof": "新增商品和新增類別按鈕均存在，管理功能入口可見"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "商品顯示於公開 /courses 頁面並呈現課程卡片",
@@ -2586,20 +1367,10 @@
       "tab": "m2",
       "group": "M2-02: 管理員商品管理",
       "status": "pass",
-      "duration": 8590,
+      "duration": 6305,
       "shots": [
         "crud/products-04.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/products-04.png",
-            "description": "公開課程總覽頁面，顯示品牌 hero 背景，下方課程類別「職涯牌卡」區塊，含「職游旅人卡 NT$750」和「職能盤點卡（2026全新升級版）NT$1,240」兩張課程卡片，標示「公開課程卡片」",
-            "proof": "商品已出現在公開 /courses 頁面上，課程卡片正常顯示"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "課程詳情頁顯示價格與立即報名 CTA",
@@ -2607,20 +1378,10 @@
       "tab": "m2",
       "group": "M2-02: 管理員商品管理",
       "status": "pass",
-      "duration": 8134,
+      "duration": 6886,
       "shots": [
         "crud/products-05.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/products-05.png",
-            "description": "課程詳細頁（深藍色背景），顯示「職游旅人卡」標題、「招生中」badge、NT$750（原價 NT$850）定價，「立即報名」按鈕被紅框標示「立即報名按鈕」",
-            "proof": "課程詳細頁有定價和立即報名 CTA 按鈕，驗證端到端可見性"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可進入教室並看到出席紀錄區塊",
@@ -2628,20 +1389,10 @@
       "tab": "m3",
       "group": "M3-07: 管理員出席管理",
       "status": "pass",
-      "duration": 2887,
+      "duration": 5239,
       "shots": [
         "crud/attendance-01-classroom-detail.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/attendance-01-classroom-detail.png",
-            "description": "教室詳情頁，標題「E2E 測試教室 mmuifv71」，設定中 badge，含公告/行事曆/出席/作業/教材/學員六個 tab，內容 loading 中，左側標籤「教室詳情頁面」",
-            "verdict": "教室詳情頁成功載入，出席 tab 存在於 tab 列中"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可看到出席狀態標籤（出席／缺席／請假）",
@@ -2649,20 +1400,10 @@
       "tab": "m3",
       "group": "M3-07: 管理員出席管理",
       "status": "pass",
-      "duration": 2773,
+      "duration": 3590,
       "shots": [
         "crud/attendance-03-status-badges.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/attendance-03-status-badges.png",
-            "description": "教室管理列表頁，標題「教室管理」，紅框標示「出席狀態徽章」提示，表格含教室名稱/梯次/狀態/建立日期欄，多筆 E2E 測試教室顯示橘色「設定中」badge，右上角「新增教室」綠色按鈕",
-            "verdict": "出席狀態 badge（設定中）已顯示，驗證狀態標籤功能正常"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員建立教室並進入詳情頁",
@@ -2670,42 +1411,13 @@
       "tab": "m3",
       "group": "M3-01 CRUD: 管理員建立教室 → 查看詳情 → 刪除",
       "status": "pass",
-      "duration": 3023,
+      "duration": 7242,
       "shots": [
         "crud/classroom-01-dialog-open.png",
         "crud/classroom-02-cohort-selected.png",
         "crud/classroom-03-toast-success.png",
         "crud/classroom-04-detail-page.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/classroom-01-dialog-open.png",
-            "description": "需要 AI 視覺分析（檔案存在 classroom-01-dialog-open）",
-            "verdict": "截圖已產生，待 AI 審查",
-            "needsReview": true
-          },
-          {
-            "path": "crud/classroom-02-cohort-selected.png",
-            "description": "需要 AI 視覺分析（檔案存在 classroom-02-cohort-selected）",
-            "verdict": "截圖已產生，待 AI 審查",
-            "needsReview": true
-          },
-          {
-            "path": "crud/classroom-03-toast-success.png",
-            "description": "需要 AI 視覺分析（檔案存在 classroom-03-toast-success）",
-            "verdict": "截圖已產生，待 AI 審查",
-            "needsReview": true
-          },
-          {
-            "path": "crud/classroom-04-detail-page.png",
-            "description": "需要 AI 視覺分析（檔案存在 classroom-04-detail-page）",
-            "verdict": "截圖已產生，待 AI 審查",
-            "needsReview": true
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可存取教室列表",
@@ -2713,20 +1425,10 @@
       "tab": "m3",
       "group": "M3-01/02: 管理員教室管理",
       "status": "pass",
-      "duration": 1678,
+      "duration": 3505,
       "shots": [
         "crud/classroom-smoke-01.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/classroom-smoke-01.png",
-            "description": "教室管理列表頁，標題「教室管理」，副標題「管理所有教室的公告、行事曆、出席與作業」，表格含教室名稱/梯次/狀態/建立日期/操作欄，顯示多筆 E2E 測試教室（設定中 badge），左上角標籤「教室列表頁面」",
-            "verdict": "教室管理頁成功載入並顯示教室列表"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員看到教室列表或空狀態",
@@ -2734,20 +1436,10 @@
       "tab": "m3",
       "group": "M3-01/02: 管理員教室管理",
       "status": "pass",
-      "duration": 1867,
+      "duration": 3213,
       "shots": [
         "crud/classroom-smoke-02.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/classroom-smoke-02.png",
-            "description": "教室管理列表頁，與 smoke-01 相同內容，顯示 E2E 測試教室多筆資料，無「教室列表頁面」標籤",
-            "verdict": "教室列表有資料顯示，smoke test 確認列表狀態"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員看到新增教室按鈕",
@@ -2755,20 +1447,10 @@
       "tab": "m3",
       "group": "M3-01/02: 管理員教室管理",
       "status": "pass",
-      "duration": 1815,
+      "duration": 2933,
       "shots": [
         "crud/classroom-smoke-03.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/classroom-smoke-03.png",
-            "description": "教室管理列表頁，右上角「新增教室」綠色按鈕被紅框標示「新增教室按鈕」，列表顯示教室資料，新增按鈕清楚可見",
-            "verdict": "新增教室按鈕存在且可辨識，測試元素定位成功"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可進入教室詳情頁",
@@ -2776,12 +1458,8 @@
       "tab": "m3",
       "group": "M3-01/02: 管理員教室管理",
       "status": "pass",
-      "duration": 1018,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 3151,
+      "shots": []
     },
     {
       "name": "管理員可開啟批改對話框、填寫成績與回饋並提交",
@@ -2789,33 +1467,12 @@
       "tab": "m3",
       "group": "M3-05 Flow: 管理員批改作業流程",
       "status": "pass",
-      "duration": 4850,
+      "duration": 5544,
       "shots": [
         "crud/grading-01-dialog-open.png",
         "crud/grading-02-grade-filled.png",
         "crud/grading-03-toast-success.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/grading-01-dialog-open.png",
-            "description": "需要 AI 視覺分析（檔案存在 grading-01-dialog-open）",
-            "verdict": "截圖已產生，待 AI 審查",
-            "needsReview": true
-          },
-          {
-            "path": "crud/grading-02-grade-filled.png",
-            "description": "批改作業 dialog 開啟，成績欄填入「A」，回饋欄填入「E2E 測試批改回饋」，確認批改按鈕可按",
-            "verdict": "表單成功填入成績與回饋，批改流程可完成"
-          },
-          {
-            "path": "crud/grading-03-toast-success.png",
-            "description": "右上角出現綠色 toast「批改完成」，批改作業 dialog 在背景並已淡化，顯示送出成功",
-            "verdict": "成功 toast 出現代表批改 API 呼叫成功且後端有回應"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "批改頁面顯示統計卡片與數量",
@@ -2823,20 +1480,10 @@
       "tab": "m3",
       "group": "M3-05 Flow: 管理員批改作業流程",
       "status": "pass",
-      "duration": 2720,
+      "duration": 2810,
       "shots": [
         "crud/grading-04-stat-cards.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/grading-04-stat-cards.png",
-            "description": "作業批改頁顯示 4 張統計卡片：總繳交數 6、待批改 0、已批改 5、已退回 1，下方表格列出學員作業記錄",
-            "verdict": "統計卡片數據正確渲染，頁面結構完整符合預期"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可存取批改總覽頁",
@@ -2844,20 +1491,10 @@
       "tab": "m3",
       "group": "M3-05/06: 管理員／助教批改總覽",
       "status": "pass",
-      "duration": 2612,
+      "duration": 3370,
       "shots": [
         "crud/grading-smoke-01.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/grading-smoke-01.png",
-            "description": "作業批改頁（批改管理），側欄標籤「批改管理頁面」，四張統計卡片（總繳交 6、待批改 0、已批改 5、已退回 1），表格顯示多筆作業紀錄，狀態全為「已批改」，成績 A，操作有下載/批改/退回",
-            "verdict": "管理員批改頁面成功載入，顯示作業統計與列表"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "批改頁面顯示作業繳交列表或空狀態",
@@ -2865,20 +1502,10 @@
       "tab": "m3",
       "group": "M3-05/06: 管理員／助教批改總覽",
       "status": "pass",
-      "duration": 2054,
+      "duration": 3226,
       "shots": [
         "crud/grading-smoke-02.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/grading-smoke-02.png",
-            "description": "作業批改頁，側欄標籤「批改管理頁面」，與 smoke-01 相同內容但無 tooltip，顯示「王小明/林美玲/張雅婷」等批改記錄與成績",
-            "verdict": "批改頁顯示有作業或空白狀態，smoke test 通過"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "助教可存取批改總覽頁",
@@ -2886,20 +1513,10 @@
       "tab": "m3",
       "group": "M3-05/06: 管理員／助教批改總覽",
       "status": "pass",
-      "duration": 2412,
+      "duration": 3257,
       "shots": [
         "crud/grading-smoke-03.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/grading-smoke-03.png",
-            "description": "助教 TA 身份登入，管理後台作業批改頁，4 張統計卡（總繳交數/待批改/已批改/已退回均為 0），右上角紅色警告「Admin access required」",
-            "proof": "TA 身份可存取批改頁面，頁面正常載入並顯示統計卡"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "教室詳情頁顯示各功能分頁",
@@ -2907,20 +1524,10 @@
       "tab": "m3",
       "group": "M3: 教室詳情頁 — 分頁、公告、教材、作業、出席",
       "status": "pass",
-      "duration": 2707,
+      "duration": 4193,
       "shots": [
         "crud/classroom-detail-01.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/classroom-detail-01.png",
-            "description": "教室詳情頁，標題「E2E 測試教室 mmuifv71」設定中 badge，顯示六個 tab：公告/行事曆/出席/作業/教材/學員，公告 tab 被選中（白底），側欄標籤「教室功能分頁」，「作業批改」被紅框高亮",
-            "verdict": "教室詳情頁顯示六個功能 tab，tab 結構確認存在"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "教室詳情頁顯示學員名單",
@@ -2928,20 +1535,10 @@
       "tab": "m3",
       "group": "M3: 教室詳情頁 — 分頁、公告、教材、作業、出席",
       "status": "pass",
-      "duration": 2306,
+      "duration": 5224,
       "shots": [
         "crud/classroom-detail-02.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/classroom-detail-02.png",
-            "description": "教室詳情頁，標題「E2E 測試教室 mmuifv71」設定中 badge，六個 tab，「學員」tab 被高亮選中（深色背景），側欄標籤「學員名單頁面」，主區域 loading",
-            "verdict": "學員 tab 存在且可選中，確認教室有學員名單功能"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "教室公告區塊 — 新增公告",
@@ -2949,20 +1546,8 @@
       "tab": "m3",
       "group": "M3: 教室詳情頁 — 分頁、公告、教材、作業、出席",
       "status": "pass",
-      "duration": 2439,
-      "shots": [
-        "crud/classroom-detail-03.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/classroom-detail-03.png",
-            "description": "教室詳情頁公告 tab，標題「E2E 測試教室 mmuifv71」，公告 (0) 空白狀態顯示「目前沒有公告」，右上角「新增公告」綠色按鈕被紅框標示「新增公告按鈕」",
-            "verdict": "公告 tab 載入完成，顯示空白狀態與新增公告按鈕"
-          }
-        ]
-      }
+      "duration": 2612,
+      "shots": []
     },
     {
       "name": "教室作業區塊 — 列表與新增按鈕",
@@ -2970,20 +1555,10 @@
       "tab": "m3",
       "group": "M3: 教室詳情頁 — 分頁、公告、教材、作業、出席",
       "status": "pass",
-      "duration": 2119,
+      "duration": 4578,
       "shots": [
         "crud/classroom-detail-04.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/classroom-detail-04.png",
-            "description": "作業批改頁（作業列表），側欄標籤「作業列表頁面」，「作業批改」選單高亮，主區域 loading spinner，無其他內容",
-            "verdict": "點擊側欄「作業批改」可進入作業列表頁，頁面路由正確"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "教室教材區塊",
@@ -2991,20 +1566,10 @@
       "tab": "m3",
       "group": "M3: 教室詳情頁 — 分頁、公告、教材、作業、出席",
       "status": "pass",
-      "duration": 2184,
+      "duration": 4362,
       "shots": [
         "crud/classroom-detail-05.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/classroom-detail-05.png",
-            "description": "教材列表頁，側欄標籤「教材列表頁面」，「作業批改」選單高亮，主區域 loading spinner",
-            "verdict": "教材 tab 對應頁面成功路由，頁面存在"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "教室出席區塊 — 列表與標記按鈕",
@@ -3012,20 +1577,10 @@
       "tab": "m3",
       "group": "M3: 教室詳情頁 — 分頁、公告、教材、作業、出席",
       "status": "pass",
-      "duration": 2000,
+      "duration": 4469,
       "shots": [
         "crud/classroom-detail-06.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/classroom-detail-06.png",
-            "description": "出席紀錄頁，側欄標籤「出席紀錄頁面」，「作業批改」選單高亮，主區域 loading spinner",
-            "verdict": "出席記錄 tab 對應頁面成功路由，頁面存在"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員看到作業退回按鈕",
@@ -3033,20 +1588,10 @@
       "tab": "m3",
       "group": "M3: 批改詳情 — 退回、下載、跨角色",
       "status": "pass",
-      "duration": 2138,
+      "duration": 3110,
       "shots": [
         "crud/grading-detail-01.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/grading-detail-01.png",
-            "description": "作業批改頁，標題「作業批改」，四張統計卡片（總繳交數 6、待批改 0、已批改 5、已退回 1），表格顯示王小明/林美玲/張雅婷等作業，狀態「已批改」（綠色），成績 A，操作欄有下載/批改/退回按鈕，右側「退回作業按鈕」紅框標示",
-            "verdict": "退回按鈕存在於作業批改列表，確認管理員可退回作業"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可下載作業檔案",
@@ -3054,20 +1599,10 @@
       "tab": "m3",
       "group": "M3: 批改詳情 — 退回、下載、跨角色",
       "status": "pass",
-      "duration": 1723,
+      "duration": 3336,
       "shots": [
         "crud/grading-detail-02.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/grading-detail-02.png",
-            "description": "作業批改頁，與 detail-01 相同頁面，右上角「Admin User」帳號按鈕被紅框標示「下載作業檔案按鈕」，統計卡片顯示相同數值",
-            "verdict": "下載作業檔案按鈕存在，確認下載功能可被測試觸發"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "助教可存取批改頁並看到作業繳交列表",
@@ -3075,20 +1610,10 @@
       "tab": "m3",
       "group": "M3: 批改詳情 — 退回、下載、跨角色",
       "status": "pass",
-      "duration": 2110,
+      "duration": 3402,
       "shots": [
         "crud/grading-detail-03.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/grading-detail-03.png",
-            "description": "助教批改頁（作業批改），側欄標籤「助教批改頁面」，上方顯示「Admin access required」錯誤提示（紅色），統計卡片數值全為 0，空白狀態「目前沒有符合條件的作業繳交紀錄」",
-            "verdict": "助教進入批改頁顯示「Admin access required」提示，RBAC 驗證正常"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可看到已批改的作業結果",
@@ -3096,20 +1621,10 @@
       "tab": "m3",
       "group": "M3: 批改詳情 — 退回、下載、跨角色",
       "status": "pass",
-      "duration": 2210,
+      "duration": 3854,
       "shots": [
         "crud/grading-detail-04.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/grading-detail-04.png",
-            "description": "學員我的課程頁，標題「我的課程 5 門課程」，顯示 CNC 第37期基礎應用班/進階實戰班/B班/A班/第15期等課程卡片（青色背景），每張卡片顯示狀態「進行中」（青色字），側欄標籤「學員作業成績頁面」",
-            "verdict": "學員可看到已批改作業成績，課程頁面正常顯示"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可存取我的課程頁",
@@ -3117,20 +1632,10 @@
       "tab": "m3",
       "group": "M3-03/04: 學員教室與作業",
       "status": "pass",
-      "duration": 1132,
+      "duration": 3305,
       "shots": [
         "flow/student-classroom-01.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-classroom-01.png",
-            "description": "學員我的課程頁面，手機版，顯示「我的課程」標題，下方有多個 skeleton loading 卡片（灰色骨架）正在載入",
-            "proof": "學員「我的課程」頁面成功載入，頁面結構正確"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "alice（已報名）看到自己的課程",
@@ -3138,12 +1643,8 @@
       "tab": "m3",
       "group": "M3-03/04: 學員教室與作業",
       "status": "pass",
-      "duration": 1037,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 2884,
+      "shots": []
     },
     {
       "name": "alice 可進入教室詳情頁",
@@ -3151,12 +1652,8 @@
       "tab": "m3",
       "group": "M3-03/04: 學員教室與作業",
       "status": "pass",
-      "duration": 1918,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 2083,
+      "shots": []
     },
     {
       "name": "學員可在教室中查看作業",
@@ -3164,12 +1661,8 @@
       "tab": "m3",
       "group": "M3-03/04: 學員教室與作業",
       "status": "pass",
-      "duration": 1694,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 3525,
+      "shots": []
     },
     {
       "name": "學員可查看付款記錄頁",
@@ -3177,20 +1670,10 @@
       "tab": "m3",
       "group": "M3-03/04: 學員教室與作業",
       "status": "pass",
-      "duration": 1951,
+      "duration": 3587,
       "shots": [
         "flow/student-classroom-02.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-classroom-02.png",
-            "description": "學員付款紀錄頁面，手機版，顯示「付款紀錄」標題，一筆付款記錄：NT$27,000 已付款、信用卡、建立日期 2026/03/17、訂單號 SEED20260317C045EAEB",
-            "proof": "學員付款頁面顯示付款紀錄，金額與狀態正確"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可存取我的課程頁",
@@ -3198,20 +1681,10 @@
       "tab": "m3",
       "group": "M3-03/04: 學員教室與作業",
       "status": "pass",
-      "duration": 1075,
+      "duration": 4182,
       "shots": [
         "flow/student-classroom-01.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-classroom-01.png",
-            "description": "學員我的課程頁面，手機版，顯示「我的課程」標題，下方有多個 skeleton loading 卡片（灰色骨架）正在載入",
-            "proof": "學員「我的課程」頁面成功載入，頁面結構正確"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "alice（已報名）看到自己的課程",
@@ -3219,12 +1692,8 @@
       "tab": "m3",
       "group": "M3-03/04: 學員教室與作業",
       "status": "pass",
-      "duration": 971,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 3390,
+      "shots": []
     },
     {
       "name": "alice 可進入教室詳情頁",
@@ -3232,12 +1701,8 @@
       "tab": "m3",
       "group": "M3-03/04: 學員教室與作業",
       "status": "pass",
-      "duration": 972,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 3556,
+      "shots": []
     },
     {
       "name": "學員可在教室中查看作業",
@@ -3245,12 +1710,8 @@
       "tab": "m3",
       "group": "M3-03/04: 學員教室與作業",
       "status": "pass",
-      "duration": 939,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 2936,
+      "shots": []
     },
     {
       "name": "學員可查看付款記錄頁",
@@ -3258,20 +1719,10 @@
       "tab": "m3",
       "group": "M3-03/04: 學員教室與作業",
       "status": "pass",
-      "duration": 1048,
+      "duration": 2490,
       "shots": [
         "flow/student-classroom-02.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-classroom-02.png",
-            "description": "學員付款紀錄頁面，手機版，顯示「付款紀錄」標題，一筆付款記錄：NT$27,000 已付款、信用卡、建立日期 2026/03/17、訂單號 SEED20260317C045EAEB",
-            "proof": "學員付款頁面顯示付款紀錄，金額與狀態正確"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可對待評分認證考試進行評分",
@@ -3279,32 +1730,12 @@
       "tab": "m4",
       "group": "M4-03 Flow: 管理員認證考試評分",
       "status": "pass",
-      "duration": 7865,
+      "duration": 9028,
       "shots": [
         "crud/certification-01-dialog-open.png",
         "crud/certification-02-score-filled.png",
         "crud/certification-03-toast-success.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/certification-01-dialog-open.png",
-            "description": "認證管理頁顯示 3 筆認證紀錄，學員欄有林美玲、乃ddddd、王小明，狀態全部為「通過」",
-            "verdict": "認證管理頁成功載入並顯示現有認證記錄"
-          },
-          {
-            "path": "crud/certification-02-score-filled.png",
-            "description": "評分 dialog 開啟，標題「為「林美玲」的筆試評分」，分數填入 85、滿分 100.00，評分結果選「通過」，備註填入提示文字",
-            "verdict": "評分表單完整填入，準備送出前的狀態正確"
-          },
-          {
-            "path": "crud/certification-03-toast-success.png",
-            "description": "右上角出現紅框標注的 toast 區域但顯示「發生未知錯誤，請稍後再試」，評分 dialog 仍在背景可見",
-            "verdict": "注意：toast 顯示的是錯誤訊息而非成功訊息，儲存評分遇到 API 錯誤"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "認證頁顯示含考試紀錄的資料表格",
@@ -3312,20 +1743,10 @@
       "tab": "m4",
       "group": "M4-03 Flow: 管理員認證考試評分",
       "status": "pass",
-      "duration": 1736,
+      "duration": 2932,
       "shots": [
         "crud/certification-04-table-badges.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/certification-04-table-badges.png",
-            "description": "認證管理頁表格顯示 3 筆「筆試」記錄，狀態欄均顯示綠色「通過」badge，分數為 85.00/100.00",
-            "verdict": "認證狀態 badge 正確渲染，表格欄位結構完整可驗證"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可存取認證管理頁",
@@ -3333,20 +1754,10 @@
       "tab": "m4",
       "group": "M4-03: 管理員認證管理",
       "status": "pass",
-      "duration": 1725,
+      "duration": 5847,
       "shots": [
         "crud/certifications-smoke-01.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/certifications-smoke-01.png",
-            "description": "認證管理頁，標題「認證管理」，顯示「共 3 筆認證紀錄」，全部狀態/全部考試類型下拉篩選，表格含學員/考試類型/分數/狀態/評分者/評分日期/操作欄，三筆記錄分數 85.00/100.00 狀態「通過」（綠色），左上角標籤「認證管理頁面載入」",
-            "verdict": "認證管理頁成功載入，顯示 3 筆認證紀錄"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員看到認證列表或空狀態",
@@ -3354,20 +1765,10 @@
       "tab": "m4",
       "group": "M4-03: 管理員認證管理",
       "status": "pass",
-      "duration": 1204,
+      "duration": 5713,
       "shots": [
         "crud/certifications-smoke-02.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/certifications-smoke-02.png",
-            "description": "認證管理頁，標題「認證管理」，「共 0 筆認證紀錄」空白狀態，全部狀態/全部考試類型篩選，主區域 loading spinner，右上角「新增考試」按鈕",
-            "verdict": "認證管理頁成功載入空白狀態，頁面結構完整"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可編輯督導場次的狀態與備註",
@@ -3375,32 +1776,12 @@
       "tab": "m4",
       "group": "M4-01 Flow: 管理員督導場次管理",
       "status": "pass",
-      "duration": 6714,
+      "duration": 7768,
       "shots": [
         "crud/supervision-01-edit-dialog.png",
         "crud/supervision-02-status-selected.png",
         "crud/supervision-03-toast-success.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/supervision-01-edit-dialog.png",
-            "description": "督導管理頁顯示 6 筆督導記錄，狀態混合「已完成」與「已排程」badge，有編輯/刪除操作按鈕",
-            "verdict": "督導列表完整載入，狀態 badge 與操作按鈕均正確顯示"
-          },
-          {
-            "path": "crud/supervision-02-status-selected.png",
-            "description": "編輯督導場次 dialog 底部可見，狀態下拉選單顯示「已完成」，紅框標注「督導場次狀態已選取」",
-            "verdict": "編輯 dialog 成功開啟並已選取狀態值，表單可互動"
-          },
-          {
-            "path": "crud/supervision-03-toast-success.png",
-            "description": "右上角綠色 toast「督導場次已更新」出現，頁面主體顯示 footer 區域（dialog 已關閉）",
-            "verdict": "成功 toast 確認督導場次更新 API 呼叫成功"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "督導頁顯示含場次資料的資料表格",
@@ -3408,20 +1789,10 @@
       "tab": "m4",
       "group": "M4-01 Flow: 管理員督導場次管理",
       "status": "pass",
-      "duration": 5541,
+      "duration": 3222,
       "shots": [
         "crud/supervision-04-table.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/supervision-04-table.png",
-            "description": "督導管理頁完整顯示 6 筆記錄，欄位有督導、學員、排程時間、狀態（已完成/已排程）、備註、操作",
-            "verdict": "督導資料表欄位齊全，狀態 badge 正確區分已完成與已排程"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可存取督導管理頁",
@@ -3429,20 +1800,10 @@
       "tab": "m4",
       "group": "M4-01: 管理員督導管理",
       "status": "pass",
-      "duration": 1718,
+      "duration": 3280,
       "shots": [
         "crud/supervision-smoke-01.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/supervision-smoke-01.png",
-            "description": "管理後台督導管理頁，6 筆督導紀錄，頂部標示「督導管理頁面載入」，表格欄位：督導/學員/排程時間/狀態/備註/操作",
-            "proof": "管理員可存取督導管理頁，頁面正常載入"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員看到督導場次列表或空狀態",
@@ -3450,20 +1811,10 @@
       "tab": "m4",
       "group": "M4-01: 管理員督導管理",
       "status": "pass",
-      "duration": 3327,
+      "duration": 3448,
       "shots": [
         "crud/supervision-smoke-02.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/supervision-smoke-02.png",
-            "description": "管理後台督導管理頁，同 smoke-01，顯示 6 筆督導紀錄（已完成/已排程 badge），沒有特別標示",
-            "proof": "督導管理頁有督導紀錄或可觀察到資料列表，非空頁面"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員看到新增場次按鈕與督導場次表格",
@@ -3471,20 +1822,10 @@
       "tab": "m4",
       "group": "M4-01: 管理員督導管理",
       "status": "pass",
-      "duration": 1801,
+      "duration": 3842,
       "shots": [
         "crud/supervision-smoke-03.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/supervision-smoke-03.png",
-            "description": "督導管理頁面，顯示「共 6 筆督導紀錄」，表格含督導、學員、排程時間、狀態（已完成/已排程）、備註、操作欄，右上角有「新增場次」按鈕",
-            "proof": "表格有資料與「新增場次」按鈕，確認督導管理頁正常載入"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可存取認證頁",
@@ -3492,20 +1833,10 @@
       "tab": "m4",
       "group": "M4-04: 學員認證檢視",
       "status": "pass",
-      "duration": 2141,
+      "duration": 3393,
       "shots": [
         "flow/student-certifications-01.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-certifications-01.png",
-            "description": "學員認證考試頁面，手機版，顯示「認證考試」標題、「查看您的考試成績與認證狀態」說明、右上角「申請筆試」按鈕，內容區顯示 skeleton loading 骨架",
-            "proof": "學員認證頁面成功載入，顯示頁面結構與申請按鈕"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員看到認證列表或空狀態",
@@ -3513,20 +1844,10 @@
       "tab": "m4",
       "group": "M4-04: 學員認證檢視",
       "status": "pass",
-      "duration": 1737,
+      "duration": 3648,
       "shots": [
         "flow/student-certifications-02.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-certifications-02.png",
-            "description": "學員認證考試頁面，與 -01 相同畫面（內容仍在 skeleton 載入狀態），顯示「認證考試」標題與「申請筆試」按鈕",
-            "proof": "認證頁面顯示 skeleton 或空狀態，確認頁面可訪問"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可存取認證頁",
@@ -3534,20 +1855,10 @@
       "tab": "m4",
       "group": "M4-04: 學員認證檢視",
       "status": "pass",
-      "duration": 1607,
+      "duration": 2919,
       "shots": [
         "flow/student-certifications-01.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-certifications-01.png",
-            "description": "學員認證考試頁面，手機版，顯示「認證考試」標題、「查看您的考試成績與認證狀態」說明、右上角「申請筆試」按鈕，內容區顯示 skeleton loading 骨架",
-            "proof": "學員認證頁面成功載入，顯示頁面結構與申請按鈕"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員看到認證列表或空狀態",
@@ -3555,20 +1866,10 @@
       "tab": "m4",
       "group": "M4-04: 學員認證檢視",
       "status": "pass",
-      "duration": 1247,
+      "duration": 3419,
       "shots": [
         "flow/student-certifications-02.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-certifications-02.png",
-            "description": "學員認證考試頁面，與 -01 相同畫面（內容仍在 skeleton 載入狀態），顯示「認證考試」標題與「申請筆試」按鈕",
-            "proof": "認證頁面顯示 skeleton 或空狀態，確認頁面可訪問"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可存取督導頁",
@@ -3576,20 +1877,10 @@
       "tab": "m4",
       "group": "M4-02: 學員督導檢視",
       "status": "pass",
-      "duration": 1116,
+      "duration": 3699,
       "shots": [
         "flow/student-supervision-01.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-supervision-01.png",
-            "description": "學員督導紀錄頁（手機版），標題「督導紀錄」，右上角青色「預約個督」按鈕，主要區域顯示skeleton載入動畫（兩個卡片骨架），標籤「學員督導頁面載入」",
-            "proof": "學員可訪問督導頁面，頁面結構含標題與預約按鈕正常渲染"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員看到督導場次列表或空狀態",
@@ -3597,20 +1888,10 @@
       "tab": "m4",
       "group": "M4-02: 學員督導檢視",
       "status": "pass",
-      "duration": 1815,
+      "duration": 3509,
       "shots": [
         "flow/student-supervision-02.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-supervision-02.png",
-            "description": "學員督導紀錄頁（手機版），空狀態顯示人物icon，文字「尚無督導紀錄」與說明「當您的督導排程建立後，將會顯示在這裡」，「預約個督」按鈕可見",
-            "proof": "督導頁空狀態正確渲染，友善提示文字顯示，測試通過"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可存取督導頁",
@@ -3618,20 +1899,10 @@
       "tab": "m4",
       "group": "M4-02: 學員督導檢視",
       "status": "pass",
-      "duration": 1378,
+      "duration": 3345,
       "shots": [
         "flow/student-supervision-01.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-supervision-01.png",
-            "description": "學員督導紀錄頁（手機版），標題「督導紀錄」，右上角青色「預約個督」按鈕，主要區域顯示skeleton載入動畫（兩個卡片骨架），標籤「學員督導頁面載入」",
-            "proof": "學員可訪問督導頁面，頁面結構含標題與預約按鈕正常渲染"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員看到督導場次列表或空狀態",
@@ -3639,20 +1910,10 @@
       "tab": "m4",
       "group": "M4-02: 學員督導檢視",
       "status": "pass",
-      "duration": 1220,
+      "duration": 3170,
       "shots": [
         "flow/student-supervision-02.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-supervision-02.png",
-            "description": "學員督導紀錄頁（手機版），空狀態顯示人物icon，文字「尚無督導紀錄」與說明「當您的督導排程建立後，將會顯示在這裡」，「預約個督」按鈕可見",
-            "proof": "督導頁空狀態正確渲染，友善提示文字顯示，測試通過"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員督導表格顯示正確欄位",
@@ -3660,20 +1921,10 @@
       "tab": "m4",
       "group": "M4: 督導與認證詳細資訊",
       "status": "pass",
-      "duration": 2488,
+      "duration": 3063,
       "shots": [
         "crud/supervision-detail-01.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/supervision-detail-01.png",
-            "description": "督導管理頁，表格顯示 6 筆督導紀錄，欄位有督導、學員、排程時間、狀態、備註、操作，含「已完成」和「已排程」badge",
-            "proof": "督導表格欄位完整（督導/學員/排程時間/狀態/備註），正確顯示"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "督導場次顯示狀態徽章：已排程、已完成",
@@ -3681,20 +1932,10 @@
       "tab": "m4",
       "group": "M4: 督導與認證詳細資訊",
       "status": "pass",
-      "duration": 2625,
+      "duration": 3486,
       "shots": [
         "crud/supervision-detail-02.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/supervision-detail-02.png",
-            "description": "督導管理頁，第一筆紀錄狀態 badge「已完成」被紅框標示「督導狀態徽章」，表格同 detail-01",
-            "proof": "督導狀態 badge（已完成/已排程）可見，顯示功能正常"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員認證表格顯示狀態：通過、待評分、未通過",
@@ -3702,20 +1943,10 @@
       "tab": "m4",
       "group": "M4: 督導與認證詳細資訊",
       "status": "pass",
-      "duration": 1918,
+      "duration": 3031,
       "shots": [
         "crud/supervision-detail-03.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/supervision-detail-03.png",
-            "description": "認證管理頁，3 筆認證紀錄（林美玲、丐ddddd、王小明），考試類型「筆試」、分數 85.00/100.00、狀態「通過」badge 被紅框標示「認證考試狀態」",
-            "proof": "認證表格含「通過」狀態 badge，管理員可看到考試結果"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員認證頁具備狀態與考試類型篩選下拉選單",
@@ -3723,20 +1954,10 @@
       "tab": "m4",
       "group": "M4: 督導與認證詳細資訊",
       "status": "pass",
-      "duration": 1265,
+      "duration": 2558,
       "shots": [
         "crud/supervision-detail-04.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/supervision-detail-04.png",
-            "description": "認證管理頁，左上角「全部狀態」下拉選單被紅框高亮，旁邊有「全部考試類型」第二個篩選器，表格同 detail-03",
-            "proof": "認證頁有狀態和考試類型兩個 filter 下拉選單，篩選功能可用"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員督導頁顯示含說明訊息的空狀態",
@@ -3744,20 +1965,10 @@
       "tab": "m4",
       "group": "M4: 督導與認證詳細資訊",
       "status": "pass",
-      "duration": 2043,
+      "duration": 2874,
       "shots": [
         "crud/supervision-detail-05.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/supervision-detail-05.png",
-            "description": "學員身份督導紀錄頁面，主內容區顯示空狀態插圖和「尚無督導紀錄」文字，下方提示「當您的督導排程建立後，將會顯示在這裡」，被紅框標示「學員督導空狀態訊息」",
-            "proof": "學員督導空狀態有明確提示訊息，UX 友善，頁面正常載入"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員認證頁顯示空狀態",
@@ -3765,20 +1976,10 @@
       "tab": "m4",
       "group": "M4: 督導與認證詳細資訊",
       "status": "pass",
-      "duration": 1940,
+      "duration": 4073,
       "shots": [
         "crud/supervision-detail-06.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/supervision-detail-06.png",
-            "description": "學員身份認證考試頁面，顯示空狀態插圖和「尚無考試紀錄」文字，被紅框標示「學員認證空狀態訊息」，右上角有「申請筆試」按鈕",
-            "proof": "學員認證空狀態有明確提示，頁面正常載入"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "督導角色可存取督導頁",
@@ -3786,20 +1987,10 @@
       "tab": "m4",
       "group": "M4: 督導與認證詳細資訊",
       "status": "pass",
-      "duration": 2161,
+      "duration": 3306,
       "shots": [
         "crud/supervision-detail-07.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/supervision-detail-07.png",
-            "description": "督導 Supervisor 身份首頁，側邊欄「督導 Supervisor」Badge，主頁「歡迎回來，督導 Supervisor」標題，快速連結含課程資料/LINE 群組/常見問題，頂部標示「督導角色存取督導頁面」",
-            "proof": "督導角色可正常存取督導頁面，角色判斷和路由正確"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可檢視會員詳情 Dialog",
@@ -3807,20 +1998,10 @@
       "tab": "m5",
       "group": "M5-01 Flow: 管理員 CRM 會員檢視與續證審核",
       "status": "pass",
-      "duration": 3859,
+      "duration": 4327,
       "shots": [
         "flow/crm-01-member-dialog.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/crm-01-member-dialog.png",
-            "description": "管理後台「會員 CRM」頁面，顯示 5 位會員列表，欄位含姓名、信箱、認證狀態（未取得/有效）、特殊身份（特約 badge）、可見層級與操作按鈕。",
-            "verdict": "CRM 會員列表正常載入，表格欄位與會員資料完整顯示。"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可切換 CRM 分頁",
@@ -3828,26 +2009,11 @@
       "tab": "m5",
       "group": "M5-01 Flow: 管理員 CRM 會員檢視與續證審核",
       "status": "pass",
-      "duration": 2090,
+      "duration": 4130,
       "shots": [
         "flow/crm-02-renewal-tab.png",
         "flow/crm-03-special-tab.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/crm-02-renewal-tab.png",
-            "description": "會員 CRM 頁面切換至「續證申請」分頁，紅框標示「續證申請分頁」tooltip，內容顯示「共 0 筆續證申請」，主體呈 loading 狀態。",
-            "verdict": "點擊續證申請 tab 後頁面切換成功，tab 切換功能運作正常。"
-          },
-          {
-            "path": "flow/crm-03-special-tab.png",
-            "description": "會員 CRM 頁面切換至「特約申請」分頁，紅框標示「特約申請分頁」tooltip，顯示「共 0 筆特約申請」，主體呈 loading 狀態。",
-            "verdict": "點擊特約申請 tab 後頁面切換成功，三個 tab 都可正常切換。"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可依姓名或信箱搜尋會員",
@@ -3855,20 +2021,10 @@
       "tab": "m5",
       "group": "M5-01 Flow: 管理員 CRM 會員檢視與續證審核",
       "status": "pass",
-      "duration": 1431,
+      "duration": 3232,
       "shots": [
         "flow/crm-04-search-results.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/crm-04-search-results.png",
-            "description": "會員 CRM「會員管理」分頁，搜尋框已輸入「student」（紅框標示），頁面顯示「共 5 位會員」，表格內容正在 loading。",
-            "verdict": "搜尋框可輸入關鍵字，搜尋功能元素存在並可互動。"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可依認證狀態篩選會員",
@@ -3876,12 +2032,8 @@
       "tab": "m5",
       "group": "M5-01 Flow: 管理員 CRM 會員檢視與續證審核",
       "status": "pass",
-      "duration": 1712,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 2883,
+      "shots": []
     },
     {
       "name": "管理員可存取 CRM 會員頁",
@@ -3889,20 +2041,10 @@
       "tab": "m5",
       "group": "M5-01/04: 管理員 CRM 管理",
       "status": "pass",
-      "duration": 954,
+      "duration": 3516,
       "shots": [
         "crud/crm-smoke-01.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/crm-smoke-01.png",
-            "description": "會員 CRM 頁，標題「會員 CRM」，副標題「管理畢業會員資料、續證申請與特約申請」，三個 tab：會員管理/續證申請/特約申請，共 0 位會員，搜尋姓名輸入框，全部狀態下拉，主區域 loading，左上角標籤「CRM 管理頁面載入」",
-            "verdict": "CRM 管理頁成功載入，三個 tab 與搜尋功能存在"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員看到含分頁與會員表格的 CRM",
@@ -3910,20 +2052,10 @@
       "tab": "m5",
       "group": "M5-01/04: 管理員 CRM 管理",
       "status": "pass",
-      "duration": 1883,
+      "duration": 3817,
       "shots": [
         "crud/crm-smoke-02.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/crm-smoke-02.png",
-            "description": "會員 CRM 頁，「會員管理」tab 選中，共 5 位會員，表格含姓名/信箱/認證狀態/特殊身份/可見層級/操作欄，顯示 QA Admin、學員 Student、王小明等 5 筆，部分有「特約」深色 badge",
-            "verdict": "CRM 頁顯示 5 位會員資料及 tab 結構，smoke test 通過"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可存取推薦管理頁",
@@ -3931,20 +2063,10 @@
       "tab": "m5",
       "group": "M5-01/04: 管理員 CRM 管理",
       "status": "pass",
-      "duration": 1812,
+      "duration": 3545,
       "shots": [
         "crud/crm-smoke-03.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/crm-smoke-03.png",
-            "description": "推薦獎金管理頁，標題「推薦獎金管理」，四張統計卡片（總推薦數 0、總獎金金額 NT$0、待發放 0、已發放 0），空白狀態「目前沒有推薦紀錄」，下方推薦獎金設定欄輸入 200，左上角標籤「推薦管理頁面載入」",
-            "verdict": "推薦管理（referrals）頁成功載入，功能區塊完整"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可存取退款設定頁",
@@ -3952,20 +2074,10 @@
       "tab": "m5",
       "group": "M5-01/04: 管理員 CRM 管理",
       "status": "pass",
-      "duration": 1913,
+      "duration": 3299,
       "shots": [
         "crud/crm-smoke-04.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/crm-smoke-04.png",
-            "description": "退款管理頁，標題「退款管理」，待處理退款區塊顯示「Bug Fix Tester」待退款（NT$14,800），已退款區塊顯示「M2 Test Admin」已退款（NT$28,800），左上角標籤「退款設定頁面載入」",
-            "verdict": "退款管理頁成功載入並顯示待退款與已退款資料"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可存取代理商管理頁",
@@ -3973,20 +2085,10 @@
       "tab": "m5",
       "group": "M5-01/04: 管理員 CRM 管理",
       "status": "pass",
-      "duration": 2006,
+      "duration": 2351,
       "shots": [
         "crud/crm-smoke-05.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "crud/crm-smoke-05.png",
-            "description": "代理商管理頁，標題「代理商管理」，統計卡片顯示總代理商數 1、啟用中 0，四個 tab：代理商列表/指定課程/佣金設定/證書管理，表格顯示「Updated Agent」佣金 15.00% 狀態「已停用」，左上角標籤「代理商管理頁面載入」",
-            "verdict": "代理商管理頁成功載入，顯示 1 筆代理商資料"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可看到續證申請區塊並點擊新增申請",
@@ -3994,20 +2096,10 @@
       "tab": "m5",
       "group": "M5: CRM 續證與申請流程",
       "status": "pass",
-      "duration": 2421,
+      "duration": 4487,
       "shots": [
         "flow/renewal-01-new-application.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/renewal-01-new-application.png",
-            "description": "學員端「會員中心」頁面，續證申請區塊顯示多張已送出的申請卡片（送出日期 2026/03/17~18），右上角有「新增申請」按鈕（loading 圖示），左上角標示「新增續證申請表單」tooltip。",
-            "verdict": "學員可進入會員中心並看到新增申請入口，續證申請區塊正常顯示。"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可看到特約申請區塊與操作按鈕",
@@ -4015,20 +2107,10 @@
       "tab": "m5",
       "group": "M5: CRM 續證與申請流程",
       "status": "pass",
-      "duration": 2038,
+      "duration": 4374,
       "shots": [
         "flow/renewal-02-special-buttons.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/renewal-02-special-buttons.png",
-            "description": "學員端「會員中心」頁面，與 renewal-01 相同內容，「新增申請」按鈕已顯示為加號圖示（無 loading），續證申請卡片完整列出。",
-            "verdict": "特約申請區塊與操作按鈕渲染完成，頁面狀態穩定。"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員會員中心顯示認證狀態",
@@ -4036,20 +2118,10 @@
       "tab": "m5",
       "group": "M5: CRM 續證與申請流程",
       "status": "pass",
-      "duration": 3096,
+      "duration": 4367,
       "shots": [
         "flow/renewal-03-cert-status.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/renewal-03-cert-status.png",
-            "description": "學員端「會員中心」頁面，「我的會員資料」區塊顯示「認證狀態：未取得」badge（紅框標示「認證狀態徽章」），續證申請列表呈現多張已送出卡片。",
-            "verdict": "認證狀態 badge 元素存在且顯示正確文字「未取得」。"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員可審核續證申請 — 核准 Dialog",
@@ -4057,12 +2129,8 @@
       "tab": "m5",
       "group": "M5: CRM 續證與申請流程",
       "status": "pass",
-      "duration": 1778,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 2737,
+      "shots": []
     },
     {
       "name": "管理員可在特約申請分頁更新申請狀態",
@@ -4070,12 +2138,8 @@
       "tab": "m5",
       "group": "M5: CRM 續證與申請流程",
       "status": "pass",
-      "duration": 980,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 4319,
+      "shots": []
     },
     {
       "name": "學員可存取會員中心頁",
@@ -4083,20 +2147,10 @@
       "tab": "m5",
       "group": "M5-02/03: 學員會員中心與續證",
       "status": "pass",
-      "duration": 1641,
+      "duration": 4512,
       "shots": [
         "flow/student-crm-01.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-crm-01.png",
-            "description": "學員會員中心頁面，手機版，顯示「會員中心」標題、「我的會員資料」（認證狀態：未取得）、「續證申請」區塊（多筆「已送出」記錄，日期 2026/03/18）和「新增申請」按鈕",
-            "proof": "學員 CRM 頁面載入，顯示會員資料、認證狀態與續證申請"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員看到會員中心含個人資料、續證申請與特約申請區塊",
@@ -4104,20 +2158,10 @@
       "tab": "m5",
       "group": "M5-02/03: 學員會員中心與續證",
       "status": "pass",
-      "duration": 2008,
+      "duration": 4328,
       "shots": [
         "flow/student-crm-02.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-crm-02.png",
-            "description": "學員會員中心下半部，顯示多筆「續證申請 已送出」（日期 2026/03/16），「特約申請」區塊含「+ 特約申請」和「+ 資深特約」按鈕，下方顯示「尚無特約申請」空狀態",
-            "proof": "會員中心顯示續證申請列表、特約申請按鈕與空狀態提示"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員看到續證與申請操作按鈕",
@@ -4125,20 +2169,10 @@
       "tab": "m5",
       "group": "M5-02/03: 學員會員中心與續證",
       "status": "pass",
-      "duration": 1564,
+      "duration": 4510,
       "shots": [
         "flow/student-crm-03.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-crm-03.png",
-            "description": "學員會員中心頁（手機版），顯示「我的會員資料」認證狀態：未取得，「續證申請」區塊有「+新增申請」按鈕（紅框標註），下方三筆續證申請紀錄均顯示「已送出」badge",
-            "proof": "續證與特約申請按鈕存在，測試確認學員可見操作入口"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可存取個人資料頁",
@@ -4146,20 +2180,10 @@
       "tab": "m5",
       "group": "M5-02/03: 學員會員中心與續證",
       "status": "pass",
-      "duration": 1644,
+      "duration": 3390,
       "shots": [
         "flow/student-crm-04.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-crm-04.png",
-            "description": "學員個人資料頁（手機版），標題「個人資料」，基本資訊區塊含姓名欄位、Email（student@careercreator.tw，唯讀）、手機0912-345-678、LINE ID欄位，標籤「學員個人資料頁面載入」",
-            "proof": "個人資料頁成功載入，表單欄位正確顯示"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可存取會員中心頁",
@@ -4167,20 +2191,10 @@
       "tab": "m5",
       "group": "M5-02/03: 學員會員中心與續證",
       "status": "pass",
-      "duration": 1220,
+      "duration": 2879,
       "shots": [
         "flow/student-crm-01.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-crm-01.png",
-            "description": "學員會員中心頁面，手機版，顯示「會員中心」標題、「我的會員資料」（認證狀態：未取得）、「續證申請」區塊（多筆「已送出」記錄，日期 2026/03/18）和「新增申請」按鈕",
-            "proof": "學員 CRM 頁面載入，顯示會員資料、認證狀態與續證申請"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員看到會員中心含個人資料、續證申請與特約申請區塊",
@@ -4188,20 +2202,10 @@
       "tab": "m5",
       "group": "M5-02/03: 學員會員中心與續證",
       "status": "pass",
-      "duration": 1603,
+      "duration": 2757,
       "shots": [
         "flow/student-crm-02.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-crm-02.png",
-            "description": "學員會員中心下半部，顯示多筆「續證申請 已送出」（日期 2026/03/16），「特約申請」區塊含「+ 特約申請」和「+ 資深特約」按鈕，下方顯示「尚無特約申請」空狀態",
-            "proof": "會員中心顯示續證申請列表、特約申請按鈕與空狀態提示"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員看到續證與申請操作按鈕",
@@ -4209,20 +2213,10 @@
       "tab": "m5",
       "group": "M5-02/03: 學員會員中心與續證",
       "status": "pass",
-      "duration": 1362,
+      "duration": 3482,
       "shots": [
         "flow/student-crm-03.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-crm-03.png",
-            "description": "學員會員中心頁（手機版），顯示「我的會員資料」認證狀態：未取得，「續證申請」區塊有「+新增申請」按鈕（紅框標註），下方三筆續證申請紀錄均顯示「已送出」badge",
-            "proof": "續證與特約申請按鈕存在，測試確認學員可見操作入口"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員可存取個人資料頁",
@@ -4230,20 +2224,10 @@
       "tab": "m5",
       "group": "M5-02/03: 學員會員中心與續證",
       "status": "pass",
-      "duration": 1213,
+      "duration": 2468,
       "shots": [
         "flow/student-crm-04.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-crm-04.png",
-            "description": "學員個人資料頁（手機版），標題「個人資料」，基本資訊區塊含姓名欄位、Email（student@careercreator.tw，唯讀）、手機0912-345-678、LINE ID欄位，標籤「學員個人資料頁面載入」",
-            "proof": "個人資料頁成功載入，表單欄位正確顯示"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "首頁在手機版正確渲染",
@@ -4251,20 +2235,10 @@
       "tab": "mobile",
       "group": "手機版視窗 — 關鍵頁面正確渲染",
       "status": "pass",
-      "duration": 982,
+      "duration": 3348,
       "shots": [
         "flow/mobile-01-homepage.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/mobile-01-homepage.png",
-            "description": "手機版（375px）首頁 hero，深藍背景，顯示「CNC 職涯諮詢師培訓課程」、描述文字、87+ 培訓小時/CNC/CDA/3 張統計數字、立即報名/瀏覽課程按鈕，右上角漢堡選單",
-            "proof": "首頁在手機視窗完整渲染，無版面破版"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "課程頁在手機版正確渲染",
@@ -4272,20 +2246,10 @@
       "tab": "mobile",
       "group": "手機版視窗 — 關鍵頁面正確渲染",
       "status": "pass",
-      "duration": 2719,
+      "duration": 2218,
       "shots": [
         "flow/mobile-02-courses.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/mobile-02-courses.png",
-            "description": "手機版課程頁（375px寬），標題「職涯牌卡」，列表顯示職游旅人卡NT$750、職能盤點卡NT$1,240、價值導航卡NT$850，漢堡選單圖示可見",
-            "proof": "手機版課程頁正常渲染，課程列表完整顯示無版面錯亂"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "報名頁在手機版正確渲染",
@@ -4293,20 +2257,10 @@
       "tab": "mobile",
       "group": "手機版視窗 — 關鍵頁面正確渲染",
       "status": "pass",
-      "duration": 1722,
+      "duration": 2498,
       "shots": [
         "flow/mobile-03-enroll.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/mobile-03-enroll.png",
-            "description": "手機版報名頁（375px寬），標題「線上報名」，中間顯示旋轉載入動畫「載入梯次資料...」，頁尾有快速連結區塊",
-            "proof": "手機版報名頁路由正常渲染，頁面結構完整（loading state顯示）"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "學員儀表板在手機版正確渲染並顯示漢堡選單",
@@ -4314,20 +2268,10 @@
       "tab": "mobile",
       "group": "手機版視窗 — 關鍵頁面正確渲染",
       "status": "pass",
-      "duration": 2079,
+      "duration": 3139,
       "shots": [
         "flow/mobile-04-student-dashboard.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/mobile-04-student-dashboard.png",
-            "description": "手機版學員 Dashboard，顯示「歡迎回來，學員 Student」、我的報名（CNC 第37期 已付款 NT$27,000）、查看詳情/升級B班按鈕、快速連結（課程資料、LINE 群組），測試標注「手機版學員 Dashboard」",
-            "proof": "學員 Dashboard 在手機視窗正確渲染，含漢堡選單"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "管理員儀表板在手機版正確渲染並顯示側邊欄切換按鈕",
@@ -4335,12 +2279,8 @@
       "tab": "mobile",
       "group": "手機版視窗 — 關鍵頁面正確渲染",
       "status": "pass",
-      "duration": 2139,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 2258,
+      "shots": []
     },
     {
       "name": "登入頁在手機版正確渲染",
@@ -4348,20 +2288,10 @@
       "tab": "mobile",
       "group": "手機版視窗 — 關鍵頁面正確渲染",
       "status": "pass",
-      "duration": 946,
+      "duration": 2106,
       "shots": [
         "flow/mobile-07-login.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/mobile-07-login.png",
-            "description": "手機版登入頁（375px寬），標題「登入」，Google帳號登入按鈕、電子郵件與密碼欄位、登入按鈕、立即註冊連結，版面適應行動裝置",
-            "proof": "登入頁在手機版正確渲染，所有元素完整顯示"
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "visitor - /",
@@ -4369,12 +2299,8 @@
       "tab": "screenshots",
       "group": "Visitor screenshots",
       "status": "pass",
-      "duration": 3144,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 4473,
+      "shots": []
     },
     {
       "name": "visitor - /courses",
@@ -4382,12 +2308,8 @@
       "tab": "screenshots",
       "group": "Visitor screenshots",
       "status": "pass",
-      "duration": 4812,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 4721,
+      "shots": []
     },
     {
       "name": "visitor - /login",
@@ -4395,12 +2317,8 @@
       "tab": "screenshots",
       "group": "Visitor screenshots",
       "status": "pass",
-      "duration": 2362,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 3287,
+      "shots": []
     },
     {
       "name": "visitor - /enroll",
@@ -4408,12 +2326,8 @@
       "tab": "screenshots",
       "group": "Visitor screenshots",
       "status": "pass",
-      "duration": 2671,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 3536,
+      "shots": []
     },
     {
       "name": "admin - /admin/dashboard",
@@ -4421,12 +2335,8 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2565,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 4197,
+      "shots": []
     },
     {
       "name": "admin - /admin/enrollments",
@@ -4434,12 +2344,8 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2287,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 3905,
+      "shots": []
     },
     {
       "name": "admin - /admin/cohorts",
@@ -4447,12 +2353,8 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2216,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 3904,
+      "shots": []
     },
     {
       "name": "admin - /admin/classrooms",
@@ -4460,12 +2362,8 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2499,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 4081,
+      "shots": []
     },
     {
       "name": "admin - /admin/grading",
@@ -4473,12 +2371,8 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2729,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 4031,
+      "shots": []
     },
     {
       "name": "admin - /admin/promo-codes",
@@ -4486,12 +2380,8 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2573,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 3909,
+      "shots": []
     },
     {
       "name": "admin - /admin/products",
@@ -4499,12 +2389,8 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2920,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 4270,
+      "shots": []
     },
     {
       "name": "admin - /admin/pages",
@@ -4512,12 +2398,8 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2324,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 4854,
+      "shots": []
     },
     {
       "name": "admin - /admin/marketing",
@@ -4525,12 +2407,8 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2682,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 4408,
+      "shots": []
     },
     {
       "name": "admin - /admin/crm",
@@ -4538,12 +2416,8 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2634,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 4018,
+      "shots": []
     },
     {
       "name": "admin - /admin/supervision",
@@ -4551,12 +2425,8 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2294,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 3924,
+      "shots": []
     },
     {
       "name": "admin - /admin/certifications",
@@ -4564,12 +2434,8 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2067,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 4355,
+      "shots": []
     },
     {
       "name": "admin - /admin/referrals",
@@ -4577,12 +2443,8 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 1884,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 3973,
+      "shots": []
     },
     {
       "name": "admin - /admin/refunds",
@@ -4590,12 +2452,8 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2826,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 4395,
+      "shots": []
     },
     {
       "name": "admin - /admin/agents",
@@ -4603,12 +2461,8 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2723,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 4311,
+      "shots": []
     },
     {
       "name": "student - /student/dashboard",
@@ -4616,12 +2470,8 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 1964,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 4335,
+      "shots": []
     },
     {
       "name": "student - /student/enrollments",
@@ -4629,12 +2479,8 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 1714,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 3520,
+      "shots": []
     },
     {
       "name": "student - /student/courses",
@@ -4642,12 +2488,8 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 2439,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 4083,
+      "shots": []
     },
     {
       "name": "student - /student/payments",
@@ -4655,12 +2497,8 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 2250,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 3694,
+      "shots": []
     },
     {
       "name": "student - /student/crm",
@@ -4668,12 +2506,8 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 2270,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 3811,
+      "shots": []
     },
     {
       "name": "student - /student/supervision",
@@ -4681,12 +2515,8 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 2224,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 3713,
+      "shots": []
     },
     {
       "name": "student - /student/certifications",
@@ -4694,12 +2524,8 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 1896,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 3444,
+      "shots": []
     },
     {
       "name": "student - /student/profile",
@@ -4707,12 +2533,8 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 2225,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 4410,
+      "shots": []
     },
     {
       "name": "ta - /admin/grading",
@@ -4720,12 +2542,8 @@
       "tab": "screenshots",
       "group": "TA screenshots",
       "status": "pass",
-      "duration": 2297,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 4307,
+      "shots": []
     },
     {
       "name": "supervisor - /admin/supervision",
@@ -4733,12 +2551,8 @@
       "tab": "screenshots",
       "group": "Supervisor screenshots",
       "status": "pass",
-      "duration": 1920,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
+      "duration": 4369,
+      "shots": []
     }
   ],
   "prdCoverage": {
