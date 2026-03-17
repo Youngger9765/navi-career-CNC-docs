@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-17T16:54:12.409Z",
-  "commitSha": "378fe77",
+  "generatedAt": "2026-03-17T17:32:21.729Z",
+  "commitSha": "32f7317",
   "summary": {
     "total": 240,
     "passed": 240,
@@ -9,12 +9,12 @@
   },
   "tests": [
     {
-      "name": "visitor accessing /admin/dashboard gets redirected to login",
+      "name": "未認證訪客造訪 /admin/dashboard 被重導至登入頁",
       "spec": "access-control/role-guards.spec.ts",
       "tab": "access",
-      "group": "Unauthenticated visitor",
+      "group": "未認證訪客",
       "status": "pass",
-      "duration": 2603,
+      "duration": 3146,
       "shots": [
         "flow/access-01-admin-redirect-login.png"
       ],
@@ -31,12 +31,12 @@
       }
     },
     {
-      "name": "visitor accessing /student/dashboard gets redirected to login",
+      "name": "未認證訪客造訪 /student/dashboard 被重導至登入頁",
       "spec": "access-control/role-guards.spec.ts",
       "tab": "access",
-      "group": "Unauthenticated visitor",
+      "group": "未認證訪客",
       "status": "pass",
-      "duration": 2619,
+      "duration": 1576,
       "shots": [
         "flow/access-02-student-redirect-login.png"
       ],
@@ -53,12 +53,12 @@
       }
     },
     {
-      "name": "visitor can access public /courses page",
+      "name": "訪客可存取公開的 /courses 頁",
       "spec": "access-control/role-guards.spec.ts",
       "tab": "access",
-      "group": "Unauthenticated visitor",
+      "group": "未認證訪客",
       "status": "pass",
-      "duration": 2810,
+      "duration": 4123,
       "shots": [
         "flow/access-03-public-courses.png"
       ],
@@ -75,12 +75,12 @@
       }
     },
     {
-      "name": "visitor can access login page",
+      "name": "訪客可存取登入頁",
       "spec": "access-control/role-guards.spec.ts",
       "tab": "access",
-      "group": "Unauthenticated visitor",
+      "group": "未認證訪客",
       "status": "pass",
-      "duration": 1568,
+      "duration": 1399,
       "shots": [
         "flow/access-04-login-page.png"
       ],
@@ -97,12 +97,12 @@
       }
     },
     {
-      "name": "student accessing /admin/dashboard is blocked — redirect or empty render",
+      "name": "學員造訪 /admin/dashboard 被阻擋 — 重導或空白渲染",
       "spec": "access-control/role-guards.spec.ts",
       "tab": "access",
-      "group": "Student accessing admin pages",
+      "group": "學員存取管理頁面",
       "status": "pass",
-      "duration": 1122,
+      "duration": 2463,
       "shots": [
         "flow/access-05-student-blocked-admin.png"
       ],
@@ -119,12 +119,12 @@
       }
     },
     {
-      "name": "student accessing /admin/enrollments is blocked — redirect or empty render",
+      "name": "學員造訪 /admin/enrollments 被阻擋 — 重導或空白渲染",
       "spec": "access-control/role-guards.spec.ts",
       "tab": "access",
-      "group": "Student accessing admin pages",
+      "group": "學員存取管理頁面",
       "status": "pass",
-      "duration": 1001,
+      "duration": 2176,
       "shots": [
         "flow/access-06-student-blocked-enrollments.png"
       ],
@@ -141,12 +141,12 @@
       }
     },
     {
-      "name": "student can access /student/dashboard",
+      "name": "學員可存取 /student/dashboard",
       "spec": "access-control/role-guards.spec.ts",
       "tab": "access",
-      "group": "Student accessing admin pages",
+      "group": "學員存取管理頁面",
       "status": "pass",
-      "duration": 1342,
+      "duration": 1617,
       "shots": [
         "flow/access-07-student-own-dashboard.png"
       ],
@@ -163,12 +163,12 @@
       }
     },
     {
-      "name": "admin can access /admin/dashboard",
+      "name": "管理員可存取 /admin/dashboard",
       "spec": "access-control/role-guards.spec.ts",
       "tab": "access",
-      "group": "Admin can access admin pages",
+      "group": "管理員可存取管理頁面",
       "status": "pass",
-      "duration": 2028,
+      "duration": 1025,
       "shots": [
         "flow/access-08-admin-dashboard.png"
       ],
@@ -185,12 +185,12 @@
       }
     },
     {
-      "name": "admin can access /admin/enrollments",
+      "name": "管理員可存取 /admin/enrollments",
       "spec": "access-control/role-guards.spec.ts",
       "tab": "access",
-      "group": "Admin can access admin pages",
+      "group": "管理員可存取管理頁面",
       "status": "pass",
-      "duration": 2126,
+      "duration": 1308,
       "shots": [
         "flow/access-09-admin-enrollments.png"
       ],
@@ -207,12 +207,12 @@
       }
     },
     {
-      "name": "student token cannot access admin API endpoints",
+      "name": "學員 token 無法存取管理員 API 端點",
       "spec": "access-control/role-guards.spec.ts",
       "tab": "access",
-      "group": "API-level role guards",
+      "group": "API 層級角色守衛",
       "status": "pass",
-      "duration": 1100,
+      "duration": 806,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -220,12 +220,12 @@
       }
     },
     {
-      "name": "unauthenticated request to protected API returns 401/403",
+      "name": "未認證請求存取受保護 API 回傳 401/403",
       "spec": "access-control/role-guards.spec.ts",
       "tab": "access",
-      "group": "API-level role guards",
+      "group": "API 層級角色守衛",
       "status": "pass",
-      "duration": 239,
+      "duration": 95,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -233,12 +233,12 @@
       }
     },
     {
-      "name": "agents page shows stat cards and table",
+      "name": "代理商頁面顯示統計卡片與表格",
       "spec": "m1-registration/admin-agents.spec.ts",
       "tab": "m1",
-      "group": "M1-07 / M2: Admin agents (代理商) management",
+      "group": "M1-07 / M2: 管理員代理商管理",
       "status": "pass",
-      "duration": 2090,
+      "duration": 910,
       "shots": [
         "crud/agents-01-stat-cards.png"
       ],
@@ -254,12 +254,12 @@
       }
     },
     {
-      "name": "agents table shows correct columns",
+      "name": "代理商表格顯示正確欄位",
       "spec": "m1-registration/admin-agents.spec.ts",
       "tab": "m1",
-      "group": "M1-07 / M2: Admin agents (代理商) management",
+      "group": "M1-07 / M2: 管理員代理商管理",
       "status": "pass",
-      "duration": 1843,
+      "duration": 1810,
       "shots": [
         "crud/agents-02-table-columns.png"
       ],
@@ -275,12 +275,12 @@
       }
     },
     {
-      "name": "agents page has create agent button",
+      "name": "代理商頁面有新增代理商按鈕",
       "spec": "m1-registration/admin-agents.spec.ts",
       "tab": "m1",
-      "group": "M1-07 / M2: Admin agents (代理商) management",
+      "group": "M1-07 / M2: 管理員代理商管理",
       "status": "pass",
-      "duration": 1927,
+      "duration": 1496,
       "shots": [
         "crud/agents-03-create-btn.png"
       ],
@@ -296,12 +296,12 @@
       }
     },
     {
-      "name": "referrals page shows stat cards and empty/list state",
+      "name": "推薦頁面顯示統計卡片與列表",
       "spec": "m1-registration/admin-agents.spec.ts",
       "tab": "m1",
-      "group": "M1-07 / M2: Admin agents (代理商) management",
+      "group": "M1-07 / M2: 管理員代理商管理",
       "status": "pass",
-      "duration": 2765,
+      "duration": 1694,
       "shots": [
         "crud/agents-04-referrals-stats.png"
       ],
@@ -317,12 +317,12 @@
       }
     },
     {
-      "name": "admin opens create dialog, fills form, submits",
+      "name": "管理員開啟建立 Dialog 填寫表單並送出",
       "spec": "m1-registration/admin-cohort-crud.spec.ts",
       "tab": "m1",
-      "group": "M1-06 CRUD: Admin cohort management",
+      "group": "M1-06 CRUD: 管理員梯次管理",
       "status": "pass",
-      "duration": 2666,
+      "duration": 2099,
       "shots": [
         "crud/cohort-01-dialog-open.png",
         "crud/cohort-02-form-filled.png",
@@ -350,12 +350,12 @@
       }
     },
     {
-      "name": "admin sees cohort list with table headers",
+      "name": "管理員看到梯次列表與表格標題列",
       "spec": "m1-registration/admin-cohort-crud.spec.ts",
       "tab": "m1",
-      "group": "M1-06 CRUD: Admin cohort management",
+      "group": "M1-06 CRUD: 管理員梯次管理",
       "status": "pass",
-      "duration": 2211,
+      "duration": 1410,
       "shots": [
         "crud/cohort-04-list-table.png"
       ],
@@ -371,12 +371,12 @@
       }
     },
     {
-      "name": "admin clicks cohort row to enter detail",
+      "name": "管理員點擊梯次列進入詳情頁",
       "spec": "m1-registration/admin-cohort-crud.spec.ts",
       "tab": "m1",
-      "group": "M1-06 CRUD: Admin cohort management",
+      "group": "M1-06 CRUD: 管理員梯次管理",
       "status": "pass",
-      "duration": 2208,
+      "duration": 1793,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -384,12 +384,12 @@
       }
     },
     {
-      "name": "admin can access cohorts list page",
+      "name": "管理員可存取梯次列表頁",
       "spec": "m1-registration/admin-cohorts.spec.ts",
       "tab": "m1",
-      "group": "M1-06: Admin cohort management",
+      "group": "M1-06: 管理員梯次管理",
       "status": "pass",
-      "duration": 1646,
+      "duration": 1659,
       "shots": [
         "crud/cohorts-smoke-01-list-page.png"
       ],
@@ -405,12 +405,12 @@
       }
     },
     {
-      "name": "admin sees cohorts in table/list",
+      "name": "管理員看到梯次表格或列表",
       "spec": "m1-registration/admin-cohorts.spec.ts",
       "tab": "m1",
-      "group": "M1-06: Admin cohort management",
+      "group": "M1-06: 管理員梯次管理",
       "status": "pass",
-      "duration": 935,
+      "duration": 1719,
       "shots": [
         "crud/cohorts-smoke-02-table.png"
       ],
@@ -426,12 +426,12 @@
       }
     },
     {
-      "name": "admin can click a cohort to see detail page",
+      "name": "管理員可點擊梯次進入詳情頁",
       "spec": "m1-registration/admin-cohorts.spec.ts",
       "tab": "m1",
-      "group": "M1-06: Admin cohort management",
+      "group": "M1-06: 管理員梯次管理",
       "status": "pass",
-      "duration": 1587,
+      "duration": 2030,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -439,12 +439,12 @@
       }
     },
     {
-      "name": "admin sees create cohort button",
+      "name": "管理員看到新增梯次按鈕",
       "spec": "m1-registration/admin-cohorts.spec.ts",
       "tab": "m1",
-      "group": "M1-06: Admin cohort management",
+      "group": "M1-06: 管理員梯次管理",
       "status": "pass",
-      "duration": 1882,
+      "duration": 2267,
       "shots": [
         "crud/cohorts-smoke-04-create-btn.png"
       ],
@@ -460,12 +460,12 @@
       }
     },
     {
-      "name": "admin can access enrollments page",
+      "name": "管理員可存取報名管理頁",
       "spec": "m1-registration/admin-enrollments.spec.ts",
       "tab": "m1",
-      "group": "M1-03: Admin enrollment management",
+      "group": "M1-03: 管理員報名管理",
       "status": "pass",
-      "duration": 1589,
+      "duration": 1768,
       "shots": [
         "crud/enrollments-01-list-page.png"
       ],
@@ -481,12 +481,12 @@
       }
     },
     {
-      "name": "admin sees enrollment records in table",
+      "name": "管理員看到報名記錄表格",
       "spec": "m1-registration/admin-enrollments.spec.ts",
       "tab": "m1",
-      "group": "M1-03: Admin enrollment management",
+      "group": "M1-03: 管理員報名管理",
       "status": "pass",
-      "duration": 1741,
+      "duration": 1858,
       "shots": [
         "crud/enrollments-02-table.png"
       ],
@@ -502,12 +502,12 @@
       }
     },
     {
-      "name": "admin can filter enrollments by status",
+      "name": "管理員可依狀態篩選報名記錄",
       "spec": "m1-registration/admin-enrollments.spec.ts",
       "tab": "m1",
-      "group": "M1-03: Admin enrollment management",
+      "group": "M1-03: 管理員報名管理",
       "status": "pass",
-      "duration": 1080,
+      "duration": 2014,
       "shots": [
         "crud/enrollments-03-filter.png"
       ],
@@ -523,12 +523,12 @@
       }
     },
     {
-      "name": "admin sidebar shows enrollment link as active",
+      "name": "管理員側欄顯示報名管理連結為啟用狀態",
       "spec": "m1-registration/admin-enrollments.spec.ts",
       "tab": "m1",
-      "group": "M1-03: Admin enrollment management",
+      "group": "M1-03: 管理員報名管理",
       "status": "pass",
-      "duration": 1052,
+      "duration": 2011,
       "shots": [
         "crud/enrollments-04-sidebar-active.png"
       ],
@@ -544,12 +544,12 @@
       }
     },
     {
-      "name": "admin dashboard loads with stats",
+      "name": "管理員儀表板載入並顯示統計數據",
       "spec": "m1-registration/admin-enrollments.spec.ts",
       "tab": "m1",
-      "group": "M1-03: Admin enrollment management",
+      "group": "M1-03: 管理員報名管理",
       "status": "pass",
-      "duration": 1187,
+      "duration": 2372,
       "shots": [
         "crud/enrollments-05-dashboard.png"
       ],
@@ -565,12 +565,12 @@
       }
     },
     {
-      "name": "admin can access promo codes page",
+      "name": "管理員可存取優惠碼頁面",
       "spec": "m1-registration/admin-promo-codes.spec.ts",
       "tab": "m1",
-      "group": "M1-04: Admin promo code management",
+      "group": "M1-04: 管理員優惠碼管理",
       "status": "pass",
-      "duration": 1678,
+      "duration": 1854,
       "shots": [
         "crud/promo-smoke-01-list-page.png"
       ],
@@ -587,12 +587,12 @@
       }
     },
     {
-      "name": "admin sees promo codes list or empty state",
+      "name": "管理員看到優惠碼列表或空狀態",
       "spec": "m1-registration/admin-promo-codes.spec.ts",
       "tab": "m1",
-      "group": "M1-04: Admin promo code management",
+      "group": "M1-04: 管理員優惠碼管理",
       "status": "pass",
-      "duration": 1529,
+      "duration": 1675,
       "shots": [
         "crud/promo-smoke-02-table.png"
       ],
@@ -609,12 +609,12 @@
       }
     },
     {
-      "name": "admin sees create promo code button",
+      "name": "管理員看到新增優惠碼按鈕",
       "spec": "m1-registration/admin-promo-codes.spec.ts",
       "tab": "m1",
-      "group": "M1-04: Admin promo code management",
+      "group": "M1-04: 管理員優惠碼管理",
       "status": "pass",
-      "duration": 1360,
+      "duration": 1497,
       "shots": [
         "crud/promo-smoke-03-create-btn.png"
       ],
@@ -631,12 +631,12 @@
       }
     },
     {
-      "name": "admin creates a promo code, verifies in list",
+      "name": "管理員建立優惠碼後在列表中確認存在",
       "spec": "m1-registration/admin-promo-crud.spec.ts",
       "tab": "m1",
-      "group": "M1-04 CRUD: Admin promo code create → verify → delete",
+      "group": "M1-04 CRUD: 管理員優惠碼建立→驗證→刪除",
       "status": "pass",
-      "duration": 2686,
+      "duration": 2493,
       "shots": [
         "crud/promo-01-dialog-open.png",
         "crud/promo-02-form-filled.png",
@@ -674,12 +674,12 @@
       }
     },
     {
-      "name": "payment checkout API returns redirect URL or order info",
+      "name": "付款結帳 API 回傳重定向 URL 或訂單資訊",
       "spec": "m1-registration/ecpay-mock.spec.ts",
       "tab": "m1",
-      "group": "M1: ECPay payment flow (mocked)",
+      "group": "M1: 綠界金流付款流程（模擬）",
       "status": "pass",
-      "duration": 526,
+      "duration": 934,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -687,12 +687,12 @@
       }
     },
     {
-      "name": "mocked ECPay redirect shows checkout success page",
+      "name": "模擬綠界重定向後顯示結帳成功頁面",
       "spec": "m1-registration/ecpay-mock.spec.ts",
       "tab": "m1",
-      "group": "M1: ECPay payment flow (mocked)",
+      "group": "M1: 綠界金流付款流程（模擬）",
       "status": "pass",
-      "duration": 1569,
+      "duration": 1524,
       "shots": [
         "flow/ecpay-01-success-page.png"
       ],
@@ -709,12 +709,12 @@
       }
     },
     {
-      "name": "checkout failed page offers retry",
+      "name": "結帳失敗頁提供重試選項",
       "spec": "m1-registration/ecpay-mock.spec.ts",
       "tab": "m1",
-      "group": "M1: ECPay payment flow (mocked)",
+      "group": "M1: 綠界金流付款流程（模擬）",
       "status": "pass",
-      "duration": 1406,
+      "duration": 1821,
       "shots": [
         "flow/ecpay-02-failed-page.png"
       ],
@@ -731,12 +731,12 @@
       }
     },
     {
-      "name": "visitor can browse courses → course detail → see enroll CTA",
+      "name": "訪客可瀏覽課程列表→課程詳情→看到報名 CTA",
       "spec": "m1-registration/enroll-flow.spec.ts",
       "tab": "m1",
-      "group": "M1-01 Flow: Student enrollment flow end-to-end",
+      "group": "M1-01 Flow: 學員報名流程端對端",
       "status": "pass",
-      "duration": 3796,
+      "duration": 7752,
       "shots": [
         "flow/enroll-01-course-listing.png",
         "flow/enroll-02-course-detail.png"
@@ -760,12 +760,12 @@
       }
     },
     {
-      "name": "visitor can reach enroll page and see cohort pricing",
+      "name": "訪客可進入報名頁並看到梯次定價",
       "spec": "m1-registration/enroll-flow.spec.ts",
       "tab": "m1",
-      "group": "M1-01 Flow: Student enrollment flow end-to-end",
+      "group": "M1-01 Flow: 學員報名流程端對端",
       "status": "pass",
-      "duration": 1088,
+      "duration": 1699,
       "shots": [
         "flow/enroll-03-pricing-page.png"
       ],
@@ -782,12 +782,12 @@
       }
     },
     {
-      "name": "student sees dashboard with quick links and enrollment status",
+      "name": "學員登入後看到儀表板快速連結與報名狀態",
       "spec": "m1-registration/enroll-flow.spec.ts",
       "tab": "m1",
-      "group": "M1-01 Flow: Student enrollment flow end-to-end",
+      "group": "M1-01 Flow: 學員報名流程端對端",
       "status": "pass",
-      "duration": 1361,
+      "duration": 1814,
       "shots": [
         "flow/enroll-04-student-dashboard.png"
       ],
@@ -804,12 +804,12 @@
       }
     },
     {
-      "name": "student can navigate through sidebar links",
+      "name": "學員可透過側欄連結導覽各頁面",
       "spec": "m1-registration/enroll-flow.spec.ts",
       "tab": "m1",
-      "group": "M1-01 Flow: Student enrollment flow end-to-end",
+      "group": "M1-01 Flow: 學員報名流程端對端",
       "status": "pass",
-      "duration": 1741,
+      "duration": 2144,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -817,12 +817,12 @@
       }
     },
     {
-      "name": "visitor can browse courses → course detail → see enroll CTA",
+      "name": "訪客可瀏覽課程列表→課程詳情→看到報名 CTA",
       "spec": "m1-registration/enroll-flow.spec.ts",
       "tab": "m1",
-      "group": "M1-01 Flow: Student enrollment flow end-to-end",
+      "group": "M1-01 Flow: 學員報名流程端對端",
       "status": "pass",
-      "duration": 2231,
+      "duration": 1565,
       "shots": [
         "flow/enroll-01-course-listing.png",
         "flow/enroll-02-course-detail.png"
@@ -846,12 +846,12 @@
       }
     },
     {
-      "name": "visitor can reach enroll page and see cohort pricing",
+      "name": "訪客可進入報名頁並看到梯次定價",
       "spec": "m1-registration/enroll-flow.spec.ts",
       "tab": "m1",
-      "group": "M1-01 Flow: Student enrollment flow end-to-end",
+      "group": "M1-01 Flow: 學員報名流程端對端",
       "status": "pass",
-      "duration": 1725,
+      "duration": 1085,
       "shots": [
         "flow/enroll-03-pricing-page.png"
       ],
@@ -868,12 +868,12 @@
       }
     },
     {
-      "name": "student sees dashboard with quick links and enrollment status",
+      "name": "學員登入後看到儀表板快速連結與報名狀態",
       "spec": "m1-registration/enroll-flow.spec.ts",
       "tab": "m1",
-      "group": "M1-01 Flow: Student enrollment flow end-to-end",
+      "group": "M1-01 Flow: 學員報名流程端對端",
       "status": "pass",
-      "duration": 1564,
+      "duration": 1579,
       "shots": [
         "flow/enroll-04-student-dashboard.png"
       ],
@@ -890,12 +890,12 @@
       }
     },
     {
-      "name": "student can navigate through sidebar links",
+      "name": "學員可透過側欄連結導覽各頁面",
       "spec": "m1-registration/enroll-flow.spec.ts",
       "tab": "m1",
-      "group": "M1-01 Flow: Student enrollment flow end-to-end",
+      "group": "M1-01 Flow: 學員報名流程端對端",
       "status": "pass",
-      "duration": 1257,
+      "duration": 1576,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -903,12 +903,12 @@
       }
     },
     {
-      "name": "enroll page shows cohort info: class types, dates, quota, pricing",
+      "name": "報名頁顯示梯次資訊：班別、日期、名額與定價",
       "spec": "m1-registration/enroll-form-details.spec.ts",
       "tab": "m1",
-      "group": "M1: Enrollment form details and pricing",
+      "group": "M1: 報名表單詳情與定價",
       "status": "pass",
-      "duration": 1356,
+      "duration": 1411,
       "shots": [
         "flow/enroll-details-01-cohort-info.png"
       ],
@@ -925,12 +925,12 @@
       }
     },
     {
-      "name": "enroll page shows early bird and regular pricing",
+      "name": "報名頁顯示早鳥優惠與一般定價",
       "spec": "m1-registration/enroll-form-details.spec.ts",
       "tab": "m1",
-      "group": "M1: Enrollment form details and pricing",
+      "group": "M1: 報名表單詳情與定價",
       "status": "pass",
-      "duration": 1122,
+      "duration": 1635,
       "shots": [
         "flow/enroll-details-02-early-bird.png"
       ],
@@ -947,12 +947,12 @@
       }
     },
     {
-      "name": "cohort detail page shows setup status and stats",
+      "name": "梯次詳情頁顯示設定狀態與統計數據",
       "spec": "m1-registration/enroll-form-details.spec.ts",
       "tab": "m1",
-      "group": "M1: Enrollment form details and pricing",
+      "group": "M1: 報名表單詳情與定價",
       "status": "pass",
-      "duration": 2327,
+      "duration": 2689,
       "shots": [
         "flow/enroll-details-03-cohort-detail.png"
       ],
@@ -969,12 +969,12 @@
       }
     },
     {
-      "name": "admin enrollments page filtering by status works",
+      "name": "管理員報名頁依狀態篩選功能正常運作",
       "spec": "m1-registration/enroll-form-details.spec.ts",
       "tab": "m1",
-      "group": "M1: Enrollment form details and pricing",
+      "group": "M1: 報名表單詳情與定價",
       "status": "pass",
-      "duration": 2644,
+      "duration": 2311,
       "shots": [
         "flow/enroll-details-04-status-filter.png"
       ],
@@ -991,12 +991,12 @@
       }
     },
     {
-      "name": "admin refunds page shows pending and completed refunds",
+      "name": "管理員退款頁顯示待處理與已完成退款",
       "spec": "m1-registration/enroll-form-details.spec.ts",
       "tab": "m1",
-      "group": "M1: Enrollment form details and pricing",
+      "group": "M1: 報名表單詳情與定價",
       "status": "pass",
-      "duration": 2285,
+      "duration": 1912,
       "shots": [
         "flow/enroll-details-05-refunds.png"
       ],
@@ -1013,12 +1013,12 @@
       }
     },
     {
-      "name": "admin refunds page has process refund button",
+      "name": "管理員退款頁有處理退款按鈕",
       "spec": "m1-registration/enroll-form-details.spec.ts",
       "tab": "m1",
-      "group": "M1: Enrollment form details and pricing",
+      "group": "M1: 報名表單詳情與定價",
       "status": "pass",
-      "duration": 2230,
+      "duration": 3248,
       "shots": [
         "flow/enroll-details-06-process-refund-btn.png"
       ],
@@ -1035,12 +1035,12 @@
       }
     },
     {
-      "name": "visitor can reach cohort registration page and see step 1",
+      "name": "訪客可進入梯次報名頁並看到步驟一",
       "spec": "m1-registration/enroll-form-fill.spec.ts",
       "tab": "m1",
-      "group": "M1: Enrollment form — multi-step registration flow",
+      "group": "M1: 報名表單多步驟填寫流程",
       "status": "pass",
-      "duration": 1305,
+      "duration": 2155,
       "shots": [
         "flow/enroll-form-01-step1-courses.png"
       ],
@@ -1057,12 +1057,12 @@
       }
     },
     {
-      "name": "step 1 shows pricing with early bird if applicable",
+      "name": "步驟一顯示定價及早鳥優惠（如適用）",
       "spec": "m1-registration/enroll-form-fill.spec.ts",
       "tab": "m1",
-      "group": "M1: Enrollment form — multi-step registration flow",
+      "group": "M1: 報名表單多步驟填寫流程",
       "status": "pass",
-      "duration": 1365,
+      "duration": 1961,
       "shots": [
         "flow/enroll-form-02-early-bird.png"
       ],
@@ -1079,12 +1079,12 @@
       }
     },
     {
-      "name": "step 2 shows personal info form fields",
+      "name": "步驟二顯示個人資料表單欄位",
       "spec": "m1-registration/enroll-form-fill.spec.ts",
       "tab": "m1",
-      "group": "M1: Enrollment form — multi-step registration flow",
+      "group": "M1: 報名表單多步驟填寫流程",
       "status": "pass",
-      "duration": 1113,
+      "duration": 2270,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -1092,12 +1092,12 @@
       }
     },
     {
-      "name": "step 3 shows promo code input and summary",
+      "name": "步驟三顯示折扣碼輸入欄位與費用摘要",
       "spec": "m1-registration/enroll-form-fill.spec.ts",
       "tab": "m1",
-      "group": "M1: Enrollment form — multi-step registration flow",
+      "group": "M1: 報名表單多步驟填寫流程",
       "status": "pass",
-      "duration": 11369,
+      "duration": 11938,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -1105,12 +1105,12 @@
       }
     },
     {
-      "name": "enroll page shows complete cohort pricing breakdown",
+      "name": "報名頁顯示完整梯次費用明細",
       "spec": "m1-registration/payment-flow.spec.ts",
       "tab": "m1",
-      "group": "M1: Payment and checkout flow",
+      "group": "M1: 付款與結帳流程",
       "status": "pass",
-      "duration": 924,
+      "duration": 1726,
       "shots": [
         "flow/payment-01-pricing-breakdown.png"
       ],
@@ -1127,12 +1127,12 @@
       }
     },
     {
-      "name": "checkout success page renders correctly",
+      "name": "結帳成功頁面正常渲染",
       "spec": "m1-registration/payment-flow.spec.ts",
       "tab": "m1",
-      "group": "M1: Payment and checkout flow",
+      "group": "M1: 付款與結帳流程",
       "status": "pass",
-      "duration": 1000,
+      "duration": 862,
       "shots": [
         "flow/payment-02-checkout-success.png"
       ],
@@ -1149,12 +1149,12 @@
       }
     },
     {
-      "name": "checkout failed page shows retry option",
+      "name": "結帳失敗頁顯示重試選項",
       "spec": "m1-registration/payment-flow.spec.ts",
       "tab": "m1",
-      "group": "M1: Payment and checkout flow",
+      "group": "M1: 付款與結帳流程",
       "status": "pass",
-      "duration": 1007,
+      "duration": 801,
       "shots": [
         "flow/payment-03-checkout-failed.png"
       ],
@@ -1171,12 +1171,12 @@
       }
     },
     {
-      "name": "backend payment API requires authentication",
+      "name": "後端付款 API 要求身份驗證",
       "spec": "m1-registration/payment-flow.spec.ts",
       "tab": "m1",
-      "group": "M1: Payment and checkout flow",
+      "group": "M1: 付款與結帳流程",
       "status": "pass",
-      "duration": 67,
+      "duration": 31,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -1184,12 +1184,12 @@
       }
     },
     {
-      "name": "backend promo code validation API works",
+      "name": "後端優惠碼驗證 API 正常運作",
       "spec": "m1-registration/payment-flow.spec.ts",
       "tab": "m1",
-      "group": "M1: Payment and checkout flow",
+      "group": "M1: 付款與結帳流程",
       "status": "pass",
-      "duration": 817,
+      "duration": 854,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -1197,12 +1197,12 @@
       }
     },
     {
-      "name": "student can see payment history page",
+      "name": "學員可查看付款紀錄頁面",
       "spec": "m1-registration/payment-flow.spec.ts",
       "tab": "m1",
-      "group": "M1: Payment and checkout flow",
+      "group": "M1: 付款與結帳流程",
       "status": "pass",
-      "duration": 1629,
+      "duration": 1094,
       "shots": [
         "flow/payment-04-student-history.png"
       ],
@@ -1219,12 +1219,12 @@
       }
     },
     {
-      "name": "homepage loads with hero and course sections",
+      "name": "首頁載入 Hero 區塊與課程列表",
       "spec": "m1-registration/public-browse.spec.ts",
       "tab": "m1",
-      "group": "M2-04 / M1: Visitor browses courses",
+      "group": "M2-04 / M1: 訪客瀏覽課程",
       "status": "pass",
-      "duration": 655,
+      "duration": 2606,
       "shots": [
         "flow/browse-01-hero.png"
       ],
@@ -1241,12 +1241,12 @@
       }
     },
     {
-      "name": "visitor can navigate to /courses and see course list",
+      "name": "訪客可前往課程頁並看到課程列表",
       "spec": "m1-registration/public-browse.spec.ts",
       "tab": "m1",
-      "group": "M2-04 / M1: Visitor browses courses",
+      "group": "M2-04 / M1: 訪客瀏覽課程",
       "status": "pass",
-      "duration": 3337,
+      "duration": 10667,
       "shots": [
         "flow/browse-02-course-list.png"
       ],
@@ -1263,12 +1263,12 @@
       }
     },
     {
-      "name": "visitor can click a course and see detail page",
+      "name": "訪客可點擊課程進入詳情頁",
       "spec": "m1-registration/public-browse.spec.ts",
       "tab": "m1",
-      "group": "M2-04 / M1: Visitor browses courses",
+      "group": "M2-04 / M1: 訪客瀏覽課程",
       "status": "pass",
-      "duration": 5917,
+      "duration": 10099,
       "shots": [
         "flow/browse-03-course-detail.png"
       ],
@@ -1285,12 +1285,12 @@
       }
     },
     {
-      "name": "visitor sees enroll CTA on course detail page",
+      "name": "訪客在課程詳情頁看到立即報名 CTA",
       "spec": "m1-registration/public-browse.spec.ts",
       "tab": "m1",
-      "group": "M2-04 / M1: Visitor browses courses",
+      "group": "M2-04 / M1: 訪客瀏覽課程",
       "status": "pass",
-      "duration": 3534,
+      "duration": 8751,
       "shots": [
         "flow/browse-04-enroll-cta.png"
       ],
@@ -1307,12 +1307,12 @@
       }
     },
     {
-      "name": "header shows login button for unauthenticated visitors",
+      "name": "未登入訪客的頁頭顯示登入按鈕",
       "spec": "m1-registration/public-browse.spec.ts",
       "tab": "m1",
-      "group": "M2-04 / M1: Visitor browses courses",
+      "group": "M2-04 / M1: 訪客瀏覽課程",
       "status": "pass",
-      "duration": 1415,
+      "duration": 1334,
       "shots": [
         "flow/browse-05-login-btn.png"
       ],
@@ -1329,12 +1329,12 @@
       }
     },
     {
-      "name": "homepage loads with hero and course sections",
+      "name": "首頁載入 Hero 區塊與課程列表",
       "spec": "m1-registration/public-browse.spec.ts",
       "tab": "m1",
-      "group": "M2-04 / M1: Visitor browses courses",
+      "group": "M2-04 / M1: 訪客瀏覽課程",
       "status": "pass",
-      "duration": 1839,
+      "duration": 1430,
       "shots": [
         "flow/browse-01-hero.png"
       ],
@@ -1351,12 +1351,12 @@
       }
     },
     {
-      "name": "visitor can navigate to /courses and see course list",
+      "name": "訪客可前往課程頁並看到課程列表",
       "spec": "m1-registration/public-browse.spec.ts",
       "tab": "m1",
-      "group": "M2-04 / M1: Visitor browses courses",
+      "group": "M2-04 / M1: 訪客瀏覽課程",
       "status": "pass",
-      "duration": 1406,
+      "duration": 1402,
       "shots": [
         "flow/browse-02-course-list.png"
       ],
@@ -1373,12 +1373,12 @@
       }
     },
     {
-      "name": "visitor can click a course and see detail page",
+      "name": "訪客可點擊課程進入詳情頁",
       "spec": "m1-registration/public-browse.spec.ts",
       "tab": "m1",
-      "group": "M2-04 / M1: Visitor browses courses",
+      "group": "M2-04 / M1: 訪客瀏覽課程",
       "status": "pass",
-      "duration": 3927,
+      "duration": 2260,
       "shots": [
         "flow/browse-03-course-detail.png"
       ],
@@ -1395,12 +1395,12 @@
       }
     },
     {
-      "name": "visitor sees enroll CTA on course detail page",
+      "name": "訪客在課程詳情頁看到立即報名 CTA",
       "spec": "m1-registration/public-browse.spec.ts",
       "tab": "m1",
-      "group": "M2-04 / M1: Visitor browses courses",
+      "group": "M2-04 / M1: 訪客瀏覽課程",
       "status": "pass",
-      "duration": 2487,
+      "duration": 4256,
       "shots": [
         "flow/browse-04-enroll-cta.png"
       ],
@@ -1417,12 +1417,12 @@
       }
     },
     {
-      "name": "header shows login button for unauthenticated visitors",
+      "name": "未登入訪客的頁頭顯示登入按鈕",
       "spec": "m1-registration/public-browse.spec.ts",
       "tab": "m1",
-      "group": "M2-04 / M1: Visitor browses courses",
+      "group": "M2-04 / M1: 訪客瀏覽課程",
       "status": "pass",
-      "duration": 2484,
+      "duration": 2665,
       "shots": [
         "flow/browse-05-login-btn.png"
       ],
@@ -1439,12 +1439,12 @@
       }
     },
     {
-      "name": "student can login and see dashboard",
+      "name": "學員登入後看到儀表板",
       "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
-      "group": "M1-01/02: Student enrollment flow",
+      "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 1382,
+      "duration": 991,
       "shots": [
         "flow/student-enroll-01-dashboard.png"
       ],
@@ -1461,12 +1461,12 @@
       }
     },
     {
-      "name": "student can navigate to /enroll page",
+      "name": "學員可前往報名頁面",
       "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
-      "group": "M1-01/02: Student enrollment flow",
+      "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 1258,
+      "duration": 2446,
       "shots": [
         "flow/student-enroll-02-enroll-page.png"
       ],
@@ -1483,170 +1483,12 @@
       }
     },
     {
-      "name": "student can see courses and select a cohort",
+      "name": "學員可瀏覽課程並選擇梯次",
       "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
-      "group": "M1-01/02: Student enrollment flow",
+      "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 1080,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
-    },
-    {
-      "name": "student can access enrollment form for a cohort",
-      "spec": "m1-registration/student-enroll.spec.ts",
-      "tab": "m1",
-      "group": "M1-01/02: Student enrollment flow",
-      "status": "pass",
-      "duration": 1881,
-      "shots": [
-        "flow/student-enroll-04-form-accessible.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-enroll-04-form-accessible.png",
-            "description": "需要 AI 視覺分析（檔案存在 student-enroll-04-form-accessible）",
-            "verdict": "截圖已產生，待 AI 審查",
-            "needsReview": true
-          }
-        ]
-      }
-    },
-    {
-      "name": "student can view their enrollment records",
-      "spec": "m1-registration/student-enroll.spec.ts",
-      "tab": "m1",
-      "group": "M1-01/02: Student enrollment flow",
-      "status": "pass",
-      "duration": 1751,
-      "shots": [
-        "flow/student-enroll-05-records.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-enroll-05-records.png",
-            "description": "需要 AI 視覺分析（檔案存在 student-enroll-05-records）",
-            "verdict": "截圖已產生，待 AI 審查",
-            "needsReview": true
-          }
-        ]
-      }
-    },
-    {
-      "name": "enroll page shows cohort with pricing and CTA",
-      "spec": "m1-registration/student-enroll.spec.ts",
-      "tab": "m1",
-      "group": "M1-01/02: Student enrollment flow",
-      "status": "pass",
-      "duration": 1151,
-      "shots": [
-        "flow/student-enroll-06-pricing-cta.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-enroll-06-pricing-cta.png",
-            "description": "需要 AI 視覺分析（檔案存在 student-enroll-06-pricing-cta）",
-            "verdict": "截圖已產生，待 AI 審查",
-            "needsReview": true
-          }
-        ]
-      }
-    },
-    {
-      "name": "checkout failed page exists",
-      "spec": "m1-registration/student-enroll.spec.ts",
-      "tab": "m1",
-      "group": "M1-01/02: Student enrollment flow",
-      "status": "pass",
-      "duration": 612,
-      "shots": [
-        "flow/student-enroll-07-checkout-failed.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-enroll-07-checkout-failed.png",
-            "description": "需要 AI 視覺分析（檔案存在 student-enroll-07-checkout-failed）",
-            "verdict": "截圖已產生，待 AI 審查",
-            "needsReview": true
-          }
-        ]
-      }
-    },
-    {
-      "name": "alice (enrolled student) sees her enrollment",
-      "spec": "m1-registration/student-enroll.spec.ts",
-      "tab": "m1",
-      "group": "M1-01/02: Student enrollment flow",
-      "status": "pass",
-      "duration": 896,
-      "shots": [],
-      "verification": {
-        "method": "api-only",
-        "note": "API 測試，無需截圖驗證"
-      }
-    },
-    {
-      "name": "student can login and see dashboard",
-      "spec": "m1-registration/student-enroll.spec.ts",
-      "tab": "m1",
-      "group": "M1-01/02: Student enrollment flow",
-      "status": "pass",
-      "duration": 1547,
-      "shots": [
-        "flow/student-enroll-01-dashboard.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-enroll-01-dashboard.png",
-            "description": "需要 AI 視覺分析（檔案存在 student-enroll-01-dashboard）",
-            "verdict": "截圖已產生，待 AI 審查",
-            "needsReview": true
-          }
-        ]
-      }
-    },
-    {
-      "name": "student can navigate to /enroll page",
-      "spec": "m1-registration/student-enroll.spec.ts",
-      "tab": "m1",
-      "group": "M1-01/02: Student enrollment flow",
-      "status": "pass",
-      "duration": 1277,
-      "shots": [
-        "flow/student-enroll-02-enroll-page.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/student-enroll-02-enroll-page.png",
-            "description": "需要 AI 視覺分析（檔案存在 student-enroll-02-enroll-page）",
-            "verdict": "截圖已產生，待 AI 審查",
-            "needsReview": true
-          }
-        ]
-      }
-    },
-    {
-      "name": "student can see courses and select a cohort",
-      "spec": "m1-registration/student-enroll.spec.ts",
-      "tab": "m1",
-      "group": "M1-01/02: Student enrollment flow",
-      "status": "pass",
-      "duration": 2759,
+      "duration": 5405,
       "shots": [
         "flow/student-enroll-03-enroll-btn.png"
       ],
@@ -1663,12 +1505,12 @@
       }
     },
     {
-      "name": "student can access enrollment form for a cohort",
+      "name": "學員可存取梯次報名表單",
       "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
-      "group": "M1-01/02: Student enrollment flow",
+      "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 2651,
+      "duration": 2346,
       "shots": [
         "flow/student-enroll-04-form-accessible.png"
       ],
@@ -1685,12 +1527,12 @@
       }
     },
     {
-      "name": "student can view their enrollment records",
+      "name": "學員可查看自己的報名紀錄",
       "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
-      "group": "M1-01/02: Student enrollment flow",
+      "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 1865,
+      "duration": 1988,
       "shots": [
         "flow/student-enroll-05-records.png"
       ],
@@ -1707,12 +1549,12 @@
       }
     },
     {
-      "name": "enroll page shows cohort with pricing and CTA",
+      "name": "報名頁顯示梯次定價與報名 CTA",
       "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
-      "group": "M1-01/02: Student enrollment flow",
+      "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 1789,
+      "duration": 1766,
       "shots": [
         "flow/student-enroll-06-pricing-cta.png"
       ],
@@ -1729,12 +1571,12 @@
       }
     },
     {
-      "name": "checkout failed page exists",
+      "name": "結帳失敗頁面存在",
       "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
-      "group": "M1-01/02: Student enrollment flow",
+      "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 781,
+      "duration": 1620,
       "shots": [
         "flow/student-enroll-07-checkout-failed.png"
       ],
@@ -1751,12 +1593,12 @@
       }
     },
     {
-      "name": "alice (enrolled student) sees her enrollment",
+      "name": "alice（已報名學員）可看到自己的報名記錄",
       "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
-      "group": "M1-01/02: Student enrollment flow",
+      "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 897,
+      "duration": 1571,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -1764,475 +1606,507 @@
       }
     },
     {
-      "name": "enrollments page loads with 報名紀錄 heading",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "name": "學員登入後看到儀表板",
+      "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
-      "group": "M1: 升級流程 — student upgrade button and modal",
+      "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 1874,
+      "duration": 1701,
       "shots": [
-        "flow/upgrade-01-page-heading.png"
+        "flow/student-enroll-01-dashboard.png"
       ],
       "verification": {
         "method": "screenshot",
         "analyses": [
           {
-            "path": "flow/upgrade-01-page-heading.png",
-            "description": "報名紀錄頁面顯示標題「報名紀錄」（紅框標示），梯次卡片顯示 A班：基礎應用班、已付款、NT$27,000，並有升級、申請延期、申請退課三個按鈕",
-            "verdict": "報名紀錄頁面正確載入並顯示「報名紀錄」標題"
+            "path": "flow/student-enroll-01-dashboard.png",
+            "description": "需要 AI 視覺分析（檔案存在 student-enroll-01-dashboard）",
+            "verdict": "截圖已產生，待 AI 審查",
+            "needsReview": true
           }
         ]
       }
     },
     {
-      "name": "student with active a_only enrollment sees 升級 button",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "name": "學員可前往報名頁面",
+      "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
-      "group": "M1: 升級流程 — student upgrade button and modal",
+      "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 1658,
+      "duration": 2390,
       "shots": [
-        "flow/upgrade-02-upgrade-btn.png"
+        "flow/student-enroll-02-enroll-page.png"
       ],
       "verification": {
         "method": "screenshot",
         "analyses": [
           {
-            "path": "flow/upgrade-02-upgrade-btn.png",
-            "description": "報名紀錄頁面梯次卡片上，「升級」按鈕以紅框標示（tooltip 顯示「升級按鈕」），狀態為「上課中」、「已付款」",
-            "verdict": "A班有效報名的學員報名頁面成功顯示升級按鈕"
+            "path": "flow/student-enroll-02-enroll-page.png",
+            "description": "需要 AI 視覺分析（檔案存在 student-enroll-02-enroll-page）",
+            "verdict": "截圖已產生，待 AI 審查",
+            "needsReview": true
           }
         ]
       }
     },
     {
-      "name": "clicking 升級 opens UpgradeModal with 升級方案 title",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "name": "學員可瀏覽課程並選擇梯次",
+      "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
-      "group": "M1: 升級流程 — student upgrade button and modal",
+      "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 1752,
+      "duration": 1641,
+      "shots": [],
+      "verification": {
+        "method": "api-only",
+        "note": "API 測試，無需截圖驗證"
+      }
+    },
+    {
+      "name": "學員可存取梯次報名表單",
+      "spec": "m1-registration/student-enroll.spec.ts",
+      "tab": "m1",
+      "group": "M1-01/02: 學員報名流程",
+      "status": "pass",
+      "duration": 1792,
       "shots": [
-        "flow/upgrade-03-modal-open.png"
+        "flow/student-enroll-04-form-accessible.png"
       ],
       "verification": {
         "method": "screenshot",
         "analyses": [
           {
-            "path": "flow/upgrade-03-modal-open.png",
-            "description": "升級方案 Modal 開啟，標題「升級方案」，顯示從 A班 升級為 A+B班（雙證照班），目前方案和升級方案各有 badge，底部有「前往付款」和「取消」按鈕",
-            "verdict": "點擊升級按鈕後成功開啟升級方案 Modal 並顯示升級方案標題"
+            "path": "flow/student-enroll-04-form-accessible.png",
+            "description": "需要 AI 視覺分析（檔案存在 student-enroll-04-form-accessible）",
+            "verdict": "截圖已產生，待 AI 審查",
+            "needsReview": true
           }
         ]
       }
     },
     {
-      "name": "UpgradeModal has 確認升級 and 取消 buttons",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "name": "學員可查看自己的報名紀錄",
+      "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
-      "group": "M1: 升級流程 — student upgrade button and modal",
+      "group": "M1-01/02: 學員報名流程",
       "status": "pass",
-      "duration": 3085,
+      "duration": 1159,
       "shots": [
-        "flow/upgrade-04-modal-buttons.png"
+        "flow/student-enroll-05-records.png"
       ],
       "verification": {
         "method": "screenshot",
         "analyses": [
           {
-            "path": "flow/upgrade-04-modal-buttons.png",
-            "description": "升級方案 Modal 中，「前往付款」按鈕（teal 背景，紅框標示，tooltip 顯示「前往付款按鈕」）和「取消」按鈕清楚可見",
-            "verdict": "UpgradeModal 正確顯示確認付款與取消兩個操作按鈕"
+            "path": "flow/student-enroll-05-records.png",
+            "description": "需要 AI 視覺分析（檔案存在 student-enroll-05-records）",
+            "verdict": "截圖已產生，待 AI 審查",
+            "needsReview": true
           }
         ]
       }
     },
     {
-      "name": "enrollments page loads with 報名紀錄 heading",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "name": "報名頁顯示梯次定價與報名 CTA",
+      "spec": "m1-registration/student-enroll.spec.ts",
       "tab": "m1",
-      "group": "M1: 升級流程 — student upgrade button and modal",
-      "status": "pass",
-      "duration": 2114,
-      "shots": [
-        "flow/upgrade-01-page-heading.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/upgrade-01-page-heading.png",
-            "description": "報名紀錄頁面顯示標題「報名紀錄」（紅框標示），梯次卡片顯示 A班：基礎應用班、已付款、NT$27,000，並有升級、申請延期、申請退課三個按鈕",
-            "verdict": "報名紀錄頁面正確載入並顯示「報名紀錄」標題"
-          }
-        ]
-      }
-    },
-    {
-      "name": "student with active a_only enrollment sees 升級 button",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
-      "tab": "m1",
-      "group": "M1: 升級流程 — student upgrade button and modal",
-      "status": "pass",
-      "duration": 1729,
-      "shots": [
-        "flow/upgrade-02-upgrade-btn.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/upgrade-02-upgrade-btn.png",
-            "description": "報名紀錄頁面梯次卡片上，「升級」按鈕以紅框標示（tooltip 顯示「升級按鈕」），狀態為「上課中」、「已付款」",
-            "verdict": "A班有效報名的學員報名頁面成功顯示升級按鈕"
-          }
-        ]
-      }
-    },
-    {
-      "name": "clicking 升級 opens UpgradeModal with 升級方案 title",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
-      "tab": "m1",
-      "group": "M1: 升級流程 — student upgrade button and modal",
-      "status": "pass",
-      "duration": 1643,
-      "shots": [
-        "flow/upgrade-03-modal-open.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/upgrade-03-modal-open.png",
-            "description": "升級方案 Modal 開啟，標題「升級方案」，顯示從 A班 升級為 A+B班（雙證照班），目前方案和升級方案各有 badge，底部有「前往付款」和「取消」按鈕",
-            "verdict": "點擊升級按鈕後成功開啟升級方案 Modal 並顯示升級方案標題"
-          }
-        ]
-      }
-    },
-    {
-      "name": "UpgradeModal has 確認升級 and 取消 buttons",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
-      "tab": "m1",
-      "group": "M1: 升級流程 — student upgrade button and modal",
-      "status": "pass",
-      "duration": 2081,
-      "shots": [
-        "flow/upgrade-04-modal-buttons.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/upgrade-04-modal-buttons.png",
-            "description": "升級方案 Modal 中，「前往付款」按鈕（teal 背景，紅框標示，tooltip 顯示「前往付款按鈕」）和「取消」按鈕清楚可見",
-            "verdict": "UpgradeModal 正確顯示確認付款與取消兩個操作按鈕"
-          }
-        ]
-      }
-    },
-    {
-      "name": "student with active enrollment sees 申請退課 button",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
-      "tab": "m1",
-      "group": "M1: 退課申請 — student withdraw button and modal",
-      "status": "pass",
-      "duration": 1489,
-      "shots": [
-        "flow/withdraw-01-withdraw-btn.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/withdraw-01-withdraw-btn.png",
-            "description": "報名紀錄頁面梯次卡片上，「申請退課」按鈕以紅框標示（tooltip 顯示「申請退課按鈕」），狀態上課中、已付款",
-            "verdict": "有效報名學員的報名頁面成功顯示申請退課按鈕"
-          }
-        ]
-      }
-    },
-    {
-      "name": "clicking 申請退課 opens WithdrawModal with reason Textarea",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
-      "tab": "m1",
-      "group": "M1: 退課申請 — student withdraw button and modal",
-      "status": "pass",
-      "duration": 1415,
-      "shots": [
-        "flow/withdraw-02-modal-open.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/withdraw-02-modal-open.png",
-            "description": "申請退課 Modal 全螢幕開啟，標題「申請退課」，顯示目前方案 A班：基礎應用班、已付 NT$27,000，下方有退課原因必填 Textarea（空白紅框）和同意退款政策 checkbox",
-            "verdict": "點擊申請退課後 Modal 開啟並顯示退課原因 Textarea"
-          }
-        ]
-      }
-    },
-    {
-      "name": "WithdrawModal submit button is disabled without reason text",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
-      "tab": "m1",
-      "group": "M1: 退課申請 — student withdraw button and modal",
-      "status": "pass",
-      "duration": 3033,
-      "shots": [
-        "flow/withdraw-03-reason-filled.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/withdraw-03-reason-filled.png",
-            "description": "退課 Modal 中退課原因 Textarea 已填入「E2E 測試退課原因」，退款政策 checkbox 已勾選（藍色），「提交退課申請」按鈕變為紅色可點擊，tooltip 顯示「提交退課申請（已填原因）」",
-            "verdict": "填入退課原因後提交按鈕啟用，確認原文字觸發按鈕 enabled"
-          }
-        ]
-      }
-    },
-    {
-      "name": "WithdrawModal shows 目前方案 badge inside dialog",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
-      "tab": "m1",
-      "group": "M1: 退課申請 — student withdraw button and modal",
-      "status": "pass",
-      "duration": 1603,
-      "shots": [
-        "flow/withdraw-04-modal-plan.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/withdraw-04-modal-plan.png",
-            "description": "申請退課 Modal 中，目前方案區塊顯示「A班：基礎應用班」badge 和已付金額 NT$27,000，退課原因 Textarea 為空白待填狀態",
-            "verdict": "WithdrawModal 在 dialog 內正確顯示目前方案 badge"
-          }
-        ]
-      }
-    },
-    {
-      "name": "student with active enrollment sees 申請退課 button",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
-      "tab": "m1",
-      "group": "M1: 退課申請 — student withdraw button and modal",
-      "status": "pass",
-      "duration": 1944,
-      "shots": [
-        "flow/withdraw-01-withdraw-btn.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/withdraw-01-withdraw-btn.png",
-            "description": "報名紀錄頁面梯次卡片上，「申請退課」按鈕以紅框標示（tooltip 顯示「申請退課按鈕」），狀態上課中、已付款",
-            "verdict": "有效報名學員的報名頁面成功顯示申請退課按鈕"
-          }
-        ]
-      }
-    },
-    {
-      "name": "clicking 申請退課 opens WithdrawModal with reason Textarea",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
-      "tab": "m1",
-      "group": "M1: 退課申請 — student withdraw button and modal",
-      "status": "pass",
-      "duration": 2085,
-      "shots": [
-        "flow/withdraw-02-modal-open.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/withdraw-02-modal-open.png",
-            "description": "申請退課 Modal 全螢幕開啟，標題「申請退課」，顯示目前方案 A班：基礎應用班、已付 NT$27,000，下方有退課原因必填 Textarea（空白紅框）和同意退款政策 checkbox",
-            "verdict": "點擊申請退課後 Modal 開啟並顯示退課原因 Textarea"
-          }
-        ]
-      }
-    },
-    {
-      "name": "WithdrawModal submit button is disabled without reason text",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
-      "tab": "m1",
-      "group": "M1: 退課申請 — student withdraw button and modal",
-      "status": "pass",
-      "duration": 2458,
-      "shots": [
-        "flow/withdraw-03-reason-filled.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/withdraw-03-reason-filled.png",
-            "description": "退課 Modal 中退課原因 Textarea 已填入「E2E 測試退課原因」，退款政策 checkbox 已勾選（藍色），「提交退課申請」按鈕變為紅色可點擊，tooltip 顯示「提交退課申請（已填原因）」",
-            "verdict": "填入退課原因後提交按鈕啟用，確認原文字觸發按鈕 enabled"
-          }
-        ]
-      }
-    },
-    {
-      "name": "WithdrawModal shows 目前方案 badge inside dialog",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
-      "tab": "m1",
-      "group": "M1: 退課申請 — student withdraw button and modal",
-      "status": "pass",
-      "duration": 1520,
-      "shots": [
-        "flow/withdraw-04-modal-plan.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/withdraw-04-modal-plan.png",
-            "description": "申請退課 Modal 中，目前方案區塊顯示「A班：基礎應用班」badge 和已付金額 NT$27,000，退課原因 Textarea 為空白待填狀態",
-            "verdict": "WithdrawModal 在 dialog 內正確顯示目前方案 badge"
-          }
-        ]
-      }
-    },
-    {
-      "name": "checkout page shows 發票資訊 section with two type buttons",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
-      "tab": "m1",
-      "group": "M1: 發票類型選擇 — checkout InvoiceSection",
-      "status": "pass",
-      "duration": 1652,
-      "shots": [
-        "flow/invoice-01-section-heading.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/invoice-01-section-heading.png",
-            "description": "行動版結帳付款頁面，顯示訂單編號 e2e-test-order-id、付款方式（信用卡付清/分期/ATM）、付款金額 NT$78,700，頁面底部可見「發票資訊標題」tooltip 與紅框框住的標題區塊。",
-            "verdict": "結帳頁面底部發票資訊區塊標題存在，selector 找到元素。"
-          }
-        ]
-      }
-    },
-    {
-      "name": "checkout shows 個人電子發票 and 公司三聯式發票 toggle buttons",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
-      "tab": "m1",
-      "group": "M1: 發票類型選擇 — checkout InvoiceSection",
-      "status": "pass",
-      "duration": 1481,
-      "shots": [
-        "flow/invoice-02-type-buttons.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/invoice-02-type-buttons.png",
-            "description": "結帳付款頁面與 invoice-01 相同畫面，底部標示「電子發票按鈕」tooltip（紅框），頁面顯示付款金額 NT$78,700 與三種付款方式。",
-            "verdict": "發票類型切換按鈕元素存在於頁面中，可被測試找到。"
-          }
-        ]
-      }
-    },
-    {
-      "name": "default invoice type is 個人電子發票 (personal) with 手機載具 info",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
-      "tab": "m1",
-      "group": "M1: 發票類型選擇 — checkout InvoiceSection",
-      "status": "pass",
-      "duration": 1866,
-      "shots": [
-        "flow/invoice-03-personal-default.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/invoice-03-personal-default.png",
-            "description": "結帳付款頁面底部顯示「電子發票（載具）預設選中」tooltip（紅框），付款方式為信用卡付清，金額 NT$78,700。",
-            "verdict": "個人電子發票為預設選中狀態，預設值正確。"
-          }
-        ]
-      }
-    },
-    {
-      "name": "selecting 公司三聯式發票 shows 統一編號 and 公司名稱 fields",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
-      "tab": "m1",
-      "group": "M1: 發票類型選擇 — checkout InvoiceSection",
-      "status": "pass",
-      "duration": 2010,
-      "shots": [
-        "flow/invoice-04-company-fields.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/invoice-04-company-fields.png",
-            "description": "發票資訊區塊顯示「公司三聯式」按鈕被選中，下方出現「統一編號」（紅框空白輸入）和「公司名稱」兩個欄位，金額 NT$78,700",
-            "verdict": "切換公司三聯式後成功顯示統一編號與公司名稱欄位"
-          }
-        ]
-      }
-    },
-    {
-      "name": "switching back to 個人電子發票 hides company fields",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
-      "tab": "m1",
-      "group": "M1: 發票類型選擇 — checkout InvoiceSection",
-      "status": "pass",
-      "duration": 1753,
-      "shots": [
-        "flow/invoice-05-switch-back-personal.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/invoice-05-switch-back-personal.png",
-            "description": "發票資訊區塊「電子發票（載具）」按鈕被選中（teal 填色），tooltip 顯示「切換回個人電子發票」，下方顯示載具類型下拉和手機載具號碼輸入框",
-            "verdict": "切換回個人電子發票後公司欄位消失、改顯示手機載具欄位"
-          }
-        ]
-      }
-    },
-    {
-      "name": "公司三聯式發票 — 統一編號 input only accepts numeric, max 8 chars",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
-      "tab": "m1",
-      "group": "M1: 發票類型選擇 — checkout InvoiceSection",
-      "status": "pass",
-      "duration": 1848,
-      "shots": [
-        "flow/invoice-06-taxid-filled.png"
-      ],
-      "verification": {
-        "method": "screenshot",
-        "analyses": [
-          {
-            "path": "flow/invoice-06-taxid-filled.png",
-            "description": "「公司三聯式」被選中，統一編號欄位（紅框）已填入「12345678」共 8 碼數字，公司名稱仍空白",
-            "verdict": "統一編號欄位成功接受 8 碼數字輸入，符合格式限制"
-          }
-        ]
-      }
-    },
-    {
-      "name": "checkout page shows 發票資訊 section with two type buttons",
-      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
-      "tab": "m1",
-      "group": "M1: 發票類型選擇 — checkout InvoiceSection",
+      "group": "M1-01/02: 學員報名流程",
       "status": "pass",
       "duration": 2097,
       "shots": [
+        "flow/student-enroll-06-pricing-cta.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-enroll-06-pricing-cta.png",
+            "description": "需要 AI 視覺分析（檔案存在 student-enroll-06-pricing-cta）",
+            "verdict": "截圖已產生，待 AI 審查",
+            "needsReview": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "結帳失敗頁面存在",
+      "spec": "m1-registration/student-enroll.spec.ts",
+      "tab": "m1",
+      "group": "M1-01/02: 學員報名流程",
+      "status": "pass",
+      "duration": 908,
+      "shots": [
+        "flow/student-enroll-07-checkout-failed.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-enroll-07-checkout-failed.png",
+            "description": "需要 AI 視覺分析（檔案存在 student-enroll-07-checkout-failed）",
+            "verdict": "截圖已產生，待 AI 審查",
+            "needsReview": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "alice（已報名學員）可看到自己的報名記錄",
+      "spec": "m1-registration/student-enroll.spec.ts",
+      "tab": "m1",
+      "group": "M1-01/02: 學員報名流程",
+      "status": "pass",
+      "duration": 951,
+      "shots": [],
+      "verification": {
+        "method": "api-only",
+        "note": "API 測試，無需截圖驗證"
+      }
+    },
+    {
+      "name": "報名紀錄頁面載入並顯示標題",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 升級流程 — 學員升級按鈕與 Modal",
+      "status": "pass",
+      "duration": 2526,
+      "shots": [
+        "flow/upgrade-01-page-heading.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/upgrade-01-page-heading.png",
+            "description": "報名紀錄頁面顯示標題「報名紀錄」（紅框標示），梯次卡片顯示 A班：基礎應用班、已付款、NT$27,000，並有升級、申請延期、申請退課三個按鈕",
+            "verdict": "報名紀錄頁面正確載入並顯示「報名紀錄」標題"
+          }
+        ]
+      }
+    },
+    {
+      "name": "A班在籍學員看到升級按鈕",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 升級流程 — 學員升級按鈕與 Modal",
+      "status": "pass",
+      "duration": 3022,
+      "shots": [
+        "flow/upgrade-02-upgrade-btn.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/upgrade-02-upgrade-btn.png",
+            "description": "報名紀錄頁面梯次卡片上，「升級」按鈕以紅框標示（tooltip 顯示「升級按鈕」），狀態為「上課中」、「已付款」",
+            "verdict": "A班有效報名的學員報名頁面成功顯示升級按鈕"
+          }
+        ]
+      }
+    },
+    {
+      "name": "點擊升級按鈕開啟升級方案 Modal",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 升級流程 — 學員升級按鈕與 Modal",
+      "status": "pass",
+      "duration": 3562,
+      "shots": [
+        "flow/upgrade-03-modal-open.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/upgrade-03-modal-open.png",
+            "description": "升級方案 Modal 開啟，標題「升級方案」，顯示從 A班 升級為 A+B班（雙證照班），目前方案和升級方案各有 badge，底部有「前往付款」和「取消」按鈕",
+            "verdict": "點擊升級按鈕後成功開啟升級方案 Modal 並顯示升級方案標題"
+          }
+        ]
+      }
+    },
+    {
+      "name": "升級 Modal 有前往付款與取消按鈕",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 升級流程 — 學員升級按鈕與 Modal",
+      "status": "pass",
+      "duration": 3767,
+      "shots": [
+        "flow/upgrade-04-modal-buttons.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/upgrade-04-modal-buttons.png",
+            "description": "升級方案 Modal 中，「前往付款」按鈕（teal 背景，紅框標示，tooltip 顯示「前往付款按鈕」）和「取消」按鈕清楚可見",
+            "verdict": "UpgradeModal 正確顯示確認付款與取消兩個操作按鈕"
+          }
+        ]
+      }
+    },
+    {
+      "name": "報名紀錄頁面載入並顯示標題",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 升級流程 — 學員升級按鈕與 Modal",
+      "status": "pass",
+      "duration": 1415,
+      "shots": [
+        "flow/upgrade-01-page-heading.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/upgrade-01-page-heading.png",
+            "description": "報名紀錄頁面顯示標題「報名紀錄」（紅框標示），梯次卡片顯示 A班：基礎應用班、已付款、NT$27,000，並有升級、申請延期、申請退課三個按鈕",
+            "verdict": "報名紀錄頁面正確載入並顯示「報名紀錄」標題"
+          }
+        ]
+      }
+    },
+    {
+      "name": "A班在籍學員看到升級按鈕",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 升級流程 — 學員升級按鈕與 Modal",
+      "status": "pass",
+      "duration": 1142,
+      "shots": [
+        "flow/upgrade-02-upgrade-btn.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/upgrade-02-upgrade-btn.png",
+            "description": "報名紀錄頁面梯次卡片上，「升級」按鈕以紅框標示（tooltip 顯示「升級按鈕」），狀態為「上課中」、「已付款」",
+            "verdict": "A班有效報名的學員報名頁面成功顯示升級按鈕"
+          }
+        ]
+      }
+    },
+    {
+      "name": "點擊升級按鈕開啟升級方案 Modal",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 升級流程 — 學員升級按鈕與 Modal",
+      "status": "pass",
+      "duration": 2565,
+      "shots": [
+        "flow/upgrade-03-modal-open.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/upgrade-03-modal-open.png",
+            "description": "升級方案 Modal 開啟，標題「升級方案」，顯示從 A班 升級為 A+B班（雙證照班），目前方案和升級方案各有 badge，底部有「前往付款」和「取消」按鈕",
+            "verdict": "點擊升級按鈕後成功開啟升級方案 Modal 並顯示升級方案標題"
+          }
+        ]
+      }
+    },
+    {
+      "name": "升級 Modal 有前往付款與取消按鈕",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 升級流程 — 學員升級按鈕與 Modal",
+      "status": "pass",
+      "duration": 1914,
+      "shots": [
+        "flow/upgrade-04-modal-buttons.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/upgrade-04-modal-buttons.png",
+            "description": "升級方案 Modal 中，「前往付款」按鈕（teal 背景，紅框標示，tooltip 顯示「前往付款按鈕」）和「取消」按鈕清楚可見",
+            "verdict": "UpgradeModal 正確顯示確認付款與取消兩個操作按鈕"
+          }
+        ]
+      }
+    },
+    {
+      "name": "在籍學員看到申請退課按鈕",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 退課申請 — 學員退課按鈕與 Modal",
+      "status": "pass",
+      "duration": 2586,
+      "shots": [
+        "flow/withdraw-01-withdraw-btn.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/withdraw-01-withdraw-btn.png",
+            "description": "報名紀錄頁面梯次卡片上，「申請退課」按鈕以紅框標示（tooltip 顯示「申請退課按鈕」），狀態上課中、已付款",
+            "verdict": "有效報名學員的報名頁面成功顯示申請退課按鈕"
+          }
+        ]
+      }
+    },
+    {
+      "name": "點擊申請退課開啟退課 Modal 並顯示原因輸入欄",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 退課申請 — 學員退課按鈕與 Modal",
+      "status": "pass",
+      "duration": 2602,
+      "shots": [
+        "flow/withdraw-02-modal-open.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/withdraw-02-modal-open.png",
+            "description": "申請退課 Modal 全螢幕開啟，標題「申請退課」，顯示目前方案 A班：基礎應用班、已付 NT$27,000，下方有退課原因必填 Textarea（空白紅框）和同意退款政策 checkbox",
+            "verdict": "點擊申請退課後 Modal 開啟並顯示退課原因 Textarea"
+          }
+        ]
+      }
+    },
+    {
+      "name": "退課 Modal 未填原因時提交按鈕為停用狀態",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 退課申請 — 學員退課按鈕與 Modal",
+      "status": "pass",
+      "duration": 3516,
+      "shots": [
+        "flow/withdraw-03-reason-filled.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/withdraw-03-reason-filled.png",
+            "description": "退課 Modal 中退課原因 Textarea 已填入「E2E 測試退課原因」，退款政策 checkbox 已勾選（藍色），「提交退課申請」按鈕變為紅色可點擊，tooltip 顯示「提交退課申請（已填原因）」",
+            "verdict": "填入退課原因後提交按鈕啟用，確認原文字觸發按鈕 enabled"
+          }
+        ]
+      }
+    },
+    {
+      "name": "退課 Modal 內顯示目前方案徽章",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 退課申請 — 學員退課按鈕與 Modal",
+      "status": "pass",
+      "duration": 2794,
+      "shots": [
+        "flow/withdraw-04-modal-plan.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/withdraw-04-modal-plan.png",
+            "description": "申請退課 Modal 中，目前方案區塊顯示「A班：基礎應用班」badge 和已付金額 NT$27,000，退課原因 Textarea 為空白待填狀態",
+            "verdict": "WithdrawModal 在 dialog 內正確顯示目前方案 badge"
+          }
+        ]
+      }
+    },
+    {
+      "name": "在籍學員看到申請退課按鈕",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 退課申請 — 學員退課按鈕與 Modal",
+      "status": "pass",
+      "duration": 1762,
+      "shots": [
+        "flow/withdraw-01-withdraw-btn.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/withdraw-01-withdraw-btn.png",
+            "description": "報名紀錄頁面梯次卡片上，「申請退課」按鈕以紅框標示（tooltip 顯示「申請退課按鈕」），狀態上課中、已付款",
+            "verdict": "有效報名學員的報名頁面成功顯示申請退課按鈕"
+          }
+        ]
+      }
+    },
+    {
+      "name": "點擊申請退課開啟退課 Modal 並顯示原因輸入欄",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 退課申請 — 學員退課按鈕與 Modal",
+      "status": "pass",
+      "duration": 1817,
+      "shots": [
+        "flow/withdraw-02-modal-open.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/withdraw-02-modal-open.png",
+            "description": "申請退課 Modal 全螢幕開啟，標題「申請退課」，顯示目前方案 A班：基礎應用班、已付 NT$27,000，下方有退課原因必填 Textarea（空白紅框）和同意退款政策 checkbox",
+            "verdict": "點擊申請退課後 Modal 開啟並顯示退課原因 Textarea"
+          }
+        ]
+      }
+    },
+    {
+      "name": "退課 Modal 未填原因時提交按鈕為停用狀態",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 退課申請 — 學員退課按鈕與 Modal",
+      "status": "pass",
+      "duration": 2690,
+      "shots": [
+        "flow/withdraw-03-reason-filled.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/withdraw-03-reason-filled.png",
+            "description": "退課 Modal 中退課原因 Textarea 已填入「E2E 測試退課原因」，退款政策 checkbox 已勾選（藍色），「提交退課申請」按鈕變為紅色可點擊，tooltip 顯示「提交退課申請（已填原因）」",
+            "verdict": "填入退課原因後提交按鈕啟用，確認原文字觸發按鈕 enabled"
+          }
+        ]
+      }
+    },
+    {
+      "name": "退課 Modal 內顯示目前方案徽章",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 退課申請 — 學員退課按鈕與 Modal",
+      "status": "pass",
+      "duration": 2499,
+      "shots": [
+        "flow/withdraw-04-modal-plan.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/withdraw-04-modal-plan.png",
+            "description": "申請退課 Modal 中，目前方案區塊顯示「A班：基礎應用班」badge 和已付金額 NT$27,000，退課原因 Textarea 為空白待填狀態",
+            "verdict": "WithdrawModal 在 dialog 內正確顯示目前方案 badge"
+          }
+        ]
+      }
+    },
+    {
+      "name": "結帳頁顯示發票資訊區塊與兩種類型按鈕",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
+      "status": "pass",
+      "duration": 3471,
+      "shots": [
         "flow/invoice-01-section-heading.png"
       ],
       "verification": {
@@ -2247,12 +2121,12 @@
       }
     },
     {
-      "name": "checkout shows 個人電子發票 and 公司三聯式發票 toggle buttons",
+      "name": "結帳頁顯示電子發票與公司三聯式發票切換按鈕",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
-      "group": "M1: 發票類型選擇 — checkout InvoiceSection",
+      "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
       "status": "pass",
-      "duration": 1420,
+      "duration": 2995,
       "shots": [
         "flow/invoice-02-type-buttons.png"
       ],
@@ -2268,12 +2142,12 @@
       }
     },
     {
-      "name": "default invoice type is 個人電子發票 (personal) with 手機載具 info",
+      "name": "預設發票類型為個人電子發票（手機載具）",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
-      "group": "M1: 發票類型選擇 — checkout InvoiceSection",
+      "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
       "status": "pass",
-      "duration": 1598,
+      "duration": 2501,
       "shots": [
         "flow/invoice-03-personal-default.png"
       ],
@@ -2289,12 +2163,12 @@
       }
     },
     {
-      "name": "selecting 公司三聯式發票 shows 統一編號 and 公司名稱 fields",
+      "name": "選擇公司三聯式發票後顯示統一編號與公司名稱欄位",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
-      "group": "M1: 發票類型選擇 — checkout InvoiceSection",
+      "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
       "status": "pass",
-      "duration": 1838,
+      "duration": 1823,
       "shots": [
         "flow/invoice-04-company-fields.png"
       ],
@@ -2310,12 +2184,12 @@
       }
     },
     {
-      "name": "switching back to 個人電子發票 hides company fields",
+      "name": "切換回個人電子發票後隱藏公司欄位",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
-      "group": "M1: 發票類型選擇 — checkout InvoiceSection",
+      "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
       "status": "pass",
-      "duration": 2159,
+      "duration": 2243,
       "shots": [
         "flow/invoice-05-switch-back-personal.png"
       ],
@@ -2331,12 +2205,12 @@
       }
     },
     {
-      "name": "公司三聯式發票 — 統一編號 input only accepts numeric, max 8 chars",
+      "name": "公司三聯式發票統一編號欄位僅接受數字且最多 8 碼",
       "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
       "tab": "m1",
-      "group": "M1: 發票類型選擇 — checkout InvoiceSection",
+      "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
       "status": "pass",
-      "duration": 2127,
+      "duration": 2043,
       "shots": [
         "flow/invoice-06-taxid-filled.png"
       ],
@@ -2352,12 +2226,138 @@
       }
     },
     {
-      "name": "admin creates a marketing page with title and slug",
+      "name": "結帳頁顯示發票資訊區塊與兩種類型按鈕",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
+      "status": "pass",
+      "duration": 2695,
+      "shots": [
+        "flow/invoice-01-section-heading.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/invoice-01-section-heading.png",
+            "description": "行動版結帳付款頁面，顯示訂單編號 e2e-test-order-id、付款方式（信用卡付清/分期/ATM）、付款金額 NT$78,700，頁面底部可見「發票資訊標題」tooltip 與紅框框住的標題區塊。",
+            "verdict": "結帳頁面底部發票資訊區塊標題存在，selector 找到元素。"
+          }
+        ]
+      }
+    },
+    {
+      "name": "結帳頁顯示電子發票與公司三聯式發票切換按鈕",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
+      "status": "pass",
+      "duration": 2595,
+      "shots": [
+        "flow/invoice-02-type-buttons.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/invoice-02-type-buttons.png",
+            "description": "結帳付款頁面與 invoice-01 相同畫面，底部標示「電子發票按鈕」tooltip（紅框），頁面顯示付款金額 NT$78,700 與三種付款方式。",
+            "verdict": "發票類型切換按鈕元素存在於頁面中，可被測試找到。"
+          }
+        ]
+      }
+    },
+    {
+      "name": "預設發票類型為個人電子發票（手機載具）",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
+      "status": "pass",
+      "duration": 2093,
+      "shots": [
+        "flow/invoice-03-personal-default.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/invoice-03-personal-default.png",
+            "description": "結帳付款頁面底部顯示「電子發票（載具）預設選中」tooltip（紅框），付款方式為信用卡付清，金額 NT$78,700。",
+            "verdict": "個人電子發票為預設選中狀態，預設值正確。"
+          }
+        ]
+      }
+    },
+    {
+      "name": "選擇公司三聯式發票後顯示統一編號與公司名稱欄位",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
+      "status": "pass",
+      "duration": 2483,
+      "shots": [
+        "flow/invoice-04-company-fields.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/invoice-04-company-fields.png",
+            "description": "發票資訊區塊顯示「公司三聯式」按鈕被選中，下方出現「統一編號」（紅框空白輸入）和「公司名稱」兩個欄位，金額 NT$78,700",
+            "verdict": "切換公司三聯式後成功顯示統一編號與公司名稱欄位"
+          }
+        ]
+      }
+    },
+    {
+      "name": "切換回個人電子發票後隱藏公司欄位",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
+      "status": "pass",
+      "duration": 2444,
+      "shots": [
+        "flow/invoice-05-switch-back-personal.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/invoice-05-switch-back-personal.png",
+            "description": "發票資訊區塊「電子發票（載具）」按鈕被選中（teal 填色），tooltip 顯示「切換回個人電子發票」，下方顯示載具類型下拉和手機載具號碼輸入框",
+            "verdict": "切換回個人電子發票後公司欄位消失、改顯示手機載具欄位"
+          }
+        ]
+      }
+    },
+    {
+      "name": "公司三聯式發票統一編號欄位僅接受數字且最多 8 碼",
+      "spec": "m1-registration/student-upgrade-withdraw.spec.ts",
+      "tab": "m1",
+      "group": "M1: 發票類型選擇 — 結帳頁發票區塊",
+      "status": "pass",
+      "duration": 2319,
+      "shots": [
+        "flow/invoice-06-taxid-filled.png"
+      ],
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/invoice-06-taxid-filled.png",
+            "description": "「公司三聯式」被選中，統一編號欄位（紅框）已填入「12345678」共 8 碼數字，公司名稱仍空白",
+            "verdict": "統一編號欄位成功接受 8 碼數字輸入，符合格式限制"
+          }
+        ]
+      }
+    },
+    {
+      "name": "管理員建立含標題與 Slug 的行銷頁面",
       "spec": "m2-marketing/admin-page-crud.spec.ts",
       "tab": "m2",
-      "group": "M2-01 CRUD: Admin marketing page create → verify → delete",
+      "group": "M2-01 CRUD: 管理員建立行銷頁面 → 驗證 → 刪除",
       "status": "pass",
-      "duration": 3772,
+      "duration": 2479,
       "shots": [
         "crud/page-01-editor-loaded.png",
         "crud/page-02-slug-filled.png",
@@ -2391,12 +2391,12 @@
       }
     },
     {
-      "name": "page editor has all required fields: title, slug, save button",
+      "name": "頁面編輯器包含所有必填欄位：標題、Slug、儲存按鈕",
       "spec": "m2-marketing/admin-page-editor.spec.ts",
       "tab": "m2",
-      "group": "M2: Marketing page editor and publish flow",
+      "group": "M2: 行銷頁面編輯器與發布流程",
       "status": "pass",
-      "duration": 1621,
+      "duration": 1290,
       "shots": [
         "crud/page-editor-01.png"
       ],
@@ -2412,12 +2412,12 @@
       }
     },
     {
-      "name": "page list shows publish status badges",
+      "name": "頁面列表顯示發布狀態標籤",
       "spec": "m2-marketing/admin-page-editor.spec.ts",
       "tab": "m2",
-      "group": "M2: Marketing page editor and publish flow",
+      "group": "M2: 行銷頁面編輯器與發布流程",
       "status": "pass",
-      "duration": 1621,
+      "duration": 1437,
       "shots": [
         "crud/page-editor-02.png"
       ],
@@ -2433,12 +2433,12 @@
       }
     },
     {
-      "name": "marketing channels page shows 3 types with create buttons",
+      "name": "行銷管道頁面顯示 3 種類型及新增按鈕",
       "spec": "m2-marketing/admin-page-editor.spec.ts",
       "tab": "m2",
-      "group": "M2: Marketing page editor and publish flow",
+      "group": "M2: 行銷頁面編輯器與發布流程",
       "status": "pass",
-      "duration": 2730,
+      "duration": 2065,
       "shots": [
         "crud/page-editor-03.png"
       ],
@@ -2454,12 +2454,12 @@
       }
     },
     {
-      "name": "products page has category tabs and sub-category filters",
+      "name": "商品頁面具有分類 Tab 與子分類篩選器",
       "spec": "m2-marketing/admin-page-editor.spec.ts",
       "tab": "m2",
-      "group": "M2: Marketing page editor and publish flow",
+      "group": "M2: 行銷頁面編輯器與發布流程",
       "status": "pass",
-      "duration": 1221,
+      "duration": 2338,
       "shots": [
         "crud/page-editor-04.png"
       ],
@@ -2475,12 +2475,12 @@
       }
     },
     {
-      "name": "admin sees marketing pages table with columns",
+      "name": "管理員看到行銷頁面表格與欄位",
       "spec": "m2-marketing/admin-pages.spec.ts",
       "tab": "m2",
-      "group": "M2-01: Admin marketing pages management",
+      "group": "M2-01: 管理員行銷頁面管理",
       "status": "pass",
-      "duration": 1374,
+      "duration": 2077,
       "shots": [
         "crud/pages-smoke-01.png"
       ],
@@ -2496,12 +2496,12 @@
       }
     },
     {
-      "name": "admin sees page status badges (已發布 / 草稿)",
+      "name": "管理員看到頁面狀態標籤（已發布 / 草稿）",
       "spec": "m2-marketing/admin-pages.spec.ts",
       "tab": "m2",
-      "group": "M2-01: Admin marketing pages management",
+      "group": "M2-01: 管理員行銷頁面管理",
       "status": "pass",
-      "duration": 1289,
+      "duration": 1435,
       "shots": [
         "crud/pages-smoke-02.png"
       ],
@@ -2517,12 +2517,12 @@
       }
     },
     {
-      "name": "admin sees create page button",
+      "name": "管理員看到新增頁面按鈕",
       "spec": "m2-marketing/admin-pages.spec.ts",
       "tab": "m2",
-      "group": "M2-01: Admin marketing pages management",
+      "group": "M2-01: 管理員行銷頁面管理",
       "status": "pass",
-      "duration": 1827,
+      "duration": 1535,
       "shots": [
         "crud/pages-smoke-03.png"
       ],
@@ -2538,12 +2538,12 @@
       }
     },
     {
-      "name": "admin marketing channels page shows 3 channel types",
+      "name": "管理員行銷管道頁面顯示 3 種管道類型",
       "spec": "m2-marketing/admin-pages.spec.ts",
       "tab": "m2",
-      "group": "M2-01: Admin marketing pages management",
+      "group": "M2-01: 管理員行銷頁面管理",
       "status": "pass",
-      "duration": 2021,
+      "duration": 3103,
       "shots": [
         "crud/pages-smoke-04.png"
       ],
@@ -2559,12 +2559,12 @@
       }
     },
     {
-      "name": "each marketing channel has a create button",
+      "name": "每個行銷管道均有新增按鈕",
       "spec": "m2-marketing/admin-pages.spec.ts",
       "tab": "m2",
-      "group": "M2-01: Admin marketing pages management",
+      "group": "M2-01: 管理員行銷頁面管理",
       "status": "pass",
-      "duration": 1188,
+      "duration": 1405,
       "shots": [
         "crud/pages-smoke-05.png"
       ],
@@ -2580,12 +2580,12 @@
       }
     },
     {
-      "name": "admin sees products page with category tabs and table",
+      "name": "管理員看到商品頁面含分類 Tab 與表格",
       "spec": "m2-marketing/admin-products.spec.ts",
       "tab": "m2",
-      "group": "M2-02: Admin product management",
+      "group": "M2-02: 管理員商品管理",
       "status": "pass",
-      "duration": 2070,
+      "duration": 2193,
       "shots": [
         "crud/products-01.png"
       ],
@@ -2601,12 +2601,12 @@
       }
     },
     {
-      "name": "admin sees product table columns: name, slug, category, price, status",
+      "name": "管理員看到商品表格欄位：名稱、Slug、類別、價格、狀態",
       "spec": "m2-marketing/admin-products.spec.ts",
       "tab": "m2",
-      "group": "M2-02: Admin product management",
+      "group": "M2-02: 管理員商品管理",
       "status": "pass",
-      "duration": 1628,
+      "duration": 1684,
       "shots": [
         "crud/products-02.png"
       ],
@@ -2622,12 +2622,12 @@
       }
     },
     {
-      "name": "admin sees create product and category buttons",
+      "name": "管理員看到新增商品與新增類別按鈕",
       "spec": "m2-marketing/admin-products.spec.ts",
       "tab": "m2",
-      "group": "M2-02: Admin product management",
+      "group": "M2-02: 管理員商品管理",
       "status": "pass",
-      "duration": 1291,
+      "duration": 2116,
       "shots": [
         "crud/products-03.png"
       ],
@@ -2643,12 +2643,12 @@
       }
     },
     {
-      "name": "products appear on public /courses page with course cards",
+      "name": "商品顯示於公開 /courses 頁面並呈現課程卡片",
       "spec": "m2-marketing/admin-products.spec.ts",
       "tab": "m2",
-      "group": "M2-02: Admin product management",
+      "group": "M2-02: 管理員商品管理",
       "status": "pass",
-      "duration": 3663,
+      "duration": 1536,
       "shots": [
         "crud/products-04.png"
       ],
@@ -2664,12 +2664,12 @@
       }
     },
     {
-      "name": "course detail page shows pricing and enroll CTA",
+      "name": "課程詳情頁顯示價格與立即報名 CTA",
       "spec": "m2-marketing/admin-products.spec.ts",
       "tab": "m2",
-      "group": "M2-02: Admin product management",
+      "group": "M2-02: 管理員商品管理",
       "status": "pass",
-      "duration": 4329,
+      "duration": 5367,
       "shots": [
         "crud/products-05.png"
       ],
@@ -2685,12 +2685,12 @@
       }
     },
     {
-      "name": "admin can access a classroom and see attendance section",
+      "name": "管理員可進入教室並看到出席紀錄區塊",
       "spec": "m3-course-ops/admin-attendance.spec.ts",
       "tab": "m3",
-      "group": "M3-07: Admin attendance management",
+      "group": "M3-07: 管理員出席管理",
       "status": "pass",
-      "duration": 2622,
+      "duration": 2440,
       "shots": [
         "crud/attendance-01-classroom-detail.png"
       ],
@@ -2707,12 +2707,12 @@
       }
     },
     {
-      "name": "admin can see attendance status badges (出席/缺席/請假)",
+      "name": "管理員可看到出席狀態標籤（出席／缺席／請假）",
       "spec": "m3-course-ops/admin-attendance.spec.ts",
       "tab": "m3",
-      "group": "M3-07: Admin attendance management",
+      "group": "M3-07: 管理員出席管理",
       "status": "pass",
-      "duration": 2619,
+      "duration": 1931,
       "shots": [
         "crud/attendance-03-status-badges.png"
       ],
@@ -2729,12 +2729,12 @@
       }
     },
     {
-      "name": "admin creates a classroom, enters detail page",
+      "name": "管理員建立教室並進入詳情頁",
       "spec": "m3-course-ops/admin-classroom-crud.spec.ts",
       "tab": "m3",
-      "group": "M3-01 CRUD: Admin classroom create → detail → delete",
+      "group": "M3-01 CRUD: 管理員建立教室 → 查看詳情 → 刪除",
       "status": "pass",
-      "duration": 3577,
+      "duration": 4650,
       "shots": [
         "crud/classroom-01-dialog-open.png",
         "crud/classroom-02-cohort-selected.png",
@@ -2772,12 +2772,12 @@
       }
     },
     {
-      "name": "admin can access classrooms list",
+      "name": "管理員可存取教室列表",
       "spec": "m3-course-ops/admin-classroom.spec.ts",
       "tab": "m3",
-      "group": "M3-01/02: Admin classroom management",
+      "group": "M3-01/02: 管理員教室管理",
       "status": "pass",
-      "duration": 1590,
+      "duration": 1911,
       "shots": [
         "crud/classroom-smoke-01.png"
       ],
@@ -2793,12 +2793,12 @@
       }
     },
     {
-      "name": "admin sees classrooms or empty state",
+      "name": "管理員看到教室列表或空狀態",
       "spec": "m3-course-ops/admin-classroom.spec.ts",
       "tab": "m3",
-      "group": "M3-01/02: Admin classroom management",
+      "group": "M3-01/02: 管理員教室管理",
       "status": "pass",
-      "duration": 1671,
+      "duration": 1542,
       "shots": [
         "crud/classroom-smoke-02.png"
       ],
@@ -2814,12 +2814,12 @@
       }
     },
     {
-      "name": "admin sees create classroom button",
+      "name": "管理員看到新增教室按鈕",
       "spec": "m3-course-ops/admin-classroom.spec.ts",
       "tab": "m3",
-      "group": "M3-01/02: Admin classroom management",
+      "group": "M3-01/02: 管理員教室管理",
       "status": "pass",
-      "duration": 960,
+      "duration": 1349,
       "shots": [
         "crud/classroom-smoke-03.png"
       ],
@@ -2835,12 +2835,12 @@
       }
     },
     {
-      "name": "admin can enter classroom detail page",
+      "name": "管理員可進入教室詳情頁",
       "spec": "m3-course-ops/admin-classroom.spec.ts",
       "tab": "m3",
-      "group": "M3-01/02: Admin classroom management",
+      "group": "M3-01/02: 管理員教室管理",
       "status": "pass",
-      "duration": 1555,
+      "duration": 1088,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -2848,12 +2848,12 @@
       }
     },
     {
-      "name": "admin can open grading dialog, enter grade and feedback, submit",
+      "name": "管理員可開啟批改對話框、填寫成績與回饋並提交",
       "spec": "m3-course-ops/admin-grading-flow.spec.ts",
       "tab": "m3",
-      "group": "M3-05 Flow: Admin grades an assignment",
+      "group": "M3-05 Flow: 管理員批改作業流程",
       "status": "pass",
-      "duration": 2300,
+      "duration": 2150,
       "shots": [
         "crud/grading-01-dialog-open.png",
         "crud/grading-02-grade-filled.png",
@@ -2882,12 +2882,12 @@
       }
     },
     {
-      "name": "grading page shows stat cards with counts",
+      "name": "批改頁面顯示統計卡片與數量",
       "spec": "m3-course-ops/admin-grading-flow.spec.ts",
       "tab": "m3",
-      "group": "M3-05 Flow: Admin grades an assignment",
+      "group": "M3-05 Flow: 管理員批改作業流程",
       "status": "pass",
-      "duration": 1505,
+      "duration": 1697,
       "shots": [
         "crud/grading-04-stat-cards.png"
       ],
@@ -2903,12 +2903,12 @@
       }
     },
     {
-      "name": "admin can access grading dashboard",
+      "name": "管理員可存取批改總覽頁",
       "spec": "m3-course-ops/admin-grading.spec.ts",
       "tab": "m3",
-      "group": "M3-05/06: Admin/TA grading dashboard",
+      "group": "M3-05/06: 管理員／助教批改總覽",
       "status": "pass",
-      "duration": 995,
+      "duration": 1789,
       "shots": [
         "crud/grading-smoke-01.png"
       ],
@@ -2924,12 +2924,12 @@
       }
     },
     {
-      "name": "grading page shows submissions or empty state",
+      "name": "批改頁面顯示作業繳交列表或空狀態",
       "spec": "m3-course-ops/admin-grading.spec.ts",
       "tab": "m3",
-      "group": "M3-05/06: Admin/TA grading dashboard",
+      "group": "M3-05/06: 管理員／助教批改總覽",
       "status": "pass",
-      "duration": 1053,
+      "duration": 1332,
       "shots": [
         "crud/grading-smoke-02.png"
       ],
@@ -2945,12 +2945,12 @@
       }
     },
     {
-      "name": "TA can access grading dashboard",
+      "name": "助教可存取批改總覽頁",
       "spec": "m3-course-ops/admin-grading.spec.ts",
       "tab": "m3",
-      "group": "M3-05/06: Admin/TA grading dashboard",
+      "group": "M3-05/06: 管理員／助教批改總覽",
       "status": "pass",
-      "duration": 2399,
+      "duration": 2554,
       "shots": [
         "crud/grading-smoke-03.png"
       ],
@@ -2966,12 +2966,12 @@
       }
     },
     {
-      "name": "classroom detail shows tabs for different sections",
+      "name": "教室詳情頁顯示各功能分頁",
       "spec": "m3-course-ops/classroom-detail.spec.ts",
       "tab": "m3",
-      "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
+      "group": "M3: 教室詳情頁 — 分頁、公告、教材、作業、出席",
       "status": "pass",
-      "duration": 2380,
+      "duration": 2294,
       "shots": [
         "crud/classroom-detail-01.png"
       ],
@@ -2987,12 +2987,12 @@
       }
     },
     {
-      "name": "classroom detail shows student list",
+      "name": "教室詳情頁顯示學員名單",
       "spec": "m3-course-ops/classroom-detail.spec.ts",
       "tab": "m3",
-      "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
+      "group": "M3: 教室詳情頁 — 分頁、公告、教材、作業、出席",
       "status": "pass",
-      "duration": 2168,
+      "duration": 2371,
       "shots": [
         "crud/classroom-detail-02.png"
       ],
@@ -3008,12 +3008,12 @@
       }
     },
     {
-      "name": "classroom announcements section — create announcement",
+      "name": "教室公告區塊 — 新增公告",
       "spec": "m3-course-ops/classroom-detail.spec.ts",
       "tab": "m3",
-      "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
+      "group": "M3: 教室詳情頁 — 分頁、公告、教材、作業、出席",
       "status": "pass",
-      "duration": 1682,
+      "duration": 2206,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -3021,12 +3021,12 @@
       }
     },
     {
-      "name": "classroom assignments section — list and create button",
+      "name": "教室作業區塊 — 列表與新增按鈕",
       "spec": "m3-course-ops/classroom-detail.spec.ts",
       "tab": "m3",
-      "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
+      "group": "M3: 教室詳情頁 — 分頁、公告、教材、作業、出席",
       "status": "pass",
-      "duration": 2180,
+      "duration": 1635,
       "shots": [
         "crud/classroom-detail-04.png"
       ],
@@ -3042,12 +3042,12 @@
       }
     },
     {
-      "name": "classroom materials section",
+      "name": "教室教材區塊",
       "spec": "m3-course-ops/classroom-detail.spec.ts",
       "tab": "m3",
-      "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
+      "group": "M3: 教室詳情頁 — 分頁、公告、教材、作業、出席",
       "status": "pass",
-      "duration": 2374,
+      "duration": 2047,
       "shots": [
         "crud/classroom-detail-05.png"
       ],
@@ -3063,12 +3063,12 @@
       }
     },
     {
-      "name": "classroom attendance section — list and mark buttons",
+      "name": "教室出席區塊 — 列表與標記按鈕",
       "spec": "m3-course-ops/classroom-detail.spec.ts",
       "tab": "m3",
-      "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
+      "group": "M3: 教室詳情頁 — 分頁、公告、教材、作業、出席",
       "status": "pass",
-      "duration": 2293,
+      "duration": 1944,
       "shots": [
         "crud/classroom-detail-06.png"
       ],
@@ -3084,12 +3084,12 @@
       }
     },
     {
-      "name": "admin sees return button for submissions",
+      "name": "管理員看到作業退回按鈕",
       "spec": "m3-course-ops/grading-details.spec.ts",
       "tab": "m3",
-      "group": "M3: Grading details — return, download, cross-role",
+      "group": "M3: 批改詳情 — 退回、下載、跨角色",
       "status": "pass",
-      "duration": 2150,
+      "duration": 1161,
       "shots": [
         "crud/grading-detail-01.png"
       ],
@@ -3105,12 +3105,12 @@
       }
     },
     {
-      "name": "admin can download submission file",
+      "name": "管理員可下載作業檔案",
       "spec": "m3-course-ops/grading-details.spec.ts",
       "tab": "m3",
-      "group": "M3: Grading details — return, download, cross-role",
+      "group": "M3: 批改詳情 — 退回、下載、跨角色",
       "status": "pass",
-      "duration": 996,
+      "duration": 2225,
       "shots": [
         "crud/grading-detail-02.png"
       ],
@@ -3126,12 +3126,12 @@
       }
     },
     {
-      "name": "TA can access grading and see submissions",
+      "name": "助教可存取批改頁並看到作業繳交列表",
       "spec": "m3-course-ops/grading-details.spec.ts",
       "tab": "m3",
-      "group": "M3: Grading details — return, download, cross-role",
+      "group": "M3: 批改詳情 — 退回、下載、跨角色",
       "status": "pass",
-      "duration": 1206,
+      "duration": 2106,
       "shots": [
         "crud/grading-detail-03.png"
       ],
@@ -3147,12 +3147,12 @@
       }
     },
     {
-      "name": "student sees graded assignment result",
+      "name": "學員可看到已批改的作業結果",
       "spec": "m3-course-ops/grading-details.spec.ts",
       "tab": "m3",
-      "group": "M3: Grading details — return, download, cross-role",
+      "group": "M3: 批改詳情 — 退回、下載、跨角色",
       "status": "pass",
-      "duration": 1813,
+      "duration": 2076,
       "shots": [
         "crud/grading-detail-04.png"
       ],
@@ -3168,12 +3168,12 @@
       }
     },
     {
-      "name": "student can access my courses page",
+      "name": "學員可存取我的課程頁",
       "spec": "m3-course-ops/student-classroom.spec.ts",
       "tab": "m3",
-      "group": "M3-03/04: Student classroom and assignments",
+      "group": "M3-03/04: 學員教室與作業",
       "status": "pass",
-      "duration": 1823,
+      "duration": 1894,
       "shots": [
         "flow/student-classroom-01.png"
       ],
@@ -3189,12 +3189,12 @@
       }
     },
     {
-      "name": "alice (enrolled) sees her courses",
+      "name": "alice（已報名）看到自己的課程",
       "spec": "m3-course-ops/student-classroom.spec.ts",
       "tab": "m3",
-      "group": "M3-03/04: Student classroom and assignments",
+      "group": "M3-03/04: 學員教室與作業",
       "status": "pass",
-      "duration": 1230,
+      "duration": 908,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -3202,12 +3202,12 @@
       }
     },
     {
-      "name": "alice can enter a classroom detail page",
+      "name": "alice 可進入教室詳情頁",
       "spec": "m3-course-ops/student-classroom.spec.ts",
       "tab": "m3",
-      "group": "M3-03/04: Student classroom and assignments",
+      "group": "M3-03/04: 學員教室與作業",
       "status": "pass",
-      "duration": 1217,
+      "duration": 1125,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -3215,12 +3215,12 @@
       }
     },
     {
-      "name": "student can see assignments in classroom",
+      "name": "學員可在教室中查看作業",
       "spec": "m3-course-ops/student-classroom.spec.ts",
       "tab": "m3",
-      "group": "M3-03/04: Student classroom and assignments",
+      "group": "M3-03/04: 學員教室與作業",
       "status": "pass",
-      "duration": 835,
+      "duration": 1564,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -3228,12 +3228,12 @@
       }
     },
     {
-      "name": "student can view payments page",
+      "name": "學員可查看付款記錄頁",
       "spec": "m3-course-ops/student-classroom.spec.ts",
       "tab": "m3",
-      "group": "M3-03/04: Student classroom and assignments",
+      "group": "M3-03/04: 學員教室與作業",
       "status": "pass",
-      "duration": 1437,
+      "duration": 1466,
       "shots": [
         "flow/student-classroom-02.png"
       ],
@@ -3249,12 +3249,12 @@
       }
     },
     {
-      "name": "student can access my courses page",
+      "name": "學員可存取我的課程頁",
       "spec": "m3-course-ops/student-classroom.spec.ts",
       "tab": "m3",
-      "group": "M3-03/04: Student classroom and assignments",
+      "group": "M3-03/04: 學員教室與作業",
       "status": "pass",
-      "duration": 1923,
+      "duration": 1105,
       "shots": [
         "flow/student-classroom-01.png"
       ],
@@ -3270,12 +3270,12 @@
       }
     },
     {
-      "name": "alice (enrolled) sees her courses",
+      "name": "alice（已報名）看到自己的課程",
       "spec": "m3-course-ops/student-classroom.spec.ts",
       "tab": "m3",
-      "group": "M3-03/04: Student classroom and assignments",
+      "group": "M3-03/04: 學員教室與作業",
       "status": "pass",
-      "duration": 1389,
+      "duration": 888,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -3283,12 +3283,12 @@
       }
     },
     {
-      "name": "alice can enter a classroom detail page",
+      "name": "alice 可進入教室詳情頁",
       "spec": "m3-course-ops/student-classroom.spec.ts",
       "tab": "m3",
-      "group": "M3-03/04: Student classroom and assignments",
+      "group": "M3-03/04: 學員教室與作業",
       "status": "pass",
-      "duration": 879,
+      "duration": 1609,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -3296,12 +3296,12 @@
       }
     },
     {
-      "name": "student can see assignments in classroom",
+      "name": "學員可在教室中查看作業",
       "spec": "m3-course-ops/student-classroom.spec.ts",
       "tab": "m3",
-      "group": "M3-03/04: Student classroom and assignments",
+      "group": "M3-03/04: 學員教室與作業",
       "status": "pass",
-      "duration": 2454,
+      "duration": 1557,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -3309,12 +3309,12 @@
       }
     },
     {
-      "name": "student can view payments page",
+      "name": "學員可查看付款記錄頁",
       "spec": "m3-course-ops/student-classroom.spec.ts",
       "tab": "m3",
-      "group": "M3-03/04: Student classroom and assignments",
+      "group": "M3-03/04: 學員教室與作業",
       "status": "pass",
-      "duration": 2421,
+      "duration": 1368,
       "shots": [
         "flow/student-classroom-02.png"
       ],
@@ -3330,12 +3330,12 @@
       }
     },
     {
-      "name": "admin can grade a pending certification exam",
+      "name": "管理員可對待評分認證考試進行評分",
       "spec": "m4-supervision/admin-certification-flow.spec.ts",
       "tab": "m4",
-      "group": "M4-03 Flow: Admin certification exam grading",
+      "group": "M4-03 Flow: 管理員認證考試評分",
       "status": "pass",
-      "duration": 7380,
+      "duration": 5883,
       "shots": [
         "crud/certification-01-dialog-open.png",
         "crud/certification-02-score-filled.png",
@@ -3363,12 +3363,12 @@
       }
     },
     {
-      "name": "certifications page shows table with exam records",
+      "name": "認證頁顯示含考試紀錄的資料表格",
       "spec": "m4-supervision/admin-certification-flow.spec.ts",
       "tab": "m4",
-      "group": "M4-03 Flow: Admin certification exam grading",
+      "group": "M4-03 Flow: 管理員認證考試評分",
       "status": "pass",
-      "duration": 1899,
+      "duration": 1807,
       "shots": [
         "crud/certification-04-table-badges.png"
       ],
@@ -3384,12 +3384,12 @@
       }
     },
     {
-      "name": "admin can access certifications page",
+      "name": "管理員可存取認證管理頁",
       "spec": "m4-supervision/admin-certifications.spec.ts",
       "tab": "m4",
-      "group": "M4-03: Admin certifications management",
+      "group": "M4-03: 管理員認證管理",
       "status": "pass",
-      "duration": 1560,
+      "duration": 1105,
       "shots": [
         "crud/certifications-smoke-01.png"
       ],
@@ -3405,12 +3405,12 @@
       }
     },
     {
-      "name": "admin sees certifications list or empty state",
+      "name": "管理員看到認證列表或空狀態",
       "spec": "m4-supervision/admin-certifications.spec.ts",
       "tab": "m4",
-      "group": "M4-03: Admin certifications management",
+      "group": "M4-03: 管理員認證管理",
       "status": "pass",
-      "duration": 1065,
+      "duration": 1336,
       "shots": [
         "crud/certifications-smoke-02.png"
       ],
@@ -3426,12 +3426,12 @@
       }
     },
     {
-      "name": "admin can edit a supervision session status and notes",
+      "name": "管理員可編輯督導場次的狀態與備註",
       "spec": "m4-supervision/admin-supervision-crud.spec.ts",
       "tab": "m4",
-      "group": "M4-01 Flow: Admin supervision session management",
+      "group": "M4-01 Flow: 管理員督導場次管理",
       "status": "pass",
-      "duration": 4965,
+      "duration": 2408,
       "shots": [
         "crud/supervision-01-edit-dialog.png",
         "crud/supervision-02-status-selected.png",
@@ -3459,12 +3459,12 @@
       }
     },
     {
-      "name": "supervision page shows table with session data",
+      "name": "督導頁顯示含場次資料的資料表格",
       "spec": "m4-supervision/admin-supervision-crud.spec.ts",
       "tab": "m4",
-      "group": "M4-01 Flow: Admin supervision session management",
+      "group": "M4-01 Flow: 管理員督導場次管理",
       "status": "pass",
-      "duration": 5650,
+      "duration": 2191,
       "shots": [
         "crud/supervision-04-table.png"
       ],
@@ -3480,12 +3480,12 @@
       }
     },
     {
-      "name": "admin can access supervision page",
+      "name": "管理員可存取督導管理頁",
       "spec": "m4-supervision/admin-supervision.spec.ts",
       "tab": "m4",
-      "group": "M4-01: Admin supervision management",
+      "group": "M4-01: 管理員督導管理",
       "status": "pass",
-      "duration": 1811,
+      "duration": 2093,
       "shots": [
         "crud/supervision-smoke-01.png"
       ],
@@ -3501,12 +3501,12 @@
       }
     },
     {
-      "name": "admin sees supervision sessions or empty state",
+      "name": "管理員看到督導場次列表或空狀態",
       "spec": "m4-supervision/admin-supervision.spec.ts",
       "tab": "m4",
-      "group": "M4-01: Admin supervision management",
+      "group": "M4-01: 管理員督導管理",
       "status": "pass",
-      "duration": 3219,
+      "duration": 1739,
       "shots": [
         "crud/supervision-smoke-02.png"
       ],
@@ -3522,12 +3522,12 @@
       }
     },
     {
-      "name": "admin sees create supervision button and table with sessions",
+      "name": "管理員看到新增場次按鈕與督導場次表格",
       "spec": "m4-supervision/admin-supervision.spec.ts",
       "tab": "m4",
-      "group": "M4-01: Admin supervision management",
+      "group": "M4-01: 管理員督導管理",
       "status": "pass",
-      "duration": 1935,
+      "duration": 1963,
       "shots": [
         "crud/supervision-smoke-03.png"
       ],
@@ -3543,12 +3543,12 @@
       }
     },
     {
-      "name": "student can access certifications page",
+      "name": "學員可存取認證頁",
       "spec": "m4-supervision/student-certifications.spec.ts",
       "tab": "m4",
-      "group": "M4-04: Student certifications view",
+      "group": "M4-04: 學員認證檢視",
       "status": "pass",
-      "duration": 1643,
+      "duration": 1791,
       "shots": [
         "flow/student-certifications-01.png"
       ],
@@ -3564,12 +3564,12 @@
       }
     },
     {
-      "name": "student sees certifications or empty state",
+      "name": "學員看到認證列表或空狀態",
       "spec": "m4-supervision/student-certifications.spec.ts",
       "tab": "m4",
-      "group": "M4-04: Student certifications view",
+      "group": "M4-04: 學員認證檢視",
       "status": "pass",
-      "duration": 1515,
+      "duration": 1926,
       "shots": [
         "flow/student-certifications-02.png"
       ],
@@ -3585,12 +3585,12 @@
       }
     },
     {
-      "name": "student can access certifications page",
+      "name": "學員可存取認證頁",
       "spec": "m4-supervision/student-certifications.spec.ts",
       "tab": "m4",
-      "group": "M4-04: Student certifications view",
+      "group": "M4-04: 學員認證檢視",
       "status": "pass",
-      "duration": 2348,
+      "duration": 1351,
       "shots": [
         "flow/student-certifications-01.png"
       ],
@@ -3606,12 +3606,12 @@
       }
     },
     {
-      "name": "student sees certifications or empty state",
+      "name": "學員看到認證列表或空狀態",
       "spec": "m4-supervision/student-certifications.spec.ts",
       "tab": "m4",
-      "group": "M4-04: Student certifications view",
+      "group": "M4-04: 學員認證檢視",
       "status": "pass",
-      "duration": 1779,
+      "duration": 1013,
       "shots": [
         "flow/student-certifications-02.png"
       ],
@@ -3627,12 +3627,12 @@
       }
     },
     {
-      "name": "student can access supervision page",
+      "name": "學員可存取督導頁",
       "spec": "m4-supervision/student-supervision.spec.ts",
       "tab": "m4",
-      "group": "M4-02: Student supervision view",
+      "group": "M4-02: 學員督導檢視",
       "status": "pass",
-      "duration": 1298,
+      "duration": 2126,
       "shots": [
         "flow/student-supervision-01.png"
       ],
@@ -3648,12 +3648,12 @@
       }
     },
     {
-      "name": "student sees supervision sessions or empty state",
+      "name": "學員看到督導場次列表或空狀態",
       "spec": "m4-supervision/student-supervision.spec.ts",
       "tab": "m4",
-      "group": "M4-02: Student supervision view",
+      "group": "M4-02: 學員督導檢視",
       "status": "pass",
-      "duration": 1012,
+      "duration": 2000,
       "shots": [
         "flow/student-supervision-02.png"
       ],
@@ -3669,12 +3669,12 @@
       }
     },
     {
-      "name": "student can access supervision page",
+      "name": "學員可存取督導頁",
       "spec": "m4-supervision/student-supervision.spec.ts",
       "tab": "m4",
-      "group": "M4-02: Student supervision view",
+      "group": "M4-02: 學員督導檢視",
       "status": "pass",
-      "duration": 1220,
+      "duration": 1575,
       "shots": [
         "flow/student-supervision-01.png"
       ],
@@ -3690,12 +3690,12 @@
       }
     },
     {
-      "name": "student sees supervision sessions or empty state",
+      "name": "學員看到督導場次列表或空狀態",
       "spec": "m4-supervision/student-supervision.spec.ts",
       "tab": "m4",
-      "group": "M4-02: Student supervision view",
+      "group": "M4-02: 學員督導檢視",
       "status": "pass",
-      "duration": 2341,
+      "duration": 1449,
       "shots": [
         "flow/student-supervision-02.png"
       ],
@@ -3711,12 +3711,12 @@
       }
     },
     {
-      "name": "admin supervision table shows correct columns",
+      "name": "管理員督導表格顯示正確欄位",
       "spec": "m4-supervision/supervision-details.spec.ts",
       "tab": "m4",
-      "group": "M4: Supervision and certification details",
+      "group": "M4: 督導與認證詳細資訊",
       "status": "pass",
-      "duration": 2220,
+      "duration": 1841,
       "shots": [
         "crud/supervision-detail-01.png"
       ],
@@ -3732,12 +3732,12 @@
       }
     },
     {
-      "name": "supervision sessions show status badges: 已排程, 已完成",
+      "name": "督導場次顯示狀態徽章：已排程、已完成",
       "spec": "m4-supervision/supervision-details.spec.ts",
       "tab": "m4",
-      "group": "M4: Supervision and certification details",
+      "group": "M4: 督導與認證詳細資訊",
       "status": "pass",
-      "duration": 2188,
+      "duration": 1879,
       "shots": [
         "crud/supervision-detail-02.png"
       ],
@@ -3753,12 +3753,12 @@
       }
     },
     {
-      "name": "admin certification table shows status: 通過, 待評分, 未通過",
+      "name": "管理員認證表格顯示狀態：通過、待評分、未通過",
       "spec": "m4-supervision/supervision-details.spec.ts",
       "tab": "m4",
-      "group": "M4: Supervision and certification details",
+      "group": "M4: 督導與認證詳細資訊",
       "status": "pass",
-      "duration": 2070,
+      "duration": 1474,
       "shots": [
         "crud/supervision-detail-03.png"
       ],
@@ -3774,12 +3774,12 @@
       }
     },
     {
-      "name": "admin certification page has filter dropdowns for status and type",
+      "name": "管理員認證頁具備狀態與考試類型篩選下拉選單",
       "spec": "m4-supervision/supervision-details.spec.ts",
       "tab": "m4",
-      "group": "M4: Supervision and certification details",
+      "group": "M4: 督導與認證詳細資訊",
       "status": "pass",
-      "duration": 1467,
+      "duration": 1777,
       "shots": [
         "crud/supervision-detail-04.png"
       ],
@@ -3795,12 +3795,12 @@
       }
     },
     {
-      "name": "student supervision page shows empty state with helpful message",
+      "name": "學員督導頁顯示含說明訊息的空狀態",
       "spec": "m4-supervision/supervision-details.spec.ts",
       "tab": "m4",
-      "group": "M4: Supervision and certification details",
+      "group": "M4: 督導與認證詳細資訊",
       "status": "pass",
-      "duration": 1781,
+      "duration": 2935,
       "shots": [
         "crud/supervision-detail-05.png"
       ],
@@ -3816,12 +3816,12 @@
       }
     },
     {
-      "name": "student certification page shows empty state",
+      "name": "學員認證頁顯示空狀態",
       "spec": "m4-supervision/supervision-details.spec.ts",
       "tab": "m4",
-      "group": "M4: Supervision and certification details",
+      "group": "M4: 督導與認證詳細資訊",
       "status": "pass",
-      "duration": 2534,
+      "duration": 2718,
       "shots": [
         "crud/supervision-detail-06.png"
       ],
@@ -3837,12 +3837,12 @@
       }
     },
     {
-      "name": "supervisor can access supervision page",
+      "name": "督導角色可存取督導頁",
       "spec": "m4-supervision/supervision-details.spec.ts",
       "tab": "m4",
-      "group": "M4: Supervision and certification details",
+      "group": "M4: 督導與認證詳細資訊",
       "status": "pass",
-      "duration": 2197,
+      "duration": 2472,
       "shots": [
         "crud/supervision-detail-07.png"
       ],
@@ -3858,12 +3858,12 @@
       }
     },
     {
-      "name": "admin can view member detail dialog",
+      "name": "管理員可檢視會員詳情 Dialog",
       "spec": "m5-crm/admin-crm-flow.spec.ts",
       "tab": "m5",
-      "group": "M5-01 Flow: Admin CRM member view and renewal review",
+      "group": "M5-01 Flow: 管理員 CRM 會員檢視與續證審核",
       "status": "pass",
-      "duration": 2832,
+      "duration": 3201,
       "shots": [
         "flow/crm-01-member-dialog.png"
       ],
@@ -3879,12 +3879,12 @@
       }
     },
     {
-      "name": "admin can switch between CRM tabs",
+      "name": "管理員可切換 CRM 分頁",
       "spec": "m5-crm/admin-crm-flow.spec.ts",
       "tab": "m5",
-      "group": "M5-01 Flow: Admin CRM member view and renewal review",
+      "group": "M5-01 Flow: 管理員 CRM 會員檢視與續證審核",
       "status": "pass",
-      "duration": 1528,
+      "duration": 2348,
       "shots": [
         "flow/crm-02-renewal-tab.png",
         "flow/crm-03-special-tab.png"
@@ -3906,12 +3906,12 @@
       }
     },
     {
-      "name": "admin can search members by name or email",
+      "name": "管理員可依姓名或信箱搜尋會員",
       "spec": "m5-crm/admin-crm-flow.spec.ts",
       "tab": "m5",
-      "group": "M5-01 Flow: Admin CRM member view and renewal review",
+      "group": "M5-01 Flow: 管理員 CRM 會員檢視與續證審核",
       "status": "pass",
-      "duration": 1158,
+      "duration": 1677,
       "shots": [
         "flow/crm-04-search-results.png"
       ],
@@ -3927,12 +3927,12 @@
       }
     },
     {
-      "name": "admin can filter members by certification status",
+      "name": "管理員可依認證狀態篩選會員",
       "spec": "m5-crm/admin-crm-flow.spec.ts",
       "tab": "m5",
-      "group": "M5-01 Flow: Admin CRM member view and renewal review",
+      "group": "M5-01 Flow: 管理員 CRM 會員檢視與續證審核",
       "status": "pass",
-      "duration": 1199,
+      "duration": 2002,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -3940,12 +3940,12 @@
       }
     },
     {
-      "name": "admin can access CRM members page",
+      "name": "管理員可存取 CRM 會員頁",
       "spec": "m5-crm/admin-crm.spec.ts",
       "tab": "m5",
-      "group": "M5-01/04: Admin CRM management",
+      "group": "M5-01/04: 管理員 CRM 管理",
       "status": "pass",
-      "duration": 925,
+      "duration": 1489,
       "shots": [
         "crud/crm-smoke-01.png"
       ],
@@ -3961,12 +3961,12 @@
       }
     },
     {
-      "name": "admin sees CRM with tabs and members table",
+      "name": "管理員看到含分頁與會員表格的 CRM",
       "spec": "m5-crm/admin-crm.spec.ts",
       "tab": "m5",
-      "group": "M5-01/04: Admin CRM management",
+      "group": "M5-01/04: 管理員 CRM 管理",
       "status": "pass",
-      "duration": 2782,
+      "duration": 1637,
       "shots": [
         "crud/crm-smoke-02.png"
       ],
@@ -3982,12 +3982,12 @@
       }
     },
     {
-      "name": "admin can access referrals page",
+      "name": "管理員可存取推薦管理頁",
       "spec": "m5-crm/admin-crm.spec.ts",
       "tab": "m5",
-      "group": "M5-01/04: Admin CRM management",
+      "group": "M5-01/04: 管理員 CRM 管理",
       "status": "pass",
-      "duration": 1173,
+      "duration": 1774,
       "shots": [
         "crud/crm-smoke-03.png"
       ],
@@ -4003,12 +4003,12 @@
       }
     },
     {
-      "name": "admin can access refunds settings page",
+      "name": "管理員可存取退款設定頁",
       "spec": "m5-crm/admin-crm.spec.ts",
       "tab": "m5",
-      "group": "M5-01/04: Admin CRM management",
+      "group": "M5-01/04: 管理員 CRM 管理",
       "status": "pass",
-      "duration": 2039,
+      "duration": 2163,
       "shots": [
         "crud/crm-smoke-04.png"
       ],
@@ -4024,12 +4024,12 @@
       }
     },
     {
-      "name": "admin can access agents page",
+      "name": "管理員可存取代理商管理頁",
       "spec": "m5-crm/admin-crm.spec.ts",
       "tab": "m5",
-      "group": "M5-01/04: Admin CRM management",
+      "group": "M5-01/04: 管理員 CRM 管理",
       "status": "pass",
-      "duration": 1689,
+      "duration": 1573,
       "shots": [
         "crud/crm-smoke-05.png"
       ],
@@ -4045,12 +4045,12 @@
       }
     },
     {
-      "name": "student can see renewal section and click 新增申請",
+      "name": "學員可看到續證申請區塊並點擊新增申請",
       "spec": "m5-crm/crm-renewal-flow.spec.ts",
       "tab": "m5",
-      "group": "M5: CRM renewal and application flows",
+      "group": "M5: CRM 續證與申請流程",
       "status": "pass",
-      "duration": 1291,
+      "duration": 2493,
       "shots": [
         "flow/renewal-01-new-application.png"
       ],
@@ -4066,12 +4066,12 @@
       }
     },
     {
-      "name": "student can see 特約申請 section with action buttons",
+      "name": "學員可看到特約申請區塊與操作按鈕",
       "spec": "m5-crm/crm-renewal-flow.spec.ts",
       "tab": "m5",
-      "group": "M5: CRM renewal and application flows",
+      "group": "M5: CRM 續證與申請流程",
       "status": "pass",
-      "duration": 2920,
+      "duration": 2157,
       "shots": [
         "flow/renewal-02-special-buttons.png"
       ],
@@ -4087,12 +4087,12 @@
       }
     },
     {
-      "name": "student CRM shows certification status",
+      "name": "學員會員中心顯示認證狀態",
       "spec": "m5-crm/crm-renewal-flow.spec.ts",
       "tab": "m5",
-      "group": "M5: CRM renewal and application flows",
+      "group": "M5: CRM 續證與申請流程",
       "status": "pass",
-      "duration": 2336,
+      "duration": 1954,
       "shots": [
         "flow/renewal-03-cert-status.png"
       ],
@@ -4108,12 +4108,12 @@
       }
     },
     {
-      "name": "admin can review renewal — approve dialog",
+      "name": "管理員可審核續證申請 — 核准 Dialog",
       "spec": "m5-crm/crm-renewal-flow.spec.ts",
       "tab": "m5",
-      "group": "M5: CRM renewal and application flows",
+      "group": "M5: CRM 續證與申請流程",
       "status": "pass",
-      "duration": 1079,
+      "duration": 2104,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4121,12 +4121,12 @@
       }
     },
     {
-      "name": "admin can update application status in 特約申請 tab",
+      "name": "管理員可在特約申請分頁更新申請狀態",
       "spec": "m5-crm/crm-renewal-flow.spec.ts",
       "tab": "m5",
-      "group": "M5: CRM renewal and application flows",
+      "group": "M5: CRM 續證與申請流程",
       "status": "pass",
-      "duration": 1657,
+      "duration": 1467,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4134,12 +4134,12 @@
       }
     },
     {
-      "name": "student can access CRM page",
+      "name": "學員可存取會員中心頁",
       "spec": "m5-crm/student-crm.spec.ts",
       "tab": "m5",
-      "group": "M5-02/03: Student CRM and renewals",
+      "group": "M5-02/03: 學員會員中心與續證",
       "status": "pass",
-      "duration": 1062,
+      "duration": 1506,
       "shots": [
         "flow/student-crm-01.png"
       ],
@@ -4155,12 +4155,12 @@
       }
     },
     {
-      "name": "student sees 會員中心 with profile, renewals, and applications sections",
+      "name": "學員看到會員中心含個人資料、續證申請與特約申請區塊",
       "spec": "m5-crm/student-crm.spec.ts",
       "tab": "m5",
-      "group": "M5-02/03: Student CRM and renewals",
+      "group": "M5-02/03: 學員會員中心與續證",
       "status": "pass",
-      "duration": 1875,
+      "duration": 1264,
       "shots": [
         "flow/student-crm-02.png"
       ],
@@ -4176,12 +4176,12 @@
       }
     },
     {
-      "name": "student sees renewal and application action buttons",
+      "name": "學員看到續證與申請操作按鈕",
       "spec": "m5-crm/student-crm.spec.ts",
       "tab": "m5",
-      "group": "M5-02/03: Student CRM and renewals",
+      "group": "M5-02/03: 學員會員中心與續證",
       "status": "pass",
-      "duration": 1363,
+      "duration": 1364,
       "shots": [
         "flow/student-crm-03.png"
       ],
@@ -4197,12 +4197,12 @@
       }
     },
     {
-      "name": "student can access profile page",
+      "name": "學員可存取個人資料頁",
       "spec": "m5-crm/student-crm.spec.ts",
       "tab": "m5",
-      "group": "M5-02/03: Student CRM and renewals",
+      "group": "M5-02/03: 學員會員中心與續證",
       "status": "pass",
-      "duration": 1483,
+      "duration": 1247,
       "shots": [
         "flow/student-crm-04.png"
       ],
@@ -4218,12 +4218,12 @@
       }
     },
     {
-      "name": "student can access CRM page",
+      "name": "學員可存取會員中心頁",
       "spec": "m5-crm/student-crm.spec.ts",
       "tab": "m5",
-      "group": "M5-02/03: Student CRM and renewals",
+      "group": "M5-02/03: 學員會員中心與續證",
       "status": "pass",
-      "duration": 2316,
+      "duration": 1293,
       "shots": [
         "flow/student-crm-01.png"
       ],
@@ -4239,12 +4239,12 @@
       }
     },
     {
-      "name": "student sees 會員中心 with profile, renewals, and applications sections",
+      "name": "學員看到會員中心含個人資料、續證申請與特約申請區塊",
       "spec": "m5-crm/student-crm.spec.ts",
       "tab": "m5",
-      "group": "M5-02/03: Student CRM and renewals",
+      "group": "M5-02/03: 學員會員中心與續證",
       "status": "pass",
-      "duration": 2205,
+      "duration": 1341,
       "shots": [
         "flow/student-crm-02.png"
       ],
@@ -4260,12 +4260,12 @@
       }
     },
     {
-      "name": "student sees renewal and application action buttons",
+      "name": "學員看到續證與申請操作按鈕",
       "spec": "m5-crm/student-crm.spec.ts",
       "tab": "m5",
-      "group": "M5-02/03: Student CRM and renewals",
+      "group": "M5-02/03: 學員會員中心與續證",
       "status": "pass",
-      "duration": 1401,
+      "duration": 1166,
       "shots": [
         "flow/student-crm-03.png"
       ],
@@ -4281,12 +4281,12 @@
       }
     },
     {
-      "name": "student can access profile page",
+      "name": "學員可存取個人資料頁",
       "spec": "m5-crm/student-crm.spec.ts",
       "tab": "m5",
-      "group": "M5-02/03: Student CRM and renewals",
+      "group": "M5-02/03: 學員會員中心與續證",
       "status": "pass",
-      "duration": 1030,
+      "duration": 1056,
       "shots": [
         "flow/student-crm-04.png"
       ],
@@ -4302,12 +4302,12 @@
       }
     },
     {
-      "name": "homepage renders on mobile",
+      "name": "首頁在手機版正確渲染",
       "spec": "mobile-viewport.spec.ts",
       "tab": "mobile",
-      "group": "Mobile viewport — key pages render correctly",
+      "group": "手機版視窗 — 關鍵頁面正確渲染",
       "status": "pass",
-      "duration": 1549,
+      "duration": 972,
       "shots": [
         "flow/mobile-01-homepage.png"
       ],
@@ -4324,12 +4324,12 @@
       }
     },
     {
-      "name": "courses page renders on mobile",
+      "name": "課程頁在手機版正確渲染",
       "spec": "mobile-viewport.spec.ts",
       "tab": "mobile",
-      "group": "Mobile viewport — key pages render correctly",
+      "group": "手機版視窗 — 關鍵頁面正確渲染",
       "status": "pass",
-      "duration": 946,
+      "duration": 943,
       "shots": [
         "flow/mobile-02-courses.png"
       ],
@@ -4346,12 +4346,12 @@
       }
     },
     {
-      "name": "enroll page renders on mobile",
+      "name": "報名頁在手機版正確渲染",
       "spec": "mobile-viewport.spec.ts",
       "tab": "mobile",
-      "group": "Mobile viewport — key pages render correctly",
+      "group": "手機版視窗 — 關鍵頁面正確渲染",
       "status": "pass",
-      "duration": 1228,
+      "duration": 763,
       "shots": [
         "flow/mobile-03-enroll.png"
       ],
@@ -4368,12 +4368,12 @@
       }
     },
     {
-      "name": "student dashboard renders on mobile with hamburger menu",
+      "name": "學員儀表板在手機版正確渲染並顯示漢堡選單",
       "spec": "mobile-viewport.spec.ts",
       "tab": "mobile",
-      "group": "Mobile viewport — key pages render correctly",
+      "group": "手機版視窗 — 關鍵頁面正確渲染",
       "status": "pass",
-      "duration": 1532,
+      "duration": 1687,
       "shots": [
         "flow/mobile-04-student-dashboard.png"
       ],
@@ -4390,12 +4390,12 @@
       }
     },
     {
-      "name": "admin dashboard renders on mobile with sidebar toggle",
+      "name": "管理員儀表板在手機版正確渲染並顯示側邊欄切換按鈕",
       "spec": "mobile-viewport.spec.ts",
       "tab": "mobile",
-      "group": "Mobile viewport — key pages render correctly",
+      "group": "手機版視窗 — 關鍵頁面正確渲染",
       "status": "pass",
-      "duration": 1767,
+      "duration": 1233,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4403,12 +4403,12 @@
       }
     },
     {
-      "name": "login page renders on mobile",
+      "name": "登入頁在手機版正確渲染",
       "spec": "mobile-viewport.spec.ts",
       "tab": "mobile",
-      "group": "Mobile viewport — key pages render correctly",
+      "group": "手機版視窗 — 關鍵頁面正確渲染",
       "status": "pass",
-      "duration": 1421,
+      "duration": 910,
       "shots": [
         "flow/mobile-07-login.png"
       ],
@@ -4430,7 +4430,7 @@
       "tab": "screenshots",
       "group": "Visitor screenshots",
       "status": "pass",
-      "duration": 2508,
+      "duration": 3511,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4443,7 +4443,7 @@
       "tab": "screenshots",
       "group": "Visitor screenshots",
       "status": "pass",
-      "duration": 4244,
+      "duration": 5021,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4456,7 +4456,7 @@
       "tab": "screenshots",
       "group": "Visitor screenshots",
       "status": "pass",
-      "duration": 1545,
+      "duration": 2310,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4469,7 +4469,7 @@
       "tab": "screenshots",
       "group": "Visitor screenshots",
       "status": "pass",
-      "duration": 1683,
+      "duration": 2157,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4482,7 +4482,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2326,
+      "duration": 2571,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4495,7 +4495,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2742,
+      "duration": 2682,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4508,7 +4508,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2500,
+      "duration": 2518,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4521,7 +4521,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2192,
+      "duration": 1826,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4534,7 +4534,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2168,
+      "duration": 2465,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4547,7 +4547,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2059,
+      "duration": 2254,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4560,7 +4560,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2140,
+      "duration": 1994,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4573,7 +4573,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2397,
+      "duration": 2047,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4586,7 +4586,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2251,
+      "duration": 1886,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4599,7 +4599,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2123,
+      "duration": 1961,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4612,7 +4612,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2127,
+      "duration": 1833,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4625,7 +4625,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2004,
+      "duration": 1741,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4638,7 +4638,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2443,
+      "duration": 1796,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4651,7 +4651,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2393,
+      "duration": 1983,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4664,7 +4664,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 2324,
+      "duration": 1834,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4677,7 +4677,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 2591,
+      "duration": 2199,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4690,7 +4690,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 1743,
+      "duration": 1734,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4703,7 +4703,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 2539,
+      "duration": 1897,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4716,7 +4716,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 2322,
+      "duration": 1993,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4729,7 +4729,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 1702,
+      "duration": 1811,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4742,7 +4742,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 1805,
+      "duration": 1994,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4755,7 +4755,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 1813,
+      "duration": 1862,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4768,7 +4768,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 1865,
+      "duration": 1889,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4781,7 +4781,7 @@
       "tab": "screenshots",
       "group": "TA screenshots",
       "status": "pass",
-      "duration": 1759,
+      "duration": 1726,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -4794,7 +4794,7 @@
       "tab": "screenshots",
       "group": "Supervisor screenshots",
       "status": "pass",
-      "duration": 1858,
+      "duration": 1805,
       "shots": [],
       "verification": {
         "method": "api-only",
@@ -5401,10 +5401,21 @@
       "crud/certification-02-score-filled.png",
       "crud/certification-03-toast-success.png",
       "crud/certification-04-table-badges.png",
+      "crud/certifications-smoke-01.png",
+      "crud/certifications-smoke-02.png",
       "crud/classroom-01-dialog-open.png",
       "crud/classroom-02-cohort-selected.png",
       "crud/classroom-03-toast-success.png",
       "crud/classroom-04-detail-page.png",
+      "crud/classroom-detail-01.png",
+      "crud/classroom-detail-02.png",
+      "crud/classroom-detail-03.png",
+      "crud/classroom-detail-04.png",
+      "crud/classroom-detail-05.png",
+      "crud/classroom-detail-06.png",
+      "crud/classroom-smoke-01.png",
+      "crud/classroom-smoke-02.png",
+      "crud/classroom-smoke-03.png",
       "crud/cohort-01-dialog-open.png",
       "crud/cohort-02-form-filled.png",
       "crud/cohort-03-toast-success.png",
@@ -5412,6 +5423,11 @@
       "crud/cohorts-smoke-01-list-page.png",
       "crud/cohorts-smoke-02-table.png",
       "crud/cohorts-smoke-04-create-btn.png",
+      "crud/crm-smoke-01.png",
+      "crud/crm-smoke-02.png",
+      "crud/crm-smoke-03.png",
+      "crud/crm-smoke-04.png",
+      "crud/crm-smoke-05.png",
       "crud/enrollments-01-list-page.png",
       "crud/enrollments-02-table.png",
       "crud/enrollments-03-filter.png",
@@ -5421,10 +5437,31 @@
       "crud/grading-02-grade-filled.png",
       "crud/grading-03-toast-success.png",
       "crud/grading-04-stat-cards.png",
+      "crud/grading-detail-01.png",
+      "crud/grading-detail-02.png",
+      "crud/grading-detail-03.png",
+      "crud/grading-detail-04.png",
+      "crud/grading-smoke-01.png",
+      "crud/grading-smoke-02.png",
+      "crud/grading-smoke-03.png",
       "crud/page-01-editor-loaded.png",
       "crud/page-02-slug-filled.png",
       "crud/page-03-toast-success.png",
       "crud/page-04-list-verified.png",
+      "crud/page-editor-01.png",
+      "crud/page-editor-02.png",
+      "crud/page-editor-03.png",
+      "crud/page-editor-04.png",
+      "crud/pages-smoke-01.png",
+      "crud/pages-smoke-02.png",
+      "crud/pages-smoke-03.png",
+      "crud/pages-smoke-04.png",
+      "crud/pages-smoke-05.png",
+      "crud/products-01.png",
+      "crud/products-02.png",
+      "crud/products-03.png",
+      "crud/products-04.png",
+      "crud/products-05.png",
       "crud/promo-01-dialog-open.png",
       "crud/promo-02-form-filled.png",
       "crud/promo-03-toast-success.png",
@@ -5435,7 +5472,17 @@
       "crud/supervision-01-edit-dialog.png",
       "crud/supervision-02-status-selected.png",
       "crud/supervision-03-toast-success.png",
-      "crud/supervision-04-table.png"
+      "crud/supervision-04-table.png",
+      "crud/supervision-detail-01.png",
+      "crud/supervision-detail-02.png",
+      "crud/supervision-detail-03.png",
+      "crud/supervision-detail-04.png",
+      "crud/supervision-detail-05.png",
+      "crud/supervision-detail-06.png",
+      "crud/supervision-detail-07.png",
+      "crud/supervision-smoke-01.png",
+      "crud/supervision-smoke-02.png",
+      "crud/supervision-smoke-03.png"
     ],
     "flow": [
       "flow/access-01-admin-redirect-login.png",
@@ -5488,6 +5535,14 @@
       "flow/renewal-01-new-application.png",
       "flow/renewal-02-special-buttons.png",
       "flow/renewal-03-cert-status.png",
+      "flow/student-certifications-01.png",
+      "flow/student-certifications-02.png",
+      "flow/student-classroom-01.png",
+      "flow/student-classroom-02.png",
+      "flow/student-crm-01.png",
+      "flow/student-crm-02.png",
+      "flow/student-crm-03.png",
+      "flow/student-crm-04.png",
       "flow/student-enroll-01-dashboard.png",
       "flow/student-enroll-02-enroll-page.png",
       "flow/student-enroll-03-enroll-btn.png",
@@ -5495,6 +5550,8 @@
       "flow/student-enroll-05-records.png",
       "flow/student-enroll-06-pricing-cta.png",
       "flow/student-enroll-07-checkout-failed.png",
+      "flow/student-supervision-01.png",
+      "flow/student-supervision-02.png",
       "flow/upgrade-01-page-heading.png",
       "flow/upgrade-02-upgrade-btn.png",
       "flow/upgrade-03-modal-open.png",
