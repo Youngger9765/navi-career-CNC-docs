@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-17T14:03:54.968Z",
-  "commitSha": "afb3c7e",
+  "generatedAt": "2026-03-17T15:27:53.772Z",
+  "commitSha": "0f41db4",
   "summary": {
     "total": 0,
     "passed": 0,
@@ -601,8 +601,6 @@
       "crud/agents-02-table-columns.png",
       "crud/agents-03-create-btn.png",
       "crud/agents-04-referrals-stats.png",
-      "crud/attendance-01-classroom-detail.png",
-      "crud/attendance-03-status-badges.png",
       "crud/certification-01-dialog-open.png",
       "crud/certification-02-score-filled.png",
       "crud/certification-03-toast-success.png",
@@ -676,12 +674,6 @@
       "flow/enroll-details-06-process-refund-btn.png",
       "flow/enroll-form-01-step1-courses.png",
       "flow/enroll-form-02-early-bird.png",
-      "flow/invoice-01-section-heading.png",
-      "flow/invoice-02-type-buttons.png",
-      "flow/invoice-03-personal-default.png",
-      "flow/invoice-04-company-fields.png",
-      "flow/invoice-05-switch-back-personal.png",
-      "flow/invoice-06-taxid-filled.png",
       "flow/mobile-01-homepage.png",
       "flow/mobile-02-courses.png",
       "flow/mobile-03-enroll.png",
@@ -700,15 +692,7 @@
       "flow/student-enroll-04-form-accessible.png",
       "flow/student-enroll-05-records.png",
       "flow/student-enroll-06-pricing-cta.png",
-      "flow/student-enroll-07-checkout-failed.png",
-      "flow/upgrade-01-page-heading.png",
-      "flow/upgrade-02-upgrade-btn.png",
-      "flow/upgrade-03-modal-open.png",
-      "flow/upgrade-04-modal-buttons.png",
-      "flow/withdraw-01-withdraw-btn.png",
-      "flow/withdraw-02-modal-open.png",
-      "flow/withdraw-03-reason-filled.png",
-      "flow/withdraw-04-modal-plan.png"
+      "flow/student-enroll-07-checkout-failed.png"
     ],
     "prd-gaps": []
   }
