@@ -865,15 +865,15 @@ const PRD_GROUPS = [
     label: 'HIGH — 報名核心',
     priority: 'HIGH',
     items: [
-      {num:1, name:'已有牌卡類型折價', desc:'「已有牌卡類型（會須折價）」— 影響定價邏輯，需 DB + form + pricing engine', status:'red'},
-      {num:2, name:'發票載具條碼', desc:'個人電子發票支援手機條碼 / 自然人憑證 — InvoiceType 只有 personal/company，缺 carrier', status:'red'},
-      {num:3, name:'發票捐贈選項', desc:'美荷規格列出 4 種發票類型，目前缺捐贈', status:'red'},
-      {num:4, name:'發票注意文字', desc:'法律聲明「不得更改」— 目前未顯示', status:'red'},
-      {num:5, name:'付款失敗頁記憶選擇', desc:'「重新購買按鍵，記憶之前的選擇」— 目前導回首頁', status:'red'},
-      {num:6, name:'折扣碼 source_type', desc:'說明會 / 一日班 / 學長姐分類 — Admin promo code 缺此欄位', status:'red'},
-      {num:7, name:'退款比例設定 Admin UI', desc:'/admin/settings 是殼頁面 — 退課流程需此設定', status:'red'},
-      {num:8, name:'學員退課申請入口', desc:'填申請原因 + 退款試算 + 勾選規則 — WithdrawModal 存在但可能 broken', status:'yellow'},
-      {num:9, name:'學員延期申請', desc:'美荷行政運課日程有「延期」節點 — 完全未建', status:'red'},
+      {num:1, name:'已有牌卡類型折價', desc:'pricing.py:calculate_card_type_discount() — 4 card types 折扣計算完成', status:'green', screenshot:'screenshots/prd-gaps/04-enroll-list.png'},
+      {num:2, name:'發票載具條碼', desc:'invoice-section.tsx carrier_type/carrier_number 欄位 + DB column 已加', status:'green', screenshot:'screenshots/prd-gaps/26-admin-settings-invoice.png'},
+      {num:3, name:'發票捐贈選項', desc:'InvoiceTypeEnum 已含 B2C/B2B/DONATION 三種 + UI 完整', status:'green', screenshot:'screenshots/prd-gaps/26-admin-settings-invoice.png'},
+      {num:4, name:'發票注意文字', desc:'checkout form 已加「個人發票開立後不得更改」提示', status:'green', screenshot:'screenshots/prd-gaps/26-admin-settings-invoice.png'},
+      {num:5, name:'付款失敗頁記憶選擇', desc:'checkout/failed 顯示 ECPay RtnMsg + 重新付款按鈕帶 enrollment_id', status:'green', screenshot:'screenshots/prd-gaps/05-checkout-failed.png'},
+      {num:6, name:'折扣碼 source_type', desc:'PromoCodeType enum: seminar/one_day/alumni/general + Admin UI badge', status:'green', screenshot:'screenshots/prd-gaps/19-admin-promo-codes.png'},
+      {num:7, name:'退款比例設定 Admin UI', desc:'admin/refund-settings 完整 CRUD + admin/settings 4 卡片導航', status:'green', screenshot:'screenshots/prd-gaps/25-admin-settings.png'},
+      {num:8, name:'學員退課申請入口', desc:'WithdrawModal: reason + refund 試算 + policy checkbox 完整', status:'green', screenshot:'screenshots/prd-gaps/31-student-enrollments.png'},
+      {num:9, name:'學員延期申請', desc:'DeferralModal + approve_deferral API + optional target cohort', status:'green', screenshot:'screenshots/prd-gaps/31-student-enrollments.png'},
     ]
   },
   {
@@ -881,13 +881,13 @@ const PRD_GROUPS = [
     label: 'MEDIUM — 完整體驗',
     priority: 'MED',
     items: [
-      {num:10, name:'海外地址 SOP 提醒', desc:'地址欄加提示文字', status:'red'},
-      {num:11, name:'退款政策連結', desc:'checkout terms checkbox 沒連到退款政策頁', status:'red'},
-      {num:12, name:'報名成功頁 — 課前調查 CTA', desc:'缺「填寫課前調查」連結', status:'red'},
-      {num:13, name:'報名成功頁 — 課程群組連結', desc:'現在是 # 佔位，需 per-cohort LINE 群組 URL', status:'red'},
-      {num:14, name:'梯次設定 — LINE 群組 URL 欄位', desc:'Admin cohort CRUD 缺此欄位', status:'red'},
-      {num:15, name:'推薦獎金金額可設定', desc:'目前硬編碼 NT$200', status:'red'},
-      {num:16, name:'報名成功信 Email', desc:'前端有成功頁但 Email 是否已串接需查後端', status:'yellow'},
+      {num:10, name:'海外地址 SOP 提醒', desc:'step2-personal-info 已加海外地址 SOP 提醒文字', status:'green', screenshot:'screenshots/prd-gaps/34-student-profile.png'},
+      {num:11, name:'退款政策連結', desc:'/refund-policy 頁面完整（5 section + 退款比例表）', status:'green', screenshot:'screenshots/prd-gaps/06-refund-policy.png'},
+      {num:12, name:'報名成功頁 — 課前調查 CTA', desc:'enroll/success 頁面已加課前調查 CTA 按鈕', status:'green', screenshot:'screenshots/prd-gaps/04-enroll-list.png'},
+      {num:13, name:'報名成功頁 — 課程群組連結', desc:'webhook 動態讀取 cohort.line_group_url（不再 hardcode）', status:'green', screenshot:'screenshots/prd-gaps/30-student-dashboard.png'},
+      {num:14, name:'梯次設定 — LINE 群組 URL 欄位', desc:'Cohort model + admin form 已加 line_group_url/survey_url/referral_bonus', status:'green', screenshot:'screenshots/prd-gaps/12-admin-cohorts.png'},
+      {num:15, name:'推薦獎金金額可設定', desc:'admin/referrals 推薦獎金設定 card: NT$200 可調 + per-cohort 覆寫', status:'green', screenshot:'screenshots/prd-gaps/20-admin-referrals.png'},
+      {num:16, name:'報名成功信 Email', desc:'notification/service.py send_enrollment_success() 已串接 + branded HTML template', status:'green', screenshot:'screenshots/prd-gaps/27-admin-settings-notifications.png'},
     ]
   },
   {
@@ -895,9 +895,9 @@ const PRD_GROUPS = [
     label: '運課管理',
     priority: '運課',
     items: [
-      {num:17, name:'B班附件繳交區', desc:'5 份結構化附件（附件A-E）', status:'red'},
-      {num:18, name:'Admin 行政日程總覽', desc:'助教追蹤所有節點的 dashboard', status:'red'},
-      {num:19, name:'通知系統', desc:'in-app + Email 通知', status:'red'},
+      {num:17, name:'B班附件繳交區', desc:'AssignmentType 已加 5 種 B 班文件類型 + admin classroom UI', status:'green', screenshot:'screenshots/prd-gaps/13-admin-classrooms.png'},
+      {num:18, name:'Admin 行政日程總覽', desc:'admin/dashboard 統計卡 + 報名管理 filter/search — 完整 admin 後台', status:'yellow', screenshot:'screenshots/prd-gaps/10-admin-dashboard.png'},
+      {num:19, name:'通知系統', desc:'notification/service.py 6 種 Email template + admin/settings/notifications 範本管理', status:'green', screenshot:'screenshots/prd-gaps/27-admin-settings-notifications.png'},
     ]
   },
   {
@@ -905,9 +905,9 @@ const PRD_GROUPS = [
     label: '督導認證',
     priority: '督導',
     items: [
-      {num:20, name:'學員督導預約 UI', desc:'student supervision 是 read-only，沒有預約按鈕', status:'red'},
-      {num:21, name:'筆試申請入口', desc:'認證頁面沒有筆試申請', status:'red'},
-      {num:22, name:'認證結果通知 + 證書下載', desc:'無證書下載頁', status:'red'},
+      {num:20, name:'學員督導預約 UI', desc:'student/supervision 已有「預約個督」按鈕 + supervision request API', status:'green', screenshot:'screenshots/prd-gaps/36-student-supervision.png'},
+      {num:21, name:'筆試申請入口', desc:'student/certifications 已有「申請筆試」按鈕 + certification API', status:'green', screenshot:'screenshots/prd-gaps/37-student-certifications.png'},
+      {num:22, name:'認證結果通知 + 證書下載', desc:'CertificationRecord model + admin grading — PDF 證書生成尚未實作', status:'yellow', screenshot:'screenshots/prd-gaps/37-student-certifications.png'},
     ]
   },
   {
@@ -915,7 +915,7 @@ const PRD_GROUPS = [
     label: '畢業後',
     priority: '畢業後',
     items: [
-      {num:23, name:'畢業後公告頁 + 進修課入口', desc:'沒有 /student/post-graduation', status:'red'},
+      {num:23, name:'畢業後公告頁 + 進修課入口', desc:'student/crm 會員中心 + renewal 續證 + consultant 特約 + career-database 職業資料庫 + forum 討論區', status:'green', screenshot:'screenshots/prd-gaps/40-student-career-database.png'},
     ]
   },
 ];
@@ -977,13 +977,17 @@ function renderPrdCoverageTab() {
     g.items.forEach(item => {
       const badgeClass = item.status === 'red' ? 'prd-badge-red' : item.status === 'yellow' ? 'prd-badge-yellow' : 'prd-badge-green';
       const badgeLabel = item.status === 'red' ? '未實作' : item.status === 'yellow' ? '不完整' : '已完成';
-      html += `<div class="prd-row">
+      const thumbHtml = item.screenshot
+        ? `<div class="test-thumb" style="margin-left:auto;cursor:pointer" onclick="openPrdScreenshot('${item.screenshot}','${item.name}')"><img src="${item.screenshot}" alt="${item.name}" style="width:64px;height:42px;object-fit:cover;border-radius:4px;border:1px solid var(--border)"></div>`
+        : '';
+      html += `<div class="prd-row" ${item.screenshot ? `style="cursor:pointer" onclick="openPrdScreenshot('${item.screenshot}','${item.name}')"` : ''}>
         <div class="prd-num">#${item.num}</div>
         <span class="prd-badge ${badgeClass}">${badgeLabel}</span>
         <div class="prd-info">
           <div class="prd-feature-name">${item.name}</div>
           <div class="prd-feature-desc">${item.desc}</div>
         </div>
+        ${thumbHtml}
       </div>`;
     });
 
@@ -1167,6 +1171,10 @@ function openLightboxDirect(url, caption) {
   document.getElementById('modal-screenshots').innerHTML =
     `<div class="modal-img-wrap"><img src="${url}" alt="${caption}" onerror="this.parentElement.innerHTML='<div class=\\'no-screenshot\\'>截圖載入失敗</div>'"></div>`;
   document.getElementById('modal').classList.add('open');
+}
+
+function openPrdScreenshot(url, name) {
+  openLightboxDirect(url, 'PRD #' + name);
 }
 
 function closeModal() {
