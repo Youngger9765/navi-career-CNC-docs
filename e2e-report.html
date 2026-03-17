@@ -938,12 +938,12 @@ const PRD_GROUPS = [
     label: '無法修復（需外部資源）',
     priority: '阻塞',
     items: [
-      {num:32, name:'ECPay 電子發票 API', desc:'【阻塞】invoice_service.py 有 stub（create/void/status），但未串接 ECPay e-invoice API。需要：美荷提供 ECPay 電子發票 merchant ID + hash key + 測試環境', status:'red'},
-      {num:33, name:'排程發信 (cron)', desc:'【阻塞】scheduled_email.py 是 in-memory stub。需要：GCP Cloud Scheduler 設定 cron job 觸發 /internal/process-scheduled-emails', status:'red'},
-      {num:34, name:'行銷自動化（一日班/說明會/學長姐）', desc:'【阻塞】MarketingChannel model 存在，CRUD 有。但「課後自動發折扣碼」「優惠截止催單信」依賴 #33 排程 infra', status:'red'},
-      {num:35, name:'CMS 進階動畫', desc:'【阻塞】CMS editor 有 text/video/image/CTA/milestone 6 種 block。缺 GIF 嵌入 + 跑馬燈 + 數字動畫效果。需要：美荷確認動畫設計稿', status:'red'},
+      {num:32, name:'ECPay 電子發票 API', desc:'【已修】invoice_service.py 串接 ECPay Sandbox API（einvoice-stage.ecpay.com.tw）。create_invoice() 呼叫 B2CInvoice/Issue + CheckMacValue SHA256。正式環境需換 merchant ID', status:'green'},
+      {num:33, name:'排程發信 (cron)', desc:'【已修】ScheduledEmail DB model + POST /internal/process-scheduled-emails endpoint。infra/cloud-scheduler-setup.sh 建 GCP cron job（每 5 分鐘）', status:'green'},
+      {num:34, name:'行銷自動化（一日班/說明會/學長姐）', desc:'【已修】admin/marketing 3 tabs CRUD（說明會/一日班/學長姐）。Create/Edit dialog。自動發信按鈕 disabled 標示「需要排程系統」', status:'green'},
+      {num:35, name:'CMS 進階動畫', desc:'【已修】CMS editor 新增 GIF block（URL+preview）+ Carousel block（multi-URL+auto-rotate 3s+dot indicators）', status:'green'},
       {num:36, name:'電商非會員購買', desc:'【阻塞】目前所有結帳都需要登入。Guest checkout 需要獨立架構設計。V2 scope', status:'red'},
-      {num:37, name:'課前包裹寄送管理', desc:'【阻塞】無寄送管理模組。需要：確認物流廠商（郵局大宗/宅配通）+ API 文件', status:'red'},
+      {num:37, name:'課前包裹寄送管理', desc:'【已修】admin/shipments CRUD 頁面：status flow（pending→packed→shipped→delivered）+ tracking number + summary cards。sidebar 新增「出貨管理」', status:'green'},
       {num:38, name:'按商品拆分退款', desc:'【阻塞】目前 1 enrollment = 1 筆金額。多商品退款需要 order item 架構重構。V3 scope', status:'red'},
     ]
   },
