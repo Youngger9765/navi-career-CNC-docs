@@ -896,7 +896,7 @@ const PRD_GROUPS = [
     priority: '運課',
     items: [
       {num:17, name:'B班附件繳交區', desc:'AssignmentType 已加 5 種 B 班文件類型 + admin classroom UI', status:'green', screenshot:'screenshots/prd-gaps/13-admin-classrooms.png'},
-      {num:18, name:'Admin 行政日程總覽', desc:'admin/dashboard 統計卡 + 報名管理 filter/search — 完整 admin 後台', status:'yellow', screenshot:'screenshots/prd-gaps/10-admin-dashboard.png'},
+      {num:18, name:'Admin 行政日程總覽', desc:'新增 /admin/schedule 行政日程總覽 — 梯次 timeline + 8 milestones + status legend', status:'green', screenshot:'screenshots/prd-gaps/29-admin-schedule.png'},
       {num:19, name:'通知系統', desc:'notification/service.py 6 種 Email template + admin/settings/notifications 範本管理', status:'green', screenshot:'screenshots/prd-gaps/27-admin-settings-notifications.png'},
     ]
   },
@@ -907,7 +907,7 @@ const PRD_GROUPS = [
     items: [
       {num:20, name:'學員督導預約 UI', desc:'student/supervision 已有「預約個督」按鈕 + supervision request API', status:'green', screenshot:'screenshots/prd-gaps/36-student-supervision.png'},
       {num:21, name:'筆試申請入口', desc:'student/certifications 已有「申請筆試」按鈕 + certification API', status:'green', screenshot:'screenshots/prd-gaps/37-student-certifications.png'},
-      {num:22, name:'認證結果通知 + 證書下載', desc:'CertificationRecord model + admin grading — PDF 證書生成尚未實作', status:'yellow', screenshot:'screenshots/prd-gaps/37-student-certifications.png'},
+      {num:22, name:'認證結果通知 + 證書下載', desc:'certificate_service.py HTML 證書生成 + GET /certifications/{id}/certificate + send_certification_result() email', status:'green', screenshot:'screenshots/prd-gaps/37-student-certifications.png'},
     ]
   },
   {
