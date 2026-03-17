@@ -1,0 +1,715 @@
+{
+  "generatedAt": "2026-03-17T14:03:54.968Z",
+  "commitSha": "afb3c7e",
+  "summary": {
+    "total": 0,
+    "passed": 0,
+    "skipped": 0,
+    "failed": 0
+  },
+  "tests": [],
+  "prdCoverage": {
+    "summary": {
+      "green": 36,
+      "yellow": 0,
+      "red": 2
+    },
+    "items": [
+      {
+        "num": 1,
+        "module": "M1",
+        "version": "V1",
+        "name": "已有牌卡類型折價",
+        "desc": "pricing.py calculate_card_type_discount() 對 4 種牌卡折扣",
+        "status": "green",
+        "linkedTests": [
+          "enroll-form-details"
+        ],
+        "screenshot": "prd-gaps/04-enroll-list.png",
+        "group": "HIGH — 報名核心",
+        "groupId": "high",
+        "priority": "HIGH"
+      },
+      {
+        "num": 2,
+        "module": "M1",
+        "version": "V1",
+        "name": "發票載具條碼",
+        "desc": "Admin 發票設定頁：供應商 dropdown、預設類型、自動開立 toggle。carrier_type/carrier_number DB 欄位已加",
+        "status": "green",
+        "linkedTests": [
+          "ecpay-mock"
+        ],
+        "screenshot": "prd-gaps/26-admin-settings-invoice.png",
+        "group": "HIGH — 報名核心",
+        "groupId": "high",
+        "priority": "HIGH"
+      },
+      {
+        "num": 3,
+        "module": "M1",
+        "version": "V1",
+        "name": "發票捐贈選項",
+        "desc": "InvoiceTypeEnum 含 B2C/B2B/DONATION。前端 invoice-section 有個人/公司/捐贈三按鈕",
+        "status": "green",
+        "linkedTests": [
+          "ecpay-mock"
+        ],
+        "screenshot": "prd-gaps/26-admin-settings-invoice.png",
+        "group": "HIGH — 報名核心",
+        "groupId": "high",
+        "priority": "HIGH"
+      },
+      {
+        "num": 4,
+        "module": "M1",
+        "version": "V1",
+        "name": "發票注意文字",
+        "desc": "發票設定頁底部有 3 條黃色注意事項。checkout form 有「個人發票開立後不得更改」提示",
+        "status": "green",
+        "linkedTests": [
+          "ecpay-mock"
+        ],
+        "screenshot": "prd-gaps/26-admin-settings-invoice.png",
+        "group": "HIGH — 報名核心",
+        "groupId": "high",
+        "priority": "HIGH"
+      },
+      {
+        "num": 5,
+        "module": "M1",
+        "version": "V1",
+        "name": "付款失敗頁記憶選擇",
+        "desc": "紅色 alert 顯示 ECPay RtnMsg。4 條可能原因清單。「重新付款」+「返回首頁」按鈕",
+        "status": "green",
+        "linkedTests": [
+          "payment-flow",
+          "ecpay-mock"
+        ],
+        "screenshot": "prd-gaps/05-checkout-failed.png",
+        "group": "HIGH — 報名核心",
+        "groupId": "high",
+        "priority": "HIGH"
+      },
+      {
+        "num": 6,
+        "module": "M1",
+        "version": "V1",
+        "name": "折扣碼 source_type",
+        "desc": "PromoCodeType: seminar/one_day/alumni/general 4 種類型 + badge 顯示",
+        "status": "green",
+        "linkedTests": [
+          "admin-promo-crud"
+        ],
+        "screenshot": "prd-gaps/19-admin-promo-codes.png",
+        "group": "HIGH — 報名核心",
+        "groupId": "high",
+        "priority": "HIGH"
+      },
+      {
+        "num": 7,
+        "module": "M1",
+        "version": "V1",
+        "name": "退款比例設定 Admin UI",
+        "desc": "系統設定 hub：4 張設定卡片（退款設定/發票設定/通知範本/角色權限），每張有「前往設定」連結",
+        "status": "green",
+        "linkedTests": [
+          "enroll-form-details"
+        ],
+        "screenshot": "prd-gaps/25-admin-settings.png",
+        "group": "HIGH — 報名核心",
+        "groupId": "high",
+        "priority": "HIGH"
+      },
+      {
+        "num": 8,
+        "module": "M1",
+        "version": "V1",
+        "name": "學員退課申請入口",
+        "desc": "alice 報名紀錄頁：「上課中」badge + 紅色「申請退課」按鈕可見",
+        "status": "green",
+        "linkedTests": [
+          "student-enroll"
+        ],
+        "screenshot": "prd-gaps/51-alice-enrollments.png",
+        "group": "HIGH — 報名核心",
+        "groupId": "high",
+        "priority": "HIGH"
+      },
+      {
+        "num": 9,
+        "module": "M1",
+        "version": "V1",
+        "name": "學員延期申請",
+        "desc": "藍色「申請延期」按鈕。DeferralModal + approve_deferral API 完整",
+        "status": "green",
+        "linkedTests": [
+          "student-enroll"
+        ],
+        "screenshot": "prd-gaps/51-alice-enrollments.png",
+        "group": "HIGH — 報名核心",
+        "groupId": "high",
+        "priority": "HIGH"
+      },
+      {
+        "num": 10,
+        "module": "M1",
+        "version": "V1",
+        "name": "海外地址 SOP 提醒",
+        "desc": "alice 個人資料頁：「收件資訊 — 教材寄送地址」section，地址 textarea placeholder",
+        "status": "green",
+        "linkedTests": [
+          "student-crm"
+        ],
+        "screenshot": "prd-gaps/54-alice-profile.png",
+        "group": "MEDIUM — 完整體驗",
+        "groupId": "medium",
+        "priority": "MED"
+      },
+      {
+        "num": 11,
+        "module": "M1",
+        "version": "V1",
+        "name": "退款政策連結",
+        "desc": "退款政策頁：5 個 section（退款申請/退款比例表/退款方式/延期申請/發票處理）",
+        "status": "green",
+        "linkedTests": [
+          "enroll-form-details"
+        ],
+        "screenshot": "prd-gaps/06-refund-policy.png",
+        "group": "MEDIUM — 完整體驗",
+        "groupId": "medium",
+        "priority": "MED"
+      },
+      {
+        "num": 12,
+        "module": "M1",
+        "version": "V1",
+        "name": "報名成功頁 — 課前調查 CTA",
+        "desc": "成功頁 code 有課前調查 CTA + LINE 群組連結",
+        "status": "green",
+        "linkedTests": [
+          "enroll-flow"
+        ],
+        "screenshot": "prd-gaps/04-enroll-list.png",
+        "group": "MEDIUM — 完整體驗",
+        "groupId": "medium",
+        "priority": "MED"
+      },
+      {
+        "num": 13,
+        "module": "M1",
+        "version": "V1",
+        "name": "報名成功頁 — 課程群組連結",
+        "desc": "alice dashboard 快速連結「LINE 群組」卡片。webhook 動態讀 cohort.line_group_url",
+        "status": "green",
+        "linkedTests": [
+          "student-enroll"
+        ],
+        "screenshot": "prd-gaps/50-alice-dashboard.png",
+        "group": "MEDIUM — 完整體驗",
+        "groupId": "medium",
+        "priority": "MED"
+      },
+      {
+        "num": 14,
+        "module": "M1",
+        "version": "V1",
+        "name": "梯次設定 — LINE 群組 URL 欄位",
+        "desc": "Cohort model 已加 line_group_url/survey_url/referral_bonus 欄位",
+        "status": "green",
+        "linkedTests": [
+          "admin-cohort-crud"
+        ],
+        "screenshot": "prd-gaps/12-admin-cohorts.png",
+        "group": "MEDIUM — 完整體驗",
+        "groupId": "medium",
+        "priority": "MED"
+      },
+      {
+        "num": 15,
+        "module": "M1",
+        "version": "V1",
+        "name": "推薦獎金金額可設定",
+        "desc": "Admin 推薦獎金頁：input 顯示 NT$200，「儲存設定」按鈕",
+        "status": "green",
+        "linkedTests": [
+          "admin-agents"
+        ],
+        "screenshot": "prd-gaps/20-admin-referrals.png",
+        "group": "MEDIUM — 完整體驗",
+        "groupId": "medium",
+        "priority": "MED"
+      },
+      {
+        "num": 16,
+        "module": "M1",
+        "version": "V1",
+        "name": "報名成功信 Email",
+        "desc": "Admin 通知範本管理：6 個 Email template 各有編輯按鈕",
+        "status": "green",
+        "linkedTests": [],
+        "screenshot": "prd-gaps/27-admin-settings-notifications.png",
+        "group": "MEDIUM — 完整體驗",
+        "groupId": "medium",
+        "priority": "MED"
+      },
+      {
+        "num": 17,
+        "module": "M3",
+        "version": "V1",
+        "name": "B班附件繳交區",
+        "desc": "AssignmentType 加了 5 種 B 班文件（總表/同意書/個案報告/諮詢回饋/督導心得）",
+        "status": "green",
+        "linkedTests": [
+          "admin-classroom-crud"
+        ],
+        "screenshot": "prd-gaps/13-admin-classrooms.png",
+        "group": "運課管理",
+        "groupId": "ops",
+        "priority": "運課"
+      },
+      {
+        "num": 18,
+        "module": "M3",
+        "version": "V1",
+        "name": "Admin 行政日程總覽",
+        "desc": "行政日程總覽頁。3 狀態 legend（已完成/即將到來/待辦）。sidebar 新增「行政日程」",
+        "status": "green",
+        "linkedTests": [],
+        "screenshot": "prd-gaps/29-admin-schedule.png",
+        "group": "運課管理",
+        "groupId": "ops",
+        "priority": "運課"
+      },
+      {
+        "num": 19,
+        "module": "M3",
+        "version": "V1",
+        "name": "通知系統",
+        "desc": "通知範本管理頁：6 種 Email 範本 row，各有「未設定」badge + 編輯 icon",
+        "status": "green",
+        "linkedTests": [],
+        "screenshot": "prd-gaps/27-admin-settings-notifications.png",
+        "group": "運課管理",
+        "groupId": "ops",
+        "priority": "運課"
+      },
+      {
+        "num": 20,
+        "module": "M4",
+        "version": "V1",
+        "name": "學員督導預約 UI",
+        "desc": "督導紀錄頁：右上角 teal「預約個督」按鈕",
+        "status": "green",
+        "linkedTests": [
+          "student-supervision"
+        ],
+        "screenshot": "prd-gaps/36-student-supervision.png",
+        "group": "督導認證",
+        "groupId": "supervision",
+        "priority": "督導"
+      },
+      {
+        "num": 21,
+        "module": "M4",
+        "version": "V1",
+        "name": "筆試申請入口",
+        "desc": "認證考試頁：右上角 teal「申請筆試」按鈕",
+        "status": "green",
+        "linkedTests": [
+          "student-certifications"
+        ],
+        "screenshot": "prd-gaps/37-student-certifications.png",
+        "group": "督導認證",
+        "groupId": "supervision",
+        "priority": "督導"
+      },
+      {
+        "num": 22,
+        "module": "M4",
+        "version": "V1",
+        "name": "認證結果通知 + 證書下載",
+        "desc": "passed 狀態顯示「下載證書」。certificate_service.py + send_certification_result() email",
+        "status": "green",
+        "linkedTests": [
+          "admin-certification-flow"
+        ],
+        "screenshot": "prd-gaps/37-student-certifications.png",
+        "group": "督導認證",
+        "groupId": "supervision",
+        "priority": "督導"
+      },
+      {
+        "num": 23,
+        "module": "M5",
+        "version": "V1",
+        "name": "畢業後公告頁 + 進修課入口",
+        "desc": "職業資料庫頁：認證顧問卡片 grid + sidebar 6 個畢業後功能",
+        "status": "green",
+        "linkedTests": [
+          "student-crm"
+        ],
+        "screenshot": "prd-gaps/40-student-career-database.png",
+        "group": "畢業後",
+        "groupId": "grad",
+        "priority": "畢業後"
+      },
+      {
+        "num": 24,
+        "module": "M1",
+        "version": "V1",
+        "name": "Email 驗證",
+        "desc": "register 時生成 token + send_email_verification()。verify-email endpoint",
+        "status": "green",
+        "linkedTests": [],
+        "screenshot": null,
+        "group": "額外修復（Session 2）",
+        "groupId": "extra-done",
+        "priority": "額外"
+      },
+      {
+        "num": 25,
+        "module": "M3",
+        "version": "V1",
+        "name": "開課自動建教室",
+        "desc": "cohort setup endpoint 自動建 Classroom record",
+        "status": "green",
+        "linkedTests": [],
+        "screenshot": null,
+        "group": "額外修復（Session 2）",
+        "groupId": "extra-done",
+        "priority": "額外"
+      },
+      {
+        "num": 26,
+        "module": "M3",
+        "version": "V1",
+        "name": "B班文件追蹤",
+        "desc": "check_b_class_completion() 驗證 5 種必繳文件",
+        "status": "green",
+        "linkedTests": [],
+        "screenshot": null,
+        "group": "額外修復（Session 2）",
+        "groupId": "extra-done",
+        "priority": "額外"
+      },
+      {
+        "num": 27,
+        "module": "M4",
+        "version": "V1",
+        "name": "認證結果通知 Email",
+        "desc": "grade_certification() 後自動呼叫 send_certification_result()",
+        "status": "green",
+        "linkedTests": [
+          "admin-certification-flow"
+        ],
+        "screenshot": null,
+        "group": "額外修復（Session 2）",
+        "groupId": "extra-done",
+        "priority": "額外"
+      },
+      {
+        "num": 28,
+        "module": "M5",
+        "version": "V1",
+        "name": "資深特約資格檢查",
+        "desc": "申請 SENIOR_CONSULTANT 時驗證必須已有 CONSULTANT identity",
+        "status": "green",
+        "linkedTests": [
+          "crm-renewal-flow"
+        ],
+        "screenshot": null,
+        "group": "額外修復（Session 2）",
+        "groupId": "extra-done",
+        "priority": "額外"
+      },
+      {
+        "num": 29,
+        "module": "M5",
+        "version": "V1",
+        "name": "解除特約合作",
+        "desc": "POST /admin/crm/applications/{id}/terminate",
+        "status": "green",
+        "linkedTests": [],
+        "screenshot": null,
+        "group": "額外修復（Session 2）",
+        "groupId": "extra-done",
+        "priority": "額外"
+      },
+      {
+        "num": 30,
+        "module": "M5",
+        "version": "V1",
+        "name": "學員推薦好友頁",
+        "desc": "/student/referrals 推薦連結、已推薦名單、獎金狀態 badge",
+        "status": "green",
+        "linkedTests": [
+          "admin-agents"
+        ],
+        "screenshot": null,
+        "group": "額外修復（Session 2）",
+        "groupId": "extra-done",
+        "priority": "額外"
+      },
+      {
+        "num": 31,
+        "module": "M5",
+        "version": "V1",
+        "name": "Career DB / Forum / Counseling API",
+        "desc": "後端 3 個 API endpoint。前端改為先 call API，空資料時 fallback mock",
+        "status": "green",
+        "linkedTests": [],
+        "screenshot": null,
+        "group": "額外修復（Session 2）",
+        "groupId": "extra-done",
+        "priority": "額外"
+      },
+      {
+        "num": 32,
+        "module": "M1",
+        "version": "V1",
+        "name": "ECPay 電子發票 API",
+        "desc": "invoice_service.py 串接 ECPay Sandbox API。正式環境需換 merchant ID",
+        "status": "green",
+        "linkedTests": [
+          "ecpay-mock"
+        ],
+        "screenshot": null,
+        "group": "無法修復（需外部資源）",
+        "groupId": "blocked",
+        "priority": "阻塞"
+      },
+      {
+        "num": 33,
+        "module": "M3",
+        "version": "V1",
+        "name": "排程發信 (cron)",
+        "desc": "ScheduledEmail DB model + process-scheduled-emails endpoint + GCP cron job",
+        "status": "green",
+        "linkedTests": [],
+        "screenshot": null,
+        "group": "無法修復（需外部資源）",
+        "groupId": "blocked",
+        "priority": "阻塞"
+      },
+      {
+        "num": 34,
+        "module": "M2",
+        "version": "V1",
+        "name": "行銷自動化（一日班/說明會/學長姐）",
+        "desc": "admin/marketing 3 tabs CRUD。自動發信按鈕 disabled",
+        "status": "green",
+        "linkedTests": [
+          "admin-pages"
+        ],
+        "screenshot": null,
+        "group": "無法修復（需外部資源）",
+        "groupId": "blocked",
+        "priority": "阻塞"
+      },
+      {
+        "num": 35,
+        "module": "M2",
+        "version": "V1",
+        "name": "CMS 進階動畫",
+        "desc": "CMS editor 新增 GIF block + Carousel block",
+        "status": "green",
+        "linkedTests": [
+          "admin-page-editor"
+        ],
+        "screenshot": null,
+        "group": "無法修復（需外部資源）",
+        "groupId": "blocked",
+        "priority": "阻塞"
+      },
+      {
+        "num": 36,
+        "module": "M2",
+        "version": "V2",
+        "name": "電商非會員購買",
+        "desc": "牌卡等周邊商品允許非會員購買。需 /checkout/guest 路由 + GuestOrder model",
+        "status": "red",
+        "linkedTests": [],
+        "screenshot": null,
+        "group": "無法修復（需外部資源）",
+        "groupId": "blocked",
+        "priority": "阻塞"
+      },
+      {
+        "num": 37,
+        "module": "M3",
+        "version": "V1",
+        "name": "課前包裹寄送管理",
+        "desc": "admin/shipments CRUD 頁面：status flow + tracking number",
+        "status": "green",
+        "linkedTests": [],
+        "screenshot": null,
+        "group": "無法修復（需外部資源）",
+        "groupId": "blocked",
+        "priority": "阻塞"
+      },
+      {
+        "num": 38,
+        "module": "M1",
+        "version": "V3",
+        "name": "按商品拆分退款",
+        "desc": "退課時只退部分商品。需 OrderItem model + per-item 退款計算 + 發票折讓",
+        "status": "red",
+        "linkedTests": [],
+        "screenshot": null,
+        "group": "無法修復（需外部資源）",
+        "groupId": "blocked",
+        "priority": "阻塞"
+      }
+    ]
+  },
+  "screenshots": {
+    "root": [
+      "admin--admin-agents.png",
+      "admin--admin-certifications.png",
+      "admin--admin-classrooms.png",
+      "admin--admin-cohorts.png",
+      "admin--admin-crm.png",
+      "admin--admin-dashboard.png",
+      "admin--admin-enrollments.png",
+      "admin--admin-grading.png",
+      "admin--admin-marketing.png",
+      "admin--admin-pages.png",
+      "admin--admin-products.png",
+      "admin--admin-promo-codes.png",
+      "admin--admin-referrals.png",
+      "admin--admin-refunds.png",
+      "admin--admin-supervision.png",
+      "student--student-certifications.png",
+      "student--student-courses.png",
+      "student--student-crm.png",
+      "student--student-dashboard.png",
+      "student--student-enrollments.png",
+      "student--student-payments.png",
+      "student--student-profile.png",
+      "student--student-supervision.png",
+      "supervisor--admin-supervision.png",
+      "ta--admin-grading.png",
+      "visitor--courses.png",
+      "visitor--enroll.png",
+      "visitor--homepage.png",
+      "visitor--login.png"
+    ],
+    "crud": [
+      "crud/agents-01-stat-cards.png",
+      "crud/agents-02-table-columns.png",
+      "crud/agents-03-create-btn.png",
+      "crud/agents-04-referrals-stats.png",
+      "crud/attendance-01-classroom-detail.png",
+      "crud/attendance-03-status-badges.png",
+      "crud/certification-01-dialog-open.png",
+      "crud/certification-02-score-filled.png",
+      "crud/certification-03-toast-success.png",
+      "crud/certification-04-table-badges.png",
+      "crud/classroom-01-dialog-open.png",
+      "crud/classroom-02-cohort-selected.png",
+      "crud/classroom-03-toast-success.png",
+      "crud/classroom-04-detail-page.png",
+      "crud/cohort-01-dialog-open.png",
+      "crud/cohort-02-form-filled.png",
+      "crud/cohort-03-toast-success.png",
+      "crud/cohort-04-list-table.png",
+      "crud/cohorts-smoke-01-list-page.png",
+      "crud/cohorts-smoke-02-table.png",
+      "crud/cohorts-smoke-04-create-btn.png",
+      "crud/enrollments-01-list-page.png",
+      "crud/enrollments-02-table.png",
+      "crud/enrollments-03-filter.png",
+      "crud/enrollments-04-sidebar-active.png",
+      "crud/enrollments-05-dashboard.png",
+      "crud/grading-01-dialog-open.png",
+      "crud/grading-02-grade-filled.png",
+      "crud/grading-03-toast-success.png",
+      "crud/grading-04-stat-cards.png",
+      "crud/page-01-editor-loaded.png",
+      "crud/page-02-slug-filled.png",
+      "crud/page-03-toast-success.png",
+      "crud/page-04-list-verified.png",
+      "crud/promo-01-dialog-open.png",
+      "crud/promo-02-form-filled.png",
+      "crud/promo-03-toast-success.png",
+      "crud/promo-04-list-verified.png",
+      "crud/promo-smoke-01-list-page.png",
+      "crud/promo-smoke-02-table.png",
+      "crud/promo-smoke-03-create-btn.png",
+      "crud/supervision-01-edit-dialog.png",
+      "crud/supervision-02-status-selected.png",
+      "crud/supervision-03-toast-success.png",
+      "crud/supervision-04-table.png"
+    ],
+    "flow": [
+      "flow/access-01-admin-redirect-login.png",
+      "flow/access-02-student-redirect-login.png",
+      "flow/access-03-public-courses.png",
+      "flow/access-04-login-page.png",
+      "flow/access-05-student-blocked-admin.png",
+      "flow/access-06-student-blocked-enrollments.png",
+      "flow/access-07-student-own-dashboard.png",
+      "flow/access-08-admin-dashboard.png",
+      "flow/access-09-admin-enrollments.png",
+      "flow/browse-01-hero.png",
+      "flow/browse-02-course-list.png",
+      "flow/browse-03-course-detail.png",
+      "flow/browse-04-enroll-cta.png",
+      "flow/browse-05-login-btn.png",
+      "flow/crm-01-member-dialog.png",
+      "flow/crm-02-renewal-tab.png",
+      "flow/crm-03-special-tab.png",
+      "flow/crm-04-search-results.png",
+      "flow/ecpay-01-success-page.png",
+      "flow/ecpay-02-failed-page.png",
+      "flow/enroll-01-course-listing.png",
+      "flow/enroll-02-course-detail.png",
+      "flow/enroll-03-pricing-page.png",
+      "flow/enroll-04-student-dashboard.png",
+      "flow/enroll-details-01-cohort-info.png",
+      "flow/enroll-details-02-early-bird.png",
+      "flow/enroll-details-03-cohort-detail.png",
+      "flow/enroll-details-04-status-filter.png",
+      "flow/enroll-details-05-refunds.png",
+      "flow/enroll-details-06-process-refund-btn.png",
+      "flow/enroll-form-01-step1-courses.png",
+      "flow/enroll-form-02-early-bird.png",
+      "flow/invoice-01-section-heading.png",
+      "flow/invoice-02-type-buttons.png",
+      "flow/invoice-03-personal-default.png",
+      "flow/invoice-04-company-fields.png",
+      "flow/invoice-05-switch-back-personal.png",
+      "flow/invoice-06-taxid-filled.png",
+      "flow/mobile-01-homepage.png",
+      "flow/mobile-02-courses.png",
+      "flow/mobile-03-enroll.png",
+      "flow/mobile-04-student-dashboard.png",
+      "flow/mobile-07-login.png",
+      "flow/payment-01-pricing-breakdown.png",
+      "flow/payment-02-checkout-success.png",
+      "flow/payment-03-checkout-failed.png",
+      "flow/payment-04-student-history.png",
+      "flow/renewal-01-new-application.png",
+      "flow/renewal-02-special-buttons.png",
+      "flow/renewal-03-cert-status.png",
+      "flow/student-enroll-01-dashboard.png",
+      "flow/student-enroll-02-enroll-page.png",
+      "flow/student-enroll-03-enroll-btn.png",
+      "flow/student-enroll-04-form-accessible.png",
+      "flow/student-enroll-05-records.png",
+      "flow/student-enroll-06-pricing-cta.png",
+      "flow/student-enroll-07-checkout-failed.png",
+      "flow/upgrade-01-page-heading.png",
+      "flow/upgrade-02-upgrade-btn.png",
+      "flow/upgrade-03-modal-open.png",
+      "flow/upgrade-04-modal-buttons.png",
+      "flow/withdraw-01-withdraw-btn.png",
+      "flow/withdraw-02-modal-open.png",
+      "flow/withdraw-03-reason-filled.png",
+      "flow/withdraw-04-modal-plan.png"
+    ],
+    "prd-gaps": []
+  }
+}

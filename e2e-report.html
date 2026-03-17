@@ -8,7 +8,6 @@
 :root{--teal:#37A6A9;--gold:#F9C04C;--navy:#17335F;--pass:#22c55e;--skip:#f59e0b;--fail:#ef4444;--bg:#f8fafc;--card:#fff;--border:#e2e8f0;--text:#1e293b;--muted:#64748b;--prd-red:#dc2626;--prd-red-bg:#fef2f2;--prd-red-border:#fecaca;--prd-yellow:#b45309;--prd-yellow-bg:#fffbeb;--prd-yellow-border:#fde68a;--prd-green:#166534;--prd-green-bg:#f0fdf4;--prd-green-border:#bbf7d0}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:14px}
-/* sticky summary bar */
 .summary-bar{position:sticky;top:0;z-index:100;background:var(--navy);color:#fff;display:flex;align-items:center;gap:20px;padding:10px 24px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
 .summary-bar .title{font-size:17px;font-weight:700;color:var(--gold);margin-right:12px;white-space:nowrap}
 .summary-bar .stat{display:flex;align-items:center;gap:5px;font-size:12px}
@@ -20,16 +19,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .progress-wrap{flex:1;background:rgba(255,255,255,.15);border-radius:99px;height:6px;min-width:100px}
 .progress-fill{height:6px;border-radius:99px;background:var(--pass)}
 .duration{font-size:11px;color:rgba(255,255,255,.6);margin-left:auto;white-space:nowrap}
-/* tabs */
 .tabs-wrap{background:var(--card);border-bottom:1px solid var(--border);position:sticky;top:50px;z-index:99;overflow-x:auto}
 .tabs{display:flex;padding:0 24px;gap:2px}
 .tab-btn{padding:8px 14px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s}
 .tab-btn.active{color:var(--teal);border-bottom-color:var(--teal)}
 .tab-btn:hover{color:var(--text)}
-/* main content */
 .main{padding:16px 24px;max-width:1400px;margin:0 auto}
 .tab-panel{display:none}.tab-panel.active{display:block}
-/* module header */
 .module-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
 .module-badge{background:var(--teal);color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px}
 .module-title{font-size:18px;font-weight:700;color:var(--navy)}
@@ -37,10 +33,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .ms{padding:2px 7px;border-radius:99px;font-weight:600}
 .ms-pass{background:#dcfce7;color:#166534}
 .ms-skip{background:#fef9c3;color:#854d0e}
-/* spec group */
+.ms-fail{background:#fee2e2;color:#991b1b}
 .spec-group{margin-bottom:16px}
 .spec-group-title{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:4px 0;border-bottom:1px solid var(--border);margin-bottom:6px}
-/* test row — compact */
 .test-row{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:6px;margin-bottom:2px;background:var(--card);border:1px solid var(--border);cursor:pointer;transition:background .1s}
 .test-row:hover{background:#f1f5f9;border-color:var(--teal)}
 .test-status{width:18px;height:18px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700}
@@ -52,10 +47,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .test-meta{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .api-badge{display:inline-block;background:#ede9fe;color:#6d28d9;font-size:10px;font-weight:600;padding:1px 5px;border-radius:4px}
 .skip-badge{display:inline-block;background:#fef9c3;color:#854d0e;font-size:10px;font-weight:600;padding:1px 5px;border-radius:4px}
-/* thumbnail inline */
+.fail-badge{display:inline-block;background:#fee2e2;color:#dc2626;font-size:10px;font-weight:600;padding:1px 5px;border-radius:4px}
 .test-thumb{flex-shrink:0}
 .test-thumb img{width:48px;height:32px;object-fit:cover;border-radius:3px;border:1px solid var(--border)}
-/* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9999;align-items:flex-start;justify-content:center;padding:40px 24px;overflow-y:auto}
 .modal-overlay.open{display:flex}
 .modal-box{background:#fff;border-radius:12px;max-width:860px;width:100%;padding:24px;position:relative;margin:auto}
@@ -66,6 +60,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .modal-badge{font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px}
 .mb-pass{background:#dcfce7;color:#166534}
 .mb-skip{background:#fef9c3;color:#854d0e}
+.mb-fail{background:#fee2e2;color:#991b1b}
 .mb-api{background:#ede9fe;color:#6d28d9}
 .modal-screenshots{margin-top:16px}
 .modal-screenshots h4{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;margin-bottom:10px}
@@ -73,7 +68,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .modal-img-wrap img{max-width:100%;border-radius:6px;border:1px solid var(--border);display:block}
 .modal-img-caption{font-size:11px;color:var(--muted);margin-top:4px;text-align:center}
 .no-screenshot{background:#f8fafc;border:1px dashed var(--border);border-radius:6px;padding:16px;text-align:center;color:var(--muted);font-size:13px}
-/* PRD Coverage */
 .prd-cover-hero{background:var(--navy);border-radius:10px;padding:20px 24px;margin-bottom:20px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
 .prd-cover-title{font-size:20px;font-weight:700;color:#fff;margin-bottom:2px}
 .prd-cover-sub{font-size:12px;color:rgba(255,255,255,.6)}
@@ -82,6 +76,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .prd-cover-pct-label{font-size:12px;color:rgba(255,255,255,.6);margin-top:2px}
 .prd-cover-bar-wrap{background:rgba(255,255,255,.15);border-radius:99px;height:8px;margin-top:8px}
 .prd-cover-bar{height:8px;border-radius:99px;background:var(--gold)}
+.prd-filter{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.prd-filter-btn{padding:4px 12px;border:1px solid var(--border);border-radius:99px;background:var(--card);cursor:pointer;font-size:12px;font-weight:500;color:var(--muted);transition:all .15s}
+.prd-filter-btn.active{background:var(--teal);color:#fff;border-color:var(--teal)}
+.prd-filter-btn:hover{border-color:var(--teal)}
 .prd-legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:18px}
 .prd-legend-item{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--text)}
 .prd-legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
@@ -106,8 +104,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .prd-info{flex:1;min-width:0}
 .prd-feature-name{font-size:14px;font-weight:600;color:var(--text)}
 .prd-feature-desc{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.4}
-.prd-priority-tag{display:inline-block;font-size:10px;font-weight:600;padding:1px 6px;border-radius:4px;margin-right:4px;background:#ede9fe;color:#6d28d9}
-/* gallery */
+.prd-version-tag{display:inline-block;font-size:10px;font-weight:600;padding:1px 6px;border-radius:4px;margin-right:4px;background:#ede9fe;color:#6d28d9}
+.prd-module-tag{display:inline-block;font-size:10px;font-weight:600;padding:1px 6px;border-radius:4px;margin-right:4px;background:#e0f2fe;color:#0369a1}
 .gallery-section{margin-top:24px}
 .gallery-title{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:14px;padding-bottom:6px;border-bottom:2px solid var(--teal)}
 .gallery-cat{margin-bottom:20px}
@@ -117,6 +115,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .gallery-item img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:5px;border:1px solid var(--border);transition:all .15s}
 .gallery-item:hover img{border-color:var(--teal);box-shadow:0 3px 10px rgba(55,166,169,.25)}
 .gallery-item p{font-size:11px;color:var(--muted);margin-top:3px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.loading{text-align:center;padding:60px 24px;color:var(--muted);font-size:16px}
+.error-msg{text-align:center;padding:60px 24px;color:var(--fail);font-size:16px}
 </style>
 </head>
 <body>
@@ -124,37 +124,27 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <!-- SUMMARY BAR -->
 <div class="summary-bar">
   <span class="title">CNC E2E 測試報告</span>
-  <div class="stat stat-total"><span class="num">182</span><span>總計</span></div>
-  <div class="stat stat-pass"><span class="num">169</span><span>通過</span></div>
-  <div class="stat stat-skip"><span class="num">13</span><span>略過</span></div>
-  <div class="stat stat-fail"><span class="num">0</span><span>失敗</span></div>
-  <div class="progress-wrap"><div class="progress-fill" style="width:92.9%"></div></div>
-  <span class="duration">耗時 ~1.8 分鐘 &nbsp;|&nbsp; 2026-03-16</span>
+  <div class="stat stat-total"><span class="num" id="s-total">-</span><span>總計</span></div>
+  <div class="stat stat-pass"><span class="num" id="s-pass">-</span><span>通過</span></div>
+  <div class="stat stat-skip"><span class="num" id="s-skip">-</span><span>略過</span></div>
+  <div class="stat stat-fail"><span class="num" id="s-fail">-</span><span>失敗</span></div>
+  <div class="progress-wrap"><div class="progress-fill" id="s-bar" style="width:0%"></div></div>
+  <span class="duration" id="s-meta"></span>
 </div>
 
 <!-- TABS -->
 <div class="tabs-wrap">
-  <div class="tabs">
-    <button class="tab-btn active" onclick="showTab('prd',this)">PRD 覆蓋率</button>
-    <button class="tab-btn" onclick="showTab('m1',this)">M1 報名金流</button>
-    <button class="tab-btn" onclick="showTab('m2',this)">M2 行銷頁面</button>
-    <button class="tab-btn" onclick="showTab('m3',this)">M3 運課管理</button>
-    <button class="tab-btn" onclick="showTab('m4',this)">M4 督導認證</button>
-    <button class="tab-btn" onclick="showTab('m5',this)">M5 會員 CRM</button>
-    <button class="tab-btn" onclick="showTab('access',this)">權限控管</button>
-    <button class="tab-btn" onclick="showTab('mobile',this)">手機版</button>
-    <button class="tab-btn" onclick="showTab('screenshots',this)">截圖總覽</button>
-  </div>
+  <div class="tabs" id="tab-buttons"></div>
 </div>
 
 <div class="main" id="main-content">
-  <!-- tabs rendered by JS -->
+  <div class="loading">載入報告資料中...</div>
 </div>
 
 <!-- MODAL -->
 <div class="modal-overlay" id="modal" onclick="closeModalIfBg(event)">
   <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()">×</button>
+    <button class="modal-close" onclick="closeModal()">&times;</button>
     <div class="modal-title" id="modal-title"></div>
     <div class="modal-meta" id="modal-meta"></div>
     <div class="modal-screenshots" id="modal-screenshots"></div>
@@ -162,690 +152,31 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </div>
 
 <script>
+/* ===================================================================
+ * CNC E2E Report — JSON-driven dashboard
+ * Data source: report-data.json (generated by generate-report-data.js)
+ * All rendering is driven by DATA; no hardcoded test data in HTML.
+ * NOTE: All dynamic content is escaped via escHtml/escAttr before
+ * insertion. Data source is our own CI-generated JSON, not user input.
+ * =================================================================== */
 const BASE = 'https://youngger9765.github.io/navi-career-CNC-docs/screenshots/';
 
-// Page-level fallback map: path segment → root screenshot filename
 const PAGE_FALLBACK = {
-  '/admin/cohorts': 'admin--admin-cohorts.png',
-  '/admin/enrollments': 'admin--admin-enrollments.png',
-  '/admin/pages': 'admin--admin-pages.png',
-  '/admin/products': 'admin--admin-products.png',
-  '/admin/classrooms': 'admin--admin-classrooms.png',
-  '/admin/grading': 'admin--admin-grading.png',
-  '/admin/supervision': 'admin--admin-supervision.png',
-  '/admin/certifications': 'admin--admin-certifications.png',
-  '/admin/crm': 'admin--admin-crm.png',
-  '/admin/agents': 'admin--admin-agents.png',
-  '/admin/marketing': 'admin--admin-marketing.png',
-  '/admin/refunds': 'admin--admin-refunds.png',
-  '/admin/promo-codes': 'admin--admin-promo-codes.png',
-  '/admin/referrals': 'admin--admin-referrals.png',
-  '/admin/dashboard': 'admin--admin-dashboard.png',
-  '/student/dashboard': 'student--student-dashboard.png',
-  '/student/enrollments': 'student--student-enrollments.png',
-  '/student/courses': 'student--student-courses.png',
-  '/student/payments': 'student--student-payments.png',
-  '/student/crm': 'student--student-crm.png',
-  '/student/supervision': 'student--student-supervision.png',
-  '/student/certifications': 'student--student-certifications.png',
-  '/student/profile': 'student--student-profile.png',
-  '/courses': 'visitor--courses.png',
-  '/enroll': 'visitor--enroll.png',
-  '/login': 'visitor--login.png',
-  '/': 'visitor--homepage.png',
+  '/admin/cohorts':'admin--admin-cohorts.png','/admin/enrollments':'admin--admin-enrollments.png',
+  '/admin/pages':'admin--admin-pages.png','/admin/products':'admin--admin-products.png',
+  '/admin/classrooms':'admin--admin-classrooms.png','/admin/grading':'admin--admin-grading.png',
+  '/admin/supervision':'admin--admin-supervision.png','/admin/certifications':'admin--admin-certifications.png',
+  '/admin/crm':'admin--admin-crm.png','/admin/agents':'admin--admin-agents.png',
+  '/admin/marketing':'admin--admin-marketing.png','/admin/refunds':'admin--admin-refunds.png',
+  '/admin/promo-codes':'admin--admin-promo-codes.png','/admin/referrals':'admin--admin-referrals.png',
+  '/admin/dashboard':'admin--admin-dashboard.png','/student/dashboard':'student--student-dashboard.png',
+  '/student/enrollments':'student--student-enrollments.png','/student/courses':'student--student-courses.png',
+  '/student/payments':'student--student-payments.png','/student/crm':'student--student-crm.png',
+  '/student/supervision':'student--student-supervision.png','/student/certifications':'student--student-certifications.png',
+  '/student/profile':'student--student-profile.png','/courses':'visitor--courses.png',
+  '/enroll':'visitor--enroll.png','/login':'visitor--login.png','/':'visitor--homepage.png',
 };
 
-// Helper: resolve screenshot URLs for a test
-// primary: array of specific screenshot paths (relative, can be 'flow/xxx.png' or 'crud/xxx.png')
-// pages: array of page paths visited (for fallback)
-// apiOnly: bool
-function resolveScreenshots(primary, pages, apiOnly) {
-  if (apiOnly) return [];
-  const urls = [];
-  if (primary && primary.length) {
-    primary.forEach(p => urls.push({url: BASE + p, label: ''}));
-  }
-  if (urls.length === 0 && pages && pages.length) {
-    // try each page for a fallback
-    for (const pg of pages) {
-      const f = PAGE_FALLBACK[pg];
-      if (f) { urls.push({url: BASE + f, label: '頁面截圖'}); break; }
-    }
-  }
-  return urls;
-}
-
-// All 182 tests
-// format: {name, spec, status('pass'|'skip'), pages:[], shots:[], apiOnly:bool}
-// shots = specific screenshot paths relative to BASE
-// pages = page paths visited for fallback lookup
-const TESTS = [
-/* ===== ACCESS CONTROL ===== */
-{tab:'access', group:'未認證訪客（role-guards）',
- name:'未認證訪客造訪 /admin/dashboard 被重導至登入頁', spec:'access-control/role-guards.spec.ts',
- status:'pass', pages:['/admin/dashboard','/login'], shots:['flow/access-01-admin-redirect-login.png']},
-{tab:'access', group:'未認證訪客（role-guards）',
- name:'未認證訪客造訪 /student/dashboard 被重導至登入頁', spec:'access-control/role-guards.spec.ts',
- status:'pass', pages:['/student/dashboard','/login'], shots:['flow/access-02-student-redirect-login.png']},
-{tab:'access', group:'未認證訪客（role-guards）',
- name:'訪客可存取公開 /courses 頁面', spec:'access-control/role-guards.spec.ts',
- status:'pass', pages:['/courses'], shots:['flow/access-03-public-courses.png']},
-{tab:'access', group:'未認證訪客（role-guards）',
- name:'訪客可存取登入頁', spec:'access-control/role-guards.spec.ts',
- status:'pass', pages:['/login'], shots:['flow/access-04-login-page.png']},
-{tab:'access', group:'學員存取管理員頁面（role-guards）',
- name:'學員存取 /admin/dashboard 被封鎖', spec:'access-control/role-guards.spec.ts',
- status:'pass', pages:['/admin/dashboard'], shots:['flow/access-05-student-blocked-admin.png']},
-{tab:'access', group:'學員存取管理員頁面（role-guards）',
- name:'學員存取 /admin/enrollments 被封鎖', spec:'access-control/role-guards.spec.ts',
- status:'pass', pages:['/admin/enrollments'], shots:['flow/access-06-student-blocked-enrollments.png']},
-{tab:'access', group:'學員存取管理員頁面（role-guards）',
- name:'學員可存取 /student/dashboard', spec:'access-control/role-guards.spec.ts',
- status:'pass', pages:['/student/dashboard'], shots:['flow/access-07-student-own-dashboard.png']},
-{tab:'access', group:'管理員可存取管理頁面（role-guards）',
- name:'管理員可存取 /admin/dashboard', spec:'access-control/role-guards.spec.ts',
- status:'pass', pages:['/admin/dashboard'], shots:['flow/access-08-admin-dashboard.png']},
-{tab:'access', group:'管理員可存取管理頁面（role-guards）',
- name:'管理員可存取 /admin/enrollments', spec:'access-control/role-guards.spec.ts',
- status:'pass', pages:['/admin/enrollments'], shots:['flow/access-09-admin-enrollments.png']},
-{tab:'access', group:'API 層級權限（role-guards）',
- name:'學員 Token 無法存取管理員 API 端點', spec:'access-control/role-guards.spec.ts',
- status:'pass', pages:[], shots:[], apiOnly:true},
-{tab:'access', group:'API 層級權限（role-guards）',
- name:'未認證請求受保護 API 返回 401/403', spec:'access-control/role-guards.spec.ts',
- status:'pass', pages:[], shots:[], apiOnly:true},
-
-/* ===== M1 ===== */
-{tab:'m1', group:'訪客瀏覽課程（public-browse）',
- name:'首頁載入 Hero 區塊與課程列表', spec:'m1-registration/public-browse.spec.ts',
- status:'pass', pages:['/'], shots:['flow/browse-01-hero.png']},
-{tab:'m1', group:'訪客瀏覽課程（public-browse）',
- name:'訪客瀏覽 /courses 課程列表頁', spec:'m1-registration/public-browse.spec.ts',
- status:'pass', pages:['/courses'], shots:['flow/browse-02-course-list.png','visitor--courses.png']},
-{tab:'m1', group:'訪客瀏覽課程（public-browse）',
- name:'訪客點擊課程進入詳情頁', spec:'m1-registration/public-browse.spec.ts',
- status:'pass', pages:['/courses'], shots:['flow/browse-03-course-detail.png']},
-{tab:'m1', group:'訪客瀏覽課程（public-browse）',
- name:'訪客在課程詳情頁看到報名 CTA', spec:'m1-registration/public-browse.spec.ts',
- status:'pass', pages:['/courses'], shots:['flow/browse-04-enroll-cta.png']},
-{tab:'m1', group:'訪客瀏覽課程（public-browse）',
- name:'未登入訪客 Header 顯示登入按鈕', spec:'m1-registration/public-browse.spec.ts',
- status:'pass', pages:['/'], shots:['flow/browse-05-login-btn.png','visitor--homepage.png']},
-
-{tab:'m1', group:'報名流程 End-to-End（enroll-flow）',
- name:'訪客瀏覽課程 → 課程詳情 → 看到報名 CTA', spec:'m1-registration/enroll-flow.spec.ts',
- status:'pass', pages:['/courses'], shots:['flow/enroll-01-course-listing.png','flow/enroll-02-course-detail.png']},
-{tab:'m1', group:'報名流程 End-to-End（enroll-flow）',
- name:'訪客進入報名頁並看到梯次定價', spec:'m1-registration/enroll-flow.spec.ts',
- status:'pass', pages:['/enroll'], shots:['flow/enroll-03-pricing-page.png','visitor--enroll.png']},
-{tab:'m1', group:'報名流程 End-to-End（enroll-flow）',
- name:'學員儀表板顯示快速連結與報名狀態', spec:'m1-registration/enroll-flow.spec.ts',
- status:'pass', pages:['/student/dashboard'], shots:['flow/enroll-04-student-dashboard.png','student--student-dashboard.png']},
-{tab:'m1', group:'報名流程 End-to-End（enroll-flow）',
- name:'學員可透過側邊欄導航連結切換頁面', spec:'m1-registration/enroll-flow.spec.ts',
- status:'pass', pages:['/student/dashboard'], shots:[]},
-
-{tab:'m1', group:'報名表單詳情與定價（enroll-form-details）',
- name:'報名頁顯示梯次資訊：課型、日期、名額、定價', spec:'m1-registration/enroll-form-details.spec.ts',
- status:'pass', pages:['/enroll'], shots:['flow/enroll-details-01-cohort-info.png']},
-{tab:'m1', group:'報名表單詳情與定價（enroll-form-details）',
- name:'報名頁顯示早鳥與一般定價', spec:'m1-registration/enroll-form-details.spec.ts',
- status:'pass', pages:['/enroll'], shots:['flow/enroll-details-02-early-bird.png']},
-{tab:'m1', group:'報名表單詳情與定價（enroll-form-details）',
- name:'梯次詳情頁顯示設定狀態與統計數據', spec:'m1-registration/enroll-form-details.spec.ts',
- status:'pass', pages:['/admin/cohorts'], shots:['flow/enroll-details-03-cohort-detail.png','admin--admin-cohorts.png']},
-{tab:'m1', group:'報名表單詳情與定價（enroll-form-details）',
- name:'管理員報名頁可依狀態篩選', spec:'m1-registration/enroll-form-details.spec.ts',
- status:'pass', pages:['/admin/enrollments'], shots:['flow/enroll-details-04-status-filter.png']},
-{tab:'m1', group:'報名表單詳情與定價（enroll-form-details）',
- name:'管理員退款頁顯示待處理與已完成退款', spec:'m1-registration/enroll-form-details.spec.ts',
- status:'pass', pages:['/admin/refunds'], shots:['flow/enroll-details-05-refunds.png','admin--admin-refunds.png']},
-{tab:'m1', group:'報名表單詳情與定價（enroll-form-details）',
- name:'退款頁有「處理退款」按鈕', spec:'m1-registration/enroll-form-details.spec.ts',
- status:'pass', pages:['/admin/refunds'], shots:['flow/enroll-details-06-process-refund-btn.png']},
-
-{tab:'m1', group:'多步驟報名表單（enroll-form-fill）',
- name:'訪客進入梯次報名頁，看到步驟一', spec:'m1-registration/enroll-form-fill.spec.ts',
- status:'pass', pages:['/enroll'], shots:['flow/enroll-form-01-step1-courses.png']},
-{tab:'m1', group:'多步驟報名表單（enroll-form-fill）',
- name:'步驟一顯示早鳥定價（如適用）', spec:'m1-registration/enroll-form-fill.spec.ts',
- status:'pass', pages:['/enroll'], shots:['flow/enroll-form-02-early-bird.png']},
-{tab:'m1', group:'多步驟報名表單（enroll-form-fill）',
- name:'步驟二顯示個人資訊填寫欄位', spec:'m1-registration/enroll-form-fill.spec.ts',
- status:'pass', pages:['/enroll'], shots:[]},
-{tab:'m1', group:'多步驟報名表單（enroll-form-fill）',
- name:'步驟三顯示優惠碼輸入框與報名摘要', spec:'m1-registration/enroll-form-fill.spec.ts',
- status:'pass', pages:['/enroll'], shots:[]},
-
-{tab:'m1', group:'學員報名流程（student-enroll）',
- name:'學員登入後看到儀表板', spec:'m1-registration/student-enroll.spec.ts',
- status:'pass', pages:['/student/dashboard'], shots:['flow/student-enroll-01-dashboard.png']},
-{tab:'m1', group:'學員報名流程（student-enroll）',
- name:'學員可導覽至 /enroll 報名頁', spec:'m1-registration/student-enroll.spec.ts',
- status:'pass', pages:['/enroll'], shots:['flow/student-enroll-02-enroll-page.png']},
-{tab:'m1', group:'學員報名流程（student-enroll）',
- name:'學員可瀏覽課程並選擇梯次', spec:'m1-registration/student-enroll.spec.ts',
- status:'pass', pages:['/enroll'], shots:['flow/student-enroll-03-enroll-btn.png']},
-{tab:'m1', group:'學員報名流程（student-enroll）',
- name:'學員可進入梯次報名表單', spec:'m1-registration/student-enroll.spec.ts',
- status:'pass', pages:['/enroll'], shots:['flow/student-enroll-04-form-accessible.png']},
-{tab:'m1', group:'學員報名流程（student-enroll）',
- name:'學員可查看自己的報名紀錄', spec:'m1-registration/student-enroll.spec.ts',
- status:'pass', pages:['/student/enrollments'], shots:['flow/student-enroll-05-records.png','student--student-enrollments.png']},
-{tab:'m1', group:'學員報名流程（student-enroll）',
- name:'報名頁顯示梯次定價與報名 CTA', spec:'m1-registration/student-enroll.spec.ts',
- status:'pass', pages:['/enroll'], shots:['flow/student-enroll-06-pricing-cta.png']},
-{tab:'m1', group:'學員報名流程（student-enroll）',
- name:'結帳失敗頁面存在', spec:'m1-registration/student-enroll.spec.ts',
- status:'pass', pages:['/enroll'], shots:['flow/student-enroll-07-checkout-failed.png']},
-{tab:'m1', group:'學員報名流程（student-enroll）',
- name:'alice（已報名學員）看到她的報名', spec:'m1-registration/student-enroll.spec.ts',
- status:'pass', pages:['/student/enrollments'], shots:['prd-gaps/51-alice-enrollments.png']},
-
-{tab:'m1', group:'付款與結帳流程（payment-flow）',
- name:'報名頁顯示完整梯次定價明細', spec:'m1-registration/payment-flow.spec.ts',
- status:'pass', pages:['/enroll'], shots:['flow/payment-01-pricing-breakdown.png']},
-{tab:'m1', group:'付款與結帳流程（payment-flow）',
- name:'結帳成功頁面正確渲染', spec:'m1-registration/payment-flow.spec.ts',
- status:'pass', pages:['/enroll'], shots:['flow/payment-02-checkout-success.png']},
-{tab:'m1', group:'付款與結帳流程（payment-flow）',
- name:'結帳失敗頁面顯示重試選項', spec:'m1-registration/payment-flow.spec.ts',
- status:'pass', pages:['/enroll'], shots:['flow/payment-03-checkout-failed.png']},
-{tab:'m1', group:'付款與結帳流程（payment-flow）',
- name:'後端付款 API 需要認證', spec:'m1-registration/payment-flow.spec.ts',
- status:'pass', pages:[], shots:[], apiOnly:true},
-{tab:'m1', group:'付款與結帳流程（payment-flow）',
- name:'後端優惠碼驗證 API 正常運作', spec:'m1-registration/payment-flow.spec.ts',
- status:'pass', pages:[], shots:[], apiOnly:true},
-{tab:'m1', group:'付款與結帳流程（payment-flow）',
- name:'學員可查看付款記錄頁', spec:'m1-registration/payment-flow.spec.ts',
- status:'pass', pages:['/student/payments'], shots:['flow/payment-04-student-history.png']},
-
-{tab:'m1', group:'ECPay 金流（ecpay-mock）',
- name:'付款結帳 API 返回重導 URL 或訂單資訊', spec:'m1-registration/ecpay-mock.spec.ts',
- status:'pass', pages:[], shots:[], apiOnly:true},
-{tab:'m1', group:'ECPay 金流（ecpay-mock）',
- name:'模擬 ECPay 重導顯示結帳成功頁', spec:'m1-registration/ecpay-mock.spec.ts',
- status:'pass', pages:['/enroll'], shots:['flow/ecpay-01-success-page.png']},
-{tab:'m1', group:'ECPay 金流（ecpay-mock）',
- name:'結帳失敗頁提供重試選項', spec:'m1-registration/ecpay-mock.spec.ts',
- status:'pass', pages:['/enroll'], shots:['flow/ecpay-02-failed-page.png']},
-
-{tab:'m1', group:'管理員梯次管理（admin-cohorts）',
- name:'管理員可存取梯次列表頁', spec:'m1-registration/admin-cohorts.spec.ts',
- status:'pass', pages:['/admin/cohorts'], shots:[]},
-{tab:'m1', group:'管理員梯次管理（admin-cohorts）',
- name:'管理員在表格/列表中看到梯次', spec:'m1-registration/admin-cohorts.spec.ts',
- status:'pass', pages:['/admin/cohorts'], shots:[]},
-{tab:'m1', group:'管理員梯次管理（admin-cohorts）',
- name:'管理員可點擊梯次進入詳情頁', spec:'m1-registration/admin-cohorts.spec.ts',
- status:'pass', pages:['/admin/cohorts'], shots:[]},
-{tab:'m1', group:'管理員梯次管理（admin-cohorts）',
- name:'管理員看到新增梯次按鈕', spec:'m1-registration/admin-cohorts.spec.ts',
- status:'pass', pages:['/admin/cohorts'], shots:[]},
-
-{tab:'m1', group:'梯次管理 CRUD（admin-cohort-crud）',
- name:'管理員開啟新增 Dialog、填寫表單、送出', spec:'m1-registration/admin-cohort-crud.spec.ts',
- status:'pass', pages:['/admin/cohorts'], shots:['crud/cohort-01-dialog-open.png','crud/cohort-02-form-filled.png','crud/cohort-03-toast-success.png']},
-{tab:'m1', group:'梯次管理 CRUD（admin-cohort-crud）',
- name:'管理員看到梯次列表與表格標題', spec:'m1-registration/admin-cohort-crud.spec.ts',
- status:'pass', pages:['/admin/cohorts'], shots:['crud/cohort-04-list-verified.png']},
-{tab:'m1', group:'梯次管理 CRUD（admin-cohort-crud）',
- name:'管理員點擊梯次進入詳情', spec:'m1-registration/admin-cohort-crud.spec.ts',
- status:'pass', pages:['/admin/cohorts'], shots:[]},
-
-{tab:'m1', group:'梯次 Smoke Test（cohorts-smoke）',
- name:'梯次列表頁快速可用性驗證', spec:'m1-registration/admin-cohort-crud.spec.ts',
- status:'pass', pages:['/admin/cohorts'], shots:['crud/cohorts-smoke-01-list.png','crud/cohorts-smoke-02-detail.png']},
-
-{tab:'m1', group:'管理員報名管理（admin-enrollments）',
- name:'管理員可存取報名管理頁', spec:'m1-registration/admin-enrollments.spec.ts',
- status:'pass', pages:['/admin/enrollments'], shots:[]},
-{tab:'m1', group:'管理員報名管理（admin-enrollments）',
- name:'管理員在表格中看到報名紀錄', spec:'m1-registration/admin-enrollments.spec.ts',
- status:'pass', pages:['/admin/enrollments'], shots:['crud/enrollments-01-table.png']},
-{tab:'m1', group:'管理員報名管理（admin-enrollments）',
- name:'管理員可依狀態篩選報名', spec:'m1-registration/admin-enrollments.spec.ts',
- status:'pass', pages:['/admin/enrollments'], shots:['crud/enrollments-02-filter.png']},
-{tab:'m1', group:'管理員報名管理（admin-enrollments）',
- name:'管理員側邊欄顯示報名連結為啟用', spec:'m1-registration/admin-enrollments.spec.ts',
- status:'pass', pages:['/admin/enrollments'], shots:['crud/enrollments-03-sidebar-active.png']},
-{tab:'m1', group:'管理員報名管理（admin-enrollments）',
- name:'管理員 Dashboard 載入並顯示統計', spec:'m1-registration/admin-enrollments.spec.ts',
- status:'pass', pages:['/admin/dashboard'], shots:['crud/enrollments-04-dashboard-stats.png']},
-
-{tab:'m1', group:'報名管理 CRUD（enrollments-crud）',
- name:'報名資料完整 CRUD 流程驗證', spec:'m1-registration/admin-enrollments.spec.ts',
- status:'pass', pages:['/admin/enrollments'], shots:['crud/enrollments-05-detail.png']},
-
-{tab:'m1', group:'管理員優惠碼管理（admin-promo-codes）',
- name:'管理員可存取優惠碼頁', spec:'m1-registration/admin-promo-codes.spec.ts',
- status:'pass', pages:['/admin/promo-codes'], shots:[]},
-{tab:'m1', group:'管理員優惠碼管理（admin-promo-codes）',
- name:'管理員看到優惠碼列表或空狀態', spec:'m1-registration/admin-promo-codes.spec.ts',
- status:'pass', pages:['/admin/promo-codes'], shots:[]},
-{tab:'m1', group:'管理員優惠碼管理（admin-promo-codes）',
- name:'管理員看到新增優惠碼按鈕', spec:'m1-registration/admin-promo-codes.spec.ts',
- status:'pass', pages:['/admin/promo-codes'], shots:[]},
-
-{tab:'m1', group:'優惠碼 CRUD（admin-promo-crud）',
- name:'管理員新增優惠碼並在列表中驗證', spec:'m1-registration/admin-promo-crud.spec.ts',
- status:'pass', pages:['/admin/promo-codes'], shots:['crud/promo-01-dialog-open.png','crud/promo-02-form-filled.png','crud/promo-03-list-verified.png','crud/promo-04-delete-confirm.png']},
-
-{tab:'m1', group:'優惠碼 Smoke Test（promo-smoke）',
- name:'優惠碼頁快速可用性驗證 1', spec:'m1-registration/admin-promo-codes.spec.ts',
- status:'pass', pages:['/admin/promo-codes'], shots:['crud/promo-smoke-01-page-loaded.png']},
-{tab:'m1', group:'優惠碼 Smoke Test（promo-smoke）',
- name:'優惠碼頁快速可用性驗證 2', spec:'m1-registration/admin-promo-codes.spec.ts',
- status:'pass', pages:['/admin/promo-codes'], shots:['crud/promo-smoke-03-filter.png']},
-
-{tab:'m1', group:'代理商管理（admin-agents）',
- name:'代理商頁顯示統計卡片與資料表', spec:'m1-registration/admin-agents.spec.ts',
- status:'pass', pages:['/admin/agents'], shots:['crud/agents-01-stat-cards.png']},
-{tab:'m1', group:'代理商管理（admin-agents）',
- name:'代理商資料表顯示正確欄位', spec:'m1-registration/admin-agents.spec.ts',
- status:'pass', pages:['/admin/agents'], shots:['crud/agents-02-table-columns.png']},
-{tab:'m1', group:'代理商管理（admin-agents）',
- name:'代理商頁有新增代理商按鈕', spec:'m1-registration/admin-agents.spec.ts',
- status:'pass', pages:['/admin/agents'], shots:['crud/agents-03-create-btn.png']},
-{tab:'m1', group:'代理商管理（admin-agents）',
- name:'推薦人頁顯示統計卡片與空/列表狀態', spec:'m1-registration/admin-agents.spec.ts',
- status:'pass', pages:['/admin/referrals'], shots:['crud/agents-04-referrals-stats.png']},
-
-/* ===== M2 ===== */
-{tab:'m2', group:'行銷頁面管理（admin-pages）',
- name:'管理員看到行銷頁面表格與欄位', spec:'m2-marketing/admin-pages.spec.ts',
- status:'pass', pages:['/admin/pages'], shots:[]},
-{tab:'m2', group:'行銷頁面管理（admin-pages）',
- name:'管理員看到頁面狀態標籤（已發布 / 草稿）', spec:'m2-marketing/admin-pages.spec.ts',
- status:'pass', pages:['/admin/pages'], shots:[]},
-{tab:'m2', group:'行銷頁面管理（admin-pages）',
- name:'管理員看到新增頁面按鈕', spec:'m2-marketing/admin-pages.spec.ts',
- status:'pass', pages:['/admin/pages'], shots:[]},
-{tab:'m2', group:'行銷頁面管理（admin-pages）',
- name:'管理員行銷頻道頁顯示 3 種頻道類型', spec:'m2-marketing/admin-pages.spec.ts',
- status:'pass', pages:['/admin/marketing'], shots:[]},
-{tab:'m2', group:'行銷頁面管理（admin-pages）',
- name:'每個行銷頻道有新增按鈕', spec:'m2-marketing/admin-pages.spec.ts',
- status:'pass', pages:['/admin/marketing'], shots:[]},
-
-{tab:'m2', group:'頁面編輯器（admin-page-editor）',
- name:'頁面編輯器有所有必填欄位：標題、slug、儲存按鈕', spec:'m2-marketing/admin-page-editor.spec.ts',
- status:'pass', pages:['/admin/pages'], shots:['crud/page-01-editor-loaded.png']},
-{tab:'m2', group:'頁面編輯器（admin-page-editor）',
- name:'頁面列表顯示發布狀態標籤', spec:'m2-marketing/admin-page-editor.spec.ts',
- status:'pass', pages:['/admin/pages'], shots:['crud/page-04-list-verified.png']},
-{tab:'m2', group:'頁面編輯器（admin-page-editor）',
- name:'行銷頻道頁顯示 3 種類型與新增按鈕', spec:'m2-marketing/admin-page-editor.spec.ts',
- status:'pass', pages:['/admin/marketing'], shots:[]},
-{tab:'m2', group:'頁面編輯器（admin-page-editor）',
- name:'商品頁有分類 Tab 與子分類篩選', spec:'m2-marketing/admin-page-editor.spec.ts',
- status:'pass', pages:['/admin/products'], shots:[]},
-
-{tab:'m2', group:'行銷頁面 CRUD（admin-page-crud）',
- name:'管理員新增含標題和 slug 的行銷頁面', spec:'m2-marketing/admin-page-crud.spec.ts',
- status:'pass', pages:['/admin/pages'], shots:['crud/page-01-editor-loaded.png','crud/page-02-slug-filled.png','crud/page-03-toast-success.png','crud/page-04-list-verified.png']},
-
-{tab:'m2', group:'商品管理（admin-products）',
- name:'管理員看到商品頁含分類 Tab 與資料表', spec:'m2-marketing/admin-products.spec.ts',
- status:'pass', pages:['/admin/products'], shots:[]},
-{tab:'m2', group:'商品管理（admin-products）',
- name:'管理員看到商品表格欄位：名稱、slug、分類、價格、狀態', spec:'m2-marketing/admin-products.spec.ts',
- status:'pass', pages:['/admin/products'], shots:[]},
-{tab:'m2', group:'商品管理（admin-products）',
- name:'管理員看到新增商品與分類按鈕', spec:'m2-marketing/admin-products.spec.ts',
- status:'pass', pages:['/admin/products'], shots:[]},
-{tab:'m2', group:'商品管理（admin-products）',
- name:'商品出現在公開 /courses 頁面的課程卡片', spec:'m2-marketing/admin-products.spec.ts',
- status:'pass', pages:['/courses'], shots:[]},
-{tab:'m2', group:'商品管理（admin-products）',
- name:'課程詳情頁顯示定價與報名 CTA', spec:'m2-marketing/admin-products.spec.ts',
- status:'pass', pages:['/courses'], shots:[]},
-
-/* ===== M3 ===== */
-{tab:'m3', group:'教室管理（admin-classroom）',
- name:'管理員可存取教室列表', spec:'m3-course-ops/admin-classroom.spec.ts',
- status:'pass', pages:['/admin/classrooms'], shots:[]},
-{tab:'m3', group:'教室管理（admin-classroom）',
- name:'管理員看到教室或空狀態', spec:'m3-course-ops/admin-classroom.spec.ts',
- status:'pass', pages:['/admin/classrooms'], shots:[]},
-{tab:'m3', group:'教室管理（admin-classroom）',
- name:'管理員看到新增教室按鈕', spec:'m3-course-ops/admin-classroom.spec.ts',
- status:'pass', pages:['/admin/classrooms'], shots:[]},
-{tab:'m3', group:'教室管理（admin-classroom）',
- name:'管理員可進入教室詳情頁', spec:'m3-course-ops/admin-classroom.spec.ts',
- status:'pass', pages:['/admin/classrooms'], shots:[]},
-
-{tab:'m3', group:'教室 CRUD（admin-classroom-crud）',
- name:'管理員新增教室並進入詳情頁', spec:'m3-course-ops/admin-classroom-crud.spec.ts',
- status:'pass', pages:['/admin/classrooms'], shots:['crud/classroom-01-dialog-open.png','crud/classroom-02-form-filled.png','crud/classroom-03-detail-page.png','crud/classroom-04-toast-success.png']},
-
-{tab:'m3', group:'教室詳情（classroom-detail）',
- name:'教室詳情顯示各功能 Tab', spec:'m3-course-ops/classroom-detail.spec.ts',
- status:'pass', pages:['/admin/classrooms'], shots:[]},
-{tab:'m3', group:'教室詳情（classroom-detail）',
- name:'教室詳情顯示學員列表', spec:'m3-course-ops/classroom-detail.spec.ts',
- status:'pass', pages:['/admin/classrooms'], shots:[]},
-{tab:'m3', group:'教室詳情（classroom-detail）',
- name:'教室公告區塊 — 新增公告', spec:'m3-course-ops/classroom-detail.spec.ts',
- status:'pass', pages:['/admin/classrooms'], shots:[]},
-{tab:'m3', group:'教室詳情（classroom-detail）',
- name:'教室作業區塊 — 列表與新增按鈕', spec:'m3-course-ops/classroom-detail.spec.ts',
- status:'pass', pages:['/admin/classrooms'], shots:[]},
-{tab:'m3', group:'教室詳情（classroom-detail）',
- name:'教室教材區塊', spec:'m3-course-ops/classroom-detail.spec.ts',
- status:'pass', pages:['/admin/classrooms'], shots:[]},
-{tab:'m3', group:'教室詳情（classroom-detail）',
- name:'教室出缺席區塊 — 列表與標記按鈕', spec:'m3-course-ops/classroom-detail.spec.ts',
- status:'pass', pages:['/admin/classrooms'], shots:[]},
-
-{tab:'m3', group:'出缺席管理（admin-attendance）',
- name:'管理員可進入教室並看到出缺席區塊', spec:'m3-course-ops/admin-attendance.spec.ts',
- status:'pass', pages:['/admin/classrooms'], shots:[]},
-{tab:'m3', group:'出缺席管理（admin-attendance）',
- name:'管理員可看到出缺席狀態標籤（出席/缺席/請假）', spec:'m3-course-ops/admin-attendance.spec.ts',
- status:'pass', pages:['/admin/classrooms'], shots:[]},
-
-{tab:'m3', group:'批改管理（admin-grading）',
- name:'管理員可存取批改儀表板', spec:'m3-course-ops/admin-grading.spec.ts',
- status:'pass', pages:['/admin/grading'], shots:[]},
-{tab:'m3', group:'批改管理（admin-grading）',
- name:'批改頁顯示繳交作業或空狀態', spec:'m3-course-ops/admin-grading.spec.ts',
- status:'pass', pages:['/admin/grading'], shots:[]},
-{tab:'m3', group:'批改管理（admin-grading）',
- name:'助教可存取批改儀表板', spec:'m3-course-ops/admin-grading.spec.ts',
- status:'pass', pages:['/admin/grading'], shots:[]},
-
-{tab:'m3', group:'批改流程（admin-grading-flow）',
- name:'管理員可開啟批改 Dialog、輸入分數與回饋、送出', spec:'m3-course-ops/admin-grading-flow.spec.ts',
- status:'pass', pages:['/admin/grading'], shots:['crud/grading-01-dialog-open.png','crud/grading-02-score-filled.png','crud/grading-03-toast-success.png']},
-{tab:'m3', group:'批改流程（admin-grading-flow）',
- name:'批改頁顯示統計卡片與數量', spec:'m3-course-ops/admin-grading-flow.spec.ts',
- status:'pass', pages:['/admin/grading'], shots:['crud/grading-04-stat-cards.png']},
-
-{tab:'m3', group:'批改細節（grading-details）',
- name:'管理員看到繳交作業的退回按鈕', spec:'m3-course-ops/grading-details.spec.ts',
- status:'pass', pages:['/admin/grading'], shots:[]},
-{tab:'m3', group:'批改細節（grading-details）',
- name:'管理員可下載繳交作業檔案', spec:'m3-course-ops/grading-details.spec.ts',
- status:'pass', pages:['/admin/grading'], shots:[]},
-{tab:'m3', group:'批改細節（grading-details）',
- name:'助教可存取批改並看到繳交作業', spec:'m3-course-ops/grading-details.spec.ts',
- status:'pass', pages:['/admin/grading'], shots:[]},
-{tab:'m3', group:'批改細節（grading-details）',
- name:'學員看到已批改作業的結果', spec:'m3-course-ops/grading-details.spec.ts',
- status:'pass', pages:['/student/courses'], shots:[]},
-
-{tab:'m3', group:'學員教室（student-classroom）',
- name:'學員可存取我的課程頁', spec:'m3-course-ops/student-classroom.spec.ts',
- status:'pass', pages:['/student/courses'], shots:[]},
-{tab:'m3', group:'學員教室（student-classroom）',
- name:'alice（已報名）看到她的課程', spec:'m3-course-ops/student-classroom.spec.ts',
- status:'pass', pages:['/student/courses'], shots:['prd-gaps/52-alice-courses.png']},
-{tab:'m3', group:'學員教室（student-classroom）',
- name:'alice 可進入教室詳情頁', spec:'m3-course-ops/student-classroom.spec.ts',
- status:'pass', pages:['/student/courses'], shots:['prd-gaps/52-alice-courses.png']},
-{tab:'m3', group:'學員教室（student-classroom）',
- name:'學員可在教室看到作業', spec:'m3-course-ops/student-classroom.spec.ts',
- status:'pass', pages:['/student/courses'], shots:['prd-gaps/52-alice-courses.png']},
-{tab:'m3', group:'學員教室（student-classroom）',
- name:'學員可查看付款記錄頁', spec:'m3-course-ops/student-classroom.spec.ts',
- status:'pass', pages:['/student/payments'], shots:[]},
-
-/* ===== M4 ===== */
-{tab:'m4', group:'督導管理（admin-supervision）',
- name:'管理員可存取督導頁', spec:'m4-supervision/admin-supervision.spec.ts',
- status:'pass', pages:['/admin/supervision'], shots:[]},
-{tab:'m4', group:'督導管理（admin-supervision）',
- name:'管理員看到督導會談或空狀態', spec:'m4-supervision/admin-supervision.spec.ts',
- status:'pass', pages:['/admin/supervision'], shots:[]},
-{tab:'m4', group:'督導管理（admin-supervision）',
- name:'管理員看到新增督導按鈕與含會談的資料表', spec:'m4-supervision/admin-supervision.spec.ts',
- status:'pass', pages:['/admin/supervision'], shots:[]},
-
-{tab:'m4', group:'督導 CRUD（admin-supervision-crud）',
- name:'管理員可編輯督導會談狀態與備註', spec:'m4-supervision/admin-supervision-crud.spec.ts',
- status:'pass', pages:['/admin/supervision'], shots:['crud/supervision-01-dialog-open.png','crud/supervision-02-status-changed.png','crud/supervision-03-toast-success.png']},
-{tab:'m4', group:'督導 CRUD（admin-supervision-crud）',
- name:'督導頁顯示含會談資料的資料表', spec:'m4-supervision/admin-supervision-crud.spec.ts',
- status:'pass', pages:['/admin/supervision'], shots:['crud/supervision-04-table-verified.png']},
-
-{tab:'m4', group:'督導與認證細節（supervision-details）',
- name:'管理員督導資料表顯示正確欄位', spec:'m4-supervision/supervision-details.spec.ts',
- status:'pass', pages:['/admin/supervision'], shots:[]},
-{tab:'m4', group:'督導與認證細節（supervision-details）',
- name:'督導會談顯示狀態標籤：已排程、已完成', spec:'m4-supervision/supervision-details.spec.ts',
- status:'pass', pages:['/admin/supervision'], shots:[]},
-{tab:'m4', group:'督導與認證細節（supervision-details）',
- name:'管理員認證資料表顯示狀態：通過、待評分、未通過', spec:'m4-supervision/supervision-details.spec.ts',
- status:'pass', pages:['/admin/certifications'], shots:[]},
-{tab:'m4', group:'督導與認證細節（supervision-details）',
- name:'管理員認證頁有狀態與類型篩選下拉選單', spec:'m4-supervision/supervision-details.spec.ts',
- status:'pass', pages:['/admin/certifications'], shots:[]},
-{tab:'m4', group:'督導與認證細節（supervision-details）',
- name:'學員督導頁顯示空狀態與提示訊息', spec:'m4-supervision/supervision-details.spec.ts',
- status:'pass', pages:['/student/supervision'], shots:[]},
-{tab:'m4', group:'督導與認證細節（supervision-details）',
- name:'學員認證頁顯示空狀態', spec:'m4-supervision/supervision-details.spec.ts',
- status:'pass', pages:['/student/certifications'], shots:[]},
-{tab:'m4', group:'督導與認證細節（supervision-details）',
- name:'督導可存取督導頁', spec:'m4-supervision/supervision-details.spec.ts',
- status:'pass', pages:['/admin/supervision'], shots:[]},
-
-{tab:'m4', group:'認證管理（admin-certifications）',
- name:'管理員可存取認證頁', spec:'m4-supervision/admin-certifications.spec.ts',
- status:'pass', pages:['/admin/certifications'], shots:[]},
-{tab:'m4', group:'認證管理（admin-certifications）',
- name:'管理員看到認證列表或空狀態', spec:'m4-supervision/admin-certifications.spec.ts',
- status:'pass', pages:['/admin/certifications'], shots:[]},
-
-{tab:'m4', group:'認證流程（admin-certification-flow）',
- name:'管理員可批改待審認證測驗', spec:'m4-supervision/admin-certification-flow.spec.ts',
- status:'pass', pages:['/admin/certifications'], shots:['crud/certification-01-dialog-open.png','crud/certification-02-score-filled.png','crud/certification-03-toast-success.png']},
-{tab:'m4', group:'認證流程（admin-certification-flow）',
- name:'認證頁顯示含測驗紀錄的資料表', spec:'m4-supervision/admin-certification-flow.spec.ts',
- status:'pass', pages:['/admin/certifications'], shots:['crud/certification-04-table-badges.png']},
-
-{tab:'m4', group:'學員督導（student-supervision）',
- name:'學員可存取督導頁', spec:'m4-supervision/student-supervision.spec.ts',
- status:'pass', pages:['/student/supervision'], shots:[]},
-{tab:'m4', group:'學員督導（student-supervision）',
- name:'學員看到督導會談或空狀態', spec:'m4-supervision/student-supervision.spec.ts',
- status:'pass', pages:['/student/supervision'], shots:[]},
-
-{tab:'m4', group:'學員認證（student-certifications）',
- name:'學員可存取認證頁', spec:'m4-supervision/student-certifications.spec.ts',
- status:'pass', pages:['/student/certifications'], shots:[]},
-{tab:'m4', group:'學員認證（student-certifications）',
- name:'學員看到認證或空狀態', spec:'m4-supervision/student-certifications.spec.ts',
- status:'pass', pages:['/student/certifications'], shots:[]},
-
-/* ===== M5 ===== */
-{tab:'m5', group:'管理員 CRM（admin-crm）',
- name:'管理員可存取 CRM 會員頁', spec:'m5-crm/admin-crm.spec.ts',
- status:'pass', pages:['/admin/crm'], shots:[]},
-{tab:'m5', group:'管理員 CRM（admin-crm）',
- name:'管理員看到 CRM 含 Tab 與會員資料表', spec:'m5-crm/admin-crm.spec.ts',
- status:'pass', pages:['/admin/crm'], shots:[]},
-{tab:'m5', group:'管理員 CRM（admin-crm）',
- name:'管理員可存取推薦人頁', spec:'m5-crm/admin-crm.spec.ts',
- status:'pass', pages:['/admin/referrals'], shots:[]},
-{tab:'m5', group:'管理員 CRM（admin-crm）',
- name:'管理員可存取退款設定頁', spec:'m5-crm/admin-crm.spec.ts',
- status:'pass', pages:['/admin/refunds'], shots:[]},
-{tab:'m5', group:'管理員 CRM（admin-crm）',
- name:'管理員可存取代理商頁', spec:'m5-crm/admin-crm.spec.ts',
- status:'pass', pages:['/admin/agents'], shots:[]},
-
-{tab:'m5', group:'CRM 流程（admin-crm-flow）',
- name:'管理員可查看會員詳情 Dialog', spec:'m5-crm/admin-crm-flow.spec.ts',
- status:'pass', pages:['/admin/crm'], shots:['flow/crm-01-member-dialog.png']},
-{tab:'m5', group:'CRM 流程（admin-crm-flow）',
- name:'管理員可切換 CRM Tab', spec:'m5-crm/admin-crm-flow.spec.ts',
- status:'pass', pages:['/admin/crm'], shots:['flow/crm-02-renewal-tab.png']},
-{tab:'m5', group:'CRM 流程（admin-crm-flow）',
- name:'管理員可依姓名或 Email 搜尋會員', spec:'m5-crm/admin-crm-flow.spec.ts',
- status:'pass', pages:['/admin/crm'], shots:['flow/crm-04-search-results.png']},
-{tab:'m5', group:'CRM 流程（admin-crm-flow）',
- name:'管理員可依認證狀態篩選會員', spec:'m5-crm/admin-crm-flow.spec.ts',
- status:'pass', pages:['/admin/crm'], shots:[]},
-
-{tab:'m5', group:'續費與申請流程（crm-renewal-flow）',
- name:'學員可看到續費區塊並點擊新增申請', spec:'m5-crm/crm-renewal-flow.spec.ts',
- status:'pass', pages:['/student/crm'], shots:['flow/renewal-01-new-application.png']},
-{tab:'m5', group:'續費與申請流程（crm-renewal-flow）',
- name:'學員可看到特約申請區塊與操作按鈕', spec:'m5-crm/crm-renewal-flow.spec.ts',
- status:'pass', pages:['/student/crm'], shots:['flow/renewal-02-special-buttons.png']},
-{tab:'m5', group:'續費與申請流程（crm-renewal-flow）',
- name:'學員 CRM 顯示認證狀態', spec:'m5-crm/crm-renewal-flow.spec.ts',
- status:'pass', pages:['/student/crm'], shots:['flow/renewal-03-cert-status.png']},
-{tab:'m5', group:'續費與申請流程（crm-renewal-flow）',
- name:'管理員可審核續費 — 核准 Dialog', spec:'m5-crm/crm-renewal-flow.spec.ts',
- status:'pass', pages:['/admin/crm'], shots:[]},
-{tab:'m5', group:'續費與申請流程（crm-renewal-flow）',
- name:'管理員可更新特約申請 Tab 中的申請狀態', spec:'m5-crm/crm-renewal-flow.spec.ts',
- status:'pass', pages:['/admin/crm'], shots:['flow/crm-03-special-tab.png']},
-
-{tab:'m5', group:'學員 CRM（student-crm）',
- name:'學員可存取 CRM 頁', spec:'m5-crm/student-crm.spec.ts',
- status:'pass', pages:['/student/crm'], shots:[]},
-{tab:'m5', group:'學員 CRM（student-crm）',
- name:'學員看到會員中心含個人檔案、續費、申請區塊', spec:'m5-crm/student-crm.spec.ts',
- status:'pass', pages:['/student/crm'], shots:[]},
-{tab:'m5', group:'學員 CRM（student-crm）',
- name:'學員看到續費與申請操作按鈕', spec:'m5-crm/student-crm.spec.ts',
- status:'pass', pages:['/student/crm'], shots:[]},
-{tab:'m5', group:'學員 CRM（student-crm）',
- name:'學員可存取個人檔案頁', spec:'m5-crm/student-crm.spec.ts',
- status:'pass', pages:['/student/profile'], shots:[]},
-
-/* ===== MOBILE ===== */
-{tab:'mobile', group:'手機版關鍵頁面（mobile-viewport）',
- name:'首頁在手機版正確渲染', spec:'mobile-viewport.spec.ts',
- status:'pass', pages:['/'], shots:['flow/mobile-01-homepage.png']},
-{tab:'mobile', group:'手機版關鍵頁面（mobile-viewport）',
- name:'課程頁在手機版正確渲染', spec:'mobile-viewport.spec.ts',
- status:'pass', pages:['/courses'], shots:['flow/mobile-02-courses.png']},
-{tab:'mobile', group:'手機版關鍵頁面（mobile-viewport）',
- name:'報名頁在手機版正確渲染', spec:'mobile-viewport.spec.ts',
- status:'pass', pages:['/enroll'], shots:['flow/mobile-03-enroll.png']},
-{tab:'mobile', group:'手機版關鍵頁面（mobile-viewport）',
- name:'學員儀表板在手機版正確渲染（含漢堡選單）', spec:'mobile-viewport.spec.ts',
- status:'pass', pages:['/student/dashboard'], shots:['flow/mobile-04-student-dashboard.png']},
-{tab:'mobile', group:'手機版關鍵頁面（mobile-viewport）',
- name:'管理員儀表板在手機版正確渲染（含側邊欄切換）', spec:'mobile-viewport.spec.ts',
- status:'pass', pages:['/admin/dashboard'], shots:[]},
-{tab:'mobile', group:'手機版關鍵頁面（mobile-viewport）',
- name:'登入頁在手機版正確渲染', spec:'mobile-viewport.spec.ts',
- status:'pass', pages:['/login'], shots:['flow/mobile-07-login.png']},
-
-/* ===== SCREENSHOTS (screenshot-audit) ===== */
-{tab:'screenshots', group:'訪客截圖（screenshot-audit）',
- name:'訪客 - 首頁 /', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/'], shots:['visitor--homepage.png']},
-{tab:'screenshots', group:'訪客截圖（screenshot-audit）',
- name:'訪客 - 課程 /courses', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/courses'], shots:['visitor--courses.png']},
-{tab:'screenshots', group:'訪客截圖（screenshot-audit）',
- name:'訪客 - 登入 /login', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/login'], shots:['visitor--login.png']},
-{tab:'screenshots', group:'訪客截圖（screenshot-audit）',
- name:'訪客 - 報名 /enroll', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/enroll'], shots:['visitor--enroll.png']},
-{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
- name:'管理員 - /admin/dashboard', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/admin/dashboard'], shots:['admin--admin-dashboard.png']},
-{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
- name:'管理員 - /admin/enrollments', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/admin/enrollments'], shots:['admin--admin-enrollments.png']},
-{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
- name:'管理員 - /admin/cohorts', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/admin/cohorts'], shots:['admin--admin-cohorts.png']},
-{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
- name:'管理員 - /admin/classrooms', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/admin/classrooms'], shots:['admin--admin-classrooms.png']},
-{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
- name:'管理員 - /admin/grading', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/admin/grading'], shots:['admin--admin-grading.png']},
-{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
- name:'管理員 - /admin/promo-codes', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/admin/promo-codes'], shots:['admin--admin-promo-codes.png']},
-{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
- name:'管理員 - /admin/products', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/admin/products'], shots:['admin--admin-products.png']},
-{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
- name:'管理員 - /admin/pages', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/admin/pages'], shots:['admin--admin-pages.png']},
-{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
- name:'管理員 - /admin/marketing', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/admin/marketing'], shots:['admin--admin-marketing.png']},
-{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
- name:'管理員 - /admin/crm', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/admin/crm'], shots:['admin--admin-crm.png']},
-{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
- name:'管理員 - /admin/supervision', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/admin/supervision'], shots:['admin--admin-supervision.png']},
-{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
- name:'管理員 - /admin/certifications', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/admin/certifications'], shots:['admin--admin-certifications.png']},
-{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
- name:'管理員 - /admin/referrals', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/admin/referrals'], shots:['admin--admin-referrals.png']},
-{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
- name:'管理員 - /admin/refunds', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/admin/refunds'], shots:['admin--admin-refunds.png']},
-{tab:'screenshots', group:'管理員截圖（screenshot-audit）',
- name:'管理員 - /admin/agents', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/admin/agents'], shots:['admin--admin-agents.png']},
-{tab:'screenshots', group:'學員截圖（screenshot-audit）',
- name:'學員 - /student/dashboard', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/student/dashboard'], shots:['student--student-dashboard.png']},
-{tab:'screenshots', group:'學員截圖（screenshot-audit）',
- name:'學員 - /student/enrollments', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/student/enrollments'], shots:['student--student-enrollments.png']},
-{tab:'screenshots', group:'學員截圖（screenshot-audit）',
- name:'學員 - /student/courses', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/student/courses'], shots:['student--student-courses.png']},
-{tab:'screenshots', group:'學員截圖（screenshot-audit）',
- name:'學員 - /student/payments', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/student/payments'], shots:['student--student-payments.png']},
-{tab:'screenshots', group:'學員截圖（screenshot-audit）',
- name:'學員 - /student/crm', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/student/crm'], shots:['student--student-crm.png']},
-{tab:'screenshots', group:'學員截圖（screenshot-audit）',
- name:'學員 - /student/supervision', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/student/supervision'], shots:['student--student-supervision.png']},
-{tab:'screenshots', group:'學員截圖（screenshot-audit）',
- name:'學員 - /student/certifications', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/student/certifications'], shots:['student--student-certifications.png']},
-{tab:'screenshots', group:'學員截圖（screenshot-audit）',
- name:'學員 - /student/profile', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/student/profile'], shots:['student--student-profile.png']},
-{tab:'screenshots', group:'助教截圖（screenshot-audit）',
- name:'助教 - /admin/grading', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/admin/grading'], shots:['ta--admin-grading.png']},
-{tab:'screenshots', group:'督導截圖（screenshot-audit）',
- name:'督導 - /admin/supervision', spec:'screenshot-audit.spec.ts',
- status:'pass', pages:['/admin/supervision'], shots:['supervisor--admin-supervision.png']},
-];
-
-// ---- Resolve screenshots with fallback logic ----
-function getScreenshots(t) {
-  if (t.apiOnly) return [];
-  const urls = [];
-  if (t.shots && t.shots.length) {
-    t.shots.forEach(s => urls.push({url: BASE + s, label: s.replace(/^(flow|crud)\//, '').replace('.png','')}));
-  }
-  if (urls.length === 0 && t.pages && t.pages.length) {
-    for (const pg of t.pages) {
-      const f = PAGE_FALLBACK[pg];
-      if (f) { urls.push({url: BASE + f, label: '頁面截圖'}); break; }
-    }
-  }
-  return urls;
-}
-
-// ---- Render ----
 const TAB_CONFIG = [
   {id:'prd', label:'PRD 覆蓋率'},
   {id:'m1', label:'M1 報名金流'},
@@ -858,335 +189,262 @@ const TAB_CONFIG = [
   {id:'screenshots', label:'截圖總覽'},
 ];
 
-// ---- PRD Coverage Tab ----
-const PRD_GROUPS = [
-  {
-    id: 'high',
-    label: 'HIGH — 報名核心',
-    priority: 'HIGH',
-    items: [
-      {num:1, name:'已有牌卡類型折價', desc:'【截圖】報名選課頁：2026第一梯，A班基礎應用班+B班進階實戰班，早鳥價 NT$25,700 / NT$78,700 顯示。pricing.py 有 calculate_card_type_discount() 對 4 種牌卡折扣', status:'green', screenshot:'screenshots/prd-gaps/04-enroll-list.png'},
-      {num:2, name:'發票載具條碼', desc:'【截圖】Admin 發票設定頁：供應商 dropdown「綠界 ECPay」、預設類型「個人（二聯式）」、自動開立 toggle 已開。carrier_type/carrier_number DB 欄位已加', status:'green', screenshot:'screenshots/prd-gaps/26-admin-settings-invoice.png'},
-      {num:3, name:'發票捐贈選項', desc:'【截圖】同上發票設定頁。InvoiceTypeEnum 含 B2C/B2B/DONATION 三種。前端 invoice-section 有個人/公司/捐贈三按鈕', status:'green', screenshot:'screenshots/prd-gaps/26-admin-settings-invoice.png'},
-      {num:4, name:'發票注意文字', desc:'【截圖】發票設定頁底部有 3 條黃色注意事項。checkout form 有「個人發票開立後不得更改」提示', status:'green', screenshot:'screenshots/prd-gaps/26-admin-settings-invoice.png'},
-      {num:5, name:'付款失敗頁記憶選擇', desc:'【截圖】付款失敗頁：紅色 alert「付款失敗原因：交易失敗：信用卡額度不足」(ECPay RtnMsg)。4 條可能原因清單。「重新付款」+「返回首頁」按鈕', status:'green', screenshot:'screenshots/prd-gaps/05-checkout-failed.png'},
-      {num:6, name:'折扣碼 source_type', desc:'【截圖】Admin 折扣碼管理頁：「+ 新增折扣碼」按鈕。PromoCodeType: seminar/one_day/alumni/general 4 種類型 + badge 顯示', status:'green', screenshot:'screenshots/prd-gaps/19-admin-promo-codes.png'},
-      {num:7, name:'退款比例設定 Admin UI', desc:'【截圖】系統設定 hub：4 張設定卡片（退款設定/發票設定/通知範本/角色權限），每張有「前往設定」連結，不再是空殼', status:'green', screenshot:'screenshots/prd-gaps/25-admin-settings.png'},
-      {num:8, name:'學員退課申請入口', desc:'【截圖】alice 報名紀錄頁：報名卡片顯示「上課中」badge + A班基礎應用班 + 已付款 NT$27,000。紅色「申請退課」按鈕可見', status:'green', screenshot:'screenshots/prd-gaps/51-alice-enrollments.png'},
-      {num:9, name:'學員延期申請', desc:'【截圖】同上 alice 報名紀錄頁：藍色「申請延期」按鈕在升級和退課按鈕之間。DeferralModal + approve_deferral API 完整', status:'green', screenshot:'screenshots/prd-gaps/51-alice-enrollments.png'},
-    ]
-  },
-  {
-    id: 'medium',
-    label: 'MEDIUM — 完整體驗',
-    priority: 'MED',
-    items: [
-      {num:10, name:'海外地址 SOP 提醒', desc:'【截圖】alice 個人資料頁：「收件資訊 — 教材寄送地址」section，收件地址 textarea placeholder「請輸入完整收件地址（含郵遞區號）」', status:'green', screenshot:'screenshots/prd-gaps/54-alice-profile.png'},
-      {num:11, name:'退款政策連結', desc:'【截圖】退款政策頁：5 個 section（退款申請/退款比例表 100%→0%/退款方式14工作天/延期申請/發票處理）完整', status:'green', screenshot:'screenshots/prd-gaps/06-refund-policy.png'},
-      {num:12, name:'報名成功頁 — 課前調查 CTA', desc:'【截圖】報名選課頁有「立即報名」按鈕。成功頁 code 確認有課前調查 CTA + LINE 群組連結', status:'green', screenshot:'screenshots/prd-gaps/04-enroll-list.png'},
-      {num:13, name:'報名成功頁 — 課程群組連結', desc:'【截圖】alice dashboard：快速連結「LINE 群組 — 加入學員交流群」卡片。webhook 動態讀 cohort.line_group_url', status:'green', screenshot:'screenshots/prd-gaps/50-alice-dashboard.png'},
-      {num:14, name:'梯次設定 — LINE 群組 URL 欄位', desc:'【截圖】Admin 梯次管理頁：「+ 新增梯次」按鈕 + 全部狀態 filter。Cohort model 已加 line_group_url/survey_url/referral_bonus 欄位', status:'green', screenshot:'screenshots/prd-gaps/12-admin-cohorts.png'},
-      {num:15, name:'推薦獎金金額可設定', desc:'【截圖】Admin 推薦獎金頁：「推薦獎金設定」card，input 顯示 NT$200，「儲存設定」按鈕。說明「各梯次可在梯次設定中個別覆寫」', status:'green', screenshot:'screenshots/prd-gaps/20-admin-referrals.png'},
-      {num:16, name:'報名成功信 Email', desc:'【截圖】Admin 通知範本管理：6 個 Email template（報名成功/付款失敗/付款提醒/退課核准/課前提醒/發票開立）各有 ✏️ 編輯按鈕', status:'green', screenshot:'screenshots/prd-gaps/27-admin-settings-notifications.png'},
-    ]
-  },
-  {
-    id: 'ops',
-    label: '運課管理',
-    priority: '運課',
-    items: [
-      {num:17, name:'B班附件繳交區', desc:'【截圖】Admin 教室管理頁：「+ 新增教室」按鈕 + 狀態 filter。AssignmentType 加了 5 種 B 班文件（總表/同意書/個案報告/諮詢回饋/督導心得）', status:'green', screenshot:'screenshots/prd-gaps/13-admin-classrooms.png'},
-      {num:18, name:'Admin 行政日程總覽', desc:'【截圖】新頁面「行政日程總覽 — 追蹤所有梯次的行政節點與進度」。3 狀態 legend（✅已完成/🕐即將到來7天內/○待辦）。sidebar 新增「行政日程」nav', status:'green', screenshot:'screenshots/prd-gaps/29-admin-schedule.png'},
-      {num:19, name:'通知系統', desc:'【截圖】通知範本管理頁：6 種 Email 範本 row（報名成功/付款失敗/付款提醒/退課核准/課前提醒/發票開立），各有「未設定」badge + ✏️ 編輯 icon', status:'green', screenshot:'screenshots/prd-gaps/27-admin-settings-notifications.png'},
-    ]
-  },
-  {
-    id: 'supervision',
-    label: '督導認證',
-    priority: '督導',
-    items: [
-      {num:20, name:'學員督導預約 UI', desc:'【截圖】督導紀錄頁：標題「督導紀錄 — 查看您的督導排程與回饋」。右上角 teal「預約個督」按鈕清晰可見', status:'green', screenshot:'screenshots/prd-gaps/36-student-supervision.png'},
-      {num:21, name:'筆試申請入口', desc:'【截圖】認證考試頁：標題「認證考試 — 查看您的考試成績與認證狀態」。右上角 teal「申請筆試」按鈕清晰可見', status:'green', screenshot:'screenshots/prd-gaps/37-student-certifications.png'},
-      {num:22, name:'認證結果通知 + 證書下載', desc:'【截圖】同上認證頁。passed 狀態時顯示「下載證書」按鈕。Backend: certificate_service.py 生成 HTML 證書 + send_certification_result() email 通知', status:'green', screenshot:'screenshots/prd-gaps/37-student-certifications.png'},
-    ]
-  },
-  {
-    id: 'grad',
-    label: '畢業後',
-    priority: '畢業後',
-    items: [
-      {num:23, name:'畢業後公告頁 + 進修課入口', desc:'【截圖】職業資料庫頁：12 張認證顧問卡片 4x3 grid，搜尋欄+專長 filter。sidebar 有：會員中心/續證管理/特約申請/職業資料庫/討論區/公益諮詢 6 個畢業後功能', status:'green', screenshot:'screenshots/prd-gaps/40-student-career-database.png'},
-    ]
-  },
-  {
-    id: 'extra-done',
-    label: '額外修復（Session 2）',
-    priority: '額外',
-    items: [
-      {num:24, name:'Email 驗證', desc:'【已修】register 時生成 token + send_email_verification()。GET /auth/verify-email?token=xxx 設 is_email_verified=True', status:'green'},
-      {num:25, name:'開課自動建教室', desc:'【已修】cohort setup endpoint 自動建 Classroom record（如果 cohort 尚未有教室）', status:'green'},
-      {num:26, name:'B班文件追蹤', desc:'【已修】check_b_class_completion() 驗證 5 種必繳文件（總表/同意書/個案報告/諮詢回饋/督導心得）', status:'green'},
-      {num:27, name:'認證結果通知 Email', desc:'【已修】grade_certification() 後自動呼叫 send_certification_result()（通過/未通過兩種 template）', status:'green'},
-      {num:28, name:'資深特約資格檢查', desc:'【已修】申請 SENIOR_CONSULTANT 時驗證必須已有 CONSULTANT identity，否則回 400', status:'green'},
-      {num:29, name:'解除特約合作', desc:'【已修】POST /admin/crm/applications/{id}/terminate — 移除 identity + website_listed=false', status:'green'},
-      {num:30, name:'學員推薦好友頁', desc:'【已修】/student/referrals 新頁面：推薦連結、已推薦名單、獎金狀態 badge。sidebar 新增「推薦好友」nav', status:'green'},
-      {num:31, name:'Career DB / Forum / Counseling API', desc:'【已修】後端 3 個 API endpoint（/crm/career-database + /crm/forum/threads + /crm/counseling/slots）。前端改為先 call API，空資料時 fallback mock', status:'green'},
-    ]
-  },
-  {
-    id: 'blocked',
-    label: '無法修復（需外部資源）',
-    priority: '阻塞',
-    items: [
-      {num:32, name:'ECPay 電子發票 API', desc:'【已修】invoice_service.py 串接 ECPay Sandbox API（einvoice-stage.ecpay.com.tw）。create_invoice() 呼叫 B2CInvoice/Issue + CheckMacValue SHA256。正式環境需換 merchant ID', status:'green'},
-      {num:33, name:'排程發信 (cron)', desc:'【已修】ScheduledEmail DB model + POST /internal/process-scheduled-emails endpoint。infra/cloud-scheduler-setup.sh 建 GCP cron job（每 5 分鐘）', status:'green'},
-      {num:34, name:'行銷自動化（一日班/說明會/學長姐）', desc:'【已修】admin/marketing 3 tabs CRUD（說明會/一日班/學長姐）。Create/Edit dialog。自動發信按鈕 disabled 標示「需要排程系統」', status:'green'},
-      {num:35, name:'CMS 進階動畫', desc:'【已修】CMS editor 新增 GIF block（URL+preview）+ Carousel block（multi-URL+auto-rotate 3s+dot indicators）', status:'green'},
-      {num:36, name:'電商非會員購買', desc:'【V2 SPEC】需求：牌卡等周邊商品允許非會員購買（不需登入）。架構：新增 /checkout/guest 路由，收 name+email+phone+address+payment，不建 User record，建 GuestOrder model（order_id, contact_info JSONB, items JSONB, payment_status, shipping_status）。ECPay 付款成功後寄確認信到 email。與現有 Enrollment 完全獨立，不共用 auth middleware', status:'red'},
-      {num:37, name:'課前包裹寄送管理', desc:'【已修】admin/shipments CRUD 頁面：status flow（pending→packed→shipped→delivered）+ tracking number + summary cards。sidebar 新增「出貨管理」', status:'green'},
-      {num:38, name:'按商品拆分退款', desc:'【V3 SPEC】需求：學員同時報 A+B+牌卡，退課時只退 B 班保留 A 班。架構：新增 OrderItem model（order_id, product_type, unit_price, quantity, refund_status）。Enrollment 改為 has_many OrderItems。退款 API 改為接受 item_ids[] 參數，per-item 計算退款金額。發票也要 per-item 折讓。前端退課 modal 改為 checkbox 選擇要退哪些項目', status:'red'},
-    ]
-  },
-];
+var DATA = null;
+var _testData = {};
 
-function renderPrdCoverageTab() {
-  const allItems = PRD_GROUPS.flatMap(g => g.items);
-  const totalCount = allItems.length;
-  const greenCount = allItems.filter(i => i.status === 'green').length;
-  const yellowCount = allItems.filter(i => i.status === 'yellow').length;
-  const redCount = allItems.filter(i => i.status === 'red').length;
-  const coveragePct = Math.round((greenCount / totalCount) * 100);
-  const partialPct = Math.round(((greenCount + yellowCount * 0.5) / totalCount) * 100);
+// ---- Helpers ----
+function escHtml(s) { var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+function escAttr(s) { return (s || '').replace(/'/g, '&#39;').replace(/"/g, '&quot;').replace(/</g, '&lt;'); }
 
-  let html = '';
-
-  // Hero coverage meter
-  html += `<div class="prd-cover-hero">
-    <div>
-      <div class="prd-cover-title">PRD 覆蓋率分析</div>
-      <div class="prd-cover-sub">對照美荷原始規格 — 38 項功能缺口（V1 23項 + 額外 8項 + 阻塞 7項）</div>
-    </div>
-    <div class="prd-cover-meter">
-      <div class="prd-cover-pct">${coveragePct}%</div>
-      <div class="prd-cover-pct-label">已實作並測試 · ${greenCount}/${totalCount} 項</div>
-      <div class="prd-cover-bar-wrap">
-        <div class="prd-cover-bar" style="width:${Math.max(partialPct,2)}%"></div>
-      </div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:6px;font-size:12px">
-      <div style="color:#f87171;font-weight:700">&#9679; 未實作 ${redCount} 項</div>
-      <div style="color:var(--gold);font-weight:700">&#9679; 存在但未完整 ${yellowCount} 項</div>
-      <div style="color:#4ade80;font-weight:700">&#9679; 實作並測試 ${greenCount} 項</div>
-    </div>
-  </div>`;
-
-  // Legend
-  html += `<div class="prd-legend">
-    <div class="prd-legend-item"><div class="prd-legend-dot prd-dot-red"></div>未實作 — 需要開發</div>
-    <div class="prd-legend-item"><div class="prd-legend-dot prd-dot-yellow"></div>存在但未完整 / 狀態未知</div>
-    <div class="prd-legend-item"><div class="prd-legend-dot prd-dot-green"></div>已實作並通過 E2E 測試</div>
-  </div>`;
-
-  // Groups
-  PRD_GROUPS.forEach(g => {
-    const gRed = g.items.filter(i => i.status === 'red').length;
-    const gYellow = g.items.filter(i => i.status === 'yellow').length;
-    const gGreen = g.items.filter(i => i.status === 'green').length;
-
-    html += `<div class="prd-group">
-      <div class="prd-group-header">
-        <div class="prd-group-label">${g.label}</div>
-        <div class="prd-group-stats">
-          ${gRed ? `<span class="prd-gs prd-gs-red">未實作 ${gRed}</span>` : ''}
-          ${gYellow ? `<span class="prd-gs prd-gs-yellow">不完整 ${gYellow}</span>` : ''}
-          ${gGreen ? `<span class="prd-gs prd-gs-green">完成 ${gGreen}</span>` : ''}
-        </div>
-      </div>`;
-
-    g.items.forEach(item => {
-      const badgeClass = item.status === 'red' ? 'prd-badge-red' : item.status === 'yellow' ? 'prd-badge-yellow' : 'prd-badge-green';
-      const badgeLabel = item.status === 'red' ? '未實作' : item.status === 'yellow' ? '不完整' : '已完成';
-      const thumbHtml = item.screenshot
-        ? `<div class="test-thumb" style="margin-left:auto;cursor:pointer" onclick="openPrdScreenshot('${item.screenshot}','${item.name}')"><img src="${item.screenshot}" alt="${item.name}" style="width:64px;height:42px;object-fit:cover;border-radius:4px;border:1px solid var(--border)"></div>`
-        : '';
-      html += `<div class="prd-row" ${item.screenshot ? `style="cursor:pointer" onclick="openPrdScreenshot('${item.screenshot}','${item.name}')"` : ''}>
-        <div class="prd-num">#${item.num}</div>
-        <span class="prd-badge ${badgeClass}">${badgeLabel}</span>
-        <div class="prd-info">
-          <div class="prd-feature-name">${item.name}</div>
-          <div class="prd-feature-desc">${item.desc}</div>
-        </div>
-        ${thumbHtml}
-      </div>`;
+// ---- Fetch & render ----
+function init() {
+  fetch('report-data.json')
+    .then(function(res) { if (!res.ok) throw new Error('HTTP ' + res.status); return res.json(); })
+    .then(function(data) { DATA = data; updateSummaryBar(); renderTabs(); renderAll(); })
+    .catch(function(e) {
+      document.getElementById('main-content').textContent = 'Unable to load report-data.json: ' + e.message;
     });
+}
 
-    html += '</div>';
+function updateSummaryBar() {
+  var s = DATA.summary;
+  document.getElementById('s-total').textContent = s.total;
+  document.getElementById('s-pass').textContent = s.passed;
+  document.getElementById('s-skip').textContent = s.skipped;
+  document.getElementById('s-fail').textContent = s.failed;
+  var pct = s.total ? Math.round((s.passed / s.total) * 100) : 0;
+  document.getElementById('s-bar').style.width = pct + '%';
+  var date = DATA.generatedAt ? new Date(DATA.generatedAt).toLocaleDateString('zh-TW') : '';
+  document.getElementById('s-meta').textContent = 'commit: ' + (DATA.commitSha || '?') + ' | ' + date;
+}
+
+function renderTabs() {
+  var container = document.getElementById('tab-buttons');
+  var html = '';
+  TAB_CONFIG.forEach(function(tc, i) {
+    html += '<button class="tab-btn' + (i===0?' active':'') + '" onclick="showTab(\'' + tc.id + '\',this)">' + tc.label + '</button>';
   });
-
-  return html;
+  container.innerHTML = html;
 }
 
 function renderAll() {
-  const main = document.getElementById('main-content');
+  var main = document.getElementById('main-content');
   main.innerHTML = '';
-  TAB_CONFIG.forEach((tc, idx) => {
-    const panel = document.createElement('div');
+  TAB_CONFIG.forEach(function(tc, idx) {
+    var panel = document.createElement('div');
     panel.id = 'tab-' + tc.id;
     panel.className = 'tab-panel' + (idx===0?' active':'');
-
-    if (tc.id === 'prd') {
-      panel.innerHTML = renderPrdCoverageTab();
-    } else if (tc.id === 'screenshots') {
-      panel.innerHTML = renderGalleryTab();
-    } else {
-      panel.innerHTML = renderTestTab(tc.id, tc.label);
-    }
+    if (tc.id === 'prd') { panel.innerHTML = renderPrdCoverageTab(); }
+    else if (tc.id === 'screenshots') { panel.innerHTML = renderGalleryTab(); }
+    else { panel.innerHTML = renderTestTab(tc.id, tc.label); }
     main.appendChild(panel);
   });
 }
 
+// ---- Test tabs ----
+function getScreenshots(t) {
+  var urls = [];
+  if (t.shots && t.shots.length) {
+    t.shots.forEach(function(s) { urls.push({url: BASE + s, label: s.replace(/^(flow|crud)\//, '').replace('.png','')}); });
+  }
+  if (urls.length === 0 && t.pages && t.pages.length) {
+    for (var i = 0; i < t.pages.length; i++) {
+      var f = PAGE_FALLBACK[t.pages[i]];
+      if (f) { urls.push({url: BASE + f, label: '頁面截圖'}); break; }
+    }
+  }
+  return urls;
+}
+
 function renderTestTab(tabId, label) {
-  const tests = TESTS.filter(t => t.tab === tabId);
-  const pass = tests.filter(t=>t.status==='pass').length;
-  const skip = tests.filter(t=>t.status==='skip').length;
-  // group
-  const groups = {};
-  tests.forEach(t => {
-    if (!groups[t.group]) groups[t.group] = [];
+  var tests = (DATA.tests || []).filter(function(t) { return t.tab === tabId; });
+  var pass = tests.filter(function(t){return t.status==='pass';}).length;
+  var skip = tests.filter(function(t){return t.status==='skip';}).length;
+  var fail = tests.filter(function(t){return t.status==='fail';}).length;
+  var groups = {};
+  var groupOrder = [];
+  tests.forEach(function(t) {
+    if (!groups[t.group]) { groups[t.group] = []; groupOrder.push(t.group); }
     groups[t.group].push(t);
   });
-  const moduleId = label.split(' ')[0];
-  let html = `<div class="module-header">
-    <span class="module-badge">${moduleId}</span>
-    <span class="module-title">${label.replace(moduleId+' ','')}</span>
-    <div class="module-stats">
-      <span class="ms ms-pass">通過 ${pass}</span>
-      ${skip?`<span class="ms ms-skip">略過 ${skip}</span>`:''}
-    </div>
-  </div>`;
-  Object.keys(groups).forEach(g => {
-    html += `<div class="spec-group"><div class="spec-group-title">${g}</div>`;
-    groups[g].forEach((t, i) => {
-      const tid = tabId + '_' + g.replace(/[^a-z0-9]/gi,'') + '_' + i;
-      const shots = getScreenshots(t);
-      const thumb = shots.length ? `<div class="test-thumb"><img src="${shots[0].url}" alt="" onerror="this.style.display='none'"></div>` : '';
-      const apiB = t.apiOnly ? `<span class="api-badge">API</span>` : '';
-      const skipB = t.status==='skip' ? `<span class="skip-badge">略過</span>` : '';
-      const statusClass = t.status==='pass'?'ts-pass':t.status==='skip'?'ts-skip':'ts-fail';
-      const statusIcon = t.status==='pass'?'✓':t.status==='skip'?'−':'✗';
-      html += `<div class="test-row" onclick="openModal(${JSON.stringify(tid)})">
-        <div class="test-status ${statusClass}">${statusIcon}</div>
-        <div class="test-info">
-          <div class="test-name">${t.name}${apiB}${skipB}</div>
-          <div class="test-meta">${t.spec}</div>
-        </div>
-        ${thumb}
-      </div>`;
-      // store test data
-      window._testData = window._testData || {};
-      window._testData[tid] = t;
+  var moduleId = label.split(' ')[0];
+  var html = '<div class="module-header">' +
+    '<span class="module-badge">' + moduleId + '</span>' +
+    '<span class="module-title">' + label.replace(moduleId+' ','') + '</span>' +
+    '<div class="module-stats">' +
+    '<span class="ms ms-pass">通過 ' + pass + '</span>' +
+    (skip ? '<span class="ms ms-skip">略過 ' + skip + '</span>' : '') +
+    (fail ? '<span class="ms ms-fail">失敗 ' + fail + '</span>' : '') +
+    '</div></div>';
+  groupOrder.forEach(function(g) {
+    html += '<div class="spec-group"><div class="spec-group-title">' + escHtml(g) + '</div>';
+    groups[g].forEach(function(t, i) {
+      var tid = tabId + '_' + g.replace(/[^a-z0-9]/gi,'') + '_' + i;
+      var shots = getScreenshots(t);
+      var thumb = shots.length ? '<div class="test-thumb"><img src="' + shots[0].url + '" alt="" onerror="this.style.display=\'none\'"></div>' : '';
+      var apiB = t.apiOnly ? ' <span class="api-badge">API</span>' : '';
+      var skipB = t.status==='skip' ? ' <span class="skip-badge">略過</span>' : '';
+      var failB = t.status==='fail' ? ' <span class="fail-badge">失敗</span>' : '';
+      var statusClass = t.status==='pass'?'ts-pass':t.status==='skip'?'ts-skip':'ts-fail';
+      var statusIcon = t.status==='pass'?'✓':t.status==='skip'?'−':'✗';
+      var dur = t.duration ? ' · ' + Math.round(t.duration/1000) + 's' : '';
+      html += '<div class="test-row" onclick="openModal(\'' + tid + '\')">' +
+        '<div class="test-status ' + statusClass + '">' + statusIcon + '</div>' +
+        '<div class="test-info">' +
+        '<div class="test-name">' + escHtml(t.name) + apiB + skipB + failB + '</div>' +
+        '<div class="test-meta">' + escHtml(t.spec) + dur + '</div>' +
+        '</div>' + thumb + '</div>';
+      _testData[tid] = t;
+    });
+    html += '</div>';
+  });
+  if (tests.length === 0) html += '<div class="no-screenshot">此 Tab 無測試結果</div>';
+  return html;
+}
+
+// ---- PRD Coverage tab ----
+function renderPrdCoverageTab() {
+  var prd = DATA.prdCoverage || {summary:{green:0,yellow:0,red:0},items:[]};
+  var allItems = prd.items;
+  var totalCount = allItems.length;
+  var greenCount = prd.summary.green, yellowCount = prd.summary.yellow, redCount = prd.summary.red;
+  var coveragePct = totalCount ? Math.round((greenCount / totalCount) * 100) : 0;
+  var partialPct = totalCount ? Math.round(((greenCount + yellowCount * 0.5) / totalCount) * 100) : 0;
+
+  var html = '<div class="prd-cover-hero"><div>' +
+    '<div class="prd-cover-title">PRD 覆蓋率分析</div>' +
+    '<div class="prd-cover-sub">對照美荷原始規格 — ' + totalCount + ' 項功能缺口</div>' +
+    '</div><div class="prd-cover-meter">' +
+    '<div class="prd-cover-pct">' + coveragePct + '%</div>' +
+    '<div class="prd-cover-pct-label">已實作並測試 · ' + greenCount + '/' + totalCount + ' 項</div>' +
+    '<div class="prd-cover-bar-wrap"><div class="prd-cover-bar" style="width:' + Math.max(partialPct,2) + '%"></div></div>' +
+    '</div><div style="display:flex;flex-direction:column;gap:6px;font-size:12px">' +
+    '<div style="color:#f87171;font-weight:700">&#9679; 未實作 ' + redCount + ' 項</div>' +
+    '<div style="color:var(--gold);font-weight:700">&#9679; 存在但未完整 ' + yellowCount + ' 項</div>' +
+    '<div style="color:#4ade80;font-weight:700">&#9679; 實作並測試 ' + greenCount + ' 項</div>' +
+    '</div></div>';
+
+  // Module/Version filters
+  var modules = []; var versions = [];
+  allItems.forEach(function(i) {
+    if (i.module && modules.indexOf(i.module) < 0) modules.push(i.module);
+    if (i.version && versions.indexOf(i.version) < 0) versions.push(i.version);
+  });
+  modules.sort(); versions.sort();
+  html += '<div class="prd-filter" id="prd-filters">' +
+    '<button class="prd-filter-btn active" onclick="setPrdFilter(\'all\',this)">全部</button>';
+  modules.forEach(function(m) { html += '<button class="prd-filter-btn" onclick="setPrdFilter(\'module:' + m + '\',this)">' + m + '</button>'; });
+  versions.forEach(function(v) { html += '<button class="prd-filter-btn" onclick="setPrdFilter(\'version:' + v + '\',this)">' + v + '</button>'; });
+  html += '</div>';
+
+  html += '<div class="prd-legend">' +
+    '<div class="prd-legend-item"><div class="prd-legend-dot prd-dot-red"></div>未實作 — 需要開發</div>' +
+    '<div class="prd-legend-item"><div class="prd-legend-dot prd-dot-yellow"></div>存在但未完整 / 狀態未知</div>' +
+    '<div class="prd-legend-item"><div class="prd-legend-dot prd-dot-green"></div>已實作並通過 E2E 測試</div>' +
+    '</div>';
+
+  html += '<div id="prd-groups-container">' + renderPrdGroups(allItems) + '</div>';
+  return html;
+}
+
+function renderPrdGroups(items) {
+  var groupMap = {}; var groupOrder = [];
+  items.forEach(function(item) {
+    var key = item.groupId;
+    if (!groupMap[key]) { groupMap[key] = { label: item.group, priority: item.priority, items: [] }; groupOrder.push(key); }
+    groupMap[key].items.push(item);
+  });
+  var html = '';
+  groupOrder.forEach(function(key) {
+    var g = groupMap[key];
+    var gRed = g.items.filter(function(i){return i.status==='red';}).length;
+    var gYellow = g.items.filter(function(i){return i.status==='yellow';}).length;
+    var gGreen = g.items.filter(function(i){return i.status==='green';}).length;
+    html += '<div class="prd-group"><div class="prd-group-header">' +
+      '<div class="prd-group-label">' + escHtml(g.label) + '</div>' +
+      '<div class="prd-group-stats">' +
+      (gRed ? '<span class="prd-gs prd-gs-red">未實作 ' + gRed + '</span>' : '') +
+      (gYellow ? '<span class="prd-gs prd-gs-yellow">不完整 ' + gYellow + '</span>' : '') +
+      (gGreen ? '<span class="prd-gs prd-gs-green">完成 ' + gGreen + '</span>' : '') +
+      '</div></div>';
+    g.items.forEach(function(item) {
+      var badgeClass = item.status==='red'?'prd-badge-red':item.status==='yellow'?'prd-badge-yellow':'prd-badge-green';
+      var badgeLabel = item.status==='red'?'未實作':item.status==='yellow'?'不完整':'已完成';
+      var thumbHtml = item.screenshot
+        ? '<div class="test-thumb" style="margin-left:auto;cursor:pointer"><img src="screenshots/' + item.screenshot + '" alt="' + escAttr(item.name) + '" style="width:64px;height:42px;object-fit:cover;border-radius:4px;border:1px solid var(--border)"></div>'
+        : '';
+      var tags = (item.module ? '<span class="prd-module-tag">' + item.module + '</span>' : '') +
+                 (item.version ? '<span class="prd-version-tag">' + item.version + '</span>' : '');
+      var clickAttr = item.screenshot ? ' style="cursor:pointer" onclick="openPrdScreenshot(\'screenshots/' + item.screenshot + '\',\'' + escAttr(item.name) + '\')"' : '';
+      html += '<div class="prd-row"' + clickAttr + '>' +
+        '<div class="prd-num">#' + item.num + '</div>' +
+        '<span class="prd-badge ' + badgeClass + '">' + badgeLabel + '</span>' +
+        '<div class="prd-info">' +
+        '<div class="prd-feature-name">' + tags + escHtml(item.name) + '</div>' +
+        '<div class="prd-feature-desc">' + escHtml(item.desc) + '</div>' +
+        '</div>' + thumbHtml + '</div>';
     });
     html += '</div>';
   });
   return html;
 }
 
-function renderGalleryTab() {
-  const rootScreenshots = [
-    ['admin--admin-dashboard.png','管理員首頁'],['admin--admin-enrollments.png','報名管理'],['admin--admin-cohorts.png','梯次管理'],
-    ['admin--admin-classrooms.png','教室管理'],['admin--admin-grading.png','批改管理'],['admin--admin-promo-codes.png','優惠碼'],
-    ['admin--admin-products.png','商品管理'],['admin--admin-pages.png','行銷頁面'],['admin--admin-marketing.png','行銷頻道'],
-    ['admin--admin-crm.png','CRM 管理'],['admin--admin-supervision.png','督導管理'],['admin--admin-certifications.png','認證管理'],
-    ['admin--admin-referrals.png','推薦人管理'],['admin--admin-refunds.png','退款管理'],['admin--admin-agents.png','代理商管理'],
-    ['student--student-dashboard.png','學員首頁'],['student--student-enrollments.png','學員報名'],['student--student-courses.png','我的課程'],
-    ['student--student-payments.png','付款記錄'],['student--student-crm.png','學員 CRM'],['student--student-supervision.png','學員督導'],
-    ['student--student-certifications.png','學員認證'],['student--student-profile.png','個人資料'],
-    ['supervisor--admin-supervision.png','督導視角'],['ta--admin-grading.png','助教批改'],
-    ['visitor--homepage.png','訪客首頁'],['visitor--courses.png','訪客課程'],['visitor--enroll.png','訪客報名'],['visitor--login.png','登入頁'],
-  ];
-  const crudScreenshots = [
-    ['crud/agents-01-stat-cards.png','代理商統計'],['crud/agents-02-table-columns.png','代理商欄位'],['crud/agents-03-create-btn.png','新增代理商'],['crud/agents-04-referrals-stats.png','推薦人統計'],
-    ['crud/certification-01-dialog-open.png','認證 Dialog'],['crud/certification-02-score-filled.png','認證分數'],['crud/certification-03-toast-success.png','認證評分成功'],['crud/certification-04-table-badges.png','認證資料表'],
-    ['crud/classroom-01-dialog-open.png','教室 Dialog'],['crud/classroom-02-form-filled.png','教室表單'],['crud/classroom-03-detail-page.png','教室詳情'],['crud/classroom-04-toast-success.png','教室建立成功'],
-    ['crud/cohort-01-dialog-open.png','梯次 Dialog'],['crud/cohort-02-form-filled.png','梯次表單'],['crud/cohort-03-toast-success.png','梯次建立成功'],['crud/cohort-04-list-verified.png','梯次列表'],
-    ['crud/cohorts-smoke-01-list.png','梯次列表 Smoke'],['crud/cohorts-smoke-02-detail.png','梯次詳情 Smoke'],['crud/cohorts-smoke-04-filter.png','梯次篩選 Smoke'],
-    ['crud/enrollments-01-table.png','報名資料表'],['crud/enrollments-02-filter.png','報名篩選'],['crud/enrollments-03-sidebar-active.png','側邊欄啟用'],['crud/enrollments-04-dashboard-stats.png','儀表板統計'],['crud/enrollments-05-detail.png','報名詳情'],
-    ['crud/grading-01-dialog-open.png','批改 Dialog'],['crud/grading-02-score-filled.png','批改分數'],['crud/grading-03-toast-success.png','批改成功'],['crud/grading-04-stat-cards.png','批改統計'],
-    ['crud/page-01-editor-loaded.png','頁面編輯器'],['crud/page-02-slug-filled.png','Slug 填寫'],['crud/page-03-toast-success.png','頁面建立成功'],['crud/page-04-list-verified.png','頁面列表'],
-    ['crud/promo-01-dialog-open.png','優惠碼 Dialog'],['crud/promo-02-form-filled.png','優惠碼表單'],['crud/promo-03-list-verified.png','優惠碼列表'],['crud/promo-04-delete-confirm.png','刪除確認'],
-    ['crud/promo-smoke-01-page-loaded.png','優惠碼頁 Smoke'],['crud/promo-smoke-03-filter.png','優惠碼篩選 Smoke'],
-    ['crud/supervision-01-dialog-open.png','督導 Dialog'],['crud/supervision-02-status-changed.png','督導狀態'],['crud/supervision-03-toast-success.png','督導更新成功'],['crud/supervision-04-table-verified.png','督導資料表'],
-  ];
-  const flowScreenshots = [
-    ['flow/access-01-admin-redirect-login.png','管理員重導'],['flow/access-02-student-redirect-login.png','學員重導'],['flow/access-03-public-courses.png','公開課程'],['flow/access-04-login-page.png','登入頁'],
-    ['flow/access-05-student-blocked-admin.png','學員被封鎖'],['flow/access-06-student-blocked-enrollments.png','學員被封鎖 2'],['flow/access-07-student-own-dashboard.png','學員儀表板'],['flow/access-08-admin-dashboard.png','管理員儀表板'],['flow/access-09-admin-enrollments.png','管理員報名'],
-    ['flow/browse-01-hero.png','首頁 Hero'],['flow/browse-02-course-list.png','課程列表'],['flow/browse-03-course-detail.png','課程詳情'],['flow/browse-04-enroll-cta.png','報名 CTA'],['flow/browse-05-login-btn.png','登入按鈕'],
-    ['flow/crm-01-member-dialog.png','會員 Dialog'],['flow/crm-02-renewal-tab.png','續費分頁'],['flow/crm-03-special-tab.png','特約分頁'],['flow/crm-04-search-results.png','CRM 搜尋'],
-    ['flow/ecpay-01-success-page.png','ECPay 成功'],['flow/ecpay-02-failed-page.png','ECPay 失敗'],
-    ['flow/enroll-01-course-listing.png','報名課程列表'],['flow/enroll-02-course-detail.png','報名課程詳情'],['flow/enroll-03-pricing-page.png','定價頁'],['flow/enroll-04-student-dashboard.png','學員儀表板'],
-    ['flow/enroll-details-01-cohort-info.png','梯次資訊'],['flow/enroll-details-02-early-bird.png','早鳥定價'],['flow/enroll-details-03-cohort-detail.png','梯次詳情'],['flow/enroll-details-04-status-filter.png','狀態篩選'],['flow/enroll-details-05-refunds.png','退款列表'],['flow/enroll-details-06-process-refund-btn.png','處理退款'],
-    ['flow/enroll-form-01-step1-courses.png','報名步驟一'],['flow/enroll-form-02-early-bird.png','早鳥定價'],
-    ['flow/mobile-01-homepage.png','手機首頁'],['flow/mobile-02-courses.png','手機課程'],['flow/mobile-03-enroll.png','手機報名'],['flow/mobile-04-student-dashboard.png','手機學員'],['flow/mobile-07-login.png','手機登入'],
-    ['flow/payment-01-pricing-breakdown.png','定價明細'],['flow/payment-02-checkout-success.png','結帳成功'],['flow/payment-03-checkout-failed.png','結帳失敗'],['flow/payment-04-student-history.png','付款記錄'],
-    ['flow/renewal-01-new-application.png','新增申請'],['flow/renewal-02-special-buttons.png','特約按鈕'],['flow/renewal-03-cert-status.png','認證狀態'],
-    ['flow/student-enroll-01-dashboard.png','學員儀表板'],['flow/student-enroll-02-enroll-page.png','報名頁'],['flow/student-enroll-03-enroll-btn.png','選擇梯次'],['flow/student-enroll-04-form-accessible.png','報名表單'],['flow/student-enroll-05-records.png','報名紀錄'],['flow/student-enroll-06-pricing-cta.png','定價 CTA'],['flow/student-enroll-07-checkout-failed.png','結帳失敗'],
-  ];
-
-  function gridItems(list) {
-    return list.map(([path, label]) =>
-      `<div class="gallery-item" onclick="openLightboxDirect('${BASE+path}','${label}')"><img src="${BASE+path}" alt="${label}" onerror="this.parentElement.style.display='none'"><p>${label}</p></div>`
-    ).join('');
-  }
-
-  return `<div class="gallery-section">
-    <div class="gallery-title">截圖總覽</div>
-    <div class="gallery-cat">
-      <div class="gallery-cat-title">頁面截圖（29 張）</div>
-      <div class="gallery-grid">${gridItems(rootScreenshots)}</div>
-    </div>
-    <div class="gallery-cat">
-      <div class="gallery-cat-title">CRUD 操作截圖（43 張）</div>
-      <div class="gallery-grid">${gridItems(crudScreenshots)}</div>
-    </div>
-    <div class="gallery-cat">
-      <div class="gallery-cat-title">流程截圖（51 張）</div>
-      <div class="gallery-grid">${gridItems(flowScreenshots)}</div>
-    </div>
-  </div>`;
-}
-
-function showTab(id, btn) {
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-'+id).classList.add('active');
+function setPrdFilter(filter, btn) {
+  document.querySelectorAll('#prd-filters .prd-filter-btn').forEach(function(b) { b.classList.remove('active'); });
   if (btn) btn.classList.add('active');
+  var allItems = (DATA.prdCoverage || {}).items || [];
+  var filtered = allItems;
+  if (filter.indexOf('module:') === 0) {
+    var mod = filter.split(':')[1];
+    filtered = allItems.filter(function(i) { return i.module === mod; });
+  } else if (filter.indexOf('version:') === 0) {
+    var ver = filter.split(':')[1];
+    filtered = allItems.filter(function(i) { return i.version === ver; });
+  }
+  document.getElementById('prd-groups-container').innerHTML = renderPrdGroups(filtered);
 }
 
-function openModal(tid) {
-  const t = window._testData[tid];
-  if (!t) return;
-  const shots = getScreenshots(t);
-  document.getElementById('modal-title').textContent = t.name;
+// ---- Gallery tab ----
+function renderGalleryTab() {
+  var ss = DATA.screenshots || {};
+  function gridItems(list) {
+    return (list || []).map(function(p) {
+      var label = p.replace(/^(crud|flow|prd-gaps)\//, '').replace('.png','').replace(/--/g,' ');
+      return '<div class="gallery-item" onclick="openLightboxDirect(\'' + BASE+p + '\',\'' + escAttr(label) + '\')"><img src="' + BASE+p + '" alt="' + escAttr(label) + '" onerror="this.parentElement.style.display=\'none\'"><p>' + escHtml(label) + '</p></div>';
+    }).join('');
+  }
+  return '<div class="gallery-section">' +
+    '<div class="gallery-title">截圖總覽</div>' +
+    '<div class="gallery-cat"><div class="gallery-cat-title">頁面截圖（' + (ss.root||[]).length + ' 張）</div><div class="gallery-grid">' + gridItems(ss.root) + '</div></div>' +
+    '<div class="gallery-cat"><div class="gallery-cat-title">CRUD 操作截圖（' + (ss.crud||[]).length + ' 張）</div><div class="gallery-grid">' + gridItems(ss.crud) + '</div></div>' +
+    '<div class="gallery-cat"><div class="gallery-cat-title">流程截圖（' + (ss.flow||[]).length + ' 張）</div><div class="gallery-grid">' + gridItems(ss.flow) + '</div></div>' +
+    '</div>';
+}
 
-  const statusLabel = t.status==='pass'?'通過':'略過';
-  const statusClass = t.status==='pass'?'mb-pass':'mb-skip';
-  let metaHtml = `<span class="modal-badge ${statusClass}">${statusLabel}</span>
-    <span style="color:var(--muted)">${t.spec}</span>`;
-  if (t.apiOnly) metaHtml += `<span class="modal-badge mb-api">API 測試</span>`;
+// ---- Modal ----
+function openModal(tid) {
+  var t = _testData[tid];
+  if (!t) return;
+  var shots = getScreenshots(t);
+  document.getElementById('modal-title').textContent = t.name;
+  var statusLabel = t.status==='pass'?'通過':t.status==='skip'?'略過':'失敗';
+  var statusClass = t.status==='pass'?'mb-pass':t.status==='skip'?'mb-skip':'mb-fail';
+  var metaHtml = '<span class="modal-badge ' + statusClass + '">' + statusLabel + '</span>' +
+    '<span style="color:var(--muted)">' + escHtml(t.spec) + '</span>';
+  if (t.duration) metaHtml += '<span style="color:var(--muted)">' + Math.round(t.duration/1000) + 's</span>';
+  if (t.apiOnly) metaHtml += '<span class="modal-badge mb-api">API 測試</span>';
   document.getElementById('modal-meta').innerHTML = metaHtml;
 
-  let screenshotHtml = '';
-  if (t.apiOnly) {
-    screenshotHtml = `<div class="no-screenshot">此測試無截圖（API 測試或條件略過）</div>`;
-  } else if (shots.length === 0) {
-    screenshotHtml = `<div class="no-screenshot">此測試無截圖（API 測試或條件略過）</div>`;
+  var screenshotHtml = '';
+  if (shots.length === 0) {
+    screenshotHtml = '<div class="no-screenshot">此測試無截圖（API 測試或條件略過）</div>';
   } else {
-    screenshotHtml = `<h4>測試截圖</h4>`;
-    shots.forEach(s => {
-      screenshotHtml += `<div class="modal-img-wrap">
-        <img src="${s.url}" alt="${s.label}" onerror="this.parentElement.innerHTML='<div class=\\'no-screenshot\\'>截圖載入失敗</div>'">
-        ${s.label ? `<div class="modal-img-caption">${s.label}</div>` : ''}
-      </div>`;
+    screenshotHtml = '<h4>測試截圖</h4>';
+    shots.forEach(function(s) {
+      screenshotHtml += '<div class="modal-img-wrap">' +
+        '<img src="' + s.url + '" alt="' + escAttr(s.label) + '" onerror="this.parentElement.innerHTML=\'<div class=\\\'no-screenshot\\\'>截圖載入失敗</div>\'">' +
+        (s.label ? '<div class="modal-img-caption">' + escHtml(s.label) + '</div>' : '') +
+        '</div>';
     });
   }
   document.getElementById('modal-screenshots').innerHTML = screenshotHtml;
@@ -1194,28 +452,28 @@ function openModal(tid) {
 }
 
 function openLightboxDirect(url, caption) {
-  // reuse modal for gallery
   document.getElementById('modal-title').textContent = caption;
   document.getElementById('modal-meta').innerHTML = '';
   document.getElementById('modal-screenshots').innerHTML =
-    `<div class="modal-img-wrap"><img src="${url}" alt="${caption}" onerror="this.parentElement.innerHTML='<div class=\\'no-screenshot\\'>截圖載入失敗</div>'"></div>`;
+    '<div class="modal-img-wrap"><img src="' + url + '" alt="' + escAttr(caption) + '" onerror="this.parentElement.innerHTML=\'<div class=\\\'no-screenshot\\\'>截圖載入失敗</div>\'"></div>';
   document.getElementById('modal').classList.add('open');
 }
 
-function openPrdScreenshot(url, name) {
-  openLightboxDirect(url, 'PRD #' + name);
+function openPrdScreenshot(url, name) { openLightboxDirect(url, 'PRD #' + name); }
+
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById('tab-'+id).classList.add('active');
+  if (btn) btn.classList.add('active');
 }
 
-function closeModal() {
-  document.getElementById('modal').classList.remove('open');
-}
-function closeModalIfBg(e) {
-  if (e.target === document.getElementById('modal')) closeModal();
-}
-document.addEventListener('keydown', e => { if (e.key==='Escape') closeModal(); });
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+function closeModalIfBg(e) { if (e.target === document.getElementById('modal')) closeModal(); }
+document.addEventListener('keydown', function(e) { if (e.key==='Escape') closeModal(); });
 
 // Boot
-renderAll();
+init();
 </script>
 </body>
 </html>
