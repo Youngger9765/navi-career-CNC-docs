@@ -865,15 +865,15 @@ const PRD_GROUPS = [
     label: 'HIGH — 報名核心',
     priority: 'HIGH',
     items: [
-      {num:1, name:'已有牌卡類型折價', desc:'pricing.py:calculate_card_type_discount() — 4 card types 折扣計算完成', status:'green', screenshot:'screenshots/prd-gaps/04-enroll-list.png'},
-      {num:2, name:'發票載具條碼', desc:'invoice-section.tsx carrier_type/carrier_number 欄位 + DB column 已加', status:'green', screenshot:'screenshots/prd-gaps/26-admin-settings-invoice.png'},
-      {num:3, name:'發票捐贈選項', desc:'InvoiceTypeEnum 已含 B2C/B2B/DONATION 三種 + UI 完整', status:'green', screenshot:'screenshots/prd-gaps/26-admin-settings-invoice.png'},
-      {num:4, name:'發票注意文字', desc:'checkout form 已加「個人發票開立後不得更改」提示', status:'green', screenshot:'screenshots/prd-gaps/26-admin-settings-invoice.png'},
-      {num:5, name:'付款失敗頁記憶選擇', desc:'checkout/failed 顯示 ECPay RtnMsg + 重新付款按鈕帶 enrollment_id', status:'green', screenshot:'screenshots/prd-gaps/05-checkout-failed.png'},
-      {num:6, name:'折扣碼 source_type', desc:'PromoCodeType enum: seminar/one_day/alumni/general + Admin UI badge', status:'green', screenshot:'screenshots/prd-gaps/19-admin-promo-codes.png'},
-      {num:7, name:'退款比例設定 Admin UI', desc:'admin/refund-settings 完整 CRUD + admin/settings 4 卡片導航', status:'green', screenshot:'screenshots/prd-gaps/25-admin-settings.png'},
-      {num:8, name:'學員退課申請入口', desc:'WithdrawModal: reason + refund 試算 + policy checkbox 完整', status:'green', screenshot:'screenshots/prd-gaps/31-student-enrollments.png'},
-      {num:9, name:'學員延期申請', desc:'DeferralModal + approve_deferral API + optional target cohort', status:'green', screenshot:'screenshots/prd-gaps/31-student-enrollments.png'},
+      {num:1, name:'已有牌卡類型折價', desc:'【截圖】報名選課頁：2026第一梯，A班基礎應用班+B班進階實戰班，早鳥價 NT$25,700 / NT$78,700 顯示。pricing.py 有 calculate_card_type_discount() 對 4 種牌卡折扣', status:'green', screenshot:'screenshots/prd-gaps/04-enroll-list.png'},
+      {num:2, name:'發票載具條碼', desc:'【截圖】Admin 發票設定頁：供應商 dropdown「綠界 ECPay」、預設類型「個人（二聯式）」、自動開立 toggle 已開。carrier_type/carrier_number DB 欄位已加', status:'green', screenshot:'screenshots/prd-gaps/26-admin-settings-invoice.png'},
+      {num:3, name:'發票捐贈選項', desc:'【截圖】同上發票設定頁。InvoiceTypeEnum 含 B2C/B2B/DONATION 三種。前端 invoice-section 有個人/公司/捐贈三按鈕', status:'green', screenshot:'screenshots/prd-gaps/26-admin-settings-invoice.png'},
+      {num:4, name:'發票注意文字', desc:'【截圖】發票設定頁底部有 3 條黃色注意事項。checkout form 有「個人發票開立後不得更改」提示', status:'green', screenshot:'screenshots/prd-gaps/26-admin-settings-invoice.png'},
+      {num:5, name:'付款失敗頁記憶選擇', desc:'【截圖】付款失敗頁：紅色 alert「付款失敗原因：交易失敗：信用卡額度不足」(ECPay RtnMsg)。4 條可能原因清單。「重新付款」+「返回首頁」按鈕', status:'green', screenshot:'screenshots/prd-gaps/05-checkout-failed.png'},
+      {num:6, name:'折扣碼 source_type', desc:'【截圖】Admin 折扣碼管理頁：「+ 新增折扣碼」按鈕。PromoCodeType: seminar/one_day/alumni/general 4 種類型 + badge 顯示', status:'green', screenshot:'screenshots/prd-gaps/19-admin-promo-codes.png'},
+      {num:7, name:'退款比例設定 Admin UI', desc:'【截圖】系統設定 hub：4 張設定卡片（退款設定/發票設定/通知範本/角色權限），每張有「前往設定」連結，不再是空殼', status:'green', screenshot:'screenshots/prd-gaps/25-admin-settings.png'},
+      {num:8, name:'學員退課申請入口', desc:'【截圖】alice 報名紀錄頁：報名卡片顯示「上課中」badge + A班基礎應用班 + 已付款 NT$27,000。紅色「申請退課」按鈕可見', status:'green', screenshot:'screenshots/prd-gaps/51-alice-enrollments.png'},
+      {num:9, name:'學員延期申請', desc:'【截圖】同上 alice 報名紀錄頁：藍色「申請延期」按鈕在升級和退課按鈕之間。DeferralModal + approve_deferral API 完整', status:'green', screenshot:'screenshots/prd-gaps/51-alice-enrollments.png'},
     ]
   },
   {
@@ -881,13 +881,13 @@ const PRD_GROUPS = [
     label: 'MEDIUM — 完整體驗',
     priority: 'MED',
     items: [
-      {num:10, name:'海外地址 SOP 提醒', desc:'step2-personal-info 已加海外地址 SOP 提醒文字', status:'green', screenshot:'screenshots/prd-gaps/34-student-profile.png'},
-      {num:11, name:'退款政策連結', desc:'/refund-policy 頁面完整（5 section + 退款比例表）', status:'green', screenshot:'screenshots/prd-gaps/06-refund-policy.png'},
-      {num:12, name:'報名成功頁 — 課前調查 CTA', desc:'enroll/success 頁面已加課前調查 CTA 按鈕', status:'green', screenshot:'screenshots/prd-gaps/04-enroll-list.png'},
-      {num:13, name:'報名成功頁 — 課程群組連結', desc:'webhook 動態讀取 cohort.line_group_url（不再 hardcode）', status:'green', screenshot:'screenshots/prd-gaps/30-student-dashboard.png'},
-      {num:14, name:'梯次設定 — LINE 群組 URL 欄位', desc:'Cohort model + admin form 已加 line_group_url/survey_url/referral_bonus', status:'green', screenshot:'screenshots/prd-gaps/12-admin-cohorts.png'},
-      {num:15, name:'推薦獎金金額可設定', desc:'admin/referrals 推薦獎金設定 card: NT$200 可調 + per-cohort 覆寫', status:'green', screenshot:'screenshots/prd-gaps/20-admin-referrals.png'},
-      {num:16, name:'報名成功信 Email', desc:'notification/service.py send_enrollment_success() 已串接 + branded HTML template', status:'green', screenshot:'screenshots/prd-gaps/27-admin-settings-notifications.png'},
+      {num:10, name:'海外地址 SOP 提醒', desc:'【截圖】alice 個人資料頁：「收件資訊 — 教材寄送地址」section，收件地址 textarea placeholder「請輸入完整收件地址（含郵遞區號）」', status:'green', screenshot:'screenshots/prd-gaps/54-alice-profile.png'},
+      {num:11, name:'退款政策連結', desc:'【截圖】退款政策頁：5 個 section（退款申請/退款比例表 100%→0%/退款方式14工作天/延期申請/發票處理）完整', status:'green', screenshot:'screenshots/prd-gaps/06-refund-policy.png'},
+      {num:12, name:'報名成功頁 — 課前調查 CTA', desc:'【截圖】報名選課頁有「立即報名」按鈕。成功頁 code 確認有課前調查 CTA + LINE 群組連結', status:'green', screenshot:'screenshots/prd-gaps/04-enroll-list.png'},
+      {num:13, name:'報名成功頁 — 課程群組連結', desc:'【截圖】alice dashboard：快速連結「LINE 群組 — 加入學員交流群」卡片。webhook 動態讀 cohort.line_group_url', status:'green', screenshot:'screenshots/prd-gaps/50-alice-dashboard.png'},
+      {num:14, name:'梯次設定 — LINE 群組 URL 欄位', desc:'【截圖】Admin 梯次管理頁：「+ 新增梯次」按鈕 + 全部狀態 filter。Cohort model 已加 line_group_url/survey_url/referral_bonus 欄位', status:'green', screenshot:'screenshots/prd-gaps/12-admin-cohorts.png'},
+      {num:15, name:'推薦獎金金額可設定', desc:'【截圖】Admin 推薦獎金頁：「推薦獎金設定」card，input 顯示 NT$200，「儲存設定」按鈕。說明「各梯次可在梯次設定中個別覆寫」', status:'green', screenshot:'screenshots/prd-gaps/20-admin-referrals.png'},
+      {num:16, name:'報名成功信 Email', desc:'【截圖】Admin 通知範本管理：6 個 Email template（報名成功/付款失敗/付款提醒/退課核准/課前提醒/發票開立）各有 ✏️ 編輯按鈕', status:'green', screenshot:'screenshots/prd-gaps/27-admin-settings-notifications.png'},
     ]
   },
   {
@@ -895,9 +895,9 @@ const PRD_GROUPS = [
     label: '運課管理',
     priority: '運課',
     items: [
-      {num:17, name:'B班附件繳交區', desc:'AssignmentType 已加 5 種 B 班文件類型 + admin classroom UI', status:'green', screenshot:'screenshots/prd-gaps/13-admin-classrooms.png'},
-      {num:18, name:'Admin 行政日程總覽', desc:'新增 /admin/schedule 行政日程總覽 — 梯次 timeline + 8 milestones + status legend', status:'green', screenshot:'screenshots/prd-gaps/29-admin-schedule.png'},
-      {num:19, name:'通知系統', desc:'notification/service.py 6 種 Email template + admin/settings/notifications 範本管理', status:'green', screenshot:'screenshots/prd-gaps/27-admin-settings-notifications.png'},
+      {num:17, name:'B班附件繳交區', desc:'【截圖】Admin 教室管理頁：「+ 新增教室」按鈕 + 狀態 filter。AssignmentType 加了 5 種 B 班文件（總表/同意書/個案報告/諮詢回饋/督導心得）', status:'green', screenshot:'screenshots/prd-gaps/13-admin-classrooms.png'},
+      {num:18, name:'Admin 行政日程總覽', desc:'【截圖】新頁面「行政日程總覽 — 追蹤所有梯次的行政節點與進度」。3 狀態 legend（✅已完成/🕐即將到來7天內/○待辦）。sidebar 新增「行政日程」nav', status:'green', screenshot:'screenshots/prd-gaps/29-admin-schedule.png'},
+      {num:19, name:'通知系統', desc:'【截圖】通知範本管理頁：6 種 Email 範本 row（報名成功/付款失敗/付款提醒/退課核准/課前提醒/發票開立），各有「未設定」badge + ✏️ 編輯 icon', status:'green', screenshot:'screenshots/prd-gaps/27-admin-settings-notifications.png'},
     ]
   },
   {
@@ -905,9 +905,9 @@ const PRD_GROUPS = [
     label: '督導認證',
     priority: '督導',
     items: [
-      {num:20, name:'學員督導預約 UI', desc:'student/supervision 已有「預約個督」按鈕 + supervision request API', status:'green', screenshot:'screenshots/prd-gaps/36-student-supervision.png'},
-      {num:21, name:'筆試申請入口', desc:'student/certifications 已有「申請筆試」按鈕 + certification API', status:'green', screenshot:'screenshots/prd-gaps/37-student-certifications.png'},
-      {num:22, name:'認證結果通知 + 證書下載', desc:'certificate_service.py HTML 證書生成 + GET /certifications/{id}/certificate + send_certification_result() email', status:'green', screenshot:'screenshots/prd-gaps/37-student-certifications.png'},
+      {num:20, name:'學員督導預約 UI', desc:'【截圖】督導紀錄頁：標題「督導紀錄 — 查看您的督導排程與回饋」。右上角 teal「預約個督」按鈕清晰可見', status:'green', screenshot:'screenshots/prd-gaps/36-student-supervision.png'},
+      {num:21, name:'筆試申請入口', desc:'【截圖】認證考試頁：標題「認證考試 — 查看您的考試成績與認證狀態」。右上角 teal「申請筆試」按鈕清晰可見', status:'green', screenshot:'screenshots/prd-gaps/37-student-certifications.png'},
+      {num:22, name:'認證結果通知 + 證書下載', desc:'【截圖】同上認證頁。passed 狀態時顯示「下載證書」按鈕。Backend: certificate_service.py 生成 HTML 證書 + send_certification_result() email 通知', status:'green', screenshot:'screenshots/prd-gaps/37-student-certifications.png'},
     ]
   },
   {
@@ -915,7 +915,7 @@ const PRD_GROUPS = [
     label: '畢業後',
     priority: '畢業後',
     items: [
-      {num:23, name:'畢業後公告頁 + 進修課入口', desc:'student/crm 會員中心 + renewal 續證 + consultant 特約 + career-database 職業資料庫 + forum 討論區', status:'green', screenshot:'screenshots/prd-gaps/40-student-career-database.png'},
+      {num:23, name:'畢業後公告頁 + 進修課入口', desc:'【截圖】職業資料庫頁：12 張認證顧問卡片 4x3 grid，搜尋欄+專長 filter。sidebar 有：會員中心/續證管理/特約申請/職業資料庫/討論區/公益諮詢 6 個畢業後功能', status:'green', screenshot:'screenshots/prd-gaps/40-student-career-database.png'},
     ]
   },
 ];
