@@ -918,6 +918,35 @@ const PRD_GROUPS = [
       {num:23, name:'畢業後公告頁 + 進修課入口', desc:'【截圖】職業資料庫頁：12 張認證顧問卡片 4x3 grid，搜尋欄+專長 filter。sidebar 有：會員中心/續證管理/特約申請/職業資料庫/討論區/公益諮詢 6 個畢業後功能', status:'green', screenshot:'screenshots/prd-gaps/40-student-career-database.png'},
     ]
   },
+  {
+    id: 'extra-done',
+    label: '額外修復（Session 2）',
+    priority: '額外',
+    items: [
+      {num:24, name:'Email 驗證', desc:'【已修】register 時生成 token + send_email_verification()。GET /auth/verify-email?token=xxx 設 is_email_verified=True', status:'green'},
+      {num:25, name:'開課自動建教室', desc:'【已修】cohort setup endpoint 自動建 Classroom record（如果 cohort 尚未有教室）', status:'green'},
+      {num:26, name:'B班文件追蹤', desc:'【已修】check_b_class_completion() 驗證 5 種必繳文件（總表/同意書/個案報告/諮詢回饋/督導心得）', status:'green'},
+      {num:27, name:'認證結果通知 Email', desc:'【已修】grade_certification() 後自動呼叫 send_certification_result()（通過/未通過兩種 template）', status:'green'},
+      {num:28, name:'資深特約資格檢查', desc:'【已修】申請 SENIOR_CONSULTANT 時驗證必須已有 CONSULTANT identity，否則回 400', status:'green'},
+      {num:29, name:'解除特約合作', desc:'【已修】POST /admin/crm/applications/{id}/terminate — 移除 identity + website_listed=false', status:'green'},
+      {num:30, name:'學員推薦好友頁', desc:'【已修】/student/referrals 新頁面：推薦連結、已推薦名單、獎金狀態 badge。sidebar 新增「推薦好友」nav', status:'green'},
+      {num:31, name:'Career DB / Forum / Counseling API', desc:'【已修】後端 3 個 API endpoint（/crm/career-database + /crm/forum/threads + /crm/counseling/slots）。前端改為先 call API，空資料時 fallback mock', status:'green'},
+    ]
+  },
+  {
+    id: 'blocked',
+    label: '無法修復（需外部資源）',
+    priority: '阻塞',
+    items: [
+      {num:32, name:'ECPay 電子發票 API', desc:'【阻塞】invoice_service.py 有 stub（create/void/status），但未串接 ECPay e-invoice API。需要：美荷提供 ECPay 電子發票 merchant ID + hash key + 測試環境', status:'red'},
+      {num:33, name:'排程發信 (cron)', desc:'【阻塞】scheduled_email.py 是 in-memory stub。需要：GCP Cloud Scheduler 設定 cron job 觸發 /internal/process-scheduled-emails', status:'red'},
+      {num:34, name:'行銷自動化（一日班/說明會/學長姐）', desc:'【阻塞】MarketingChannel model 存在，CRUD 有。但「課後自動發折扣碼」「優惠截止催單信」依賴 #33 排程 infra', status:'red'},
+      {num:35, name:'CMS 進階動畫', desc:'【阻塞】CMS editor 有 text/video/image/CTA/milestone 6 種 block。缺 GIF 嵌入 + 跑馬燈 + 數字動畫效果。需要：美荷確認動畫設計稿', status:'red'},
+      {num:36, name:'電商非會員購買', desc:'【阻塞】目前所有結帳都需要登入。Guest checkout 需要獨立架構設計。V2 scope', status:'red'},
+      {num:37, name:'課前包裹寄送管理', desc:'【阻塞】無寄送管理模組。需要：確認物流廠商（郵局大宗/宅配通）+ API 文件', status:'red'},
+      {num:38, name:'按商品拆分退款', desc:'【阻塞】目前 1 enrollment = 1 筆金額。多商品退款需要 order item 架構重構。V3 scope', status:'red'},
+    ]
+  },
 ];
 
 function renderPrdCoverageTab() {
@@ -935,7 +964,7 @@ function renderPrdCoverageTab() {
   html += `<div class="prd-cover-hero">
     <div>
       <div class="prd-cover-title">PRD 覆蓋率分析</div>
-      <div class="prd-cover-sub">對照美荷原始規格 — 23 項 V1 功能缺口</div>
+      <div class="prd-cover-sub">對照美荷原始規格 — 38 項功能缺口（V1 23項 + 額外 8項 + 阻塞 7項）</div>
     </div>
     <div class="prd-cover-meter">
       <div class="prd-cover-pct">${coveragePct}%</div>
