@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-17T16:40:27.587Z",
+  "generatedAt": "2026-03-17T16:52:55.923Z",
   "commitSha": "b84443c",
   "summary": {
     "total": 240,
@@ -14,8 +14,10 @@
       "tab": "access",
       "group": "Unauthenticated visitor",
       "status": "pass",
-      "duration": 5101,
-      "shots": []
+      "duration": 2603,
+      "shots": [
+        "flow/access-01-admin-redirect-login.png"
+      ]
     },
     {
       "name": "visitor accessing /student/dashboard gets redirected to login",
@@ -23,8 +25,10 @@
       "tab": "access",
       "group": "Unauthenticated visitor",
       "status": "pass",
-      "duration": 11023,
-      "shots": []
+      "duration": 2619,
+      "shots": [
+        "flow/access-02-student-redirect-login.png"
+      ]
     },
     {
       "name": "visitor can access public /courses page",
@@ -32,8 +36,10 @@
       "tab": "access",
       "group": "Unauthenticated visitor",
       "status": "pass",
-      "duration": 14532,
-      "shots": []
+      "duration": 2810,
+      "shots": [
+        "flow/access-03-public-courses.png"
+      ]
     },
     {
       "name": "visitor can access login page",
@@ -41,8 +47,10 @@
       "tab": "access",
       "group": "Unauthenticated visitor",
       "status": "pass",
-      "duration": 4981,
-      "shots": []
+      "duration": 1568,
+      "shots": [
+        "flow/access-04-login-page.png"
+      ]
     },
     {
       "name": "student accessing /admin/dashboard is blocked — redirect or empty render",
@@ -50,8 +58,10 @@
       "tab": "access",
       "group": "Student accessing admin pages",
       "status": "pass",
-      "duration": 10513,
-      "shots": []
+      "duration": 1122,
+      "shots": [
+        "flow/access-05-student-blocked-admin.png"
+      ]
     },
     {
       "name": "student accessing /admin/enrollments is blocked — redirect or empty render",
@@ -59,8 +69,10 @@
       "tab": "access",
       "group": "Student accessing admin pages",
       "status": "pass",
-      "duration": 10711,
-      "shots": []
+      "duration": 1001,
+      "shots": [
+        "flow/access-06-student-blocked-enrollments.png"
+      ]
     },
     {
       "name": "student can access /student/dashboard",
@@ -68,8 +80,10 @@
       "tab": "access",
       "group": "Student accessing admin pages",
       "status": "pass",
-      "duration": 4664,
-      "shots": []
+      "duration": 1342,
+      "shots": [
+        "flow/access-07-student-own-dashboard.png"
+      ]
     },
     {
       "name": "admin can access /admin/dashboard",
@@ -77,8 +91,10 @@
       "tab": "access",
       "group": "Admin can access admin pages",
       "status": "pass",
-      "duration": 4850,
-      "shots": []
+      "duration": 2028,
+      "shots": [
+        "flow/access-08-admin-dashboard.png"
+      ]
     },
     {
       "name": "admin can access /admin/enrollments",
@@ -86,8 +102,10 @@
       "tab": "access",
       "group": "Admin can access admin pages",
       "status": "pass",
-      "duration": 4635,
-      "shots": []
+      "duration": 2126,
+      "shots": [
+        "flow/access-09-admin-enrollments.png"
+      ]
     },
     {
       "name": "student token cannot access admin API endpoints",
@@ -95,7 +113,7 @@
       "tab": "access",
       "group": "API-level role guards",
       "status": "pass",
-      "duration": 1425,
+      "duration": 1100,
       "shots": []
     },
     {
@@ -104,7 +122,7 @@
       "tab": "access",
       "group": "API-level role guards",
       "status": "pass",
-      "duration": 299,
+      "duration": 239,
       "shots": []
     },
     {
@@ -113,8 +131,10 @@
       "tab": "m1",
       "group": "M1-07 / M2: Admin agents (代理商) management",
       "status": "pass",
-      "duration": 4315,
-      "shots": []
+      "duration": 2090,
+      "shots": [
+        "crud/agents-01-stat-cards.png"
+      ]
     },
     {
       "name": "agents table shows correct columns",
@@ -122,8 +142,10 @@
       "tab": "m1",
       "group": "M1-07 / M2: Admin agents (代理商) management",
       "status": "pass",
-      "duration": 4458,
-      "shots": []
+      "duration": 1843,
+      "shots": [
+        "crud/agents-02-table-columns.png"
+      ]
     },
     {
       "name": "agents page has create agent button",
@@ -131,8 +153,10 @@
       "tab": "m1",
       "group": "M1-07 / M2: Admin agents (代理商) management",
       "status": "pass",
-      "duration": 4417,
-      "shots": []
+      "duration": 1927,
+      "shots": [
+        "crud/agents-03-create-btn.png"
+      ]
     },
     {
       "name": "referrals page shows stat cards and empty/list state",
@@ -140,8 +164,10 @@
       "tab": "m1",
       "group": "M1-07 / M2: Admin agents (代理商) management",
       "status": "pass",
-      "duration": 4307,
-      "shots": []
+      "duration": 2765,
+      "shots": [
+        "crud/agents-04-referrals-stats.png"
+      ]
     },
     {
       "name": "admin opens create dialog, fills form, submits",
@@ -149,8 +175,12 @@
       "tab": "m1",
       "group": "M1-06 CRUD: Admin cohort management",
       "status": "pass",
-      "duration": 6167,
-      "shots": []
+      "duration": 2666,
+      "shots": [
+        "crud/cohort-01-dialog-open.png",
+        "crud/cohort-02-form-filled.png",
+        "crud/cohort-03-toast-success.png"
+      ]
     },
     {
       "name": "admin sees cohort list with table headers",
@@ -158,8 +188,10 @@
       "tab": "m1",
       "group": "M1-06 CRUD: Admin cohort management",
       "status": "pass",
-      "duration": 4281,
-      "shots": []
+      "duration": 2211,
+      "shots": [
+        "crud/cohort-04-list-table.png"
+      ]
     },
     {
       "name": "admin clicks cohort row to enter detail",
@@ -167,7 +199,7 @@
       "tab": "m1",
       "group": "M1-06 CRUD: Admin cohort management",
       "status": "pass",
-      "duration": 4881,
+      "duration": 2208,
       "shots": []
     },
     {
@@ -176,8 +208,10 @@
       "tab": "m1",
       "group": "M1-06: Admin cohort management",
       "status": "pass",
-      "duration": 5014,
-      "shots": []
+      "duration": 1646,
+      "shots": [
+        "crud/cohorts-smoke-01-list-page.png"
+      ]
     },
     {
       "name": "admin sees cohorts in table/list",
@@ -185,8 +219,10 @@
       "tab": "m1",
       "group": "M1-06: Admin cohort management",
       "status": "pass",
-      "duration": 4233,
-      "shots": []
+      "duration": 935,
+      "shots": [
+        "crud/cohorts-smoke-02-table.png"
+      ]
     },
     {
       "name": "admin can click a cohort to see detail page",
@@ -194,7 +230,7 @@
       "tab": "m1",
       "group": "M1-06: Admin cohort management",
       "status": "pass",
-      "duration": 4061,
+      "duration": 1587,
       "shots": []
     },
     {
@@ -203,8 +239,10 @@
       "tab": "m1",
       "group": "M1-06: Admin cohort management",
       "status": "pass",
-      "duration": 4786,
-      "shots": []
+      "duration": 1882,
+      "shots": [
+        "crud/cohorts-smoke-04-create-btn.png"
+      ]
     },
     {
       "name": "admin can access enrollments page",
@@ -212,8 +250,10 @@
       "tab": "m1",
       "group": "M1-03: Admin enrollment management",
       "status": "pass",
-      "duration": 4737,
-      "shots": []
+      "duration": 1589,
+      "shots": [
+        "crud/enrollments-01-list-page.png"
+      ]
     },
     {
       "name": "admin sees enrollment records in table",
@@ -221,8 +261,10 @@
       "tab": "m1",
       "group": "M1-03: Admin enrollment management",
       "status": "pass",
-      "duration": 4073,
-      "shots": []
+      "duration": 1741,
+      "shots": [
+        "crud/enrollments-02-table.png"
+      ]
     },
     {
       "name": "admin can filter enrollments by status",
@@ -230,8 +272,10 @@
       "tab": "m1",
       "group": "M1-03: Admin enrollment management",
       "status": "pass",
-      "duration": 5148,
-      "shots": []
+      "duration": 1080,
+      "shots": [
+        "crud/enrollments-03-filter.png"
+      ]
     },
     {
       "name": "admin sidebar shows enrollment link as active",
@@ -239,8 +283,10 @@
       "tab": "m1",
       "group": "M1-03: Admin enrollment management",
       "status": "pass",
-      "duration": 4821,
-      "shots": []
+      "duration": 1052,
+      "shots": [
+        "crud/enrollments-04-sidebar-active.png"
+      ]
     },
     {
       "name": "admin dashboard loads with stats",
@@ -248,8 +294,10 @@
       "tab": "m1",
       "group": "M1-03: Admin enrollment management",
       "status": "pass",
-      "duration": 4789,
-      "shots": []
+      "duration": 1187,
+      "shots": [
+        "crud/enrollments-05-dashboard.png"
+      ]
     },
     {
       "name": "admin can access promo codes page",
@@ -257,8 +305,10 @@
       "tab": "m1",
       "group": "M1-04: Admin promo code management",
       "status": "pass",
-      "duration": 4544,
-      "shots": []
+      "duration": 1678,
+      "shots": [
+        "crud/promo-smoke-01-list-page.png"
+      ]
     },
     {
       "name": "admin sees promo codes list or empty state",
@@ -266,8 +316,10 @@
       "tab": "m1",
       "group": "M1-04: Admin promo code management",
       "status": "pass",
-      "duration": 4155,
-      "shots": []
+      "duration": 1529,
+      "shots": [
+        "crud/promo-smoke-02-table.png"
+      ]
     },
     {
       "name": "admin sees create promo code button",
@@ -275,8 +327,10 @@
       "tab": "m1",
       "group": "M1-04: Admin promo code management",
       "status": "pass",
-      "duration": 4924,
-      "shots": []
+      "duration": 1360,
+      "shots": [
+        "crud/promo-smoke-03-create-btn.png"
+      ]
     },
     {
       "name": "admin creates a promo code, verifies in list",
@@ -284,8 +338,13 @@
       "tab": "m1",
       "group": "M1-04 CRUD: Admin promo code create → verify → delete",
       "status": "pass",
-      "duration": 7080,
-      "shots": []
+      "duration": 2686,
+      "shots": [
+        "crud/promo-01-dialog-open.png",
+        "crud/promo-02-form-filled.png",
+        "crud/promo-03-toast-success.png",
+        "crud/promo-04-list-verified.png"
+      ]
     },
     {
       "name": "payment checkout API returns redirect URL or order info",
@@ -293,7 +352,7 @@
       "tab": "m1",
       "group": "M1: ECPay payment flow (mocked)",
       "status": "pass",
-      "duration": 1692,
+      "duration": 526,
       "shots": []
     },
     {
@@ -302,8 +361,10 @@
       "tab": "m1",
       "group": "M1: ECPay payment flow (mocked)",
       "status": "pass",
-      "duration": 3091,
-      "shots": []
+      "duration": 1569,
+      "shots": [
+        "flow/ecpay-01-success-page.png"
+      ]
     },
     {
       "name": "checkout failed page offers retry",
@@ -311,7 +372,52 @@
       "tab": "m1",
       "group": "M1: ECPay payment flow (mocked)",
       "status": "pass",
-      "duration": 3372,
+      "duration": 1406,
+      "shots": [
+        "flow/ecpay-02-failed-page.png"
+      ]
+    },
+    {
+      "name": "visitor can browse courses → course detail → see enroll CTA",
+      "spec": "m1-registration/enroll-flow.spec.ts",
+      "tab": "m1",
+      "group": "M1-01 Flow: Student enrollment flow end-to-end",
+      "status": "pass",
+      "duration": 3796,
+      "shots": [
+        "flow/enroll-01-course-listing.png",
+        "flow/enroll-02-course-detail.png"
+      ]
+    },
+    {
+      "name": "visitor can reach enroll page and see cohort pricing",
+      "spec": "m1-registration/enroll-flow.spec.ts",
+      "tab": "m1",
+      "group": "M1-01 Flow: Student enrollment flow end-to-end",
+      "status": "pass",
+      "duration": 1088,
+      "shots": [
+        "flow/enroll-03-pricing-page.png"
+      ]
+    },
+    {
+      "name": "student sees dashboard with quick links and enrollment status",
+      "spec": "m1-registration/enroll-flow.spec.ts",
+      "tab": "m1",
+      "group": "M1-01 Flow: Student enrollment flow end-to-end",
+      "status": "pass",
+      "duration": 1361,
+      "shots": [
+        "flow/enroll-04-student-dashboard.png"
+      ]
+    },
+    {
+      "name": "student can navigate through sidebar links",
+      "spec": "m1-registration/enroll-flow.spec.ts",
+      "tab": "m1",
+      "group": "M1-01 Flow: Student enrollment flow end-to-end",
+      "status": "pass",
+      "duration": 1741,
       "shots": []
     },
     {
@@ -320,8 +426,11 @@
       "tab": "m1",
       "group": "M1-01 Flow: Student enrollment flow end-to-end",
       "status": "pass",
-      "duration": 6025,
-      "shots": []
+      "duration": 2231,
+      "shots": [
+        "flow/enroll-01-course-listing.png",
+        "flow/enroll-02-course-detail.png"
+      ]
     },
     {
       "name": "visitor can reach enroll page and see cohort pricing",
@@ -329,8 +438,10 @@
       "tab": "m1",
       "group": "M1-01 Flow: Student enrollment flow end-to-end",
       "status": "pass",
-      "duration": 3384,
-      "shots": []
+      "duration": 1725,
+      "shots": [
+        "flow/enroll-03-pricing-page.png"
+      ]
     },
     {
       "name": "student sees dashboard with quick links and enrollment status",
@@ -338,8 +449,10 @@
       "tab": "m1",
       "group": "M1-01 Flow: Student enrollment flow end-to-end",
       "status": "pass",
-      "duration": 3494,
-      "shots": []
+      "duration": 1564,
+      "shots": [
+        "flow/enroll-04-student-dashboard.png"
+      ]
     },
     {
       "name": "student can navigate through sidebar links",
@@ -347,43 +460,7 @@
       "tab": "m1",
       "group": "M1-01 Flow: Student enrollment flow end-to-end",
       "status": "pass",
-      "duration": 3329,
-      "shots": []
-    },
-    {
-      "name": "visitor can browse courses → course detail → see enroll CTA",
-      "spec": "m1-registration/enroll-flow.spec.ts",
-      "tab": "m1",
-      "group": "M1-01 Flow: Student enrollment flow end-to-end",
-      "status": "pass",
-      "duration": 5570,
-      "shots": []
-    },
-    {
-      "name": "visitor can reach enroll page and see cohort pricing",
-      "spec": "m1-registration/enroll-flow.spec.ts",
-      "tab": "m1",
-      "group": "M1-01 Flow: Student enrollment flow end-to-end",
-      "status": "pass",
-      "duration": 2944,
-      "shots": []
-    },
-    {
-      "name": "student sees dashboard with quick links and enrollment status",
-      "spec": "m1-registration/enroll-flow.spec.ts",
-      "tab": "m1",
-      "group": "M1-01 Flow: Student enrollment flow end-to-end",
-      "status": "pass",
-      "duration": 3754,
-      "shots": []
-    },
-    {
-      "name": "student can navigate through sidebar links",
-      "spec": "m1-registration/enroll-flow.spec.ts",
-      "tab": "m1",
-      "group": "M1-01 Flow: Student enrollment flow end-to-end",
-      "status": "pass",
-      "duration": 3144,
+      "duration": 1257,
       "shots": []
     },
     {
@@ -392,8 +469,10 @@
       "tab": "m1",
       "group": "M1: Enrollment form details and pricing",
       "status": "pass",
-      "duration": 3228,
-      "shots": []
+      "duration": 1356,
+      "shots": [
+        "flow/enroll-details-01-cohort-info.png"
+      ]
     },
     {
       "name": "enroll page shows early bird and regular pricing",
@@ -401,8 +480,10 @@
       "tab": "m1",
       "group": "M1: Enrollment form details and pricing",
       "status": "pass",
-      "duration": 3162,
-      "shots": []
+      "duration": 1122,
+      "shots": [
+        "flow/enroll-details-02-early-bird.png"
+      ]
     },
     {
       "name": "cohort detail page shows setup status and stats",
@@ -410,8 +491,10 @@
       "tab": "m1",
       "group": "M1: Enrollment form details and pricing",
       "status": "pass",
-      "duration": 4501,
-      "shots": []
+      "duration": 2327,
+      "shots": [
+        "flow/enroll-details-03-cohort-detail.png"
+      ]
     },
     {
       "name": "admin enrollments page filtering by status works",
@@ -419,8 +502,10 @@
       "tab": "m1",
       "group": "M1: Enrollment form details and pricing",
       "status": "pass",
-      "duration": 5040,
-      "shots": []
+      "duration": 2644,
+      "shots": [
+        "flow/enroll-details-04-status-filter.png"
+      ]
     },
     {
       "name": "admin refunds page shows pending and completed refunds",
@@ -428,8 +513,10 @@
       "tab": "m1",
       "group": "M1: Enrollment form details and pricing",
       "status": "pass",
-      "duration": 4430,
-      "shots": []
+      "duration": 2285,
+      "shots": [
+        "flow/enroll-details-05-refunds.png"
+      ]
     },
     {
       "name": "admin refunds page has process refund button",
@@ -437,8 +524,10 @@
       "tab": "m1",
       "group": "M1: Enrollment form details and pricing",
       "status": "pass",
-      "duration": 4734,
-      "shots": []
+      "duration": 2230,
+      "shots": [
+        "flow/enroll-details-06-process-refund-btn.png"
+      ]
     },
     {
       "name": "visitor can reach cohort registration page and see step 1",
@@ -446,8 +535,10 @@
       "tab": "m1",
       "group": "M1: Enrollment form — multi-step registration flow",
       "status": "pass",
-      "duration": 2988,
-      "shots": []
+      "duration": 1305,
+      "shots": [
+        "flow/enroll-form-01-step1-courses.png"
+      ]
     },
     {
       "name": "step 1 shows pricing with early bird if applicable",
@@ -455,8 +546,10 @@
       "tab": "m1",
       "group": "M1: Enrollment form — multi-step registration flow",
       "status": "pass",
-      "duration": 2918,
-      "shots": []
+      "duration": 1365,
+      "shots": [
+        "flow/enroll-form-02-early-bird.png"
+      ]
     },
     {
       "name": "step 2 shows personal info form fields",
@@ -464,7 +557,7 @@
       "tab": "m1",
       "group": "M1: Enrollment form — multi-step registration flow",
       "status": "pass",
-      "duration": 2640,
+      "duration": 1113,
       "shots": []
     },
     {
@@ -473,7 +566,7 @@
       "tab": "m1",
       "group": "M1: Enrollment form — multi-step registration flow",
       "status": "pass",
-      "duration": 2559,
+      "duration": 11369,
       "shots": []
     },
     {
@@ -482,8 +575,10 @@
       "tab": "m1",
       "group": "M1: Payment and checkout flow",
       "status": "pass",
-      "duration": 2927,
-      "shots": []
+      "duration": 924,
+      "shots": [
+        "flow/payment-01-pricing-breakdown.png"
+      ]
     },
     {
       "name": "checkout success page renders correctly",
@@ -491,8 +586,10 @@
       "tab": "m1",
       "group": "M1: Payment and checkout flow",
       "status": "pass",
-      "duration": 2999,
-      "shots": []
+      "duration": 1000,
+      "shots": [
+        "flow/payment-02-checkout-success.png"
+      ]
     },
     {
       "name": "checkout failed page shows retry option",
@@ -500,8 +597,10 @@
       "tab": "m1",
       "group": "M1: Payment and checkout flow",
       "status": "pass",
-      "duration": 2448,
-      "shots": []
+      "duration": 1007,
+      "shots": [
+        "flow/payment-03-checkout-failed.png"
+      ]
     },
     {
       "name": "backend payment API requires authentication",
@@ -509,7 +608,7 @@
       "tab": "m1",
       "group": "M1: Payment and checkout flow",
       "status": "pass",
-      "duration": 178,
+      "duration": 67,
       "shots": []
     },
     {
@@ -518,7 +617,7 @@
       "tab": "m1",
       "group": "M1: Payment and checkout flow",
       "status": "pass",
-      "duration": 1186,
+      "duration": 817,
       "shots": []
     },
     {
@@ -527,8 +626,10 @@
       "tab": "m1",
       "group": "M1: Payment and checkout flow",
       "status": "pass",
-      "duration": 4082,
-      "shots": []
+      "duration": 1629,
+      "shots": [
+        "flow/payment-04-student-history.png"
+      ]
     },
     {
       "name": "homepage loads with hero and course sections",
@@ -536,8 +637,10 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 3377,
-      "shots": []
+      "duration": 655,
+      "shots": [
+        "flow/browse-01-hero.png"
+      ]
     },
     {
       "name": "visitor can navigate to /courses and see course list",
@@ -545,8 +648,10 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 5588,
-      "shots": []
+      "duration": 3337,
+      "shots": [
+        "flow/browse-02-course-list.png"
+      ]
     },
     {
       "name": "visitor can click a course and see detail page",
@@ -554,8 +659,10 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 3832,
-      "shots": []
+      "duration": 5917,
+      "shots": [
+        "flow/browse-03-course-detail.png"
+      ]
     },
     {
       "name": "visitor sees enroll CTA on course detail page",
@@ -563,8 +670,10 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 6944,
-      "shots": []
+      "duration": 3534,
+      "shots": [
+        "flow/browse-04-enroll-cta.png"
+      ]
     },
     {
       "name": "header shows login button for unauthenticated visitors",
@@ -572,8 +681,10 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 3681,
-      "shots": []
+      "duration": 1415,
+      "shots": [
+        "flow/browse-05-login-btn.png"
+      ]
     },
     {
       "name": "homepage loads with hero and course sections",
@@ -581,8 +692,10 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 5322,
-      "shots": []
+      "duration": 1839,
+      "shots": [
+        "flow/browse-01-hero.png"
+      ]
     },
     {
       "name": "visitor can navigate to /courses and see course list",
@@ -590,8 +703,10 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 4283,
-      "shots": []
+      "duration": 1406,
+      "shots": [
+        "flow/browse-02-course-list.png"
+      ]
     },
     {
       "name": "visitor can click a course and see detail page",
@@ -599,8 +714,10 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 4953,
-      "shots": []
+      "duration": 3927,
+      "shots": [
+        "flow/browse-03-course-detail.png"
+      ]
     },
     {
       "name": "visitor sees enroll CTA on course detail page",
@@ -608,8 +725,10 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 3449,
-      "shots": []
+      "duration": 2487,
+      "shots": [
+        "flow/browse-04-enroll-cta.png"
+      ]
     },
     {
       "name": "header shows login button for unauthenticated visitors",
@@ -617,8 +736,10 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 5001,
-      "shots": []
+      "duration": 2484,
+      "shots": [
+        "flow/browse-05-login-btn.png"
+      ]
     },
     {
       "name": "student can login and see dashboard",
@@ -626,8 +747,10 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "pass",
-      "duration": 2860,
-      "shots": []
+      "duration": 1382,
+      "shots": [
+        "flow/student-enroll-01-dashboard.png"
+      ]
     },
     {
       "name": "student can navigate to /enroll page",
@@ -635,8 +758,10 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "pass",
-      "duration": 2561,
-      "shots": []
+      "duration": 1258,
+      "shots": [
+        "flow/student-enroll-02-enroll-page.png"
+      ]
     },
     {
       "name": "student can see courses and select a cohort",
@@ -644,7 +769,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "pass",
-      "duration": 6997,
+      "duration": 1080,
       "shots": []
     },
     {
@@ -653,8 +778,10 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "pass",
-      "duration": 3713,
-      "shots": []
+      "duration": 1881,
+      "shots": [
+        "flow/student-enroll-04-form-accessible.png"
+      ]
     },
     {
       "name": "student can view their enrollment records",
@@ -662,8 +789,10 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "pass",
-      "duration": 2953,
-      "shots": []
+      "duration": 1751,
+      "shots": [
+        "flow/student-enroll-05-records.png"
+      ]
     },
     {
       "name": "enroll page shows cohort with pricing and CTA",
@@ -671,8 +800,10 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "pass",
-      "duration": 3300,
-      "shots": []
+      "duration": 1151,
+      "shots": [
+        "flow/student-enroll-06-pricing-cta.png"
+      ]
     },
     {
       "name": "checkout failed page exists",
@@ -680,8 +811,10 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "pass",
-      "duration": 2784,
-      "shots": []
+      "duration": 612,
+      "shots": [
+        "flow/student-enroll-07-checkout-failed.png"
+      ]
     },
     {
       "name": "alice (enrolled student) sees her enrollment",
@@ -689,7 +822,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "pass",
-      "duration": 2494,
+      "duration": 896,
       "shots": []
     },
     {
@@ -698,8 +831,10 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "pass",
-      "duration": 4186,
-      "shots": []
+      "duration": 1547,
+      "shots": [
+        "flow/student-enroll-01-dashboard.png"
+      ]
     },
     {
       "name": "student can navigate to /enroll page",
@@ -707,8 +842,10 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "pass",
-      "duration": 3751,
-      "shots": []
+      "duration": 1277,
+      "shots": [
+        "flow/student-enroll-02-enroll-page.png"
+      ]
     },
     {
       "name": "student can see courses and select a cohort",
@@ -716,8 +853,10 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "pass",
-      "duration": 3046,
-      "shots": []
+      "duration": 2759,
+      "shots": [
+        "flow/student-enroll-03-enroll-btn.png"
+      ]
     },
     {
       "name": "student can access enrollment form for a cohort",
@@ -725,8 +864,10 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "pass",
-      "duration": 3853,
-      "shots": []
+      "duration": 2651,
+      "shots": [
+        "flow/student-enroll-04-form-accessible.png"
+      ]
     },
     {
       "name": "student can view their enrollment records",
@@ -734,8 +875,10 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "pass",
-      "duration": 3733,
-      "shots": []
+      "duration": 1865,
+      "shots": [
+        "flow/student-enroll-05-records.png"
+      ]
     },
     {
       "name": "enroll page shows cohort with pricing and CTA",
@@ -743,8 +886,10 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "pass",
-      "duration": 4136,
-      "shots": []
+      "duration": 1789,
+      "shots": [
+        "flow/student-enroll-06-pricing-cta.png"
+      ]
     },
     {
       "name": "checkout failed page exists",
@@ -752,8 +897,10 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "pass",
-      "duration": 3017,
-      "shots": []
+      "duration": 781,
+      "shots": [
+        "flow/student-enroll-07-checkout-failed.png"
+      ]
     },
     {
       "name": "alice (enrolled student) sees her enrollment",
@@ -761,7 +908,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "pass",
-      "duration": 3193,
+      "duration": 897,
       "shots": []
     },
     {
@@ -770,8 +917,10 @@
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
       "status": "pass",
-      "duration": 4207,
-      "shots": []
+      "duration": 1874,
+      "shots": [
+        "flow/upgrade-01-page-heading.png"
+      ]
     },
     {
       "name": "student with active a_only enrollment sees 升級 button",
@@ -779,8 +928,10 @@
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
       "status": "pass",
-      "duration": 4430,
-      "shots": []
+      "duration": 1658,
+      "shots": [
+        "flow/upgrade-02-upgrade-btn.png"
+      ]
     },
     {
       "name": "clicking 升級 opens UpgradeModal with 升級方案 title",
@@ -788,8 +939,10 @@
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
       "status": "pass",
-      "duration": 3806,
-      "shots": []
+      "duration": 1752,
+      "shots": [
+        "flow/upgrade-03-modal-open.png"
+      ]
     },
     {
       "name": "UpgradeModal has 確認升級 and 取消 buttons",
@@ -797,8 +950,10 @@
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
       "status": "pass",
-      "duration": 5174,
-      "shots": []
+      "duration": 3085,
+      "shots": [
+        "flow/upgrade-04-modal-buttons.png"
+      ]
     },
     {
       "name": "enrollments page loads with 報名紀錄 heading",
@@ -806,8 +961,10 @@
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
       "status": "pass",
-      "duration": 3167,
-      "shots": []
+      "duration": 2114,
+      "shots": [
+        "flow/upgrade-01-page-heading.png"
+      ]
     },
     {
       "name": "student with active a_only enrollment sees 升級 button",
@@ -815,8 +972,10 @@
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
       "status": "pass",
-      "duration": 3556,
-      "shots": []
+      "duration": 1729,
+      "shots": [
+        "flow/upgrade-02-upgrade-btn.png"
+      ]
     },
     {
       "name": "clicking 升級 opens UpgradeModal with 升級方案 title",
@@ -824,8 +983,10 @@
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
       "status": "pass",
-      "duration": 3261,
-      "shots": []
+      "duration": 1643,
+      "shots": [
+        "flow/upgrade-03-modal-open.png"
+      ]
     },
     {
       "name": "UpgradeModal has 確認升級 and 取消 buttons",
@@ -833,8 +994,10 @@
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
       "status": "pass",
-      "duration": 3950,
-      "shots": []
+      "duration": 2081,
+      "shots": [
+        "flow/upgrade-04-modal-buttons.png"
+      ]
     },
     {
       "name": "student with active enrollment sees 申請退課 button",
@@ -842,8 +1005,10 @@
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
       "status": "pass",
-      "duration": 4324,
-      "shots": []
+      "duration": 1489,
+      "shots": [
+        "flow/withdraw-01-withdraw-btn.png"
+      ]
     },
     {
       "name": "clicking 申請退課 opens WithdrawModal with reason Textarea",
@@ -851,8 +1016,10 @@
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
       "status": "pass",
-      "duration": 3806,
-      "shots": []
+      "duration": 1415,
+      "shots": [
+        "flow/withdraw-02-modal-open.png"
+      ]
     },
     {
       "name": "WithdrawModal submit button is disabled without reason text",
@@ -860,8 +1027,10 @@
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
       "status": "pass",
-      "duration": 4287,
-      "shots": []
+      "duration": 3033,
+      "shots": [
+        "flow/withdraw-03-reason-filled.png"
+      ]
     },
     {
       "name": "WithdrawModal shows 目前方案 badge inside dialog",
@@ -869,8 +1038,10 @@
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
       "status": "pass",
-      "duration": 3122,
-      "shots": []
+      "duration": 1603,
+      "shots": [
+        "flow/withdraw-04-modal-plan.png"
+      ]
     },
     {
       "name": "student with active enrollment sees 申請退課 button",
@@ -878,8 +1049,10 @@
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
       "status": "pass",
-      "duration": 3258,
-      "shots": []
+      "duration": 1944,
+      "shots": [
+        "flow/withdraw-01-withdraw-btn.png"
+      ]
     },
     {
       "name": "clicking 申請退課 opens WithdrawModal with reason Textarea",
@@ -887,8 +1060,10 @@
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
       "status": "pass",
-      "duration": 3323,
-      "shots": []
+      "duration": 2085,
+      "shots": [
+        "flow/withdraw-02-modal-open.png"
+      ]
     },
     {
       "name": "WithdrawModal submit button is disabled without reason text",
@@ -896,8 +1071,10 @@
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
       "status": "pass",
-      "duration": 4046,
-      "shots": []
+      "duration": 2458,
+      "shots": [
+        "flow/withdraw-03-reason-filled.png"
+      ]
     },
     {
       "name": "WithdrawModal shows 目前方案 badge inside dialog",
@@ -905,8 +1082,10 @@
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
       "status": "pass",
-      "duration": 3543,
-      "shots": []
+      "duration": 1520,
+      "shots": [
+        "flow/withdraw-04-modal-plan.png"
+      ]
     },
     {
       "name": "checkout page shows 發票資訊 section with two type buttons",
@@ -914,8 +1093,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "pass",
-      "duration": 4003,
-      "shots": []
+      "duration": 1652,
+      "shots": [
+        "flow/invoice-01-section-heading.png"
+      ]
     },
     {
       "name": "checkout shows 個人電子發票 and 公司三聯式發票 toggle buttons",
@@ -923,8 +1104,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "pass",
-      "duration": 4037,
-      "shots": []
+      "duration": 1481,
+      "shots": [
+        "flow/invoice-02-type-buttons.png"
+      ]
     },
     {
       "name": "default invoice type is 個人電子發票 (personal) with 手機載具 info",
@@ -932,8 +1115,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "pass",
-      "duration": 3803,
-      "shots": []
+      "duration": 1866,
+      "shots": [
+        "flow/invoice-03-personal-default.png"
+      ]
     },
     {
       "name": "selecting 公司三聯式發票 shows 統一編號 and 公司名稱 fields",
@@ -941,8 +1126,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "pass",
-      "duration": 4068,
-      "shots": []
+      "duration": 2010,
+      "shots": [
+        "flow/invoice-04-company-fields.png"
+      ]
     },
     {
       "name": "switching back to 個人電子發票 hides company fields",
@@ -950,8 +1137,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "pass",
-      "duration": 3941,
-      "shots": []
+      "duration": 1753,
+      "shots": [
+        "flow/invoice-05-switch-back-personal.png"
+      ]
     },
     {
       "name": "公司三聯式發票 — 統一編號 input only accepts numeric, max 8 chars",
@@ -959,8 +1148,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "pass",
-      "duration": 3694,
-      "shots": []
+      "duration": 1848,
+      "shots": [
+        "flow/invoice-06-taxid-filled.png"
+      ]
     },
     {
       "name": "checkout page shows 發票資訊 section with two type buttons",
@@ -968,8 +1159,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "pass",
-      "duration": 3625,
-      "shots": []
+      "duration": 2097,
+      "shots": [
+        "flow/invoice-01-section-heading.png"
+      ]
     },
     {
       "name": "checkout shows 個人電子發票 and 公司三聯式發票 toggle buttons",
@@ -977,8 +1170,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "pass",
-      "duration": 3574,
-      "shots": []
+      "duration": 1420,
+      "shots": [
+        "flow/invoice-02-type-buttons.png"
+      ]
     },
     {
       "name": "default invoice type is 個人電子發票 (personal) with 手機載具 info",
@@ -986,8 +1181,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "pass",
-      "duration": 3359,
-      "shots": []
+      "duration": 1598,
+      "shots": [
+        "flow/invoice-03-personal-default.png"
+      ]
     },
     {
       "name": "selecting 公司三聯式發票 shows 統一編號 and 公司名稱 fields",
@@ -995,8 +1192,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "pass",
-      "duration": 3781,
-      "shots": []
+      "duration": 1838,
+      "shots": [
+        "flow/invoice-04-company-fields.png"
+      ]
     },
     {
       "name": "switching back to 個人電子發票 hides company fields",
@@ -1004,8 +1203,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "pass",
-      "duration": 4505,
-      "shots": []
+      "duration": 2159,
+      "shots": [
+        "flow/invoice-05-switch-back-personal.png"
+      ]
     },
     {
       "name": "公司三聯式發票 — 統一編號 input only accepts numeric, max 8 chars",
@@ -1013,8 +1214,10 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "pass",
-      "duration": 4067,
-      "shots": []
+      "duration": 2127,
+      "shots": [
+        "flow/invoice-06-taxid-filled.png"
+      ]
     },
     {
       "name": "admin creates a marketing page with title and slug",
@@ -1022,8 +1225,13 @@
       "tab": "m2",
       "group": "M2-01 CRUD: Admin marketing page create → verify → delete",
       "status": "pass",
-      "duration": 8995,
-      "shots": []
+      "duration": 3772,
+      "shots": [
+        "crud/page-01-editor-loaded.png",
+        "crud/page-02-slug-filled.png",
+        "crud/page-03-toast-success.png",
+        "crud/page-04-list-verified.png"
+      ]
     },
     {
       "name": "page editor has all required fields: title, slug, save button",
@@ -1031,8 +1239,10 @@
       "tab": "m2",
       "group": "M2: Marketing page editor and publish flow",
       "status": "pass",
-      "duration": 3335,
-      "shots": []
+      "duration": 1621,
+      "shots": [
+        "crud/page-editor-01.png"
+      ]
     },
     {
       "name": "page list shows publish status badges",
@@ -1040,8 +1250,10 @@
       "tab": "m2",
       "group": "M2: Marketing page editor and publish flow",
       "status": "pass",
-      "duration": 3692,
-      "shots": []
+      "duration": 1621,
+      "shots": [
+        "crud/page-editor-02.png"
+      ]
     },
     {
       "name": "marketing channels page shows 3 types with create buttons",
@@ -1049,8 +1261,10 @@
       "tab": "m2",
       "group": "M2: Marketing page editor and publish flow",
       "status": "pass",
-      "duration": 4147,
-      "shots": []
+      "duration": 2730,
+      "shots": [
+        "crud/page-editor-03.png"
+      ]
     },
     {
       "name": "products page has category tabs and sub-category filters",
@@ -1058,8 +1272,10 @@
       "tab": "m2",
       "group": "M2: Marketing page editor and publish flow",
       "status": "pass",
-      "duration": 4087,
-      "shots": []
+      "duration": 1221,
+      "shots": [
+        "crud/page-editor-04.png"
+      ]
     },
     {
       "name": "admin sees marketing pages table with columns",
@@ -1067,8 +1283,10 @@
       "tab": "m2",
       "group": "M2-01: Admin marketing pages management",
       "status": "pass",
-      "duration": 3758,
-      "shots": []
+      "duration": 1374,
+      "shots": [
+        "crud/pages-smoke-01.png"
+      ]
     },
     {
       "name": "admin sees page status badges (已發布 / 草稿)",
@@ -1076,8 +1294,10 @@
       "tab": "m2",
       "group": "M2-01: Admin marketing pages management",
       "status": "pass",
-      "duration": 3467,
-      "shots": []
+      "duration": 1289,
+      "shots": [
+        "crud/pages-smoke-02.png"
+      ]
     },
     {
       "name": "admin sees create page button",
@@ -1085,8 +1305,10 @@
       "tab": "m2",
       "group": "M2-01: Admin marketing pages management",
       "status": "pass",
-      "duration": 3523,
-      "shots": []
+      "duration": 1827,
+      "shots": [
+        "crud/pages-smoke-03.png"
+      ]
     },
     {
       "name": "admin marketing channels page shows 3 channel types",
@@ -1094,8 +1316,10 @@
       "tab": "m2",
       "group": "M2-01: Admin marketing pages management",
       "status": "pass",
-      "duration": 3701,
-      "shots": []
+      "duration": 2021,
+      "shots": [
+        "crud/pages-smoke-04.png"
+      ]
     },
     {
       "name": "each marketing channel has a create button",
@@ -1103,8 +1327,10 @@
       "tab": "m2",
       "group": "M2-01: Admin marketing pages management",
       "status": "pass",
-      "duration": 3699,
-      "shots": []
+      "duration": 1188,
+      "shots": [
+        "crud/pages-smoke-05.png"
+      ]
     },
     {
       "name": "admin sees products page with category tabs and table",
@@ -1112,8 +1338,10 @@
       "tab": "m2",
       "group": "M2-02: Admin product management",
       "status": "pass",
-      "duration": 5817,
-      "shots": []
+      "duration": 2070,
+      "shots": [
+        "crud/products-01.png"
+      ]
     },
     {
       "name": "admin sees product table columns: name, slug, category, price, status",
@@ -1121,8 +1349,10 @@
       "tab": "m2",
       "group": "M2-02: Admin product management",
       "status": "pass",
-      "duration": 5461,
-      "shots": []
+      "duration": 1628,
+      "shots": [
+        "crud/products-02.png"
+      ]
     },
     {
       "name": "admin sees create product and category buttons",
@@ -1130,8 +1360,10 @@
       "tab": "m2",
       "group": "M2-02: Admin product management",
       "status": "pass",
-      "duration": 4499,
-      "shots": []
+      "duration": 1291,
+      "shots": [
+        "crud/products-03.png"
+      ]
     },
     {
       "name": "products appear on public /courses page with course cards",
@@ -1139,8 +1371,10 @@
       "tab": "m2",
       "group": "M2-02: Admin product management",
       "status": "pass",
-      "duration": 6069,
-      "shots": []
+      "duration": 3663,
+      "shots": [
+        "crud/products-04.png"
+      ]
     },
     {
       "name": "course detail page shows pricing and enroll CTA",
@@ -1148,8 +1382,10 @@
       "tab": "m2",
       "group": "M2-02: Admin product management",
       "status": "pass",
-      "duration": 7468,
-      "shots": []
+      "duration": 4329,
+      "shots": [
+        "crud/products-05.png"
+      ]
     },
     {
       "name": "admin can access a classroom and see attendance section",
@@ -1157,8 +1393,10 @@
       "tab": "m3",
       "group": "M3-07: Admin attendance management",
       "status": "pass",
-      "duration": 5095,
-      "shots": []
+      "duration": 2622,
+      "shots": [
+        "crud/attendance-01-classroom-detail.png"
+      ]
     },
     {
       "name": "admin can see attendance status badges (出席/缺席/請假)",
@@ -1166,8 +1404,10 @@
       "tab": "m3",
       "group": "M3-07: Admin attendance management",
       "status": "pass",
-      "duration": 4236,
-      "shots": []
+      "duration": 2619,
+      "shots": [
+        "crud/attendance-03-status-badges.png"
+      ]
     },
     {
       "name": "admin creates a classroom, enters detail page",
@@ -1175,8 +1415,13 @@
       "tab": "m3",
       "group": "M3-01 CRUD: Admin classroom create → detail → delete",
       "status": "pass",
-      "duration": 7776,
-      "shots": []
+      "duration": 3577,
+      "shots": [
+        "crud/classroom-01-dialog-open.png",
+        "crud/classroom-02-cohort-selected.png",
+        "crud/classroom-03-toast-success.png",
+        "crud/classroom-04-detail-page.png"
+      ]
     },
     {
       "name": "admin can access classrooms list",
@@ -1184,8 +1429,10 @@
       "tab": "m3",
       "group": "M3-01/02: Admin classroom management",
       "status": "pass",
-      "duration": 4195,
-      "shots": []
+      "duration": 1590,
+      "shots": [
+        "crud/classroom-smoke-01.png"
+      ]
     },
     {
       "name": "admin sees classrooms or empty state",
@@ -1193,8 +1440,10 @@
       "tab": "m3",
       "group": "M3-01/02: Admin classroom management",
       "status": "pass",
-      "duration": 4699,
-      "shots": []
+      "duration": 1671,
+      "shots": [
+        "crud/classroom-smoke-02.png"
+      ]
     },
     {
       "name": "admin sees create classroom button",
@@ -1202,8 +1451,10 @@
       "tab": "m3",
       "group": "M3-01/02: Admin classroom management",
       "status": "pass",
-      "duration": 5036,
-      "shots": []
+      "duration": 960,
+      "shots": [
+        "crud/classroom-smoke-03.png"
+      ]
     },
     {
       "name": "admin can enter classroom detail page",
@@ -1211,7 +1462,7 @@
       "tab": "m3",
       "group": "M3-01/02: Admin classroom management",
       "status": "pass",
-      "duration": 4320,
+      "duration": 1555,
       "shots": []
     },
     {
@@ -1220,8 +1471,12 @@
       "tab": "m3",
       "group": "M3-05 Flow: Admin grades an assignment",
       "status": "pass",
-      "duration": 4133,
-      "shots": []
+      "duration": 2300,
+      "shots": [
+        "crud/grading-01-dialog-open.png",
+        "crud/grading-02-grade-filled.png",
+        "crud/grading-03-toast-success.png"
+      ]
     },
     {
       "name": "grading page shows stat cards with counts",
@@ -1229,8 +1484,10 @@
       "tab": "m3",
       "group": "M3-05 Flow: Admin grades an assignment",
       "status": "pass",
-      "duration": 3609,
-      "shots": []
+      "duration": 1505,
+      "shots": [
+        "crud/grading-04-stat-cards.png"
+      ]
     },
     {
       "name": "admin can access grading dashboard",
@@ -1238,8 +1495,10 @@
       "tab": "m3",
       "group": "M3-05/06: Admin/TA grading dashboard",
       "status": "pass",
-      "duration": 4798,
-      "shots": []
+      "duration": 995,
+      "shots": [
+        "crud/grading-smoke-01.png"
+      ]
     },
     {
       "name": "grading page shows submissions or empty state",
@@ -1247,8 +1506,10 @@
       "tab": "m3",
       "group": "M3-05/06: Admin/TA grading dashboard",
       "status": "pass",
-      "duration": 4329,
-      "shots": []
+      "duration": 1053,
+      "shots": [
+        "crud/grading-smoke-02.png"
+      ]
     },
     {
       "name": "TA can access grading dashboard",
@@ -1256,8 +1517,10 @@
       "tab": "m3",
       "group": "M3-05/06: Admin/TA grading dashboard",
       "status": "pass",
-      "duration": 4579,
-      "shots": []
+      "duration": 2399,
+      "shots": [
+        "crud/grading-smoke-03.png"
+      ]
     },
     {
       "name": "classroom detail shows tabs for different sections",
@@ -1265,8 +1528,10 @@
       "tab": "m3",
       "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
       "status": "pass",
-      "duration": 3480,
-      "shots": []
+      "duration": 2380,
+      "shots": [
+        "crud/classroom-detail-01.png"
+      ]
     },
     {
       "name": "classroom detail shows student list",
@@ -1274,8 +1539,10 @@
       "tab": "m3",
       "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
       "status": "pass",
-      "duration": 3987,
-      "shots": []
+      "duration": 2168,
+      "shots": [
+        "crud/classroom-detail-02.png"
+      ]
     },
     {
       "name": "classroom announcements section — create announcement",
@@ -1283,7 +1550,7 @@
       "tab": "m3",
       "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
       "status": "pass",
-      "duration": 3529,
+      "duration": 1682,
       "shots": []
     },
     {
@@ -1292,8 +1559,10 @@
       "tab": "m3",
       "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
       "status": "pass",
-      "duration": 3866,
-      "shots": []
+      "duration": 2180,
+      "shots": [
+        "crud/classroom-detail-04.png"
+      ]
     },
     {
       "name": "classroom materials section",
@@ -1301,8 +1570,10 @@
       "tab": "m3",
       "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
       "status": "pass",
-      "duration": 4692,
-      "shots": []
+      "duration": 2374,
+      "shots": [
+        "crud/classroom-detail-05.png"
+      ]
     },
     {
       "name": "classroom attendance section — list and mark buttons",
@@ -1310,8 +1581,10 @@
       "tab": "m3",
       "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
       "status": "pass",
-      "duration": 3493,
-      "shots": []
+      "duration": 2293,
+      "shots": [
+        "crud/classroom-detail-06.png"
+      ]
     },
     {
       "name": "admin sees return button for submissions",
@@ -1319,8 +1592,10 @@
       "tab": "m3",
       "group": "M3: Grading details — return, download, cross-role",
       "status": "pass",
-      "duration": 4197,
-      "shots": []
+      "duration": 2150,
+      "shots": [
+        "crud/grading-detail-01.png"
+      ]
     },
     {
       "name": "admin can download submission file",
@@ -1328,8 +1603,10 @@
       "tab": "m3",
       "group": "M3: Grading details — return, download, cross-role",
       "status": "pass",
-      "duration": 4259,
-      "shots": []
+      "duration": 996,
+      "shots": [
+        "crud/grading-detail-02.png"
+      ]
     },
     {
       "name": "TA can access grading and see submissions",
@@ -1337,8 +1614,10 @@
       "tab": "m3",
       "group": "M3: Grading details — return, download, cross-role",
       "status": "pass",
-      "duration": 2901,
-      "shots": []
+      "duration": 1206,
+      "shots": [
+        "crud/grading-detail-03.png"
+      ]
     },
     {
       "name": "student sees graded assignment result",
@@ -1346,8 +1625,10 @@
       "tab": "m3",
       "group": "M3: Grading details — return, download, cross-role",
       "status": "pass",
-      "duration": 3206,
-      "shots": []
+      "duration": 1813,
+      "shots": [
+        "crud/grading-detail-04.png"
+      ]
     },
     {
       "name": "student can access my courses page",
@@ -1355,8 +1636,10 @@
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
       "status": "pass",
-      "duration": 4256,
-      "shots": []
+      "duration": 1823,
+      "shots": [
+        "flow/student-classroom-01.png"
+      ]
     },
     {
       "name": "alice (enrolled) sees her courses",
@@ -1364,7 +1647,7 @@
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
       "status": "pass",
-      "duration": 3683,
+      "duration": 1230,
       "shots": []
     },
     {
@@ -1373,7 +1656,7 @@
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
       "status": "pass",
-      "duration": 5467,
+      "duration": 1217,
       "shots": []
     },
     {
@@ -1382,7 +1665,7 @@
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
       "status": "pass",
-      "duration": 4379,
+      "duration": 835,
       "shots": []
     },
     {
@@ -1391,8 +1674,10 @@
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
       "status": "pass",
-      "duration": 3898,
-      "shots": []
+      "duration": 1437,
+      "shots": [
+        "flow/student-classroom-02.png"
+      ]
     },
     {
       "name": "student can access my courses page",
@@ -1400,8 +1685,10 @@
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
       "status": "pass",
-      "duration": 4070,
-      "shots": []
+      "duration": 1923,
+      "shots": [
+        "flow/student-classroom-01.png"
+      ]
     },
     {
       "name": "alice (enrolled) sees her courses",
@@ -1409,7 +1696,7 @@
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
       "status": "pass",
-      "duration": 3550,
+      "duration": 1389,
       "shots": []
     },
     {
@@ -1418,7 +1705,7 @@
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
       "status": "pass",
-      "duration": 4005,
+      "duration": 879,
       "shots": []
     },
     {
@@ -1427,7 +1714,7 @@
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
       "status": "pass",
-      "duration": 3689,
+      "duration": 2454,
       "shots": []
     },
     {
@@ -1436,8 +1723,10 @@
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
       "status": "pass",
-      "duration": 3384,
-      "shots": []
+      "duration": 2421,
+      "shots": [
+        "flow/student-classroom-02.png"
+      ]
     },
     {
       "name": "admin can grade a pending certification exam",
@@ -1445,8 +1734,12 @@
       "tab": "m4",
       "group": "M4-03 Flow: Admin certification exam grading",
       "status": "pass",
-      "duration": 8061,
-      "shots": []
+      "duration": 7380,
+      "shots": [
+        "crud/certification-01-dialog-open.png",
+        "crud/certification-02-score-filled.png",
+        "crud/certification-03-toast-success.png"
+      ]
     },
     {
       "name": "certifications page shows table with exam records",
@@ -1454,8 +1747,10 @@
       "tab": "m4",
       "group": "M4-03 Flow: Admin certification exam grading",
       "status": "pass",
-      "duration": 3357,
-      "shots": []
+      "duration": 1899,
+      "shots": [
+        "crud/certification-04-table-badges.png"
+      ]
     },
     {
       "name": "admin can access certifications page",
@@ -1463,8 +1758,10 @@
       "tab": "m4",
       "group": "M4-03: Admin certifications management",
       "status": "pass",
-      "duration": 4483,
-      "shots": []
+      "duration": 1560,
+      "shots": [
+        "crud/certifications-smoke-01.png"
+      ]
     },
     {
       "name": "admin sees certifications list or empty state",
@@ -1472,8 +1769,10 @@
       "tab": "m4",
       "group": "M4-03: Admin certifications management",
       "status": "pass",
-      "duration": 5975,
-      "shots": []
+      "duration": 1065,
+      "shots": [
+        "crud/certifications-smoke-02.png"
+      ]
     },
     {
       "name": "admin can edit a supervision session status and notes",
@@ -1481,8 +1780,12 @@
       "tab": "m4",
       "group": "M4-01 Flow: Admin supervision session management",
       "status": "pass",
-      "duration": 8386,
-      "shots": []
+      "duration": 4965,
+      "shots": [
+        "crud/supervision-01-edit-dialog.png",
+        "crud/supervision-02-status-selected.png",
+        "crud/supervision-03-toast-success.png"
+      ]
     },
     {
       "name": "supervision page shows table with session data",
@@ -1490,8 +1793,10 @@
       "tab": "m4",
       "group": "M4-01 Flow: Admin supervision session management",
       "status": "pass",
-      "duration": 4958,
-      "shots": []
+      "duration": 5650,
+      "shots": [
+        "crud/supervision-04-table.png"
+      ]
     },
     {
       "name": "admin can access supervision page",
@@ -1499,8 +1804,10 @@
       "tab": "m4",
       "group": "M4-01: Admin supervision management",
       "status": "pass",
-      "duration": 4203,
-      "shots": []
+      "duration": 1811,
+      "shots": [
+        "crud/supervision-smoke-01.png"
+      ]
     },
     {
       "name": "admin sees supervision sessions or empty state",
@@ -1508,8 +1815,10 @@
       "tab": "m4",
       "group": "M4-01: Admin supervision management",
       "status": "pass",
-      "duration": 4739,
-      "shots": []
+      "duration": 3219,
+      "shots": [
+        "crud/supervision-smoke-02.png"
+      ]
     },
     {
       "name": "admin sees create supervision button and table with sessions",
@@ -1517,8 +1826,10 @@
       "tab": "m4",
       "group": "M4-01: Admin supervision management",
       "status": "pass",
-      "duration": 4313,
-      "shots": []
+      "duration": 1935,
+      "shots": [
+        "crud/supervision-smoke-03.png"
+      ]
     },
     {
       "name": "student can access certifications page",
@@ -1526,8 +1837,10 @@
       "tab": "m4",
       "group": "M4-04: Student certifications view",
       "status": "pass",
-      "duration": 3833,
-      "shots": []
+      "duration": 1643,
+      "shots": [
+        "flow/student-certifications-01.png"
+      ]
     },
     {
       "name": "student sees certifications or empty state",
@@ -1535,8 +1848,10 @@
       "tab": "m4",
       "group": "M4-04: Student certifications view",
       "status": "pass",
-      "duration": 3964,
-      "shots": []
+      "duration": 1515,
+      "shots": [
+        "flow/student-certifications-02.png"
+      ]
     },
     {
       "name": "student can access certifications page",
@@ -1544,8 +1859,10 @@
       "tab": "m4",
       "group": "M4-04: Student certifications view",
       "status": "pass",
-      "duration": 3465,
-      "shots": []
+      "duration": 2348,
+      "shots": [
+        "flow/student-certifications-01.png"
+      ]
     },
     {
       "name": "student sees certifications or empty state",
@@ -1553,8 +1870,10 @@
       "tab": "m4",
       "group": "M4-04: Student certifications view",
       "status": "pass",
-      "duration": 3090,
-      "shots": []
+      "duration": 1779,
+      "shots": [
+        "flow/student-certifications-02.png"
+      ]
     },
     {
       "name": "student can access supervision page",
@@ -1562,8 +1881,10 @@
       "tab": "m4",
       "group": "M4-02: Student supervision view",
       "status": "pass",
-      "duration": 4127,
-      "shots": []
+      "duration": 1298,
+      "shots": [
+        "flow/student-supervision-01.png"
+      ]
     },
     {
       "name": "student sees supervision sessions or empty state",
@@ -1571,8 +1892,10 @@
       "tab": "m4",
       "group": "M4-02: Student supervision view",
       "status": "pass",
-      "duration": 4076,
-      "shots": []
+      "duration": 1012,
+      "shots": [
+        "flow/student-supervision-02.png"
+      ]
     },
     {
       "name": "student can access supervision page",
@@ -1580,8 +1903,10 @@
       "tab": "m4",
       "group": "M4-02: Student supervision view",
       "status": "pass",
-      "duration": 4207,
-      "shots": []
+      "duration": 1220,
+      "shots": [
+        "flow/student-supervision-01.png"
+      ]
     },
     {
       "name": "student sees supervision sessions or empty state",
@@ -1589,8 +1914,10 @@
       "tab": "m4",
       "group": "M4-02: Student supervision view",
       "status": "pass",
-      "duration": 3935,
-      "shots": []
+      "duration": 2341,
+      "shots": [
+        "flow/student-supervision-02.png"
+      ]
     },
     {
       "name": "admin supervision table shows correct columns",
@@ -1598,8 +1925,10 @@
       "tab": "m4",
       "group": "M4: Supervision and certification details",
       "status": "pass",
-      "duration": 4384,
-      "shots": []
+      "duration": 2220,
+      "shots": [
+        "crud/supervision-detail-01.png"
+      ]
     },
     {
       "name": "supervision sessions show status badges: 已排程, 已完成",
@@ -1607,8 +1936,10 @@
       "tab": "m4",
       "group": "M4: Supervision and certification details",
       "status": "pass",
-      "duration": 4187,
-      "shots": []
+      "duration": 2188,
+      "shots": [
+        "crud/supervision-detail-02.png"
+      ]
     },
     {
       "name": "admin certification table shows status: 通過, 待評分, 未通過",
@@ -1616,8 +1947,10 @@
       "tab": "m4",
       "group": "M4: Supervision and certification details",
       "status": "pass",
-      "duration": 4175,
-      "shots": []
+      "duration": 2070,
+      "shots": [
+        "crud/supervision-detail-03.png"
+      ]
     },
     {
       "name": "admin certification page has filter dropdowns for status and type",
@@ -1625,8 +1958,10 @@
       "tab": "m4",
       "group": "M4: Supervision and certification details",
       "status": "pass",
-      "duration": 3991,
-      "shots": []
+      "duration": 1467,
+      "shots": [
+        "crud/supervision-detail-04.png"
+      ]
     },
     {
       "name": "student supervision page shows empty state with helpful message",
@@ -1634,8 +1969,10 @@
       "tab": "m4",
       "group": "M4: Supervision and certification details",
       "status": "pass",
-      "duration": 3861,
-      "shots": []
+      "duration": 1781,
+      "shots": [
+        "crud/supervision-detail-05.png"
+      ]
     },
     {
       "name": "student certification page shows empty state",
@@ -1643,8 +1980,10 @@
       "tab": "m4",
       "group": "M4: Supervision and certification details",
       "status": "pass",
-      "duration": 3932,
-      "shots": []
+      "duration": 2534,
+      "shots": [
+        "crud/supervision-detail-06.png"
+      ]
     },
     {
       "name": "supervisor can access supervision page",
@@ -1652,8 +1991,10 @@
       "tab": "m4",
       "group": "M4: Supervision and certification details",
       "status": "pass",
-      "duration": 4127,
-      "shots": []
+      "duration": 2197,
+      "shots": [
+        "crud/supervision-detail-07.png"
+      ]
     },
     {
       "name": "admin can view member detail dialog",
@@ -1661,8 +2002,10 @@
       "tab": "m5",
       "group": "M5-01 Flow: Admin CRM member view and renewal review",
       "status": "pass",
-      "duration": 5024,
-      "shots": []
+      "duration": 2832,
+      "shots": [
+        "flow/crm-01-member-dialog.png"
+      ]
     },
     {
       "name": "admin can switch between CRM tabs",
@@ -1670,8 +2013,11 @@
       "tab": "m5",
       "group": "M5-01 Flow: Admin CRM member view and renewal review",
       "status": "pass",
-      "duration": 3721,
-      "shots": []
+      "duration": 1528,
+      "shots": [
+        "flow/crm-02-renewal-tab.png",
+        "flow/crm-03-special-tab.png"
+      ]
     },
     {
       "name": "admin can search members by name or email",
@@ -1679,8 +2025,10 @@
       "tab": "m5",
       "group": "M5-01 Flow: Admin CRM member view and renewal review",
       "status": "pass",
-      "duration": 2836,
-      "shots": []
+      "duration": 1158,
+      "shots": [
+        "flow/crm-04-search-results.png"
+      ]
     },
     {
       "name": "admin can filter members by certification status",
@@ -1688,7 +2036,7 @@
       "tab": "m5",
       "group": "M5-01 Flow: Admin CRM member view and renewal review",
       "status": "pass",
-      "duration": 2538,
+      "duration": 1199,
       "shots": []
     },
     {
@@ -1697,8 +2045,10 @@
       "tab": "m5",
       "group": "M5-01/04: Admin CRM management",
       "status": "pass",
-      "duration": 3978,
-      "shots": []
+      "duration": 925,
+      "shots": [
+        "crud/crm-smoke-01.png"
+      ]
     },
     {
       "name": "admin sees CRM with tabs and members table",
@@ -1706,8 +2056,10 @@
       "tab": "m5",
       "group": "M5-01/04: Admin CRM management",
       "status": "pass",
-      "duration": 4301,
-      "shots": []
+      "duration": 2782,
+      "shots": [
+        "crud/crm-smoke-02.png"
+      ]
     },
     {
       "name": "admin can access referrals page",
@@ -1715,8 +2067,10 @@
       "tab": "m5",
       "group": "M5-01/04: Admin CRM management",
       "status": "pass",
-      "duration": 4485,
-      "shots": []
+      "duration": 1173,
+      "shots": [
+        "crud/crm-smoke-03.png"
+      ]
     },
     {
       "name": "admin can access refunds settings page",
@@ -1724,8 +2078,10 @@
       "tab": "m5",
       "group": "M5-01/04: Admin CRM management",
       "status": "pass",
-      "duration": 4320,
-      "shots": []
+      "duration": 2039,
+      "shots": [
+        "crud/crm-smoke-04.png"
+      ]
     },
     {
       "name": "admin can access agents page",
@@ -1733,8 +2089,10 @@
       "tab": "m5",
       "group": "M5-01/04: Admin CRM management",
       "status": "pass",
-      "duration": 3924,
-      "shots": []
+      "duration": 1689,
+      "shots": [
+        "crud/crm-smoke-05.png"
+      ]
     },
     {
       "name": "student can see renewal section and click 新增申請",
@@ -1742,8 +2100,10 @@
       "tab": "m5",
       "group": "M5: CRM renewal and application flows",
       "status": "pass",
-      "duration": 3739,
-      "shots": []
+      "duration": 1291,
+      "shots": [
+        "flow/renewal-01-new-application.png"
+      ]
     },
     {
       "name": "student can see 特約申請 section with action buttons",
@@ -1751,8 +2111,10 @@
       "tab": "m5",
       "group": "M5: CRM renewal and application flows",
       "status": "pass",
-      "duration": 4619,
-      "shots": []
+      "duration": 2920,
+      "shots": [
+        "flow/renewal-02-special-buttons.png"
+      ]
     },
     {
       "name": "student CRM shows certification status",
@@ -1760,8 +2122,10 @@
       "tab": "m5",
       "group": "M5: CRM renewal and application flows",
       "status": "pass",
-      "duration": 4172,
-      "shots": []
+      "duration": 2336,
+      "shots": [
+        "flow/renewal-03-cert-status.png"
+      ]
     },
     {
       "name": "admin can review renewal — approve dialog",
@@ -1769,7 +2133,7 @@
       "tab": "m5",
       "group": "M5: CRM renewal and application flows",
       "status": "pass",
-      "duration": 4689,
+      "duration": 1079,
       "shots": []
     },
     {
@@ -1778,7 +2142,7 @@
       "tab": "m5",
       "group": "M5: CRM renewal and application flows",
       "status": "pass",
-      "duration": 4091,
+      "duration": 1657,
       "shots": []
     },
     {
@@ -1787,8 +2151,10 @@
       "tab": "m5",
       "group": "M5-02/03: Student CRM and renewals",
       "status": "pass",
-      "duration": 2439,
-      "shots": []
+      "duration": 1062,
+      "shots": [
+        "flow/student-crm-01.png"
+      ]
     },
     {
       "name": "student sees 會員中心 with profile, renewals, and applications sections",
@@ -1796,8 +2162,10 @@
       "tab": "m5",
       "group": "M5-02/03: Student CRM and renewals",
       "status": "pass",
-      "duration": 3586,
-      "shots": []
+      "duration": 1875,
+      "shots": [
+        "flow/student-crm-02.png"
+      ]
     },
     {
       "name": "student sees renewal and application action buttons",
@@ -1805,8 +2173,10 @@
       "tab": "m5",
       "group": "M5-02/03: Student CRM and renewals",
       "status": "pass",
-      "duration": 4023,
-      "shots": []
+      "duration": 1363,
+      "shots": [
+        "flow/student-crm-03.png"
+      ]
     },
     {
       "name": "student can access profile page",
@@ -1814,8 +2184,10 @@
       "tab": "m5",
       "group": "M5-02/03: Student CRM and renewals",
       "status": "pass",
-      "duration": 2745,
-      "shots": []
+      "duration": 1483,
+      "shots": [
+        "flow/student-crm-04.png"
+      ]
     },
     {
       "name": "student can access CRM page",
@@ -1823,8 +2195,10 @@
       "tab": "m5",
       "group": "M5-02/03: Student CRM and renewals",
       "status": "pass",
-      "duration": 2579,
-      "shots": []
+      "duration": 2316,
+      "shots": [
+        "flow/student-crm-01.png"
+      ]
     },
     {
       "name": "student sees 會員中心 with profile, renewals, and applications sections",
@@ -1832,8 +2206,10 @@
       "tab": "m5",
       "group": "M5-02/03: Student CRM and renewals",
       "status": "pass",
-      "duration": 3025,
-      "shots": []
+      "duration": 2205,
+      "shots": [
+        "flow/student-crm-02.png"
+      ]
     },
     {
       "name": "student sees renewal and application action buttons",
@@ -1841,8 +2217,10 @@
       "tab": "m5",
       "group": "M5-02/03: Student CRM and renewals",
       "status": "pass",
-      "duration": 2763,
-      "shots": []
+      "duration": 1401,
+      "shots": [
+        "flow/student-crm-03.png"
+      ]
     },
     {
       "name": "student can access profile page",
@@ -1850,8 +2228,10 @@
       "tab": "m5",
       "group": "M5-02/03: Student CRM and renewals",
       "status": "pass",
-      "duration": 2668,
-      "shots": []
+      "duration": 1030,
+      "shots": [
+        "flow/student-crm-04.png"
+      ]
     },
     {
       "name": "homepage renders on mobile",
@@ -1859,8 +2239,10 @@
       "tab": "mobile",
       "group": "Mobile viewport — key pages render correctly",
       "status": "pass",
-      "duration": 4121,
-      "shots": []
+      "duration": 1549,
+      "shots": [
+        "flow/mobile-01-homepage.png"
+      ]
     },
     {
       "name": "courses page renders on mobile",
@@ -1868,8 +2250,10 @@
       "tab": "mobile",
       "group": "Mobile viewport — key pages render correctly",
       "status": "pass",
-      "duration": 4694,
-      "shots": []
+      "duration": 946,
+      "shots": [
+        "flow/mobile-02-courses.png"
+      ]
     },
     {
       "name": "enroll page renders on mobile",
@@ -1877,8 +2261,10 @@
       "tab": "mobile",
       "group": "Mobile viewport — key pages render correctly",
       "status": "pass",
-      "duration": 2999,
-      "shots": []
+      "duration": 1228,
+      "shots": [
+        "flow/mobile-03-enroll.png"
+      ]
     },
     {
       "name": "student dashboard renders on mobile with hamburger menu",
@@ -1886,8 +2272,10 @@
       "tab": "mobile",
       "group": "Mobile viewport — key pages render correctly",
       "status": "pass",
-      "duration": 3492,
-      "shots": []
+      "duration": 1532,
+      "shots": [
+        "flow/mobile-04-student-dashboard.png"
+      ]
     },
     {
       "name": "admin dashboard renders on mobile with sidebar toggle",
@@ -1895,7 +2283,7 @@
       "tab": "mobile",
       "group": "Mobile viewport — key pages render correctly",
       "status": "pass",
-      "duration": 4117,
+      "duration": 1767,
       "shots": []
     },
     {
@@ -1904,8 +2292,10 @@
       "tab": "mobile",
       "group": "Mobile viewport — key pages render correctly",
       "status": "pass",
-      "duration": 2520,
-      "shots": []
+      "duration": 1421,
+      "shots": [
+        "flow/mobile-07-login.png"
+      ]
     },
     {
       "name": "visitor - /",
@@ -1913,7 +2303,7 @@
       "tab": "screenshots",
       "group": "Visitor screenshots",
       "status": "pass",
-      "duration": 4069,
+      "duration": 2508,
       "shots": []
     },
     {
@@ -1922,7 +2312,7 @@
       "tab": "screenshots",
       "group": "Visitor screenshots",
       "status": "pass",
-      "duration": 5200,
+      "duration": 4244,
       "shots": []
     },
     {
@@ -1931,7 +2321,7 @@
       "tab": "screenshots",
       "group": "Visitor screenshots",
       "status": "pass",
-      "duration": 3622,
+      "duration": 1545,
       "shots": []
     },
     {
@@ -1940,7 +2330,7 @@
       "tab": "screenshots",
       "group": "Visitor screenshots",
       "status": "pass",
-      "duration": 3876,
+      "duration": 1683,
       "shots": []
     },
     {
@@ -1949,7 +2339,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 4224,
+      "duration": 2326,
       "shots": []
     },
     {
@@ -1958,7 +2348,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 4241,
+      "duration": 2742,
       "shots": []
     },
     {
@@ -1967,7 +2357,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 4710,
+      "duration": 2500,
       "shots": []
     },
     {
@@ -1976,7 +2366,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 4680,
+      "duration": 2192,
       "shots": []
     },
     {
@@ -1985,7 +2375,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 4251,
+      "duration": 2168,
       "shots": []
     },
     {
@@ -1994,7 +2384,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 4103,
+      "duration": 2059,
       "shots": []
     },
     {
@@ -2003,7 +2393,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 4275,
+      "duration": 2140,
       "shots": []
     },
     {
@@ -2012,7 +2402,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 4771,
+      "duration": 2397,
       "shots": []
     },
     {
@@ -2021,7 +2411,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 4403,
+      "duration": 2251,
       "shots": []
     },
     {
@@ -2030,7 +2420,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 4424,
+      "duration": 2123,
       "shots": []
     },
     {
@@ -2039,7 +2429,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 4443,
+      "duration": 2127,
       "shots": []
     },
     {
@@ -2048,7 +2438,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 4058,
+      "duration": 2004,
       "shots": []
     },
     {
@@ -2057,7 +2447,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 3885,
+      "duration": 2443,
       "shots": []
     },
     {
@@ -2066,7 +2456,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 4314,
+      "duration": 2393,
       "shots": []
     },
     {
@@ -2075,7 +2465,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "pass",
-      "duration": 3974,
+      "duration": 2324,
       "shots": []
     },
     {
@@ -2084,7 +2474,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 3860,
+      "duration": 2591,
       "shots": []
     },
     {
@@ -2093,7 +2483,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 3864,
+      "duration": 1743,
       "shots": []
     },
     {
@@ -2102,7 +2492,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 3905,
+      "duration": 2539,
       "shots": []
     },
     {
@@ -2111,7 +2501,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 3550,
+      "duration": 2322,
       "shots": []
     },
     {
@@ -2120,7 +2510,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 3920,
+      "duration": 1702,
       "shots": []
     },
     {
@@ -2129,7 +2519,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 3849,
+      "duration": 1805,
       "shots": []
     },
     {
@@ -2138,7 +2528,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 3744,
+      "duration": 1813,
       "shots": []
     },
     {
@@ -2147,7 +2537,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "pass",
-      "duration": 3823,
+      "duration": 1865,
       "shots": []
     },
     {
@@ -2156,7 +2546,7 @@
       "tab": "screenshots",
       "group": "TA screenshots",
       "status": "pass",
-      "duration": 4253,
+      "duration": 1759,
       "shots": []
     },
     {
@@ -2165,7 +2555,7 @@
       "tab": "screenshots",
       "group": "Supervisor screenshots",
       "status": "pass",
-      "duration": 4192,
+      "duration": 1858,
       "shots": []
     }
   ],
