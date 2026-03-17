@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-17T15:38:44.580Z",
-  "commitSha": "cdb2052",
+  "generatedAt": "2026-03-17T16:03:41.089Z",
+  "commitSha": "28b9bbb",
   "summary": {
     "total": 240,
-    "passed": 35,
+    "passed": 37,
     "skipped": 0,
-    "failed": 205
+    "failed": 203
   },
   "tests": [
     {
@@ -14,7 +14,7 @@
       "tab": "access",
       "group": "Unauthenticated visitor",
       "status": "pass",
-      "duration": 4889,
+      "duration": 4726,
       "shots": []
     },
     {
@@ -23,7 +23,7 @@
       "tab": "access",
       "group": "Unauthenticated visitor",
       "status": "pass",
-      "duration": 6374,
+      "duration": 8090,
       "shots": []
     },
     {
@@ -32,7 +32,7 @@
       "tab": "access",
       "group": "Unauthenticated visitor",
       "status": "pass",
-      "duration": 6632,
+      "duration": 11472,
       "shots": []
     },
     {
@@ -41,7 +41,7 @@
       "tab": "access",
       "group": "Unauthenticated visitor",
       "status": "pass",
-      "duration": 4883,
+      "duration": 4227,
       "shots": []
     },
     {
@@ -50,7 +50,7 @@
       "tab": "access",
       "group": "Student accessing admin pages",
       "status": "fail",
-      "duration": 335,
+      "duration": 4100,
       "shots": [
         "test-failed-1.png"
       ]
@@ -61,7 +61,7 @@
       "tab": "access",
       "group": "Student accessing admin pages",
       "status": "fail",
-      "duration": 330,
+      "duration": 3281,
       "shots": [
         "test-failed-1.png"
       ]
@@ -72,7 +72,7 @@
       "tab": "access",
       "group": "Student accessing admin pages",
       "status": "fail",
-      "duration": 463,
+      "duration": 1121,
       "shots": [
         "test-failed-1.png"
       ]
@@ -83,7 +83,7 @@
       "tab": "access",
       "group": "Admin can access admin pages",
       "status": "fail",
-      "duration": 415,
+      "duration": 1274,
       "shots": [
         "test-failed-1.png"
       ]
@@ -94,7 +94,7 @@
       "tab": "access",
       "group": "Admin can access admin pages",
       "status": "fail",
-      "duration": 534,
+      "duration": 1009,
       "shots": [
         "test-failed-1.png"
       ]
@@ -105,7 +105,7 @@
       "tab": "access",
       "group": "API-level role guards",
       "status": "fail",
-      "duration": 531,
+      "duration": 1246,
       "shots": [
         "test-failed-1.png"
       ]
@@ -115,8 +115,8 @@
       "spec": "access-control/role-guards.spec.ts",
       "tab": "access",
       "group": "API-level role guards",
-      "status": "fail",
-      "duration": 346,
+      "status": "pass",
+      "duration": 480,
       "shots": []
     },
     {
@@ -125,7 +125,7 @@
       "tab": "m1",
       "group": "M1-07 / M2: Admin agents (代理商) management",
       "status": "fail",
-      "duration": 426,
+      "duration": 1115,
       "shots": [
         "test-failed-1.png"
       ]
@@ -136,7 +136,7 @@
       "tab": "m1",
       "group": "M1-07 / M2: Admin agents (代理商) management",
       "status": "fail",
-      "duration": 502,
+      "duration": 990,
       "shots": [
         "test-failed-1.png"
       ]
@@ -147,7 +147,7 @@
       "tab": "m1",
       "group": "M1-07 / M2: Admin agents (代理商) management",
       "status": "fail",
-      "duration": 517,
+      "duration": 1149,
       "shots": [
         "test-failed-1.png"
       ]
@@ -158,7 +158,7 @@
       "tab": "m1",
       "group": "M1-07 / M2: Admin agents (代理商) management",
       "status": "fail",
-      "duration": 457,
+      "duration": 1188,
       "shots": [
         "test-failed-1.png"
       ]
@@ -169,7 +169,7 @@
       "tab": "m1",
       "group": "M1-06 CRUD: Admin cohort management",
       "status": "fail",
-      "duration": 1,
+      "duration": 4,
       "shots": []
     },
     {
@@ -196,7 +196,7 @@
       "tab": "m1",
       "group": "M1-06: Admin cohort management",
       "status": "fail",
-      "duration": 499,
+      "duration": 953,
       "shots": [
         "test-failed-1.png"
       ]
@@ -207,7 +207,7 @@
       "tab": "m1",
       "group": "M1-06: Admin cohort management",
       "status": "fail",
-      "duration": 448,
+      "duration": 1126,
       "shots": [
         "test-failed-1.png"
       ]
@@ -218,7 +218,7 @@
       "tab": "m1",
       "group": "M1-06: Admin cohort management",
       "status": "fail",
-      "duration": 575,
+      "duration": 1714,
       "shots": [
         "test-failed-1.png"
       ]
@@ -229,7 +229,7 @@
       "tab": "m1",
       "group": "M1-06: Admin cohort management",
       "status": "fail",
-      "duration": 472,
+      "duration": 1041,
       "shots": [
         "test-failed-1.png"
       ]
@@ -240,7 +240,7 @@
       "tab": "m1",
       "group": "M1-03: Admin enrollment management",
       "status": "fail",
-      "duration": 436,
+      "duration": 1066,
       "shots": [
         "test-failed-1.png"
       ]
@@ -251,7 +251,7 @@
       "tab": "m1",
       "group": "M1-03: Admin enrollment management",
       "status": "fail",
-      "duration": 484,
+      "duration": 1113,
       "shots": [
         "test-failed-1.png"
       ]
@@ -262,7 +262,7 @@
       "tab": "m1",
       "group": "M1-03: Admin enrollment management",
       "status": "fail",
-      "duration": 453,
+      "duration": 1187,
       "shots": [
         "test-failed-1.png"
       ]
@@ -273,7 +273,7 @@
       "tab": "m1",
       "group": "M1-03: Admin enrollment management",
       "status": "fail",
-      "duration": 512,
+      "duration": 1020,
       "shots": [
         "test-failed-1.png"
       ]
@@ -284,7 +284,7 @@
       "tab": "m1",
       "group": "M1-03: Admin enrollment management",
       "status": "fail",
-      "duration": 499,
+      "duration": 1261,
       "shots": [
         "test-failed-1.png"
       ]
@@ -295,7 +295,7 @@
       "tab": "m1",
       "group": "M1-04: Admin promo code management",
       "status": "fail",
-      "duration": 504,
+      "duration": 1146,
       "shots": [
         "test-failed-1.png"
       ]
@@ -306,7 +306,7 @@
       "tab": "m1",
       "group": "M1-04: Admin promo code management",
       "status": "fail",
-      "duration": 521,
+      "duration": 1185,
       "shots": [
         "test-failed-1.png"
       ]
@@ -317,7 +317,7 @@
       "tab": "m1",
       "group": "M1-04: Admin promo code management",
       "status": "fail",
-      "duration": 462,
+      "duration": 977,
       "shots": [
         "test-failed-1.png"
       ]
@@ -328,7 +328,7 @@
       "tab": "m1",
       "group": "M1-04 CRUD: Admin promo code create → verify → delete",
       "status": "fail",
-      "duration": 2,
+      "duration": 1,
       "shots": []
     },
     {
@@ -337,7 +337,7 @@
       "tab": "m1",
       "group": "M1: ECPay payment flow (mocked)",
       "status": "fail",
-      "duration": 530,
+      "duration": 1100,
       "shots": [
         "test-failed-1.png"
       ]
@@ -348,7 +348,7 @@
       "tab": "m1",
       "group": "M1: ECPay payment flow (mocked)",
       "status": "pass",
-      "duration": 3527,
+      "duration": 3950,
       "shots": []
     },
     {
@@ -357,7 +357,7 @@
       "tab": "m1",
       "group": "M1: ECPay payment flow (mocked)",
       "status": "pass",
-      "duration": 3819,
+      "duration": 2858,
       "shots": []
     },
     {
@@ -366,7 +366,7 @@
       "tab": "m1",
       "group": "M1-01 Flow: Student enrollment flow end-to-end",
       "status": "pass",
-      "duration": 5232,
+      "duration": 4919,
       "shots": []
     },
     {
@@ -375,7 +375,7 @@
       "tab": "m1",
       "group": "M1-01 Flow: Student enrollment flow end-to-end",
       "status": "pass",
-      "duration": 3448,
+      "duration": 3474,
       "shots": []
     },
     {
@@ -384,7 +384,7 @@
       "tab": "m1",
       "group": "M1-01 Flow: Student enrollment flow end-to-end",
       "status": "fail",
-      "duration": 467,
+      "duration": 985,
       "shots": [
         "test-failed-1.png"
       ]
@@ -395,7 +395,7 @@
       "tab": "m1",
       "group": "M1-01 Flow: Student enrollment flow end-to-end",
       "status": "fail",
-      "duration": 456,
+      "duration": 1046,
       "shots": [
         "test-failed-1.png"
       ]
@@ -406,7 +406,7 @@
       "tab": "m1",
       "group": "M1-01 Flow: Student enrollment flow end-to-end",
       "status": "pass",
-      "duration": 4614,
+      "duration": 6228,
       "shots": []
     },
     {
@@ -415,7 +415,7 @@
       "tab": "m1",
       "group": "M1-01 Flow: Student enrollment flow end-to-end",
       "status": "pass",
-      "duration": 2906,
+      "duration": 3011,
       "shots": []
     },
     {
@@ -424,7 +424,7 @@
       "tab": "m1",
       "group": "M1-01 Flow: Student enrollment flow end-to-end",
       "status": "fail",
-      "duration": 469,
+      "duration": 1210,
       "shots": [
         "test-failed-1.png"
       ]
@@ -435,7 +435,7 @@
       "tab": "m1",
       "group": "M1-01 Flow: Student enrollment flow end-to-end",
       "status": "fail",
-      "duration": 490,
+      "duration": 1108,
       "shots": [
         "test-failed-1.png"
       ]
@@ -446,7 +446,7 @@
       "tab": "m1",
       "group": "M1: Enrollment form details and pricing",
       "status": "pass",
-      "duration": 3413,
+      "duration": 3421,
       "shots": []
     },
     {
@@ -455,7 +455,7 @@
       "tab": "m1",
       "group": "M1: Enrollment form details and pricing",
       "status": "pass",
-      "duration": 3562,
+      "duration": 3094,
       "shots": []
     },
     {
@@ -464,7 +464,7 @@
       "tab": "m1",
       "group": "M1: Enrollment form details and pricing",
       "status": "fail",
-      "duration": 331,
+      "duration": 876,
       "shots": [
         "test-failed-1.png"
       ]
@@ -475,7 +475,7 @@
       "tab": "m1",
       "group": "M1: Enrollment form details and pricing",
       "status": "fail",
-      "duration": 484,
+      "duration": 1194,
       "shots": [
         "test-failed-1.png"
       ]
@@ -486,7 +486,7 @@
       "tab": "m1",
       "group": "M1: Enrollment form details and pricing",
       "status": "fail",
-      "duration": 419,
+      "duration": 1000,
       "shots": [
         "test-failed-1.png"
       ]
@@ -497,7 +497,7 @@
       "tab": "m1",
       "group": "M1: Enrollment form details and pricing",
       "status": "fail",
-      "duration": 501,
+      "duration": 1061,
       "shots": [
         "test-failed-1.png"
       ]
@@ -508,7 +508,7 @@
       "tab": "m1",
       "group": "M1: Enrollment form — multi-step registration flow",
       "status": "pass",
-      "duration": 3220,
+      "duration": 3290,
       "shots": []
     },
     {
@@ -517,7 +517,7 @@
       "tab": "m1",
       "group": "M1: Enrollment form — multi-step registration flow",
       "status": "pass",
-      "duration": 2933,
+      "duration": 2897,
       "shots": []
     },
     {
@@ -526,7 +526,7 @@
       "tab": "m1",
       "group": "M1: Enrollment form — multi-step registration flow",
       "status": "pass",
-      "duration": 2758,
+      "duration": 2767,
       "shots": []
     },
     {
@@ -535,7 +535,7 @@
       "tab": "m1",
       "group": "M1: Enrollment form — multi-step registration flow",
       "status": "pass",
-      "duration": 2740,
+      "duration": 2226,
       "shots": []
     },
     {
@@ -544,7 +544,7 @@
       "tab": "m1",
       "group": "M1: Payment and checkout flow",
       "status": "pass",
-      "duration": 3359,
+      "duration": 3668,
       "shots": []
     },
     {
@@ -553,7 +553,7 @@
       "tab": "m1",
       "group": "M1: Payment and checkout flow",
       "status": "pass",
-      "duration": 3665,
+      "duration": 3110,
       "shots": []
     },
     {
@@ -562,7 +562,7 @@
       "tab": "m1",
       "group": "M1: Payment and checkout flow",
       "status": "pass",
-      "duration": 3044,
+      "duration": 3249,
       "shots": []
     },
     {
@@ -570,8 +570,8 @@
       "spec": "m1-registration/payment-flow.spec.ts",
       "tab": "m1",
       "group": "M1: Payment and checkout flow",
-      "status": "fail",
-      "duration": 323,
+      "status": "pass",
+      "duration": 289,
       "shots": []
     },
     {
@@ -580,7 +580,7 @@
       "tab": "m1",
       "group": "M1: Payment and checkout flow",
       "status": "fail",
-      "duration": 213,
+      "duration": 905,
       "shots": [
         "test-failed-1.png"
       ]
@@ -591,7 +591,7 @@
       "tab": "m1",
       "group": "M1: Payment and checkout flow",
       "status": "fail",
-      "duration": 389,
+      "duration": 1298,
       "shots": [
         "test-failed-1.png"
       ]
@@ -602,7 +602,7 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 3762,
+      "duration": 3189,
       "shots": []
     },
     {
@@ -611,7 +611,7 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 4771,
+      "duration": 4729,
       "shots": []
     },
     {
@@ -620,7 +620,7 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 6173,
+      "duration": 5942,
       "shots": []
     },
     {
@@ -629,7 +629,7 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 4824,
+      "duration": 4992,
       "shots": []
     },
     {
@@ -638,7 +638,7 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 3931,
+      "duration": 4461,
       "shots": []
     },
     {
@@ -647,7 +647,7 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "fail",
-      "duration": 9385,
+      "duration": 9208,
       "shots": [
         "test-failed-1.png"
       ]
@@ -658,7 +658,7 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "pass",
-      "duration": 4301,
+      "duration": 4163,
       "shots": []
     },
     {
@@ -667,7 +667,7 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "fail",
-      "duration": 16453,
+      "duration": 15027,
       "shots": [
         "test-failed-1.png"
       ]
@@ -678,7 +678,7 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "fail",
-      "duration": 14620,
+      "duration": 14959,
       "shots": [
         "test-failed-1.png"
       ]
@@ -689,7 +689,7 @@
       "tab": "m1",
       "group": "M2-04 / M1: Visitor browses courses",
       "status": "fail",
-      "duration": 8450,
+      "duration": 8170,
       "shots": [
         "test-failed-1.png"
       ]
@@ -700,7 +700,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "fail",
-      "duration": 463,
+      "duration": 1019,
       "shots": [
         "test-failed-1.png"
       ]
@@ -711,7 +711,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "fail",
-      "duration": 436,
+      "duration": 983,
       "shots": [
         "test-failed-1.png"
       ]
@@ -722,7 +722,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "fail",
-      "duration": 482,
+      "duration": 981,
       "shots": [
         "test-failed-1.png"
       ]
@@ -733,7 +733,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "fail",
-      "duration": 355,
+      "duration": 1324,
       "shots": [
         "test-failed-1.png"
       ]
@@ -744,7 +744,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "fail",
-      "duration": 500,
+      "duration": 1141,
       "shots": [
         "test-failed-1.png"
       ]
@@ -755,7 +755,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "fail",
-      "duration": 455,
+      "duration": 1164,
       "shots": [
         "test-failed-1.png"
       ]
@@ -766,7 +766,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "pass",
-      "duration": 3196,
+      "duration": 2614,
       "shots": []
     },
     {
@@ -775,7 +775,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "fail",
-      "duration": 383,
+      "duration": 1425,
       "shots": [
         "test-failed-1.png"
       ]
@@ -786,7 +786,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "fail",
-      "duration": 270,
+      "duration": 952,
       "shots": [
         "test-failed-1.png"
       ]
@@ -797,7 +797,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "fail",
-      "duration": 733,
+      "duration": 1279,
       "shots": [
         "test-failed-1.png"
       ]
@@ -808,7 +808,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "fail",
-      "duration": 564,
+      "duration": 1239,
       "shots": [
         "test-failed-1.png"
       ]
@@ -819,7 +819,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "fail",
-      "duration": 518,
+      "duration": 821,
       "shots": [
         "test-failed-1.png"
       ]
@@ -830,7 +830,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "fail",
-      "duration": 305,
+      "duration": 853,
       "shots": [
         "test-failed-1.png"
       ]
@@ -841,7 +841,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "fail",
-      "duration": 289,
+      "duration": 880,
       "shots": [
         "test-failed-1.png"
       ]
@@ -852,7 +852,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "pass",
-      "duration": 2925,
+      "duration": 3223,
       "shots": []
     },
     {
@@ -861,7 +861,7 @@
       "tab": "m1",
       "group": "M1-01/02: Student enrollment flow",
       "status": "fail",
-      "duration": 400,
+      "duration": 1298,
       "shots": [
         "test-failed-1.png"
       ]
@@ -872,7 +872,7 @@
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
       "status": "fail",
-      "duration": 404,
+      "duration": 1044,
       "shots": [
         "test-failed-1.png"
       ]
@@ -883,7 +883,7 @@
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
       "status": "fail",
-      "duration": 446,
+      "duration": 1284,
       "shots": [
         "test-failed-1.png"
       ]
@@ -894,7 +894,7 @@
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
       "status": "fail",
-      "duration": 477,
+      "duration": 1144,
       "shots": [
         "test-failed-1.png"
       ]
@@ -905,7 +905,7 @@
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
       "status": "fail",
-      "duration": 521,
+      "duration": 1099,
       "shots": [
         "test-failed-1.png"
       ]
@@ -916,7 +916,7 @@
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
       "status": "fail",
-      "duration": 293,
+      "duration": 975,
       "shots": [
         "test-failed-1.png"
       ]
@@ -927,7 +927,7 @@
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
       "status": "fail",
-      "duration": 486,
+      "duration": 1873,
       "shots": [
         "test-failed-1.png"
       ]
@@ -938,7 +938,7 @@
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
       "status": "fail",
-      "duration": 501,
+      "duration": 3008,
       "shots": [
         "test-failed-1.png"
       ]
@@ -949,7 +949,7 @@
       "tab": "m1",
       "group": "M1: 升級流程 — student upgrade button and modal",
       "status": "fail",
-      "duration": 504,
+      "duration": 1090,
       "shots": [
         "test-failed-1.png"
       ]
@@ -960,7 +960,7 @@
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
       "status": "fail",
-      "duration": 486,
+      "duration": 1039,
       "shots": [
         "test-failed-1.png"
       ]
@@ -971,7 +971,7 @@
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
       "status": "fail",
-      "duration": 475,
+      "duration": 1035,
       "shots": [
         "test-failed-1.png"
       ]
@@ -982,7 +982,7 @@
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
       "status": "fail",
-      "duration": 494,
+      "duration": 1187,
       "shots": [
         "test-failed-1.png"
       ]
@@ -993,7 +993,7 @@
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
       "status": "fail",
-      "duration": 509,
+      "duration": 1164,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1004,7 +1004,7 @@
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
       "status": "fail",
-      "duration": 590,
+      "duration": 1071,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1015,7 +1015,7 @@
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
       "status": "fail",
-      "duration": 475,
+      "duration": 1027,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1026,7 +1026,7 @@
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
       "status": "fail",
-      "duration": 473,
+      "duration": 1114,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1037,7 +1037,7 @@
       "tab": "m1",
       "group": "M1: 退課申請 — student withdraw button and modal",
       "status": "fail",
-      "duration": 526,
+      "duration": 1063,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1048,7 +1048,7 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "fail",
-      "duration": 422,
+      "duration": 1086,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1059,7 +1059,7 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "fail",
-      "duration": 474,
+      "duration": 1096,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1070,7 +1070,7 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "fail",
-      "duration": 425,
+      "duration": 1073,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1081,7 +1081,7 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "fail",
-      "duration": 502,
+      "duration": 1143,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1092,7 +1092,7 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "fail",
-      "duration": 481,
+      "duration": 1048,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1103,7 +1103,7 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "fail",
-      "duration": 492,
+      "duration": 931,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1114,7 +1114,7 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "fail",
-      "duration": 563,
+      "duration": 1083,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1125,7 +1125,7 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "fail",
-      "duration": 513,
+      "duration": 1094,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1136,7 +1136,7 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "fail",
-      "duration": 494,
+      "duration": 1112,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1147,7 +1147,7 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "fail",
-      "duration": 524,
+      "duration": 1061,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1158,7 +1158,7 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "fail",
-      "duration": 471,
+      "duration": 1078,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1169,7 +1169,7 @@
       "tab": "m1",
       "group": "M1: 發票類型選擇 — checkout InvoiceSection",
       "status": "fail",
-      "duration": 514,
+      "duration": 1770,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1180,7 +1180,7 @@
       "tab": "m2",
       "group": "M2-01 CRUD: Admin marketing page create → verify → delete",
       "status": "fail",
-      "duration": 3,
+      "duration": 1,
       "shots": []
     },
     {
@@ -1189,7 +1189,7 @@
       "tab": "m2",
       "group": "M2: Marketing page editor and publish flow",
       "status": "fail",
-      "duration": 508,
+      "duration": 1099,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1200,7 +1200,7 @@
       "tab": "m2",
       "group": "M2: Marketing page editor and publish flow",
       "status": "fail",
-      "duration": 491,
+      "duration": 993,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1211,7 +1211,7 @@
       "tab": "m2",
       "group": "M2: Marketing page editor and publish flow",
       "status": "fail",
-      "duration": 500,
+      "duration": 1029,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1222,7 +1222,7 @@
       "tab": "m2",
       "group": "M2: Marketing page editor and publish flow",
       "status": "fail",
-      "duration": 442,
+      "duration": 1084,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1233,7 +1233,7 @@
       "tab": "m2",
       "group": "M2-01: Admin marketing pages management",
       "status": "fail",
-      "duration": 466,
+      "duration": 1188,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1244,7 +1244,7 @@
       "tab": "m2",
       "group": "M2-01: Admin marketing pages management",
       "status": "fail",
-      "duration": 470,
+      "duration": 1065,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1255,7 +1255,7 @@
       "tab": "m2",
       "group": "M2-01: Admin marketing pages management",
       "status": "fail",
-      "duration": 495,
+      "duration": 988,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1266,7 +1266,7 @@
       "tab": "m2",
       "group": "M2-01: Admin marketing pages management",
       "status": "fail",
-      "duration": 459,
+      "duration": 1198,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1277,7 +1277,7 @@
       "tab": "m2",
       "group": "M2-01: Admin marketing pages management",
       "status": "fail",
-      "duration": 521,
+      "duration": 1089,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1288,7 +1288,7 @@
       "tab": "m2",
       "group": "M2-02: Admin product management",
       "status": "fail",
-      "duration": 487,
+      "duration": 1103,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1299,7 +1299,7 @@
       "tab": "m2",
       "group": "M2-02: Admin product management",
       "status": "fail",
-      "duration": 450,
+      "duration": 1046,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1310,7 +1310,7 @@
       "tab": "m2",
       "group": "M2-02: Admin product management",
       "status": "fail",
-      "duration": 472,
+      "duration": 1034,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1321,7 +1321,7 @@
       "tab": "m2",
       "group": "M2-02: Admin product management",
       "status": "fail",
-      "duration": 437,
+      "duration": 1058,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1332,7 +1332,7 @@
       "tab": "m2",
       "group": "M2-02: Admin product management",
       "status": "fail",
-      "duration": 487,
+      "duration": 1089,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1343,7 +1343,7 @@
       "tab": "m3",
       "group": "M3-07: Admin attendance management",
       "status": "fail",
-      "duration": 420,
+      "duration": 1045,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1354,7 +1354,7 @@
       "tab": "m3",
       "group": "M3-07: Admin attendance management",
       "status": "fail",
-      "duration": 467,
+      "duration": 1164,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1374,7 +1374,7 @@
       "tab": "m3",
       "group": "M3-01/02: Admin classroom management",
       "status": "fail",
-      "duration": 457,
+      "duration": 1026,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1385,7 +1385,7 @@
       "tab": "m3",
       "group": "M3-01/02: Admin classroom management",
       "status": "fail",
-      "duration": 459,
+      "duration": 1025,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1396,7 +1396,7 @@
       "tab": "m3",
       "group": "M3-01/02: Admin classroom management",
       "status": "fail",
-      "duration": 481,
+      "duration": 1016,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1407,7 +1407,7 @@
       "tab": "m3",
       "group": "M3-01/02: Admin classroom management",
       "status": "fail",
-      "duration": 501,
+      "duration": 1409,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1418,7 +1418,7 @@
       "tab": "m3",
       "group": "M3-05 Flow: Admin grades an assignment",
       "status": "fail",
-      "duration": 479,
+      "duration": 1063,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1429,7 +1429,7 @@
       "tab": "m3",
       "group": "M3-05 Flow: Admin grades an assignment",
       "status": "fail",
-      "duration": 497,
+      "duration": 946,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1440,7 +1440,7 @@
       "tab": "m3",
       "group": "M3-05/06: Admin/TA grading dashboard",
       "status": "fail",
-      "duration": 528,
+      "duration": 1007,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1451,7 +1451,7 @@
       "tab": "m3",
       "group": "M3-05/06: Admin/TA grading dashboard",
       "status": "fail",
-      "duration": 469,
+      "duration": 1062,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1462,7 +1462,7 @@
       "tab": "m3",
       "group": "M3-05/06: Admin/TA grading dashboard",
       "status": "fail",
-      "duration": 473,
+      "duration": 1063,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1473,7 +1473,7 @@
       "tab": "m3",
       "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
       "status": "fail",
-      "duration": 483,
+      "duration": 1030,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1484,7 +1484,7 @@
       "tab": "m3",
       "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
       "status": "fail",
-      "duration": 565,
+      "duration": 1088,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1495,7 +1495,7 @@
       "tab": "m3",
       "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
       "status": "fail",
-      "duration": 438,
+      "duration": 998,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1506,7 +1506,7 @@
       "tab": "m3",
       "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
       "status": "fail",
-      "duration": 461,
+      "duration": 1085,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1517,7 +1517,7 @@
       "tab": "m3",
       "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
       "status": "fail",
-      "duration": 413,
+      "duration": 1055,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1528,7 +1528,7 @@
       "tab": "m3",
       "group": "M3: Classroom detail page — tabs, announcements, materials, assignments, attendance",
       "status": "fail",
-      "duration": 541,
+      "duration": 1033,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1539,7 +1539,7 @@
       "tab": "m3",
       "group": "M3: Grading details — return, download, cross-role",
       "status": "fail",
-      "duration": 421,
+      "duration": 1033,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1550,7 +1550,7 @@
       "tab": "m3",
       "group": "M3: Grading details — return, download, cross-role",
       "status": "fail",
-      "duration": 413,
+      "duration": 1030,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1561,7 +1561,7 @@
       "tab": "m3",
       "group": "M3: Grading details — return, download, cross-role",
       "status": "fail",
-      "duration": 524,
+      "duration": 1136,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1572,7 +1572,7 @@
       "tab": "m3",
       "group": "M3: Grading details — return, download, cross-role",
       "status": "fail",
-      "duration": 462,
+      "duration": 963,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1583,7 +1583,7 @@
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
       "status": "fail",
-      "duration": 425,
+      "duration": 1093,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1594,7 +1594,7 @@
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
       "status": "fail",
-      "duration": 523,
+      "duration": 998,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1605,7 +1605,7 @@
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
       "status": "fail",
-      "duration": 458,
+      "duration": 986,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1616,7 +1616,7 @@
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
       "status": "fail",
-      "duration": 484,
+      "duration": 1020,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1627,7 +1627,7 @@
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
       "status": "fail",
-      "duration": 455,
+      "duration": 1052,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1638,7 +1638,7 @@
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
       "status": "fail",
-      "duration": 488,
+      "duration": 981,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1649,7 +1649,7 @@
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
       "status": "fail",
-      "duration": 477,
+      "duration": 1041,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1660,7 +1660,7 @@
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
       "status": "fail",
-      "duration": 554,
+      "duration": 1184,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1671,7 +1671,7 @@
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
       "status": "fail",
-      "duration": 523,
+      "duration": 955,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1682,7 +1682,7 @@
       "tab": "m3",
       "group": "M3-03/04: Student classroom and assignments",
       "status": "fail",
-      "duration": 549,
+      "duration": 980,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1693,7 +1693,7 @@
       "tab": "m4",
       "group": "M4-03 Flow: Admin certification exam grading",
       "status": "fail",
-      "duration": 470,
+      "duration": 1020,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1704,7 +1704,7 @@
       "tab": "m4",
       "group": "M4-03 Flow: Admin certification exam grading",
       "status": "fail",
-      "duration": 430,
+      "duration": 927,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1715,7 +1715,7 @@
       "tab": "m4",
       "group": "M4-03: Admin certifications management",
       "status": "fail",
-      "duration": 441,
+      "duration": 1027,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1726,7 +1726,7 @@
       "tab": "m4",
       "group": "M4-03: Admin certifications management",
       "status": "fail",
-      "duration": 458,
+      "duration": 1087,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1737,7 +1737,7 @@
       "tab": "m4",
       "group": "M4-01 Flow: Admin supervision session management",
       "status": "fail",
-      "duration": 447,
+      "duration": 994,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1748,7 +1748,7 @@
       "tab": "m4",
       "group": "M4-01 Flow: Admin supervision session management",
       "status": "fail",
-      "duration": 422,
+      "duration": 998,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1759,7 +1759,7 @@
       "tab": "m4",
       "group": "M4-01: Admin supervision management",
       "status": "fail",
-      "duration": 509,
+      "duration": 1066,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1770,7 +1770,7 @@
       "tab": "m4",
       "group": "M4-01: Admin supervision management",
       "status": "fail",
-      "duration": 430,
+      "duration": 1132,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1781,7 +1781,7 @@
       "tab": "m4",
       "group": "M4-01: Admin supervision management",
       "status": "fail",
-      "duration": 447,
+      "duration": 1160,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1792,7 +1792,7 @@
       "tab": "m4",
       "group": "M4-04: Student certifications view",
       "status": "fail",
-      "duration": 501,
+      "duration": 992,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1803,7 +1803,7 @@
       "tab": "m4",
       "group": "M4-04: Student certifications view",
       "status": "fail",
-      "duration": 541,
+      "duration": 1020,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1814,7 +1814,7 @@
       "tab": "m4",
       "group": "M4-04: Student certifications view",
       "status": "fail",
-      "duration": 502,
+      "duration": 1145,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1825,7 +1825,7 @@
       "tab": "m4",
       "group": "M4-04: Student certifications view",
       "status": "fail",
-      "duration": 532,
+      "duration": 1156,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1836,7 +1836,7 @@
       "tab": "m4",
       "group": "M4-02: Student supervision view",
       "status": "fail",
-      "duration": 442,
+      "duration": 1073,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1847,7 +1847,7 @@
       "tab": "m4",
       "group": "M4-02: Student supervision view",
       "status": "fail",
-      "duration": 520,
+      "duration": 1029,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1858,7 +1858,7 @@
       "tab": "m4",
       "group": "M4-02: Student supervision view",
       "status": "fail",
-      "duration": 514,
+      "duration": 976,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1869,7 +1869,7 @@
       "tab": "m4",
       "group": "M4-02: Student supervision view",
       "status": "fail",
-      "duration": 479,
+      "duration": 1093,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1880,7 +1880,7 @@
       "tab": "m4",
       "group": "M4: Supervision and certification details",
       "status": "fail",
-      "duration": 431,
+      "duration": 991,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1891,7 +1891,7 @@
       "tab": "m4",
       "group": "M4: Supervision and certification details",
       "status": "fail",
-      "duration": 485,
+      "duration": 1024,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1902,7 +1902,7 @@
       "tab": "m4",
       "group": "M4: Supervision and certification details",
       "status": "fail",
-      "duration": 442,
+      "duration": 1017,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1913,7 +1913,7 @@
       "tab": "m4",
       "group": "M4: Supervision and certification details",
       "status": "fail",
-      "duration": 451,
+      "duration": 1073,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1924,7 +1924,7 @@
       "tab": "m4",
       "group": "M4: Supervision and certification details",
       "status": "fail",
-      "duration": 484,
+      "duration": 1130,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1935,7 +1935,7 @@
       "tab": "m4",
       "group": "M4: Supervision and certification details",
       "status": "fail",
-      "duration": 494,
+      "duration": 1038,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1946,7 +1946,7 @@
       "tab": "m4",
       "group": "M4: Supervision and certification details",
       "status": "fail",
-      "duration": 482,
+      "duration": 1055,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1957,7 +1957,7 @@
       "tab": "m5",
       "group": "M5-01 Flow: Admin CRM member view and renewal review",
       "status": "fail",
-      "duration": 456,
+      "duration": 958,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1968,7 +1968,7 @@
       "tab": "m5",
       "group": "M5-01 Flow: Admin CRM member view and renewal review",
       "status": "fail",
-      "duration": 423,
+      "duration": 1010,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1979,7 +1979,7 @@
       "tab": "m5",
       "group": "M5-01 Flow: Admin CRM member view and renewal review",
       "status": "fail",
-      "duration": 471,
+      "duration": 983,
       "shots": [
         "test-failed-1.png"
       ]
@@ -1990,7 +1990,7 @@
       "tab": "m5",
       "group": "M5-01 Flow: Admin CRM member view and renewal review",
       "status": "fail",
-      "duration": 463,
+      "duration": 1080,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2001,7 +2001,7 @@
       "tab": "m5",
       "group": "M5-01/04: Admin CRM management",
       "status": "fail",
-      "duration": 424,
+      "duration": 958,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2012,7 +2012,7 @@
       "tab": "m5",
       "group": "M5-01/04: Admin CRM management",
       "status": "fail",
-      "duration": 466,
+      "duration": 1054,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2023,7 +2023,7 @@
       "tab": "m5",
       "group": "M5-01/04: Admin CRM management",
       "status": "fail",
-      "duration": 477,
+      "duration": 981,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2034,7 +2034,7 @@
       "tab": "m5",
       "group": "M5-01/04: Admin CRM management",
       "status": "fail",
-      "duration": 466,
+      "duration": 1065,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2045,7 +2045,7 @@
       "tab": "m5",
       "group": "M5-01/04: Admin CRM management",
       "status": "fail",
-      "duration": 459,
+      "duration": 1047,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2056,7 +2056,7 @@
       "tab": "m5",
       "group": "M5: CRM renewal and application flows",
       "status": "fail",
-      "duration": 449,
+      "duration": 1053,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2067,7 +2067,7 @@
       "tab": "m5",
       "group": "M5: CRM renewal and application flows",
       "status": "fail",
-      "duration": 469,
+      "duration": 999,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2078,7 +2078,7 @@
       "tab": "m5",
       "group": "M5: CRM renewal and application flows",
       "status": "fail",
-      "duration": 462,
+      "duration": 1127,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2089,7 +2089,7 @@
       "tab": "m5",
       "group": "M5: CRM renewal and application flows",
       "status": "fail",
-      "duration": 463,
+      "duration": 1065,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2100,7 +2100,7 @@
       "tab": "m5",
       "group": "M5: CRM renewal and application flows",
       "status": "fail",
-      "duration": 486,
+      "duration": 1083,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2111,7 +2111,7 @@
       "tab": "m5",
       "group": "M5-02/03: Student CRM and renewals",
       "status": "fail",
-      "duration": 527,
+      "duration": 1179,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2122,7 +2122,7 @@
       "tab": "m5",
       "group": "M5-02/03: Student CRM and renewals",
       "status": "fail",
-      "duration": 502,
+      "duration": 1004,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2133,7 +2133,7 @@
       "tab": "m5",
       "group": "M5-02/03: Student CRM and renewals",
       "status": "fail",
-      "duration": 500,
+      "duration": 1024,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2144,7 +2144,7 @@
       "tab": "m5",
       "group": "M5-02/03: Student CRM and renewals",
       "status": "fail",
-      "duration": 518,
+      "duration": 1189,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2155,7 +2155,7 @@
       "tab": "m5",
       "group": "M5-02/03: Student CRM and renewals",
       "status": "fail",
-      "duration": 466,
+      "duration": 1021,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2166,7 +2166,7 @@
       "tab": "m5",
       "group": "M5-02/03: Student CRM and renewals",
       "status": "fail",
-      "duration": 515,
+      "duration": 1065,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2177,7 +2177,7 @@
       "tab": "m5",
       "group": "M5-02/03: Student CRM and renewals",
       "status": "fail",
-      "duration": 441,
+      "duration": 1133,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2188,7 +2188,7 @@
       "tab": "m5",
       "group": "M5-02/03: Student CRM and renewals",
       "status": "fail",
-      "duration": 515,
+      "duration": 1021,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2199,7 +2199,7 @@
       "tab": "mobile",
       "group": "Mobile viewport — key pages render correctly",
       "status": "pass",
-      "duration": 3947,
+      "duration": 4043,
       "shots": []
     },
     {
@@ -2208,7 +2208,7 @@
       "tab": "mobile",
       "group": "Mobile viewport — key pages render correctly",
       "status": "pass",
-      "duration": 5043,
+      "duration": 4727,
       "shots": []
     },
     {
@@ -2217,7 +2217,7 @@
       "tab": "mobile",
       "group": "Mobile viewport — key pages render correctly",
       "status": "pass",
-      "duration": 3110,
+      "duration": 3505,
       "shots": []
     },
     {
@@ -2226,7 +2226,7 @@
       "tab": "mobile",
       "group": "Mobile viewport — key pages render correctly",
       "status": "fail",
-      "duration": 287,
+      "duration": 987,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2237,7 +2237,7 @@
       "tab": "mobile",
       "group": "Mobile viewport — key pages render correctly",
       "status": "fail",
-      "duration": 340,
+      "duration": 874,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2248,7 +2248,7 @@
       "tab": "mobile",
       "group": "Mobile viewport — key pages render correctly",
       "status": "pass",
-      "duration": 2718,
+      "duration": 2675,
       "shots": []
     },
     {
@@ -2257,7 +2257,7 @@
       "tab": "screenshots",
       "group": "Visitor screenshots",
       "status": "pass",
-      "duration": 4361,
+      "duration": 4400,
       "shots": []
     },
     {
@@ -2266,7 +2266,7 @@
       "tab": "screenshots",
       "group": "Visitor screenshots",
       "status": "pass",
-      "duration": 5872,
+      "duration": 5445,
       "shots": []
     },
     {
@@ -2275,7 +2275,7 @@
       "tab": "screenshots",
       "group": "Visitor screenshots",
       "status": "pass",
-      "duration": 2953,
+      "duration": 2663,
       "shots": []
     },
     {
@@ -2284,7 +2284,7 @@
       "tab": "screenshots",
       "group": "Visitor screenshots",
       "status": "pass",
-      "duration": 3369,
+      "duration": 3581,
       "shots": []
     },
     {
@@ -2293,7 +2293,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "fail",
-      "duration": 448,
+      "duration": 1154,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2304,7 +2304,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "fail",
-      "duration": 442,
+      "duration": 1522,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2315,7 +2315,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "fail",
-      "duration": 356,
+      "duration": 1538,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2326,7 +2326,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "fail",
-      "duration": 441,
+      "duration": 988,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2337,7 +2337,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "fail",
-      "duration": 449,
+      "duration": 1138,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2348,7 +2348,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "fail",
-      "duration": 406,
+      "duration": 1053,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2359,7 +2359,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "fail",
-      "duration": 531,
+      "duration": 965,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2370,7 +2370,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "fail",
-      "duration": 444,
+      "duration": 1038,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2381,7 +2381,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "fail",
-      "duration": 460,
+      "duration": 1120,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2392,7 +2392,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "fail",
-      "duration": 467,
+      "duration": 1281,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2403,7 +2403,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "fail",
-      "duration": 482,
+      "duration": 1084,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2414,7 +2414,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "fail",
-      "duration": 487,
+      "duration": 976,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2425,7 +2425,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "fail",
-      "duration": 459,
+      "duration": 1301,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2436,7 +2436,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "fail",
-      "duration": 434,
+      "duration": 1036,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2447,7 +2447,7 @@
       "tab": "screenshots",
       "group": "Admin screenshots",
       "status": "fail",
-      "duration": 525,
+      "duration": 1035,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2458,7 +2458,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "fail",
-      "duration": 460,
+      "duration": 1254,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2469,7 +2469,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "fail",
-      "duration": 455,
+      "duration": 1274,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2480,7 +2480,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "fail",
-      "duration": 424,
+      "duration": 1014,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2491,7 +2491,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "fail",
-      "duration": 513,
+      "duration": 1026,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2502,7 +2502,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "fail",
-      "duration": 457,
+      "duration": 988,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2513,7 +2513,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "fail",
-      "duration": 426,
+      "duration": 1059,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2524,7 +2524,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "fail",
-      "duration": 435,
+      "duration": 983,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2535,7 +2535,7 @@
       "tab": "screenshots",
       "group": "Student screenshots",
       "status": "fail",
-      "duration": 464,
+      "duration": 1239,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2546,7 +2546,7 @@
       "tab": "screenshots",
       "group": "TA screenshots",
       "status": "fail",
-      "duration": 488,
+      "duration": 1106,
       "shots": [
         "test-failed-1.png"
       ]
@@ -2557,7 +2557,7 @@
       "tab": "screenshots",
       "group": "Supervisor screenshots",
       "status": "fail",
-      "duration": 480,
+      "duration": 1076,
       "shots": [
         "test-failed-1.png"
       ]
