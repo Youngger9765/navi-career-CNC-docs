@@ -5730,8 +5730,8 @@
   ],
   "prdCoverage": {
     "summary": {
-      "green": 13,
-      "yellow": 15,
+      "green": 15,
+      "yellow": 13,
       "red": 10,
       "total": 38
     },
@@ -5757,8 +5757,8 @@
         "module": "M1",
         "version": "V1",
         "name": "發票載具條碼",
-        "desc": "UI 欄位存在，但 ECPay 發票 API 僅 sandbox，未串接正式環境",
-        "status": "yellow",
+        "desc": "CheckoutRequest 加入 invoice_carrier_type / invoice_carrier_number；結帳時寫入 enrollment；ECPay invoice_service 依 carrier type 設定 CarruerType/CarruerNum — PR #123",
+        "status": "green",
         "linkedTests": [
           "ecpay-mock"
         ],
@@ -5773,8 +5773,8 @@
         "module": "M1",
         "version": "V1",
         "name": "發票捐贈選項",
-        "desc": "捐贈選項 UI 存在，但後端 donation 邏輯為 hardcoded stub",
-        "status": "yellow",
+        "desc": "invoice_service.py 移除 hardcoded Donation='0'；改用 enrollment.invoice_donation_code 動態設定 Donation='1' + LoveCode — PR #123",
+        "status": "green",
         "linkedTests": [
           "ecpay-mock"
         ],
