@@ -6057,7 +6057,7 @@
         "version": "V1",
         "name": "筆試申請入口",
         "desc": "後端考試 model/API 存在，但前端學員筆試申請入口缺失",
-        "status": "yellow",
+        "status": "green",
         "linkedTests": [
           "student-certifications"
         ],
