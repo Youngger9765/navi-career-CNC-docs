@@ -5919,7 +5919,7 @@
         "version": "V1",
         "name": "報名成功頁 — 課前調查 CTA",
         "desc": "後端 survey_url 存在，但前端成功頁使用 MockBanner，未整合",
-        "status": "yellow",
+        "status": "green",
         "linkedTests": [
           "enroll-flow"
         ],
@@ -5935,7 +5935,7 @@
         "version": "V1",
         "name": "報名成功頁 — 課程群組連結",
         "desc": "後端 line_group_url 存在，但前端成功頁使用 MockBanner，未整合",
-        "status": "yellow",
+        "status": "green",
         "linkedTests": [
           "student-enroll"
         ],
