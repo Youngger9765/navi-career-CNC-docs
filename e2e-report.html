@@ -29,15 +29,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .tab-btn.active{color:var(--teal);border-bottom-color:var(--teal)}.tab-btn:hover{color:var(--text)}
 
 /* === Main === */
-.main{padding:16px 24px;max-width:1400px;margin:0 auto}
+.main{padding:16px 24px;max-width:1600px;margin:0 auto}
 .tab-panel{display:none}.tab-panel.active{display:block}
-
-/* === Test links === */
-.test-links{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:16px}
-.test-links-title{font-size:12px;font-weight:700;color:var(--navy);margin-bottom:10px;display:flex;align-items:center;gap:6px}
-.test-links-grid{display:flex;flex-wrap:wrap;gap:6px}
-.test-link{display:inline-flex;align-items:center;gap:4px;padding:5px 12px;border:1px solid var(--border);border-radius:6px;font-size:12px;font-weight:500;color:var(--text);text-decoration:none;background:var(--bg);transition:all .15s}
-.test-link:hover{border-color:var(--teal);color:var(--teal)}
 
 /* === PRD mini summary === */
 .prd-mini-summary{display:flex;gap:12px;align-items:center;padding:12px 16px;background:var(--navy);border-radius:8px;margin-bottom:16px;color:#fff;flex-wrap:wrap}
@@ -52,7 +45,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 /* === Tables === */
 .report-table-wrap{overflow-x:auto;margin-bottom:20px;border:1px solid var(--border);border-radius:8px;background:var(--card)}
-.report-table{width:100%;border-collapse:collapse;font-size:13px;min-width:800px}
+.report-table{width:100%;border-collapse:collapse;font-size:13px;min-width:1000px}
 .report-table thead{background:var(--navy);color:#fff}
 .report-table thead th{padding:9px 12px;text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;border-bottom:2px solid var(--teal)}
 .report-table thead th:first-child{width:36px;text-align:center}
@@ -61,9 +54,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .report-table tbody tr:hover{background:#f1f5f9}
 .report-table td{padding:8px 12px;vertical-align:middle}
 .report-table td:first-child{text-align:center;font-size:11px;font-weight:700;color:var(--muted);width:36px}
-.col-feature{max-width:220px;font-weight:600;color:var(--text)}
-.col-reason{max-width:280px;font-size:12px;color:var(--muted);line-height:1.4}
+.col-feature{max-width:200px;font-weight:600;color:var(--text)}
+.col-reason{max-width:220px;font-size:12px;color:var(--muted);line-height:1.4}
+.col-howto{max-width:200px;font-size:12px;color:var(--text);line-height:1.4}
 .col-spec{font-size:11px;color:var(--muted);font-family:monospace;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* === Link button === */
+.link-btn{display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border:1px solid var(--teal);border-radius:4px;font-size:11px;font-weight:600;color:var(--teal);text-decoration:none;background:#fff;white-space:nowrap;transition:all .15s}
+.link-btn:hover{background:var(--teal);color:#fff}
 
 /* === Badges === */
 .badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;white-space:nowrap}
@@ -95,6 +93,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .modal-label{font-weight:700;color:var(--teal);white-space:nowrap}
 .modal-value{color:var(--text)}
 .modal-spec-path{font-family:monospace;font-size:12px;background:#f1f5f9;padding:3px 6px;border-radius:4px;display:inline-block}
+.modal-howto-box{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:12px;margin-bottom:12px}
+.modal-howto-box .howto-title{font-size:12px;font-weight:700;color:#92400e;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.modal-howto-box .howto-text{font-size:13px;color:var(--text);line-height:1.6;white-space:pre-line}
+.modal-link-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border:1px solid var(--teal);border-radius:6px;font-size:13px;font-weight:600;color:var(--teal);text-decoration:none;background:#fff;transition:all .15s;margin-bottom:12px}
+.modal-link-btn:hover{background:var(--teal);color:#fff}
 .modal-screenshots{margin-top:16px}
 .modal-screenshots h4{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;margin-bottom:10px}
 .modal-img-wrap{margin-bottom:12px}
@@ -228,6 +231,11 @@ function getRoleBadgeHtml(t){
   return r?'<span class="role-badge '+r.cls+'">'+r.label+'</span>':'';
 }
 
+function roleBadgeFromLabel(label){
+  var cls=label==='\u7BA1\u7406\u54E1'?'role-admin':label==='\u5B78\u54E1'?'role-student':label==='\u7763\u5C0E'?'role-supervisor':'role-visitor';
+  return '<span class="role-badge '+cls+'">'+escHtml(label)+'</span>';
+}
+
 function getScreenshots(t){
   var urls=[];
   if(t.shots&&t.shots.length){t.shots.forEach(function(s){urls.push({url:BASE+s,path:s,label:s.replace(/^(flow|crud)\//,'').replace('.png','')});});}
@@ -273,6 +281,77 @@ function getTestReason(t){
   return '';
 }
 
+/* ---- URL mapping for PRD items ---- */
+var PRD_URL_KEYWORDS={
+  'enrollment':'/admin/enrollments','enroll':'/enroll','報名':'/enroll',
+  'promo':'/admin/promo-codes','折扣':'/admin/promo-codes','優惠':'/admin/promo-codes',
+  'refund':'/admin/refunds','退款':'/admin/refunds','退課':'/admin/refunds',
+  'invoice':'/admin/enrollments','發票':'/admin/enrollments',
+  'payment':'/student/payments','付款':'/student/payments','金流':'/student/payments',
+  'cohort':'/admin/cohorts','梯次':'/admin/cohorts',
+  'classroom':'/admin/classrooms','教室':'/admin/classrooms',
+  'grading':'/admin/grading','批改':'/admin/grading','作業':'/admin/grading',
+  'supervision':'/admin/supervision','督導':'/admin/supervision',
+  'certification':'/admin/certifications','認證':'/admin/certifications',
+  'crm':'/admin/crm','會員':'/admin/crm',
+  'agent':'/admin/agents','代理':'/admin/agents',
+  'referral':'/admin/referrals','推薦':'/admin/referrals',
+  'product':'/admin/products','商品':'/admin/products',
+  'page':'/admin/pages','頁面':'/admin/pages',
+  'marketing':'/admin/marketing','行銷':'/admin/marketing',
+  'course':'/courses','課程':'/courses',
+  'schedule':'/admin/schedule','日程':'/admin/schedule'
+};
+
+function getPrdItemUrl(item, tabConfig){
+  // 1. Try to match from item name/desc against keyword map
+  var nameDesc=((item.name||'')+(item.desc||'')).toLowerCase();
+
+  // Check student-specific patterns first
+  if(nameDesc.indexOf('\u5B78\u54E1')>=0){
+    if(nameDesc.indexOf('\u7763\u5C0E')>=0) return '/student/supervision';
+    if(nameDesc.indexOf('\u8A8D\u8B49')>=0) return '/student/certifications';
+    if(nameDesc.indexOf('\u8AB2\u7A0B')>=0) return '/student/courses';
+    if(nameDesc.indexOf('\u5831\u540D')>=0||nameDesc.indexOf('\u9000\u8AB2')>=0||nameDesc.indexOf('\u5EF6\u671F')>=0) return '/student/enrollments';
+    if(nameDesc.indexOf('\u6703\u54E1')>=0||nameDesc.indexOf('crm')>=0) return '/student/crm';
+    if(nameDesc.indexOf('\u500B\u4EBA')>=0||nameDesc.indexOf('profile')>=0) return '/student/profile';
+  }
+
+  // Check keyword map
+  for(var kw in PRD_URL_KEYWORDS){
+    if(nameDesc.indexOf(kw)>=0) return PRD_URL_KEYWORDS[kw];
+  }
+
+  // 2. Fallback: first link from TAB_CONFIG for this module
+  if(tabConfig&&tabConfig.links&&tabConfig.links.length){
+    return tabConfig.links[0].url;
+  }
+  return null;
+}
+
+function getPrdItemRole(item, tabConfig){
+  var nameDesc=((item.name||'')+(item.desc||'')).toLowerCase();
+  // Student patterns
+  if(nameDesc.indexOf('\u5B78\u54E1')>=0||nameDesc.indexOf('alice')>=0||nameDesc.indexOf('bob')>=0) return '\u5B78\u54E1';
+  if(nameDesc.indexOf('\u7763\u5C0E')>=0&&nameDesc.indexOf('admin')<0&&nameDesc.indexOf('\u7BA1\u7406')<0) return '\u7763\u5C0E';
+  if(nameDesc.indexOf('\u8A2A\u5BA2')>=0||nameDesc.indexOf('\u516C\u958B')>=0) return '\u8A2A\u5BA2';
+
+  // Check from URL mapping: student paths = student, admin paths = admin
+  var url=getPrdItemUrl(item, tabConfig);
+  if(url){
+    if(url.indexOf('/student/')===0) return '\u5B78\u54E1';
+    if(url.indexOf('/admin/')===0) return '\u7BA1\u7406\u54E1';
+    if(url==='/courses'||url==='/enroll'||url==='/login') return '\u8A2A\u5BA2';
+  }
+
+  return '\u7BA1\u7406\u54E1'; // default
+}
+
+function linkBtnHtml(url){
+  if(!url) return '<span style="color:var(--muted);font-size:11px">&mdash;</span>';
+  return '<a class="link-btn" href="'+SITE+escAttr(url)+'" target="_blank" onclick="event.stopPropagation()">\u524D\u5F80 &rarr;</a>';
+}
+
 /* ---- Init ---- */
 function init(){
   fetch('report-data.json')
@@ -313,18 +392,6 @@ function renderAll(){
   });
 }
 
-/* ---- Test links section ---- */
-function renderTestLinks(links){
-  if(!links||!links.length) return '';
-  var h='<div class="test-links"><div class="test-links-title">\uD83D\uDD17 測試連結（點擊前請先登入對應角色）</div><div class="test-links-grid">';
-  links.forEach(function(lk){
-    var rc=lk.role==='管理員'?'role-admin':lk.role==='學員'?'role-student':lk.role==='督導'?'role-supervisor':'role-visitor';
-    h+='<a class="test-link" href="'+SITE+lk.url+'" target="_blank"><span class="role-badge '+rc+'">'+escHtml(lk.role)+'</span>'+escHtml(lk.label)+' &rarr;</a>';
-  });
-  h+='</div></div>';
-  return h;
-}
-
 /* ---- PRD mini summary ---- */
 function renderPrdMiniSummary(moduleItems){
   if(!moduleItems.length) return '';
@@ -337,11 +404,8 @@ function renderPrdMiniSummary(moduleItems){
 
 /* ---- Module tab (M1-M5) with merged PRD + E2E table ---- */
 function renderModuleTab(tc){
-  var tabId=tc.id,prdModule=tc.prdModule,links=tc.links;
+  var tabId=tc.id,prdModule=tc.prdModule;
   var html='';
-
-  // Test links
-  html+=renderTestLinks(links);
 
   // Get PRD items for this module
   var prd=DATA.prdCoverage||{summary:{},items:[]};
@@ -354,9 +418,8 @@ function renderModuleTab(tc){
   var tests=(DATA.tests||[]).filter(function(t){return t.tab===tabId;});
 
   // Build merged table: PRD items with their linked tests, then unlinked tests
-  // First: map PRD items to rows
-  var linkedTestSpecs={};  // track which tests are linked to PRD items
-  var tableRows=[];  // {type:'prd'|'test', prdItem?, test?, num}
+  var linkedTestSpecs={};
+  var tableRows=[];
 
   // Sort PRD items: red first, then yellow, then green
   var sortedPrd=moduleItems.slice().sort(function(a,b){
@@ -366,7 +429,6 @@ function renderModuleTab(tc){
   var rowNum=0;
   sortedPrd.forEach(function(item){
     rowNum++;
-    // Find linked tests
     var linked=[];
     if(item.linkedTests&&item.linkedTests.length&&DATA.tests){
       linked=DATA.tests.filter(function(t){
@@ -377,7 +439,7 @@ function renderModuleTab(tc){
     tableRows.push({type:'prd',prdItem:item,linkedTests:linked,num:rowNum});
   });
 
-  // Unlinked tests (tests not matched to any PRD item)
+  // Unlinked tests
   var unlinkedTests=tests.filter(function(t){return !linkedTestSpecs[t.spec+'|'+t.name];});
 
   // Render PRD table
@@ -389,60 +451,58 @@ function renderModuleTab(tc){
     html+='<div class="section-divider"><span class="sd-icon">\uD83D\uDCCB</span> 需求覆蓋（'+moduleItems.length+' 項）&middot; E2E 測試（'+tests.length+' 個 &middot; 通過 '+pass+(skip?' &middot; 略過 '+skip:'')+(fail?' &middot; 失敗 '+fail:'')+'）</div>';
 
     html+='<div class="report-table-wrap"><table class="report-table"><thead><tr>';
-    html+='<th>#</th><th>功能</th><th>實作狀態</th><th>測試結果</th><th>原因/說明</th><th>規格</th><th>測試方式</th><th class="thumb-cell">截圖</th>';
+    html+='<th>#</th><th>功能</th><th>實作狀態</th><th>測試結果</th><th>說明</th><th>如何測試</th><th>連結</th><th>角色</th><th class="thumb-cell">截圖</th>';
     html+='</tr></thead><tbody>';
 
     tableRows.forEach(function(row){
       var item=row.prdItem;
       var linked=row.linkedTests;
-      // Determine test result: aggregate from linked tests
-      var testBadge,reason='',specPath='',roleHtml='',shots=[],thumbSrc=null;
+      var testBadge,reason='',roleLabel='',shots=[],thumbSrc=null;
 
       if(linked.length>0){
-        var allPass=linked.every(function(t){return t.status==='pass';});
         var anyFail=linked.some(function(t){return t.status==='fail';});
         var anySkip=linked.some(function(t){return t.status==='skip';});
         if(anyFail) testBadge=testStatusBadge('fail');
         else if(anySkip) testBadge=testStatusBadge('skip');
-        else if(allPass) testBadge=testStatusBadge('pass');
         else testBadge=testStatusBadge('pass');
 
-        // Use first linked test for reason/spec/role/screenshot
         var firstTest=linked[0];
         reason=getTestReason(firstTest);
         if(linked.length>1) reason+=' (+' +(linked.length-1)+ ' 個測試)';
-        specPath=firstTest.spec;
-        roleHtml=getRoleBadgeHtml(firstTest);
-        shots=getScreenshots(firstTest);
-        // Collect all screenshots from all linked tests
         var allShots=[];
         linked.forEach(function(lt){getScreenshots(lt).forEach(function(s){allShots.push(s);});});
         if(allShots.length) shots=allShots;
       } else {
         testBadge='<span class="badge badge-none">&mdash;</span>';
         reason=escHtml(item.desc);
-        specPath='';
-        roleHtml='';
       }
+
+      // Role from PRD item context
+      roleLabel=getPrdItemRole(item, tc);
+
+      // URL for this item
+      var itemUrl=getPrdItemUrl(item, tc);
+
+      // howToTest
+      var howToTest=item.howToTest||'';
 
       // Screenshot thumbnail
       if(shots.length) thumbSrc=shots[0].url;
       else if(item.screenshot) thumbSrc='screenshots/'+item.screenshot;
-
       var thumbH=thumbSrc?'<img class="thumb" src="'+escAttr(thumbSrc)+'" alt="" onerror="this.style.display=\'none\'">':'<div class="no-thumb">&mdash;</div>';
 
       var versionTag=item.version?'<span class="version-tag">'+escHtml(item.version)+'</span>':'';
 
-      // Data attributes for modal
-      var dataAttrs=' data-row-type="prd" data-prd-idx="'+item.num+'"';
+      var dataAttrs=' data-row-type="prd" data-prd-idx="'+item.num+'" data-tab="'+escAttr(tabId)+'"';
       html+='<tr onclick="openRowModal(this)"'+dataAttrs+'>';
       html+='<td>'+row.num+'</td>';
       html+='<td class="col-feature">'+versionTag+escHtml(item.name)+'</td>';
       html+='<td>'+prdStatusBadge(item.status)+'</td>';
       html+='<td>'+testBadge+'</td>';
       html+='<td class="col-reason">'+escHtml(reason)+'</td>';
-      html+='<td class="col-spec">'+escHtml(specPath)+'</td>';
-      html+='<td>'+roleHtml+'</td>';
+      html+='<td class="col-howto">'+(howToTest?escHtml(howToTest):'<span style="color:var(--muted);font-size:11px">&mdash;</span>')+'</td>';
+      html+='<td>'+linkBtnHtml(itemUrl)+'</td>';
+      html+='<td>'+roleBadgeFromLabel(roleLabel)+'</td>';
       html+='<td class="thumb-cell">'+thumbH+'</td>';
       html+='</tr>';
     });
@@ -450,10 +510,10 @@ function renderModuleTab(tc){
     html+='</tbody></table></div>';
   }
 
-  // Unlinked tests table ("其他測試")
+  // Unlinked tests table
   if(unlinkedTests.length>0){
     html+='<div class="section-divider"><span class="sd-icon">\uD83E\uDDEA</span> 其他測試（'+unlinkedTests.length+' 個）</div>';
-    html+=renderTestTable(unlinkedTests,tabId,true);
+    html+=renderTestTable(unlinkedTests,tabId,true,tc);
   }
 
   if(sortedPrd.length===0&&tests.length===0){
@@ -466,8 +526,6 @@ function renderModuleTab(tc){
 /* ---- Non-module tab (access, mobile) ---- */
 function renderNonModuleTab(tc){
   var html='';
-  html+=renderTestLinks(tc.links);
-
   var tests=(DATA.tests||[]).filter(function(t){return t.tab===tc.id;});
   var pass=tests.filter(function(t){return t.status==='pass';}).length;
   var skip=tests.filter(function(t){return t.status==='skip';}).length;
@@ -475,7 +533,7 @@ function renderNonModuleTab(tc){
 
   if(tests.length>0){
     html+='<div class="section-divider"><span class="sd-icon">\uD83E\uDDEA</span> '+escHtml(tc.label)+' 測試（'+tests.length+' 個 &middot; 通過 '+pass+(skip?' &middot; 略過 '+skip:'')+(fail?' &middot; 失敗 '+fail:'')+'）</div>';
-    html+=renderTestTable(tests,tc.id,false);
+    html+=renderTestTable(tests,tc.id,false,tc);
   } else {
     html+='<div class="no-screenshot">此 Tab 無測試結果</div>';
   }
@@ -483,14 +541,13 @@ function renderNonModuleTab(tc){
 }
 
 /* ---- Render a test-only table ---- */
-function renderTestTable(tests,tabId,showPrdCols){
+function renderTestTable(tests,tabId,showPrdCols,tc){
   var html='<div class="report-table-wrap"><table class="report-table"><thead><tr>';
   html+='<th>#</th><th>測試名稱</th>';
   if(showPrdCols) html+='<th>實作狀態</th>';
-  html+='<th>測試結果</th><th>原因/說明</th><th>規格</th><th>角色</th><th class="thumb-cell">截圖</th>';
+  html+='<th>測試結果</th><th>說明</th><th>如何測試</th><th>連結</th><th>角色</th><th class="thumb-cell">截圖</th>';
   html+='</tr></thead><tbody>';
 
-  // Group tests by group name for visual separation
   var groups={},groupOrder=[];
   tests.forEach(function(t){
     if(!groups[t.group]){groups[t.group]=[];groupOrder.push(t.group);}
@@ -498,17 +555,22 @@ function renderTestTable(tests,tabId,showPrdCols){
   });
 
   var num=0;
+  var colCount=showPrdCols?9:8;
   groupOrder.forEach(function(g){
-    // Group header row
-    var colCount=showPrdCols?8:7;
     html+='<tr style="background:#f1f5f9;cursor:default" onclick="event.stopPropagation()"><td colspan="'+colCount+'" style="font-size:11px;font-weight:700;color:var(--navy);padding:6px 12px;text-transform:uppercase;letter-spacing:.03em">'+escHtml(g)+'</td></tr>';
 
     groups[g].forEach(function(t){
       num++;
       var shots=getScreenshots(t);
       var reason=getTestReason(t);
-      var roleHtml=getRoleBadgeHtml(t);
+      var role=getRoleFromTest(t);
+      var roleHtml=role?roleBadgeFromLabel(role.label):'';
       var thumbH=shots.length?'<img class="thumb" src="'+escAttr(shots[0].url)+'" alt="" onerror="this.style.display=\'none\'">':'<div class="no-thumb">&mdash;</div>';
+
+      // Derive URL from test spec/pages
+      var testUrl=null;
+      if(t.pages&&t.pages.length) testUrl=t.pages[0];
+      else if(tc&&tc.links&&tc.links.length) testUrl=tc.links[0].url;
 
       var dataAttrs=' data-row-type="test" data-tab="'+escAttr(tabId)+'" data-spec="'+escAttr(t.spec)+'" data-name="'+escAttr(t.name)+'"';
       html+='<tr onclick="openRowModal(this)"'+dataAttrs+'>';
@@ -517,7 +579,8 @@ function renderTestTable(tests,tabId,showPrdCols){
       if(showPrdCols) html+='<td><span class="badge badge-none">&mdash;</span></td>';
       html+='<td>'+testStatusBadge(t.status)+'</td>';
       html+='<td class="col-reason">'+escHtml(reason)+'</td>';
-      html+='<td class="col-spec">'+escHtml(t.spec)+'</td>';
+      html+='<td class="col-howto"><span style="color:var(--muted);font-size:11px">&mdash;</span></td>';
+      html+='<td>'+linkBtnHtml(testUrl)+'</td>';
       html+='<td>'+roleHtml+'</td>';
       html+='<td class="thumb-cell">'+thumbH+'</td>';
       html+='</tr>';
@@ -542,25 +605,26 @@ function renderGalleryTab(){
 /* ---- Modal: open from row click ---- */
 function openRowModal(tr){
   var rowType=tr.getAttribute('data-row-type');
-  var body=document.getElementById('modal-body');
 
   if(rowType==='prd'){
     var prdIdx=parseInt(tr.getAttribute('data-prd-idx'),10);
+    var tabId=tr.getAttribute('data-tab');
     var item=null;
     (DATA.prdCoverage.items||[]).forEach(function(i){if(i.num===prdIdx) item=i;});
     if(!item) return;
-    openPrdModal(item);
+    openPrdModal(item, tabId);
   } else {
     var spec=tr.getAttribute('data-spec');
     var name=tr.getAttribute('data-name');
     var t=null;
     (DATA.tests||[]).forEach(function(tt){if(tt.spec===spec&&tt.name===name&&!t) t=tt;});
     if(!t) return;
-    openTestModal(t);
+    var tabId2=tr.getAttribute('data-tab');
+    openTestModal(t, tabId2);
   }
 }
 
-function openPrdModal(item){
+function openPrdModal(item, tabId){
   var body=document.getElementById('modal-body');
   var h='<div class="modal-title">'+escHtml(item.name)+'</div>';
 
@@ -570,6 +634,16 @@ function openPrdModal(item){
     linked=DATA.tests.filter(function(t){
       return item.linkedTests.some(function(lt){return t.spec.indexOf(lt)>=0;});
     });
+  }
+
+  // Find tab config
+  var tc=null;
+  TAB_CONFIG.forEach(function(c){if(c.id===tabId) tc=c;});
+
+  // Link button
+  var itemUrl=getPrdItemUrl(item, tc);
+  if(itemUrl){
+    h+='<a class="modal-link-btn" href="'+SITE+escAttr(itemUrl)+'" target="_blank">\u524D\u5F80\u9801\u9762 &rarr;</a>';
   }
 
   h+='<div class="modal-grid">';
@@ -586,6 +660,10 @@ function openPrdModal(item){
 
   h+='<span class="modal-label">說明</span><span class="modal-value">'+escHtml(item.desc)+'</span>';
 
+  // Role
+  var roleLabel=getPrdItemRole(item, tc);
+  h+='<span class="modal-label">角色</span><span class="modal-value">'+roleBadgeFromLabel(roleLabel)+'</span>';
+
   if(item.version) h+='<span class="modal-label">版本</span><span class="modal-value"><span class="version-tag">'+escHtml(item.version)+'</span></span>';
   if(item.group) h+='<span class="modal-label">分組</span><span class="modal-value">'+escHtml(item.group)+'</span>';
 
@@ -593,21 +671,14 @@ function openPrdModal(item){
     var specPaths=[];
     linked.forEach(function(t){if(specPaths.indexOf(t.spec)<0) specPaths.push(t.spec);});
     h+='<span class="modal-label">規格</span><span class="modal-value">'+specPaths.map(function(s){return '<span class="modal-spec-path">'+escHtml(s)+'</span>';}).join(' ')+'</span>';
-
-    // Roles
-    var roles=[];
-    linked.forEach(function(t){
-      var r=getRoleFromTest(t);
-      if(r&&roles.indexOf(r.label)<0) roles.push(r.label);
-    });
-    if(roles.length){
-      h+='<span class="modal-label">測試方式</span><span class="modal-value">'+roles.map(function(rl){
-        var cls=rl==='管理員'?'role-admin':rl==='學員'?'role-student':rl==='督導'?'role-supervisor':'role-visitor';
-        return '<span class="role-badge '+cls+'">'+rl+'</span>';
-      }).join(' ')+'</span>';
-    }
   }
   h+='</div>';
+
+  // How to test box
+  var howToTest=item.howToTest||'';
+  if(howToTest){
+    h+='<div class="modal-howto-box"><div class="howto-title">\uD83E\uDDEA 如何測試</div><div class="howto-text">'+escHtml(howToTest)+'</div></div>';
+  }
 
   // Verification details from linked tests
   if(linked.length>0){
@@ -650,11 +721,22 @@ function openPrdModal(item){
   document.getElementById('modal').classList.add('open');
 }
 
-function openTestModal(t){
+function openTestModal(t, tabId){
   var body=document.getElementById('modal-body');
   var h='<div class="modal-title">'+escHtml(t.name)+'</div>';
 
   var sl=t.status==='pass'?'通過':t.status==='skip'?'略過':'失敗';
+
+  // Find tab config for URL
+  var tc=null;
+  TAB_CONFIG.forEach(function(c){if(c.id===tabId) tc=c;});
+  var testUrl=null;
+  if(t.pages&&t.pages.length) testUrl=t.pages[0];
+  else if(tc&&tc.links&&tc.links.length) testUrl=tc.links[0].url;
+
+  if(testUrl){
+    h+='<a class="modal-link-btn" href="'+SITE+escAttr(testUrl)+'" target="_blank">\u524D\u5F80\u9801\u9762 &rarr;</a>';
+  }
 
   h+='<div class="modal-grid">';
   h+='<span class="modal-label">測試結果</span><span class="modal-value">'+testStatusBadge(t.status)+' '+sl+'</span>';
@@ -663,7 +745,7 @@ function openTestModal(t){
   h+='<span class="modal-label">規格</span><span class="modal-value"><span class="modal-spec-path">'+escHtml(t.spec)+'</span></span>';
 
   var role=getRoleFromTest(t);
-  if(role) h+='<span class="modal-label">測試方式</span><span class="modal-value"><span class="role-badge '+role.cls+'">'+role.label+'</span></span>';
+  if(role) h+='<span class="modal-label">角色</span><span class="modal-value"><span class="role-badge '+role.cls+'">'+role.label+'</span></span>';
   if(t.group) h+='<span class="modal-label">群組</span><span class="modal-value">'+escHtml(t.group)+'</span>';
   h+='</div>';
 

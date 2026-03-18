@@ -2567,7 +2567,7 @@
         "module": "M1",
         "version": "V1",
         "name": "已有牌卡類型折價",
-        "desc": "pricing.py calculate_card_type_discount() 對 4 種牌卡折扣",
+        "desc": "持有職游牌卡的學員報名時，系統自動折價（4 種牌卡類型各有不同折扣）",
         "status": "green",
         "linkedTests": [
           "enroll-form-details"
@@ -2575,14 +2575,15 @@
         "screenshot": "prd-gaps/04-enroll-list.png",
         "group": "HIGH — 報名核心",
         "groupId": "high",
-        "priority": "HIGH"
+        "priority": "HIGH",
+        "howToTest": "用學員帳號登入 → 報名頁 → 選擇課程 → 查看價格是否自動扣除牌卡折扣"
       },
       {
         "num": 2,
         "module": "M1",
         "version": "V1",
         "name": "發票載具條碼",
-        "desc": "Admin 發票設定頁：供應商 dropdown、預設類型、自動開立 toggle。carrier_type/carrier_number DB 欄位已加",
+        "desc": "結帳時可輸入手機載具條碼，系統會記錄在發票資料中",
         "status": "green",
         "linkedTests": [
           "ecpay-mock"
@@ -2590,14 +2591,15 @@
         "screenshot": "prd-gaps/26-admin-settings-invoice.png",
         "group": "HIGH — 報名核心",
         "groupId": "high",
-        "priority": "HIGH"
+        "priority": "HIGH",
+        "howToTest": "用學員帳號登入 → 報名 → 結帳頁 → 個人發票 → 輸入載具條碼"
       },
       {
         "num": 3,
         "module": "M1",
         "version": "V1",
         "name": "發票捐贈選項",
-        "desc": "InvoiceTypeEnum 含 B2C/B2B/DONATION。前端 invoice-section 有個人/公司/捐贈三按鈕",
+        "desc": "結帳時可選擇「捐贈發票」，除了個人發票和公司發票之外的第三個選項",
         "status": "green",
         "linkedTests": [
           "ecpay-mock"
@@ -2605,14 +2607,15 @@
         "screenshot": "prd-gaps/26-admin-settings-invoice.png",
         "group": "HIGH — 報名核心",
         "groupId": "high",
-        "priority": "HIGH"
+        "priority": "HIGH",
+        "howToTest": "用學員帳號登入 → 結帳頁 → 點選「捐贈」按鈕"
       },
       {
         "num": 4,
         "module": "M1",
         "version": "V1",
         "name": "發票注意文字",
-        "desc": "發票設定頁底部有 3 條黃色注意事項。checkout form 有「個人發票開立後不得更改」提示",
+        "desc": "結帳頁面的發票區塊有注意事項提醒文字（如：開立後不得更改）",
         "status": "green",
         "linkedTests": [
           "ecpay-mock"
@@ -2620,14 +2623,15 @@
         "screenshot": "prd-gaps/26-admin-settings-invoice.png",
         "group": "HIGH — 報名核心",
         "groupId": "high",
-        "priority": "HIGH"
+        "priority": "HIGH",
+        "howToTest": "用學員帳號登入 → 結帳頁 → 查看發票區塊下方黃色提示"
       },
       {
         "num": 5,
         "module": "M1",
         "version": "V1",
         "name": "付款失敗頁記憶選擇",
-        "desc": "紅色 alert 顯示 ECPay RtnMsg。4 條可能原因清單。「重新付款」+「返回首頁」按鈕",
+        "desc": "付款失敗時顯示錯誤原因、可能原因清單，以及「重新付款」按鈕",
         "status": "green",
         "linkedTests": [
           "payment-flow",
@@ -2636,14 +2640,15 @@
         "screenshot": "prd-gaps/05-checkout-failed.png",
         "group": "HIGH — 報名核心",
         "groupId": "high",
-        "priority": "HIGH"
+        "priority": "HIGH",
+        "howToTest": "結帳後模擬付款失敗 → 查看失敗頁面是否有紅色錯誤訊息 + 重試按鈕"
       },
       {
         "num": 6,
         "module": "M1",
         "version": "V1",
         "name": "折扣碼 source_type",
-        "desc": "PromoCodeType: seminar/one_day/alumni/general 4 種類型 + badge 顯示",
+        "desc": "折扣碼分 4 種來源類型：說明會、一日班、校友、一般，後台可分別管理",
         "status": "green",
         "linkedTests": [
           "admin-promo-crud"
@@ -2651,14 +2656,15 @@
         "screenshot": "prd-gaps/19-admin-promo-codes.png",
         "group": "HIGH — 報名核心",
         "groupId": "high",
-        "priority": "HIGH"
+        "priority": "HIGH",
+        "howToTest": "用管理員帳號 → 折扣碼管理 → 新增折扣碼 → 查看來源類型下拉選單"
       },
       {
         "num": 7,
         "module": "M1",
         "version": "V1",
         "name": "退款比例設定 Admin UI",
-        "desc": "系統設定 hub：4 張設定卡片（退款設定/發票設定/通知範本/角色權限），每張有「前往設定」連結",
+        "desc": "管理員可在系統設定中調整退款比例（開課前/後不同比例）",
         "status": "green",
         "linkedTests": [
           "enroll-form-details"
@@ -2666,14 +2672,15 @@
         "screenshot": "prd-gaps/25-admin-settings.png",
         "group": "HIGH — 報名核心",
         "groupId": "high",
-        "priority": "HIGH"
+        "priority": "HIGH",
+        "howToTest": "用管理員帳號 → 系統設定 → 退款設定卡片 → 查看/修改退款比例"
       },
       {
         "num": 8,
         "module": "M1",
         "version": "V1",
         "name": "學員退課申請入口",
-        "desc": "alice 報名紀錄頁：「上課中」badge + 紅色「申請退課」按鈕可見",
+        "desc": "學員在報名紀錄頁面可看到紅色「申請退課」按鈕",
         "status": "green",
         "linkedTests": [
           "student-enroll"
@@ -2681,14 +2688,15 @@
         "screenshot": "prd-gaps/51-alice-enrollments.png",
         "group": "HIGH — 報名核心",
         "groupId": "high",
-        "priority": "HIGH"
+        "priority": "HIGH",
+        "howToTest": "用學員帳號登入 → 我的報名 → 找到進行中的課程 → 確認有紅色退課按鈕"
       },
       {
         "num": 9,
         "module": "M1",
         "version": "V1",
         "name": "學員延期申請",
-        "desc": "藍色「申請延期」按鈕。DeferralModal + approve_deferral API 完整",
+        "desc": "學員可申請延期，有藍色「申請延期」按鈕",
         "status": "green",
         "linkedTests": [
           "student-enroll"
@@ -2696,14 +2704,15 @@
         "screenshot": "prd-gaps/51-alice-enrollments.png",
         "group": "HIGH — 報名核心",
         "groupId": "high",
-        "priority": "HIGH"
+        "priority": "HIGH",
+        "howToTest": "用學員帳號登入 → 我的報名 → 找到進行中的課程 → 確認有藍色延期按鈕"
       },
       {
         "num": 10,
         "module": "M1",
         "version": "V1",
         "name": "海外地址 SOP 提醒",
-        "desc": "alice 個人資料頁：「收件資訊 — 教材寄送地址」section，地址 textarea placeholder",
+        "desc": "個人資料頁有收件地址欄位，海外學員可填寫國際地址",
         "status": "green",
         "linkedTests": [
           "student-crm"
@@ -2711,14 +2720,15 @@
         "screenshot": "prd-gaps/54-alice-profile.png",
         "group": "MEDIUM — 完整體驗",
         "groupId": "medium",
-        "priority": "MED"
+        "priority": "MED",
+        "howToTest": "用學員帳號登入 → 個人資料 → 查看「收件資訊」區塊"
       },
       {
         "num": 11,
         "module": "M1",
         "version": "V1",
         "name": "退款政策連結",
-        "desc": "退款政策頁：5 個 section（退款申請/退款比例表/退款方式/延期申請/發票處理）",
+        "desc": "有獨立的退款政策頁面，包含退款比例表、申請方式等 5 個段落",
         "status": "green",
         "linkedTests": [
           "enroll-form-details"
@@ -2726,14 +2736,15 @@
         "screenshot": "prd-gaps/06-refund-policy.png",
         "group": "MEDIUM — 完整體驗",
         "groupId": "medium",
-        "priority": "MED"
+        "priority": "MED",
+        "howToTest": "訪客身份 → 點擊頁尾「退款政策」連結 → 確認 5 個段落完整"
       },
       {
         "num": 12,
         "module": "M1",
         "version": "V1",
         "name": "報名成功頁 — 課前調查 CTA",
-        "desc": "成功頁 code 有課前調查 CTA + LINE 群組連結",
+        "desc": "報名成功後顯示課前調查問卷連結，引導學員填寫",
         "status": "green",
         "linkedTests": [
           "enroll-flow"
@@ -2741,14 +2752,15 @@
         "screenshot": "prd-gaps/04-enroll-list.png",
         "group": "MEDIUM — 完整體驗",
         "groupId": "medium",
-        "priority": "MED"
+        "priority": "MED",
+        "howToTest": "完成報名流程 → 查看成功頁面是否有課前調查 CTA"
       },
       {
         "num": 13,
         "module": "M1",
         "version": "V1",
         "name": "報名成功頁 — 課程群組連結",
-        "desc": "alice dashboard 快速連結「LINE 群組」卡片。webhook 動態讀 cohort.line_group_url",
+        "desc": "報名成功後顯示該梯次的 LINE 群組連結，學員可直接加入",
         "status": "green",
         "linkedTests": [
           "student-enroll"
@@ -2756,14 +2768,15 @@
         "screenshot": "prd-gaps/50-alice-dashboard.png",
         "group": "MEDIUM — 完整體驗",
         "groupId": "medium",
-        "priority": "MED"
+        "priority": "MED",
+        "howToTest": "用學員帳號 → 儀表板 → 快速連結 → 確認有 LINE 群組卡片"
       },
       {
         "num": 14,
         "module": "M1",
         "version": "V1",
         "name": "梯次設定 — LINE 群組 URL 欄位",
-        "desc": "Cohort model 已加 line_group_url/survey_url/referral_bonus 欄位",
+        "desc": "管理員建立梯次時可設定該梯次的 LINE 群組網址",
         "status": "green",
         "linkedTests": [
           "admin-cohort-crud"
@@ -2771,14 +2784,15 @@
         "screenshot": "prd-gaps/12-admin-cohorts.png",
         "group": "MEDIUM — 完整體驗",
         "groupId": "medium",
-        "priority": "MED"
+        "priority": "MED",
+        "howToTest": "用管理員帳號 → 梯次管理 → 編輯梯次 → 查看 LINE 群組 URL 欄位"
       },
       {
         "num": 15,
         "module": "M1",
         "version": "V1",
         "name": "推薦獎金金額可設定",
-        "desc": "Admin 推薦獎金頁：input 顯示 NT$200，「儲存設定」按鈕",
+        "desc": "管理員可設定推薦獎金金額（預設 NT$200）",
         "status": "green",
         "linkedTests": [
           "admin-agents"
@@ -2786,27 +2800,29 @@
         "screenshot": "prd-gaps/20-admin-referrals.png",
         "group": "MEDIUM — 完整體驗",
         "groupId": "medium",
-        "priority": "MED"
+        "priority": "MED",
+        "howToTest": "用管理員帳號 → 推薦獎金 → 確認有金額輸入框 + 儲存按鈕"
       },
       {
         "num": 16,
         "module": "M1",
         "version": "V1",
         "name": "報名成功信 Email",
-        "desc": "Admin 通知範本管理：6 個 Email template 各有編輯按鈕",
+        "desc": "系統有 6 種 Email 通知範本（報名確認、課前提醒等），管理員可編輯",
         "status": "green",
         "linkedTests": [],
         "screenshot": "prd-gaps/27-admin-settings-notifications.png",
         "group": "MEDIUM — 完整體驗",
         "groupId": "medium",
-        "priority": "MED"
+        "priority": "MED",
+        "howToTest": "用管理員帳號 → 系統設定 → 通知範本 → 確認 6 個範本可編輯"
       },
       {
         "num": 17,
         "module": "M3",
         "version": "V1",
         "name": "B班附件繳交區",
-        "desc": "AssignmentType 加了 5 種 B 班文件（總表/同意書/個案報告/諮詢回饋/督導心得）",
+        "desc": "B 班學員有 5 種文件繳交區（總表、同意書、個案報告、諮詢回饋、督導心得）",
         "status": "green",
         "linkedTests": [
           "admin-classroom-crud"
@@ -2814,40 +2830,43 @@
         "screenshot": "prd-gaps/13-admin-classrooms.png",
         "group": "運課管理",
         "groupId": "ops",
-        "priority": "運課"
+        "priority": "運課",
+        "howToTest": "用管理員帳號 → 教室管理 → 進入 B 班教室 → 作業列表"
       },
       {
         "num": 18,
         "module": "M3",
         "version": "V1",
         "name": "Admin 行政日程總覽",
-        "desc": "行政日程總覽頁。3 狀態 legend（已完成/即將到來/待辦）。sidebar 新增「行政日程」",
+        "desc": "管理員有行政日程總覽頁面，顯示開課前中後的關鍵時間節點",
         "status": "green",
         "linkedTests": [],
         "screenshot": "prd-gaps/29-admin-schedule.png",
         "group": "運課管理",
         "groupId": "ops",
-        "priority": "運課"
+        "priority": "運課",
+        "howToTest": "用管理員帳號 → 行政日程 → 確認有時間軸 + 3 種狀態標記"
       },
       {
         "num": 19,
         "module": "M3",
         "version": "V1",
         "name": "通知系統",
-        "desc": "通知範本管理頁：6 種 Email 範本 row，各有「未設定」badge + 編輯 icon",
+        "desc": "管理員可管理 6 種通知信範本，系統自動發送對應通知",
         "status": "green",
         "linkedTests": [],
         "screenshot": "prd-gaps/27-admin-settings-notifications.png",
         "group": "運課管理",
         "groupId": "ops",
-        "priority": "運課"
+        "priority": "運課",
+        "howToTest": "用管理員帳號 → 系統設定 → 通知範本管理"
       },
       {
         "num": 20,
         "module": "M4",
         "version": "V1",
         "name": "學員督導預約 UI",
-        "desc": "督導紀錄頁：右上角 teal「預約個督」按鈕",
+        "desc": "學員在督導紀錄頁面可看到「預約個督」按鈕，用來預約一對一督導",
         "status": "green",
         "linkedTests": [
           "student-supervision"
@@ -2855,14 +2874,15 @@
         "screenshot": "prd-gaps/36-student-supervision.png",
         "group": "督導認證",
         "groupId": "supervision",
-        "priority": "督導"
+        "priority": "督導",
+        "howToTest": "用學員帳號 → 我的督導 → 確認右上角有 teal 色「預約個督」按鈕"
       },
       {
         "num": 21,
         "module": "M4",
         "version": "V1",
         "name": "筆試申請入口",
-        "desc": "認證考試頁：右上角 teal「申請筆試」按鈕",
+        "desc": "學員在認證頁面可看到「申請筆試」按鈕，用來報名認證考試",
         "status": "green",
         "linkedTests": [
           "student-certifications"
@@ -2870,14 +2890,15 @@
         "screenshot": "prd-gaps/37-student-certifications.png",
         "group": "督導認證",
         "groupId": "supervision",
-        "priority": "督導"
+        "priority": "督導",
+        "howToTest": "用學員帳號 → 我的認證 → 確認有「申請筆試」按鈕"
       },
       {
         "num": 22,
         "module": "M4",
         "version": "V1",
         "name": "認證結果通知 + 證書下載",
-        "desc": "passed 狀態顯示「下載證書」。certificate_service.py + send_certification_result() email",
+        "desc": "認證通過後學員收到通知 Email，可在頁面下載證書",
         "status": "green",
         "linkedTests": [
           "admin-certification-flow"
@@ -2885,14 +2906,15 @@
         "screenshot": "prd-gaps/37-student-certifications.png",
         "group": "督導認證",
         "groupId": "supervision",
-        "priority": "督導"
+        "priority": "督導",
+        "howToTest": "用學員帳號 → 我的認證 → 確認 passed 狀態有「下載證書」按鈕"
       },
       {
         "num": 23,
         "module": "M5",
         "version": "V1",
         "name": "畢業後公告頁 + 進修課入口",
-        "desc": "職業資料庫頁：認證顧問卡片 grid + sidebar 6 個畢業後功能",
+        "desc": "畢業後學員可看到職業資料庫、進修課程等 6 個功能入口",
         "status": "green",
         "linkedTests": [
           "student-crm"
@@ -2900,53 +2922,57 @@
         "screenshot": "prd-gaps/40-student-career-database.png",
         "group": "畢業後",
         "groupId": "grad",
-        "priority": "畢業後"
+        "priority": "畢業後",
+        "howToTest": "用學員帳號 → 側欄查看畢業後功能（職業資料庫、論壇、諮詢等）"
       },
       {
         "num": 24,
         "module": "M1",
         "version": "V1",
         "name": "Email 驗證",
-        "desc": "register 時生成 token + send_email_verification()。verify-email endpoint",
+        "desc": "註冊時發送驗證信，學員點擊連結驗證 Email",
         "status": "green",
         "linkedTests": [],
         "screenshot": null,
         "group": "額外修復（Session 2）",
         "groupId": "extra-done",
-        "priority": "額外"
+        "priority": "額外",
+        "howToTest": "註冊新帳號 → 查看是否收到驗證信（測試環境可查 log）"
       },
       {
         "num": 25,
         "module": "M3",
         "version": "V1",
         "name": "開課自動建教室",
-        "desc": "cohort setup endpoint 自動建 Classroom record",
+        "desc": "梯次開課設定完成後，系統自動建立教室",
         "status": "green",
         "linkedTests": [],
         "screenshot": null,
         "group": "額外修復（Session 2）",
         "groupId": "extra-done",
-        "priority": "額外"
+        "priority": "額外",
+        "howToTest": "用管理員帳號 → 梯次管理 → 設定開課 → 教室管理確認自動建立"
       },
       {
         "num": 26,
         "module": "M3",
         "version": "V1",
         "name": "B班文件追蹤",
-        "desc": "check_b_class_completion() 驗證 5 種必繳文件",
+        "desc": "系統追蹤 B 班學員 5 種必繳文件的繳交狀態",
         "status": "green",
         "linkedTests": [],
         "screenshot": null,
         "group": "額外修復（Session 2）",
         "groupId": "extra-done",
-        "priority": "額外"
+        "priority": "額外",
+        "howToTest": "用管理員帳號 → 教室管理 → B 班 → 查看文件繳交進度"
       },
       {
         "num": 27,
         "module": "M4",
         "version": "V1",
         "name": "認證結果通知 Email",
-        "desc": "grade_certification() 後自動呼叫 send_certification_result()",
+        "desc": "認證成績送出後，系統自動發 Email 通知學員結果",
         "status": "green",
         "linkedTests": [
           "admin-certification-flow"
@@ -2954,14 +2980,15 @@
         "screenshot": null,
         "group": "額外修復（Session 2）",
         "groupId": "extra-done",
-        "priority": "額外"
+        "priority": "額外",
+        "howToTest": "用管理員帳號 → 認證管理 → 送出成績 → 確認有發信 log"
       },
       {
         "num": 28,
         "module": "M5",
         "version": "V1",
         "name": "資深特約資格檢查",
-        "desc": "申請 SENIOR_CONSULTANT 時驗證必須已有 CONSULTANT identity",
+        "desc": "申請資深特約諮詢師前，系統檢查是否已有一般特約資格",
         "status": "green",
         "linkedTests": [
           "crm-renewal-flow"
@@ -2969,27 +2996,29 @@
         "screenshot": null,
         "group": "額外修復（Session 2）",
         "groupId": "extra-done",
-        "priority": "額外"
+        "priority": "額外",
+        "howToTest": "用管理員帳號 → CRM → 特約申請 → 嘗試申請資深特約"
       },
       {
         "num": 29,
         "module": "M5",
         "version": "V1",
         "name": "解除特約合作",
-        "desc": "POST /admin/crm/applications/{id}/terminate",
+        "desc": "管理員可終止特約合作關係",
         "status": "green",
         "linkedTests": [],
         "screenshot": null,
         "group": "額外修復（Session 2）",
         "groupId": "extra-done",
-        "priority": "額外"
+        "priority": "額外",
+        "howToTest": "用管理員帳號 → CRM → 特約列表 → 點擊「終止合作」"
       },
       {
         "num": 30,
         "module": "M5",
         "version": "V1",
         "name": "學員推薦好友頁",
-        "desc": "/student/referrals 推薦連結、已推薦名單、獎金狀態 badge",
+        "desc": "學員有推薦好友頁面，可複製推薦連結、查看已推薦名單和獎金狀態",
         "status": "green",
         "linkedTests": [
           "admin-agents"
@@ -2997,27 +3026,29 @@
         "screenshot": null,
         "group": "額外修復（Session 2）",
         "groupId": "extra-done",
-        "priority": "額外"
+        "priority": "額外",
+        "howToTest": "用學員帳號 → 推薦好友 → 查看推薦連結 + 紀錄列表"
       },
       {
         "num": 31,
         "module": "M5",
         "version": "V1",
         "name": "Career DB / Forum / Counseling API",
-        "desc": "後端 3 個 API endpoint。前端改為先 call API，空資料時 fallback mock",
+        "desc": "畢業後功能（職業資料庫、論壇、諮詢預約）的 API 已建立，無資料時顯示空狀態",
         "status": "green",
         "linkedTests": [],
         "screenshot": null,
         "group": "額外修復（Session 2）",
         "groupId": "extra-done",
-        "priority": "額外"
+        "priority": "額外",
+        "howToTest": "用學員帳號 → 職業資料庫 / 論壇 / 諮詢 → 確認有空狀態提示"
       },
       {
         "num": 32,
         "module": "M1",
         "version": "V1",
         "name": "ECPay 電子發票 API",
-        "desc": "invoice_service.py 串接 ECPay Sandbox API。正式環境需換 merchant ID",
+        "desc": "系統已串接綠界電子發票 API（測試環境），正式環境需更換商店代號",
         "status": "green",
         "linkedTests": [
           "ecpay-mock"
@@ -3025,27 +3056,29 @@
         "screenshot": null,
         "group": "無法修復（需外部資源）",
         "groupId": "blocked",
-        "priority": "阻塞"
+        "priority": "阻塞",
+        "howToTest": "完成付款後 → 查看是否產生發票記錄（管理員 → 訂單管理）"
       },
       {
         "num": 33,
         "module": "M3",
         "version": "V1",
         "name": "排程發信 (cron)",
-        "desc": "ScheduledEmail DB model + process-scheduled-emails endpoint + GCP cron job",
+        "desc": "排程發信功能，系統定時檢查待發 Email 並自動寄出",
         "status": "green",
         "linkedTests": [],
         "screenshot": null,
         "group": "無法修復（需外部資源）",
         "groupId": "blocked",
-        "priority": "阻塞"
+        "priority": "阻塞",
+        "howToTest": "管理員 → 通知範本 → 設定排程 → 查看是否按時發送"
       },
       {
         "num": 34,
         "module": "M2",
         "version": "V1",
         "name": "行銷自動化（一日班/說明會/學長姐）",
-        "desc": "admin/marketing 3 tabs CRUD。自動發信按鈕 disabled",
+        "desc": "行銷自動化：一日班、說明會、學長姐聊聊活動管理（基礎 CRUD）",
         "status": "green",
         "linkedTests": [
           "admin-pages"
@@ -3053,14 +3086,15 @@
         "screenshot": null,
         "group": "無法修復（需外部資源）",
         "groupId": "blocked",
-        "priority": "阻塞"
+        "priority": "阻塞",
+        "howToTest": "用管理員帳號 → 行銷管理 → 3 個分頁（一日班/說明會/學長姐）"
       },
       {
         "num": 35,
         "module": "M2",
         "version": "V1",
         "name": "CMS 進階動畫",
-        "desc": "CMS editor 新增 GIF block + Carousel block",
+        "desc": "CMS 頁面編輯器支援 GIF 動畫和輪播圖片區塊",
         "status": "green",
         "linkedTests": [
           "admin-page-editor"
@@ -3068,46 +3102,50 @@
         "screenshot": null,
         "group": "無法修復（需外部資源）",
         "groupId": "blocked",
-        "priority": "阻塞"
+        "priority": "阻塞",
+        "howToTest": "用管理員帳號 → 頁面管理 → 編輯頁面 → 新增 GIF / Carousel 區塊"
       },
       {
         "num": 36,
         "module": "M2",
         "version": "V2",
         "name": "電商非會員購買",
-        "desc": "牌卡等周邊商品允許非會員購買。需 /checkout/guest 路由 + GuestOrder model",
+        "desc": "牌卡等周邊商品允許未登入的訪客直接購買（非會員結帳流程）",
         "status": "red",
         "linkedTests": [],
         "screenshot": null,
         "group": "無法修復（需外部資源）",
         "groupId": "blocked",
-        "priority": "阻塞"
+        "priority": "阻塞",
+        "howToTest": "尚未實作"
       },
       {
         "num": 37,
         "module": "M3",
         "version": "V1",
         "name": "課前包裹寄送管理",
-        "desc": "admin/shipments CRUD 頁面：status flow + tracking number",
+        "desc": "管理員可管理課前教材包裹寄送，追蹤寄送狀態和物流編號",
         "status": "green",
         "linkedTests": [],
         "screenshot": null,
         "group": "無法修復（需外部資源）",
         "groupId": "blocked",
-        "priority": "阻塞"
+        "priority": "阻塞",
+        "howToTest": "用管理員帳號 → 寄送管理 → 查看寄送列表 + 狀態追蹤"
       },
       {
         "num": 38,
         "module": "M1",
         "version": "V3",
         "name": "按商品拆分退款",
-        "desc": "退課時只退部分商品。需 OrderItem model + per-item 退款計算 + 發票折讓",
+        "desc": "退課時可按個別商品拆分退款（而非整筆退款）",
         "status": "red",
         "linkedTests": [],
         "screenshot": null,
         "group": "無法修復（需外部資源）",
         "groupId": "blocked",
-        "priority": "阻塞"
+        "priority": "阻塞",
+        "howToTest": "尚未實作"
       }
     ]
   },
