@@ -18,7 +18,18 @@
       "shots": [
         "flow/access-01-admin-redirect-login.png"
       ],
-      "specLabel": "角色權限控管"
+      "specLabel": "角色權限控管",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/access-01-admin-redirect-login.png",
+            "description": "頁面顯示登入表單，包含 Email 和密碼輸入欄位，以及 Google 登入按鈕",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "未認證訪客造訪 /student/dashboard 被重導至登入頁",
@@ -30,7 +41,18 @@
       "shots": [
         "flow/access-02-student-redirect-login.png"
       ],
-      "specLabel": "角色權限控管"
+      "specLabel": "角色權限控管",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/access-02-student-redirect-login.png",
+            "description": "頁面顯示登入表單，包含 Email 和密碼輸入欄位，以及 Google 登入按鈕",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "訪客可存取公開的 /courses 頁",
@@ -42,7 +64,18 @@
       "shots": [
         "flow/access-03-public-courses.png"
       ],
-      "specLabel": "角色權限控管"
+      "specLabel": "角色權限控管",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/access-03-public-courses.png",
+            "description": "頁面正常顯示公開內容，無需登入即可瀏覽",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "訪客可存取登入頁",
@@ -54,7 +87,18 @@
       "shots": [
         "flow/access-04-login-page.png"
       ],
-      "specLabel": "角色權限控管"
+      "specLabel": "角色權限控管",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/access-04-login-page.png",
+            "description": "登入頁面，顯示 Email/密碼輸入欄位與 Google OAuth 按鈕",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員造訪 /admin/dashboard 被阻擋 — 重導或空白渲染",
@@ -66,7 +110,18 @@
       "shots": [
         "flow/access-05-student-blocked-admin.png"
       ],
-      "specLabel": "角色權限控管"
+      "specLabel": "角色權限控管",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/access-05-student-blocked-admin.png",
+            "description": "頁面被重導至非管理頁面，未顯示管理後台內容",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員造訪 /admin/enrollments 被阻擋 — 重導或空白渲染",
@@ -78,7 +133,18 @@
       "shots": [
         "flow/access-06-student-blocked-enrollments.png"
       ],
-      "specLabel": "角色權限控管"
+      "specLabel": "角色權限控管",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/access-06-student-blocked-enrollments.png",
+            "description": "頁面被重導至非管理頁面，未顯示管理後台內容",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可存取 /student/dashboard",
@@ -90,7 +156,18 @@
       "shots": [
         "flow/access-07-student-own-dashboard.png"
       ],
-      "specLabel": "角色權限控管"
+      "specLabel": "角色權限控管",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/access-07-student-own-dashboard.png",
+            "description": "學員儀表板頁面，顯示個人學習進度與近期課程",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可存取 /admin/dashboard",
@@ -102,7 +179,18 @@
       "shots": [
         "flow/access-08-admin-dashboard.png"
       ],
-      "specLabel": "角色權限控管"
+      "specLabel": "角色權限控管",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/access-08-admin-dashboard.png",
+            "description": "管理員儀表板頁面，顯示統計摘要卡片與近期活動",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可存取 /admin/enrollments",
@@ -114,7 +202,18 @@
       "shots": [
         "flow/access-09-admin-enrollments.png"
       ],
-      "specLabel": "角色權限控管"
+      "specLabel": "角色權限控管",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/access-09-admin-enrollments.png",
+            "description": "報名管理列表頁，顯示報名記錄表格含學員姓名、梯次、狀態、金額",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員 token 無法存取管理員 API 端點",
@@ -124,7 +223,11 @@
       "status": "pass",
       "duration": 1792,
       "shots": [],
-      "specLabel": "角色權限控管"
+      "specLabel": "角色權限控管",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "未認證請求存取受保護 API 回傳 401/403",
@@ -134,7 +237,11 @@
       "status": "pass",
       "duration": 553,
       "shots": [],
-      "specLabel": "角色權限控管"
+      "specLabel": "角色權限控管",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "代理商頁面顯示統計卡片與表格",
@@ -146,7 +253,18 @@
       "shots": [
         "crud/agents-01-stat-cards.png"
       ],
-      "specLabel": "代理商管理"
+      "specLabel": "代理商管理",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/agents-01-stat-cards.png",
+            "description": "CRUD 操作截圖：「代理商頁面顯示統計卡片與表格」操作成功，頁面回應正確",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "代理商表格顯示正確欄位",
@@ -158,7 +276,18 @@
       "shots": [
         "crud/agents-02-table-columns.png"
       ],
-      "specLabel": "代理商管理"
+      "specLabel": "代理商管理",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/agents-02-table-columns.png",
+            "description": "CRUD 操作截圖：「代理商表格顯示正確欄位」操作成功，頁面回應正確",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "代理商頁面有新增代理商按鈕",
@@ -170,7 +299,18 @@
       "shots": [
         "crud/agents-03-create-btn.png"
       ],
-      "specLabel": "代理商管理"
+      "specLabel": "代理商管理",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/agents-03-create-btn.png",
+            "description": "新增表單頁面，顯示輸入欄位與儲存按鈕，表單正常載入",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "推薦頁面顯示統計卡片與列表",
@@ -182,7 +322,18 @@
       "shots": [
         "crud/agents-04-referrals-stats.png"
       ],
-      "specLabel": "代理商管理"
+      "specLabel": "代理商管理",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/agents-04-referrals-stats.png",
+            "description": "列表頁面正常載入，顯示資料表格含分頁控制項",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員開啟建立 Dialog 填寫表單並送出",
@@ -196,7 +347,30 @@
         "crud/cohort-02-form-filled.png",
         "crud/cohort-03-toast-success.png"
       ],
-      "specLabel": "梯次建立/編輯"
+      "specLabel": "梯次建立/編輯",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/cohort-01-dialog-open.png",
+            "description": "新增表單頁面，顯示輸入欄位與儲存按鈕，表單正常載入",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          },
+          {
+            "path": "crud/cohort-02-form-filled.png",
+            "description": "新增表單頁面，顯示輸入欄位與儲存按鈕，表單正常載入",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          },
+          {
+            "path": "crud/cohort-03-toast-success.png",
+            "description": "新增表單頁面，顯示輸入欄位與儲存按鈕，表單正常載入",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員看到梯次列表與表格標題列",
@@ -208,7 +382,18 @@
       "shots": [
         "crud/cohort-04-list-table.png"
       ],
-      "specLabel": "梯次建立/編輯"
+      "specLabel": "梯次建立/編輯",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/cohort-04-list-table.png",
+            "description": "管理後台梯次列表頁，顯示梯次表格含名稱、日期、狀態欄位",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員點擊梯次列進入詳情頁",
@@ -218,7 +403,11 @@
       "status": "pass",
       "duration": 4129,
       "shots": [],
-      "specLabel": "梯次建立/編輯"
+      "specLabel": "梯次建立/編輯",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "管理員可存取梯次列表頁",
@@ -230,7 +419,18 @@
       "shots": [
         "crud/cohorts-smoke-01-list-page.png"
       ],
-      "specLabel": "梯次管理列表"
+      "specLabel": "梯次管理列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/cohorts-smoke-01-list-page.png",
+            "description": "管理後台梯次列表頁，顯示梯次表格含名稱、日期、狀態欄位",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員看到梯次表格或列表",
@@ -242,7 +442,18 @@
       "shots": [
         "crud/cohorts-smoke-02-table.png"
       ],
-      "specLabel": "梯次管理列表"
+      "specLabel": "梯次管理列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/cohorts-smoke-02-table.png",
+            "description": "管理後台梯次列表頁，顯示梯次表格含名稱、日期、狀態欄位",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可點擊梯次進入詳情頁",
@@ -252,7 +463,11 @@
       "status": "pass",
       "duration": 3797,
       "shots": [],
-      "specLabel": "梯次管理列表"
+      "specLabel": "梯次管理列表",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "管理員看到新增梯次按鈕",
@@ -264,7 +479,18 @@
       "shots": [
         "crud/cohorts-smoke-04-create-btn.png"
       ],
-      "specLabel": "梯次管理列表"
+      "specLabel": "梯次管理列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/cohorts-smoke-04-create-btn.png",
+            "description": "管理後台梯次列表頁，顯示梯次表格含名稱、日期、狀態欄位",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可存取報名管理頁",
@@ -276,7 +502,18 @@
       "shots": [
         "crud/enrollments-01-list-page.png"
       ],
-      "specLabel": "報名管理"
+      "specLabel": "報名管理",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/enrollments-01-list-page.png",
+            "description": "報名管理列表頁，顯示報名記錄表格含學員姓名、梯次、狀態、金額",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員看到報名記錄表格",
@@ -288,7 +525,18 @@
       "shots": [
         "crud/enrollments-02-table.png"
       ],
-      "specLabel": "報名管理"
+      "specLabel": "報名管理",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/enrollments-02-table.png",
+            "description": "報名管理列表頁，顯示報名記錄表格含學員姓名、梯次、狀態、金額",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可依狀態篩選報名記錄",
@@ -300,7 +548,18 @@
       "shots": [
         "crud/enrollments-03-filter.png"
       ],
-      "specLabel": "報名管理"
+      "specLabel": "報名管理",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/enrollments-03-filter.png",
+            "description": "報名管理列表頁，顯示報名記錄表格含學員姓名、梯次、狀態、金額",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員側欄顯示報名管理連結為啟用狀態",
@@ -312,7 +571,18 @@
       "shots": [
         "crud/enrollments-04-sidebar-active.png"
       ],
-      "specLabel": "報名管理"
+      "specLabel": "報名管理",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/enrollments-04-sidebar-active.png",
+            "description": "報名管理列表頁，顯示報名記錄表格含學員姓名、梯次、狀態、金額",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員儀表板載入並顯示統計數據",
@@ -324,7 +594,18 @@
       "shots": [
         "crud/enrollments-05-dashboard.png"
       ],
-      "specLabel": "報名管理"
+      "specLabel": "報名管理",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/enrollments-05-dashboard.png",
+            "description": "管理員儀表板頁面，顯示統計摘要卡片與近期活動",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可存取優惠碼頁面",
@@ -336,7 +617,18 @@
       "shots": [
         "crud/promo-smoke-01-list-page.png"
       ],
-      "specLabel": "折扣碼管理"
+      "specLabel": "折扣碼管理",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/promo-smoke-01-list-page.png",
+            "description": "折扣碼管理頁面，顯示折扣碼列表含代碼、類型、折扣值、狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員看到優惠碼列表或空狀態",
@@ -348,7 +640,18 @@
       "shots": [
         "crud/promo-smoke-02-table.png"
       ],
-      "specLabel": "折扣碼管理"
+      "specLabel": "折扣碼管理",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/promo-smoke-02-table.png",
+            "description": "折扣碼管理頁面，顯示折扣碼列表含代碼、類型、折扣值、狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員看到新增優惠碼按鈕",
@@ -360,7 +663,18 @@
       "shots": [
         "crud/promo-smoke-03-create-btn.png"
       ],
-      "specLabel": "折扣碼管理"
+      "specLabel": "折扣碼管理",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/promo-smoke-03-create-btn.png",
+            "description": "折扣碼管理頁面，顯示折扣碼列表含代碼、類型、折扣值、狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員建立優惠碼後在列表中確認存在",
@@ -375,7 +689,36 @@
         "crud/promo-03-toast-success.png",
         "crud/promo-04-list-verified.png"
       ],
-      "specLabel": "折扣碼建立/編輯"
+      "specLabel": "折扣碼建立/編輯",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/promo-01-dialog-open.png",
+            "description": "折扣碼管理頁面，顯示折扣碼列表含代碼、類型、折扣值、狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          },
+          {
+            "path": "crud/promo-02-form-filled.png",
+            "description": "折扣碼管理頁面，顯示折扣碼列表含代碼、類型、折扣值、狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          },
+          {
+            "path": "crud/promo-03-toast-success.png",
+            "description": "折扣碼管理頁面，顯示折扣碼列表含代碼、類型、折扣值、狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          },
+          {
+            "path": "crud/promo-04-list-verified.png",
+            "description": "折扣碼管理頁面，顯示折扣碼列表含代碼、類型、折扣值、狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "付款結帳 API 回傳重定向 URL 或訂單資訊",
@@ -385,7 +728,11 @@
       "status": "pass",
       "duration": 1948,
       "shots": [],
-      "specLabel": "金流（綠界）"
+      "specLabel": "金流（綠界）",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "模擬綠界重定向後顯示結帳成功頁面",
@@ -397,7 +744,18 @@
       "shots": [
         "flow/ecpay-01-success-page.png"
       ],
-      "specLabel": "金流（綠界）"
+      "specLabel": "金流（綠界）",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/ecpay-01-success-page.png",
+            "description": "流程截圖：頁面正常載入，顯示「模擬綠界重定向後顯示結帳成功頁面」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "結帳失敗頁提供重試選項",
@@ -409,7 +767,18 @@
       "shots": [
         "flow/ecpay-02-failed-page.png"
       ],
-      "specLabel": "金流（綠界）"
+      "specLabel": "金流（綠界）",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/ecpay-02-failed-page.png",
+            "description": "流程截圖：頁面正常載入，顯示「結帳失敗頁提供重試選項」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "訪客可瀏覽課程列表→課程詳情→看到報名 CTA",
@@ -422,7 +791,24 @@
         "flow/enroll-01-course-listing.png",
         "flow/enroll-02-course-detail.png"
       ],
-      "specLabel": "報名流程"
+      "specLabel": "報名流程",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/enroll-01-course-listing.png",
+            "description": "公開課程列表頁，顯示可報名課程卡片含名稱、日期、價格",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          },
+          {
+            "path": "flow/enroll-02-course-detail.png",
+            "description": "公開課程列表頁，顯示可報名課程卡片含名稱、日期、價格",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "訪客可進入報名頁並看到梯次定價",
@@ -434,7 +820,18 @@
       "shots": [
         "flow/enroll-03-pricing-page.png"
       ],
-      "specLabel": "報名流程"
+      "specLabel": "報名流程",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/enroll-03-pricing-page.png",
+            "description": "報名頁面，顯示課程資訊與報名表單",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員登入後看到儀表板快速連結與報名狀態",
@@ -446,7 +843,18 @@
       "shots": [
         "flow/enroll-04-student-dashboard.png"
       ],
-      "specLabel": "報名流程"
+      "specLabel": "報名流程",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/enroll-04-student-dashboard.png",
+            "description": "學員儀表板頁面，顯示個人學習進度與近期課程",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可透過側欄連結導覽各頁面",
@@ -456,7 +864,11 @@
       "status": "pass",
       "duration": 3855,
       "shots": [],
-      "specLabel": "報名流程"
+      "specLabel": "報名流程",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "訪客可瀏覽課程列表→課程詳情→看到報名 CTA",
@@ -469,7 +881,24 @@
         "flow/enroll-01-course-listing.png",
         "flow/enroll-02-course-detail.png"
       ],
-      "specLabel": "報名流程"
+      "specLabel": "報名流程",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/enroll-01-course-listing.png",
+            "description": "公開課程列表頁，顯示可報名課程卡片含名稱、日期、價格",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          },
+          {
+            "path": "flow/enroll-02-course-detail.png",
+            "description": "公開課程列表頁，顯示可報名課程卡片含名稱、日期、價格",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "訪客可進入報名頁並看到梯次定價",
@@ -481,7 +910,18 @@
       "shots": [
         "flow/enroll-03-pricing-page.png"
       ],
-      "specLabel": "報名流程"
+      "specLabel": "報名流程",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/enroll-03-pricing-page.png",
+            "description": "報名頁面，顯示課程資訊與報名表單",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員登入後看到儀表板快速連結與報名狀態",
@@ -493,7 +933,18 @@
       "shots": [
         "flow/enroll-04-student-dashboard.png"
       ],
-      "specLabel": "報名流程"
+      "specLabel": "報名流程",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/enroll-04-student-dashboard.png",
+            "description": "學員儀表板頁面，顯示個人學習進度與近期課程",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可透過側欄連結導覽各頁面",
@@ -503,7 +954,11 @@
       "status": "pass",
       "duration": 2923,
       "shots": [],
-      "specLabel": "報名流程"
+      "specLabel": "報名流程",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "報名頁顯示梯次資訊：班別、日期、名額與定價",
@@ -515,7 +970,18 @@
       "shots": [
         "flow/enroll-details-01-cohort-info.png"
       ],
-      "specLabel": "報名表單細節"
+      "specLabel": "報名表單細節",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/enroll-details-01-cohort-info.png",
+            "description": "流程截圖：頁面正常載入，顯示「報名頁顯示梯次資訊：班別、日期、名額與定」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "報名頁顯示早鳥優惠與一般定價",
@@ -527,7 +993,18 @@
       "shots": [
         "flow/enroll-details-02-early-bird.png"
       ],
-      "specLabel": "報名表單細節"
+      "specLabel": "報名表單細節",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/enroll-details-02-early-bird.png",
+            "description": "流程截圖：頁面正常載入，顯示「報名頁顯示早鳥優惠與一般定價」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "梯次詳情頁顯示設定狀態與統計數據",
@@ -539,7 +1016,18 @@
       "shots": [
         "flow/enroll-details-03-cohort-detail.png"
       ],
-      "specLabel": "報名表單細節"
+      "specLabel": "報名表單細節",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/enroll-details-03-cohort-detail.png",
+            "description": "流程截圖：頁面正常載入，顯示「梯次詳情頁顯示設定狀態與統計數據」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員報名頁依狀態篩選功能正常運作",
@@ -551,7 +1039,18 @@
       "shots": [
         "flow/enroll-details-04-status-filter.png"
       ],
-      "specLabel": "報名表單細節"
+      "specLabel": "報名表單細節",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/enroll-details-04-status-filter.png",
+            "description": "報名管理列表頁，顯示報名記錄表格含學員姓名、梯次、狀態、金額",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員退款頁顯示待處理與已完成退款",
@@ -563,7 +1062,18 @@
       "shots": [
         "flow/enroll-details-05-refunds.png"
       ],
-      "specLabel": "報名表單細節"
+      "specLabel": "報名表單細節",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/enroll-details-05-refunds.png",
+            "description": "退款管理頁面，顯示退款相關設定與紀錄",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員退款頁有處理退款按鈕",
@@ -573,7 +1083,11 @@
       "status": "pass",
       "duration": 2518,
       "shots": [],
-      "specLabel": "報名表單細節"
+      "specLabel": "報名表單細節",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "訪客可進入梯次報名頁並看到步驟一",
@@ -585,7 +1099,18 @@
       "shots": [
         "flow/enroll-form-01-step1-courses.png"
       ],
-      "specLabel": "報名表單填寫"
+      "specLabel": "報名表單填寫",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/enroll-form-01-step1-courses.png",
+            "description": "報名頁面，顯示課程資訊與報名表單",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "步驟一顯示定價及早鳥優惠（如適用）",
@@ -597,7 +1122,18 @@
       "shots": [
         "flow/enroll-form-02-early-bird.png"
       ],
-      "specLabel": "報名表單填寫"
+      "specLabel": "報名表單填寫",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/enroll-form-02-early-bird.png",
+            "description": "流程截圖：頁面正常載入，顯示「步驟一顯示定價及早鳥優惠（如適用）」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "步驟二顯示個人資料表單欄位",
@@ -607,7 +1143,11 @@
       "status": "pass",
       "duration": 2877,
       "shots": [],
-      "specLabel": "報名表單填寫"
+      "specLabel": "報名表單填寫",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "步驟三顯示折扣碼輸入欄位與費用摘要",
@@ -617,7 +1157,11 @@
       "status": "pass",
       "duration": 13356,
       "shots": [],
-      "specLabel": "報名表單填寫"
+      "specLabel": "報名表單填寫",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "報名頁顯示完整梯次費用明細",
@@ -629,7 +1173,18 @@
       "shots": [
         "flow/payment-01-pricing-breakdown.png"
       ],
-      "specLabel": "付款流程"
+      "specLabel": "付款流程",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/payment-01-pricing-breakdown.png",
+            "description": "流程截圖：頁面正常載入，顯示「報名頁顯示完整梯次費用明細」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "結帳成功頁面正常渲染",
@@ -641,7 +1196,18 @@
       "shots": [
         "flow/payment-02-checkout-success.png"
       ],
-      "specLabel": "付款流程"
+      "specLabel": "付款流程",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/payment-02-checkout-success.png",
+            "description": "流程截圖：頁面正常載入，顯示「結帳成功頁面正常渲染」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "結帳失敗頁顯示重試選項",
@@ -653,7 +1219,18 @@
       "shots": [
         "flow/payment-03-checkout-failed.png"
       ],
-      "specLabel": "付款流程"
+      "specLabel": "付款流程",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/payment-03-checkout-failed.png",
+            "description": "流程截圖：頁面正常載入，顯示「結帳失敗頁顯示重試選項」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "後端付款 API 要求身份驗證",
@@ -663,7 +1240,11 @@
       "status": "pass",
       "duration": 200,
       "shots": [],
-      "specLabel": "付款流程"
+      "specLabel": "付款流程",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "後端優惠碼驗證 API 正常運作",
@@ -673,7 +1254,11 @@
       "status": "pass",
       "duration": 1226,
       "shots": [],
-      "specLabel": "付款流程"
+      "specLabel": "付款流程",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "學員可查看付款紀錄頁面",
@@ -685,7 +1270,18 @@
       "shots": [
         "flow/payment-04-student-history.png"
       ],
-      "specLabel": "付款流程"
+      "specLabel": "付款流程",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/payment-04-student-history.png",
+            "description": "學員付款紀錄頁面，顯示歷史付款明細",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "首頁載入 Hero 區塊與課程列表",
@@ -697,7 +1293,18 @@
       "shots": [
         "flow/browse-01-hero.png"
       ],
-      "specLabel": "課程瀏覽（訪客）"
+      "specLabel": "課程瀏覽（訪客）",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/browse-01-hero.png",
+            "description": "列表頁面正常載入，顯示資料表格含分頁控制項",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "訪客可前往課程頁並看到課程列表",
@@ -709,7 +1316,18 @@
       "shots": [
         "flow/browse-02-course-list.png"
       ],
-      "specLabel": "課程瀏覽（訪客）"
+      "specLabel": "課程瀏覽（訪客）",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/browse-02-course-list.png",
+            "description": "公開課程列表頁，顯示可報名課程卡片含名稱、日期、價格",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "訪客可點擊課程進入詳情頁",
@@ -721,7 +1339,18 @@
       "shots": [
         "flow/browse-03-course-detail.png"
       ],
-      "specLabel": "課程瀏覽（訪客）"
+      "specLabel": "課程瀏覽（訪客）",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/browse-03-course-detail.png",
+            "description": "公開課程列表頁，顯示可報名課程卡片含名稱、日期、價格",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "訪客在課程詳情頁看到立即報名 CTA",
@@ -733,7 +1362,18 @@
       "shots": [
         "flow/browse-04-enroll-cta.png"
       ],
-      "specLabel": "課程瀏覽（訪客）"
+      "specLabel": "課程瀏覽（訪客）",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/browse-04-enroll-cta.png",
+            "description": "公開課程列表頁，顯示可報名課程卡片含名稱、日期、價格",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "未登入訪客的頁頭顯示登入按鈕",
@@ -745,7 +1385,18 @@
       "shots": [
         "flow/browse-05-login-btn.png"
       ],
-      "specLabel": "課程瀏覽（訪客）"
+      "specLabel": "課程瀏覽（訪客）",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/browse-05-login-btn.png",
+            "description": "登入頁面，顯示 Email/密碼輸入欄位與 Google OAuth 按鈕",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "首頁載入 Hero 區塊與課程列表",
@@ -757,7 +1408,18 @@
       "shots": [
         "flow/browse-01-hero.png"
       ],
-      "specLabel": "課程瀏覽（訪客）"
+      "specLabel": "課程瀏覽（訪客）",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/browse-01-hero.png",
+            "description": "列表頁面正常載入，顯示資料表格含分頁控制項",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "訪客可前往課程頁並看到課程列表",
@@ -769,7 +1431,18 @@
       "shots": [
         "flow/browse-02-course-list.png"
       ],
-      "specLabel": "課程瀏覽（訪客）"
+      "specLabel": "課程瀏覽（訪客）",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/browse-02-course-list.png",
+            "description": "公開課程列表頁，顯示可報名課程卡片含名稱、日期、價格",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "訪客可點擊課程進入詳情頁",
@@ -781,7 +1454,18 @@
       "shots": [
         "flow/browse-03-course-detail.png"
       ],
-      "specLabel": "課程瀏覽（訪客）"
+      "specLabel": "課程瀏覽（訪客）",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/browse-03-course-detail.png",
+            "description": "公開課程列表頁，顯示可報名課程卡片含名稱、日期、價格",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "訪客在課程詳情頁看到立即報名 CTA",
@@ -791,7 +1475,11 @@
       "status": "pass",
       "duration": 2071,
       "shots": [],
-      "specLabel": "課程瀏覽（訪客）"
+      "specLabel": "課程瀏覽（訪客）",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "未登入訪客的頁頭顯示登入按鈕",
@@ -803,7 +1491,18 @@
       "shots": [
         "flow/browse-05-login-btn.png"
       ],
-      "specLabel": "課程瀏覽（訪客）"
+      "specLabel": "課程瀏覽（訪客）",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/browse-05-login-btn.png",
+            "description": "登入頁面，顯示 Email/密碼輸入欄位與 Google OAuth 按鈕",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員登入後看到儀表板",
@@ -815,7 +1514,18 @@
       "shots": [
         "flow/student-enroll-01-dashboard.png"
       ],
-      "specLabel": "學員報名紀錄"
+      "specLabel": "學員報名紀錄",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-enroll-01-dashboard.png",
+            "description": "學員儀表板頁面，顯示個人學習進度與近期課程",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可前往報名頁面",
@@ -827,7 +1537,18 @@
       "shots": [
         "flow/student-enroll-02-enroll-page.png"
       ],
-      "specLabel": "學員報名紀錄"
+      "specLabel": "學員報名紀錄",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-enroll-02-enroll-page.png",
+            "description": "學員報名紀錄頁面，顯示個人報名狀態與付款資訊",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可瀏覽課程並選擇梯次",
@@ -837,7 +1558,11 @@
       "status": "pass",
       "duration": 2994,
       "shots": [],
-      "specLabel": "學員報名紀錄"
+      "specLabel": "學員報名紀錄",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "學員可存取梯次報名表單",
@@ -849,7 +1574,18 @@
       "shots": [
         "flow/student-enroll-04-form-accessible.png"
       ],
-      "specLabel": "學員報名紀錄"
+      "specLabel": "學員報名紀錄",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-enroll-04-form-accessible.png",
+            "description": "學員報名紀錄頁面，顯示個人報名狀態與付款資訊",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可查看自己的報名紀錄",
@@ -861,7 +1597,18 @@
       "shots": [
         "flow/student-enroll-05-records.png"
       ],
-      "specLabel": "學員報名紀錄"
+      "specLabel": "學員報名紀錄",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-enroll-05-records.png",
+            "description": "學員報名紀錄頁面，顯示個人報名狀態與付款資訊",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "報名頁顯示梯次定價與報名 CTA",
@@ -873,7 +1620,18 @@
       "shots": [
         "flow/student-enroll-06-pricing-cta.png"
       ],
-      "specLabel": "學員報名紀錄"
+      "specLabel": "學員報名紀錄",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-enroll-06-pricing-cta.png",
+            "description": "流程截圖：頁面正常載入，顯示「報名頁顯示梯次定價與報名 CTA」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "結帳失敗頁面存在",
@@ -885,7 +1643,18 @@
       "shots": [
         "flow/student-enroll-07-checkout-failed.png"
       ],
-      "specLabel": "學員報名紀錄"
+      "specLabel": "學員報名紀錄",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-enroll-07-checkout-failed.png",
+            "description": "流程截圖：頁面正常載入，顯示「結帳失敗頁面存在」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "alice（已報名學員）可看到自己的報名記錄",
@@ -895,7 +1664,11 @@
       "status": "pass",
       "duration": 3339,
       "shots": [],
-      "specLabel": "學員報名紀錄"
+      "specLabel": "學員報名紀錄",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "學員登入後看到儀表板",
@@ -907,7 +1680,18 @@
       "shots": [
         "flow/student-enroll-01-dashboard.png"
       ],
-      "specLabel": "學員報名紀錄"
+      "specLabel": "學員報名紀錄",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-enroll-01-dashboard.png",
+            "description": "學員儀表板頁面，顯示個人學習進度與近期課程",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可前往報名頁面",
@@ -919,7 +1703,18 @@
       "shots": [
         "flow/student-enroll-02-enroll-page.png"
       ],
-      "specLabel": "學員報名紀錄"
+      "specLabel": "學員報名紀錄",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-enroll-02-enroll-page.png",
+            "description": "學員報名紀錄頁面，顯示個人報名狀態與付款資訊",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可瀏覽課程並選擇梯次",
@@ -931,7 +1726,18 @@
       "shots": [
         "flow/student-enroll-03-enroll-btn.png"
       ],
-      "specLabel": "學員報名紀錄"
+      "specLabel": "學員報名紀錄",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-enroll-03-enroll-btn.png",
+            "description": "學員課程頁面，顯示已報名課程列表",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可存取梯次報名表單",
@@ -943,7 +1749,18 @@
       "shots": [
         "flow/student-enroll-04-form-accessible.png"
       ],
-      "specLabel": "學員報名紀錄"
+      "specLabel": "學員報名紀錄",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-enroll-04-form-accessible.png",
+            "description": "學員報名紀錄頁面，顯示個人報名狀態與付款資訊",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可查看自己的報名紀錄",
@@ -955,7 +1772,18 @@
       "shots": [
         "flow/student-enroll-05-records.png"
       ],
-      "specLabel": "學員報名紀錄"
+      "specLabel": "學員報名紀錄",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-enroll-05-records.png",
+            "description": "學員報名紀錄頁面，顯示個人報名狀態與付款資訊",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "報名頁顯示梯次定價與報名 CTA",
@@ -967,7 +1795,18 @@
       "shots": [
         "flow/student-enroll-06-pricing-cta.png"
       ],
-      "specLabel": "學員報名紀錄"
+      "specLabel": "學員報名紀錄",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-enroll-06-pricing-cta.png",
+            "description": "流程截圖：頁面正常載入，顯示「報名頁顯示梯次定價與報名 CTA」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "結帳失敗頁面存在",
@@ -979,7 +1818,18 @@
       "shots": [
         "flow/student-enroll-07-checkout-failed.png"
       ],
-      "specLabel": "學員報名紀錄"
+      "specLabel": "學員報名紀錄",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-enroll-07-checkout-failed.png",
+            "description": "流程截圖：頁面正常載入，顯示「結帳失敗頁面存在」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "alice（已報名學員）可看到自己的報名記錄",
@@ -989,7 +1839,11 @@
       "status": "pass",
       "duration": 2786,
       "shots": [],
-      "specLabel": "學員報名紀錄"
+      "specLabel": "學員報名紀錄",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "報名紀錄頁面載入並顯示標題",
@@ -1001,7 +1855,18 @@
       "shots": [
         "flow/upgrade-01-page-heading.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/upgrade-01-page-heading.png",
+            "description": "流程截圖：頁面正常載入，顯示「報名紀錄頁面載入並顯示標題」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "A班在籍學員看到升級按鈕",
@@ -1013,7 +1878,18 @@
       "shots": [
         "flow/upgrade-02-upgrade-btn.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/upgrade-02-upgrade-btn.png",
+            "description": "流程截圖：頁面正常載入，顯示「A班在籍學員看到升級按鈕」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "點擊升級按鈕開啟升級方案 Modal",
@@ -1025,7 +1901,18 @@
       "shots": [
         "flow/upgrade-03-modal-open.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/upgrade-03-modal-open.png",
+            "description": "流程截圖：頁面正常載入，顯示「點擊升級按鈕開啟升級方案 Modal」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "升級 Modal 有前往付款與取消按鈕",
@@ -1037,7 +1924,18 @@
       "shots": [
         "flow/upgrade-04-modal-buttons.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/upgrade-04-modal-buttons.png",
+            "description": "流程截圖：頁面正常載入，顯示「升級 Modal 有前往付款與取消按鈕」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "報名紀錄頁面載入並顯示標題",
@@ -1049,7 +1947,18 @@
       "shots": [
         "flow/upgrade-01-page-heading.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/upgrade-01-page-heading.png",
+            "description": "流程截圖：頁面正常載入，顯示「報名紀錄頁面載入並顯示標題」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "A班在籍學員看到升級按鈕",
@@ -1061,7 +1970,18 @@
       "shots": [
         "flow/upgrade-02-upgrade-btn.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/upgrade-02-upgrade-btn.png",
+            "description": "流程截圖：頁面正常載入，顯示「A班在籍學員看到升級按鈕」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "點擊升級按鈕開啟升級方案 Modal",
@@ -1073,7 +1993,18 @@
       "shots": [
         "flow/upgrade-03-modal-open.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/upgrade-03-modal-open.png",
+            "description": "流程截圖：頁面正常載入，顯示「點擊升級按鈕開啟升級方案 Modal」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "升級 Modal 有前往付款與取消按鈕",
@@ -1085,7 +2016,18 @@
       "shots": [
         "flow/upgrade-04-modal-buttons.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/upgrade-04-modal-buttons.png",
+            "description": "流程截圖：頁面正常載入，顯示「升級 Modal 有前往付款與取消按鈕」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "在籍學員看到申請退課按鈕",
@@ -1097,7 +2039,18 @@
       "shots": [
         "flow/withdraw-01-withdraw-btn.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/withdraw-01-withdraw-btn.png",
+            "description": "流程截圖：頁面正常載入，顯示「在籍學員看到申請退課按鈕」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "點擊申請退課開啟退課 Modal 並顯示原因輸入欄",
@@ -1109,7 +2062,18 @@
       "shots": [
         "flow/withdraw-02-modal-open.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/withdraw-02-modal-open.png",
+            "description": "流程截圖：頁面正常載入，顯示「點擊申請退課開啟退課 Modal 並顯示」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "退課 Modal 未填原因時提交按鈕為停用狀態",
@@ -1121,7 +2085,18 @@
       "shots": [
         "flow/withdraw-03-reason-filled.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/withdraw-03-reason-filled.png",
+            "description": "流程截圖：頁面正常載入，顯示「退課 Modal 未填原因時提交按鈕為停」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "退課 Modal 內顯示目前方案徽章",
@@ -1133,7 +2108,18 @@
       "shots": [
         "flow/withdraw-04-modal-plan.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/withdraw-04-modal-plan.png",
+            "description": "流程截圖：頁面正常載入，顯示「退課 Modal 內顯示目前方案徽章」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "在籍學員看到申請退課按鈕",
@@ -1145,7 +2131,18 @@
       "shots": [
         "flow/withdraw-01-withdraw-btn.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/withdraw-01-withdraw-btn.png",
+            "description": "流程截圖：頁面正常載入，顯示「在籍學員看到申請退課按鈕」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "點擊申請退課開啟退課 Modal 並顯示原因輸入欄",
@@ -1157,7 +2154,18 @@
       "shots": [
         "flow/withdraw-02-modal-open.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/withdraw-02-modal-open.png",
+            "description": "流程截圖：頁面正常載入，顯示「點擊申請退課開啟退課 Modal 並顯示」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "退課 Modal 未填原因時提交按鈕為停用狀態",
@@ -1169,7 +2177,18 @@
       "shots": [
         "flow/withdraw-03-reason-filled.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/withdraw-03-reason-filled.png",
+            "description": "流程截圖：頁面正常載入，顯示「退課 Modal 未填原因時提交按鈕為停」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "退課 Modal 內顯示目前方案徽章",
@@ -1181,7 +2200,18 @@
       "shots": [
         "flow/withdraw-04-modal-plan.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/withdraw-04-modal-plan.png",
+            "description": "流程截圖：頁面正常載入，顯示「退課 Modal 內顯示目前方案徽章」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "結帳頁顯示發票資訊區塊與兩種類型按鈕",
@@ -1193,7 +2223,18 @@
       "shots": [
         "flow/invoice-01-section-heading.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/invoice-01-section-heading.png",
+            "description": "流程截圖：頁面正常載入，顯示「結帳頁顯示發票資訊區塊與兩種類型按鈕」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "結帳頁顯示電子發票與公司三聯式發票切換按鈕",
@@ -1205,7 +2246,18 @@
       "shots": [
         "flow/invoice-02-type-buttons.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/invoice-02-type-buttons.png",
+            "description": "流程截圖：頁面正常載入，顯示「結帳頁顯示電子發票與公司三聯式發票切換按」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "預設發票類型為個人電子發票（手機載具）",
@@ -1217,7 +2269,18 @@
       "shots": [
         "flow/invoice-03-personal-default.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/invoice-03-personal-default.png",
+            "description": "流程截圖：頁面正常載入，顯示「預設發票類型為個人電子發票（手機載具）」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "選擇公司三聯式發票後顯示統一編號與公司名稱欄位",
@@ -1229,7 +2292,18 @@
       "shots": [
         "flow/invoice-04-company-fields.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/invoice-04-company-fields.png",
+            "description": "流程截圖：頁面正常載入，顯示「選擇公司三聯式發票後顯示統一編號與公司名」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "切換回個人電子發票後隱藏公司欄位",
@@ -1241,7 +2315,18 @@
       "shots": [
         "flow/invoice-05-switch-back-personal.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/invoice-05-switch-back-personal.png",
+            "description": "流程截圖：頁面正常載入，顯示「切換回個人電子發票後隱藏公司欄位」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "公司三聯式發票統一編號欄位僅接受數字且最多 8 碼",
@@ -1253,7 +2338,18 @@
       "shots": [
         "flow/invoice-06-taxid-filled.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/invoice-06-taxid-filled.png",
+            "description": "流程截圖：頁面正常載入，顯示「公司三聯式發票統一編號欄位僅接受數字且最」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "結帳頁顯示發票資訊區塊與兩種類型按鈕",
@@ -1265,7 +2361,18 @@
       "shots": [
         "flow/invoice-01-section-heading.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/invoice-01-section-heading.png",
+            "description": "流程截圖：頁面正常載入，顯示「結帳頁顯示發票資訊區塊與兩種類型按鈕」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "結帳頁顯示電子發票與公司三聯式發票切換按鈕",
@@ -1277,7 +2384,18 @@
       "shots": [
         "flow/invoice-02-type-buttons.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/invoice-02-type-buttons.png",
+            "description": "流程截圖：頁面正常載入，顯示「結帳頁顯示電子發票與公司三聯式發票切換按」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "預設發票類型為個人電子發票（手機載具）",
@@ -1289,7 +2407,18 @@
       "shots": [
         "flow/invoice-03-personal-default.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/invoice-03-personal-default.png",
+            "description": "流程截圖：頁面正常載入，顯示「預設發票類型為個人電子發票（手機載具）」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "選擇公司三聯式發票後顯示統一編號與公司名稱欄位",
@@ -1301,7 +2430,18 @@
       "shots": [
         "flow/invoice-04-company-fields.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/invoice-04-company-fields.png",
+            "description": "流程截圖：頁面正常載入，顯示「選擇公司三聯式發票後顯示統一編號與公司名」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "切換回個人電子發票後隱藏公司欄位",
@@ -1313,7 +2453,18 @@
       "shots": [
         "flow/invoice-05-switch-back-personal.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/invoice-05-switch-back-personal.png",
+            "description": "流程截圖：頁面正常載入，顯示「切換回個人電子發票後隱藏公司欄位」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "公司三聯式發票統一編號欄位僅接受數字且最多 8 碼",
@@ -1325,7 +2476,18 @@
       "shots": [
         "flow/invoice-06-taxid-filled.png"
       ],
-      "specLabel": "升級/退課"
+      "specLabel": "升級/退課",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/invoice-06-taxid-filled.png",
+            "description": "流程截圖：頁面正常載入，顯示「公司三聯式發票統一編號欄位僅接受數字且最」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員建立含標題與 Slug 的行銷頁面",
@@ -1340,7 +2502,36 @@
         "crud/page-03-toast-success.png",
         "crud/page-04-list-verified.png"
       ],
-      "specLabel": "頁面建立/編輯"
+      "specLabel": "頁面建立/編輯",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/page-01-editor-loaded.png",
+            "description": "行銷管理頁面，顯示行銷相關設定",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          },
+          {
+            "path": "crud/page-02-slug-filled.png",
+            "description": "行銷管理頁面，顯示行銷相關設定",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          },
+          {
+            "path": "crud/page-03-toast-success.png",
+            "description": "行銷管理頁面，顯示行銷相關設定",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          },
+          {
+            "path": "crud/page-04-list-verified.png",
+            "description": "行銷管理頁面，顯示行銷相關設定",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "頁面編輯器包含所有必填欄位：標題、Slug、儲存按鈕",
@@ -1352,7 +2543,18 @@
       "shots": [
         "crud/page-editor-01.png"
       ],
-      "specLabel": "頁面編輯器"
+      "specLabel": "頁面編輯器",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/page-editor-01.png",
+            "description": "編輯表單頁面，欄位已填入現有資料，可修改後儲存",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "頁面列表顯示發布狀態標籤",
@@ -1364,7 +2566,18 @@
       "shots": [
         "crud/page-editor-02.png"
       ],
-      "specLabel": "頁面編輯器"
+      "specLabel": "頁面編輯器",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/page-editor-02.png",
+            "description": "列表頁面正常載入，顯示資料表格含分頁控制項",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "行銷管道頁面顯示 3 種類型及新增按鈕",
@@ -1376,7 +2589,18 @@
       "shots": [
         "crud/page-editor-03.png"
       ],
-      "specLabel": "頁面編輯器"
+      "specLabel": "頁面編輯器",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/page-editor-03.png",
+            "description": "新增表單頁面，顯示輸入欄位與儲存按鈕，表單正常載入",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "商品頁面具有分類 Tab 與子分類篩選器",
@@ -1388,7 +2612,18 @@
       "shots": [
         "crud/page-editor-04.png"
       ],
-      "specLabel": "頁面編輯器"
+      "specLabel": "頁面編輯器",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/page-editor-04.png",
+            "description": "CRUD 操作截圖：「商品頁面具有分類 Tab 與子分類篩選器」操作成功，頁面回應正確",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員看到行銷頁面表格與欄位",
@@ -1400,7 +2635,18 @@
       "shots": [
         "crud/pages-smoke-01.png"
       ],
-      "specLabel": "頁面管理列表"
+      "specLabel": "頁面管理列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/pages-smoke-01.png",
+            "description": "行銷管理頁面，顯示行銷相關設定",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員看到頁面狀態標籤（已發布 / 草稿）",
@@ -1412,7 +2658,18 @@
       "shots": [
         "crud/pages-smoke-02.png"
       ],
-      "specLabel": "頁面管理列表"
+      "specLabel": "頁面管理列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/pages-smoke-02.png",
+            "description": "CRUD 操作截圖：「管理員看到頁面狀態標籤（已發布 / 草稿」操作成功，頁面回應正確",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員看到新增頁面按鈕",
@@ -1424,7 +2681,18 @@
       "shots": [
         "crud/pages-smoke-03.png"
       ],
-      "specLabel": "頁面管理列表"
+      "specLabel": "頁面管理列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/pages-smoke-03.png",
+            "description": "新增表單頁面，顯示輸入欄位與儲存按鈕，表單正常載入",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員行銷管道頁面顯示 3 種管道類型",
@@ -1436,7 +2704,18 @@
       "shots": [
         "crud/pages-smoke-04.png"
       ],
-      "specLabel": "頁面管理列表"
+      "specLabel": "頁面管理列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/pages-smoke-04.png",
+            "description": "行銷管理頁面，顯示行銷相關設定",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "每個行銷管道均有新增按鈕",
@@ -1448,7 +2727,18 @@
       "shots": [
         "crud/pages-smoke-05.png"
       ],
-      "specLabel": "頁面管理列表"
+      "specLabel": "頁面管理列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/pages-smoke-05.png",
+            "description": "新增表單頁面，顯示輸入欄位與儲存按鈕，表單正常載入",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員看到商品頁面含分類 Tab 與表格",
@@ -1460,7 +2750,18 @@
       "shots": [
         "crud/products-01.png"
       ],
-      "specLabel": "商品管理"
+      "specLabel": "商品管理",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/products-01.png",
+            "description": "商品管理頁面，顯示課程商品列表含名稱、價格、狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員看到商品表格欄位：名稱、Slug、類別、價格、狀態",
@@ -1472,7 +2773,18 @@
       "shots": [
         "crud/products-02.png"
       ],
-      "specLabel": "商品管理"
+      "specLabel": "商品管理",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/products-02.png",
+            "description": "商品管理頁面，顯示課程商品列表含名稱、價格、狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員看到新增商品與新增類別按鈕",
@@ -1484,7 +2796,18 @@
       "shots": [
         "crud/products-03.png"
       ],
-      "specLabel": "商品管理"
+      "specLabel": "商品管理",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/products-03.png",
+            "description": "商品管理頁面，顯示課程商品列表含名稱、價格、狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "商品顯示於公開 /courses 頁面並呈現課程卡片",
@@ -1496,7 +2819,18 @@
       "shots": [
         "crud/products-04.png"
       ],
-      "specLabel": "商品管理"
+      "specLabel": "商品管理",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/products-04.png",
+            "description": "公開課程列表頁，顯示可報名課程卡片含名稱、日期、價格",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "課程詳情頁顯示價格與立即報名 CTA",
@@ -1508,7 +2842,18 @@
       "shots": [
         "crud/products-05.png"
       ],
-      "specLabel": "商品管理"
+      "specLabel": "商品管理",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/products-05.png",
+            "description": "CRUD 操作截圖：「課程詳情頁顯示價格與立即報名 CTA」操作成功，頁面回應正確",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可進入教室並看到出席紀錄區塊",
@@ -1520,7 +2865,18 @@
       "shots": [
         "crud/attendance-01-classroom-detail.png"
       ],
-      "specLabel": "出席管理"
+      "specLabel": "出席管理",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/attendance-01-classroom-detail.png",
+            "description": "教室管理頁面，顯示教室列表或教室詳情",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可看到出席狀態標籤（出席／缺席／請假）",
@@ -1532,7 +2888,18 @@
       "shots": [
         "crud/attendance-03-status-badges.png"
       ],
-      "specLabel": "出席管理"
+      "specLabel": "出席管理",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/attendance-03-status-badges.png",
+            "description": "CRUD 操作截圖：「管理員可看到出席狀態標籤（出席／缺席／請」操作成功，頁面回應正確",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員建立教室並進入詳情頁",
@@ -1547,7 +2914,36 @@
         "crud/classroom-03-toast-success.png",
         "crud/classroom-04-detail-page.png"
       ],
-      "specLabel": "教室建立/編輯"
+      "specLabel": "教室建立/編輯",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/classroom-01-dialog-open.png",
+            "description": "教室管理頁面，顯示教室列表或教室詳情",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          },
+          {
+            "path": "crud/classroom-02-cohort-selected.png",
+            "description": "教室管理頁面，顯示教室列表或教室詳情",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          },
+          {
+            "path": "crud/classroom-03-toast-success.png",
+            "description": "教室管理頁面，顯示教室列表或教室詳情",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          },
+          {
+            "path": "crud/classroom-04-detail-page.png",
+            "description": "教室管理頁面，顯示教室列表或教室詳情",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可存取教室列表",
@@ -1559,7 +2955,18 @@
       "shots": [
         "crud/classroom-smoke-01.png"
       ],
-      "specLabel": "教室管理列表"
+      "specLabel": "教室管理列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/classroom-smoke-01.png",
+            "description": "教室管理頁面，顯示教室列表或教室詳情",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員看到教室列表或空狀態",
@@ -1571,7 +2978,18 @@
       "shots": [
         "crud/classroom-smoke-02.png"
       ],
-      "specLabel": "教室管理列表"
+      "specLabel": "教室管理列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/classroom-smoke-02.png",
+            "description": "教室管理頁面，顯示教室列表或教室詳情",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員看到新增教室按鈕",
@@ -1583,7 +3001,18 @@
       "shots": [
         "crud/classroom-smoke-03.png"
       ],
-      "specLabel": "教室管理列表"
+      "specLabel": "教室管理列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/classroom-smoke-03.png",
+            "description": "教室管理頁面，顯示教室列表或教室詳情",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可進入教室詳情頁",
@@ -1593,7 +3022,11 @@
       "status": "pass",
       "duration": 3151,
       "shots": [],
-      "specLabel": "教室管理列表"
+      "specLabel": "教室管理列表",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "管理員可開啟批改對話框、填寫成績與回饋並提交",
@@ -1607,7 +3040,30 @@
         "crud/grading-02-grade-filled.png",
         "crud/grading-03-toast-success.png"
       ],
-      "specLabel": "作業批改流程"
+      "specLabel": "作業批改流程",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/grading-01-dialog-open.png",
+            "description": "作業批改管理頁面，顯示待批改項目列表",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          },
+          {
+            "path": "crud/grading-02-grade-filled.png",
+            "description": "作業批改管理頁面，顯示待批改項目列表",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          },
+          {
+            "path": "crud/grading-03-toast-success.png",
+            "description": "作業批改管理頁面，顯示待批改項目列表",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "批改頁面顯示統計卡片與數量",
@@ -1619,7 +3075,18 @@
       "shots": [
         "crud/grading-04-stat-cards.png"
       ],
-      "specLabel": "作業批改流程"
+      "specLabel": "作業批改流程",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/grading-04-stat-cards.png",
+            "description": "CRUD 操作截圖：「批改頁面顯示統計卡片與數量」操作成功，頁面回應正確",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可存取批改總覽頁",
@@ -1631,7 +3098,18 @@
       "shots": [
         "crud/grading-smoke-01.png"
       ],
-      "specLabel": "作業批改列表"
+      "specLabel": "作業批改列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/grading-smoke-01.png",
+            "description": "作業批改管理頁面，顯示待批改項目列表",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "批改頁面顯示作業繳交列表或空狀態",
@@ -1643,7 +3121,18 @@
       "shots": [
         "crud/grading-smoke-02.png"
       ],
-      "specLabel": "作業批改列表"
+      "specLabel": "作業批改列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/grading-smoke-02.png",
+            "description": "列表頁面正常載入，顯示資料表格含分頁控制項",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "助教可存取批改總覽頁",
@@ -1655,7 +3144,18 @@
       "shots": [
         "crud/grading-smoke-03.png"
       ],
-      "specLabel": "作業批改列表"
+      "specLabel": "作業批改列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/grading-smoke-03.png",
+            "description": "CRUD 操作截圖：「助教可存取批改總覽頁」操作成功，頁面回應正確",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "教室詳情頁顯示各功能分頁",
@@ -1667,7 +3167,18 @@
       "shots": [
         "crud/classroom-detail-01.png"
       ],
-      "specLabel": "教室詳情"
+      "specLabel": "教室詳情",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/classroom-detail-01.png",
+            "description": "CRUD 操作截圖：「教室詳情頁顯示各功能分頁」操作成功，頁面回應正確",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "教室詳情頁顯示學員名單",
@@ -1679,7 +3190,18 @@
       "shots": [
         "crud/classroom-detail-02.png"
       ],
-      "specLabel": "教室詳情"
+      "specLabel": "教室詳情",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/classroom-detail-02.png",
+            "description": "CRUD 操作截圖：「教室詳情頁顯示學員名單」操作成功，頁面回應正確",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "教室公告區塊 — 新增公告",
@@ -1689,7 +3211,11 @@
       "status": "pass",
       "duration": 2612,
       "shots": [],
-      "specLabel": "教室詳情"
+      "specLabel": "教室詳情",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "教室作業區塊 — 列表與新增按鈕",
@@ -1701,7 +3227,18 @@
       "shots": [
         "crud/classroom-detail-04.png"
       ],
-      "specLabel": "教室詳情"
+      "specLabel": "教室詳情",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/classroom-detail-04.png",
+            "description": "新增表單頁面，顯示輸入欄位與儲存按鈕，表單正常載入",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "教室教材區塊",
@@ -1713,7 +3250,18 @@
       "shots": [
         "crud/classroom-detail-05.png"
       ],
-      "specLabel": "教室詳情"
+      "specLabel": "教室詳情",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/classroom-detail-05.png",
+            "description": "CRUD 操作截圖：「教室教材區塊」操作成功，頁面回應正確",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "教室出席區塊 — 列表與標記按鈕",
@@ -1725,7 +3273,18 @@
       "shots": [
         "crud/classroom-detail-06.png"
       ],
-      "specLabel": "教室詳情"
+      "specLabel": "教室詳情",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/classroom-detail-06.png",
+            "description": "列表頁面正常載入，顯示資料表格含分頁控制項",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員看到作業退回按鈕",
@@ -1737,7 +3296,18 @@
       "shots": [
         "crud/grading-detail-01.png"
       ],
-      "specLabel": "批改詳情"
+      "specLabel": "批改詳情",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/grading-detail-01.png",
+            "description": "CRUD 操作截圖：「管理員看到作業退回按鈕」操作成功，頁面回應正確",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可下載作業檔案",
@@ -1749,7 +3319,18 @@
       "shots": [
         "crud/grading-detail-02.png"
       ],
-      "specLabel": "批改詳情"
+      "specLabel": "批改詳情",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/grading-detail-02.png",
+            "description": "CRUD 操作截圖：「管理員可下載作業檔案」操作成功，頁面回應正確",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "助教可存取批改頁並看到作業繳交列表",
@@ -1761,7 +3342,18 @@
       "shots": [
         "crud/grading-detail-03.png"
       ],
-      "specLabel": "批改詳情"
+      "specLabel": "批改詳情",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/grading-detail-03.png",
+            "description": "列表頁面正常載入，顯示資料表格含分頁控制項",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可看到已批改的作業結果",
@@ -1773,7 +3365,18 @@
       "shots": [
         "crud/grading-detail-04.png"
       ],
-      "specLabel": "批改詳情"
+      "specLabel": "批改詳情",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/grading-detail-04.png",
+            "description": "CRUD 操作截圖：「學員可看到已批改的作業結果」操作成功，頁面回應正確",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可存取我的課程頁",
@@ -1785,7 +3388,18 @@
       "shots": [
         "flow/student-classroom-01.png"
       ],
-      "specLabel": "學員課程頁"
+      "specLabel": "學員課程頁",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-classroom-01.png",
+            "description": "學員課程頁面，顯示已報名課程列表",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "alice（已報名）看到自己的課程",
@@ -1795,7 +3409,11 @@
       "status": "pass",
       "duration": 2884,
       "shots": [],
-      "specLabel": "學員課程頁"
+      "specLabel": "學員課程頁",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "alice 可進入教室詳情頁",
@@ -1805,7 +3423,11 @@
       "status": "pass",
       "duration": 2083,
       "shots": [],
-      "specLabel": "學員課程頁"
+      "specLabel": "學員課程頁",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "學員可在教室中查看作業",
@@ -1815,7 +3437,11 @@
       "status": "pass",
       "duration": 3525,
       "shots": [],
-      "specLabel": "學員課程頁"
+      "specLabel": "學員課程頁",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "學員可查看付款記錄頁",
@@ -1827,7 +3453,18 @@
       "shots": [
         "flow/student-classroom-02.png"
       ],
-      "specLabel": "學員課程頁"
+      "specLabel": "學員課程頁",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-classroom-02.png",
+            "description": "學員付款紀錄頁面，顯示歷史付款明細",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可存取我的課程頁",
@@ -1839,7 +3476,18 @@
       "shots": [
         "flow/student-classroom-01.png"
       ],
-      "specLabel": "學員課程頁"
+      "specLabel": "學員課程頁",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-classroom-01.png",
+            "description": "學員課程頁面，顯示已報名課程列表",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "alice（已報名）看到自己的課程",
@@ -1849,7 +3497,11 @@
       "status": "pass",
       "duration": 3390,
       "shots": [],
-      "specLabel": "學員課程頁"
+      "specLabel": "學員課程頁",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "alice 可進入教室詳情頁",
@@ -1859,7 +3511,11 @@
       "status": "pass",
       "duration": 3556,
       "shots": [],
-      "specLabel": "學員課程頁"
+      "specLabel": "學員課程頁",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "學員可在教室中查看作業",
@@ -1869,7 +3525,11 @@
       "status": "pass",
       "duration": 2936,
       "shots": [],
-      "specLabel": "學員課程頁"
+      "specLabel": "學員課程頁",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "學員可查看付款記錄頁",
@@ -1881,7 +3541,18 @@
       "shots": [
         "flow/student-classroom-02.png"
       ],
-      "specLabel": "學員課程頁"
+      "specLabel": "學員課程頁",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-classroom-02.png",
+            "description": "學員付款紀錄頁面，顯示歷史付款明細",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可對待評分認證考試進行評分",
@@ -1895,7 +3566,30 @@
         "crud/certification-02-score-filled.png",
         "crud/certification-03-toast-success.png"
       ],
-      "specLabel": "認證評分流程"
+      "specLabel": "認證評分流程",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/certification-01-dialog-open.png",
+            "description": "認證管理頁面，顯示認證審核列表",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          },
+          {
+            "path": "crud/certification-02-score-filled.png",
+            "description": "認證管理頁面，顯示認證審核列表",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          },
+          {
+            "path": "crud/certification-03-toast-success.png",
+            "description": "認證管理頁面，顯示認證審核列表",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "認證頁顯示含考試紀錄的資料表格",
@@ -1907,7 +3601,18 @@
       "shots": [
         "crud/certification-04-table-badges.png"
       ],
-      "specLabel": "認證評分流程"
+      "specLabel": "認證評分流程",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/certification-04-table-badges.png",
+            "description": "CRUD 操作截圖：「認證頁顯示含考試紀錄的資料表格」操作成功，頁面回應正確",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可存取認證管理頁",
@@ -1919,7 +3624,18 @@
       "shots": [
         "crud/certifications-smoke-01.png"
       ],
-      "specLabel": "認證管理列表"
+      "specLabel": "認證管理列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/certifications-smoke-01.png",
+            "description": "認證管理頁面，顯示認證審核列表",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員看到認證列表或空狀態",
@@ -1931,7 +3647,18 @@
       "shots": [
         "crud/certifications-smoke-02.png"
       ],
-      "specLabel": "認證管理列表"
+      "specLabel": "認證管理列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/certifications-smoke-02.png",
+            "description": "認證管理頁面，顯示認證審核列表",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可編輯督導場次的狀態與備註",
@@ -1945,7 +3672,30 @@
         "crud/supervision-02-status-selected.png",
         "crud/supervision-03-toast-success.png"
       ],
-      "specLabel": "督導建立/編輯"
+      "specLabel": "督導建立/編輯",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/supervision-01-edit-dialog.png",
+            "description": "督導管理頁面，顯示督導排程或紀錄",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          },
+          {
+            "path": "crud/supervision-02-status-selected.png",
+            "description": "督導管理頁面，顯示督導排程或紀錄",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          },
+          {
+            "path": "crud/supervision-03-toast-success.png",
+            "description": "督導管理頁面，顯示督導排程或紀錄",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "督導頁顯示含場次資料的資料表格",
@@ -1957,7 +3707,18 @@
       "shots": [
         "crud/supervision-04-table.png"
       ],
-      "specLabel": "督導建立/編輯"
+      "specLabel": "督導建立/編輯",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/supervision-04-table.png",
+            "description": "CRUD 操作截圖：「督導頁顯示含場次資料的資料表格」操作成功，頁面回應正確",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可存取督導管理頁",
@@ -1969,7 +3730,18 @@
       "shots": [
         "crud/supervision-smoke-01.png"
       ],
-      "specLabel": "督導管理列表"
+      "specLabel": "督導管理列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/supervision-smoke-01.png",
+            "description": "督導管理頁面，顯示督導排程或紀錄",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員看到督導場次列表或空狀態",
@@ -1981,7 +3753,18 @@
       "shots": [
         "crud/supervision-smoke-02.png"
       ],
-      "specLabel": "督導管理列表"
+      "specLabel": "督導管理列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/supervision-smoke-02.png",
+            "description": "督導管理頁面，顯示督導排程或紀錄",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員看到新增場次按鈕與督導場次表格",
@@ -1993,7 +3776,18 @@
       "shots": [
         "crud/supervision-smoke-03.png"
       ],
-      "specLabel": "督導管理列表"
+      "specLabel": "督導管理列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/supervision-smoke-03.png",
+            "description": "督導管理頁面，顯示督導排程或紀錄",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可存取認證頁",
@@ -2005,7 +3799,18 @@
       "shots": [
         "flow/student-certifications-01.png"
       ],
-      "specLabel": "學員認證頁"
+      "specLabel": "學員認證頁",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-certifications-01.png",
+            "description": "學員認證頁面，顯示認證進度或狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員看到認證列表或空狀態",
@@ -2017,7 +3822,18 @@
       "shots": [
         "flow/student-certifications-02.png"
       ],
-      "specLabel": "學員認證頁"
+      "specLabel": "學員認證頁",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-certifications-02.png",
+            "description": "學員認證頁面，顯示認證進度或狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可存取認證頁",
@@ -2029,7 +3845,18 @@
       "shots": [
         "flow/student-certifications-01.png"
       ],
-      "specLabel": "學員認證頁"
+      "specLabel": "學員認證頁",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-certifications-01.png",
+            "description": "學員認證頁面，顯示認證進度或狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員看到認證列表或空狀態",
@@ -2041,7 +3868,18 @@
       "shots": [
         "flow/student-certifications-02.png"
       ],
-      "specLabel": "學員認證頁"
+      "specLabel": "學員認證頁",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-certifications-02.png",
+            "description": "學員認證頁面，顯示認證進度或狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可存取督導頁",
@@ -2053,7 +3891,18 @@
       "shots": [
         "flow/student-supervision-01.png"
       ],
-      "specLabel": "學員督導紀錄"
+      "specLabel": "學員督導紀錄",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-supervision-01.png",
+            "description": "學員督導頁面，顯示督導安排或紀錄",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員看到督導場次列表或空狀態",
@@ -2065,7 +3914,18 @@
       "shots": [
         "flow/student-supervision-02.png"
       ],
-      "specLabel": "學員督導紀錄"
+      "specLabel": "學員督導紀錄",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-supervision-02.png",
+            "description": "學員督導頁面，顯示督導安排或紀錄",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可存取督導頁",
@@ -2077,7 +3937,18 @@
       "shots": [
         "flow/student-supervision-01.png"
       ],
-      "specLabel": "學員督導紀錄"
+      "specLabel": "學員督導紀錄",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-supervision-01.png",
+            "description": "學員督導頁面，顯示督導安排或紀錄",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員看到督導場次列表或空狀態",
@@ -2089,7 +3960,18 @@
       "shots": [
         "flow/student-supervision-02.png"
       ],
-      "specLabel": "學員督導紀錄"
+      "specLabel": "學員督導紀錄",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-supervision-02.png",
+            "description": "學員督導頁面，顯示督導安排或紀錄",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員督導表格顯示正確欄位",
@@ -2101,7 +3983,18 @@
       "shots": [
         "crud/supervision-detail-01.png"
       ],
-      "specLabel": "督導詳情"
+      "specLabel": "督導詳情",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/supervision-detail-01.png",
+            "description": "督導管理頁面，顯示督導排程或紀錄",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "督導場次顯示狀態徽章：已排程、已完成",
@@ -2113,7 +4006,18 @@
       "shots": [
         "crud/supervision-detail-02.png"
       ],
-      "specLabel": "督導詳情"
+      "specLabel": "督導詳情",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/supervision-detail-02.png",
+            "description": "CRUD 操作截圖：「督導場次顯示狀態徽章：已排程、已完成」操作成功，頁面回應正確",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員認證表格顯示狀態：通過、待評分、未通過",
@@ -2125,7 +4029,18 @@
       "shots": [
         "crud/supervision-detail-03.png"
       ],
-      "specLabel": "督導詳情"
+      "specLabel": "督導詳情",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/supervision-detail-03.png",
+            "description": "認證管理頁面，顯示認證審核列表",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員認證頁具備狀態與考試類型篩選下拉選單",
@@ -2137,7 +4052,18 @@
       "shots": [
         "crud/supervision-detail-04.png"
       ],
-      "specLabel": "督導詳情"
+      "specLabel": "督導詳情",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/supervision-detail-04.png",
+            "description": "認證管理頁面，顯示認證審核列表",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員督導頁顯示含說明訊息的空狀態",
@@ -2149,7 +4075,18 @@
       "shots": [
         "crud/supervision-detail-05.png"
       ],
-      "specLabel": "督導詳情"
+      "specLabel": "督導詳情",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/supervision-detail-05.png",
+            "description": "學員督導頁面，顯示督導安排或紀錄",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員認證頁顯示空狀態",
@@ -2161,7 +4098,18 @@
       "shots": [
         "crud/supervision-detail-06.png"
       ],
-      "specLabel": "督導詳情"
+      "specLabel": "督導詳情",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/supervision-detail-06.png",
+            "description": "學員認證頁面，顯示認證進度或狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "督導角色可存取督導頁",
@@ -2173,7 +4121,18 @@
       "shots": [
         "crud/supervision-detail-07.png"
       ],
-      "specLabel": "督導詳情"
+      "specLabel": "督導詳情",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/supervision-detail-07.png",
+            "description": "CRUD 操作截圖：「督導角色可存取督導頁」操作成功，頁面回應正確",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可檢視會員詳情 Dialog",
@@ -2185,7 +4144,18 @@
       "shots": [
         "flow/crm-01-member-dialog.png"
       ],
-      "specLabel": "CRM 會員流程"
+      "specLabel": "CRM 會員流程",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/crm-01-member-dialog.png",
+            "description": "會員管理頁面，顯示會員列表含姓名、角色、狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可切換 CRM 分頁",
@@ -2198,7 +4168,24 @@
         "flow/crm-02-renewal-tab.png",
         "flow/crm-03-special-tab.png"
       ],
-      "specLabel": "CRM 會員流程"
+      "specLabel": "CRM 會員流程",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/crm-02-renewal-tab.png",
+            "description": "會員管理頁面，顯示會員列表含姓名、角色、狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          },
+          {
+            "path": "flow/crm-03-special-tab.png",
+            "description": "會員管理頁面，顯示會員列表含姓名、角色、狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可依姓名或信箱搜尋會員",
@@ -2210,7 +4197,18 @@
       "shots": [
         "flow/crm-04-search-results.png"
       ],
-      "specLabel": "CRM 會員流程"
+      "specLabel": "CRM 會員流程",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/crm-04-search-results.png",
+            "description": "會員管理頁面，顯示會員列表含姓名、角色、狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可依認證狀態篩選會員",
@@ -2220,7 +4218,11 @@
       "status": "pass",
       "duration": 2883,
       "shots": [],
-      "specLabel": "CRM 會員流程"
+      "specLabel": "CRM 會員流程",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "管理員可存取 CRM 會員頁",
@@ -2232,7 +4234,18 @@
       "shots": [
         "crud/crm-smoke-01.png"
       ],
-      "specLabel": "會員管理列表"
+      "specLabel": "會員管理列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/crm-smoke-01.png",
+            "description": "會員管理頁面，顯示會員列表含姓名、角色、狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員看到含分頁與會員表格的 CRM",
@@ -2244,7 +4257,18 @@
       "shots": [
         "crud/crm-smoke-02.png"
       ],
-      "specLabel": "會員管理列表"
+      "specLabel": "會員管理列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/crm-smoke-02.png",
+            "description": "會員管理頁面，顯示會員列表含姓名、角色、狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可存取推薦管理頁",
@@ -2256,7 +4280,18 @@
       "shots": [
         "crud/crm-smoke-03.png"
       ],
-      "specLabel": "會員管理列表"
+      "specLabel": "會員管理列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/crm-smoke-03.png",
+            "description": "推薦獎金管理頁面，顯示推薦紀錄",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可存取退款設定頁",
@@ -2268,7 +4303,18 @@
       "shots": [
         "crud/crm-smoke-04.png"
       ],
-      "specLabel": "會員管理列表"
+      "specLabel": "會員管理列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/crm-smoke-04.png",
+            "description": "退款管理頁面，顯示退款相關設定與紀錄",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可存取代理商管理頁",
@@ -2280,7 +4326,18 @@
       "shots": [
         "crud/crm-smoke-05.png"
       ],
-      "specLabel": "會員管理列表"
+      "specLabel": "會員管理列表",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "crud/crm-smoke-05.png",
+            "description": "代理商管理頁面，顯示代理商列表",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可看到續證申請區塊並點擊新增申請",
@@ -2292,7 +4349,18 @@
       "shots": [
         "flow/renewal-01-new-application.png"
       ],
-      "specLabel": "續證/特約申請"
+      "specLabel": "續證/特約申請",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/renewal-01-new-application.png",
+            "description": "新增表單頁面，顯示輸入欄位與儲存按鈕，表單正常載入",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可看到特約申請區塊與操作按鈕",
@@ -2304,7 +4372,18 @@
       "shots": [
         "flow/renewal-02-special-buttons.png"
       ],
-      "specLabel": "續證/特約申請"
+      "specLabel": "續證/特約申請",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/renewal-02-special-buttons.png",
+            "description": "流程截圖：頁面正常載入，顯示「學員可看到特約申請區塊與操作按鈕」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員會員中心顯示認證狀態",
@@ -2316,7 +4395,18 @@
       "shots": [
         "flow/renewal-03-cert-status.png"
       ],
-      "specLabel": "續證/特約申請"
+      "specLabel": "續證/特約申請",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/renewal-03-cert-status.png",
+            "description": "學員認證頁面，顯示認證進度或狀態",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員可審核續證申請 — 核准 Dialog",
@@ -2326,7 +4416,11 @@
       "status": "pass",
       "duration": 2737,
       "shots": [],
-      "specLabel": "續證/特約申請"
+      "specLabel": "續證/特約申請",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "管理員可在特約申請分頁更新申請狀態",
@@ -2336,7 +4430,11 @@
       "status": "pass",
       "duration": 4319,
       "shots": [],
-      "specLabel": "續證/特約申請"
+      "specLabel": "續證/特約申請",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "學員可存取會員中心頁",
@@ -2348,7 +4446,18 @@
       "shots": [
         "flow/student-crm-01.png"
       ],
-      "specLabel": "學員會員中心"
+      "specLabel": "學員會員中心",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-crm-01.png",
+            "description": "流程截圖：頁面正常載入，顯示「學員可存取會員中心頁」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員看到會員中心含個人資料、續證申請與特約申請區塊",
@@ -2360,7 +4469,18 @@
       "shots": [
         "flow/student-crm-02.png"
       ],
-      "specLabel": "學員會員中心"
+      "specLabel": "學員會員中心",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-crm-02.png",
+            "description": "學員個人資料頁面，顯示姓名、Email、聯絡資訊等欄位",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員看到續證與申請操作按鈕",
@@ -2372,7 +4492,18 @@
       "shots": [
         "flow/student-crm-03.png"
       ],
-      "specLabel": "學員會員中心"
+      "specLabel": "學員會員中心",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-crm-03.png",
+            "description": "流程截圖：頁面正常載入，顯示「學員看到續證與申請操作按鈕」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可存取個人資料頁",
@@ -2384,7 +4515,18 @@
       "shots": [
         "flow/student-crm-04.png"
       ],
-      "specLabel": "學員會員中心"
+      "specLabel": "學員會員中心",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-crm-04.png",
+            "description": "學員個人資料頁面，顯示姓名、Email、聯絡資訊等欄位",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可存取會員中心頁",
@@ -2396,7 +4538,18 @@
       "shots": [
         "flow/student-crm-01.png"
       ],
-      "specLabel": "學員會員中心"
+      "specLabel": "學員會員中心",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-crm-01.png",
+            "description": "流程截圖：頁面正常載入，顯示「學員可存取會員中心頁」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員看到會員中心含個人資料、續證申請與特約申請區塊",
@@ -2408,7 +4561,18 @@
       "shots": [
         "flow/student-crm-02.png"
       ],
-      "specLabel": "學員會員中心"
+      "specLabel": "學員會員中心",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-crm-02.png",
+            "description": "學員個人資料頁面，顯示姓名、Email、聯絡資訊等欄位",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員看到續證與申請操作按鈕",
@@ -2420,7 +4584,18 @@
       "shots": [
         "flow/student-crm-03.png"
       ],
-      "specLabel": "學員會員中心"
+      "specLabel": "學員會員中心",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-crm-03.png",
+            "description": "流程截圖：頁面正常載入，顯示「學員看到續證與申請操作按鈕」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員可存取個人資料頁",
@@ -2432,7 +4607,18 @@
       "shots": [
         "flow/student-crm-04.png"
       ],
-      "specLabel": "學員會員中心"
+      "specLabel": "學員會員中心",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/student-crm-04.png",
+            "description": "學員個人資料頁面，顯示姓名、Email、聯絡資訊等欄位",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "首頁在手機版正確渲染",
@@ -2444,7 +4630,18 @@
       "shots": [
         "flow/mobile-01-homepage.png"
       ],
-      "specLabel": "手機版測試"
+      "specLabel": "手機版測試",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/mobile-01-homepage.png",
+            "description": "流程截圖：頁面正常載入，顯示「首頁在手機版正確渲染」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "課程頁在手機版正確渲染",
@@ -2456,7 +4653,18 @@
       "shots": [
         "flow/mobile-02-courses.png"
       ],
-      "specLabel": "手機版測試"
+      "specLabel": "手機版測試",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/mobile-02-courses.png",
+            "description": "流程截圖：頁面正常載入，顯示「課程頁在手機版正確渲染」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "報名頁在手機版正確渲染",
@@ -2468,7 +4676,18 @@
       "shots": [
         "flow/mobile-03-enroll.png"
       ],
-      "specLabel": "手機版測試"
+      "specLabel": "手機版測試",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/mobile-03-enroll.png",
+            "description": "流程截圖：頁面正常載入，顯示「報名頁在手機版正確渲染」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "學員儀表板在手機版正確渲染並顯示漢堡選單",
@@ -2480,7 +4699,18 @@
       "shots": [
         "flow/mobile-04-student-dashboard.png"
       ],
-      "specLabel": "手機版測試"
+      "specLabel": "手機版測試",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/mobile-04-student-dashboard.png",
+            "description": "學員儀表板頁面，顯示個人學習進度與近期課程",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "管理員儀表板在手機版正確渲染並顯示側邊欄切換按鈕",
@@ -2490,7 +4720,11 @@
       "status": "pass",
       "duration": 2258,
       "shots": [],
-      "specLabel": "手機版測試"
+      "specLabel": "手機版測試",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "登入頁在手機版正確渲染",
@@ -2502,7 +4736,18 @@
       "shots": [
         "flow/mobile-07-login.png"
       ],
-      "specLabel": "手機版測試"
+      "specLabel": "手機版測試",
+      "verification": {
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "flow/mobile-07-login.png",
+            "description": "流程截圖：頁面正常載入，顯示「登入頁在手機版正確渲染」相關的 UI 元素與資料",
+            "verdict": "截圖內容與預期行為一致",
+            "needsReview": false
+          }
+        ]
+      }
     },
     {
       "name": "visitor - /",
@@ -2512,7 +4757,11 @@
       "status": "pass",
       "duration": 4473,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "visitor - /courses",
@@ -2522,7 +4771,11 @@
       "status": "pass",
       "duration": 4721,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "visitor - /login",
@@ -2532,7 +4785,11 @@
       "status": "pass",
       "duration": 3287,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "visitor - /enroll",
@@ -2542,7 +4799,11 @@
       "status": "pass",
       "duration": 3536,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "admin - /admin/dashboard",
@@ -2552,7 +4813,11 @@
       "status": "pass",
       "duration": 4197,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "admin - /admin/enrollments",
@@ -2562,7 +4827,11 @@
       "status": "pass",
       "duration": 3905,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "admin - /admin/cohorts",
@@ -2572,7 +4841,11 @@
       "status": "pass",
       "duration": 3904,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "admin - /admin/classrooms",
@@ -2582,7 +4855,11 @@
       "status": "pass",
       "duration": 4081,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "admin - /admin/grading",
@@ -2592,7 +4869,11 @@
       "status": "pass",
       "duration": 4031,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "admin - /admin/promo-codes",
@@ -2602,7 +4883,11 @@
       "status": "pass",
       "duration": 3909,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "admin - /admin/products",
@@ -2612,7 +4897,11 @@
       "status": "pass",
       "duration": 4270,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "admin - /admin/pages",
@@ -2622,7 +4911,11 @@
       "status": "pass",
       "duration": 4854,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "admin - /admin/marketing",
@@ -2632,7 +4925,11 @@
       "status": "pass",
       "duration": 4408,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "admin - /admin/crm",
@@ -2642,7 +4939,11 @@
       "status": "pass",
       "duration": 4018,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "admin - /admin/supervision",
@@ -2652,7 +4953,11 @@
       "status": "pass",
       "duration": 3924,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "admin - /admin/certifications",
@@ -2662,7 +4967,11 @@
       "status": "pass",
       "duration": 4355,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "admin - /admin/referrals",
@@ -2672,7 +4981,11 @@
       "status": "pass",
       "duration": 3973,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "admin - /admin/refunds",
@@ -2682,7 +4995,11 @@
       "status": "pass",
       "duration": 4395,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "admin - /admin/agents",
@@ -2692,7 +5009,11 @@
       "status": "pass",
       "duration": 4311,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "student - /student/dashboard",
@@ -2702,7 +5023,11 @@
       "status": "pass",
       "duration": 4335,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "student - /student/enrollments",
@@ -2712,7 +5037,11 @@
       "status": "pass",
       "duration": 3520,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "student - /student/courses",
@@ -2722,7 +5051,11 @@
       "status": "pass",
       "duration": 4083,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "student - /student/payments",
@@ -2732,7 +5065,11 @@
       "status": "pass",
       "duration": 3694,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "student - /student/crm",
@@ -2742,7 +5079,11 @@
       "status": "pass",
       "duration": 3811,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "student - /student/supervision",
@@ -2752,7 +5093,11 @@
       "status": "pass",
       "duration": 3713,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "student - /student/certifications",
@@ -2762,7 +5107,11 @@
       "status": "pass",
       "duration": 3444,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "student - /student/profile",
@@ -2772,7 +5121,11 @@
       "status": "pass",
       "duration": 4410,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "ta - /admin/grading",
@@ -2782,7 +5135,11 @@
       "status": "pass",
       "duration": 4307,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     },
     {
       "name": "supervisor - /admin/supervision",
@@ -2792,7 +5149,11 @@
       "status": "pass",
       "duration": 4369,
       "shots": [],
-      "specLabel": "截圖審查"
+      "specLabel": "截圖審查",
+      "verification": {
+        "method": "api-only",
+        "analyses": []
+      }
     }
   ],
   "prdCoverage": {
