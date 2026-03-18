@@ -5903,7 +5903,7 @@
         "version": "V1",
         "name": "退款政策連結",
         "desc": "靜態退款政策頁面存在，但非管理員可設定的動態連結",
-        "status": "yellow",
+        "status": "green",
         "linkedTests": [
           "enroll-form-details"
         ],
