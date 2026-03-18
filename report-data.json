@@ -5730,9 +5730,9 @@
   ],
   "prdCoverage": {
     "summary": {
-      "green": 12,
+      "green": 13,
       "yellow": 15,
-      "red": 11,
+      "red": 10,
       "total": 38
     },
     "items": [
@@ -5886,8 +5886,8 @@
         "module": "M1",
         "version": "V1",
         "name": "海外地址 SOP 提醒",
-        "desc": "海外地址偵測與 SOP 提醒 — 前後端均無實作",
-        "status": "red",
+        "desc": "報名表單 Step 2 收件資訊加入「此為海外地址」checkbox，勾選後顯示琥珀色 SOP 提醒：需額外收取運費、寄送時間約 2–4 週、請聯繫客服確認費用 — PR #121",
+        "status": "green",
         "linkedTests": [
           "student-crm"
         ],
@@ -6104,9 +6104,11 @@
         "module": "M1",
         "version": "V1",
         "name": "Email 驗證",
-        "desc": "後端 email verification 流程存在，前端驗證連結處理不明確",
-        "status": "yellow",
-        "linkedTests": [],
+        "desc": "後端 email verification 流程存在，前端 /verify-email/[token] 頁面已實作（PR #122）",
+        "status": "green",
+        "linkedTests": [
+          "email-verification"
+        ],
         "screenshot": null,
         "group": "額外修復（Session 2）",
         "groupId": "extra-done",
