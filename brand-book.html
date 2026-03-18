@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CNC 品牌設計規範 — Brand Book</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #37A6A9;
+    --primary-hover: #2E8E91;
+    --secondary: #17335F;
+    --accent: #F9C04C;
+    --bg: #F7F3F0;
+    --bg-card: #FFFFFF;
+    --bg-muted: #F0ECE8;
+    --border: #E8E4E0;
+    --text: #17335F;
+    --text-muted: #6B6560;
+    --text-light: #9C9590;
+    --success: #22C55E;
+    --warning: #EAB308;
+    --error: #EF4444;
+    --info: #3B82F6;
+    --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    background: linear-gradient(135deg, var(--secondary) 0%, #1E4080 60%, var(--primary) 100%);
+    color: #fff;
+    padding: 80px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.08;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    background: var(--primary);
+    opacity: 0.1;
+  }
+  .hero-label {
+    font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 3px;
+    opacity: 0.6; margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero p {
+    font-size: 18px;
+    opacity: 0.8;
+    max-width: 560px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Layout ── */
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 64px 0; }
+  .section + .section { border-top: 1px solid var(--border); }
+  .section-num {
+    font-size: 11px; font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-size: 32px; font-weight: 800;
+    color: var(--secondary);
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  .section-desc {
+    font-size: 16px; color: var(--text-muted);
+    max-width: 640px; margin-bottom: 32px;
+  }
+
+  /* ── Color Grid ── */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .color-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(23,51,95,0.06);
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+  }
+  .color-swatch { height: 100px; }
+  .color-info { padding: 14px 16px; }
+  .color-name { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+  .color-hex { font-size: 13px; color: var(--text-light); font-variant-numeric: tabular-nums; }
+  .color-use { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+  /* ── Brand Triad ── */
+  .triad {
+    display: flex; gap: 0; border-radius: 16px; overflow: hidden;
+    box-shadow: 0 4px 16px rgba(23,51,95,0.1);
+    margin-bottom: 32px; height: 160px;
+  }
+  .triad > div { flex: 1; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 6px; }
+  .triad-label { font-size: 14px; font-weight: 700; }
+  .triad-hex { font-size: 12px; opacity: 0.7; }
+
+  /* ── Typography ── */
+  .type-row {
+    display: flex; align-items: baseline; gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .type-row:last-child { border-bottom: none; }
+  .type-meta {
+    min-width: 160px;
+    font-size: 12px; color: var(--text-light);
+    font-weight: 500;
+  }
+  .type-meta strong { display: block; font-size: 13px; color: var(--text-muted); font-weight: 700; }
+  .type-sample { flex: 1; }
+
+  /* ── Component Showcase ── */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .comp-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .comp-label {
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px;
+    color: var(--primary);
+    margin-bottom: 16px;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 10px 20px; border-radius: 6px;
+    font-family: var(--font); font-size: 14px; font-weight: 600;
+    border: none; cursor: pointer; transition: all 0.15s ease-out;
+  }
+  .btn-primary { background: var(--primary); color: #fff; }
+  .btn-secondary { background: var(--secondary); color: #fff; }
+  .btn-accent { background: var(--accent); color: var(--secondary); }
+  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-group { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  /* Badges */
+  .badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 3px 10px; border-radius: 999px;
+    font-size: 12px; font-weight: 600;
+  }
+  .badge-paid { background: #ECFDF5; color: #065F46; border: 1px solid #A7F3D0; }
+  .badge-pending { background: #FFFBEB; color: #92400E; border: 1px solid #FDE68A; }
+  .badge-failed { background: #FEF2F2; color: #991B1B; border: 1px solid #FECACA; }
+  .badge-cert { background: #FEF9E7; color: #7C6A1F; border: 1px solid var(--accent); }
+
+  /* Alerts */
+  .alert {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 12px 16px; border-radius: 10px;
+    font-size: 14px; border: 1px solid;
+    margin-bottom: 10px;
+  }
+  .alert-s { background: #F0FDF4; border-color: #BBF7D0; color: #166534; }
+  .alert-w { background: #FEFCE8; border-color: #FEF08A; color: #854D0E; }
+  .alert-e { background: #FEF2F2; border-color: #FECACA; color: #991B1B; }
+  .alert-i { background: #EFF6FF; border-color: #BFDBFE; color: #1E40AF; }
+
+  /* Spacing */
+  .spacing-row { display: flex; align-items: center; gap: 16px; padding: 8px 0; }
+  .spacing-bar { background: var(--primary); border-radius: 4px; height: 24px; opacity: 0.5; }
+  .spacing-label { min-width: 80px; font-size: 13px; font-weight: 600; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+  .spacing-token { font-size: 12px; color: var(--text-light); min-width: 50px; }
+
+  /* Journey */
+  .journey { display: flex; gap: 0; margin: 24px 0; flex-wrap: wrap; }
+  .journey-step {
+    display: flex; flex-direction: column; align-items: center;
+    min-width: 80px; position: relative; flex: 1;
+    padding: 0 4px;
+  }
+  .journey-dot {
+    width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 700; color: #fff;
+    margin-bottom: 8px; position: relative; z-index: 2;
+  }
+  .journey-dot.done { background: var(--primary); }
+  .journey-dot.current { background: var(--accent); color: var(--secondary); box-shadow: 0 0 0 4px rgba(249,192,76,0.3); }
+  .journey-dot.upcoming { background: var(--border); color: var(--text-light); }
+  .journey-step:not(:last-child)::after {
+    content: ''; position: absolute; top: 20px;
+    left: calc(50% + 20px); right: calc(-50% + 20px);
+    height: 2px; background: var(--border); z-index: 1;
+  }
+  .journey-step.done:not(:last-child)::after { background: var(--primary); }
+  .j-label { font-size: 12px; font-weight: 600; color: var(--text); text-align: center; }
+
+  /* Cert Card */
+  .cert-card {
+    background: linear-gradient(135deg, var(--secondary) 0%, #1E4080 100%);
+    border-radius: 14px; padding: 32px; color: #fff;
+    position: relative; overflow: hidden;
+  }
+  .cert-card::before {
+    content: ''; position: absolute; top: -40px; right: -40px;
+    width: 160px; height: 160px; border-radius: 50%;
+    background: var(--accent); opacity: 0.12;
+  }
+  .cert-name { font-size: 28px; font-weight: 800; margin-bottom: 4px; }
+  .cert-sub { font-size: 14px; opacity: 0.7; margin-bottom: 12px; }
+  .cert-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--accent); color: var(--secondary);
+    padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 700;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 32px 0; text-align: center;
+    font-size: 12px; color: var(--text-light);
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 640px) {
+    .triad { height: 120px; }
+    .type-row { flex-direction: column; gap: 8px; }
+    .type-meta { min-width: auto; }
+    .color-grid { grid-template-columns: repeat(2, 1fr); }
+    .comp-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-label">Brand Design System</div>
+    <h1>CNC 品牌設計規範</h1>
+    <p>職涯諮詢師培訓平台的視覺語言 — 字體、色彩、元件、互動模式</p>
+  </div>
+
+  <main class="container">
+
+    <!-- 01 BRAND COLORS -->
+    <section class="section">
+      <div class="section-num">01 — Color</div>
+      <div class="section-title">品牌色彩</div>
+      <div class="section-desc">源自職游 Logo 的三色系統 — Teal 代表專業信任，Navy 代表權威深度，Gold 代表成就與慶祝</div>
+
+      <div class="triad">
+        <div style="background:#37A6A9;color:#fff"><span class="triad-label">Teal</span><span class="triad-hex">#37A6A9</span></div>
+        <div style="background:#17335F;color:#fff"><span class="triad-label">Navy</span><span class="triad-hex">#17335F</span></div>
+        <div style="background:#F9C04C;color:#17335F"><span class="triad-label">Gold</span><span class="triad-hex">#F9C04C</span></div>
+      </div>
+
+      <div class="color-grid">
+        <div class="color-card"><div class="color-swatch" style="background:#37A6A9"></div><div class="color-info"><div class="color-name">Primary Teal</div><div class="color-hex">#37A6A9</div><div class="color-use">CTA、連結、啟用狀態</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#17335F"></div><div class="color-info"><div class="color-name">Secondary Navy</div><div class="color-hex">#17335F</div><div class="color-use">標題、側邊欄、權威元素</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#F9C04C"></div><div class="color-info"><div class="color-name">Accent Gold</div><div class="color-hex">#F9C04C</div><div class="color-use">徽章、認證、成就慶祝</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#F7F3F0"></div><div class="color-info"><div class="color-name">Background</div><div class="color-hex">#F7F3F0</div><div class="color-use">頁面背景（暖奶油色）</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#E8E4E0"></div><div class="color-info"><div class="color-name">Border</div><div class="color-hex">#E8E4E0</div><div class="color-use">邊框、分隔線</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#22C55E"></div><div class="color-info"><div class="color-name">Success</div><div class="color-hex">#22C55E</div><div class="color-use">已付款、已完成</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#EAB308"></div><div class="color-info"><div class="color-name">Warning</div><div class="color-hex">#EAB308</div><div class="color-use">待處理、截止提醒</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#EF4444"></div><div class="color-info"><div class="color-name">Error</div><div class="color-hex">#EF4444</div><div class="color-use">付款失敗、驗證錯誤</div></div></div>
+      </div>
+    </section>
+
+    <!-- 02 TYPOGRAPHY -->
+    <section class="section">
+      <div class="section-num">02 — Typography</div>
+      <div class="section-title">字體系統</div>
+      <div class="section-desc">Plus Jakarta Sans — 幾何但溫暖，專業不冰冷，中英文搭配良好</div>
+
+      <div class="type-row">
+        <div class="type-meta"><strong>Display</strong>56px / 800</div>
+        <div class="type-sample" style="font-size:56px;font-weight:800;letter-spacing:-1px;line-height:1.1;color:var(--secondary)">成為認證職涯諮詢師</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>H1</strong>36px / 800</div>
+        <div class="type-sample" style="font-size:36px;font-weight:800;letter-spacing:-0.5px;color:var(--secondary)">2026 培訓課程</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>H2</strong>28px / 700</div>
+        <div class="type-sample" style="font-size:28px;font-weight:700;color:var(--secondary)">報名流程說明</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>H3</strong>22px / 700</div>
+        <div class="type-sample" style="font-size:22px;font-weight:700;color:var(--secondary)">課程特色與內容</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>Body</strong>16px / 400</div>
+        <div class="type-sample" style="font-size:16px;font-weight:400;color:var(--text-muted);max-width:600px">提供溫暖、有趣又有效的新型態生涯職涯諮詢，期待每個人都能發揮所長，熱愛自己的生活。CNC 培訓涵蓋 A 班基礎應用、B 班進階實戰，完整的督導認證體系</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>Label</strong>13px / 600</div>
+        <div class="type-sample" style="font-size:13px;font-weight:600;color:var(--text-muted)">報名狀態 · 付款方式 · 梯次選擇 · 折扣碼</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>Data</strong>15px / 500 tabular</div>
+        <div class="type-sample" style="font-size:15px;font-weight:500;font-variant-numeric:tabular-nums">NT$27,000 · NT$67,500 · NT$70,000 · 通過率 80.7%</div>
+      </div>
+    </section>
+
+    <!-- 03 COMPONENTS -->
+    <section class="section">
+      <div class="section-num">03 — Components</div>
+      <div class="section-title">核心元件</div>
+      <div class="section-desc">按鈕、徽章、提示訊息 — 統一的視覺語彙</div>
+
+      <div class="comp-grid">
+        <div class="comp-card">
+          <div class="comp-label">Buttons</div>
+          <div class="btn-group">
+            <button class="btn btn-primary">立即報名</button>
+            <button class="btn btn-secondary">查看課程</button>
+          </div>
+          <div class="btn-group" style="margin-top:10px">
+            <button class="btn btn-accent">🎓 下載證書</button>
+            <button class="btn btn-ghost">取消</button>
+          </div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-label">Status Badges</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <span class="badge badge-paid">● 已付款</span>
+            <span class="badge badge-pending">● 待付款</span>
+            <span class="badge badge-failed">● 付款失敗</span>
+            <span class="badge badge-cert">🎓 已認證</span>
+          </div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-label">Alerts</div>
+          <div class="alert alert-s"><span>✓</span><div><strong>報名成功</strong> — 請查收確認信</div></div>
+          <div class="alert alert-w"><span>⚠</span><div><strong>早鳥優惠</strong> — 還剩 3 天</div></div>
+          <div class="alert alert-e"><span>✕</span><div><strong>付款失敗</strong> — 請重試</div></div>
+          <div class="alert alert-i"><span>ℹ</span><div><strong>課程提醒</strong> — 明天 09:00</div></div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-label">Form</div>
+          <div style="margin-bottom:12px">
+            <label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px">姓名</label>
+            <input style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:6px;font-family:var(--font);font-size:14px;background:var(--bg-card)" placeholder="請輸入中文全名" value="王小明">
+          </div>
+          <button class="btn btn-primary" style="width:100%;justify-content:center">送出</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 PATTERNS -->
+    <section class="section">
+      <div class="section-num">04 — Patterns</div>
+      <div class="section-title">設計模式</div>
+      <div class="section-desc">學員旅程視覺化、認證證書、空狀態設計</div>
+
+      <h3 style="font-size:18px;font-weight:700;margin-bottom:16px;color:var(--secondary)">學員學習旅程</h3>
+      <div class="journey">
+        <div class="journey-step done"><div class="journey-dot done">✓</div><div class="j-label">報名</div></div>
+        <div class="journey-step done"><div class="journey-dot done">✓</div><div class="j-label">付款</div></div>
+        <div class="journey-step done"><div class="journey-dot done">✓</div><div class="j-label">入班</div></div>
+        <div class="journey-step"><div class="journey-dot current">4</div><div class="j-label">上課中</div></div>
+        <div class="journey-step"><div class="journey-dot upcoming">5</div><div class="j-label">作業</div></div>
+        <div class="journey-step"><div class="journey-dot upcoming">6</div><div class="j-label">認證</div></div>
+        <div class="journey-step"><div class="journey-dot upcoming">7</div><div class="j-label">畢業</div></div>
+      </div>
+
+      <h3 style="font-size:18px;font-weight:700;margin:32px 0 16px;color:var(--secondary)">認證證書</h3>
+      <div class="cert-card" style="max-width:480px">
+        <div style="font-size:12px;font-weight:700;opacity:0.6;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px">Certificate of Completion</div>
+        <div class="cert-name">陳美玲</div>
+        <div class="cert-sub">CNC 職涯諮詢師認證 — 2026 第一梯次</div>
+        <div class="cert-badge">🎓 CNC Certified</div>
+      </div>
+
+      <h3 style="font-size:18px;font-weight:700;margin:32px 0 16px;color:var(--secondary)">空狀態設計原則</h3>
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:40px;text-align:center;max-width:400px">
+        <div style="font-size:48px;margin-bottom:12px;opacity:0.4">📋</div>
+        <div style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:4px">還沒有報名紀錄</div>
+        <div style="font-size:14px;color:var(--text-muted);margin-bottom:16px">瀏覽課程，找到適合你的培訓方案</div>
+        <button class="btn btn-primary">瀏覽課程</button>
+      </div>
+    </section>
+
+    <!-- 05 SPACING -->
+    <section class="section">
+      <div class="section-num">05 — Spacing</div>
+      <div class="section-title">間距系統</div>
+      <div class="section-desc">8px base unit — 舒適密度，培訓平台不是交易終端</div>
+
+      <div class="spacing-row"><div class="spacing-token">xs</div><div class="spacing-label">4px</div><div class="spacing-bar" style="width:4px"></div></div>
+      <div class="spacing-row"><div class="spacing-token">sm</div><div class="spacing-label">8px</div><div class="spacing-bar" style="width:8px"></div></div>
+      <div class="spacing-row"><div class="spacing-token">md</div><div class="spacing-label">16px</div><div class="spacing-bar" style="width:16px"></div></div>
+      <div class="spacing-row"><div class="spacing-token">lg</div><div class="spacing-label">24px</div><div class="spacing-bar" style="width:24px"></div></div>
+      <div class="spacing-row"><div class="spacing-token">xl</div><div class="spacing-label">32px</div><div class="spacing-bar" style="width:32px"></div></div>
+      <div class="spacing-row"><div class="spacing-token">2xl</div><div class="spacing-label">48px</div><div class="spacing-bar" style="width:48px"></div></div>
+      <div class="spacing-row"><div class="spacing-token">3xl</div><div class="spacing-label">64px</div><div class="spacing-bar" style="width:64px"></div></div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      CNC 品牌設計規範 v1.0 — 2026-03-18 — 職游 NaviCareer
+    </div>
+  </footer>
+
+</body>
+</html>
