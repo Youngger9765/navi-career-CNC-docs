@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CNC E2E 測試報告</title>
+<title>E2E 測試報告</title>
 <style>
 :root{--teal:#37A6A9;--gold:#F9C04C;--navy:#17335F;--pass:#22c55e;--skip:#f59e0b;--fail:#ef4444;--bg:#f8fafc;--card:#fff;--border:#e2e8f0;--text:#1e293b;--muted:#64748b;--prd-red:#dc2626;--prd-red-bg:#fef2f2;--prd-red-border:#fecaca;--prd-yellow:#b45309;--prd-yellow-bg:#fffbeb;--prd-yellow-border:#fde68a;--prd-green:#166534;--prd-green-bg:#f0fdf4;--prd-green-border:#bbf7d0}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -141,7 +141,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </head>
 <body>
 <div class="summary-bar">
-  <span class="title">CNC E2E 測試報告</span>
+  <span class="title" id="report-title">E2E 測試報告</span>
   <div class="stat stat-total"><span class="num" id="s-total">-</span><span>總計</span></div>
   <div class="stat stat-pass"><span class="num" id="s-pass">-</span><span>通過</span></div>
   <div class="stat stat-skip"><span class="num" id="s-skip">-</span><span>略過</span></div>
@@ -149,14 +149,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="progress-wrap"><div class="progress-fill" id="s-bar" style="width:0%"></div></div>
   <span class="duration" id="s-meta"></span>
 </div>
-<div class="accounts-bar">
-  <span style="font-weight:700;color:#166534">測試帳號</span>
-  <span style="color:#64748b">管理員：admin@careercreator.tw</span>
-  <span style="color:#64748b">督導：supervisor@careercreator.tw</span>
-  <span style="color:#64748b">學員：alice@test.com / bob@test.com</span>
-  <span style="color:#166534;font-style:italic">密碼請洽 PM</span>
-  <a href="https://cnc-frontend-849078733818.asia-east1.run.app/login" target="_blank" style="color:#37A6A9;font-weight:600;text-decoration:none;margin-left:auto">開啟系統 &rarr;</a>
-</div>
+<div class="accounts-bar" id="accounts-bar"></div>
 <div class="tabs-wrap"><div class="tabs" id="tab-buttons"></div></div>
 <div class="main" id="main-content"><div class="loading">載入報告資料中...</div></div>
 <div class="modal-overlay" id="modal" onclick="closeModalIfBg(event)">
@@ -166,55 +159,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   </div>
 </div>
 <script>
-/* CNC E2E Report — Table layout with PRD + E2E merged view */
+/* E2E Report — Generic template. All project-specific config comes from DATA.config */
 /* NOTE: All dynamic content is escaped via escHtml/escAttr. Data source is CI-generated JSON. */
-var BASE='https://youngger9765.github.io/navi-career-CNC-docs/screenshots/';
-var PAGE_FALLBACK={'/admin/cohorts':'admin--admin-cohorts.png','/admin/enrollments':'admin--admin-enrollments.png','/admin/pages':'admin--admin-pages.png','/admin/products':'admin--admin-products.png','/admin/classrooms':'admin--admin-classrooms.png','/admin/grading':'admin--admin-grading.png','/admin/supervision':'admin--admin-supervision.png','/admin/certifications':'admin--admin-certifications.png','/admin/crm':'admin--admin-crm.png','/admin/agents':'admin--admin-agents.png','/admin/marketing':'admin--admin-marketing.png','/admin/refunds':'admin--admin-refunds.png','/admin/promo-codes':'admin--admin-promo-codes.png','/admin/referrals':'admin--admin-referrals.png','/admin/dashboard':'admin--admin-dashboard.png','/student/dashboard':'student--student-dashboard.png','/student/enrollments':'student--student-enrollments.png','/student/courses':'student--student-courses.png','/student/payments':'student--student-payments.png','/student/crm':'student--student-crm.png','/student/supervision':'student--student-supervision.png','/student/certifications':'student--student-certifications.png','/student/profile':'student--student-profile.png','/courses':'visitor--courses.png','/enroll':'visitor--enroll.png','/login':'visitor--login.png','/':'visitor--homepage.png'};
-var SITE='https://cnc-frontend-849078733818.asia-east1.run.app';
-var TAB_CONFIG=[
-  {id:'m1',label:'M1 報名金流',prdModule:'M1',links:[
-    {label:'課程列表（訪客）',url:'/courses',role:'訪客'},
-    {label:'報名頁',url:'/enroll',role:'訪客'},
-    {label:'報名管理（管理員）',url:'/admin/enrollments',role:'管理員'},
-    {label:'梯次管理',url:'/admin/cohorts',role:'管理員'},
-    {label:'折扣碼管理',url:'/admin/promo-codes',role:'管理員'},
-    {label:'退款設定',url:'/admin/refunds',role:'管理員'},
-    {label:'我的報名（學員）',url:'/student/enrollments',role:'學員'},
-    {label:'付款紀錄',url:'/student/payments',role:'學員'}
-  ]},
-  {id:'m2',label:'M2 行銷頁面',prdModule:'M2',links:[
-    {label:'課程行銷頁',url:'/courses',role:'訪客'},
-    {label:'商品管理',url:'/admin/products',role:'管理員'},
-    {label:'行銷管理',url:'/admin/marketing',role:'管理員'},
-    {label:'頁面管理',url:'/admin/pages',role:'管理員'}
-  ]},
-  {id:'m3',label:'M3 運課管理',prdModule:'M3',links:[
-    {label:'教室管理',url:'/admin/classrooms',role:'管理員'},
-    {label:'作業批改',url:'/admin/grading',role:'管理員'},
-    {label:'行政日程',url:'/admin/schedule',role:'管理員'},
-    {label:'我的課程（學員）',url:'/student/courses',role:'學員'}
-  ]},
-  {id:'m4',label:'M4 督導認證',prdModule:'M4',links:[
-    {label:'督導管理',url:'/admin/supervision',role:'管理員'},
-    {label:'認證管理',url:'/admin/certifications',role:'管理員'},
-    {label:'我的督導（學員）',url:'/student/supervision',role:'學員'},
-    {label:'我的認證',url:'/student/certifications',role:'學員'}
-  ]},
-  {id:'m5',label:'M5 會員 CRM',prdModule:'M5',links:[
-    {label:'會員管理',url:'/admin/crm',role:'管理員'},
-    {label:'代理商管理',url:'/admin/agents',role:'管理員'},
-    {label:'推薦獎金',url:'/admin/referrals',role:'管理員'},
-    {label:'會員中心（學員）',url:'/student/crm',role:'學員'},
-    {label:'推薦紀錄',url:'/student/referrals',role:'學員'}
-  ]},
-  {id:'access',label:'權限控管',links:[
-    {label:'登入頁',url:'/login',role:'訪客'},
-    {label:'管理員後台',url:'/admin/dashboard',role:'管理員'},
-    {label:'學員儀表板',url:'/student/dashboard',role:'學員'}
-  ]},
-  {id:'mobile',label:'手機版'},
-  {id:'screenshots',label:'截圖總覽'}
-];
+var BASE='';
+var PAGE_FALLBACK={};
+var SITE='';
+var TAB_CONFIG=[];
+var PRD_URL_KEYWORDS={};
 var DATA=null;
 
 function escHtml(s){var d=document.createElement('div');d.textContent=s||'';return d.innerHTML;}
@@ -310,27 +261,7 @@ function getTestReason(t){
   return '';
 }
 
-/* ---- URL mapping for PRD items ---- */
-var PRD_URL_KEYWORDS={
-  'enrollment':'/admin/enrollments','enroll':'/enroll','報名':'/enroll',
-  'promo':'/admin/promo-codes','折扣':'/admin/promo-codes','優惠':'/admin/promo-codes',
-  'refund':'/admin/refunds','退款':'/admin/refunds','退課':'/admin/refunds',
-  'invoice':'/admin/enrollments','發票':'/admin/enrollments',
-  'payment':'/student/payments','付款':'/student/payments','金流':'/student/payments',
-  'cohort':'/admin/cohorts','梯次':'/admin/cohorts',
-  'classroom':'/admin/classrooms','教室':'/admin/classrooms',
-  'grading':'/admin/grading','批改':'/admin/grading','作業':'/admin/grading',
-  'supervision':'/admin/supervision','督導':'/admin/supervision',
-  'certification':'/admin/certifications','認證':'/admin/certifications',
-  'crm':'/admin/crm','會員':'/admin/crm',
-  'agent':'/admin/agents','代理':'/admin/agents',
-  'referral':'/admin/referrals','推薦':'/admin/referrals',
-  'product':'/admin/products','商品':'/admin/products',
-  'page':'/admin/pages','頁面':'/admin/pages',
-  'marketing':'/admin/marketing','行銷':'/admin/marketing',
-  'course':'/courses','課程':'/courses',
-  'schedule':'/admin/schedule','日程':'/admin/schedule'
-};
+/* ---- URL mapping for PRD items (loaded from DATA.config.prdUrlKeywords) ---- */
 
 function getPrdItemUrl(item, tabConfig){
   // 1. Try to match from item name/desc against keyword map
@@ -381,11 +312,47 @@ function linkBtnHtml(url){
   return '<a class="link-btn" href="'+SITE+escAttr(url)+'" target="_blank" onclick="event.stopPropagation()">\u524D\u5F80 &rarr;</a>';
 }
 
+/* ---- Dynamic render: title + accounts bar ---- */
+/* NOTE: All values are escaped via escHtml/escAttr before insertion. Data source is CI-generated JSON. */
+function renderTitle(cfg){
+  var el=document.getElementById('report-title');
+  if(cfg.title) el.textContent=cfg.title;
+  document.title=cfg.title||'E2E 測試報告';
+}
+function renderAccountsBar(cfg){
+  var bar=document.getElementById('accounts-bar');
+  if(!cfg.testAccounts||!cfg.testAccounts.length){bar.style.display='none';return;}
+  var parts=[];
+  parts.push('<span style="font-weight:700;color:#166534">測試帳號</span>');
+  cfg.testAccounts.forEach(function(a){
+    parts.push('<span style="color:#64748b">'+escHtml(a.label)+'\uFF1A'+escHtml(a.value)+'</span>');
+  });
+  if(cfg.passwordNote) parts.push('<span style="color:#166534;font-style:italic">'+escHtml(cfg.passwordNote)+'</span>');
+  if(cfg.loginUrl&&cfg.siteUrl) parts.push('<a href="'+escAttr(cfg.siteUrl+cfg.loginUrl)+'" target="_blank" style="color:#37A6A9;font-weight:600;text-decoration:none;margin-left:auto">\u958B\u555F\u7CFB\u7D71 &rarr;</a>');
+  bar.textContent='';
+  var temp=document.createElement('div');
+  temp.innerHTML=parts.join('');
+  while(temp.firstChild) bar.appendChild(temp.firstChild);
+}
+
 /* ---- Init ---- */
 function init(){
   fetch('report-data.json')
     .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
-    .then(function(d){DATA=d;updateSummaryBar();renderTabs();renderAll();})
+    .then(function(d){
+      DATA=d;
+      var cfg=DATA.config||{};
+      BASE=cfg.screenshotBase||'';
+      SITE=cfg.siteUrl||'';
+      TAB_CONFIG=cfg.tabs||[];
+      PAGE_FALLBACK=cfg.pageFallback||{};
+      PRD_URL_KEYWORDS=cfg.prdUrlKeywords||{};
+      renderTitle(cfg);
+      renderAccountsBar(cfg);
+      updateSummaryBar();
+      renderTabs();
+      renderAll();
+    })
     .catch(function(e){document.getElementById('main-content').textContent='Unable to load report-data.json: '+e.message;});
 }
 

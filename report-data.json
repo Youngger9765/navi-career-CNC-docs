@@ -1,4 +1,288 @@
 {
+  "config": {
+    "title": "CNC E2E 測試報告",
+    "siteUrl": "https://cnc-frontend-849078733818.asia-east1.run.app",
+    "screenshotBase": "https://youngger9765.github.io/navi-career-CNC-docs/screenshots/",
+    "testAccounts": [
+      {
+        "label": "管理員",
+        "value": "admin@careercreator.tw"
+      },
+      {
+        "label": "督導",
+        "value": "supervisor@careercreator.tw"
+      },
+      {
+        "label": "學員",
+        "value": "alice@test.com / bob@test.com"
+      }
+    ],
+    "passwordNote": "密碼請洽 PM",
+    "loginUrl": "/login",
+    "tabs": [
+      {
+        "id": "m1",
+        "label": "M1 報名金流",
+        "prdModule": "M1",
+        "links": [
+          {
+            "label": "課程列表（訪客）",
+            "url": "/courses",
+            "role": "訪客"
+          },
+          {
+            "label": "報名頁",
+            "url": "/enroll",
+            "role": "訪客"
+          },
+          {
+            "label": "報名管理（管理員）",
+            "url": "/admin/enrollments",
+            "role": "管理員"
+          },
+          {
+            "label": "梯次管理",
+            "url": "/admin/cohorts",
+            "role": "管理員"
+          },
+          {
+            "label": "折扣碼管理",
+            "url": "/admin/promo-codes",
+            "role": "管理員"
+          },
+          {
+            "label": "退款設定",
+            "url": "/admin/refunds",
+            "role": "管理員"
+          },
+          {
+            "label": "我的報名（學員）",
+            "url": "/student/enrollments",
+            "role": "學員"
+          },
+          {
+            "label": "付款紀錄",
+            "url": "/student/payments",
+            "role": "學員"
+          }
+        ]
+      },
+      {
+        "id": "m2",
+        "label": "M2 行銷頁面",
+        "prdModule": "M2",
+        "links": [
+          {
+            "label": "課程行銷頁",
+            "url": "/courses",
+            "role": "訪客"
+          },
+          {
+            "label": "商品管理",
+            "url": "/admin/products",
+            "role": "管理員"
+          },
+          {
+            "label": "行銷管理",
+            "url": "/admin/marketing",
+            "role": "管理員"
+          },
+          {
+            "label": "頁面管理",
+            "url": "/admin/pages",
+            "role": "管理員"
+          }
+        ]
+      },
+      {
+        "id": "m3",
+        "label": "M3 運課管理",
+        "prdModule": "M3",
+        "links": [
+          {
+            "label": "教室管理",
+            "url": "/admin/classrooms",
+            "role": "管理員"
+          },
+          {
+            "label": "作業批改",
+            "url": "/admin/grading",
+            "role": "管理員"
+          },
+          {
+            "label": "行政日程",
+            "url": "/admin/schedule",
+            "role": "管理員"
+          },
+          {
+            "label": "我的課程（學員）",
+            "url": "/student/courses",
+            "role": "學員"
+          }
+        ]
+      },
+      {
+        "id": "m4",
+        "label": "M4 督導認證",
+        "prdModule": "M4",
+        "links": [
+          {
+            "label": "督導管理",
+            "url": "/admin/supervision",
+            "role": "管理員"
+          },
+          {
+            "label": "認證管理",
+            "url": "/admin/certifications",
+            "role": "管理員"
+          },
+          {
+            "label": "我的督導（學員）",
+            "url": "/student/supervision",
+            "role": "學員"
+          },
+          {
+            "label": "我的認證",
+            "url": "/student/certifications",
+            "role": "學員"
+          }
+        ]
+      },
+      {
+        "id": "m5",
+        "label": "M5 會員 CRM",
+        "prdModule": "M5",
+        "links": [
+          {
+            "label": "會員管理",
+            "url": "/admin/crm",
+            "role": "管理員"
+          },
+          {
+            "label": "代理商管理",
+            "url": "/admin/agents",
+            "role": "管理員"
+          },
+          {
+            "label": "推薦獎金",
+            "url": "/admin/referrals",
+            "role": "管理員"
+          },
+          {
+            "label": "會員中心（學員）",
+            "url": "/student/crm",
+            "role": "學員"
+          },
+          {
+            "label": "推薦紀錄",
+            "url": "/student/referrals",
+            "role": "學員"
+          }
+        ]
+      },
+      {
+        "id": "access",
+        "label": "權限控管",
+        "links": [
+          {
+            "label": "登入頁",
+            "url": "/login",
+            "role": "訪客"
+          },
+          {
+            "label": "管理員後台",
+            "url": "/admin/dashboard",
+            "role": "管理員"
+          },
+          {
+            "label": "學員儀表板",
+            "url": "/student/dashboard",
+            "role": "學員"
+          }
+        ]
+      },
+      {
+        "id": "mobile",
+        "label": "手機版"
+      },
+      {
+        "id": "screenshots",
+        "label": "截圖總覽"
+      }
+    ],
+    "pageFallback": {
+      "/admin/cohorts": "admin--admin-cohorts.png",
+      "/admin/enrollments": "admin--admin-enrollments.png",
+      "/admin/pages": "admin--admin-pages.png",
+      "/admin/products": "admin--admin-products.png",
+      "/admin/classrooms": "admin--admin-classrooms.png",
+      "/admin/grading": "admin--admin-grading.png",
+      "/admin/supervision": "admin--admin-supervision.png",
+      "/admin/certifications": "admin--admin-certifications.png",
+      "/admin/crm": "admin--admin-crm.png",
+      "/admin/agents": "admin--admin-agents.png",
+      "/admin/marketing": "admin--admin-marketing.png",
+      "/admin/refunds": "admin--admin-refunds.png",
+      "/admin/promo-codes": "admin--admin-promo-codes.png",
+      "/admin/referrals": "admin--admin-referrals.png",
+      "/admin/dashboard": "admin--admin-dashboard.png",
+      "/student/dashboard": "student--student-dashboard.png",
+      "/student/enrollments": "student--student-enrollments.png",
+      "/student/courses": "student--student-courses.png",
+      "/student/payments": "student--student-payments.png",
+      "/student/crm": "student--student-crm.png",
+      "/student/supervision": "student--student-supervision.png",
+      "/student/certifications": "student--student-certifications.png",
+      "/student/profile": "student--student-profile.png",
+      "/courses": "visitor--courses.png",
+      "/enroll": "visitor--enroll.png",
+      "/login": "visitor--login.png",
+      "/": "visitor--homepage.png"
+    },
+    "prdUrlKeywords": {
+      "enrollment": "/admin/enrollments",
+      "enroll": "/enroll",
+      "報名": "/enroll",
+      "promo": "/admin/promo-codes",
+      "折扣": "/admin/promo-codes",
+      "優惠": "/admin/promo-codes",
+      "refund": "/admin/refunds",
+      "退款": "/admin/refunds",
+      "退課": "/admin/refunds",
+      "invoice": "/admin/enrollments",
+      "發票": "/admin/enrollments",
+      "payment": "/student/payments",
+      "付款": "/student/payments",
+      "金流": "/student/payments",
+      "cohort": "/admin/cohorts",
+      "梯次": "/admin/cohorts",
+      "classroom": "/admin/classrooms",
+      "教室": "/admin/classrooms",
+      "grading": "/admin/grading",
+      "批改": "/admin/grading",
+      "作業": "/admin/grading",
+      "supervision": "/admin/supervision",
+      "督導": "/admin/supervision",
+      "certification": "/admin/certifications",
+      "認證": "/admin/certifications",
+      "crm": "/admin/crm",
+      "會員": "/admin/crm",
+      "agent": "/admin/agents",
+      "代理": "/admin/agents",
+      "referral": "/admin/referrals",
+      "推薦": "/admin/referrals",
+      "product": "/admin/products",
+      "商品": "/admin/products",
+      "page": "/admin/pages",
+      "頁面": "/admin/pages",
+      "marketing": "/admin/marketing",
+      "行銷": "/admin/marketing",
+      "course": "/courses",
+      "課程": "/courses",
+      "schedule": "/admin/schedule",
+      "日程": "/admin/schedule"
+    }
+  },
   "generatedAt": "2026-03-17T19:15:38.912Z",
   "commitSha": "885478d",
   "summary": {
