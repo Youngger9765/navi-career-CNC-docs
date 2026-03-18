@@ -1145,8 +1145,15 @@
       "shots": [],
       "specLabel": "報名表單填寫",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -1159,8 +1166,15 @@
       "shots": [],
       "specLabel": "報名表單填寫",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -4722,8 +4736,15 @@
       "shots": [],
       "specLabel": "手機版測試",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -4759,8 +4780,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -4773,8 +4801,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -4787,8 +4822,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -4801,8 +4843,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -4815,8 +4864,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -4829,8 +4885,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -4843,8 +4906,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -4857,8 +4927,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -4871,8 +4948,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -4885,8 +4969,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -4899,8 +4990,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -4913,8 +5011,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -4927,8 +5032,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -4941,8 +5053,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -4955,8 +5074,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -4969,8 +5095,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -4983,8 +5116,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -4997,8 +5137,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -5011,8 +5158,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -5025,8 +5179,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -5039,8 +5200,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -5053,8 +5221,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -5067,8 +5242,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -5081,8 +5263,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -5095,8 +5284,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -5109,8 +5305,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -5123,8 +5326,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -5137,8 +5347,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     },
     {
@@ -5151,8 +5368,15 @@
       "shots": [],
       "specLabel": "截圖審查",
       "verification": {
-        "method": "api-only",
-        "analyses": []
+        "method": "screenshot",
+        "analyses": [
+          {
+            "path": "",
+            "description": "截圖遺失 — 此為視覺測試但未收集到截圖",
+            "verdict": "需要重新執行測試以收集截圖",
+            "needsReview": true
+          }
+        ]
       }
     }
   ],
