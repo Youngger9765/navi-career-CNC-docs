@@ -22,15 +22,27 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 /* === Test accounts bar === */
 .accounts-bar{background:#f0fdf4;border-bottom:1px solid #bbf7d0;padding:8px 24px;font-size:13px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 
-/* === Tabs === */
-.tabs-wrap{background:var(--card);border-bottom:1px solid var(--border);position:sticky;top:50px;z-index:99;overflow-x:auto}
-.tabs{display:flex;padding:0 24px;gap:2px}
-.tab-btn{padding:8px 14px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s}
-.tab-btn.active{color:var(--teal);border-bottom-color:var(--teal)}.tab-btn:hover{color:var(--text)}
+/* === Role tabs (horizontal, sticky below accounts) === */
+.role-tabs-wrap{position:sticky;top:50px;z-index:99;background:var(--card);border-bottom:1px solid var(--border);overflow-x:auto}
+.role-tabs{display:flex;padding:0 24px;gap:2px}
+.role-tab{padding:8px 14px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s}
+.role-tab.active{color:var(--teal);border-bottom-color:var(--teal)}.role-tab:hover{color:var(--text)}
+.role-tab .role-count{font-size:10px;color:var(--muted);margin-left:4px}
+.role-tab.active .role-count{color:var(--teal)}
+
+/* === Sidebar + Main layout === */
+.layout-wrap{display:flex;min-height:calc(100vh - 140px)}
+.sidebar{width:200px;flex-shrink:0;background:var(--card);border-right:1px solid var(--border);padding:12px 0;position:sticky;top:90px;height:fit-content;max-height:calc(100vh - 100px);overflow-y:auto}
+.sidebar-item{padding:8px 16px;cursor:pointer;font-size:13px;border-left:3px solid transparent;display:flex;align-items:center;gap:6px;transition:all .12s;color:var(--muted)}
+.sidebar-item:hover{background:#f1f5f9;color:var(--text)}
+.sidebar-item.active{color:var(--teal);border-left-color:var(--teal);background:#f0fdfa;font-weight:600}
+.sidebar-item .sb-label{flex:1}
+.sidebar-item .sb-count{font-size:10px;color:var(--muted);background:#f1f5f9;padding:1px 6px;border-radius:99px;min-width:20px;text-align:center}
+.sidebar-item.active .sb-count{background:#ccfbf1;color:var(--teal)}
+.sidebar-sep{height:1px;background:var(--border);margin:8px 16px}
 
 /* === Main === */
-.main{padding:16px 24px;max-width:1600px;margin:0 auto}
-.tab-panel{display:none}.tab-panel.active{display:block}
+.main{flex:1;padding:16px 24px;max-width:1400px;min-width:0}
 
 /* === PRD mini summary === */
 .prd-mini-summary{display:flex;gap:12px;align-items:center;padding:12px 16px;background:var(--navy);border-radius:8px;margin-bottom:16px;color:#fff;flex-wrap:wrap}
@@ -132,6 +144,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 @media(max-width:768px){
   .summary-bar{padding:8px 12px;gap:10px;flex-wrap:wrap}
   .summary-bar .title{font-size:14px}
+  .layout-wrap{flex-direction:column}
+  .sidebar{display:none}
   .main{padding:12px}
   .prd-mini-summary{padding:10px 12px}
   .prd-mini-pct{font-size:22px}
@@ -150,8 +164,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <span class="duration" id="s-meta"></span>
 </div>
 <div class="accounts-bar" id="accounts-bar"></div>
-<div class="tabs-wrap"><div class="tabs" id="tab-buttons"></div></div>
-<div class="main" id="main-content"><div class="loading">載入報告資料中...</div></div>
+<div class="role-tabs-wrap"><div class="role-tabs" id="role-tabs"></div></div>
+<div class="layout-wrap">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main" id="main-content"><div class="loading">載入報告資料中...</div></div>
+</div>
 <div class="modal-overlay" id="modal" onclick="closeModalIfBg(event)">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal()">&times;</button>
@@ -167,6 +184,9 @@ var SITE='';
 var TAB_CONFIG=[];
 var PRD_URL_KEYWORDS={};
 var DATA=null;
+var ACTIVE_MODULE=null;
+var ACTIVE_ROLE='\u5168\u90E8';
+var ROLE_LIST=['\u5168\u90E8','\u7BA1\u7406\u54E1','\u5B78\u54E1','\u7763\u5C0E','\u8A2A\u5BA2'];
 
 function escHtml(s){var d=document.createElement('div');d.textContent=s||'';return d.innerHTML;}
 function escAttr(s){return(s||'').replace(/'/g,'&#39;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
@@ -335,6 +355,247 @@ function renderAccountsBar(cfg){
   while(temp.firstChild) bar.appendChild(temp.firstChild);
 }
 
+/* ---- Role inference for items ---- */
+function inferRoleFromTest(t){
+  var r=getRoleFromTest(t);
+  return r?r.label:'\u7BA1\u7406\u54E1';
+}
+
+function inferRoleFromPrd(item, tc){
+  return getPrdItemRole(item, tc);
+}
+
+/* ---- Count items for a tab filtered by role ---- */
+function countForTab(tc, role){
+  if(tc.id==='screenshots'){
+    var ss=DATA.screenshots||{};
+    return (ss.root||[]).length+(ss.crud||[]).length+(ss.flow||[]).length;
+  }
+  var tests=(DATA.tests||[]).filter(function(t){return t.tab===tc.id;});
+  var prd=DATA.prdCoverage||{items:[]};
+  var moduleItems=tc.prdModule?prd.items.filter(function(i){return i.module===tc.prdModule;}):[];
+
+  if(role==='\u5168\u90E8') return moduleItems.length+tests.length;
+
+  var count=0;
+  if(moduleItems.length){
+    moduleItems.forEach(function(item){
+      if(inferRoleFromPrd(item, tc)===role) count++;
+    });
+  }
+  tests.forEach(function(t){
+    if(inferRoleFromTest(t)===role) count++;
+  });
+  return count;
+}
+
+/* ---- Render role tabs (horizontal) ---- */
+/* NOTE: innerHTML usage is safe — all values are from ROLE_LIST constants, not user input */
+function renderRoleTabs(){
+  var c=document.getElementById('role-tabs');
+  c.textContent='';
+  ROLE_LIST.forEach(function(role){
+    var btn=document.createElement('button');
+    btn.className='role-tab'+(role===ACTIVE_ROLE?' active':'');
+    btn.textContent=role;
+    btn.onclick=function(){switchRole(role);};
+    c.appendChild(btn);
+  });
+}
+
+/* ---- Render sidebar ---- */
+/* NOTE: innerHTML usage is safe — all values escaped via escHtml, data source is CI-generated JSON */
+function renderSidebar(){
+  var sb=document.getElementById('sidebar');
+  sb.textContent='';
+  var hasSep=false;
+  TAB_CONFIG.forEach(function(tc){
+    var isModule=!!tc.prdModule;
+    if(!isModule&&!hasSep){
+      var sep=document.createElement('div');
+      sep.className='sidebar-sep';
+      sb.appendChild(sep);
+      hasSep=true;
+    }
+    var div=document.createElement('div');
+    div.className='sidebar-item'+(tc.id===ACTIVE_MODULE?' active':'');
+    div.onclick=function(){switchModule(tc.id);};
+    var lbl=document.createElement('span');
+    lbl.className='sb-label';
+    lbl.textContent=tc.label;
+    var cnt=document.createElement('span');
+    cnt.className='sb-count';
+    cnt.textContent=countForTab(tc, ACTIVE_ROLE);
+    div.appendChild(lbl);
+    div.appendChild(cnt);
+    sb.appendChild(div);
+  });
+}
+
+/* ---- Switch handlers ---- */
+function switchModule(id){
+  ACTIVE_MODULE=id;
+  renderSidebar();
+  renderContent();
+}
+
+function switchRole(role){
+  ACTIVE_ROLE=role;
+  renderRoleTabs();
+  renderSidebar();
+  renderContent();
+}
+
+/* ---- Filter by role ---- */
+function filterTestsByRole(tests, role){
+  if(role==='\u5168\u90E8') return tests;
+  return tests.filter(function(t){return inferRoleFromTest(t)===role;});
+}
+
+function filterPrdByRole(items, tc, role){
+  if(role==='\u5168\u90E8') return items;
+  return items.filter(function(item){return inferRoleFromPrd(item, tc)===role;});
+}
+
+/* ---- Render content for current ACTIVE_MODULE + ACTIVE_ROLE ---- */
+/* NOTE: innerHTML usage is safe — all dynamic content escaped via escHtml/escAttr. Data source is CI-generated JSON. */
+function renderContent(){
+  var main=document.getElementById('main-content');
+  var tc=null;
+  TAB_CONFIG.forEach(function(c){if(c.id===ACTIVE_MODULE) tc=c;});
+  if(!tc){main.innerHTML='<div class="no-screenshot">\u8ACB\u5F9E\u5DE6\u5074\u9078\u64C7\u6A21\u7D44</div>';return;}
+
+  if(tc.id==='screenshots'){
+    main.innerHTML=renderGalleryTab();
+  } else if(tc.prdModule){
+    main.innerHTML=renderModuleTabFiltered(tc, ACTIVE_ROLE);
+  } else {
+    main.innerHTML=renderNonModuleTabFiltered(tc, ACTIVE_ROLE);
+  }
+}
+
+/* ---- Module tab with role filtering ---- */
+function renderModuleTabFiltered(tc, role){
+  var tabId=tc.id,prdModule=tc.prdModule;
+  var html='';
+  var prd=DATA.prdCoverage||{summary:{},items:[]};
+  var moduleItems=prd.items.filter(function(i){return i.module===prdModule;});
+  var filteredPrd=filterPrdByRole(moduleItems, tc, role);
+
+  html+=renderPrdMiniSummary(moduleItems);
+
+  var tests=(DATA.tests||[]).filter(function(t){return t.tab===tabId;});
+  var filteredTests=filterTestsByRole(tests, role);
+
+  var linkedTestSpecs={};
+  var tableRows=[];
+  var sortedPrd=filteredPrd.slice().sort(function(a,b){
+    var o={red:0,yellow:1,green:2};return(o[a.status]||9)-(o[b.status]||9);
+  });
+
+  var rowNum=0;
+  sortedPrd.forEach(function(item){
+    rowNum++;
+    var linked=[];
+    if(item.linkedTests&&item.linkedTests.length&&DATA.tests){
+      linked=DATA.tests.filter(function(t){
+        return item.linkedTests.some(function(lt){return t.spec.indexOf(lt)>=0;});
+      });
+      if(role!=='\u5168\u90E8') linked=filterTestsByRole(linked, role);
+      linked.forEach(function(t){linkedTestSpecs[t.spec+'|'+t.name]=true;});
+    }
+    tableRows.push({type:'prd',prdItem:item,linkedTests:linked,num:rowNum});
+  });
+
+  var unlinkedTests=filteredTests.filter(function(t){return !linkedTestSpecs[t.spec+'|'+t.name];});
+
+  if(sortedPrd.length>0){
+    var pass=filteredTests.filter(function(t){return t.status==='pass';}).length;
+    var skip=filteredTests.filter(function(t){return t.status==='skip';}).length;
+    var fail=filteredTests.filter(function(t){return t.status==='fail';}).length;
+
+    html+='<div class="section-divider"><span class="sd-icon">\uD83D\uDCCB</span> \u9700\u6C42\u8986\u84CB\uFF08'+filteredPrd.length+' \u9805\uFF09&middot; E2E \u6E2C\u8A66\uFF08'+filteredTests.length+' \u500B &middot; \u901A\u904E '+pass+(skip?' &middot; \u7565\u904E '+skip:'')+(fail?' &middot; \u5931\u6557 '+fail:'')+'）</div>';
+
+    html+='<div class="report-table-wrap"><table class="report-table"><thead><tr>';
+    html+='<th>#</th><th>\u529F\u80FD</th><th>\u5BE6\u4F5C\u72C0\u614B</th><th>\u6E2C\u8A66\u7D50\u679C</th><th>\u8AAA\u660E</th><th>\u5982\u4F55\u6E2C\u8A66</th><th>\u9023\u7D50</th><th class="thumb-cell">\u622A\u5716</th><th>\u622A\u5716\u8996\u89BA\u8AAA\u660E</th>';
+    html+='</tr></thead><tbody>';
+
+    tableRows.forEach(function(row){
+      var item=row.prdItem;
+      var linked=row.linkedTests;
+      var testBadge,reason='',shots=[],thumbSrc=null;
+
+      if(linked.length>0){
+        var anyFail=linked.some(function(t){return t.status==='fail';});
+        var anySkip=linked.some(function(t){return t.status==='skip';});
+        if(anyFail) testBadge=testStatusBadge('fail');
+        else if(anySkip) testBadge=testStatusBadge('skip');
+        else testBadge=testStatusBadge('pass');
+        var firstTest=linked[0];
+        reason=getTestReason(firstTest);
+        if(linked.length>1) reason+=' (+' +(linked.length-1)+ ' \u500B\u6E2C\u8A66)';
+        var allShots=[];
+        linked.forEach(function(lt){getScreenshots(lt).forEach(function(s){allShots.push(s);});});
+        if(allShots.length) shots=allShots;
+      } else {
+        testBadge='<span class="badge badge-none">&mdash;</span>';
+        reason=escHtml(item.desc);
+      }
+
+      var itemUrl=getPrdItemUrl(item, tc);
+      var howToTest=item.howToTest||'';
+      if(shots.length) thumbSrc=shots[0].url;
+      else if(item.screenshot) thumbSrc='screenshots/'+item.screenshot;
+      var thumbH=thumbSrc?'<img class="thumb" src="'+escAttr(thumbSrc)+'" alt="" onerror="this.style.display=\'none\'">':'<div class="no-thumb">&mdash;</div>';
+      var versionTag=item.version?'<span class="version-tag">'+escHtml(item.version)+'</span>':'';
+
+      var dataAttrs=' data-row-type="prd" data-prd-idx="'+item.num+'" data-tab="'+escAttr(tabId)+'"';
+      html+='<tr onclick="openRowModal(this)"'+dataAttrs+'>';
+      html+='<td>'+row.num+'</td>';
+      html+='<td class="col-feature">'+versionTag+escHtml(item.name)+'</td>';
+      html+='<td>'+prdStatusBadge(item.status)+'</td>';
+      html+='<td>'+testBadge+'</td>';
+      html+='<td class="col-reason">'+escHtml(reason)+'</td>';
+      html+='<td class="col-howto">'+(howToTest?escHtml(howToTest):'<span style="color:var(--muted);font-size:11px">&mdash;</span>')+'</td>';
+      html+='<td>'+linkBtnHtml(itemUrl)+'</td>';
+      html+='<td class="thumb-cell">'+thumbH+'</td>';
+      html+='<td class="col-visual-desc">'+getVisualDescFromPrd(item, linked)+'</td>';
+      html+='</tr>';
+    });
+
+    html+='</tbody></table></div>';
+  }
+
+  if(unlinkedTests.length>0){
+    html+='<div class="section-divider"><span class="sd-icon">\uD83E\uDDEA</span> \u5176\u4ED6\u6E2C\u8A66\uFF08'+unlinkedTests.length+' \u500B\uFF09</div>';
+    html+=renderTestTable(unlinkedTests,tabId,true,tc);
+  }
+
+  if(sortedPrd.length===0&&filteredTests.length===0){
+    html+='<div class="no-screenshot">\u6B64\u6A21\u7D44\u5728\u300C'+escHtml(role)+'\u300D\u89D2\u8272\u4E0B\u66AB\u7121\u9805\u76EE</div>';
+  }
+
+  return html;
+}
+
+/* ---- Non-module tab with role filtering ---- */
+function renderNonModuleTabFiltered(tc, role){
+  var html='';
+  var tests=(DATA.tests||[]).filter(function(t){return t.tab===tc.id;});
+  var filteredTests=filterTestsByRole(tests, role);
+  var pass=filteredTests.filter(function(t){return t.status==='pass';}).length;
+  var skip=filteredTests.filter(function(t){return t.status==='skip';}).length;
+  var fail=filteredTests.filter(function(t){return t.status==='fail';}).length;
+
+  if(filteredTests.length>0){
+    html+='<div class="section-divider"><span class="sd-icon">\uD83E\uDDEA</span> '+escHtml(tc.label)+' \u6E2C\u8A66\uFF08'+filteredTests.length+' \u500B &middot; \u901A\u904E '+pass+(skip?' &middot; \u7565\u904E '+skip:'')+(fail?' &middot; \u5931\u6557 '+fail:'')+'）</div>';
+    html+=renderTestTable(filteredTests,tc.id,false,tc);
+  } else {
+    html+='<div class="no-screenshot">\u6B64 Tab \u5728\u300C'+escHtml(role)+'\u300D\u89D2\u8272\u4E0B\u7121\u6E2C\u8A66\u7D50\u679C</div>';
+  }
+  return html;
+}
+
 /* ---- Init ---- */
 function init(){
   fetch('report-data.json')
@@ -350,8 +611,10 @@ function init(){
       renderTitle(cfg);
       renderAccountsBar(cfg);
       updateSummaryBar();
-      renderTabs();
-      renderAll();
+      renderRoleTabs();
+      ACTIVE_MODULE=TAB_CONFIG.length?TAB_CONFIG[0].id:null;
+      renderSidebar();
+      renderContent();
     })
     .catch(function(e){document.getElementById('main-content').textContent='Unable to load report-data.json: '+e.message;});
 }
@@ -366,26 +629,6 @@ function updateSummaryBar(){
   document.getElementById('s-bar').style.width=pct+'%';
   var date=DATA.generatedAt?new Date(DATA.generatedAt).toLocaleDateString('zh-TW'):'';
   document.getElementById('s-meta').textContent='commit: '+(DATA.commitSha||'?')+' | '+date;
-}
-
-function renderTabs(){
-  var c=document.getElementById('tab-buttons');var h='';
-  TAB_CONFIG.forEach(function(tc,i){
-    h+='<button class="tab-btn'+(i===0?' active':'')+'" onclick="showTab(\''+tc.id+'\',this)">'+tc.label+'</button>';
-  });
-  c.innerHTML=h;
-}
-
-function renderAll(){
-  var main=document.getElementById('main-content');main.innerHTML='';
-  TAB_CONFIG.forEach(function(tc,idx){
-    var panel=document.createElement('div');
-    panel.id='tab-'+tc.id;panel.className='tab-panel'+(idx===0?' active':'');
-    if(tc.id==='screenshots') panel.innerHTML=renderGalleryTab();
-    else if(tc.prdModule) panel.innerHTML=renderModuleTab(tc);
-    else panel.innerHTML=renderNonModuleTab(tc);
-    main.appendChild(panel);
-  });
 }
 
 /* ---- PRD mini summary ---- */
@@ -782,12 +1025,7 @@ function openLightbox(url,cap){
   document.getElementById('modal').classList.add('open');
 }
 
-function showTab(id,btn){
-  document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active');});
-  document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
-  document.getElementById('tab-'+id).classList.add('active');
-  if(btn) btn.classList.add('active');
-}
+/* showTab removed — replaced by switchModule/switchRole */
 function closeModal(){document.getElementById('modal').classList.remove('open');}
 function closeModalIfBg(e){if(e.target===document.getElementById('modal'))closeModal();}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
