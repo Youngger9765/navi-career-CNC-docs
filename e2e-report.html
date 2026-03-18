@@ -696,7 +696,7 @@ function openPrdModal(item, tabId){
   if(linked.length>0){
     var specPaths=[];
     linked.forEach(function(t){if(specPaths.indexOf(t.spec)<0) specPaths.push(t.spec);});
-    h+='<span class="modal-label">規格</span><span class="modal-value">'+specPaths.map(function(s){return '<span class="modal-spec-path">'+escHtml(s)+'</span>';}).join(' ')+'</span>';
+    h+='<span class="modal-label">測試檔案</span><span class="modal-value">'+specPaths.map(function(s){return '<span class="modal-spec-path">'+escHtml(s)+'</span>';}).join(' ')+'</span>';
   }
   h+='</div>';
 
@@ -768,7 +768,7 @@ function openTestModal(t, tabId){
   h+='<span class="modal-label">測試結果</span><span class="modal-value">'+testStatusBadge(t.status)+' '+sl+'</span>';
   if(t.duration) h+='<span class="modal-label">耗時</span><span class="modal-value">'+Math.round(t.duration/1000)+'s</span>';
   h+='<span class="modal-label">原因/說明</span><span class="modal-value">'+escHtml(getTestReason(t))+'</span>';
-  h+='<span class="modal-label">規格</span><span class="modal-value"><span class="modal-spec-path">'+escHtml(t.spec)+'</span></span>';
+  h+='<span class="modal-label">測試檔案</span><span class="modal-value"><span class="modal-spec-path">'+escHtml(t.spec)+'</span></span>';
 
   var role=getRoleFromTest(t);
   if(role) h+='<span class="modal-label">角色</span><span class="modal-value"><span class="role-badge '+role.cls+'">'+role.label+'</span></span>';
