@@ -5730,9 +5730,10 @@
   ],
   "prdCoverage": {
     "summary": {
-      "green": 36,
-      "yellow": 0,
-      "red": 2
+      "green": 11,
+      "yellow": 15,
+      "red": 12,
+      "total": 38
     },
     "items": [
       {
@@ -5756,8 +5757,8 @@
         "module": "M1",
         "version": "V1",
         "name": "發票載具條碼",
-        "desc": "結帳時可輸入手機載具條碼，系統會記錄在發票資料中",
-        "status": "green",
+        "desc": "UI 欄位存在，但 ECPay 發票 API 僅 sandbox，未串接正式環境",
+        "status": "yellow",
         "linkedTests": [
           "ecpay-mock"
         ],
@@ -5772,8 +5773,8 @@
         "module": "M1",
         "version": "V1",
         "name": "發票捐贈選項",
-        "desc": "結帳時可選擇「捐贈發票」，除了個人發票和公司發票之外的第三個選項",
-        "status": "green",
+        "desc": "捐贈選項 UI 存在，但後端 donation 邏輯為 hardcoded stub",
+        "status": "yellow",
         "linkedTests": [
           "ecpay-mock"
         ],
@@ -5788,8 +5789,8 @@
         "module": "M1",
         "version": "V1",
         "name": "發票注意文字",
-        "desc": "結帳頁面的發票區塊有注意事項提醒文字（如：開立後不得更改）",
-        "status": "green",
+        "desc": "發票注意文字 — 前後端均無實作",
+        "status": "red",
         "linkedTests": [
           "ecpay-mock"
         ],
@@ -5804,8 +5805,8 @@
         "module": "M1",
         "version": "V1",
         "name": "付款失敗頁記憶選擇",
-        "desc": "付款失敗時顯示錯誤原因、可能原因清單，以及「重新付款」按鈕",
-        "status": "green",
+        "desc": "後端回傳失敗原因，但前端無表單狀態持久化（記憶選擇）邏輯",
+        "status": "yellow",
         "linkedTests": [
           "payment-flow",
           "ecpay-mock"
@@ -5821,8 +5822,8 @@
         "module": "M1",
         "version": "V1",
         "name": "折扣碼 source_type",
-        "desc": "折扣碼分 4 種來源類型：說明會、一日班、校友、一般，後台可分別管理",
-        "status": "green",
+        "desc": "PromoCode model 缺少 source_type 欄位，需要 migration",
+        "status": "red",
         "linkedTests": [
           "admin-promo-crud"
         ],
@@ -5885,8 +5886,8 @@
         "module": "M1",
         "version": "V1",
         "name": "海外地址 SOP 提醒",
-        "desc": "個人資料頁有收件地址欄位，海外學員可填寫國際地址",
-        "status": "green",
+        "desc": "海外地址偵測與 SOP 提醒 — 前後端均無實作",
+        "status": "red",
         "linkedTests": [
           "student-crm"
         ],
@@ -5901,8 +5902,8 @@
         "module": "M1",
         "version": "V1",
         "name": "退款政策連結",
-        "desc": "有獨立的退款政策頁面，包含退款比例表、申請方式等 5 個段落",
-        "status": "green",
+        "desc": "靜態退款政策頁面存在，但非管理員可設定的動態連結",
+        "status": "yellow",
         "linkedTests": [
           "enroll-form-details"
         ],
@@ -5917,8 +5918,8 @@
         "module": "M1",
         "version": "V1",
         "name": "報名成功頁 — 課前調查 CTA",
-        "desc": "報名成功後顯示課前調查問卷連結，引導學員填寫",
-        "status": "green",
+        "desc": "後端 survey_url 存在，但前端成功頁使用 MockBanner，未整合",
+        "status": "yellow",
         "linkedTests": [
           "enroll-flow"
         ],
@@ -5933,8 +5934,8 @@
         "module": "M1",
         "version": "V1",
         "name": "報名成功頁 — 課程群組連結",
-        "desc": "報名成功後顯示該梯次的 LINE 群組連結，學員可直接加入",
-        "status": "green",
+        "desc": "後端 line_group_url 存在，但前端成功頁使用 MockBanner，未整合",
+        "status": "yellow",
         "linkedTests": [
           "student-enroll"
         ],
@@ -6011,8 +6012,8 @@
         "module": "M3",
         "version": "V1",
         "name": "Admin 行政日程總覽",
-        "desc": "管理員有行政日程總覽頁面，顯示開課前中後的關鍵時間節點",
-        "status": "green",
+        "desc": "後端 CourseSchedule model/API 存在，前端管理介面不完整",
+        "status": "yellow",
         "linkedTests": [],
         "screenshot": "prd-gaps/29-admin-schedule.png",
         "group": "運課管理",
@@ -6025,8 +6026,8 @@
         "module": "M3",
         "version": "V1",
         "name": "通知系統",
-        "desc": "管理員可管理 6 種通知信範本，系統自動發送對應通知",
-        "status": "green",
+        "desc": "僅有 Email 通知，無站內通知系統（無 bell icon / in-app notification）",
+        "status": "yellow",
         "linkedTests": [],
         "screenshot": "prd-gaps/27-admin-settings-notifications.png",
         "group": "運課管理",
@@ -6055,8 +6056,8 @@
         "module": "M4",
         "version": "V1",
         "name": "筆試申請入口",
-        "desc": "學員在認證頁面可看到「申請筆試」按鈕，用來報名認證考試",
-        "status": "green",
+        "desc": "後端考試 model/API 存在，但前端學員筆試申請入口缺失",
+        "status": "yellow",
         "linkedTests": [
           "student-certifications"
         ],
@@ -6071,8 +6072,8 @@
         "module": "M4",
         "version": "V1",
         "name": "認證結果通知 + 證書下載",
-        "desc": "認證通過後學員收到通知 Email，可在頁面下載證書",
-        "status": "green",
+        "desc": "通知邏輯存在，但證書 PDF 生成功能未實作",
+        "status": "yellow",
         "linkedTests": [
           "admin-certification-flow"
         ],
@@ -6087,8 +6088,8 @@
         "module": "M5",
         "version": "V1",
         "name": "畢業後公告頁 + 進修課入口",
-        "desc": "畢業後學員可看到職業資料庫、進修課程等 6 個功能入口",
-        "status": "green",
+        "desc": "CRM 頁面存在但顯示 mock data，無後端公告/進修課 API",
+        "status": "red",
         "linkedTests": [
           "student-crm"
         ],
@@ -6103,8 +6104,8 @@
         "module": "M1",
         "version": "V1",
         "name": "Email 驗證",
-        "desc": "註冊時發送驗證信，學員點擊連結驗證 Email",
-        "status": "green",
+        "desc": "後端 email verification 流程存在，前端驗證連結處理不明確",
+        "status": "yellow",
         "linkedTests": [],
         "screenshot": null,
         "group": "額外修復（Session 2）",
@@ -6117,8 +6118,8 @@
         "module": "M3",
         "version": "V1",
         "name": "開課自動建教室",
-        "desc": "梯次開課設定完成後，系統自動建立教室",
-        "status": "green",
+        "desc": "需手動建教室，無自動化排程",
+        "status": "red",
         "linkedTests": [],
         "screenshot": null,
         "group": "額外修復（Session 2）",
@@ -6131,8 +6132,8 @@
         "module": "M3",
         "version": "V1",
         "name": "B班文件追蹤",
-        "desc": "系統追蹤 B 班學員 5 種必繳文件的繳交狀態",
-        "status": "green",
+        "desc": "B班文件追蹤 — 前後端均無實作",
+        "status": "red",
         "linkedTests": [],
         "screenshot": null,
         "group": "額外修復（Session 2）",
@@ -6161,8 +6162,8 @@
         "module": "M5",
         "version": "V1",
         "name": "資深特約資格檢查",
-        "desc": "申請資深特約諮詢師前，系統檢查是否已有一般特約資格",
-        "status": "green",
+        "desc": "Model 支援 senior consultant 類型，但無資格驗證邏輯",
+        "status": "yellow",
         "linkedTests": [
           "crm-renewal-flow"
         ],
@@ -6177,8 +6178,8 @@
         "module": "M5",
         "version": "V1",
         "name": "解除特約合作",
-        "desc": "管理員可終止特約合作關係",
-        "status": "green",
+        "desc": "僅有 TERMINATED 狀態 enum，無解除合作工作流程",
+        "status": "red",
         "linkedTests": [],
         "screenshot": null,
         "group": "額外修復（Session 2）",
@@ -6207,8 +6208,8 @@
         "module": "M5",
         "version": "V1",
         "name": "Career DB / Forum / Counseling API",
-        "desc": "畢業後功能（職業資料庫、論壇、諮詢預約）的 API 已建立，無資料時顯示空狀態",
-        "status": "green",
+        "desc": "前端頁面明確顯示 'mock data — API not yet fully implemented'",
+        "status": "red",
         "linkedTests": [],
         "screenshot": null,
         "group": "額外修復（Session 2）",
@@ -6221,8 +6222,8 @@
         "module": "M1",
         "version": "V1",
         "name": "ECPay 電子發票 API",
-        "desc": "系統已串接綠界電子發票 API（測試環境），正式環境需更換商店代號",
-        "status": "green",
+        "desc": "ECPay e-invoice API 完整實作但指向 sandbox endpoint（-stage），未串接正式環境",
+        "status": "yellow",
         "linkedTests": [
           "ecpay-mock"
         ],
@@ -6237,8 +6238,8 @@
         "module": "M3",
         "version": "V1",
         "name": "排程發信 (cron)",
-        "desc": "排程發信功能，系統定時檢查待發 Email 並自動寄出",
-        "status": "green",
+        "desc": "ScheduledEmail DB model 存在，但標記 TODO (V2)，未排程",
+        "status": "yellow",
         "linkedTests": [],
         "screenshot": null,
         "group": "無法修復（需外部資源）",
@@ -6251,8 +6252,8 @@
         "module": "M2",
         "version": "V1",
         "name": "行銷自動化（一日班/說明會/學長姐）",
-        "desc": "行銷自動化：一日班、說明會、學長姐聊聊活動管理（基礎 CRUD）",
-        "status": "green",
+        "desc": "PromoCodeType 有分類但無 email 行銷自動化邏輯",
+        "status": "red",
         "linkedTests": [
           "admin-pages"
         ],
@@ -6267,8 +6268,8 @@
         "module": "M2",
         "version": "V1",
         "name": "CMS 進階動畫",
-        "desc": "CMS 頁面編輯器支援 GIF 動畫和輪播圖片區塊",
-        "status": "green",
+        "desc": "無動畫元件或框架，CMS 頁面無進階動畫功能",
+        "status": "red",
         "linkedTests": [
           "admin-page-editor"
         ],
@@ -6297,8 +6298,8 @@
         "module": "M3",
         "version": "V1",
         "name": "課前包裹寄送管理",
-        "desc": "管理員可管理課前教材包裹寄送，追蹤寄送狀態和物流編號",
-        "status": "green",
+        "desc": "Shipment model 存在，但寄送工作流程/追蹤功能不完整",
+        "status": "yellow",
         "linkedTests": [],
         "screenshot": null,
         "group": "無法修復（需外部資源）",
