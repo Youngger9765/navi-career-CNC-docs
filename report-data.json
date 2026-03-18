@@ -5805,8 +5805,8 @@
         "module": "M1",
         "version": "V1",
         "name": "付款失敗頁記憶選擇",
-        "desc": "後端回傳失敗原因，但前端無表單狀態持久化（記憶選擇）邏輯",
-        "status": "yellow",
+        "desc": "結帳頁 submit 前將表單狀態（付款方式、期數、發票資訊）存入 localStorage，付款失敗返回時自動還原；成功付款後清除",
+        "status": "green",
         "linkedTests": [
           "payment-flow",
           "ecpay-mock"
