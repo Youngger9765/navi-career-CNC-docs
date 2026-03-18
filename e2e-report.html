@@ -12,18 +12,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .summary-bar .title{font-size:17px;font-weight:700;color:var(--gold);margin-right:12px;white-space:nowrap}
 .summary-bar .stat{display:flex;align-items:center;gap:5px;font-size:12px}
 .summary-bar .stat .num{font-size:18px;font-weight:700}
-.stat-total .num{color:#fff}
-.stat-pass .num{color:#4ade80}
-.stat-skip .num{color:var(--gold)}
-.stat-fail .num{color:#f87171}
+.stat-total .num{color:#fff}.stat-pass .num{color:#4ade80}.stat-skip .num{color:var(--gold)}.stat-fail .num{color:#f87171}
 .progress-wrap{flex:1;background:rgba(255,255,255,.15);border-radius:99px;height:6px;min-width:100px}
 .progress-fill{height:6px;border-radius:99px;background:var(--pass)}
 .duration{font-size:11px;color:rgba(255,255,255,.6);margin-left:auto;white-space:nowrap}
 .tabs-wrap{background:var(--card);border-bottom:1px solid var(--border);position:sticky;top:50px;z-index:99;overflow-x:auto}
 .tabs{display:flex;padding:0 24px;gap:2px}
 .tab-btn{padding:8px 14px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s}
-.tab-btn.active{color:var(--teal);border-bottom-color:var(--teal)}
-.tab-btn:hover{color:var(--text)}
+.tab-btn.active{color:var(--teal);border-bottom-color:var(--teal)}.tab-btn:hover{color:var(--text)}
 .main{padding:16px 24px;max-width:1400px;margin:0 auto}
 .tab-panel{display:none}.tab-panel.active{display:block}
 .module-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
@@ -31,23 +27,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .module-title{font-size:18px;font-weight:700;color:var(--navy)}
 .module-stats{margin-left:auto;display:flex;gap:6px;font-size:12px}
 .ms{padding:2px 7px;border-radius:99px;font-weight:600}
-.ms-pass{background:#dcfce7;color:#166534}
-.ms-skip{background:#fef9c3;color:#854d0e}
-.ms-fail{background:#fee2e2;color:#991b1b}
+.ms-pass{background:#dcfce7;color:#166534}.ms-skip{background:#fef9c3;color:#854d0e}.ms-fail{background:#fee2e2;color:#991b1b}
+.section-divider{font-size:13px;font-weight:700;color:var(--navy);padding:12px 0 8px;border-bottom:2px solid var(--teal);margin:20px 0 12px;display:flex;align-items:center;gap:8px}
+.section-divider .sd-icon{font-size:15px}
 .spec-group{margin-bottom:16px}
 .spec-group-title{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:4px 0;border-bottom:1px solid var(--border);margin-bottom:6px}
 .test-row{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:6px;margin-bottom:2px;background:var(--card);border:1px solid var(--border);cursor:pointer;transition:background .1s}
 .test-row:hover{background:#f1f5f9;border-color:var(--teal)}
 .test-status{width:18px;height:18px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700}
-.ts-pass{background:#dcfce7;color:#16a34a}
-.ts-skip{background:#fef9c3;color:#92400e}
-.ts-fail{background:#fee2e2;color:#dc2626}
+.ts-pass{background:#dcfce7;color:#16a34a}.ts-skip{background:#fef9c3;color:#92400e}.ts-fail{background:#fee2e2;color:#dc2626}
 .test-info{flex:1;min-width:0}
 .test-name{font-size:15px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .test-meta{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .api-badge{display:inline-block;background:#ede9fe;color:#6d28d9;font-size:10px;font-weight:600;padding:1px 5px;border-radius:4px}
 .skip-badge{display:inline-block;background:#fef9c3;color:#854d0e;font-size:10px;font-weight:600;padding:1px 5px;border-radius:4px}
 .fail-badge{display:inline-block;background:#fee2e2;color:#dc2626;font-size:10px;font-weight:600;padding:1px 5px;border-radius:4px}
+.role-badge{display:inline-block;font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;margin-left:4px}
+.role-admin{background:#dbeafe;color:#1e40af}.role-student{background:#dcfce7;color:#166534}.role-supervisor{background:#fef9c3;color:#854d0e}.role-visitor{background:#f1f5f9;color:#64748b}
 .test-thumb{flex-shrink:0}
 .test-thumb img{width:48px;height:32px;object-fit:cover;border-radius:3px;border:1px solid var(--border)}
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9999;align-items:flex-start;justify-content:center;padding:40px 24px;overflow-y:auto}
@@ -58,42 +54,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .modal-title{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:8px;padding-right:32px}
 .modal-meta{font-size:12px;color:var(--muted);margin-bottom:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .modal-badge{font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px}
-.mb-pass{background:#dcfce7;color:#166534}
-.mb-skip{background:#fef9c3;color:#854d0e}
-.mb-fail{background:#fee2e2;color:#991b1b}
-.mb-api{background:#ede9fe;color:#6d28d9}
+.mb-pass{background:#dcfce7;color:#166534}.mb-skip{background:#fef9c3;color:#854d0e}.mb-fail{background:#fee2e2;color:#991b1b}.mb-api{background:#ede9fe;color:#6d28d9}
 .modal-screenshots{margin-top:16px}
 .modal-screenshots h4{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;margin-bottom:10px}
 .modal-img-wrap{margin-bottom:12px}
 .modal-img-wrap img{max-width:100%;border-radius:6px;border:1px solid var(--border);display:block}
 .modal-img-caption{font-size:11px;color:var(--muted);margin-top:4px;text-align:center}
 .no-screenshot{background:#f8fafc;border:1px dashed var(--border);border-radius:6px;padding:16px;text-align:center;color:var(--muted);font-size:13px}
-.prd-cover-hero{background:var(--navy);border-radius:10px;padding:20px 24px;margin-bottom:20px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
-.prd-cover-title{font-size:20px;font-weight:700;color:#fff;margin-bottom:2px}
-.prd-cover-sub{font-size:12px;color:rgba(255,255,255,.6)}
-.prd-cover-meter{flex:1;min-width:200px}
-.prd-cover-pct{font-size:36px;font-weight:800;color:var(--gold);line-height:1}
-.prd-cover-pct-label{font-size:12px;color:rgba(255,255,255,.6);margin-top:2px}
-.prd-cover-bar-wrap{background:rgba(255,255,255,.15);border-radius:99px;height:8px;margin-top:8px}
-.prd-cover-bar{height:8px;border-radius:99px;background:var(--gold)}
-.prd-filter{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
-.prd-filter-btn{padding:4px 12px;border:1px solid var(--border);border-radius:99px;background:var(--card);cursor:pointer;font-size:12px;font-weight:500;color:var(--muted);transition:all .15s}
-.prd-filter-btn.active{background:var(--teal);color:#fff;border-color:var(--teal)}
-.prd-filter-btn:hover{border-color:var(--teal)}
-.prd-legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:18px}
-.prd-legend-item{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--text)}
-.prd-legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.prd-dot-red{background:var(--prd-red)}
-.prd-dot-yellow{background:var(--skip)}
-.prd-dot-green{background:var(--pass)}
-.prd-group{margin-bottom:20px;background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden}
-.prd-group-header{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#f1f5f9;border-bottom:1px solid var(--border)}
-.prd-group-label{font-size:13px;font-weight:700;color:var(--navy);flex:1}
-.prd-group-stats{display:flex;gap:6px;font-size:11px}
-.prd-gs{padding:2px 7px;border-radius:99px;font-weight:600}
-.prd-gs-red{background:#fee2e2;color:#991b1b}
-.prd-gs-yellow{background:#fef9c3;color:#854d0e}
-.prd-gs-green{background:#dcfce7;color:#166534}
+.prd-group{margin-bottom:16px;background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden}
 .prd-row{display:flex;align-items:flex-start;gap:10px;padding:9px 14px;border-bottom:1px solid var(--border)}
 .prd-row:last-child{border-bottom:none}
 .prd-num{font-size:11px;font-weight:700;color:var(--muted);width:22px;flex-shrink:0;padding-top:2px}
@@ -106,7 +74,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .prd-feature-desc{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.4}
 .prd-linked{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .prd-version-tag{display:inline-block;font-size:10px;font-weight:600;padding:1px 6px;border-radius:4px;margin-right:4px;background:#ede9fe;color:#6d28d9}
-.prd-module-tag{display:inline-block;font-size:10px;font-weight:600;padding:1px 6px;border-radius:4px;margin-right:4px;background:#e0f2fe;color:#0369a1}
 .gallery-section{margin-top:24px}
 .gallery-title{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:14px;padding-bottom:6px;border-bottom:2px solid var(--teal)}
 .gallery-cat{margin-bottom:20px}
@@ -118,25 +85,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .gallery-item p{font-size:11px;color:var(--muted);margin-top:3px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .test-verify{font-size:11px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .vb{display:inline-block;font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;margin-right:4px;vertical-align:middle}
-.vb-ai{background:#dcfce7;color:#166534}
-.vb-pending{background:#fef9c3;color:#854d0e}
-.vb-api{background:#ede9fe;color:#6d28d9}
-.modal-spec{font-size:12px;color:var(--text);margin-top:6px;padding:4px 8px;background:#f1f5f9;border-radius:4px}
-.modal-spec b{color:var(--teal)}
+.vb-ai{background:#dcfce7;color:#166534}.vb-pending{background:#fef9c3;color:#854d0e}.vb-api{background:#ede9fe;color:#6d28d9}
+.modal-spec{font-size:12px;color:var(--text);margin-top:6px;padding:4px 8px;background:#f1f5f9;border-radius:4px}.modal-spec b{color:var(--teal)}
 .verify-box{background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:12px}
 .verify-box.verify-api{background:#ede9fe;border-color:#c4b5fd;color:#6d28d9;font-size:13px}
 .verify-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:12px;color:var(--muted)}
 .verify-ai{background:#dcfce7;color:#166534;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px}
 .verify-pending{background:#fef9c3;color:#854d0e;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px}
-.verify-row{font-size:13px;color:var(--text);margin-bottom:4px;line-height:1.5}
-.verify-label{font-weight:600;color:var(--teal);margin-right:4px}
+.verify-row{font-size:13px;color:var(--text);margin-bottom:4px;line-height:1.5}.verify-label{font-weight:600;color:var(--teal);margin-right:4px}
 .loading{text-align:center;padding:60px 24px;color:var(--muted);font-size:16px}
-.error-msg{text-align:center;padding:60px 24px;color:var(--fail);font-size:16px}
+.prd-mini-summary{display:flex;gap:12px;align-items:center;padding:12px 16px;background:var(--navy);border-radius:8px;margin-bottom:16px;color:#fff;flex-wrap:wrap}
+.prd-mini-pct{font-size:28px;font-weight:800;color:var(--gold)}.prd-mini-label{font-size:12px;color:rgba(255,255,255,.6)}
+.prd-mini-bar-wrap{flex:1;min-width:100px;background:rgba(255,255,255,.15);border-radius:99px;height:6px}
+.prd-mini-bar{height:6px;border-radius:99px;background:var(--gold)}
+.prd-mini-stats{display:flex;gap:8px;font-size:11px;font-weight:600}
 </style>
 </head>
 <body>
-
-<!-- SUMMARY BAR -->
 <div class="summary-bar">
   <span class="title">CNC E2E 測試報告</span>
   <div class="stat stat-total"><span class="num" id="s-total">-</span><span>總計</span></div>
@@ -146,8 +111,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="progress-wrap"><div class="progress-fill" id="s-bar" style="width:0%"></div></div>
   <span class="duration" id="s-meta"></span>
 </div>
-
-<!-- TEST ACCOUNTS -->
 <div style="background:#f0fdf4;border-bottom:1px solid #bbf7d0;padding:8px 24px;font-size:13px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
   <span style="font-weight:700;color:#166534">測試帳號</span>
   <span style="color:#64748b">管理員：admin@careercreator.tw</span>
@@ -156,17 +119,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <span style="color:#166534;font-style:italic">密碼請洽 PM</span>
   <a href="https://cnc-frontend-849078733818.asia-east1.run.app/login" target="_blank" style="color:#37A6A9;font-weight:600;text-decoration:none;margin-left:auto">開啟系統 →</a>
 </div>
-
-<!-- TABS -->
-<div class="tabs-wrap">
-  <div class="tabs" id="tab-buttons"></div>
-</div>
-
-<div class="main" id="main-content">
-  <div class="loading">載入報告資料中...</div>
-</div>
-
-<!-- MODAL -->
+<div class="tabs-wrap"><div class="tabs" id="tab-buttons"></div></div>
+<div class="main" id="main-content"><div class="loading">載入報告資料中...</div></div>
 <div class="modal-overlay" id="modal" onclick="closeModalIfBg(event)">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal()">&times;</button>
@@ -175,382 +129,197 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="modal-screenshots" id="modal-screenshots"></div>
   </div>
 </div>
-
 <script>
-/* ===================================================================
- * CNC E2E Report — JSON-driven dashboard
- * Data source: report-data.json (generated by generate-report-data.js)
- * All rendering is driven by DATA; no hardcoded test data in HTML.
- * NOTE: All dynamic content is escaped via escHtml/escAttr before
- * insertion. Data source is our own CI-generated JSON, not user input.
- * =================================================================== */
-const BASE = 'https://youngger9765.github.io/navi-career-CNC-docs/screenshots/';
-
-const PAGE_FALLBACK = {
-  '/admin/cohorts':'admin--admin-cohorts.png','/admin/enrollments':'admin--admin-enrollments.png',
-  '/admin/pages':'admin--admin-pages.png','/admin/products':'admin--admin-products.png',
-  '/admin/classrooms':'admin--admin-classrooms.png','/admin/grading':'admin--admin-grading.png',
-  '/admin/supervision':'admin--admin-supervision.png','/admin/certifications':'admin--admin-certifications.png',
-  '/admin/crm':'admin--admin-crm.png','/admin/agents':'admin--admin-agents.png',
-  '/admin/marketing':'admin--admin-marketing.png','/admin/refunds':'admin--admin-refunds.png',
-  '/admin/promo-codes':'admin--admin-promo-codes.png','/admin/referrals':'admin--admin-referrals.png',
-  '/admin/dashboard':'admin--admin-dashboard.png','/student/dashboard':'student--student-dashboard.png',
-  '/student/enrollments':'student--student-enrollments.png','/student/courses':'student--student-courses.png',
-  '/student/payments':'student--student-payments.png','/student/crm':'student--student-crm.png',
-  '/student/supervision':'student--student-supervision.png','/student/certifications':'student--student-certifications.png',
-  '/student/profile':'student--student-profile.png','/courses':'visitor--courses.png',
-  '/enroll':'visitor--enroll.png','/login':'visitor--login.png','/':'visitor--homepage.png',
-};
-
-const TAB_CONFIG = [
-  {id:'prd', label:'PRD 覆蓋率'},
-  {id:'m1', label:'M1 報名金流'},
-  {id:'m2', label:'M2 行銷頁面'},
-  {id:'m3', label:'M3 運課管理'},
-  {id:'m4', label:'M4 督導認證'},
-  {id:'m5', label:'M5 會員 CRM'},
-  {id:'access', label:'權限控管'},
-  {id:'mobile', label:'手機版'},
-  {id:'screenshots', label:'截圖總覽'},
+/* CNC E2E Report — merged PRD + E2E per module */
+/* NOTE: All dynamic content is escaped via escHtml/escAttr. Data source is CI-generated JSON. */
+var BASE='https://youngger9765.github.io/navi-career-CNC-docs/screenshots/';
+var PAGE_FALLBACK={'/admin/cohorts':'admin--admin-cohorts.png','/admin/enrollments':'admin--admin-enrollments.png','/admin/pages':'admin--admin-pages.png','/admin/products':'admin--admin-products.png','/admin/classrooms':'admin--admin-classrooms.png','/admin/grading':'admin--admin-grading.png','/admin/supervision':'admin--admin-supervision.png','/admin/certifications':'admin--admin-certifications.png','/admin/crm':'admin--admin-crm.png','/admin/agents':'admin--admin-agents.png','/admin/marketing':'admin--admin-marketing.png','/admin/refunds':'admin--admin-refunds.png','/admin/promo-codes':'admin--admin-promo-codes.png','/admin/referrals':'admin--admin-referrals.png','/admin/dashboard':'admin--admin-dashboard.png','/student/dashboard':'student--student-dashboard.png','/student/enrollments':'student--student-enrollments.png','/student/courses':'student--student-courses.png','/student/payments':'student--student-payments.png','/student/crm':'student--student-crm.png','/student/supervision':'student--student-supervision.png','/student/certifications':'student--student-certifications.png','/student/profile':'student--student-profile.png','/courses':'visitor--courses.png','/enroll':'visitor--enroll.png','/login':'visitor--login.png','/':'visitor--homepage.png'};
+var TAB_CONFIG=[
+  {id:'m1',label:'M1 報名金流',prdModule:'M1'},
+  {id:'m2',label:'M2 行銷頁面',prdModule:'M2'},
+  {id:'m3',label:'M3 運課管理',prdModule:'M3'},
+  {id:'m4',label:'M4 督導認證',prdModule:'M4'},
+  {id:'m5',label:'M5 會員 CRM',prdModule:'M5'},
+  {id:'access',label:'權限控管'},
+  {id:'mobile',label:'手機版'},
+  {id:'screenshots',label:'截圖總覽'}
 ];
-// Test accounts for PM review
-const TEST_ACCOUNTS = [
-  {role:'管理員', email:'admin@careercreator.tw'},
-  {role:'督導', email:'supervisor@careercreator.tw'},
-  {role:'學員', email:'alice@test.com'},
-  {role:'學員', email:'bob@test.com'},
-];
-const TEST_PASSWORD = 'E2eTest2026x';
-
-var DATA = null;
-var _testData = {};
-
-// ---- Helpers ----
-function escHtml(s) { var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
-function escAttr(s) { return (s || '').replace(/'/g, '&#39;').replace(/"/g, '&quot;').replace(/</g, '&lt;'); }
-
-// ---- Fetch & render ----
-function init() {
+var DATA=null,_testData={};
+function escHtml(s){var d=document.createElement('div');d.textContent=s||'';return d.innerHTML;}
+function escAttr(s){return(s||'').replace(/'/g,'&#39;').replace(/"/g,'&quot;').replace(/</g,'&lt;');}
+function getRoleBadge(t){
+  var spec=(t.spec||'').toLowerCase();var name=(t.name||'').toLowerCase();
+  if(spec.indexOf('admin')>=0||name.indexOf('管理員')>=0||name.indexOf('admin')>=0) return '<span class="role-badge role-admin">管理員</span>';
+  if(spec.indexOf('supervisor')>=0||name.indexOf('督導')>=0) return '<span class="role-badge role-supervisor">督導</span>';
+  if(spec.indexOf('student')>=0||name.indexOf('學員')>=0||name.indexOf('alice')>=0) return '<span class="role-badge role-student">學員</span>';
+  if(spec.indexOf('access')>=0||name.indexOf('訪客')>=0||name.indexOf('未認證')>=0) return '<span class="role-badge role-visitor">訪客</span>';
+  return '';
+}
+function init(){
   fetch('report-data.json')
-    .then(function(res) { if (!res.ok) throw new Error('HTTP ' + res.status); return res.json(); })
-    .then(function(data) { DATA = data; updateSummaryBar(); renderTabs(); renderAll(); })
-    .catch(function(e) {
-      document.getElementById('main-content').textContent = 'Unable to load report-data.json: ' + e.message;
-    });
+    .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+    .then(function(d){DATA=d;updateSummaryBar();renderTabs();renderAll();})
+    .catch(function(e){document.getElementById('main-content').textContent='Unable to load report-data.json: '+e.message;});
 }
-
-function updateSummaryBar() {
-  var s = DATA.summary;
-  document.getElementById('s-total').textContent = s.total;
-  document.getElementById('s-pass').textContent = s.passed;
-  document.getElementById('s-skip').textContent = s.skipped;
-  document.getElementById('s-fail').textContent = s.failed;
-  var pct = s.total ? Math.round((s.passed / s.total) * 100) : 0;
-  document.getElementById('s-bar').style.width = pct + '%';
-  var date = DATA.generatedAt ? new Date(DATA.generatedAt).toLocaleDateString('zh-TW') : '';
-  document.getElementById('s-meta').textContent = 'commit: ' + (DATA.commitSha || '?') + ' | ' + date;
+function updateSummaryBar(){
+  var s=DATA.summary;
+  document.getElementById('s-total').textContent=s.total;
+  document.getElementById('s-pass').textContent=s.passed;
+  document.getElementById('s-skip').textContent=s.skipped;
+  document.getElementById('s-fail').textContent=s.failed;
+  var pct=s.total?Math.round((s.passed/s.total)*100):0;
+  document.getElementById('s-bar').style.width=pct+'%';
+  var date=DATA.generatedAt?new Date(DATA.generatedAt).toLocaleDateString('zh-TW'):'';
+  document.getElementById('s-meta').textContent='commit: '+(DATA.commitSha||'?')+' | '+date;
 }
-
-function renderTabs() {
-  var container = document.getElementById('tab-buttons');
-  var html = '';
-  TAB_CONFIG.forEach(function(tc, i) {
-    html += '<button class="tab-btn' + (i===0?' active':'') + '" onclick="showTab(\'' + tc.id + '\',this)">' + tc.label + '</button>';
-  });
-  container.innerHTML = html;
+function renderTabs(){
+  var c=document.getElementById('tab-buttons');var h='';
+  TAB_CONFIG.forEach(function(tc,i){h+='<button class="tab-btn'+(i===0?' active':'')+'" onclick="showTab(\''+tc.id+'\',this)">'+tc.label+'</button>';});
+  c.innerHTML=h;
 }
-
-function renderAll() {
-  var main = document.getElementById('main-content');
-  main.innerHTML = '';
-  TAB_CONFIG.forEach(function(tc, idx) {
-    var panel = document.createElement('div');
-    panel.id = 'tab-' + tc.id;
-    panel.className = 'tab-panel' + (idx===0?' active':'');
-    if (tc.id === 'prd') { panel.innerHTML = renderPrdCoverageTab(); }
-    else if (tc.id === 'screenshots') { panel.innerHTML = renderGalleryTab(); }
-    else { panel.innerHTML = renderTestTab(tc.id, tc.label); }
+function renderAll(){
+  var main=document.getElementById('main-content');main.innerHTML='';
+  TAB_CONFIG.forEach(function(tc,idx){
+    var panel=document.createElement('div');
+    panel.id='tab-'+tc.id;panel.className='tab-panel'+(idx===0?' active':'');
+    if(tc.id==='screenshots'){panel.innerHTML=renderGalleryTab();}
+    else if(tc.prdModule){panel.innerHTML=renderMergedModuleTab(tc.id,tc.label,tc.prdModule);}
+    else{panel.innerHTML=renderTestTab(tc.id,tc.label);}
     main.appendChild(panel);
   });
 }
-
-// ---- Test tabs ----
-function getScreenshots(t) {
-  var urls = [];
-  if (t.shots && t.shots.length) {
-    t.shots.forEach(function(s) { urls.push({url: BASE + s, label: s.replace(/^(flow|crud)\//, '').replace('.png','')}); });
-  }
-  if (urls.length === 0 && t.pages && t.pages.length) {
-    for (var i = 0; i < t.pages.length; i++) {
-      var f = PAGE_FALLBACK[t.pages[i]];
-      if (f) { urls.push({url: BASE + f, label: '頁面截圖'}); break; }
-    }
-  }
+function getScreenshots(t){
+  var urls=[];
+  if(t.shots&&t.shots.length){t.shots.forEach(function(s){urls.push({url:BASE+s,label:s.replace(/^(flow|crud)\//,'').replace('.png','')});});}
+  if(urls.length===0&&t.pages&&t.pages.length){for(var i=0;i<t.pages.length;i++){var f=PAGE_FALLBACK[t.pages[i]];if(f){urls.push({url:BASE+f,label:'頁面截圖'});break;}}}
   return urls;
 }
-
-function renderTestTab(tabId, label) {
-  var tests = (DATA.tests || []).filter(function(t) { return t.tab === tabId; });
-  var pass = tests.filter(function(t){return t.status==='pass';}).length;
-  var skip = tests.filter(function(t){return t.status==='skip';}).length;
-  var fail = tests.filter(function(t){return t.status==='fail';}).length;
-  var groups = {};
-  var groupOrder = [];
-  tests.forEach(function(t) {
-    if (!groups[t.group]) { groups[t.group] = []; groupOrder.push(t.group); }
-    groups[t.group].push(t);
-  });
-  var moduleId = label.split(' ')[0];
-  var html = '<div class="module-header">' +
-    '<span class="module-badge">' + moduleId + '</span>' +
-    '<span class="module-title">' + label.replace(moduleId+' ','') + '</span>' +
-    '<div class="module-stats">' +
-    '<span class="ms ms-pass">通過 ' + pass + '</span>' +
-    (skip ? '<span class="ms ms-skip">略過 ' + skip + '</span>' : '') +
-    (fail ? '<span class="ms ms-fail">失敗 ' + fail + '</span>' : '') +
-    '</div></div>';
-  groupOrder.forEach(function(g) {
-    html += '<div class="spec-group"><div class="spec-group-title">' + escHtml(g) + '</div>';
-    groups[g].forEach(function(t, i) {
-      var tid = tabId + '_' + g.replace(/[^a-z0-9]/gi,'') + '_' + i;
-      var shots = getScreenshots(t);
-      var thumb = shots.length ? '<div class="test-thumb"><img src="' + shots[0].url + '" alt="" onerror="this.style.display=\'none\'"></div>' : '';
-      var apiB = t.apiOnly ? ' <span class="api-badge">API</span>' : '';
-      var skipB = t.status==='skip' ? ' <span class="skip-badge">略過</span>' : '';
-      var failB = t.status==='fail' ? ' <span class="fail-badge">失敗</span>' : '';
-      var statusClass = t.status==='pass'?'ts-pass':t.status==='skip'?'ts-skip':'ts-fail';
-      var statusIcon = t.status==='pass'?'✓':t.status==='skip'?'−':'✗';
-      var dur = t.duration ? ' · ' + Math.round(t.duration/1000) + 's' : '';
-      // Build AI verification summary for list row
-      var v = t.verification;
-      var verifyLine = '';
-      if (v && v.method === 'api-only') {
-        verifyLine = '<div class="test-verify"><span class="vb vb-api">API</span>透過 HTTP status code 驗證</div>';
-      } else if (v && v.analyses && v.analyses.length) {
-        var a = v.analyses[0];
-        var tag = a.needsReview ? '<span class="vb vb-pending">待審查</span>' : '<span class="vb vb-ai">AI 已審查</span>';
-        verifyLine = '<div class="test-verify">' + tag + escHtml(a.description) + '</div>';
+function renderMergedModuleTab(tabId,label,prdModule){
+  var html='';
+  var prd=DATA.prdCoverage||{summary:{green:0,yellow:0,red:0},items:[]};
+  var moduleItems=prd.items.filter(function(i){return i.module===prdModule;});
+  if(moduleItems.length>0){
+    var gC=moduleItems.filter(function(i){return i.status==='green';}).length;
+    var yC=moduleItems.filter(function(i){return i.status==='yellow';}).length;
+    var rC=moduleItems.filter(function(i){return i.status==='red';}).length;
+    var pct=Math.round((gC/moduleItems.length)*100);
+    html+='<div class="prd-mini-summary"><div><div class="prd-mini-pct">'+pct+'%</div><div class="prd-mini-label">需求覆蓋率</div></div><div class="prd-mini-bar-wrap"><div class="prd-mini-bar" style="width:'+Math.max(pct,2)+'%"></div></div><div class="prd-mini-stats"><span style="color:#4ade80">\u25CF 完成 '+gC+'</span>'+(yC?'<span style="color:var(--gold)">\u25CF 不完整 '+yC+'</span>':'')+(rC?'<span style="color:#f87171">\u25CF 未實作 '+rC+'</span>':'')+'</div></div>';
+    html+='<div class="section-divider"><span class="sd-icon">\uD83D\uDCCB</span> 需求覆蓋（'+moduleItems.length+' 項）</div>';
+    var sorted=moduleItems.slice().sort(function(a,b){var o={red:0,yellow:1,green:2};return(o[a.status]||9)-(o[b.status]||9);});
+    html+='<div class="prd-group" style="margin-bottom:8px">';
+    sorted.forEach(function(item){
+      var bc=item.status==='red'?'prd-badge-red':item.status==='yellow'?'prd-badge-yellow':'prd-badge-green';
+      var bl=item.status==='red'?'未實作':item.status==='yellow'?'不完整':'已完成';
+      var th=item.screenshot?'<div class="test-thumb" style="margin-left:auto;cursor:pointer"><img src="screenshots/'+item.screenshot+'" alt="" style="width:64px;height:42px;object-fit:cover;border-radius:4px;border:1px solid var(--border)"></div>':'';
+      var tags=(item.version?'<span class="prd-version-tag">'+item.version+'</span>':'');
+      var ca=item.screenshot?' style="cursor:pointer" onclick="openPrdScreenshot(\'screenshots/'+item.screenshot+'\',\''+escAttr(item.name)+'\')"':'';
+      var lv='';
+      if(item.linkedTests&&item.linkedTests.length&&DATA.tests){
+        var linked=DATA.tests.filter(function(t){return item.linkedTests.some(function(lt){return t.spec.indexOf(lt)>=0;});});
+        if(linked.length){var pc=linked.filter(function(t){return t.status==='pass';}).length;lv='<div class="prd-linked"><span class="vb vb-ai">E2E</span>'+pc+'/'+linked.length+' 測試通過';var wa=linked.find(function(t){return t.verification&&t.verification.analyses&&t.verification.analyses[0]&&!t.verification.analyses[0].needsReview;});if(wa){lv+=' \u00B7 <span style="color:var(--teal)">AI：</span>'+escHtml(wa.verification.analyses[0].description);}lv+='</div>';}
       }
-      html += '<div class="test-row" onclick="openModal(\'' + tid + '\')">' +
-        '<div class="test-status ' + statusClass + '">' + statusIcon + '</div>' +
-        '<div class="test-info">' +
-        '<div class="test-name">' + escHtml(t.name) + apiB + skipB + failB + '</div>' +
-        '<div class="test-meta">' + escHtml(t.spec) + dur + '</div>' +
-        verifyLine +
-        '</div>' + thumb + '</div>';
-      _testData[tid] = t;
+      html+='<div class="prd-row"'+ca+'><div class="prd-num">#'+item.num+'</div><span class="prd-badge '+bc+'">'+bl+'</span><div class="prd-info"><div class="prd-feature-name">'+tags+escHtml(item.name)+'</div><div class="prd-feature-desc">'+escHtml(item.desc)+'</div>'+lv+'</div>'+th+'</div>';
     });
-    html += '</div>';
-  });
-  if (tests.length === 0) html += '<div class="no-screenshot">此 Tab 無測試結果</div>';
-  return html;
-}
-
-// ---- PRD Coverage tab ----
-function renderPrdCoverageTab() {
-  var prd = DATA.prdCoverage || {summary:{green:0,yellow:0,red:0},items:[]};
-  var allItems = prd.items;
-  var totalCount = allItems.length;
-  var greenCount = prd.summary.green, yellowCount = prd.summary.yellow, redCount = prd.summary.red;
-  var coveragePct = totalCount ? Math.round((greenCount / totalCount) * 100) : 0;
-  var partialPct = totalCount ? Math.round(((greenCount + yellowCount * 0.5) / totalCount) * 100) : 0;
-
-  var html = '<div class="prd-cover-hero"><div>' +
-    '<div class="prd-cover-title">PRD 覆蓋率分析</div>' +
-    '<div class="prd-cover-sub">對照美荷原始規格 — ' + totalCount + ' 項功能缺口</div>' +
-    '</div><div class="prd-cover-meter">' +
-    '<div class="prd-cover-pct">' + coveragePct + '%</div>' +
-    '<div class="prd-cover-pct-label">已實作並測試 · ' + greenCount + '/' + totalCount + ' 項</div>' +
-    '<div class="prd-cover-bar-wrap"><div class="prd-cover-bar" style="width:' + Math.max(partialPct,2) + '%"></div></div>' +
-    '</div><div style="display:flex;flex-direction:column;gap:6px;font-size:12px">' +
-    '<div style="color:#f87171;font-weight:700">&#9679; 未實作 ' + redCount + ' 項</div>' +
-    '<div style="color:var(--gold);font-weight:700">&#9679; 存在但未完整 ' + yellowCount + ' 項</div>' +
-    '<div style="color:#4ade80;font-weight:700">&#9679; 實作並測試 ' + greenCount + ' 項</div>' +
-    '</div></div>';
-
-  // Module/Version filters
-  var modules = []; var versions = [];
-  allItems.forEach(function(i) {
-    if (i.module && modules.indexOf(i.module) < 0) modules.push(i.module);
-    if (i.version && versions.indexOf(i.version) < 0) versions.push(i.version);
-  });
-  modules.sort(); versions.sort();
-  html += '<div class="prd-filter" id="prd-filters">' +
-    '<button class="prd-filter-btn active" onclick="setPrdFilter(\'all\',this)">全部</button>';
-  versions.forEach(function(v) { html += '<button class="prd-filter-btn" onclick="setPrdFilter(\'version:' + v + '\',this)">' + v + '</button>'; });
-  html += '</div>';
-
-  html += '<div class="prd-legend">' +
-    '<div class="prd-legend-item"><div class="prd-legend-dot prd-dot-red"></div>未實作 — 需要開發</div>' +
-    '<div class="prd-legend-item"><div class="prd-legend-dot prd-dot-yellow"></div>存在但未完整 / 狀態未知</div>' +
-    '<div class="prd-legend-item"><div class="prd-legend-dot prd-dot-green"></div>已實作並通過 E2E 測試</div>' +
-    '</div>';
-
-  html += '<div id="prd-groups-container">' + renderPrdGroups(allItems) + '</div>';
-  return html;
-}
-
-function renderPrdGroups(items) {
-  var groupMap = {}; var groupOrder = [];
-  items.forEach(function(item) {
-    var key = item.groupId;
-    if (!groupMap[key]) { groupMap[key] = { label: item.group, priority: item.priority, items: [] }; groupOrder.push(key); }
-    groupMap[key].items.push(item);
-  });
-  var html = '';
-  groupOrder.forEach(function(key) {
-    var g = groupMap[key];
-    var gRed = g.items.filter(function(i){return i.status==='red';}).length;
-    var gYellow = g.items.filter(function(i){return i.status==='yellow';}).length;
-    var gGreen = g.items.filter(function(i){return i.status==='green';}).length;
-    html += '<div class="prd-group"><div class="prd-group-header">' +
-      '<div class="prd-group-label">' + escHtml(g.label) + '</div>' +
-      '<div class="prd-group-stats">' +
-      (gRed ? '<span class="prd-gs prd-gs-red">未實作 ' + gRed + '</span>' : '') +
-      (gYellow ? '<span class="prd-gs prd-gs-yellow">不完整 ' + gYellow + '</span>' : '') +
-      (gGreen ? '<span class="prd-gs prd-gs-green">完成 ' + gGreen + '</span>' : '') +
-      '</div></div>';
-    g.items.forEach(function(item) {
-      var badgeClass = item.status==='red'?'prd-badge-red':item.status==='yellow'?'prd-badge-yellow':'prd-badge-green';
-      var badgeLabel = item.status==='red'?'未實作':item.status==='yellow'?'不完整':'已完成';
-      var thumbHtml = item.screenshot
-        ? '<div class="test-thumb" style="margin-left:auto;cursor:pointer"><img src="screenshots/' + item.screenshot + '" alt="' + escAttr(item.name) + '" style="width:64px;height:42px;object-fit:cover;border-radius:4px;border:1px solid var(--border)"></div>'
-        : '';
-      var tags = (item.module ? '<span class="prd-module-tag">' + item.module + '</span>' : '') +
-                 (item.version ? '<span class="prd-version-tag">' + item.version + '</span>' : '');
-      var clickAttr = item.screenshot ? ' style="cursor:pointer" onclick="openPrdScreenshot(\'screenshots/' + item.screenshot + '\',\'' + escAttr(item.name) + '\')"' : '';
-      // Find linked test verification
-      var linkedVerify = '';
-      if (item.linkedTests && item.linkedTests.length && DATA.tests) {
-        var linked = DATA.tests.filter(function(t) {
-          return item.linkedTests.some(function(lt) { return t.spec.indexOf(lt) >= 0; });
-        });
-        if (linked.length) {
-          var passCount = linked.filter(function(t){return t.status==='pass';}).length;
-          linkedVerify = '<div class="prd-linked"><span class="vb vb-ai">E2E</span>' + passCount + '/' + linked.length + ' 測試通過';
-          // Show first linked test's AI analysis if available
-          var withAI = linked.find(function(t) { return t.verification && t.verification.analyses && t.verification.analyses[0] && !t.verification.analyses[0].needsReview; });
-          if (withAI) {
-            linkedVerify += ' · <span style="color:var(--teal)">AI：</span>' + escHtml(withAI.verification.analyses[0].description);
-          }
-          linkedVerify += '</div>';
-        }
-      }
-      html += '<div class="prd-row"' + clickAttr + '>' +
-        '<div class="prd-num">#' + item.num + '</div>' +
-        '<span class="prd-badge ' + badgeClass + '">' + badgeLabel + '</span>' +
-        '<div class="prd-info">' +
-        '<div class="prd-feature-name">' + tags + escHtml(item.name) + '</div>' +
-        '<div class="prd-feature-desc">' + escHtml(item.desc) + '</div>' +
-        linkedVerify +
-        '</div>' + thumbHtml + '</div>';
-    });
-    html += '</div>';
-  });
-  return html;
-}
-
-function setPrdFilter(filter, btn) {
-  document.querySelectorAll('#prd-filters .prd-filter-btn').forEach(function(b) { b.classList.remove('active'); });
-  if (btn) btn.classList.add('active');
-  var allItems = (DATA.prdCoverage || {}).items || [];
-  var filtered = allItems;
-  if (filter.indexOf('module:') === 0) {
-    var mod = filter.split(':')[1];
-    filtered = allItems.filter(function(i) { return i.module === mod; });
-  } else if (filter.indexOf('version:') === 0) {
-    var ver = filter.split(':')[1];
-    filtered = allItems.filter(function(i) { return i.version === ver; });
+    html+='</div>';
   }
-  document.getElementById('prd-groups-container').innerHTML = renderPrdGroups(filtered);
-}
-
-// ---- Gallery tab ----
-function renderGalleryTab() {
-  var ss = DATA.screenshots || {};
-  function gridItems(list) {
-    return (list || []).map(function(p) {
-      var label = p.replace(/^(crud|flow|prd-gaps)\//, '').replace('.png','').replace(/--/g,' ');
-      return '<div class="gallery-item" onclick="openLightboxDirect(\'' + BASE+p + '\',\'' + escAttr(label) + '\')"><img src="' + BASE+p + '" alt="' + escAttr(label) + '" onerror="this.parentElement.style.display=\'none\'"><p>' + escHtml(label) + '</p></div>';
-    }).join('');
-  }
-  return '<div class="gallery-section">' +
-    '<div class="gallery-title">截圖總覽</div>' +
-    '<div class="gallery-cat"><div class="gallery-cat-title">頁面截圖（' + (ss.root||[]).length + ' 張）</div><div class="gallery-grid">' + gridItems(ss.root) + '</div></div>' +
-    '<div class="gallery-cat"><div class="gallery-cat-title">CRUD 操作截圖（' + (ss.crud||[]).length + ' 張）</div><div class="gallery-grid">' + gridItems(ss.crud) + '</div></div>' +
-    '<div class="gallery-cat"><div class="gallery-cat-title">流程截圖（' + (ss.flow||[]).length + ' 張）</div><div class="gallery-grid">' + gridItems(ss.flow) + '</div></div>' +
-    '</div>';
-}
-
-// ---- Modal ----
-function openModal(tid) {
-  var t = _testData[tid];
-  if (!t) return;
-  var shots = getScreenshots(t);
-  document.getElementById('modal-title').textContent = t.name;
-  var statusLabel = t.status==='pass'?'通過':t.status==='skip'?'略過':'失敗';
-  var statusClass = t.status==='pass'?'mb-pass':t.status==='skip'?'mb-skip':'mb-fail';
-  var metaHtml = '<span class="modal-badge ' + statusClass + '">' + statusLabel + '</span>';
-  if (t.duration) metaHtml += '<span style="color:var(--muted)">' + Math.round(t.duration/1000) + 's</span>';
-  if (t.apiOnly) metaHtml += '<span class="modal-badge mb-api">API 測試</span>';
-  metaHtml += '<div class="modal-spec"><b>規格：</b>' + escHtml(t.spec) + '</div>';
-  document.getElementById('modal-meta').innerHTML = metaHtml;
-
-  var screenshotHtml = '';
-  var v = t.verification;
-
-  // Verification method badge
-  if (v) {
-    if (v.method === 'api-only') {
-      screenshotHtml += '<div class="verify-box verify-api"><b>驗證方式：</b>API 測試，無需截圖。透過 HTTP status code 驗證</div>';
-    } else if (v.method === 'screenshot' && v.analyses) {
-      v.analyses.forEach(function(a) {
-        var aiTag = a.needsReview ? '<span class="verify-pending">待審查</span>' : '<span class="verify-ai">AI 已審查</span>';
-        screenshotHtml += '<div class="verify-box"><div class="verify-header">' + aiTag + ' <b>' + escHtml(a.path) + '</b></div>';
-        screenshotHtml += '<div class="verify-row"><span class="verify-label">AI 看到：</span>' + escHtml(a.description) + '</div>';
-        screenshotHtml += '<div class="verify-row"><span class="verify-label">判定理由：</span>' + escHtml(a.verdict) + '</div>';
-        var imgUrl = BASE + a.path;
-        screenshotHtml += '<div class="modal-img-wrap"><img src="' + imgUrl + '" alt="' + escAttr(a.path) + '" onerror="this.parentElement.innerHTML=\'<div class=\\\'no-screenshot\\\'>截圖載入失敗</div>\'"></div>';
-        screenshotHtml += '</div>';
+  var tests=(DATA.tests||[]).filter(function(t){return t.tab===tabId;});
+  var pass=tests.filter(function(t){return t.status==='pass';}).length;
+  var skip=tests.filter(function(t){return t.status==='skip';}).length;
+  var fail=tests.filter(function(t){return t.status==='fail';}).length;
+  if(tests.length>0){
+    html+='<div class="section-divider"><span class="sd-icon">\uD83E\uDDEA</span> E2E 測試（'+tests.length+' 個 \u00B7 通過 '+pass+(skip?' \u00B7 略過 '+skip:'')+(fail?' \u00B7 失敗 '+fail:'')+'）</div>';
+    var groups={},groupOrder=[];
+    tests.forEach(function(t){if(!groups[t.group]){groups[t.group]=[];groupOrder.push(t.group);}groups[t.group].push(t);});
+    groupOrder.forEach(function(g){
+      html+='<div class="spec-group"><div class="spec-group-title">'+escHtml(g)+'</div>';
+      groups[g].forEach(function(t,i){
+        var tid=tabId+'_'+g.replace(/[^a-z0-9]/gi,'')+'_'+i;
+        var shots=getScreenshots(t);
+        var thumb=shots.length?'<div class="test-thumb"><img src="'+shots[0].url+'" alt="" onerror="this.style.display=\'none\'"></div>':'';
+        var apiB=t.apiOnly?' <span class="api-badge">API</span>':'';
+        var skipB=t.status==='skip'?' <span class="skip-badge">略過</span>':'';
+        var failB=t.status==='fail'?' <span class="fail-badge">失敗</span>':'';
+        var roleBadge=getRoleBadge(t);
+        var sc=t.status==='pass'?'ts-pass':t.status==='skip'?'ts-skip':'ts-fail';
+        var si=t.status==='pass'?'\u2713':t.status==='skip'?'\u2212':'\u2717';
+        var dur=t.duration?' \u00B7 '+Math.round(t.duration/1000)+'s':'';
+        var v=t.verification,vl='';
+        if(v&&v.method==='api-only'){vl='<div class="test-verify"><span class="vb vb-api">API</span>透過 HTTP status code 驗證</div>';}
+        else if(v&&v.analyses&&v.analyses.length){var a=v.analyses[0];var tg=a.needsReview?'<span class="vb vb-pending">待審查</span>':'<span class="vb vb-ai">AI 已審查</span>';vl='<div class="test-verify">'+tg+escHtml(a.description)+'</div>';}
+        html+='<div class="test-row" onclick="openModal(\''+tid+'\')"><div class="test-status '+sc+'">'+si+'</div><div class="test-info"><div class="test-name">'+escHtml(t.name)+apiB+skipB+failB+roleBadge+'</div><div class="test-meta">'+escHtml(t.spec)+dur+'</div>'+vl+'</div>'+thumb+'</div>';
+        _testData[tid]=t;
       });
-    }
-  } else if (shots.length === 0) {
-    screenshotHtml = '<div class="no-screenshot">此測試無截圖（API 測試或條件略過）</div>';
-  } else {
-    screenshotHtml = '<h4>測試截圖</h4>';
-    shots.forEach(function(s) {
-      screenshotHtml += '<div class="modal-img-wrap">' +
-        '<img src="' + s.url + '" alt="' + escAttr(s.label) + '" onerror="this.parentElement.innerHTML=\'<div class=\\\'no-screenshot\\\'>截圖載入失敗</div>\'">' +
-        (s.label ? '<div class="modal-img-caption">' + escHtml(s.label) + '</div>' : '') +
-        '</div>';
+      html+='</div>';
     });
   }
-  document.getElementById('modal-screenshots').innerHTML = screenshotHtml;
+  if(moduleItems.length===0&&tests.length===0){html+='<div class="no-screenshot">此模組暫無需求項目或測試結果</div>';}
+  return html;
+}
+function renderTestTab(tabId,label){
+  var tests=(DATA.tests||[]).filter(function(t){return t.tab===tabId;});
+  var pass=tests.filter(function(t){return t.status==='pass';}).length;
+  var skip=tests.filter(function(t){return t.status==='skip';}).length;
+  var fail=tests.filter(function(t){return t.status==='fail';}).length;
+  var groups={},groupOrder=[];
+  tests.forEach(function(t){if(!groups[t.group]){groups[t.group]=[];groupOrder.push(t.group);}groups[t.group].push(t);});
+  var moduleId=label.split(' ')[0];
+  var html='<div class="module-header"><span class="module-badge">'+moduleId+'</span><span class="module-title">'+label.replace(moduleId+' ','')+'</span><div class="module-stats"><span class="ms ms-pass">通過 '+pass+'</span>'+(skip?'<span class="ms ms-skip">略過 '+skip+'</span>':'')+(fail?'<span class="ms ms-fail">失敗 '+fail+'</span>':'')+'</div></div>';
+  groupOrder.forEach(function(g){
+    html+='<div class="spec-group"><div class="spec-group-title">'+escHtml(g)+'</div>';
+    groups[g].forEach(function(t,i){
+      var tid=tabId+'_'+g.replace(/[^a-z0-9]/gi,'')+'_'+i;
+      var shots=getScreenshots(t);
+      var thumb=shots.length?'<div class="test-thumb"><img src="'+shots[0].url+'" alt="" onerror="this.style.display=\'none\'"></div>':'';
+      var apiB=t.apiOnly?' <span class="api-badge">API</span>':'';
+      var skipB=t.status==='skip'?' <span class="skip-badge">略過</span>':'';
+      var failB=t.status==='fail'?' <span class="fail-badge">失敗</span>':'';
+      var roleBadge=getRoleBadge(t);
+      var sc=t.status==='pass'?'ts-pass':t.status==='skip'?'ts-skip':'ts-fail';
+      var si=t.status==='pass'?'\u2713':t.status==='skip'?'\u2212':'\u2717';
+      var dur=t.duration?' \u00B7 '+Math.round(t.duration/1000)+'s':'';
+      var v=t.verification,vl='';
+      if(v&&v.method==='api-only'){vl='<div class="test-verify"><span class="vb vb-api">API</span>透過 HTTP status code 驗證</div>';}
+      else if(v&&v.analyses&&v.analyses.length){var a=v.analyses[0];var tg=a.needsReview?'<span class="vb vb-pending">待審查</span>':'<span class="vb vb-ai">AI 已審查</span>';vl='<div class="test-verify">'+tg+escHtml(a.description)+'</div>';}
+      html+='<div class="test-row" onclick="openModal(\''+tid+'\')"><div class="test-status '+sc+'">'+si+'</div><div class="test-info"><div class="test-name">'+escHtml(t.name)+apiB+skipB+failB+roleBadge+'</div><div class="test-meta">'+escHtml(t.spec)+dur+'</div>'+vl+'</div>'+thumb+'</div>';
+      _testData[tid]=t;
+    });
+    html+='</div>';
+  });
+  if(tests.length===0)html+='<div class="no-screenshot">此 Tab 無測試結果</div>';
+  return html;
+}
+function renderGalleryTab(){
+  var ss=DATA.screenshots||{};
+  function gi(list){return(list||[]).map(function(p){var l=p.replace(/^(crud|flow|prd-gaps)\//,'').replace('.png','').replace(/--/g,' ');return'<div class="gallery-item" onclick="openLightboxDirect(\''+BASE+p+'\',\''+escAttr(l)+'\')"><img src="'+BASE+p+'" alt="'+escAttr(l)+'" onerror="this.parentElement.style.display=\'none\'"><p>'+escHtml(l)+'</p></div>';}).join('');}
+  return'<div class="gallery-section"><div class="gallery-title">截圖總覽</div><div class="gallery-cat"><div class="gallery-cat-title">頁面截圖（'+(ss.root||[]).length+' 張）</div><div class="gallery-grid">'+gi(ss.root)+'</div></div><div class="gallery-cat"><div class="gallery-cat-title">CRUD 操作截圖（'+(ss.crud||[]).length+' 張）</div><div class="gallery-grid">'+gi(ss.crud)+'</div></div><div class="gallery-cat"><div class="gallery-cat-title">流程截圖（'+(ss.flow||[]).length+' 張）</div><div class="gallery-grid">'+gi(ss.flow)+'</div></div></div>';
+}
+function openModal(tid){
+  var t=_testData[tid];if(!t)return;
+  var shots=getScreenshots(t);
+  document.getElementById('modal-title').textContent=t.name;
+  var sl=t.status==='pass'?'通過':t.status==='skip'?'略過':'失敗';
+  var sc=t.status==='pass'?'mb-pass':t.status==='skip'?'mb-skip':'mb-fail';
+  var mh='<span class="modal-badge '+sc+'">'+sl+'</span>';
+  if(t.duration)mh+='<span style="color:var(--muted)">'+Math.round(t.duration/1000)+'s</span>';
+  if(t.apiOnly)mh+='<span class="modal-badge mb-api">API 測試</span>';
+  mh+=getRoleBadge(t);
+  mh+='<div class="modal-spec"><b>規格：</b>'+escHtml(t.spec)+'</div>';
+  document.getElementById('modal-meta').innerHTML=mh;
+  var sh='';var v=t.verification;
+  if(v){
+    if(v.method==='api-only'){sh+='<div class="verify-box verify-api"><b>驗證方式：</b>API 測試，無需截圖。透過 HTTP status code 驗證</div>';}
+    else if(v.method==='screenshot'&&v.analyses){v.analyses.forEach(function(a){var at=a.needsReview?'<span class="verify-pending">待審查</span>':'<span class="verify-ai">AI 已審查</span>';sh+='<div class="verify-box"><div class="verify-header">'+at+' <b>'+escHtml(a.path)+'</b></div><div class="verify-row"><span class="verify-label">AI 看到：</span>'+escHtml(a.description)+'</div><div class="verify-row"><span class="verify-label">判定理由：</span>'+escHtml(a.verdict)+'</div><div class="modal-img-wrap"><img src="'+BASE+a.path+'" alt="'+escAttr(a.path)+'" onerror="this.parentElement.innerHTML=\'<div class=\\\'no-screenshot\\\'>截圖載入失敗</div>\'"></div></div>';});}
+  }else if(shots.length===0){sh='<div class="no-screenshot">此測試無截圖（API 測試或條件略過）</div>';}
+  else{sh='<h4>測試截圖</h4>';shots.forEach(function(s){sh+='<div class="modal-img-wrap"><img src="'+s.url+'" alt="'+escAttr(s.label)+'" onerror="this.parentElement.innerHTML=\'<div class=\\\'no-screenshot\\\'>截圖載入失敗</div>\'">'+(s.label?'<div class="modal-img-caption">'+escHtml(s.label)+'</div>':'')+'</div>';});}
+  document.getElementById('modal-screenshots').innerHTML=sh;
   document.getElementById('modal').classList.add('open');
 }
-
-function openLightboxDirect(url, caption) {
-  document.getElementById('modal-title').textContent = caption;
-  document.getElementById('modal-meta').innerHTML = '';
-  document.getElementById('modal-screenshots').innerHTML =
-    '<div class="modal-img-wrap"><img src="' + url + '" alt="' + escAttr(caption) + '" onerror="this.parentElement.innerHTML=\'<div class=\\\'no-screenshot\\\'>截圖載入失敗</div>\'"></div>';
-  document.getElementById('modal').classList.add('open');
-}
-
-function openPrdScreenshot(url, name) { openLightboxDirect(url, 'PRD #' + name); }
-
-function showTab(id, btn) {
-  document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
-  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
-  document.getElementById('tab-'+id).classList.add('active');
-  if (btn) btn.classList.add('active');
-}
-
-function closeModal() { document.getElementById('modal').classList.remove('open'); }
-function closeModalIfBg(e) { if (e.target === document.getElementById('modal')) closeModal(); }
-document.addEventListener('keydown', function(e) { if (e.key==='Escape') closeModal(); });
-
-// Boot
+function openLightboxDirect(url,cap){document.getElementById('modal-title').textContent=cap;document.getElementById('modal-meta').innerHTML='';document.getElementById('modal-screenshots').innerHTML='<div class="modal-img-wrap"><img src="'+url+'" alt="'+escAttr(cap)+'" onerror="this.parentElement.innerHTML=\'<div class=\\\'no-screenshot\\\'>截圖載入失敗</div>\'"></div>';document.getElementById('modal').classList.add('open');}
+function openPrdScreenshot(url,name){openLightboxDirect(url,'PRD #'+name);}
+function showTab(id,btn){document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active');});document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});document.getElementById('tab-'+id).classList.add('active');if(btn)btn.classList.add('active');}
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+function closeModalIfBg(e){if(e.target===document.getElementById('modal'))closeModal();}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
 init();
 </script>
 </body>
