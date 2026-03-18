@@ -5730,9 +5730,9 @@
   ],
   "prdCoverage": {
     "summary": {
-      "green": 11,
+      "green": 12,
       "yellow": 15,
-      "red": 12,
+      "red": 11,
       "total": 38
     },
     "items": [
@@ -5789,8 +5789,8 @@
         "module": "M1",
         "version": "V1",
         "name": "發票注意文字",
-        "desc": "發票注意文字 — 前後端均無實作",
-        "status": "red",
+        "desc": "結帳頁發票區塊下方新增黃色提示框：「電子發票將於付款完成後 48 小時內開立，屆時將寄送至您的 Email 信箱，請留意收件」— PR #117",
+        "status": "green",
         "linkedTests": [
           "ecpay-mock"
         ],
