@@ -5730,8 +5730,8 @@
   ],
   "prdCoverage": {
     "summary": {
-      "green": 16,
-      "yellow": 12,
+      "green": 17,
+      "yellow": 11,
       "red": 10,
       "total": 38
     },
@@ -6072,8 +6072,8 @@
         "module": "M4",
         "version": "V1",
         "name": "認證結果通知 + 證書下載",
-        "desc": "通知邏輯存在，但證書 PDF 生成功能未實作",
-        "status": "yellow",
+        "desc": "PDF 證書生成已實作（reportlab + ReportLab landscape A4）；GET /{id}/certificate.pdf endpoint 回傳 PDF；學員認證頁加「下載證書 PDF」按鈕",
+        "status": "green",
         "linkedTests": [
           "admin-certification-flow"
         ],
