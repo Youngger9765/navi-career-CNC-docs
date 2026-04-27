@@ -101,7 +101,8 @@
 
 <div class="header">
   <h1>CNC 系統模組規劃（M1–M5）</h1>
-  <p>五大模組解耦合設計，可獨立開發部署 ｜ 2026-03-14</p>
+  <p>五大模組解耦合設計，可獨立開發部署 ｜ 2026-04-27 更新</p>
+  <p style="opacity:0.85;font-size:0.85rem;margin-top:0.4rem">V1（2026/03–06）/ V2（2026/07–09）/ V3（2026/10–12）三期交付。Q1–Q27 開發前疑問現多數已實作為 SiteConfig，PM 可線上覆蓋免 redeploy。</p>
 </div>
 
 <div class="container">
@@ -132,48 +133,48 @@ graph LR
   M5 -->|續證付款| M1
 
   classDef m1 fill:#d4edda,stroke:#155724,color:#155724,stroke-width:2px
-  classDef m2 fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:2px
-  classDef m3 fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:2px
-  classDef m4 fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:2px
-  classDef m5 fill:#f8d7da,stroke:#721c24,color:#721c24,stroke-width:2px
+  classDef m2 fill:#d4edda,stroke:#155724,color:#155724,stroke-width:2px
+  classDef m3 fill:#d4edda,stroke:#155724,color:#155724,stroke-width:2px
+  classDef m4 fill:#d4edda,stroke:#155724,color:#155724,stroke-width:2px
+  classDef m5 fill:#d4edda,stroke:#155724,color:#155724,stroke-width:2px
     </div>
   </div>
 
   <div class="module-grid">
     <div class="module-card" onclick="showSection('m1')">
-      <span class="badge badge-dev">開發中</span>
+      <span class="badge badge-green">V1 完成</span>
       <div class="name">M1 報名金流</div>
       <div class="desc">下單・升級・退課</div>
-      <div class="progress"><div class="progress-bar"><div class="progress-fill" style="width:70%;background:var(--green)"></div></div></div>
-      <div style="font-size:0.75rem;color:var(--muted);margin-top:0.25rem">70% ｜ V1</div>
+      <div class="progress"><div class="progress-bar"><div class="progress-fill" style="width:95%;background:var(--green)"></div></div></div>
+      <div style="font-size:0.75rem;color:var(--muted);margin-top:0.25rem">95% ｜ V1+V2 完成</div>
     </div>
     <div class="module-card" onclick="showSection('m2')">
-      <span class="badge badge-wait">待開發</span>
+      <span class="badge badge-green">V2 完成</span>
       <div class="name">M2 行銷頁面</div>
       <div class="desc">CMS・開課設定</div>
-      <div class="progress"><div class="progress-bar"><div class="progress-fill" style="width:40%;background:var(--orange)"></div></div></div>
-      <div style="font-size:0.75rem;color:var(--muted);margin-top:0.25rem">40% ｜ V1–V2</div>
+      <div class="progress"><div class="progress-bar"><div class="progress-fill" style="width:85%;background:var(--green)"></div></div></div>
+      <div style="font-size:0.75rem;color:var(--muted);margin-top:0.25rem">85% ｜ V2 完成</div>
     </div>
     <div class="module-card" onclick="showSection('m3')">
-      <span class="badge badge-wait">待開發</span>
+      <span class="badge badge-green">V2 完成</span>
       <div class="name">M3 運課管理</div>
       <div class="desc">教室・作業・補課</div>
-      <div class="progress"><div class="progress-bar"><div class="progress-fill" style="width:45%;background:var(--orange)"></div></div></div>
-      <div style="font-size:0.75rem;color:var(--muted);margin-top:0.25rem">45% ｜ V2</div>
+      <div class="progress"><div class="progress-bar"><div class="progress-fill" style="width:90%;background:var(--green)"></div></div></div>
+      <div style="font-size:0.75rem;color:var(--muted);margin-top:0.25rem">90% ｜ V2 完成</div>
     </div>
     <div class="module-card" onclick="showSection('m4')">
-      <span class="badge badge-wait">待開發</span>
+      <span class="badge badge-green">V2 完成</span>
       <div class="name">M4 督導認證</div>
       <div class="desc">個督・認證・證書</div>
-      <div class="progress"><div class="progress-bar"><div class="progress-fill" style="width:50%;background:var(--orange)"></div></div></div>
-      <div style="font-size:0.75rem;color:var(--muted);margin-top:0.25rem">50% ｜ V2</div>
+      <div class="progress"><div class="progress-bar"><div class="progress-fill" style="width:88%;background:var(--green)"></div></div></div>
+      <div style="font-size:0.75rem;color:var(--muted);margin-top:0.25rem">88% ｜ V2 完成</div>
     </div>
     <div class="module-card" onclick="showSection('m5')">
-      <span class="badge badge-red">規格不足</span>
+      <span class="badge badge-green">V3 完成</span>
       <div class="name">M5 畢業後 CRM</div>
       <div class="desc">續證・特約・返現</div>
-      <div class="progress"><div class="progress-bar"><div class="progress-fill" style="width:30%;background:var(--red)"></div></div></div>
-      <div style="font-size:0.75rem;color:var(--muted);margin-top:0.25rem">30% ｜ V3</div>
+      <div class="progress"><div class="progress-bar"><div class="progress-fill" style="width:90%;background:var(--green)"></div></div></div>
+      <div style="font-size:0.75rem;color:var(--muted);margin-top:0.25rem">90% ｜ V3 backend 完成</div>
     </div>
   </div>
 </div>
@@ -181,7 +182,7 @@ graph LR
 <!-- ==================== M1 ==================== -->
 <div class="section" id="sec-m1">
   <div class="section-title">M1：報名金流</div>
-  <div class="section-subtitle">學員從選課到付款完成的完整報名流程 ｜ <span class="badge badge-dev">開發中</span></div>
+  <div class="section-subtitle">學員從選課到付款完成的完整報名流程 ｜ <span class="badge badge-green">V1+V2 完成</span></div>
 
   <div class="card">
     <h3>下單報名流程</h3>
@@ -266,21 +267,21 @@ graph TD
   </div>
 
   <div class="card">
-    <h3>待釐清問題</h3>
-    <div class="q-card q-red"><span class="q-id">Q1</span><div class="q-text"><b>退款比例表</b>：開課前 X 天退幾%？開課後退幾%？具體數字</div><div class="q-meta">影響：退課流程、Admin 設定 ｜ 需要：美荷 + 會計</div></div>
-    <div class="q-card q-red"><span class="q-id">Q2</span><div class="q-text"><b>折扣碼疊加規則</b>：早鳥優惠 + 折扣碼可否疊加？還是取最大值？</div><div class="q-meta">影響：價格計算引擎 ｜ 需要：美荷</div></div>
-    <div class="q-card q-red"><span class="q-id">Q3</span><div class="q-text"><b>推薦獎金公式</b>：固定金額 or 百分比？何時發放？現金 or 折扣？</div><div class="q-meta">影響：報名表單 + 帳務 ｜ 需要：美荷</div></div>
-    <div class="q-card q-red"><span class="q-id">Q4</span><div class="q-text"><b>已有牌卡折價規則</b>：哪些牌卡型號折多少？折價方式（直扣 or 折扣碼）？</div><div class="q-meta">影響：報名表單 Step 2 ｜ 需要：美荷</div></div>
-    <div class="q-card q-yellow"><span class="q-id">Q5</span><div class="q-text"><b>升級金額計算</b>：A→A+B 是補差價？早鳥價是否適用升級？</div><div class="q-meta">影響：升級流程 ｜ 需要：美荷</div></div>
-    <div class="q-card q-yellow"><span class="q-id">Q6</span><div class="q-text"><b>發票供應商</b>：Simpany / 綠界 / EZpay 最終選哪個？</div><div class="q-meta">影響：發票串接 ｜ 需要：美荷 + 會計</div></div>
-    <div class="q-card q-yellow"><span class="q-id">Q7</span><div class="q-text"><b>依比例退款的發票處理</b>：會計認列方式？折讓 or 作廢重開？</div><div class="q-meta">影響：退課帳務 ｜ 需要：會計事務所</div></div>
+    <h3>釐清結果（已實作或進行中）</h3>
+    <div class="q-card q-green"><span class="q-id">Q1 ✅</span><div class="q-text"><b>退款比例表</b>：按商品拆分退款已實作（PR #258）；單課退款 (PR #219) + 退款比例由 Admin 設定 SiteConfig 控制。</div><div class="q-meta">M1 ｜ 已實作</div></div>
+    <div class="q-card q-green"><span class="q-id">Q2 ✅</span><div class="q-text"><b>折扣碼疊加規則</b>：DEFAULT「最佳擇一 + 牌卡固定加成」（best_of_one_plus_card）；PM 可改 SiteConfig 切 promo_and_earlybird_stack 或 all_stack 免 redeploy。</div><div class="q-meta">M1 ｜ PR #314 (issue #8)</div></div>
+    <div class="q-card q-green"><span class="q-id">Q3 ✅</span><div class="q-text"><b>推薦獎金公式</b>：返現規則表（commit 09b9799）+ 推薦結算 API（PR #227）+ 預設規則 SiteConfig（PR #311）。觸發/支付方式/資格全 SiteConfig 可調。</div><div class="q-meta">M1+M5 ｜ 已實作</div></div>
+    <div class="q-card q-green"><span class="q-id">Q4 ✅</span><div class="q-text"><b>已有牌卡折價規則</b>：A/B/A+B/A+B+C 預設金額已搬到 SiteConfig JSON dict；支援 flat 或 percent mode；新牌型 admin 線上加 key 即可。</div><div class="q-meta">M1 ｜ PR #315 (issue #14)</div></div>
+    <div class="q-card q-green"><span class="q-id">Q5 ✅</span><div class="q-text"><b>升級金額計算</b>：upgrade_price_delta nullable column + admin PATCH endpoint。預設用「target_cohort 價格」（SiteConfig 可改 source_cohort 或 admin_override）。</div><div class="q-meta">M1 ｜ PR #319 (issue #16)</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q6 🟡</span><div class="q-text"><b>發票供應商</b>：Provider Protocol + Stub adapter + factory 已建（PR #318）。INVOICE_PROVIDER env var 切換不需改 code。Simpany / 綠界 / EZpay 三家任一 ready 後實作 adapter 即可上。</div><div class="q-meta">M1 ｜ scaffold 完成（issue #12）；vendor 等美荷</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q7 🟡</span><div class="q-text"><b>依比例退款發票處理</b>：拆分退款已支援（PR #258）；發票折讓 vs 作廢重開的會計認列方式仍待確認。</div><div class="q-meta">M1 ｜ 部分實作；認列方式等會計</div></div>
   </div>
 </div>
 
 <!-- ==================== M2 ==================== -->
 <div class="section" id="sec-m2">
   <div class="section-title">M2：行銷頁面 & 開課設定</div>
-  <div class="section-subtitle">課程行銷頁面 CMS 與開課前置作業 ｜ <span class="badge badge-wait">待開發</span></div>
+  <div class="section-subtitle">課程行銷頁面 CMS 與開課前置作業 ｜ <span class="badge badge-green">V2 完成</span></div>
 
   <div class="card">
     <h3>開課設定流程</h3>
@@ -339,18 +340,18 @@ graph LR
   </div>
 
   <div class="card">
-    <h3>待釐清問題</h3>
-    <div class="q-card q-yellow"><span class="q-id">Q8</span><div class="q-text"><b>行銷頁面 MVP 邊界</b>：自建 rich text editor（CMS）還是先靜態頁面 + Admin 改文字？開發工作量差 3-5 倍</div><div class="q-meta">需要：Young + 美荷</div></div>
-    <div class="q-card q-yellow"><span class="q-id">Q9</span><div class="q-text"><b>一日班/說明會系統化程度</b>：在 CNC 系統內管理，還是繼續用 Accupass？</div><div class="q-meta">需要：美荷</div></div>
-    <div class="q-card q-green"><span class="q-id">Q10</span><div class="q-text"><b>代理商權限範圍</b>：代理商能做什麼？跟 Admin 的差異？</div><div class="q-meta">需要：美荷</div></div>
-    <div class="q-card q-green"><span class="q-id">Q11</span><div class="q-text"><b>行銷頁面 vs 教室聯動</b>：開課 = 同步上線？還是行銷頁先上、教室後開？</div><div class="q-meta">需要：美荷 + Young</div></div>
+    <h3>釐清結果（已實作或進行中）</h3>
+    <div class="q-card q-green"><span class="q-id">Q8 ✅</span><div class="q-text"><b>行銷頁面 MVP 邊界</b>：CMS 上線（[#201](https://github.com/Youngger9765/navi-career-CNC/issues/201)），4 種 block type（text, video_embed, image_carousel, stats_counter）以 JSONB 儲存。新 block type 由 SiteConfig allowlist 控制免改 code。Legacy markdown 仍 coexist。</div><div class="q-meta">M2 ｜ PR #320 (issue #21)</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q9 🟡</span><div class="q-text"><b>一日班/說明會系統化</b>：尚未決定。目前繼續用 Accupass 導流，CNC 系統未涵蓋。</div><div class="q-meta">M2 ｜ 等美荷決策</div></div>
+    <div class="q-card q-green"><span class="q-id">Q10 🟡</span><div class="q-text"><b>代理商權限範圍</b>：minimal scaffold 已 file（[#285](https://github.com/Youngger9765/navi-career-CNC/issues/285)），等具體權限規則。</div><div class="q-meta">M2 ｜ scaffold 待擴充</div></div>
+    <div class="q-card q-green"><span class="q-id">Q11 ✅</span><div class="q-text"><b>行銷頁面 vs 教室聯動</b>：採方案 B「行銷頁先上招生、教室於 IN_PROGRESS 自動開」。3 個 SiteConfig key（auto-publish、classroom-trigger-status、slug-pattern）控制行為，全可線上覆蓋。</div><div class="q-meta">M2 ｜ PR #316 (issue #19)</div></div>
   </div>
 </div>
 
 <!-- ==================== M3 ==================== -->
 <div class="section" id="sec-m3">
   <div class="section-title">M3：運課管理</div>
-  <div class="section-subtitle">取代 Google Classroom 的課程教室系統 ｜ <span class="badge badge-wait">待開發</span></div>
+  <div class="section-subtitle">取代 Google Classroom 的課程教室系統 ｜ <span class="badge badge-green">V2 完成</span></div>
 
   <div class="card">
     <h3>運課總流程</h3>
@@ -417,19 +418,19 @@ graph TD
   </div>
 
   <div class="card">
-    <h3>待釐清問題</h3>
-    <div class="q-card q-yellow"><span class="q-id">Q12</span><div class="q-text"><b>教室 UI/UX</b>：取代 Google Classroom 的畫面長什麼樣？需要 wireframe</div><div class="q-meta">需要：Young + 美荷</div></div>
-    <div class="q-card q-yellow"><span class="q-id">Q13</span><div class="q-text"><b>作業繳交格式</b>：附件 A-E 各是什麼格式？Word/PDF/影片？大小限制？</div><div class="q-meta">需要：美荷</div></div>
-    <div class="q-card q-green"><span class="q-id">Q14</span><div class="q-text"><b>補課影片權限控制</b>：YouTube unlisted link？觀看期限到結業式如何控制？</div><div class="q-meta">需要：Young</div></div>
-    <div class="q-card q-green"><span class="q-id">Q15</span><div class="q-text"><b>自動點名</b>：Google Meet 能 API 抓出席嗎？還是手動？</div><div class="q-meta">需要：Young</div></div>
-    <div class="q-card q-green"><span class="q-id">Q16</span><div class="q-text"><b>延期業務規則</b>：延期次數限制？名額處理？跨梯次學費差異？</div><div class="q-meta">需要：美荷</div></div>
+    <h3>釐清結果（已實作或進行中）</h3>
+    <div class="q-card q-green"><span class="q-id">Q12 ✅</span><div class="q-text"><b>教室 UI/UX</b>：自建仿 Google Classroom 介面已上（教材[#132]、學習頁[#133]、補課錄影[#131]、Meet 連結[#138]、公告討論 PR #248）。</div><div class="q-meta">M3 ｜ V2 完成</div></div>
+    <div class="q-card q-green"><span class="q-id">Q13 ✅</span><div class="q-text"><b>作業繳交格式</b>：教材管理 + 上傳已實作（[#132](https://github.com/Youngger9765/navi-career-CNC/issues/132)），檔案類型由 admin 設定。</div><div class="q-meta">M3 ｜ V2 完成</div></div>
+    <div class="q-card q-green"><span class="q-id">Q14 ✅</span><div class="q-text"><b>補課影片權限控制</b>：YouTube unlisted + 結業時自動關閉權限已 wire（[#131](https://github.com/Youngger9765/navi-career-CNC/issues/131)）。</div><div class="q-meta">M3 ｜ V2 完成</div></div>
+    <div class="q-card q-green"><span class="q-id">Q15 ✅</span><div class="q-text"><b>自動點名</b>：V2 ship manual mode（admin 後台手動標）。ATTENDANCE_MODE SiteConfig 可切 manual/qr/meet_webhook/disabled。QR + Meet webhook 留 V3。</div><div class="q-meta">M3 ｜ PR #321 (issue #30)</div></div>
+    <div class="q-card q-green"><span class="q-id">Q16 ✅</span><div class="q-text"><b>延期業務規則</b>：核准延期會自動停用舊教室存取（critical bug fix PR #312）。延期次數上限由 MAX_DEFERRALS_PER_ENROLLMENT SiteConfig 控（預設 0 = 無限）。</div><div class="q-meta">M3 ｜ PR #312 (issue #36)</div></div>
   </div>
 </div>
 
 <!-- ==================== M4 ==================== -->
 <div class="section" id="sec-m4">
   <div class="section-title">M4：督導 & 認證</div>
-  <div class="section-subtitle">個督排程、認證考試、證書發放 ｜ <span class="badge badge-wait">待開發</span></div>
+  <div class="section-subtitle">個督排程、認證考試、證書發放 ｜ <span class="badge badge-green">V2 完成</span></div>
 
   <div class="card">
     <h3>督導 & 認證總流程</h3>
@@ -494,19 +495,19 @@ graph TD
   </div>
 
   <div class="card">
-    <h3>待釐清問題</h3>
-    <div class="q-card q-green"><span class="q-id">Q17</span><div class="q-text"><b>筆試內容 & 格式</b>：線上作答 or 下載題目寫完上傳？需要防弊？</div><div class="q-meta">需要：美荷</div></div>
-    <div class="q-card q-green"><span class="q-id">Q18</span><div class="q-text"><b>批改評分標準</b>：通過/不通過？還是分數制？</div><div class="q-meta">需要：美荷</div></div>
-    <div class="q-card q-green"><span class="q-id">Q19</span><div class="q-text"><b>複審觸發條件</b>：什麼情況需要複審？</div><div class="q-meta">需要：美荷</div></div>
-    <div class="q-card q-green"><span class="q-id">Q20</span><div class="q-text"><b>公益個案來源</b>：外部申請 or 內部配對？</div><div class="q-meta">需要：美荷</div></div>
-    <div class="q-card q-green"><span class="q-id">Q21</span><div class="q-text"><b>證書模板</b>：格式、內容、防偽機制？</div><div class="q-meta">需要：美荷</div></div>
+    <h3>釐清結果（已實作或進行中）</h3>
+    <div class="q-card q-green"><span class="q-id">Q17 ✅</span><div class="q-text"><b>筆試內容 & 格式</b>：筆試模組（PR #260）+ swappable provider adapter（PR #306，issue #48）。in-house 預設 + 防弊 SiteConfig flag + Google Forms stub 留待擴充。通過分數 SiteConfig 可調。</div><div class="q-meta">M4 ｜ V2 完成</div></div>
+    <div class="q-card q-green"><span class="q-id">Q18 ✅</span><div class="q-text"><b>批改評分標準 + 截止日</b>：grading deadline + secondary review fields（PR #305，issue #50）。Pluggable DispatchStrategy（PR #283）— 預設 manual assign，ROUND_ROBIN/RANDOM 可後續加。</div><div class="q-meta">M4 ｜ V2 完成</div></div>
+    <div class="q-card q-green"><span class="q-id">Q19 ✅</span><div class="q-text"><b>複審觸發條件</b>：needs_second_review boolean column 已加（issue #50）。觸發條件由 admin 標記。</div><div class="q-meta">M4 ｜ V2 完成</div></div>
+    <div class="q-card q-green"><span class="q-id">Q20 ✅</span><div class="q-text"><b>公益個案來源</b>：pro-bono supervision matching scaffold 已 file（[#286](https://github.com/Youngger9765/navi-career-CNC/issues/286) PR #290）。</div><div class="q-meta">M4 ｜ scaffold 完成</div></div>
+    <div class="q-card q-green"><span class="q-id">Q21 ✅</span><div class="q-text"><b>證書模板 + 防偽</b>：PDF 證書 + retake post-processing 全 done（PR #249, #261, #262）。</div><div class="q-meta">M4 ｜ V2 完成</div></div>
   </div>
 </div>
 
 <!-- ==================== M5 ==================== -->
 <div class="section" id="sec-m5">
   <div class="section-title">M5：畢業後 CRM</div>
-  <div class="section-subtitle">續證、特約諮詢師管理、推薦返現 ｜ <span class="badge badge-red">規格不足</span></div>
+  <div class="section-subtitle">續證、特約諮詢師管理、推薦返現 ｜ <span class="badge badge-green">V3 backend 完成</span></div>
 
   <div class="card">
     <h3>CRM 總流程</h3>
@@ -578,49 +579,47 @@ graph TD
   </div>
 
   <div class="card">
-    <h3>待釐清問題</h3>
-    <div class="q-card q-yellow"><span class="q-id">Q22</span><div class="q-text"><b>續證檢核項目</b>：具體要上傳什麼？時數怎麼算？標準是什麼？</div><div class="q-meta">需要：美荷</div></div>
-    <div class="q-card q-yellow"><span class="q-id">Q23</span><div class="q-text"><b>特約檢核項目</b>：考核內容是什麼？</div><div class="q-meta">需要：美荷</div></div>
-    <div class="q-card q-green"><span class="q-id">Q24</span><div class="q-text"><b>特約 vs 資深特約差異</b>：權限/待遇/收費有什麼不同？</div><div class="q-meta">需要：美荷</div></div>
-    <div class="q-card q-green"><span class="q-id">Q25</span><div class="q-text"><b>推薦返現計畫規則</b>：獎金金額、發放條件、發放方式？</div><div class="q-meta">需要：美荷</div></div>
-    <div class="q-card q-green"><span class="q-id">Q26</span><div class="q-text"><b>特約講師</b>：定義？申請條件？跟特約諮詢師的關係？</div><div class="q-meta">需要：美荷</div></div>
-    <div class="q-card q-green"><span class="q-id">Q27</span><div class="q-text"><b>官網展示邏輯</b>：職業資料庫、特約諮詢師頁面 UI？</div><div class="q-meta">需要：美荷</div></div>
+    <h3>釐清結果（已實作或進行中）</h3>
+    <div class="q-card q-green"><span class="q-id">Q22 ✅</span><div class="q-text"><b>續證檢核項目</b>：續證 checklist + min hours + external courses 三個 SiteConfig key 預設已 seed（PR #308，issue #43, #46）。續證 cron + 提醒（PR #225, #247）。</div><div class="q-meta">M5 ｜ V3 完成</div></div>
+    <div class="q-card q-green"><span class="q-id">Q23 ✅</span><div class="q-text"><b>特約檢核項目</b>：特約申請 checklist seed + 付費二次申請流程（PR #259, #309）。CONSULTANT_FREE_ATTEMPT_COUNT + REAPPLICATION_FEE 兩個 SiteConfig key。</div><div class="q-meta">M5 ｜ V3 完成</div></div>
+    <div class="q-card q-green"><span class="q-id">Q24 ✅</span><div class="q-text"><b>特約 vs 資深特約差異</b>：資深晉升流程已 closed（issue #37）。CRM visibility tier defaults 已配（PR #310，issue #51）。</div><div class="q-meta">M5 ｜ V3 完成</div></div>
+    <div class="q-card q-green"><span class="q-id">Q25 ✅</span><div class="q-text"><b>推薦返現計畫規則</b>：返現規則 + 結算 API + 預設規則（PR #227, #255, #311）。觸發/支付方式/資格上限 4 個 SiteConfig key 全可調（issue #53）。</div><div class="q-meta">M5 ｜ V3 完成</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q26 🟡</span><div class="q-text"><b>特約講師</b>：multi-role plan 已寫（待 review）。權限/申請條件/與特約諮詢師關係待美荷確認。</div><div class="q-meta">M5 ｜ 等美荷</div></div>
+    <div class="q-card q-green"><span class="q-id">Q27 ✅</span><div class="q-text"><b>官網展示邏輯</b>：visibility tier zone defaults + special role filtering（PR #310，issue #51）。website_listed 自動 push 由 SiteConfig flag 控。Admin enrollment ↔ CRM 跨頁連結（PR #317，issue #32）。</div><div class="q-meta">M5 ｜ V3 完成</div></div>
   </div>
 </div>
 
 <!-- ==================== QUESTIONS ==================== -->
 <div class="section" id="sec-questions">
   <div class="section-title">待釐清問題總表</div>
-  <div class="section-subtitle">27 個問題，依急迫度分級</div>
+  <div class="section-subtitle">27 個原始問題，21 個已實作，5 個 partial（彈性架構先行 / 等決策），1 個多角色設計待 review</div>
 
   <div class="card">
-    <h3 style="color:var(--red)">紅色 — 阻擋開發中模組</h3>
-    <div class="q-card q-red"><span class="q-id">Q1</span><div class="q-text">退款比例表（具體數字）</div><div class="q-meta">M1 ｜ 美荷 + 會計</div></div>
-    <div class="q-card q-red"><span class="q-id">Q2</span><div class="q-text">折扣碼疊加規則</div><div class="q-meta">M1 ｜ 美荷</div></div>
-    <div class="q-card q-red"><span class="q-id">Q3</span><div class="q-text">推薦獎金公式</div><div class="q-meta">M1 ｜ 美荷</div></div>
-    <div class="q-card q-red"><span class="q-id">Q4</span><div class="q-text">已有牌卡折價規則</div><div class="q-meta">M1 ｜ 美荷</div></div>
+    <h3 style="color:var(--green)">已實作（21）</h3>
+    <p style="color:var(--muted);font-size:0.85rem;margin-bottom:0.75rem">所有 SiteConfig 預設值維持現有行為，PM 美荷可線上覆蓋免 redeploy。詳情見各模組 tab。</p>
+    <div class="q-card q-green"><span class="q-id">Q1, Q3</span><div class="q-text">退款比例 / 推薦獎金公式 — Admin SiteConfig + PR #258, #311 等</div><div class="q-meta">M1 / M5</div></div>
+    <div class="q-card q-green"><span class="q-id">Q2, Q4, Q5</span><div class="q-text">折扣疊加 / 牌卡折價 / 升級金額 — PR #314, #315, #319</div><div class="q-meta">M1</div></div>
+    <div class="q-card q-green"><span class="q-id">Q8, Q11</span><div class="q-text">CMS body_blocks JSONB / 行銷頁順序方案 B — PR #320, #316</div><div class="q-meta">M2</div></div>
+    <div class="q-card q-green"><span class="q-id">Q12, Q13, Q14, Q15, Q16</span><div class="q-text">教室 UI / 作業格式 / 補課權限 / 自動點名 manual / 延期 — PR #312, #321 + 現有 #131-138</div><div class="q-meta">M3</div></div>
+    <div class="q-card q-green"><span class="q-id">Q17–Q21</span><div class="q-text">筆試 + 批改 + 複審 + 公益個案 + 證書 — PR #260, #283, #305, #306, #290</div><div class="q-meta">M4</div></div>
+    <div class="q-card q-green"><span class="q-id">Q22, Q23, Q24, Q25, Q27</span><div class="q-text">續證 / 特約申請 / 資深晉升 / 返現規則 / 官網展示 — PR #225, #247, #259, #309, #310, #311 等</div><div class="q-meta">M5</div></div>
   </div>
 
   <div class="card">
-    <h3 style="color:var(--orange)">黃色 — 影響架構設計</h3>
-    <div class="q-card q-yellow"><span class="q-id">Q5</span><div class="q-text">升級金額計算</div><div class="q-meta">M1 ｜ 美荷</div></div>
-    <div class="q-card q-yellow"><span class="q-id">Q6</span><div class="q-text">發票供應商最終選擇</div><div class="q-meta">M1 ｜ 美荷 + 會計</div></div>
-    <div class="q-card q-yellow"><span class="q-id">Q7</span><div class="q-text">依比例退款發票處理</div><div class="q-meta">M1 ｜ 會計事務所</div></div>
-    <div class="q-card q-yellow"><span class="q-id">Q8</span><div class="q-text">行銷頁面 MVP 邊界（CMS vs 靜態）</div><div class="q-meta">M2 ｜ Young + 美荷</div></div>
-    <div class="q-card q-yellow"><span class="q-id">Q9</span><div class="q-text">一日班/說明會系統化程度</div><div class="q-meta">M2 ｜ 美荷</div></div>
-    <div class="q-card q-yellow"><span class="q-id">Q12</span><div class="q-text">教室 UI/UX wireframe</div><div class="q-meta">M3 ｜ Young + 美荷</div></div>
-    <div class="q-card q-yellow"><span class="q-id">Q13</span><div class="q-text">作業繳交格式</div><div class="q-meta">M3 ｜ 美荷</div></div>
-    <div class="q-card q-yellow"><span class="q-id">Q22</span><div class="q-text">續證檢核項目</div><div class="q-meta">M5 ｜ 美荷</div></div>
-    <div class="q-card q-yellow"><span class="q-id">Q23</span><div class="q-text">特約檢核項目</div><div class="q-meta">M5 ｜ 美荷</div></div>
+    <h3 style="color:var(--orange)">Partial（彈性架構先行 / 等 PM 決策）</h3>
+    <div class="q-card q-yellow"><span class="q-id">Q6 🟡</span><div class="q-text"><b>發票供應商選擇</b>：Provider Protocol + Stub adapter + factory 已 ready（PR #318）。INVOICE_PROVIDER env var 切換不需 code change。Vendor 等美荷 + 會計確認。</div><div class="q-meta">M1 ｜ scaffold 完成</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q7 🟡</span><div class="q-text"><b>依比例退款發票處理</b>：拆分退款 done。發票折讓 vs 作廢重開的會計認列方式仍待確認。</div><div class="q-meta">M1 ｜ 等會計</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q9 🟡</span><div class="q-text"><b>一日班/說明會系統化</b>：目前繼續用 Accupass 導流，CNC 系統未涵蓋。</div><div class="q-meta">M2 ｜ 等美荷</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q10 🟡</span><div class="q-text"><b>代理商權限範圍</b>：minimal scaffold 已 file（issue #285），等具體權限規則。</div><div class="q-meta">M2 ｜ scaffold 待擴充</div></div>
+    <div class="q-card q-yellow"><span class="q-id">Q26 🟡</span><div class="q-text"><b>特約講師 vs 諮詢師關係</b>：multi-role plan 已寫，待 review。</div><div class="q-meta">M5 ｜ 等美荷</div></div>
   </div>
 
   <div class="card">
-    <h3 style="color:var(--green)">綠色 — 可延後確認</h3>
-    <div class="q-card q-green"><span class="q-id">Q10</span><div class="q-text">代理商權限範圍</div><div class="q-meta">M2 ｜ 美荷</div></div>
-    <div class="q-card q-green"><span class="q-id">Q11</span><div class="q-text">行銷頁面 vs 教室聯動</div><div class="q-meta">M2 ｜ 美荷 + Young</div></div>
-    <div class="q-card q-green"><span class="q-id">Q14–Q16</span><div class="q-text">補課影片權限、點名、延期規則</div><div class="q-meta">M3 ｜ Young / 美荷</div></div>
-    <div class="q-card q-green"><span class="q-id">Q17–Q21</span><div class="q-text">筆試格式、批改標準、複審、公益個案、證書</div><div class="q-meta">M4 ｜ 美荷</div></div>
-    <div class="q-card q-green"><span class="q-id">Q24–Q27</span><div class="q-text">特約差異、返現規則、講師定義、官網展示</div><div class="q-meta">M5 ｜ 美荷</div></div>
+    <h3 style="color:var(--navy)">PM 美荷主要 blocker（非系統技術，但影響上線時程）</h3>
+    <p style="color:var(--muted);font-size:0.85rem">這些是商務/合作面的依賴，技術側不卡開發但卡正式上線。</p>
+    <div class="q-card q-yellow"><span class="q-id">B1</span><div class="q-text"><b>ECPay production 憑證</b>：金流正式 merchant ID 等美荷提供（issue #110）。技術已 sandbox-ready。</div><div class="q-meta">Infra ｜ 等美荷</div></div>
+    <div class="q-card q-yellow"><span class="q-id">B2</span><div class="q-text"><b>發票 vendor 帳號</b>：技術 adapter 已 ready，等美荷選一家並開帳號（issue #12）。</div><div class="q-meta">M1 ｜ 等美荷</div></div>
+    <div class="q-card q-yellow"><span class="q-id">B3</span><div class="q-text"><b>Google Workspace API 憑證</b>：SA + Domain-Wide Delegation 待設定（issue #142）。Calendar / Meet webhook 阻擋。</div><div class="q-meta">Infra ｜ 等設定</div></div>
   </div>
 </div>
 
